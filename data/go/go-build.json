@@ -1,0 +1,157 @@
+{
+  "package": "go/build",
+  "functions": [
+    {
+      "name": "ArchChar",
+      "summary": "ArchChar returns \"?\" and an error. In earlier versions of Go, the returned string was used to derive the compiler and linker tool names, the default object file suffix, and the default linker output name. As of Go 1.5, those strings no longer vary by architecture; they are compile, link, .o, and a.out, respectively.",
+      "signature": "func ArchChar(goarch string) (string, error)",
+      "params": [
+        {
+          "name": "goarch",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/build.go",
+          "line": 2056,
+          "lines": [
+            "func ArchChar(goarch string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3036,
+          "lines": [
+            "pkg go/build, func ArchChar(string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Import",
+      "summary": "Import is shorthand for Default.Import.",
+      "signature": "func Import(path, srcDir string, mode ImportMode) (*Package, error)",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        },
+        {
+          "name": "srcDir",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "ImportMode"
+        }
+      ],
+      "returns": {
+        "type": "(*Package, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/build.go",
+          "line": 1534,
+          "lines": [
+            "func Import(path, srcDir string, mode ImportMode) (*Package, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3037,
+          "lines": [
+            "pkg go/build, func Import(string, string, ImportMode) (*Package, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ImportDir",
+      "summary": "ImportDir is shorthand for Default.ImportDir.",
+      "signature": "func ImportDir(dir string, mode ImportMode) (*Package, error)",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "ImportMode"
+        }
+      ],
+      "returns": {
+        "type": "(*Package, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/build.go",
+          "line": 1539,
+          "lines": [
+            "func ImportDir(dir string, mode ImportMode) (*Package, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3038,
+          "lines": [
+            "pkg go/build, func ImportDir(string, ImportMode) (*Package, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsLocalImport",
+      "summary": "IsLocalImport reports whether the import path is a local import path, like \".\", \"..\", \"./foo\", or \"../foo\".",
+      "signature": "func IsLocalImport(path string) bool",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/build.go",
+          "line": 2046,
+          "lines": [
+            "func IsLocalImport(path string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3039,
+          "lines": [
+            "pkg go/build, func IsLocalImport(string) bool"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,667 @@
+{
+  "package": "sort",
+  "functions": [
+    {
+      "name": "Find",
+      "summary": "Find uses binary search to find and return the smallest index i in [0, n) at which cmp(i) <= 0. If there is no such index i, Find returns i = n. The found result is true if i < n and cmp(i) == 0. Find calls cmp(i) only for i in the range [0, n).",
+      "signature": "func Find(n int, cmp func(int) int) (i int, found bool)",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        },
+        {
+          "name": "cmp",
+          "type": "func(int) int"
+        }
+      ],
+      "returns": {
+        "type": "(i int, found bool)"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/search.go",
+          "line": 99,
+          "lines": [
+            "func Find(n int, cmp func(int) int) (i int, found bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 250,
+          "lines": [
+            "pkg sort, func Find(int, func(int) int) (int, bool) #50340"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64s",
+      "summary": "Float64s sorts a slice of float64s in increasing order. Not-a-number (NaN) values are ordered before other values.",
+      "signature": "func Float64s(x []float64) { slices.Sort(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "[]float64"
+        }
+      ],
+      "returns": {
+        "type": "{ slices.Sort(x) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 176,
+          "lines": [
+            "func Float64s(x []float64) { slices.Sort(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5758,
+          "lines": [
+            "pkg sort, func Float64s([]float64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64sAreSorted",
+      "summary": "Float64sAreSorted reports whether the slice x is sorted in increasing order, with not-a-number (NaN) values before any other values.",
+      "signature": "func Float64sAreSorted(x []float64) bool { return slices.IsSorted(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "[]float64"
+        }
+      ],
+      "returns": {
+        "type": "bool { return slices.IsSorted(x) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 192,
+          "lines": [
+            "func Float64sAreSorted(x []float64) bool { return slices.IsSorted(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5759,
+          "lines": [
+            "pkg sort, func Float64sAreSorted([]float64) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ints",
+      "summary": "Ints sorts a slice of ints in increasing order.",
+      "signature": "func Ints(x []int) { slices.Sort(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "[]int"
+        }
+      ],
+      "returns": {
+        "type": "{ slices.Sort(x) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 170,
+          "lines": [
+            "func Ints(x []int) { slices.Sort(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5760,
+          "lines": [
+            "pkg sort, func Ints([]int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IntsAreSorted",
+      "summary": "IntsAreSorted reports whether the slice x is sorted in increasing order.",
+      "signature": "func IntsAreSorted(x []int) bool { return slices.IsSorted(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "[]int"
+        }
+      ],
+      "returns": {
+        "type": "bool { return slices.IsSorted(x) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 186,
+          "lines": [
+            "func IntsAreSorted(x []int) bool { return slices.IsSorted(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5761,
+          "lines": [
+            "pkg sort, func IntsAreSorted([]int) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsSorted",
+      "summary": "IsSorted reports whether data is sorted.",
+      "signature": "func IsSorted(data Interface) bool",
+      "params": [
+        {
+          "name": "data",
+          "type": "Interface"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 110,
+          "lines": [
+            "func IsSorted(data Interface) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5762,
+          "lines": [
+            "pkg sort, func IsSorted(Interface) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reverse",
+      "summary": "Reverse returns the reverse order for data.",
+      "signature": "func Reverse(data Interface) Interface",
+      "params": [
+        {
+          "name": "data",
+          "type": "Interface"
+        }
+      ],
+      "returns": {
+        "type": "Interface"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 102,
+          "lines": [
+            "func Reverse(data Interface) Interface {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2605,
+          "lines": [
+            "pkg sort, func Reverse(Interface) Interface"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "summary": "Search uses binary search to find and return the smallest index i in [0, n) at which f(i) is true, assuming that on the range [0, n), f(i) == true implies f(i+1) == true. That is, Search requires that f is false for some (possibly empty) prefix of the input range [0, n) and then true for the (possibly empty) remainder; Search returns the first true index. If there is no such index, Search returns n. (Note that the \"not found\" return value is not -1 as in, for instance, strings.Index.) Search calls f(i) only for i in the range [0, n).",
+      "signature": "func Search(n int, f func(int) bool) int",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        },
+        {
+          "name": "f",
+          "type": "func(int) bool"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/search.go",
+          "line": 58,
+          "lines": [
+            "func Search(n int, f func(int) bool) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5763,
+          "lines": [
+            "pkg sort, func Search(int, func(int) bool) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SearchFloat64s",
+      "summary": "SearchFloat64s searches for x in a sorted slice of float64s and returns the index as specified by [Search]. The return value is the index to insert x if x is not present (it could be len(a)). The slice must be sorted in ascending order.",
+      "signature": "func SearchFloat64s(a []float64, x float64) int",
+      "params": [
+        {
+          "name": "a",
+          "type": "[]float64"
+        },
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/search.go",
+          "line": 131,
+          "lines": [
+            "func SearchFloat64s(a []float64, x float64) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5764,
+          "lines": [
+            "pkg sort, func SearchFloat64s([]float64, float64) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SearchInts",
+      "summary": "SearchInts searches for x in a sorted slice of ints and returns the index as specified by [Search]. The return value is the index to insert x if x is not present (it could be len(a)). The slice must be sorted in ascending order.",
+      "signature": "func SearchInts(a []int, x int) int",
+      "params": [
+        {
+          "name": "a",
+          "type": "[]int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/search.go",
+          "line": 123,
+          "lines": [
+            "func SearchInts(a []int, x int) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5765,
+          "lines": [
+            "pkg sort, func SearchInts([]int, int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SearchStrings",
+      "summary": "SearchStrings searches for x in a sorted slice of strings and returns the index as specified by Search. The return value is the index to insert x if x is not present (it could be len(a)). The slice must be sorted in ascending order.",
+      "signature": "func SearchStrings(a []string, x string) int",
+      "params": [
+        {
+          "name": "a",
+          "type": "[]string"
+        },
+        {
+          "name": "x",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/search.go",
+          "line": 139,
+          "lines": [
+            "func SearchStrings(a []string, x string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5766,
+          "lines": [
+            "pkg sort, func SearchStrings([]string, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Slice",
+      "summary": "Slice sorts the slice x given the provided less function. It panics if x is not a slice.",
+      "signature": "func Slice(x any, less func(i, j int) bool)",
+      "params": [
+        {
+          "name": "x",
+          "type": "any"
+        },
+        {
+          "name": "less",
+          "type": "func(i, j int) bool"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/slice.go",
+          "line": 24,
+          "lines": [
+            "func Slice(x any, less func(i, j int) bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 243,
+          "lines": [
+            "pkg sort, func Slice(interface{}, func(int, int) bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SliceIsSorted",
+      "summary": "SliceIsSorted reports whether the slice x is sorted according to the provided less function. It panics if x is not a slice.",
+      "signature": "func SliceIsSorted(x any, less func(i, j int) bool) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "any"
+        },
+        {
+          "name": "less",
+          "type": "func(i, j int) bool"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/slice.go",
+          "line": 52,
+          "lines": [
+            "func SliceIsSorted(x any, less func(i, j int) bool) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 244,
+          "lines": [
+            "pkg sort, func SliceIsSorted(interface{}, func(int, int) bool) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SliceStable",
+      "summary": "SliceStable sorts the slice x using the provided less function, keeping equal elements in their original order. It panics if x is not a slice.",
+      "signature": "func SliceStable(x any, less func(i, j int) bool)",
+      "params": [
+        {
+          "name": "x",
+          "type": "any"
+        },
+        {
+          "name": "less",
+          "type": "func(i, j int) bool"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/slice.go",
+          "line": 41,
+          "lines": [
+            "func SliceStable(x any, less func(i, j int) bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 245,
+          "lines": [
+            "pkg sort, func SliceStable(interface{}, func(int, int) bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sort",
+      "summary": "Sort sorts data in ascending order as determined by the Less method. It makes one call to data.Len to determine n and O(n*log(n)) calls to data.Less and data.Swap. The sort is not guaranteed to be stable.",
+      "signature": "func Sort(data Interface)",
+      "params": [
+        {
+          "name": "data",
+          "type": "Interface"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 50,
+          "lines": [
+            "func Sort(data Interface) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5767,
+          "lines": [
+            "pkg sort, func Sort(Interface)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stable",
+      "summary": "Stable sorts data in ascending order as determined by the Less method, while keeping the original order of equal elements.",
+      "signature": "func Stable(data Interface)",
+      "params": [
+        {
+          "name": "data",
+          "type": "Interface"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 233,
+          "lines": [
+            "func Stable(data Interface) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 772,
+          "lines": [
+            "pkg sort, func Stable(Interface)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Strings",
+      "summary": "Strings sorts a slice of strings in increasing order.",
+      "signature": "func Strings(x []string) { slices.Sort(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "[]string"
+        }
+      ],
+      "returns": {
+        "type": "{ slices.Sort(x) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 181,
+          "lines": [
+            "func Strings(x []string) { slices.Sort(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5768,
+          "lines": [
+            "pkg sort, func Strings([]string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StringsAreSorted",
+      "summary": "StringsAreSorted reports whether the slice x is sorted in increasing order.",
+      "signature": "func StringsAreSorted(x []string) bool { return slices.IsSorted(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "[]string"
+        }
+      ],
+      "returns": {
+        "type": "bool { return slices.IsSorted(x) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sort/sort.go",
+          "line": 197,
+          "lines": [
+            "func StringsAreSorted(x []string) bool { return slices.IsSorted(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5769,
+          "lines": [
+            "pkg sort, func StringsAreSorted([]string) bool"
+          ]
+        }
+      ]
+    }
+  ]
+}

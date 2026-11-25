@@ -1,0 +1,441 @@
+{
+  "package": "encoding/hex",
+  "functions": [
+    {
+      "name": "AppendDecode",
+      "summary": "AppendDecode appends the hexadecimally decoded src to dst and returns the extended buffer. If the input is malformed, it returns the partially decoded src and an error.",
+      "signature": "func AppendDecode(dst, src []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "dst",
+          "type": "[]byte"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 118,
+          "lines": [
+            "func AppendDecode(dst, src []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 40,
+          "lines": [
+            "pkg encoding/hex, func AppendDecode([]uint8, []uint8) ([]uint8, error) #53693"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AppendEncode",
+      "summary": "AppendEncode appends the hexadecimally encoded src to dst and returns the extended buffer.",
+      "signature": "func AppendEncode(dst, src []byte) []byte",
+      "params": [
+        {
+          "name": "dst",
+          "type": "[]byte"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 57,
+          "lines": [
+            "func AppendEncode(dst, src []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 41,
+          "lines": [
+            "pkg encoding/hex, func AppendEncode([]uint8, []uint8) []uint8 #53693"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Decode",
+      "summary": "Decode decodes src into [DecodedLen](len(src)) bytes, returning the actual number of bytes written to dst.",
+      "signature": "func Decode(dst, src []byte) (int, error)",
+      "params": [
+        {
+          "name": "dst",
+          "type": "[]byte"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(int, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 87,
+          "lines": [
+            "func Decode(dst, src []byte) (int, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2342,
+          "lines": [
+            "pkg encoding/hex, func Decode([]uint8, []uint8) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeString",
+      "summary": "DecodeString returns the bytes represented by the hexadecimal string s.",
+      "signature": "func DecodeString(s string) ([]byte, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 138,
+          "lines": [
+            "func DecodeString(s string) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2343,
+          "lines": [
+            "pkg encoding/hex, func DecodeString(string) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodedLen",
+      "summary": "DecodedLen returns the length of a decoding of x source bytes. Specifically, it returns x / 2.",
+      "signature": "func DecodedLen(x int) int { return x / 2 }",
+      "params": [
+        {
+          "name": "x",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int { return x / 2 }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 78,
+          "lines": [
+            "func DecodedLen(x int) int { return x / 2 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2344,
+          "lines": [
+            "pkg encoding/hex, func DecodedLen(int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dump",
+      "summary": "Dump returns a string that contains a hex dump of the given data. The format of the hex dump matches the output of `hexdump -C` on the command line.",
+      "signature": "func Dump(data []byte) string",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 146,
+          "lines": [
+            "func Dump(data []byte) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2345,
+          "lines": [
+            "pkg encoding/hex, func Dump([]uint8) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dumper",
+      "summary": "Dumper returns a [io.WriteCloser] that writes a hex dump of all written data to w. The format of the dump matches the output of `hexdump -C` on the command line.",
+      "signature": "func Dumper(w io.Writer) io.WriteCloser",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "io.WriteCloser"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 242,
+          "lines": [
+            "func Dumper(w io.Writer) io.WriteCloser {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2346,
+          "lines": [
+            "pkg encoding/hex, func Dumper(io.Writer) io.WriteCloser"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Encode",
+      "summary": "Encode encodes src into [EncodedLen](len(src)) bytes of dst. As a convenience, it returns the number of bytes written to dst, but this value is always [EncodedLen](len(src)). Encode implements hexadecimal encoding.",
+      "signature": "func Encode(dst, src []byte) int",
+      "params": [
+        {
+          "name": "dst",
+          "type": "[]byte"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 45,
+          "lines": [
+            "func Encode(dst, src []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2347,
+          "lines": [
+            "pkg encoding/hex, func Encode([]uint8, []uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncodeToString",
+      "summary": "EncodeToString returns the hexadecimal encoding of src.",
+      "signature": "func EncodeToString(src []byte) string",
+      "params": [
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 126,
+          "lines": [
+            "func EncodeToString(src []byte) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2348,
+          "lines": [
+            "pkg encoding/hex, func EncodeToString([]uint8) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncodedLen",
+      "summary": "EncodedLen returns the length of an encoding of n source bytes. Specifically, it returns n * 2.",
+      "signature": "func EncodedLen(n int) int { return n * 2 }",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int { return n * 2 }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 39,
+          "lines": [
+            "func EncodedLen(n int) int { return n * 2 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2349,
+          "lines": [
+            "pkg encoding/hex, func EncodedLen(int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewDecoder",
+      "summary": "NewDecoder returns an [io.Reader] that decodes hexadecimal characters from r. NewDecoder expects that r contain only an even number of hexadecimal characters.",
+      "signature": "func NewDecoder(r io.Reader) io.Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 202,
+          "lines": [
+            "func NewDecoder(r io.Reader) io.Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 567,
+          "lines": [
+            "pkg encoding/hex, func NewDecoder(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncoder",
+      "summary": "NewEncoder returns an [io.Writer] that writes lowercase hexadecimal characters to w.",
+      "signature": "func NewEncoder(w io.Writer) io.Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "io.Writer"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/hex/hex.go",
+          "line": 173,
+          "lines": [
+            "func NewEncoder(w io.Writer) io.Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 568,
+          "lines": [
+            "pkg encoding/hex, func NewEncoder(io.Writer) io.Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

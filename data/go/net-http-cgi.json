@@ -1,0 +1,105 @@
+{
+  "package": "net/http/cgi",
+  "functions": [
+    {
+      "name": "Request",
+      "summary": "Request returns the HTTP request as represented in the current environment. This assumes the current program is being run by a web server in a CGI environment. The returned Request's Body is populated, if applicable.",
+      "signature": "func Request() (*http.Request, error)",
+      "params": [],
+      "returns": {
+        "type": "(*http.Request, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/cgi/child.go",
+          "line": 28,
+          "lines": [
+            "func Request() (*http.Request, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4854,
+          "lines": [
+            "pkg net/http/cgi, func Request() (*http.Request, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RequestFromMap",
+      "summary": "RequestFromMap creates an [http.Request] from CGI variables. The returned Request's Body field is not populated.",
+      "signature": "func RequestFromMap(params map[string]string) (*http.Request, error)",
+      "params": [
+        {
+          "name": "params",
+          "type": "map[string]string"
+        }
+      ],
+      "returns": {
+        "type": "(*http.Request, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/cgi/child.go",
+          "line": 51,
+          "lines": [
+            "func RequestFromMap(params map[string]string) (*http.Request, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4855,
+          "lines": [
+            "pkg net/http/cgi, func RequestFromMap(map[string]string) (*http.Request, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Serve",
+      "summary": "Serve executes the provided [Handler] on the currently active CGI request, if any. If there's no current CGI environment an error is returned. The provided handler may be nil to use [http.DefaultServeMux].",
+      "signature": "func Serve(handler http.Handler) error",
+      "params": [
+        {
+          "name": "handler",
+          "type": "http.Handler"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/cgi/child.go",
+          "line": 145,
+          "lines": [
+            "func Serve(handler http.Handler) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4856,
+          "lines": [
+            "pkg net/http/cgi, func Serve(http.Handler) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

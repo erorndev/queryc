@@ -1,0 +1,40 @@
+{
+  "package": "go/doc/comment",
+  "functions": [
+    {
+      "name": "DefaultLookupPackage",
+      "summary": "DefaultLookupPackage is the default package lookup function, used when [Parser.LookupPackage] is nil. It recognizes names of the packages from the standard library with single-element import paths, such as math, which would otherwise be impossible to name.",
+      "signature": "func DefaultLookupPackage(name string) (importPath string, ok bool)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(importPath string, ok bool)"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/comment/parse.go",
+          "line": 275,
+          "lines": [
+            "func DefaultLookupPackage(name string) (importPath string, ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 177,
+          "lines": [
+            "pkg go/doc/comment, func DefaultLookupPackage(string) (string, bool) #51082"
+          ]
+        }
+      ]
+    }
+  ]
+}

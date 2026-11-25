@@ -1,0 +1,2313 @@
+{
+  "package": "bytes",
+  "functions": [
+    {
+      "name": "Clone",
+      "summary": "Clone returns a copy of b[:len(b)]. The result may have additional unused capacity. Clone(nil) returns nil.",
+      "signature": "func Clone(b []byte) []byte",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1415,
+          "lines": [
+            "func Clone(b []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 3,
+          "lines": [
+            "pkg bytes, func Clone([]uint8) []uint8 #45038"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Compare",
+      "summary": "Compare returns an integer comparing two byte slices lexicographically. The result will be 0 if a == b, -1 if a < b, and +1 if a > b. A nil argument is equivalent to an empty slice.",
+      "signature": "func Compare(a, b []byte) int",
+      "params": [
+        {
+          "name": "a",
+          "type": "[]byte"
+        },
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 28,
+          "lines": [
+            "func Compare(a, b []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 136,
+          "lines": [
+            "pkg bytes, func Compare([]uint8, []uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Contains",
+      "summary": "Contains reports whether subslice is within b.",
+      "signature": "func Contains(b, subslice []byte) bool",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "subslice",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 77,
+          "lines": [
+            "func Contains(b, subslice []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 137,
+          "lines": [
+            "pkg bytes, func Contains([]uint8, []uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ContainsAny",
+      "summary": "ContainsAny reports whether any of the UTF-8-encoded code points in chars are within b.",
+      "signature": "func ContainsAny(b []byte, chars string) bool",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "chars",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 82,
+          "lines": [
+            "func ContainsAny(b []byte, chars string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 1,
+          "lines": [
+            "pkg bytes, func ContainsAny([]uint8, string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ContainsFunc",
+      "summary": "ContainsFunc reports whether any of the UTF-8-encoded code points r within b satisfy f(r).",
+      "signature": "func ContainsFunc(b []byte, f func(rune) bool) bool",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 92,
+          "lines": [
+            "func ContainsFunc(b []byte, f func(rune) bool) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 1,
+          "lines": [
+            "pkg bytes, func ContainsFunc([]uint8, func(int32) bool) bool #54386"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ContainsRune",
+      "summary": "ContainsRune reports whether the rune is contained in the UTF-8-encoded byte slice b.",
+      "signature": "func ContainsRune(b []byte, r rune) bool",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 87,
+          "lines": [
+            "func ContainsRune(b []byte, r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 2,
+          "lines": [
+            "pkg bytes, func ContainsRune([]uint8, int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Count",
+      "summary": "Count counts the number of non-overlapping instances of sep in s. If sep is an empty slice, Count returns 1 + the number of UTF-8-encoded code points in s.",
+      "signature": "func Count(s, sep []byte) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 57,
+          "lines": [
+            "func Count(s, sep []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 138,
+          "lines": [
+            "pkg bytes, func Count([]uint8, []uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cut",
+      "summary": "Cut slices s around the first instance of sep, returning the text before and after sep. The found result reports whether sep appears in s. If sep does not appear in s, cut returns s, nil, false.",
+      "signature": "func Cut(s, sep []byte) (before, after []byte, found bool)",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(before, after []byte, found bool)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1405,
+          "lines": [
+            "func Cut(s, sep []byte) (before, after []byte, found bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 3,
+          "lines": [
+            "pkg bytes, func Cut([]uint8, []uint8) ([]uint8, []uint8, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CutPrefix",
+      "summary": "CutPrefix returns s without the provided leading prefix byte slice and reports whether it found the prefix. If s doesn't start with prefix, CutPrefix returns s, false. If prefix is the empty byte slice, CutPrefix returns s, true.",
+      "signature": "func CutPrefix(s, prefix []byte) (after []byte, found bool)",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "prefix",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(after []byte, found bool)"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1428,
+          "lines": [
+            "func CutPrefix(s, prefix []byte) (after []byte, found bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 4,
+          "lines": [
+            "pkg bytes, func CutPrefix([]uint8, []uint8) ([]uint8, bool) #42537"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CutSuffix",
+      "summary": "CutSuffix returns s without the provided ending suffix byte slice and reports whether it found the suffix. If s doesn't end with suffix, CutSuffix returns s, false. If suffix is the empty byte slice, CutSuffix returns s, true.",
+      "signature": "func CutSuffix(s, suffix []byte) (before []byte, found bool)",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "suffix",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(before []byte, found bool)"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1441,
+          "lines": [
+            "func CutSuffix(s, suffix []byte) (before []byte, found bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 5,
+          "lines": [
+            "pkg bytes, func CutSuffix([]uint8, []uint8) ([]uint8, bool) #42537"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Equal",
+      "summary": "Equal reports whether a and b are the same length and contain the same bytes. A nil argument is equivalent to an empty slice.",
+      "signature": "func Equal(a, b []byte) bool",
+      "params": [
+        {
+          "name": "a",
+          "type": "[]byte"
+        },
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 20,
+          "lines": [
+            "func Equal(a, b []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 139,
+          "lines": [
+            "pkg bytes, func Equal([]uint8, []uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EqualFold",
+      "summary": "EqualFold reports whether s and t, interpreted as UTF-8 strings, are equal under simple Unicode case-folding, which is a more general form of case-insensitivity.",
+      "signature": "func EqualFold(s, t []byte) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "t",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1228,
+          "lines": [
+            "func EqualFold(s, t []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 140,
+          "lines": [
+            "pkg bytes, func EqualFold([]uint8, []uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fields",
+      "summary": "Fields interprets s as a sequence of UTF-8-encoded code points. It splits the slice s around each instance of one or more consecutive white space characters, as defined by [unicode.IsSpace], returning a slice of subslices of s or an empty slice if s contains only white space. Every element of the returned slice is non-empty. Unlike [Split], leading and trailing runs of white space characters are discarded.",
+      "signature": "func Fields(s []byte) [][]byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[][]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 457,
+          "lines": [
+            "func Fields(s []byte) [][]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 141,
+          "lines": [
+            "pkg bytes, func Fields([]uint8) [][]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FieldsFunc",
+      "summary": "FieldsFunc interprets s as a sequence of UTF-8-encoded code points. It splits the slice s at each run of code points c satisfying f(c) and returns a slice of subslices of s. If all code points in s satisfy f(c), or len(s) == 0, an empty slice is returned. Every element of the returned slice is non-empty. Unlike [SplitFunc], leading and trailing runs of code points satisfying f(c) are discarded.",
+      "signature": "func FieldsFunc(s []byte, f func(rune) bool) [][]byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "[][]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 516,
+          "lines": [
+            "func FieldsFunc(s []byte, f func(rune) bool) [][]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 142,
+          "lines": [
+            "pkg bytes, func FieldsFunc([]uint8, func(int32) bool) [][]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FieldsFuncSeq",
+      "summary": "FieldsFuncSeq returns an iterator over subslices of s split around runs of Unicode code points satisfying f(c). The iterator yields the same subslices that would be returned by [FieldsFunc](s), but without constructing a new slice containing the subslices.",
+      "signature": "func FieldsFuncSeq(s []byte, f func(rune) bool) iter.Seq[[]byte]",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[[]byte]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/iter.go",
+          "line": 116,
+          "lines": [
+            "func FieldsFuncSeq(s []byte, f func(rune) bool) iter.Seq[[]byte] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 1,
+          "lines": [
+            "pkg bytes, func FieldsFuncSeq([]uint8, func(int32) bool) iter.Seq[[]uint8] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FieldsSeq",
+      "summary": "FieldsSeq returns an iterator over subslices of s split around runs of whitespace characters, as defined by [unicode.IsSpace]. The iterator yields the same subslices that would be returned by [Fields](s), but without constructing a new slice containing the subslices.",
+      "signature": "func FieldsSeq(s []byte) iter.Seq[[]byte]",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[[]byte]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/iter.go",
+          "line": 83,
+          "lines": [
+            "func FieldsSeq(s []byte) iter.Seq[[]byte] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 2,
+          "lines": [
+            "pkg bytes, func FieldsSeq([]uint8) iter.Seq[[]uint8] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HasPrefix",
+      "summary": "HasPrefix reports whether the byte slice s begins with prefix.",
+      "signature": "func HasPrefix(s, prefix []byte) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "prefix",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 598,
+          "lines": [
+            "func HasPrefix(s, prefix []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 143,
+          "lines": [
+            "pkg bytes, func HasPrefix([]uint8, []uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HasSuffix",
+      "summary": "HasSuffix reports whether the byte slice s ends with suffix.",
+      "signature": "func HasSuffix(s, suffix []byte) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "suffix",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 603,
+          "lines": [
+            "func HasSuffix(s, suffix []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 144,
+          "lines": [
+            "pkg bytes, func HasSuffix([]uint8, []uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Index",
+      "summary": "Index returns the index of the first instance of sep in s, or -1 if sep is not present in s.",
+      "signature": "func Index(s, sep []byte) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1312,
+          "lines": [
+            "func Index(s, sep []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 145,
+          "lines": [
+            "pkg bytes, func Index([]uint8, []uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexAny",
+      "summary": "IndexAny interprets s as a sequence of UTF-8-encoded Unicode code points. It returns the byte index of the first occurrence in s of any of the Unicode code points in chars. It returns -1 if chars is empty or if there is no code point in common.",
+      "signature": "func IndexAny(s []byte, chars string) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "chars",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 221,
+          "lines": [
+            "func IndexAny(s []byte, chars string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 146,
+          "lines": [
+            "pkg bytes, func IndexAny([]uint8, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexByte",
+      "summary": "IndexByte returns the index of the first instance of c in b, or -1 if c is not present in b.",
+      "signature": "func IndexByte(b []byte, c byte) int",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "c",
+          "type": "byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 97,
+          "lines": [
+            "func IndexByte(b []byte, c byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 147,
+          "lines": [
+            "pkg bytes, func IndexByte([]uint8, uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexFunc",
+      "summary": "IndexFunc interprets s as a sequence of UTF-8-encoded code points. It returns the byte index in s of the first Unicode code point satisfying f(c), or -1 if none do.",
+      "signature": "func IndexFunc(s []byte, f func(r rune) bool) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(r rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 903,
+          "lines": [
+            "func IndexFunc(s []byte, f func(r rune) bool) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 148,
+          "lines": [
+            "pkg bytes, func IndexFunc([]uint8, func(int32) bool) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexRune",
+      "summary": "IndexRune interprets s as a sequence of UTF-8-encoded code points. It returns the byte index of the first occurrence in s of the given rune. It returns -1 if rune is not present in s. If r is [utf8.RuneError], it returns the first instance of any invalid UTF-8 byte sequence.",
+      "signature": "func IndexRune(s []byte, r rune) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 139,
+          "lines": [
+            "func IndexRune(s []byte, r rune) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 149,
+          "lines": [
+            "pkg bytes, func IndexRune([]uint8, int32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Join",
+      "summary": "Join concatenates the elements of s to create a new byte slice. The separator sep is placed between elements in the resulting slice.",
+      "signature": "func Join(s [][]byte, sep []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[][]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 565,
+          "lines": [
+            "func Join(s [][]byte, sep []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 150,
+          "lines": [
+            "pkg bytes, func Join([][]uint8, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndex",
+      "summary": "LastIndex returns the index of the last instance of sep in s, or -1 if sep is not present in s.",
+      "signature": "func LastIndex(s, sep []byte) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 111,
+          "lines": [
+            "func LastIndex(s, sep []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 151,
+          "lines": [
+            "pkg bytes, func LastIndex([]uint8, []uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndexAny",
+      "summary": "LastIndexAny interprets s as a sequence of UTF-8-encoded Unicode code points. It returns the byte index of the last occurrence in s of any of the Unicode code points in chars. It returns -1 if chars is empty or if there is no code point in common.",
+      "signature": "func LastIndexAny(s []byte, chars string) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "chars",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 299,
+          "lines": [
+            "func LastIndexAny(s []byte, chars string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 152,
+          "lines": [
+            "pkg bytes, func LastIndexAny([]uint8, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndexByte",
+      "summary": "LastIndexByte returns the index of the last instance of c in s, or -1 if c is not present in s.",
+      "signature": "func LastIndexByte(s []byte, c byte) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "c",
+          "type": "byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 130,
+          "lines": [
+            "func LastIndexByte(s []byte, c byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 4,
+          "lines": [
+            "pkg bytes, func LastIndexByte([]uint8, uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndexFunc",
+      "summary": "LastIndexFunc interprets s as a sequence of UTF-8-encoded code points. It returns the byte index in s of the last Unicode code point satisfying f(c), or -1 if none do.",
+      "signature": "func LastIndexFunc(s []byte, f func(r rune) bool) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(r rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 910,
+          "lines": [
+            "func LastIndexFunc(s []byte, f func(r rune) bool) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 153,
+          "lines": [
+            "pkg bytes, func LastIndexFunc([]uint8, func(int32) bool) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lines",
+      "summary": "Lines returns an iterator over the newline-terminated lines in the byte slice s. The lines yielded by the iterator include their terminating newlines. If s is empty, the iterator yields no lines at all. If s does not end in a newline, the final yielded line will not end in a newline. It returns a single-use iterator.",
+      "signature": "func Lines(s []byte) iter.Seq[[]byte]",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[[]byte]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/iter.go",
+          "line": 18,
+          "lines": [
+            "func Lines(s []byte) iter.Seq[[]byte] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 3,
+          "lines": [
+            "pkg bytes, func Lines([]uint8) iter.Seq[[]uint8] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Map",
+      "summary": "Map returns a copy of the byte slice s with all its characters modified according to the mapping function. If mapping returns a negative value, the character is dropped from the byte slice with no replacement. The characters in s and the output are interpreted as UTF-8-encoded code points.",
+      "signature": "func Map(mapping func(r rune) rune, s []byte) []byte",
+      "params": [
+        {
+          "name": "mapping",
+          "type": "func(r rune) rune"
+        },
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 611,
+          "lines": [
+            "func Map(mapping func(r rune) rune, s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 154,
+          "lines": [
+            "pkg bytes, func Map(func(int32) int32, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewBuffer",
+      "summary": "NewBuffer creates and initializes a new [Buffer] using buf as its initial contents. The new [Buffer] takes ownership of buf, and the caller should not use buf after this call. NewBuffer is intended to prepare a [Buffer] to read existing data. It can also be used to set the initial size of the internal buffer for writing. To do that, buf should have the desired capacity but a length of zero.",
+      "signature": "func NewBuffer(buf []byte) *Buffer { return &Buffer{buf: buf} }",
+      "params": [
+        {
+          "name": "buf",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "*Buffer { return &Buffer{buf: buf} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/buffer.go",
+          "line": 478,
+          "lines": [
+            "func NewBuffer(buf []byte) *Buffer { return &Buffer{buf: buf} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 155,
+          "lines": [
+            "pkg bytes, func NewBuffer([]uint8) *Buffer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewBufferString",
+      "summary": "NewBufferString creates and initializes a new [Buffer] using string s as its initial contents. It is intended to prepare a buffer to read an existing string.",
+      "signature": "func NewBufferString(s string) *Buffer",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Buffer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/buffer.go",
+          "line": 486,
+          "lines": [
+            "func NewBufferString(s string) *Buffer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 156,
+          "lines": [
+            "pkg bytes, func NewBufferString(string) *Buffer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReader",
+      "summary": "NewReader returns a new [Reader] reading from b.",
+      "signature": "func NewReader(b []byte) *Reader { return &Reader{b, 0, -1} }",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "*Reader { return &Reader{b, 0, -1} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/reader.go",
+          "line": 159,
+          "lines": [
+            "func NewReader(b []byte) *Reader { return &Reader{b, 0, -1} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 157,
+          "lines": [
+            "pkg bytes, func NewReader([]uint8) *Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Repeat",
+      "summary": "Repeat returns a new byte slice consisting of count copies of b.",
+      "signature": "func Repeat(b []byte, count int) []byte",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "count",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 647,
+          "lines": [
+            "func Repeat(b []byte, count int) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 158,
+          "lines": [
+            "pkg bytes, func Repeat([]uint8, int) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Replace",
+      "summary": "Replace returns a copy of the slice s with the first n non-overlapping instances of old replaced by new. If old is empty, it matches at the beginning of the slice and after each UTF-8 sequence, yielding up to k+1 replacements for a k-rune slice. If n < 0, there is no limit on the number of replacements.",
+      "signature": "func Replace(s, old, new []byte, n int) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "old",
+          "type": "[]byte"
+        },
+        {
+          "name": "new",
+          "type": "[]byte"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1177,
+          "lines": [
+            "func Replace(s, old, new []byte, n int) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 159,
+          "lines": [
+            "pkg bytes, func Replace([]uint8, []uint8, []uint8, int) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReplaceAll",
+      "summary": "ReplaceAll returns a copy of the slice s with all non-overlapping instances of old replaced by new. If old is empty, it matches at the beginning of the slice and after each UTF-8 sequence, yielding up to k+1 replacements for a k-rune slice.",
+      "signature": "func ReplaceAll(s, old, new []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "old",
+          "type": "[]byte"
+        },
+        {
+          "name": "new",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1221,
+          "lines": [
+            "func ReplaceAll(s, old, new []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 1,
+          "lines": [
+            "pkg bytes, func ReplaceAll([]uint8, []uint8, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Runes",
+      "summary": "Runes interprets s as a sequence of UTF-8-encoded code points. It returns a slice of runes (Unicode code points) equivalent to s.",
+      "signature": "func Runes(s []byte) []rune",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1159,
+          "lines": [
+            "func Runes(s []byte) []rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 160,
+          "lines": [
+            "pkg bytes, func Runes([]uint8) []int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Split",
+      "summary": "Split slices s into all subslices separated by sep and returns a slice of the subslices between those separators. If sep is empty, Split splits after each UTF-8 sequence. It is equivalent to SplitN with a count of -1.",
+      "signature": "func Split(s, sep []byte) [][]byte { return genSplit(s, sep, 0, -1) }",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[][]byte { return genSplit(s, sep, 0, -1) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 439,
+          "lines": [
+            "func Split(s, sep []byte) [][]byte { return genSplit(s, sep, 0, -1) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 161,
+          "lines": [
+            "pkg bytes, func Split([]uint8, []uint8) [][]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitAfter",
+      "summary": "SplitAfter slices s into all subslices after each instance of sep and returns a slice of those subslices. If sep is empty, SplitAfter splits after each UTF-8 sequence. It is equivalent to SplitAfterN with a count of -1.",
+      "signature": "func SplitAfter(s, sep []byte) [][]byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[][]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 445,
+          "lines": [
+            "func SplitAfter(s, sep []byte) [][]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 162,
+          "lines": [
+            "pkg bytes, func SplitAfter([]uint8, []uint8) [][]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitAfterN",
+      "summary": "SplitAfterN slices s into subslices after each instance of sep and returns a slice of those subslices. If sep is empty, SplitAfterN splits after each UTF-8 sequence. The count determines the number of subslices to return: - n > 0: at most n subslices; the last subslice will be the unsplit remainder; - n == 0: the result is nil (zero subslices); - n < 0: all subslices.",
+      "signature": "func SplitAfterN(s, sep []byte, n int) [][]byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[][]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 429,
+          "lines": [
+            "func SplitAfterN(s, sep []byte, n int) [][]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 163,
+          "lines": [
+            "pkg bytes, func SplitAfterN([]uint8, []uint8, int) [][]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitAfterSeq",
+      "summary": "SplitAfterSeq returns an iterator over subslices of s split after each instance of sep. The iterator yields the same subslices that would be returned by [SplitAfter](s, sep), but without constructing a new slice containing the subslices. It returns a single-use iterator.",
+      "signature": "func SplitAfterSeq(s, sep []byte) iter.Seq[[]byte]",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[[]byte]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/iter.go",
+          "line": 75,
+          "lines": [
+            "func SplitAfterSeq(s, sep []byte) iter.Seq[[]byte] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 4,
+          "lines": [
+            "pkg bytes, func SplitAfterSeq([]uint8, []uint8) iter.Seq[[]uint8] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitN",
+      "summary": "SplitN slices s into subslices separated by sep and returns a slice of the subslices between those separators. If sep is empty, SplitN splits after each UTF-8 sequence. The count determines the number of subslices to return: - n > 0: at most n subslices; the last subslice will be the unsplit remainder; - n == 0: the result is nil (zero subslices); - n < 0: all subslices.",
+      "signature": "func SplitN(s, sep []byte, n int) [][]byte { return genSplit(s, sep, 0, n) }",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[][]byte { return genSplit(s, sep, 0, n) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 420,
+          "lines": [
+            "func SplitN(s, sep []byte, n int) [][]byte { return genSplit(s, sep, 0, n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 164,
+          "lines": [
+            "pkg bytes, func SplitN([]uint8, []uint8, int) [][]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitSeq",
+      "summary": "SplitSeq returns an iterator over all subslices of s separated by sep. The iterator yields the same subslices that would be returned by [Split](s, sep), but without constructing a new slice containing the subslices. It returns a single-use iterator.",
+      "signature": "func SplitSeq(s, sep []byte) iter.Seq[[]byte]",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "sep",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[[]byte]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/iter.go",
+          "line": 67,
+          "lines": [
+            "func SplitSeq(s, sep []byte) iter.Seq[[]byte] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 5,
+          "lines": [
+            "pkg bytes, func SplitSeq([]uint8, []uint8) iter.Seq[[]uint8] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Title",
+      "summary": "Title treats s as UTF-8-encoded bytes and returns a copy with all Unicode letters that begin words mapped to their title case.",
+      "signature": "func Title(s []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 836,
+          "lines": [
+            "func Title(s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 165,
+          "lines": [
+            "pkg bytes, func Title([]uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToLower",
+      "summary": "ToLower returns a copy of the byte slice s with all Unicode letters mapped to their lower case.",
+      "signature": "func ToLower(s []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 728,
+          "lines": [
+            "func ToLower(s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 166,
+          "lines": [
+            "pkg bytes, func ToLower([]uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToLowerSpecial",
+      "summary": "ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their lower case, giving priority to the special casing rules.",
+      "signature": "func ToLowerSpecial(c unicode.SpecialCase, s []byte) []byte",
+      "params": [
+        {
+          "name": "c",
+          "type": "unicode.SpecialCase"
+        },
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 767,
+          "lines": [
+            "func ToLowerSpecial(c unicode.SpecialCase, s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 167,
+          "lines": [
+            "pkg bytes, func ToLowerSpecial(unicode.SpecialCase, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToTitle",
+      "summary": "ToTitle treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their title case.",
+      "signature": "func ToTitle(s []byte) []byte { return Map(unicode.ToTitle, s) }",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte { return Map(unicode.ToTitle, s) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 757,
+          "lines": [
+            "func ToTitle(s []byte) []byte { return Map(unicode.ToTitle, s) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 168,
+          "lines": [
+            "pkg bytes, func ToTitle([]uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToTitleSpecial",
+      "summary": "ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their title case, giving priority to the special casing rules.",
+      "signature": "func ToTitleSpecial(c unicode.SpecialCase, s []byte) []byte",
+      "params": [
+        {
+          "name": "c",
+          "type": "unicode.SpecialCase"
+        },
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 773,
+          "lines": [
+            "func ToTitleSpecial(c unicode.SpecialCase, s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 169,
+          "lines": [
+            "pkg bytes, func ToTitleSpecial(unicode.SpecialCase, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToUpper",
+      "summary": "ToUpper returns a copy of the byte slice s with all Unicode letters mapped to their upper case.",
+      "signature": "func ToUpper(s []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 697,
+          "lines": [
+            "func ToUpper(s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 170,
+          "lines": [
+            "pkg bytes, func ToUpper([]uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToUpperSpecial",
+      "summary": "ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their upper case, giving priority to the special casing rules.",
+      "signature": "func ToUpperSpecial(c unicode.SpecialCase, s []byte) []byte",
+      "params": [
+        {
+          "name": "c",
+          "type": "unicode.SpecialCase"
+        },
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 761,
+          "lines": [
+            "func ToUpperSpecial(c unicode.SpecialCase, s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 171,
+          "lines": [
+            "pkg bytes, func ToUpperSpecial(unicode.SpecialCase, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToValidUTF8",
+      "summary": "ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of bytes representing invalid UTF-8 replaced with the bytes in replacement, which may be empty.",
+      "signature": "func ToValidUTF8(s, replacement []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "replacement",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 779,
+          "lines": [
+            "func ToValidUTF8(s, replacement []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 1,
+          "lines": [
+            "pkg bytes, func ToValidUTF8([]uint8, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trim",
+      "summary": "Trim returns a subslice of s by slicing off all leading and trailing UTF-8-encoded code points contained in cutset.",
+      "signature": "func Trim(s []byte, cutset string) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "cutset",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 992,
+          "lines": [
+            "func Trim(s []byte, cutset string) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 172,
+          "lines": [
+            "pkg bytes, func Trim([]uint8, string) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimFunc",
+      "summary": "TrimFunc returns a subslice of s by slicing off all leading and trailing UTF-8-encoded code points c that satisfy f(c).",
+      "signature": "func TrimFunc(s []byte, f func(r rune) bool) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(r rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 878,
+          "lines": [
+            "func TrimFunc(s []byte, f func(r rune) bool) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 173,
+          "lines": [
+            "pkg bytes, func TrimFunc([]uint8, func(int32) bool) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimLeft",
+      "summary": "TrimLeft returns a subslice of s by slicing off all leading UTF-8-encoded code points contained in cutset.",
+      "signature": "func TrimLeft(s []byte, cutset string) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "cutset",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1011,
+          "lines": [
+            "func TrimLeft(s []byte, cutset string) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 174,
+          "lines": [
+            "pkg bytes, func TrimLeft([]uint8, string) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimLeftFunc",
+      "summary": "TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slicing off all leading UTF-8-encoded code points c that satisfy f(c).",
+      "signature": "func TrimLeftFunc(s []byte, f func(r rune) bool) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(r rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 855,
+          "lines": [
+            "func TrimLeftFunc(s []byte, f func(r rune) bool) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 175,
+          "lines": [
+            "pkg bytes, func TrimLeftFunc([]uint8, func(int32) bool) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimPrefix",
+      "summary": "TrimPrefix returns s without the provided leading prefix string. If s doesn't start with prefix, s is returned unchanged.",
+      "signature": "func TrimPrefix(s, prefix []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "prefix",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 884,
+          "lines": [
+            "func TrimPrefix(s, prefix []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 44,
+          "lines": [
+            "pkg bytes, func TrimPrefix([]uint8, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimRight",
+      "summary": "TrimRight returns a subslice of s by slicing off all trailing UTF-8-encoded code points that are contained in cutset.",
+      "signature": "func TrimRight(s []byte, cutset string) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "cutset",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1073,
+          "lines": [
+            "func TrimRight(s []byte, cutset string) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 176,
+          "lines": [
+            "pkg bytes, func TrimRight([]uint8, string) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimRightFunc",
+      "summary": "TrimRightFunc returns a subslice of s by slicing off all trailing UTF-8-encoded code points c that satisfy f(c).",
+      "signature": "func TrimRightFunc(s []byte, f func(r rune) bool) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "f",
+          "type": "func(r rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 865,
+          "lines": [
+            "func TrimRightFunc(s []byte, f func(r rune) bool) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 177,
+          "lines": [
+            "pkg bytes, func TrimRightFunc([]uint8, func(int32) bool) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimSpace",
+      "summary": "TrimSpace returns a subslice of s by slicing off all leading and trailing white space, as defined by Unicode.",
+      "signature": "func TrimSpace(s []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 1119,
+          "lines": [
+            "func TrimSpace(s []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 178,
+          "lines": [
+            "pkg bytes, func TrimSpace([]uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimSuffix",
+      "summary": "TrimSuffix returns s without the provided trailing suffix string. If s doesn't end with suffix, s is returned unchanged.",
+      "signature": "func TrimSuffix(s, suffix []byte) []byte",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]byte"
+        },
+        {
+          "name": "suffix",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 893,
+          "lines": [
+            "func TrimSuffix(s, suffix []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 45,
+          "lines": [
+            "pkg bytes, func TrimSuffix([]uint8, []uint8) []uint8"
+          ]
+        }
+      ]
+    }
+  ]
+}

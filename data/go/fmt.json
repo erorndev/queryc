@@ -1,0 +1,894 @@
+{
+  "package": "fmt",
+  "functions": [
+    {
+      "name": "Append",
+      "summary": "Append formats using the default formats for its operands, appends the result to the byte slice, and returns the updated slice.",
+      "signature": "func Append(b []byte, a ...any) []byte",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 287,
+          "lines": [
+            "func Append(b []byte, a ...any) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 168,
+          "lines": [
+            "pkg fmt, func Append([]uint8, ...interface{}) []uint8 #47579"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Appendf",
+      "summary": "Appendf formats according to a format specifier, appends the result to the byte slice, and returns the updated slice.",
+      "signature": "func Appendf(b []byte, format string, a ...any) []byte",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 247,
+          "lines": [
+            "func Appendf(b []byte, format string, a ...any) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 169,
+          "lines": [
+            "pkg fmt, func Appendf([]uint8, string, ...interface{}) []uint8 #47579"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Appendln",
+      "summary": "Appendln formats using the default formats for its operands, appends the result to the byte slice, and returns the updated slice. Spaces are always added between operands and a newline is appended.",
+      "signature": "func Appendln(b []byte, a ...any) []byte",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 330,
+          "lines": [
+            "func Appendln(b []byte, a ...any) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 170,
+          "lines": [
+            "pkg fmt, func Appendln([]uint8, ...interface{}) []uint8 #47579"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Errorf",
+      "summary": "Errorf formats according to a format specifier and returns the string as a value that satisfies error.",
+      "signature": "func Errorf(format string, a ...any) error",
+      "params": [
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/errors.go",
+          "line": 22,
+          "lines": [
+            "func Errorf(format string, a ...any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2578,
+          "lines": [
+            "pkg fmt, func Errorf(string, ...interface{}) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FormatString",
+      "summary": "FormatString returns a string representing the fully qualified formatting directive captured by the [State], followed by the argument verb. ([State] does not itself contain the verb.) The result has a leading percent sign followed by any flags, the width, and the precision. Missing flags, width, and precision are omitted. This function allows a [Formatter] to reconstruct the original directive triggering the call to Format.",
+      "signature": "func FormatString(state State, verb rune) string",
+      "params": [
+        {
+          "name": "state",
+          "type": "State"
+        },
+        {
+          "name": "verb",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 81,
+          "lines": [
+            "func FormatString(state State, verb rune) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 238,
+          "lines": [
+            "pkg fmt, func FormatString(State, int32) string #51668"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fprint",
+      "summary": "Fprint formats using the default formats for its operands and writes to w. Spaces are added between operands when neither is a string. It returns the number of bytes written and any write error encountered.",
+      "signature": "func Fprint(w io.Writer, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 260,
+          "lines": [
+            "func Fprint(w io.Writer, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2579,
+          "lines": [
+            "pkg fmt, func Fprint(io.Writer, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fprintf",
+      "summary": "Fprintf formats according to a format specifier and writes to w. It returns the number of bytes written and any write error encountered.",
+      "signature": "func Fprintf(w io.Writer, format string, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 222,
+          "lines": [
+            "func Fprintf(w io.Writer, format string, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2580,
+          "lines": [
+            "pkg fmt, func Fprintf(io.Writer, string, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fprintln",
+      "summary": "Fprintln formats using the default formats for its operands and writes to w. Spaces are always added between operands and a newline is appended. It returns the number of bytes written and any write error encountered.",
+      "signature": "func Fprintln(w io.Writer, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 302,
+          "lines": [
+            "func Fprintln(w io.Writer, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2581,
+          "lines": [
+            "pkg fmt, func Fprintln(io.Writer, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fscan",
+      "summary": "Fscan scans text read from r, storing successive space-separated values into successive arguments. Newlines count as space. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why.",
+      "signature": "func Fscan(r io.Reader, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 121,
+          "lines": [
+            "func Fscan(r io.Reader, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2582,
+          "lines": [
+            "pkg fmt, func Fscan(io.Reader, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fscanf",
+      "summary": "Fscanf scans text read from r, storing successive space-separated values into successive arguments as determined by the format. It returns the number of items successfully parsed. Newlines in the input must match newlines in the format.",
+      "signature": "func Fscanf(r io.Reader, format string, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        },
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 141,
+          "lines": [
+            "func Fscanf(r io.Reader, format string, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2583,
+          "lines": [
+            "pkg fmt, func Fscanf(io.Reader, string, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fscanln",
+      "summary": "Fscanln is similar to [Fscan], but stops scanning at a newline and after the final item there must be a newline or EOF.",
+      "signature": "func Fscanln(r io.Reader, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 130,
+          "lines": [
+            "func Fscanln(r io.Reader, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2584,
+          "lines": [
+            "pkg fmt, func Fscanln(io.Reader, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Print",
+      "summary": "Print formats using the default formats for its operands and writes to standard output. Spaces are added between operands when neither is a string. It returns the number of bytes written and any write error encountered.",
+      "signature": "func Print(a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 271,
+          "lines": [
+            "func Print(a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2585,
+          "lines": [
+            "pkg fmt, func Print(...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Printf",
+      "summary": "Printf formats according to a format specifier and writes to standard output. It returns the number of bytes written and any write error encountered.",
+      "signature": "func Printf(format string, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 232,
+          "lines": [
+            "func Printf(format string, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2586,
+          "lines": [
+            "pkg fmt, func Printf(string, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Println",
+      "summary": "Println formats using the default formats for its operands and writes to standard output. Spaces are always added between operands and a newline is appended. It returns the number of bytes written and any write error encountered.",
+      "signature": "func Println(a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 313,
+          "lines": [
+            "func Println(a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2587,
+          "lines": [
+            "pkg fmt, func Println(...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scan",
+      "summary": "Scan scans text read from standard input, storing successive space-separated values into successive arguments. Newlines count as space. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why.",
+      "signature": "func Scan(a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 63,
+          "lines": [
+            "func Scan(a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2588,
+          "lines": [
+            "pkg fmt, func Scan(...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scanf",
+      "summary": "Scanf scans text read from standard input, storing successive space-separated values into successive arguments as determined by the format. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why. Newlines in the input must match newlines in the format. The one exception: the verb %c always scans the next rune in the input, even if it is a space (or tab etc.) or newline.",
+      "signature": "func Scanf(format string, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 80,
+          "lines": [
+            "func Scanf(format string, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2589,
+          "lines": [
+            "pkg fmt, func Scanf(string, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scanln",
+      "summary": "Scanln is similar to [Scan], but stops scanning at a newline and after the final item there must be a newline or EOF.",
+      "signature": "func Scanln(a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 69,
+          "lines": [
+            "func Scanln(a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2590,
+          "lines": [
+            "pkg fmt, func Scanln(...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sprint",
+      "summary": "Sprint formats using the default formats for its operands and returns the resulting string. Spaces are added between operands when neither is a string.",
+      "signature": "func Sprint(a ...any) string",
+      "params": [
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 277,
+          "lines": [
+            "func Sprint(a ...any) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2591,
+          "lines": [
+            "pkg fmt, func Sprint(...interface{}) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sprintf",
+      "summary": "Sprintf formats according to a format specifier and returns the resulting string.",
+      "signature": "func Sprintf(format string, a ...any) string",
+      "params": [
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 237,
+          "lines": [
+            "func Sprintf(format string, a ...any) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2592,
+          "lines": [
+            "pkg fmt, func Sprintf(string, ...interface{}) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sprintln",
+      "summary": "Sprintln formats using the default formats for its operands and returns the resulting string. Spaces are always added between operands and a newline is appended.",
+      "signature": "func Sprintln(a ...any) string",
+      "params": [
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/print.go",
+          "line": 319,
+          "lines": [
+            "func Sprintln(a ...any) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2593,
+          "lines": [
+            "pkg fmt, func Sprintln(...interface{}) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sscan",
+      "summary": "Sscan scans the argument string, storing successive space-separated values into successive arguments. Newlines count as space. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why.",
+      "signature": "func Sscan(str string, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "str",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 99,
+          "lines": [
+            "func Sscan(str string, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2594,
+          "lines": [
+            "pkg fmt, func Sscan(string, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sscanf",
+      "summary": "Sscanf scans the argument string, storing successive space-separated values into successive arguments as determined by the format. It returns the number of items successfully parsed. Newlines in the input must match newlines in the format.",
+      "signature": "func Sscanf(str string, format string, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "str",
+          "type": "string"
+        },
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 113,
+          "lines": [
+            "func Sscanf(str string, format string, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2595,
+          "lines": [
+            "pkg fmt, func Sscanf(string, string, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sscanln",
+      "summary": "Sscanln is similar to [Sscan], but stops scanning at a newline and after the final item there must be a newline or EOF.",
+      "signature": "func Sscanln(str string, a ...any) (n int, err error)",
+      "params": [
+        {
+          "name": "str",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/fmt/scan.go",
+          "line": 105,
+          "lines": [
+            "func Sscanln(str string, a ...any) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2596,
+          "lines": [
+            "pkg fmt, func Sscanln(string, ...interface{}) (int, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

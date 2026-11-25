@@ -1,0 +1,148 @@
+{
+  "package": "crypto/rand",
+  "functions": [
+    {
+      "name": "Int",
+      "summary": "Int returns a uniform random value in [0, max). It panics if max <= 0, and returns an error if rand.Read returns one.",
+      "signature": "func Int(rand io.Reader, max *big.Int) (n *big.Int, err error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "max",
+          "type": "*big.Int"
+        }
+      ],
+      "returns": {
+        "type": "(n *big.Int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rand/util.go",
+          "line": 67,
+          "lines": [
+            "func Int(rand io.Reader, max *big.Int) (n *big.Int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 444,
+          "lines": [
+            "pkg crypto/rand, func Int(io.Reader, *big.Int) (*big.Int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prime",
+      "summary": "Prime returns a number of the given bit length that is prime with high probability. Prime will return error for any error returned by rand.Read or if bits < 2.",
+      "signature": "func Prime(rand io.Reader, bits int) (*big.Int, error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "bits",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(*big.Int, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rand/util.go",
+          "line": 17,
+          "lines": [
+            "func Prime(rand io.Reader, bits int) (*big.Int, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 445,
+          "lines": [
+            "pkg crypto/rand, func Prime(io.Reader, int) (*big.Int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Read",
+      "summary": "Read fills b with cryptographically secure random bytes. It never returns an error, and always fills b entirely.",
+      "signature": "func Read(b []byte) (n int, err error)",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(n int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rand/rand.go",
+          "line": 66,
+          "lines": [
+            "func Read(b []byte) (n int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 446,
+          "lines": [
+            "pkg crypto/rand, func Read([]uint8) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "summary": "Text returns a cryptographically random string using the standard RFC 4648 base32 alphabet for use when a secret string, token, password, or other text is needed. The result contains at least 128 bits of randomness, enough to prevent brute force guessing attacks and to make the likelihood of collisions vanishingly small. A future version may return longer texts as needed to maintain those properties.",
+      "signature": "func Text() string",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rand/text.go",
+          "line": 14,
+          "lines": [
+            "func Text() string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 47,
+          "lines": [
+            "pkg crypto/rand, func Text() string #67057"
+          ]
+        }
+      ]
+    }
+  ]
+}

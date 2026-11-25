@@ -1,0 +1,175 @@
+{
+  "package": "runtime/coverage",
+  "functions": [
+    {
+      "name": "ClearCounters",
+      "summary": "ClearCounters clears/resets all coverage counter variables in the currently running program. It returns an error if the program in question was not built with the \"-cover\" flag. Clearing of coverage counters is also not supported for programs not using atomic counter mode (see more detailed comments below for the rationale here).",
+      "signature": "func ClearCounters() error",
+      "params": [],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/coverage/coverage.go",
+          "line": 66,
+          "lines": [
+            "func ClearCounters() error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 297,
+          "lines": [
+            "pkg runtime/coverage, func ClearCounters() error #51430"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteCounters",
+      "summary": "WriteCounters writes coverage counter-data content for the currently running program to the writer 'w'. An error will be returned if the operation can't be completed successfully (for example, if the currently running program was not built with \"-cover\", or if a write fails). The counter data written will be a snapshot taken at the point of the invocation.",
+      "signature": "func WriteCounters(w io.Writer) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/coverage/coverage.go",
+          "line": 56,
+          "lines": [
+            "func WriteCounters(w io.Writer) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 299,
+          "lines": [
+            "pkg runtime/coverage, func WriteCounters(io.Writer) error #51430"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteCountersDir",
+      "summary": "WriteCountersDir writes a coverage counter-data file for the currently running program to the directory specified in 'dir'. An error will be returned if the operation can't be completed successfully (for example, if the currently running program was not built with \"-cover\", or if the directory does not exist). The counter data written will be a snapshot taken at the point of the call.",
+      "signature": "func WriteCountersDir(dir string) error",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/coverage/coverage.go",
+          "line": 46,
+          "lines": [
+            "func WriteCountersDir(dir string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 298,
+          "lines": [
+            "pkg runtime/coverage, func WriteCountersDir(string) error #51430"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteMeta",
+      "summary": "WriteMeta writes the meta-data content (the payload that would normally be emitted to a meta-data file) for the currently running program to the writer 'w'. An error will be returned if the operation can't be completed successfully (for example, if the currently running program was not built with \"-cover\", or if a write fails).",
+      "signature": "func WriteMeta(w io.Writer) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/coverage/coverage.go",
+          "line": 35,
+          "lines": [
+            "func WriteMeta(w io.Writer) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 301,
+          "lines": [
+            "pkg runtime/coverage, func WriteMeta(io.Writer) error #51430"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteMetaDir",
+      "summary": "WriteMetaDir writes a coverage meta-data file for the currently running program to the directory specified in 'dir'. An error will be returned if the operation can't be completed successfully (for example, if the currently running program was not built with \"-cover\", or if the directory does not exist).",
+      "signature": "func WriteMetaDir(dir string) error",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/coverage/coverage.go",
+          "line": 25,
+          "lines": [
+            "func WriteMetaDir(dir string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 300,
+          "lines": [
+            "pkg runtime/coverage, func WriteMetaDir(string) error #51430"
+          ]
+        }
+      ]
+    }
+  ]
+}

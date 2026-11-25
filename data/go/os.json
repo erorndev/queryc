@@ -1,0 +1,2232 @@
+{
+  "package": "os",
+  "functions": [
+    {
+      "name": "Chdir",
+      "summary": "Chdir changes the current working directory to the named directory. If there is an error, it will be of type [*PathError].",
+      "signature": "func Chdir(dir string) error",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 361,
+          "lines": [
+            "func Chdir(dir string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5150,
+          "lines": [
+            "pkg os, func Chdir(string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chmod",
+      "summary": "Chmod changes the mode of the named file to mode. If the file is a symbolic link, it changes the mode of the link's target. If there is an error, it will be of type [*PathError].",
+      "signature": "func Chmod(name string, mode FileMode) error { return chmod(name, mode) }",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "FileMode"
+        }
+      ],
+      "returns": {
+        "type": "error { return chmod(name, mode) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 644,
+          "lines": [
+            "func Chmod(name string, mode FileMode) error { return chmod(name, mode) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5151,
+          "lines": [
+            "pkg os, func Chmod(string, FileMode) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chown",
+      "summary": "Chown changes the numeric uid and gid of the named file. If the file is a symbolic link, it changes the uid and gid of the link's target. A uid or gid of -1 means to not change that value. If there is an error, it will be of type [*PathError].",
+      "signature": "func Chown(name string, uid, gid int) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "uid",
+          "type": "int"
+        },
+        {
+          "name": "gid",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 512,
+          "lines": [
+            "func Chown(name string, uid, gid int) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5152,
+          "lines": [
+            "pkg os, func Chown(string, int, int) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chtimes",
+      "summary": "Chtimes changes the access and modification times of the named file, similar to the Unix utime() or utimes() functions. A zero time.Time value will leave the corresponding file time unchanged.",
+      "signature": "func Chtimes(name string, atime time.Time, mtime time.Time) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "atime",
+          "type": "time.Time"
+        },
+        {
+          "name": "mtime",
+          "type": "time.Time"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 449,
+          "lines": [
+            "func Chtimes(name string, atime time.Time, mtime time.Time) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5153,
+          "lines": [
+            "pkg os, func Chtimes(string, time.Time, time.Time) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clearenv",
+      "summary": "Clearenv deletes all environment variables.",
+      "signature": "func Clearenv()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 133,
+          "lines": [
+            "func Clearenv() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5154,
+          "lines": [
+            "pkg os, func Clearenv()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CopyFS",
+      "summary": "CopyFS copies the file system fsys into the directory dir, creating dir if necessary.",
+      "signature": "func CopyFS(dir string, fsys fs.FS) error",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        },
+        {
+          "name": "fsys",
+          "type": "fs.FS"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/dir.go",
+          "line": 145,
+          "lines": [
+            "func CopyFS(dir string, fsys fs.FS) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 76,
+          "lines": [
+            "pkg os, func CopyFS(string, fs.FS) error #62484"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Create",
+      "summary": "Create creates or truncates the named file. If the file already exists, it is truncated. If the file does not exist, it is created with mode 0o666 (before umask). If successful, methods on the returned File can be used for I/O; the associated file descriptor has mode [O_RDWR]. The directory containing the file must already exist. If there is an error, it will be of type [*PathError].",
+      "signature": "func Create(name string) (*File, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 399,
+          "lines": [
+            "func Create(name string) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5155,
+          "lines": [
+            "pkg os, func Create(string) (*File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CreateTemp",
+      "summary": "CreateTemp creates a new temporary file in the directory dir, opens the file for reading and writing, and returns the resulting file. The filename is generated by taking pattern and adding a random string to the end. If pattern includes a \"*\", the random string replaces the last \"*\". The file is created with mode 0o600 (before umask). If dir is the empty string, CreateTemp uses the default directory for temporary files, as returned by [TempDir]. Multiple programs or goroutines calling CreateTemp simultaneously will not choose the same file. The caller can use the file's Name method to find the pathname of the file. It is the caller's responsibility to remove the file when it is no longer needed.",
+      "signature": "func CreateTemp(dir, pattern string) (*File, error)",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        },
+        {
+          "name": "pattern",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/tempfile.go",
+          "line": 35,
+          "lines": [
+            "func CreateTemp(dir, pattern string) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 388,
+          "lines": [
+            "pkg os, func CreateTemp(string, string) (*File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DirFS",
+      "summary": "DirFS returns a file system (an fs.FS) for the tree of files rooted at the directory dir.",
+      "signature": "func DirFS(dir string) fs.FS",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "fs.FS"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 743,
+          "lines": [
+            "func DirFS(dir string) fs.FS {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 389,
+          "lines": [
+            "pkg os, func DirFS(string) fs.FS"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Environ",
+      "summary": "Environ returns a copy of strings representing the environment, in the form \"key=value\".",
+      "signature": "func Environ() []string",
+      "params": [],
+      "returns": {
+        "type": "[]string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 139,
+          "lines": [
+            "func Environ() []string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5156,
+          "lines": [
+            "pkg os, func Environ() []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Executable",
+      "summary": "Executable returns the path name for the executable that started the current process. There is no guarantee that the path is still pointing to the correct executable. If a symlink was used to start the process, depending on the operating system, the result might be the symlink or the path it pointed to. If a stable result is needed, [path/filepath.EvalSymlinks] might help.",
+      "signature": "func Executable() (string, error)",
+      "params": [],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/executable.go",
+          "line": 18,
+          "lines": [
+            "func Executable() (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 233,
+          "lines": [
+            "pkg os, func Executable() (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exit",
+      "summary": "Exit causes the current program to exit with the given status code. Conventionally, code zero indicates success, non-zero an error. The program terminates immediately; deferred functions are not run.",
+      "signature": "func Exit(code int)",
+      "params": [
+        {
+          "name": "code",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/proc.go",
+          "line": 62,
+          "lines": [
+            "func Exit(code int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5157,
+          "lines": [
+            "pkg os, func Exit(int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Expand",
+      "summary": "Expand replaces ${var} or $var in the string based on the mapping function. For example, [os.ExpandEnv](s) is equivalent to [os.Expand](s, [os.Getenv]).",
+      "signature": "func Expand(s string, mapping func(string) string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "mapping",
+          "type": "func(string) string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 16,
+          "lines": [
+            "func Expand(s string, mapping func(string) string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5158,
+          "lines": [
+            "pkg os, func Expand(string, func(string) string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ExpandEnv",
+      "summary": "ExpandEnv replaces ${var} or $var in the string according to the values of the current environment variables. References to undefined variables are replaced by the empty string.",
+      "signature": "func ExpandEnv(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 50,
+          "lines": [
+            "func ExpandEnv(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5159,
+          "lines": [
+            "pkg os, func ExpandEnv(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FindProcess",
+      "summary": "FindProcess looks for a running process by its pid.",
+      "signature": "func FindProcess(pid int) (*Process, error)",
+      "params": [
+        {
+          "name": "pid",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(*Process, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/exec.go",
+          "line": 247,
+          "lines": [
+            "func FindProcess(pid int) (*Process, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5160,
+          "lines": [
+            "pkg os, func FindProcess(int) (*Process, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getegid",
+      "summary": "Getegid returns the numeric effective group id of the caller.",
+      "signature": "func Getegid() int { return syscall.Getegid() }",
+      "params": [],
+      "returns": {
+        "type": "int { return syscall.Getegid() }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/proc.go",
+          "line": 46,
+          "lines": [
+            "func Getegid() int { return syscall.Getegid() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5161,
+          "lines": [
+            "pkg os, func Getegid() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getenv",
+      "summary": "Getenv retrieves the value of the environment variable named by the key. It returns the value, which will be empty if the variable is not present. To distinguish between an empty value and an unset value, use [LookupEnv].",
+      "signature": "func Getenv(key string) string",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 101,
+          "lines": [
+            "func Getenv(key string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5162,
+          "lines": [
+            "pkg os, func Getenv(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Geteuid",
+      "summary": "Geteuid returns the numeric effective user id of the caller.",
+      "signature": "func Geteuid() int { return syscall.Geteuid() }",
+      "params": [],
+      "returns": {
+        "type": "int { return syscall.Geteuid() }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/proc.go",
+          "line": 36,
+          "lines": [
+            "func Geteuid() int { return syscall.Geteuid() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5163,
+          "lines": [
+            "pkg os, func Geteuid() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getgid",
+      "summary": "Getgid returns the numeric group id of the caller.",
+      "signature": "func Getgid() int { return syscall.Getgid() }",
+      "params": [],
+      "returns": {
+        "type": "int { return syscall.Getgid() }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/proc.go",
+          "line": 41,
+          "lines": [
+            "func Getgid() int { return syscall.Getgid() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5164,
+          "lines": [
+            "pkg os, func Getgid() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getgroups",
+      "summary": "Getgroups returns a list of the numeric ids of groups that the caller belongs to.",
+      "signature": "func Getgroups() ([]int, error)",
+      "params": [],
+      "returns": {
+        "type": "([]int, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/proc.go",
+          "line": 52,
+          "lines": [
+            "func Getgroups() ([]int, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5165,
+          "lines": [
+            "pkg os, func Getgroups() ([]int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getpagesize",
+      "summary": "Getpagesize returns the underlying system's memory page size.",
+      "signature": "func Getpagesize() int { return syscall.Getpagesize() }",
+      "params": [],
+      "returns": {
+        "type": "int { return syscall.Getpagesize() }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/types.go",
+          "line": 13,
+          "lines": [
+            "func Getpagesize() int { return syscall.Getpagesize() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5166,
+          "lines": [
+            "pkg os, func Getpagesize() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getpid",
+      "summary": "Getpid returns the process id of the caller.",
+      "signature": "func Getpid() int { return syscall.Getpid() }",
+      "params": [],
+      "returns": {
+        "type": "int { return syscall.Getpid() }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/exec.go",
+          "line": 233,
+          "lines": [
+            "func Getpid() int { return syscall.Getpid() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5167,
+          "lines": [
+            "pkg os, func Getpid() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getppid",
+      "summary": "Getppid returns the process id of the caller's parent.",
+      "signature": "func Getppid() int { return syscall.Getppid() }",
+      "params": [],
+      "returns": {
+        "type": "int { return syscall.Getppid() }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/exec.go",
+          "line": 236,
+          "lines": [
+            "func Getppid() int { return syscall.Getppid() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5168,
+          "lines": [
+            "pkg os, func Getppid() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getuid",
+      "summary": "Getuid returns the numeric user id of the caller.",
+      "signature": "func Getuid() int { return syscall.Getuid() }",
+      "params": [],
+      "returns": {
+        "type": "int { return syscall.Getuid() }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/proc.go",
+          "line": 31,
+          "lines": [
+            "func Getuid() int { return syscall.Getuid() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5169,
+          "lines": [
+            "pkg os, func Getuid() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Getwd",
+      "summary": "Getwd returns an absolute path name corresponding to the current directory. If the current directory can be reached via multiple paths (due to symbolic links), Getwd may return any one of them.",
+      "signature": "func Getwd() (dir string, err error)",
+      "params": [],
+      "returns": {
+        "type": "(dir string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/getwd.go",
+          "line": 26,
+          "lines": [
+            "func Getwd() (dir string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5170,
+          "lines": [
+            "pkg os, func Getwd() (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hostname",
+      "summary": "Hostname returns the host name reported by the kernel.",
+      "signature": "func Hostname() (name string, err error)",
+      "params": [],
+      "returns": {
+        "type": "(name string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/sys.go",
+          "line": 8,
+          "lines": [
+            "func Hostname() (name string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5171,
+          "lines": [
+            "pkg os, func Hostname() (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsExist",
+      "summary": "IsExist returns a boolean indicating whether its argument is known to report that a file or directory already exists. It is satisfied by [ErrExist] as well as some syscall errors.",
+      "signature": "func IsExist(err error) bool",
+      "params": [
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/error.go",
+          "line": 80,
+          "lines": [
+            "func IsExist(err error) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5172,
+          "lines": [
+            "pkg os, func IsExist(error) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsNotExist",
+      "summary": "IsNotExist returns a boolean indicating whether its argument is known to report that a file or directory does not exist. It is satisfied by [ErrNotExist] as well as some syscall errors.",
+      "signature": "func IsNotExist(err error) bool",
+      "params": [
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/error.go",
+          "line": 90,
+          "lines": [
+            "func IsNotExist(err error) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5173,
+          "lines": [
+            "pkg os, func IsNotExist(error) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsPathSeparator",
+      "summary": "IsPathSeparator reports whether c is a directory separator character.",
+      "signature": "func IsPathSeparator(c uint8) bool",
+      "params": [
+        {
+          "name": "c",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/path_plan9.go",
+          "line": 13,
+          "lines": [
+            "func IsPathSeparator(c uint8) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5174,
+          "lines": [
+            "pkg os, func IsPathSeparator(uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsPermission",
+      "summary": "IsPermission returns a boolean indicating whether its argument is known to report that permission is denied. It is satisfied by [ErrPermission] as well as some syscall errors.",
+      "signature": "func IsPermission(err error) bool",
+      "params": [
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/error.go",
+          "line": 100,
+          "lines": [
+            "func IsPermission(err error) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5175,
+          "lines": [
+            "pkg os, func IsPermission(error) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsTimeout",
+      "summary": "IsTimeout returns a boolean indicating whether its argument is known to report that a timeout occurred.",
+      "signature": "func IsTimeout(err error) bool",
+      "params": [
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/error.go",
+          "line": 112,
+          "lines": [
+            "func IsTimeout(err error) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 589,
+          "lines": [
+            "pkg os, func IsTimeout(error) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lchown",
+      "summary": "Lchown changes the numeric uid and gid of the named file. If the file is a symbolic link, it changes the uid and gid of the link itself. If there is an error, it will be of type [*PathError].",
+      "signature": "func Lchown(name string, uid, gid int) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "uid",
+          "type": "int"
+        },
+        {
+          "name": "gid",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 519,
+          "lines": [
+            "func Lchown(name string, uid, gid int) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5176,
+          "lines": [
+            "pkg os, func Lchown(string, int, int) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Link",
+      "summary": "Link creates newname as a hard link to the oldname file. If there is an error, it will be of type *LinkError.",
+      "signature": "func Link(oldname, newname string) error",
+      "params": [
+        {
+          "name": "oldname",
+          "type": "string"
+        },
+        {
+          "name": "newname",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 489,
+          "lines": [
+            "func Link(oldname, newname string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5177,
+          "lines": [
+            "pkg os, func Link(string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupEnv",
+      "summary": "LookupEnv retrieves the value of the environment variable named by the key. If the variable is present in the environment the value (which may be empty) is returned and the boolean is true. Otherwise the returned value will be empty and the boolean will be false.",
+      "signature": "func LookupEnv(key string) (string, bool)",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, bool)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 112,
+          "lines": [
+            "func LookupEnv(key string) (string, bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 874,
+          "lines": [
+            "pkg os, func LookupEnv(string) (string, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lstat",
+      "summary": "Lstat returns a [FileInfo] describing the named file. If the file is a symbolic link, the returned FileInfo describes the symbolic link. Lstat makes no attempt to follow the link. If there is an error, it will be of type [*PathError].",
+      "signature": "func Lstat(name string) (FileInfo, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(FileInfo, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/stat.go",
+          "line": 24,
+          "lines": [
+            "func Lstat(name string) (FileInfo, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5178,
+          "lines": [
+            "pkg os, func Lstat(string) (FileInfo, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mkdir",
+      "summary": "Mkdir creates a new directory with the specified name and permission bits (before umask). If there is an error, it will be of type [*PathError].",
+      "signature": "func Mkdir(name string, perm FileMode) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "perm",
+          "type": "FileMode"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 327,
+          "lines": [
+            "func Mkdir(name string, perm FileMode) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5179,
+          "lines": [
+            "pkg os, func Mkdir(string, FileMode) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MkdirAll",
+      "summary": "MkdirAll creates a directory named path, along with any necessary parents, and returns nil, or else returns an error. The permission bits perm (before umask) are used for all directories that MkdirAll creates. If path is already a directory, MkdirAll does nothing and returns nil.",
+      "signature": "func MkdirAll(path string, perm FileMode) error",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        },
+        {
+          "name": "perm",
+          "type": "FileMode"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/path.go",
+          "line": 19,
+          "lines": [
+            "func MkdirAll(path string, perm FileMode) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5180,
+          "lines": [
+            "pkg os, func MkdirAll(string, FileMode) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MkdirTemp",
+      "summary": "MkdirTemp creates a new temporary directory in the directory dir and returns the pathname of the new directory. The new directory's name is generated by adding a random string to the end of pattern. If pattern includes a \"*\", the random string replaces the last \"*\" instead. The directory is created with mode 0o700 (before umask). If dir is the empty string, MkdirTemp uses the default directory for temporary files, as returned by TempDir. Multiple programs or goroutines calling MkdirTemp simultaneously will not choose the same directory. It is the caller's responsibility to remove the directory when it is no longer needed.",
+      "signature": "func MkdirTemp(dir, pattern string) (string, error)",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        },
+        {
+          "name": "pattern",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/tempfile.go",
+          "line": 86,
+          "lines": [
+            "func MkdirTemp(dir, pattern string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 393,
+          "lines": [
+            "pkg os, func MkdirTemp(string, string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFile",
+      "summary": "NewFile returns a new [File] with the given file descriptor and name. The returned value will be nil if fd is not a valid file descriptor.",
+      "signature": "func NewFile(fd uintptr, name string) *File",
+      "params": [
+        {
+          "name": "fd",
+          "type": "uintptr"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*File"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 133,
+          "lines": [
+            "func NewFile(fd uintptr, name string) *File {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5181,
+          "lines": [
+            "pkg os, func NewFile(uintptr, string) *File"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewSyscallError",
+      "summary": "NewSyscallError returns, as an error, a new [SyscallError] with the given system call name and error details. As a convenience, if err is nil, NewSyscallError returns nil.",
+      "signature": "func NewSyscallError(syscall string, err error) error",
+      "params": [
+        {
+          "name": "syscall",
+          "type": "string"
+        },
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/error.go",
+          "line": 67,
+          "lines": [
+            "func NewSyscallError(syscall string, err error) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5182,
+          "lines": [
+            "pkg os, func NewSyscallError(string, error) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Open",
+      "summary": "Open opens the named file for reading. If successful, methods on the returned file can be used for reading; the associated file descriptor has mode [O_RDONLY]. If there is an error, it will be of type [*PathError].",
+      "signature": "func Open(name string) (*File, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 389,
+          "lines": [
+            "func Open(name string) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5183,
+          "lines": [
+            "pkg os, func Open(string) (*File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OpenFile",
+      "summary": "OpenFile is the generalized open call; most users will use Open or Create instead. It opens the named file with specified flag ([O_RDONLY] etc.). If the file does not exist, and the [O_CREATE] flag is passed, it is created with mode perm (before umask); the containing directory must exist. If successful, methods on the returned File can be used for I/O. If there is an error, it will be of type [*PathError].",
+      "signature": "func OpenFile(name string, flag int, perm FileMode) (*File, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "flag",
+          "type": "int"
+        },
+        {
+          "name": "perm",
+          "type": "FileMode"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 410,
+          "lines": [
+            "func OpenFile(name string, flag int, perm FileMode) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5184,
+          "lines": [
+            "pkg os, func OpenFile(string, int, FileMode) (*File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OpenInRoot",
+      "summary": "OpenInRoot opens the file name in the directory dir. It is equivalent to OpenRoot(dir) followed by opening the file in the root.",
+      "signature": "func OpenInRoot(dir, name string) (*File, error)",
+      "params": [
+        {
+          "name": "dir",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/root.go",
+          "line": 25,
+          "lines": [
+            "func OpenInRoot(dir, name string) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 186,
+          "lines": [
+            "pkg os, func OpenInRoot(string, string) (*File, error) #67002"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OpenRoot",
+      "summary": "OpenRoot opens the named directory. It follows symbolic links in the directory name. If there is an error, it will be of type [*PathError].",
+      "signature": "func OpenRoot(name string) (*Root, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Root, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/root.go",
+          "line": 82,
+          "lines": [
+            "func OpenRoot(name string) (*Root, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 187,
+          "lines": [
+            "pkg os, func OpenRoot(string) (*Root, error) #67002"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pipe",
+      "summary": "Pipe returns a connected pair of Files; reads from r return bytes written to w. It returns the files and an error, if any.",
+      "signature": "func Pipe() (r *File, w *File, err error)",
+      "params": [],
+      "returns": {
+        "type": "(r *File, w *File, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 475,
+          "lines": [
+            "func Pipe() (r *File, w *File, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5185,
+          "lines": [
+            "pkg os, func Pipe() (*File, *File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadDir",
+      "summary": "ReadDir reads the named directory, returning all its directory entries sorted by filename. If an error occurs reading the directory, ReadDir returns the entries it was able to read before the error, along with the error.",
+      "signature": "func ReadDir(name string) ([]DirEntry, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]DirEntry, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/dir.go",
+          "line": 114,
+          "lines": [
+            "func ReadDir(name string) ([]DirEntry, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 395,
+          "lines": [
+            "pkg os, func ReadDir(string) ([]fs.DirEntry, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadFile",
+      "summary": "ReadFile reads the named file and returns the contents. A successful call returns err == nil, not err == EOF. Because ReadFile reads the whole file, it does not treat an EOF from Read as an error to be reported.",
+      "signature": "func ReadFile(name string) ([]byte, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 864,
+          "lines": [
+            "func ReadFile(name string) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 396,
+          "lines": [
+            "pkg os, func ReadFile(string) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Readlink",
+      "summary": "Readlink returns the destination of the named symbolic link. If there is an error, it will be of type [*PathError].",
+      "signature": "func Readlink(name string) (string, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 446,
+          "lines": [
+            "func Readlink(name string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5186,
+          "lines": [
+            "pkg os, func Readlink(string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Remove",
+      "summary": "Remove removes the named file or directory. If there is an error, it will be of type [*PathError].",
+      "signature": "func Remove(name string) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 376,
+          "lines": [
+            "func Remove(name string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5187,
+          "lines": [
+            "pkg os, func Remove(string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RemoveAll",
+      "summary": "RemoveAll removes path and any children it contains. It removes everything it can but returns the first error it encounters. If the path does not exist, RemoveAll returns nil (no error). If there is an error, it will be of type [*PathError].",
+      "signature": "func RemoveAll(path string) error",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/path.go",
+          "line": 73,
+          "lines": [
+            "func RemoveAll(path string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5188,
+          "lines": [
+            "pkg os, func RemoveAll(string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rename",
+      "summary": "Rename renames (moves) oldpath to newpath. If newpath already exists and is not a directory, Rename replaces it. If newpath already exists and is a directory, Rename returns an error. OS-specific restrictions may apply when oldpath and newpath are in different directories. Even within the same directory, on non-Unix platforms Rename is not an atomic operation. If there is an error, it will be of type *LinkError.",
+      "signature": "func Rename(oldpath, newpath string) error",
+      "params": [
+        {
+          "name": "oldpath",
+          "type": "string"
+        },
+        {
+          "name": "newpath",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 437,
+          "lines": [
+            "func Rename(oldpath, newpath string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5189,
+          "lines": [
+            "pkg os, func Rename(string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SameFile",
+      "summary": "SameFile reports whether fi1 and fi2 describe the same file. For example, on Unix this means that the device and inode fields of the two underlying structures are identical; on other systems the decision may be based on the path names. SameFile only applies to results returned by this package's [Stat]. It returns false in other cases.",
+      "signature": "func SameFile(fi1, fi2 FileInfo) bool",
+      "params": [
+        {
+          "name": "fi1",
+          "type": "FileInfo"
+        },
+        {
+          "name": "fi2",
+          "type": "FileInfo"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/types.go",
+          "line": 69,
+          "lines": [
+            "func SameFile(fi1, fi2 FileInfo) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5190,
+          "lines": [
+            "pkg os, func SameFile(FileInfo, FileInfo) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Setenv",
+      "summary": "Setenv sets the value of the environment variable named by the key. It returns an error, if any.",
+      "signature": "func Setenv(key, value string) error",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 119,
+          "lines": [
+            "func Setenv(key, value string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5191,
+          "lines": [
+            "pkg os, func Setenv(string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StartProcess",
+      "summary": "StartProcess starts a new process with the program, arguments and attributes specified by name, argv and attr. The argv slice will become [os.Args] in the new process, so it normally starts with the program name.",
+      "signature": "func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "argv",
+          "type": "[]string"
+        },
+        {
+          "name": "attr",
+          "type": "*ProcAttr"
+        }
+      ],
+      "returns": {
+        "type": "(*Process, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/exec.go",
+          "line": 264,
+          "lines": [
+            "func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5192,
+          "lines": [
+            "pkg os, func StartProcess(string, []string, *ProcAttr) (*Process, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stat",
+      "summary": "Stat returns a [FileInfo] describing the named file. If there is an error, it will be of type [*PathError].",
+      "signature": "func Stat(name string) (FileInfo, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(FileInfo, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/stat.go",
+          "line": 11,
+          "lines": [
+            "func Stat(name string) (FileInfo, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5193,
+          "lines": [
+            "pkg os, func Stat(string) (FileInfo, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Symlink",
+      "summary": "Symlink creates newname as a symbolic link to oldname. On Windows, a symlink to a non-existent oldname creates a file symlink; if oldname is later created as a directory the symlink will not work. If there is an error, it will be of type *LinkError.",
+      "signature": "func Symlink(oldname, newname string) error",
+      "params": [
+        {
+          "name": "oldname",
+          "type": "string"
+        },
+        {
+          "name": "newname",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 497,
+          "lines": [
+            "func Symlink(oldname, newname string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5194,
+          "lines": [
+            "pkg os, func Symlink(string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TempDir",
+      "summary": "TempDir returns the default directory to use for temporary files.",
+      "signature": "func TempDir() string",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 487,
+          "lines": [
+            "func TempDir() string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5195,
+          "lines": [
+            "pkg os, func TempDir() string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Truncate",
+      "summary": "Truncate changes the size of the named file. If the file is a symbolic link, it changes the size of the link's target. If there is an error, it will be of type [*PathError].",
+      "signature": "func Truncate(name string, size int64) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file_plan9.go",
+          "line": 357,
+          "lines": [
+            "func Truncate(name string, size int64) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5196,
+          "lines": [
+            "pkg os, func Truncate(string, int64) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unsetenv",
+      "summary": "Unsetenv unsets a single environment variable.",
+      "signature": "func Unsetenv(key string) error",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.4"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/env.go",
+          "line": 128,
+          "lines": [
+            "func Unsetenv(key string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.4.txt",
+          "line": 377,
+          "lines": [
+            "pkg os, func Unsetenv(string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UserCacheDir",
+      "summary": "UserCacheDir returns the default root directory to use for user-specific cached data. Users should create their own application-specific subdirectory within this one and use that.",
+      "signature": "func UserCacheDir() (string, error)",
+      "params": [],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 504,
+          "lines": [
+            "func UserCacheDir() (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 465,
+          "lines": [
+            "pkg os, func UserCacheDir() (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UserConfigDir",
+      "summary": "UserConfigDir returns the default root directory to use for user-specific configuration data. Users should create their own application-specific subdirectory within this one and use that.",
+      "signature": "func UserConfigDir() (string, error)",
+      "params": [],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 557,
+          "lines": [
+            "func UserConfigDir() (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 220,
+          "lines": [
+            "pkg os, func UserConfigDir() (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UserHomeDir",
+      "summary": "UserHomeDir returns the current user's home directory.",
+      "signature": "func UserHomeDir() (string, error)",
+      "params": [],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 605,
+          "lines": [
+            "func UserHomeDir() (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 39,
+          "lines": [
+            "pkg os, func UserHomeDir() (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteFile",
+      "summary": "WriteFile writes data to the named file, creating it if necessary. If the file does not exist, WriteFile creates it with permissions perm (before umask); otherwise WriteFile truncates it before writing, without changing permissions. Since WriteFile requires multiple system calls to complete, a failure mid-operation can leave the file in a partially written state.",
+      "signature": "func WriteFile(name string, data []byte, perm FileMode) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "perm",
+          "type": "FileMode"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/file.go",
+          "line": 932,
+          "lines": [
+            "func WriteFile(name string, data []byte, perm FileMode) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 399,
+          "lines": [
+            "pkg os, func WriteFile(string, []uint8, fs.FileMode) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

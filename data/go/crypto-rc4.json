@@ -1,0 +1,40 @@
+{
+  "package": "crypto/rc4",
+  "functions": [
+    {
+      "name": "NewCipher",
+      "summary": "NewCipher creates and returns a new [Cipher]. The key argument should be the RC4 key, at least 1 byte and at most 256 bytes.",
+      "signature": "func NewCipher(key []byte) (*Cipher, error)",
+      "params": [
+        {
+          "name": "key",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*Cipher, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rc4/rc4.go",
+          "line": 33,
+          "lines": [
+            "func NewCipher(key []byte) (*Cipher, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 448,
+          "lines": [
+            "pkg crypto/rc4, func NewCipher([]uint8) (*Cipher, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

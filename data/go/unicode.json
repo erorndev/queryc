@@ -1,0 +1,756 @@
+{
+  "package": "unicode",
+  "functions": [
+    {
+      "name": "In",
+      "summary": "In reports whether the rune is a member of one of the ranges.",
+      "signature": "func In(r rune, ranges ...*RangeTable) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        },
+        {
+          "name": "ranges",
+          "type": "...*RangeTable"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 69,
+          "lines": [
+            "func In(r rune, ranges ...*RangeTable) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 32484,
+          "lines": [
+            "pkg unicode, func In(int32, ...*RangeTable) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Is",
+      "summary": "Is reports whether the rune is in the specified table of ranges.",
+      "signature": "func Is(rangeTab *RangeTable, r rune) bool",
+      "params": [
+        {
+          "name": "rangeTab",
+          "type": "*RangeTable"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 157,
+          "lines": [
+            "func Is(rangeTab *RangeTable, r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30627,
+          "lines": [
+            "pkg unicode, func Is(*RangeTable, int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsControl",
+      "summary": "IsControl reports whether the rune is a control character. The [C] ([Other]) Unicode category includes more code points such as surrogates; use [Is](C, r) to test for them.",
+      "signature": "func IsControl(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 81,
+          "lines": [
+            "func IsControl(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30628,
+          "lines": [
+            "pkg unicode, func IsControl(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsDigit",
+      "summary": "IsDigit reports whether the rune is a decimal digit.",
+      "signature": "func IsDigit(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/digit.go",
+          "line": 8,
+          "lines": [
+            "func IsDigit(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30629,
+          "lines": [
+            "pkg unicode, func IsDigit(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsGraphic",
+      "summary": "IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such characters include letters, marks, numbers, punctuation, symbols, and spaces, from categories [L], [M], [N], [P], [S], [Zs].",
+      "signature": "func IsGraphic(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 36,
+          "lines": [
+            "func IsGraphic(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30630,
+          "lines": [
+            "pkg unicode, func IsGraphic(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsLetter",
+      "summary": "IsLetter reports whether the rune is a letter (category [L]).",
+      "signature": "func IsLetter(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 90,
+          "lines": [
+            "func IsLetter(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30631,
+          "lines": [
+            "pkg unicode, func IsLetter(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsLower",
+      "summary": "IsLower reports whether the rune is a lower case letter.",
+      "signature": "func IsLower(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 193,
+          "lines": [
+            "func IsLower(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30632,
+          "lines": [
+            "pkg unicode, func IsLower(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsMark",
+      "summary": "IsMark reports whether the rune is a mark character (category [M]).",
+      "signature": "func IsMark(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 98,
+          "lines": [
+            "func IsMark(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30633,
+          "lines": [
+            "pkg unicode, func IsMark(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsNumber",
+      "summary": "IsNumber reports whether the rune is a number (category [N]).",
+      "signature": "func IsNumber(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 104,
+          "lines": [
+            "func IsNumber(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30634,
+          "lines": [
+            "pkg unicode, func IsNumber(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsOneOf",
+      "summary": "IsOneOf reports whether the rune is a member of one of the ranges. The function \"In\" provides a nicer signature and should be used in preference to IsOneOf.",
+      "signature": "func IsOneOf(ranges []*RangeTable, r rune) bool",
+      "params": [
+        {
+          "name": "ranges",
+          "type": "[]*RangeTable"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 59,
+          "lines": [
+            "func IsOneOf(ranges []*RangeTable, r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30635,
+          "lines": [
+            "pkg unicode, func IsOneOf([]*RangeTable, int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsPrint",
+      "summary": "IsPrint reports whether the rune is defined as printable by Go. Such characters include letters, marks, numbers, punctuation, symbols, and the ASCII space character, from categories [L], [M], [N], [P], [S] and the ASCII space character. This categorization is the same as [IsGraphic] except that the only spacing character is ASCII space, U+0020.",
+      "signature": "func IsPrint(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 50,
+          "lines": [
+            "func IsPrint(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30636,
+          "lines": [
+            "pkg unicode, func IsPrint(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsPunct",
+      "summary": "IsPunct reports whether the rune is a Unicode punctuation character (category [P]).",
+      "signature": "func IsPunct(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 113,
+          "lines": [
+            "func IsPunct(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30637,
+          "lines": [
+            "pkg unicode, func IsPunct(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsSpace",
+      "summary": "IsSpace reports whether the rune is a space character as defined by Unicode's White Space property; in the Latin-1 space this is",
+      "signature": "func IsSpace(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 128,
+          "lines": [
+            "func IsSpace(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30638,
+          "lines": [
+            "pkg unicode, func IsSpace(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsSymbol",
+      "summary": "IsSymbol reports whether the rune is a symbolic character.",
+      "signature": "func IsSymbol(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/graphic.go",
+          "line": 141,
+          "lines": [
+            "func IsSymbol(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30639,
+          "lines": [
+            "pkg unicode, func IsSymbol(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsTitle",
+      "summary": "IsTitle reports whether the rune is a title case letter.",
+      "signature": "func IsTitle(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 202,
+          "lines": [
+            "func IsTitle(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30640,
+          "lines": [
+            "pkg unicode, func IsTitle(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsUpper",
+      "summary": "IsUpper reports whether the rune is an upper case letter.",
+      "signature": "func IsUpper(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 184,
+          "lines": [
+            "func IsUpper(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30641,
+          "lines": [
+            "pkg unicode, func IsUpper(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SimpleFold",
+      "summary": "SimpleFold iterates over Unicode code points equivalent under the Unicode-defined simple case folding. Among the code points equivalent to rune (including rune itself), SimpleFold returns the smallest rune > r if one exists, or else the smallest rune >= 0. If r is not a valid Unicode code point, SimpleFold(r) returns r.",
+      "signature": "func SimpleFold(r rune) rune",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 354,
+          "lines": [
+            "func SimpleFold(r rune) rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30642,
+          "lines": [
+            "pkg unicode, func SimpleFold(int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "To",
+      "summary": "To maps the rune to the specified case: [UpperCase], [LowerCase], or [TitleCase].",
+      "signature": "func To(_case int, r rune) rune",
+      "params": [
+        {
+          "name": "_case",
+          "type": "int"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 262,
+          "lines": [
+            "func To(_case int, r rune) rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30643,
+          "lines": [
+            "pkg unicode, func To(int, int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToLower",
+      "summary": "ToLower maps the rune to lower case.",
+      "signature": "func ToLower(r rune) rune",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 279,
+          "lines": [
+            "func ToLower(r rune) rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30644,
+          "lines": [
+            "pkg unicode, func ToLower(int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToTitle",
+      "summary": "ToTitle maps the rune to title case.",
+      "signature": "func ToTitle(r rune) rune",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 290,
+          "lines": [
+            "func ToTitle(r rune) rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30645,
+          "lines": [
+            "pkg unicode, func ToTitle(int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToUpper",
+      "summary": "ToUpper maps the rune to upper case.",
+      "signature": "func ToUpper(r rune) rune",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/letter.go",
+          "line": 268,
+          "lines": [
+            "func ToUpper(r rune) rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30646,
+          "lines": [
+            "pkg unicode, func ToUpper(int32) int32"
+          ]
+        }
+      ]
+    }
+  ]
+}

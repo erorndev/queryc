@@ -1,0 +1,479 @@
+{
+  "package": "runtime/debug",
+  "functions": [
+    {
+      "name": "FreeOSMemory",
+      "summary": "FreeOSMemory forces a garbage collection followed by an attempt to return as much memory to the operating system as possible. (Even if this is not called, the runtime gradually returns memory to the operating system in a background task.)",
+      "signature": "func FreeOSMemory()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 101,
+          "lines": [
+            "func FreeOSMemory() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2596,
+          "lines": [
+            "pkg runtime/debug, func FreeOSMemory()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseBuildInfo",
+      "summary": "ParseBuildInfo parses the string returned by [*BuildInfo.String], restoring the original BuildInfo, except that the GoVersion field is not set. Programs should normally not call this function, but instead call [ReadBuildInfo], [debug/buildinfo.ReadFile], or [debug/buildinfo.Read].",
+      "signature": "func ParseBuildInfo(data string) (bi *BuildInfo, err error)",
+      "params": [
+        {
+          "name": "data",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(bi *BuildInfo, err error)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/mod.go",
+          "line": 159,
+          "lines": [
+            "func ParseBuildInfo(data string) (bi *BuildInfo, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 173,
+          "lines": [
+            "pkg runtime/debug, func ParseBuildInfo(string) (*BuildInfo, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PrintStack",
+      "summary": "PrintStack prints to standard error the stack trace returned by runtime.Stack.",
+      "signature": "func PrintStack()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/stack.go",
+          "line": 17,
+          "lines": [
+            "func PrintStack() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5744,
+          "lines": [
+            "pkg runtime/debug, func PrintStack()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadBuildInfo",
+      "summary": "ReadBuildInfo returns the build information embedded in the running binary. The information is available only in binaries built with module support.",
+      "signature": "func ReadBuildInfo() (info *BuildInfo, ok bool)",
+      "params": [],
+      "returns": {
+        "type": "(info *BuildInfo, ok bool)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/mod.go",
+          "line": 20,
+          "lines": [
+            "func ReadBuildInfo() (info *BuildInfo, ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 48,
+          "lines": [
+            "pkg runtime/debug, func ReadBuildInfo() (*BuildInfo, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadGCStats",
+      "summary": "ReadGCStats reads statistics about garbage collection into stats. The number of entries in the pause history is system-dependent; stats.Pause slice will be reused if large enough, reallocated otherwise. ReadGCStats may use the full capacity of the stats.Pause slice. If stats.PauseQuantiles is non-empty, ReadGCStats fills it with quantiles summarizing the distribution of pause time. For example, if len(stats.PauseQuantiles) is 5, it will be filled with the minimum, 25%, 50%, 75%, and maximum pause times.",
+      "signature": "func ReadGCStats(stats *GCStats)",
+      "params": [
+        {
+          "name": "stats",
+          "type": "*GCStats"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 31,
+          "lines": [
+            "func ReadGCStats(stats *GCStats) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2597,
+          "lines": [
+            "pkg runtime/debug, func ReadGCStats(*GCStats)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetCrashOutput",
+      "summary": "SetCrashOutput configures a single additional file where unhandled panics and other fatal errors are printed, in addition to standard error. There is only one additional file: calling SetCrashOutput again overrides any earlier call. SetCrashOutput duplicates f's file descriptor, so the caller may safely close f as soon as SetCrashOutput returns. To disable this additional crash output, call SetCrashOutput(nil). If called concurrently with a crash, some in-progress output may be written to the old file even after an overriding SetCrashOutput returns.",
+      "signature": "func SetCrashOutput(f *os.File, opts CrashOptions) error",
+      "params": [
+        {
+          "name": "f",
+          "type": "*os.File"
+        },
+        {
+          "name": "opts",
+          "type": "CrashOptions"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/stack.go",
+          "line": 49,
+          "lines": [
+            "func SetCrashOutput(f *os.File, opts CrashOptions) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 87,
+          "lines": [
+            "pkg runtime/debug, func SetCrashOutput(*os.File, CrashOptions) error #42888"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetGCPercent",
+      "summary": "SetGCPercent sets the garbage collection target percentage: a collection is triggered when the ratio of freshly allocated data to live data remaining after the previous collection reaches this percentage. SetGCPercent returns the previous setting. The initial setting is the value of the GOGC environment variable at startup, or 100 if the variable is not set. This setting may be effectively reduced in order to maintain a memory limit. A negative percentage effectively disables garbage collection, unless the memory limit is reached. See SetMemoryLimit for more details.",
+      "signature": "func SetGCPercent(percent int) int",
+      "params": [
+        {
+          "name": "percent",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 93,
+          "lines": [
+            "func SetGCPercent(percent int) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2598,
+          "lines": [
+            "pkg runtime/debug, func SetGCPercent(int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetMaxStack",
+      "summary": "SetMaxStack sets the maximum amount of memory that can be used by a single goroutine stack. If any goroutine exceeds this limit while growing its stack, the program crashes. SetMaxStack returns the previous setting. The initial setting is 1 GB on 64-bit systems, 250 MB on 32-bit systems. There may be a system-imposed maximum stack limit regardless of the value provided to SetMaxStack.",
+      "signature": "func SetMaxStack(bytes int) int",
+      "params": [
+        {
+          "name": "bytes",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 117,
+          "lines": [
+            "func SetMaxStack(bytes int) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 770,
+          "lines": [
+            "pkg runtime/debug, func SetMaxStack(int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetMaxThreads",
+      "summary": "SetMaxThreads sets the maximum number of operating system threads that the Go program can use. If it attempts to use more than this many, the program crashes. SetMaxThreads returns the previous setting. The initial setting is 10,000 threads.",
+      "signature": "func SetMaxThreads(threads int) int",
+      "params": [
+        {
+          "name": "threads",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 135,
+          "lines": [
+            "func SetMaxThreads(threads int) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 771,
+          "lines": [
+            "pkg runtime/debug, func SetMaxThreads(int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetMemoryLimit",
+      "summary": "SetMemoryLimit provides the runtime with a soft memory limit.",
+      "signature": "func SetMemoryLimit(limit int64) int64",
+      "params": [
+        {
+          "name": "limit",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "int64"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 234,
+          "lines": [
+            "func SetMemoryLimit(limit int64) int64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 249,
+          "lines": [
+            "pkg runtime/debug, func SetMemoryLimit(int64) int64 #48409"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetPanicOnFault",
+      "summary": "SetPanicOnFault controls the runtime's behavior when a program faults at an unexpected (non-nil) address. Such faults are typically caused by bugs such as runtime memory corruption, so the default response is to crash the program. Programs working with memory-mapped files or unsafe manipulation of memory may cause faults at non-nil addresses in less dramatic situations; SetPanicOnFault allows such programs to request that the runtime trigger only a panic, not a crash. The runtime.Error that the runtime panics with may have an additional method:",
+      "signature": "func SetPanicOnFault(enabled bool) bool",
+      "params": [
+        {
+          "name": "enabled",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.3"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 155,
+          "lines": [
+            "func SetPanicOnFault(enabled bool) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.3.txt",
+          "line": 217,
+          "lines": [
+            "pkg runtime/debug, func SetPanicOnFault(bool) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetTraceback",
+      "summary": "SetTraceback sets the amount of detail printed by the runtime in the traceback it prints before exiting due to an unrecovered panic or an internal runtime error. The level argument takes the same values as the GOTRACEBACK environment variable. For example, SetTraceback(\"all\") ensure that the program prints all goroutines when it crashes. See the package runtime documentation for details. If SetTraceback is called with a level lower than that of the environment variable, the call is ignored.",
+      "signature": "func SetTraceback(level string)",
+      "params": [
+        {
+          "name": "level",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.6"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 179,
+          "lines": [
+            "func SetTraceback(level string)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.6.txt",
+          "line": 265,
+          "lines": [
+            "pkg runtime/debug, func SetTraceback(string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stack",
+      "summary": "Stack returns a formatted stack trace of the goroutine that calls it. It calls [runtime.Stack] with a large enough buffer to capture the entire trace.",
+      "signature": "func Stack() []byte",
+      "params": [],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/stack.go",
+          "line": 23,
+          "lines": [
+            "func Stack() []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5745,
+          "lines": [
+            "pkg runtime/debug, func Stack() []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteHeapDump",
+      "summary": "WriteHeapDump writes a description of the heap and the objects in it to the given file descriptor.",
+      "signature": "func WriteHeapDump(fd uintptr)",
+      "params": [
+        {
+          "name": "fd",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.3"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/debug/garbage.go",
+          "line": 168,
+          "lines": [
+            "func WriteHeapDump(fd uintptr)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.3.txt",
+          "line": 218,
+          "lines": [
+            "pkg runtime/debug, func WriteHeapDump(uintptr)"
+          ]
+        }
+      ]
+    }
+  ]
+}

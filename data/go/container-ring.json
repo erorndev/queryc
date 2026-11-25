@@ -1,0 +1,40 @@
+{
+  "package": "container/ring",
+  "functions": [
+    {
+      "name": "New",
+      "summary": "New creates a ring of n elements.",
+      "signature": "func New(n int) *Ring",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "*Ring"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/container/ring/ring.go",
+          "line": 60,
+          "lines": [
+            "func New(n int) *Ring {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 312,
+          "lines": [
+            "pkg container/ring, func New(int) *Ring"
+          ]
+        }
+      ]
+    }
+  ]
+}

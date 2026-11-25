@@ -1,0 +1,114 @@
+{
+  "package": "go/version",
+  "functions": [
+    {
+      "name": "Compare",
+      "summary": "Compare returns -1, 0, or +1 depending on whether x < y, x == y, or x > y, interpreted as Go versions. The versions x and y must begin with a \"go\" prefix: \"go1.21\" not \"1.21\". Invalid versions, including the empty string, compare less than valid versions and equal to each other. The language version \"go1.21\" compares less than the release candidate and eventual releases \"go1.21rc1\" and \"go1.21.0\".",
+      "signature": "func Compare(x, y string) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "string"
+        },
+        {
+          "name": "y",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/version/version.go",
+          "line": 57,
+          "lines": [
+            "func Compare(x, y string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 57,
+          "lines": [
+            "pkg go/version, func Compare(string, string) int #62039"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsValid",
+      "summary": "IsValid reports whether the version x is valid.",
+      "signature": "func IsValid(x string) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/version/version.go",
+          "line": 62,
+          "lines": [
+            "func IsValid(x string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 58,
+          "lines": [
+            "pkg go/version, func IsValid(string) bool #62039"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lang",
+      "summary": "Lang returns the Go language version for version x. If x is not a valid version, Lang returns the empty string. For example:",
+      "signature": "func Lang(x string) string",
+      "params": [
+        {
+          "name": "x",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/version/version.go",
+          "line": 38,
+          "lines": [
+            "func Lang(x string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 59,
+          "lines": [
+            "pkg go/version, func Lang(string) string #62039"
+          ]
+        }
+      ]
+    }
+  ]
+}

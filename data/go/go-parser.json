@@ -1,0 +1,181 @@
+{
+  "package": "go/parser",
+  "functions": [
+    {
+      "name": "ParseDir",
+      "summary": "ParseDir calls [ParseFile] for all files with names ending in \".go\" in the directory specified by path and returns a map of package name -> package AST with all the packages found.",
+      "signature": "func ParseDir(fset *token.FileSet, path string, filter func(fs.FileInfo) bool, mode Mode) (pkgs map[string]*ast.Package, first error)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        },
+        {
+          "name": "filter",
+          "type": "func(fs.FileInfo) bool"
+        },
+        {
+          "name": "mode",
+          "type": "Mode"
+        }
+      ],
+      "returns": {
+        "type": "(pkgs map[string]*ast.Package, first error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/parser/interface.go",
+          "line": 153,
+          "lines": [
+            "func ParseDir(fset *token.FileSet, path string, filter func(fs.FileInfo) bool, mode Mode) (pkgs map[string]*ast.Package, first error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3146,
+          "lines": [
+            "pkg go/parser, func ParseDir(*token.FileSet, string, func(os.FileInfo) bool, Mode) (map[string]*ast.Package, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseExpr",
+      "summary": "ParseExpr is a convenience function for obtaining the AST of an expression x. The position information recorded in the AST is undefined. The filename used in error messages is the empty string.",
+      "signature": "func ParseExpr(x string) (ast.Expr, error)",
+      "params": [
+        {
+          "name": "x",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(ast.Expr, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/parser/interface.go",
+          "line": 251,
+          "lines": [
+            "func ParseExpr(x string) (ast.Expr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3147,
+          "lines": [
+            "pkg go/parser, func ParseExpr(string) (ast.Expr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseExprFrom",
+      "summary": "ParseExprFrom is a convenience function for parsing an expression. The arguments have the same meaning as for [ParseFile], but the source must be a valid Go (type or value) expression. Specifically, fset must not be nil.",
+      "signature": "func ParseExprFrom(fset *token.FileSet, filename string, src any, mode Mode) (expr ast.Expr, err error)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "filename",
+          "type": "string"
+        },
+        {
+          "name": "src",
+          "type": "any"
+        },
+        {
+          "name": "mode",
+          "type": "Mode"
+        }
+      ],
+      "returns": {
+        "type": "(expr ast.Expr, err error)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/parser/interface.go",
+          "line": 203,
+          "lines": [
+            "func ParseExprFrom(fset *token.FileSet, filename string, src any, mode Mode) (expr ast.Expr, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 335,
+          "lines": [
+            "pkg go/parser, func ParseExprFrom(*token.FileSet, string, interface{}, Mode) (ast.Expr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseFile",
+      "summary": "ParseFile parses the source code of a single Go source file and returns the corresponding [ast.File] node. The source code may be provided via the filename of the source file, or via the src parameter.",
+      "signature": "func ParseFile(fset *token.FileSet, filename string, src any, mode Mode) (f *ast.File, err error)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "filename",
+          "type": "string"
+        },
+        {
+          "name": "src",
+          "type": "any"
+        },
+        {
+          "name": "mode",
+          "type": "Mode"
+        }
+      ],
+      "returns": {
+        "type": "(f *ast.File, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/parser/interface.go",
+          "line": 84,
+          "lines": [
+            "func ParseFile(fset *token.FileSet, filename string, src any, mode Mode) (f *ast.File, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3148,
+          "lines": [
+            "pkg go/parser, func ParseFile(*token.FileSet, string, interface{}, Mode) (*ast.File, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

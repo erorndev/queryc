@@ -1,0 +1,48 @@
+{
+  "package": "go/printer",
+  "functions": [
+    {
+      "name": "Fprint",
+      "summary": "Fprint \"pretty-prints\" an AST node to output. It calls [Config.Fprint] with default settings. Note that gofmt uses tabs for indentation but spaces for alignment; use format.Node (package go/format) for output that matches gofmt.",
+      "signature": "func Fprint(output io.Writer, fset *token.FileSet, node any) error",
+      "params": [
+        {
+          "name": "output",
+          "type": "io.Writer"
+        },
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "node",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/printer/printer.go",
+          "line": 1431,
+          "lines": [
+            "func Fprint(output io.Writer, fset *token.FileSet, node any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3154,
+          "lines": [
+            "pkg go/printer, func Fprint(io.Writer, *token.FileSet, interface{}) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

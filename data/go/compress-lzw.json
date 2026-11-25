@@ -1,0 +1,91 @@
+{
+  "package": "compress/lzw",
+  "functions": [
+    {
+      "name": "NewReader",
+      "summary": "NewReader creates a new [io.ReadCloser]. Reads from the returned [io.ReadCloser] read and decompress data from r. If r does not also implement [io.ByteReader], the decompressor may read more data than necessary from r. It is the caller's responsibility to call Close on the ReadCloser when finished reading. The number of bits to use for literal codes, litWidth, must be in the range [2,8] and is typically 8. It must equal the litWidth used during compression.",
+      "signature": "func NewReader(r io.Reader, order Order, litWidth int) io.ReadCloser",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        },
+        {
+          "name": "order",
+          "type": "Order"
+        },
+        {
+          "name": "litWidth",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "io.ReadCloser"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/lzw/reader.go",
+          "line": 254,
+          "lines": [
+            "func NewReader(r io.Reader, order Order, litWidth int) io.ReadCloser {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 264,
+          "lines": [
+            "pkg compress/lzw, func NewReader(io.Reader, Order, int) io.ReadCloser"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter creates a new [io.WriteCloser]. Writes to the returned [io.WriteCloser] are compressed and written to w. It is the caller's responsibility to call Close on the WriteCloser when finished writing. The number of bits to use for literal codes, litWidth, must be in the range [2,8] and is typically 8. Input bytes must be less than 1<<litWidth.",
+      "signature": "func NewWriter(w io.Writer, order Order, litWidth int) io.WriteCloser",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "order",
+          "type": "Order"
+        },
+        {
+          "name": "litWidth",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "io.WriteCloser"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/lzw/writer.go",
+          "line": 257,
+          "lines": [
+            "func NewWriter(w io.Writer, order Order, litWidth int) io.WriteCloser {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 265,
+          "lines": [
+            "pkg compress/lzw, func NewWriter(io.Writer, Order, int) io.WriteCloser"
+          ]
+        }
+      ]
+    }
+  ]
+}

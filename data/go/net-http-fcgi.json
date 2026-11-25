@@ -1,0 +1,79 @@
+{
+  "package": "net/http/fcgi",
+  "functions": [
+    {
+      "name": "ProcessEnv",
+      "summary": "ProcessEnv returns FastCGI environment variables associated with the request r for which no effort was made to be included in the request itself - the data is hidden in the request's context. As an example, if REMOTE_USER is set for a request, it will not be found anywhere in r, but it will be included in ProcessEnv's response (via r's context).",
+      "signature": "func ProcessEnv(r *http.Request) map[string]string",
+      "params": [
+        {
+          "name": "r",
+          "type": "*http.Request"
+        }
+      ],
+      "returns": {
+        "type": "map[string]string"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fcgi/child.go",
+          "line": 366,
+          "lines": [
+            "func ProcessEnv(r *http.Request) map[string]string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 127,
+          "lines": [
+            "pkg net/http/fcgi, func ProcessEnv(*http.Request) map[string]string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Serve",
+      "summary": "Serve accepts incoming FastCGI connections on the listener l, creating a new goroutine for each. The goroutine reads requests and then calls handler to reply to them. If l is nil, Serve accepts connections from os.Stdin. If handler is nil, [http.DefaultServeMux] is used.",
+      "signature": "func Serve(l net.Listener, handler http.Handler) error",
+      "params": [
+        {
+          "name": "l",
+          "type": "net.Listener"
+        },
+        {
+          "name": "handler",
+          "type": "http.Handler"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fcgi/child.go",
+          "line": 339,
+          "lines": [
+            "func Serve(l net.Listener, handler http.Handler) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4867,
+          "lines": [
+            "pkg net/http/fcgi, func Serve(net.Listener, http.Handler) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

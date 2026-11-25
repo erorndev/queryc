@@ -1,0 +1,40 @@
+{
+  "package": "index/suffixarray",
+  "functions": [
+    {
+      "name": "New",
+      "summary": "New creates a new [Index] for data. [Index] creation time is O(N) for N = len(data).",
+      "signature": "func New(data []byte) *Index",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "*Index"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/index/suffixarray/suffixarray.go",
+          "line": 76,
+          "lines": [
+            "func New(data []byte) *Index {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3710,
+          "lines": [
+            "pkg index/suffixarray, func New([]uint8) *Index"
+          ]
+        }
+      ]
+    }
+  ]
+}

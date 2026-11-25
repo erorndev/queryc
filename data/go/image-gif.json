@@ -1,0 +1,192 @@
+{
+  "package": "image/gif",
+  "functions": [
+    {
+      "name": "Decode",
+      "summary": "Decode reads a GIF image from r and returns the first embedded image as an [image.Image].",
+      "signature": "func Decode(r io.Reader) (image.Image, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(image.Image, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/gif/reader.go",
+          "line": 565,
+          "lines": [
+            "func Decode(r io.Reader) (image.Image, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3683,
+          "lines": [
+            "pkg image/gif, func Decode(io.Reader) (image.Image, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeAll",
+      "summary": "DecodeAll reads a GIF image from r and returns the sequential frames and timing information.",
+      "signature": "func DecodeAll(r io.Reader) (*GIF, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(*GIF, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/gif/reader.go",
+          "line": 605,
+          "lines": [
+            "func DecodeAll(r io.Reader) (*GIF, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3684,
+          "lines": [
+            "pkg image/gif, func DecodeAll(io.Reader) (*GIF, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeConfig",
+      "summary": "DecodeConfig returns the global color model and dimensions of a GIF image without decoding the entire image.",
+      "signature": "func DecodeConfig(r io.Reader) (image.Config, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(image.Config, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/gif/reader.go",
+          "line": 627,
+          "lines": [
+            "func DecodeConfig(r io.Reader) (image.Config, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3685,
+          "lines": [
+            "pkg image/gif, func DecodeConfig(io.Reader) (image.Config, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Encode",
+      "summary": "Encode writes the Image m to w in GIF format.",
+      "signature": "func Encode(w io.Writer, m image.Image, o *Options) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "m",
+          "type": "image.Image"
+        },
+        {
+          "name": "o",
+          "type": "*Options"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/gif/writer.go",
+          "line": 410,
+          "lines": [
+            "func Encode(w io.Writer, m image.Image, o *Options) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 108,
+          "lines": [
+            "pkg image/gif, func Encode(io.Writer, image.Image, *Options) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncodeAll",
+      "summary": "EncodeAll writes the images in g to w in GIF format with the given loop count and delay between frames.",
+      "signature": "func EncodeAll(w io.Writer, g *GIF) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "g",
+          "type": "*GIF"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/gif/writer.go",
+          "line": 364,
+          "lines": [
+            "func EncodeAll(w io.Writer, g *GIF) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 109,
+          "lines": [
+            "pkg image/gif, func EncodeAll(io.Writer, *GIF) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

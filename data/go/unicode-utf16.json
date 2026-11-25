@@ -1,0 +1,258 @@
+{
+  "package": "unicode/utf16",
+  "functions": [
+    {
+      "name": "AppendRune",
+      "summary": "AppendRune appends the UTF-16 encoding of the Unicode code point r to the end of p and returns the extended buffer. If the rune is not a valid Unicode code point, it appends the encoding of U+FFFD.",
+      "signature": "func AppendRune(a []uint16, r rune) []uint16",
+      "params": [
+        {
+          "name": "a",
+          "type": "[]uint16"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "[]uint16"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf16/utf16.go",
+          "line": 100,
+          "lines": [
+            "func AppendRune(a []uint16, r rune) []uint16 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 443,
+          "lines": [
+            "pkg unicode/utf16, func AppendRune([]uint16, int32) []uint16 #51896"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Decode",
+      "summary": "Decode returns the Unicode code point sequence represented by the UTF-16 encoding s.",
+      "signature": "func Decode(s []uint16) []rune",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]uint16"
+        }
+      ],
+      "returns": {
+        "type": "[]rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf16/utf16.go",
+          "line": 116,
+          "lines": [
+            "func Decode(s []uint16) []rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30850,
+          "lines": [
+            "pkg unicode/utf16, func Decode([]uint16) []int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeRune",
+      "summary": "DecodeRune returns the UTF-16 decoding of a surrogate pair. If the pair is not a valid UTF-16 surrogate pair, DecodeRune returns the Unicode replacement code point U+FFFD.",
+      "signature": "func DecodeRune(r1, r2 rune) rune",
+      "params": [
+        {
+          "name": "r1",
+          "type": "rune"
+        },
+        {
+          "name": "r2",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "rune"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf16/utf16.go",
+          "line": 37,
+          "lines": [
+            "func DecodeRune(r1, r2 rune) rune {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30851,
+          "lines": [
+            "pkg unicode/utf16, func DecodeRune(int32, int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Encode",
+      "summary": "Encode returns the UTF-16 encoding of the Unicode code point sequence s.",
+      "signature": "func Encode(s []rune) []uint16",
+      "params": [
+        {
+          "name": "s",
+          "type": "[]rune"
+        }
+      ],
+      "returns": {
+        "type": "[]uint16"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf16/utf16.go",
+          "line": 69,
+          "lines": [
+            "func Encode(s []rune) []uint16 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30852,
+          "lines": [
+            "pkg unicode/utf16, func Encode([]int32) []uint16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncodeRune",
+      "summary": "EncodeRune returns the UTF-16 surrogate pair r1, r2 for the given rune. If the rune is not a valid Unicode code point or does not need encoding, EncodeRune returns U+FFFD, U+FFFD.",
+      "signature": "func EncodeRune(r rune) (r1, r2 rune)",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "(r1, r2 rune)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf16/utf16.go",
+          "line": 47,
+          "lines": [
+            "func EncodeRune(r rune) (r1, r2 rune) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30853,
+          "lines": [
+            "pkg unicode/utf16, func EncodeRune(int32) (int32, int32)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsSurrogate",
+      "summary": "IsSurrogate reports whether the specified Unicode code point can appear in a surrogate pair.",
+      "signature": "func IsSurrogate(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf16/utf16.go",
+          "line": 30,
+          "lines": [
+            "func IsSurrogate(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30854,
+          "lines": [
+            "pkg unicode/utf16, func IsSurrogate(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RuneLen",
+      "summary": "RuneLen returns the number of 16-bit words in the UTF-16 encoding of the rune. It returns -1 if the rune is not a valid value to encode in UTF-16.",
+      "signature": "func RuneLen(r rune) int",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf16/utf16.go",
+          "line": 57,
+          "lines": [
+            "func RuneLen(r rune) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 155,
+          "lines": [
+            "pkg unicode/utf16, func RuneLen(int32) int #44940"
+          ]
+        }
+      ]
+    }
+  ]
+}

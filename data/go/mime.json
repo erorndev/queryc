@@ -1,0 +1,188 @@
+{
+  "package": "mime",
+  "functions": [
+    {
+      "name": "AddExtensionType",
+      "summary": "AddExtensionType sets the MIME type associated with the extension ext to typ. The extension should begin with a leading dot, as in \".html\".",
+      "signature": "func AddExtensionType(ext, typ string) error",
+      "params": [
+        {
+          "name": "ext",
+          "type": "string"
+        },
+        {
+          "name": "typ",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/type.go",
+          "line": 160,
+          "lines": [
+            "func AddExtensionType(ext, typ string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4319,
+          "lines": [
+            "pkg mime, func AddExtensionType(string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ExtensionsByType",
+      "summary": "ExtensionsByType returns the extensions known to be associated with the MIME type typ. The returned extensions will each begin with a leading dot, as in \".html\". When typ has no associated extensions, ExtensionsByType returns an nil slice.",
+      "signature": "func ExtensionsByType(typ string) ([]string, error)",
+      "params": [
+        {
+          "name": "typ",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]string, error)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/type.go",
+          "line": 141,
+          "lines": [
+            "func ExtensionsByType(typ string) ([]string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 846,
+          "lines": [
+            "pkg mime, func ExtensionsByType(string) ([]string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FormatMediaType",
+      "summary": "FormatMediaType serializes mediatype t and the parameters param as a media type conforming to RFC 2045 and RFC 2616. The type and parameter names are written in lower-case. When any of the arguments result in a standard violation then FormatMediaType returns the empty string.",
+      "signature": "func FormatMediaType(t string, param map[string]string) string",
+      "params": [
+        {
+          "name": "t",
+          "type": "string"
+        },
+        {
+          "name": "param",
+          "type": "map[string]string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/mediatype.go",
+          "line": 21,
+          "lines": [
+            "func FormatMediaType(t string, param map[string]string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4320,
+          "lines": [
+            "pkg mime, func FormatMediaType(string, map[string]string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseMediaType",
+      "summary": "ParseMediaType parses a media type value and any optional parameters, per RFC 1521. Media types are the values in Content-Type and Content-Disposition headers (RFC 2183). On success, ParseMediaType returns the media type converted to lowercase and trimmed of white space and a non-nil map. If there is an error parsing the optional parameter, the media type will be returned along with the error [ErrInvalidMediaParameter]. The returned map, params, maps from the lowercase attribute to the attribute value with its case preserved.",
+      "signature": "func ParseMediaType(v string) (mediatype string, params map[string]string, err error)",
+      "params": [
+        {
+          "name": "v",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(mediatype string, params map[string]string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/mediatype.go",
+          "line": 134,
+          "lines": [
+            "func ParseMediaType(v string) (mediatype string, params map[string]string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4321,
+          "lines": [
+            "pkg mime, func ParseMediaType(string) (string, map[string]string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TypeByExtension",
+      "summary": "TypeByExtension returns the MIME type associated with the file extension ext. The extension ext should begin with a leading dot, as in \".html\". When ext has no associated type, TypeByExtension returns \"\".",
+      "signature": "func TypeByExtension(ext string) string",
+      "params": [
+        {
+          "name": "ext",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/type.go",
+          "line": 104,
+          "lines": [
+            "func TypeByExtension(ext string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4322,
+          "lines": [
+            "pkg mime, func TypeByExtension(string) string"
+          ]
+        }
+      ]
+    }
+  ]
+}

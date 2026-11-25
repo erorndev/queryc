@@ -1,0 +1,91 @@
+{
+  "package": "crypto",
+  "functions": [
+    {
+      "name": "RegisterHash",
+      "summary": "RegisterHash registers a function that returns a new instance of the given hash function. This is intended to be called from the init function in packages that implement hash functions.",
+      "signature": "func RegisterHash(h Hash, f func() hash.Hash)",
+      "params": [
+        {
+          "name": "h",
+          "type": "Hash"
+        },
+        {
+          "name": "f",
+          "type": "func() hash.Hash"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/crypto.go",
+          "line": 145,
+          "lines": [
+            "func RegisterHash(h Hash, f func() hash.Hash) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 331,
+          "lines": [
+            "pkg crypto, func RegisterHash(Hash, func() hash.Hash)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SignMessage",
+      "summary": "SignMessage signs msg with signer. If signer implements [MessageSigner], [MessageSigner.SignMessage] is called directly. Otherwise, msg is hashed with opts.HashFunc() and signed with [Signer.Sign].",
+      "signature": "func SignMessage(signer Signer, rand io.Reader, msg []byte, opts SignerOpts) (signature []byte, err error)",
+      "params": [
+        {
+          "name": "signer",
+          "type": "Signer"
+        },
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "msg",
+          "type": "[]byte"
+        },
+        {
+          "name": "opts",
+          "type": "SignerOpts"
+        }
+      ],
+      "returns": {
+        "type": "(signature []byte, err error)"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/crypto.go",
+          "line": 245,
+          "lines": [
+            "func SignMessage(signer Signer, rand io.Reader, msg []byte, opts SignerOpts) (signature []byte, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 1,
+          "lines": [
+            "pkg crypto, func SignMessage(Signer, io.Reader, []uint8, SignerOpts) ([]uint8, error) #63405"
+          ]
+        }
+      ]
+    }
+  ]
+}

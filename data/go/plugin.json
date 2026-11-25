@@ -1,0 +1,40 @@
+{
+  "package": "plugin",
+  "functions": [
+    {
+      "name": "Open",
+      "summary": "Open opens a Go plugin. If a path has already been opened, then the existing *[Plugin] is returned. It is safe for concurrent use by multiple goroutines.",
+      "signature": "func Open(path string) (*Plugin, error)",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Plugin, error)"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/plugin/plugin.go",
+          "line": 83,
+          "lines": [
+            "func Open(path string) (*Plugin, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 235,
+          "lines": [
+            "pkg plugin, func Open(string) (*Plugin, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

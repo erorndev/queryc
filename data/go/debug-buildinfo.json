@@ -1,0 +1,75 @@
+{
+  "package": "debug/buildinfo",
+  "functions": [
+    {
+      "name": "Read",
+      "summary": "Read returns build information embedded in a Go binary file accessed through the given ReaderAt. Most information is only available for binaries built with module support.",
+      "signature": "func Read(r io.ReaderAt) (*BuildInfo, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.ReaderAt"
+        }
+      ],
+      "returns": {
+        "type": "(*BuildInfo, error)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/buildinfo/buildinfo.go",
+          "line": 88,
+          "lines": [
+            "func Read(r io.ReaderAt) (*BuildInfo, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 8,
+          "lines": [
+            "pkg debug/buildinfo, func Read(io.ReaderAt) (*debug.BuildInfo, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadFile",
+      "summary": "ReadFile returns build information embedded in a Go binary file at the given path. Most information is only available for binaries built with module support.",
+      "signature": "func ReadFile(name string) (info *BuildInfo, err error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(info *BuildInfo, err error)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/buildinfo/buildinfo.go",
+          "line": 68,
+          "lines": [
+            "func ReadFile(name string) (info *BuildInfo, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 9,
+          "lines": [
+            "pkg debug/buildinfo, func ReadFile(string) (*debug.BuildInfo, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

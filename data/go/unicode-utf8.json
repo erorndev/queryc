@@ -1,0 +1,538 @@
+{
+  "package": "unicode/utf8",
+  "functions": [
+    {
+      "name": "AppendRune",
+      "summary": "AppendRune appends the UTF-8 encoding of r to the end of p and returns the extended buffer. If the rune is out of range, it appends the encoding of [RuneError].",
+      "signature": "func AppendRune(p []byte, r rune) []byte",
+      "params": [
+        {
+          "name": "p",
+          "type": "[]byte"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 384,
+          "lines": [
+            "func AppendRune(p []byte, r rune) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 253,
+          "lines": [
+            "pkg unicode/utf8, func AppendRune([]uint8, int32) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeLastRune",
+      "summary": "DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and its width in bytes. If p is empty it returns ([RuneError], 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.",
+      "signature": "func DecodeLastRune(p []byte) (r rune, size int)",
+      "params": [
+        {
+          "name": "p",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(r rune, size int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 253,
+          "lines": [
+            "func DecodeLastRune(p []byte) (r rune, size int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30859,
+          "lines": [
+            "pkg unicode/utf8, func DecodeLastRune([]uint8) (int32, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeLastRuneInString",
+      "summary": "DecodeLastRuneInString is like [DecodeLastRune] but its input is a string. If s is empty it returns ([RuneError], 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.",
+      "signature": "func DecodeLastRuneInString(s string) (r rune, size int)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(r rune, size int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 290,
+          "lines": [
+            "func DecodeLastRuneInString(s string) (r rune, size int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30860,
+          "lines": [
+            "pkg unicode/utf8, func DecodeLastRuneInString(string) (int32, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeRune",
+      "summary": "DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and its width in bytes. If p is empty it returns ([RuneError], 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.",
+      "signature": "func DecodeRune(p []byte) (r rune, size int)",
+      "params": [
+        {
+          "name": "p",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(r rune, size int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 157,
+          "lines": [
+            "func DecodeRune(p []byte) (r rune, size int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30861,
+          "lines": [
+            "pkg unicode/utf8, func DecodeRune([]uint8) (int32, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeRuneInString",
+      "summary": "DecodeRuneInString is like [DecodeRune] but its input is a string. If s is empty it returns ([RuneError], 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.",
+      "signature": "func DecodeRuneInString(s string) (r rune, size int)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(r rune, size int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 205,
+          "lines": [
+            "func DecodeRuneInString(s string) (r rune, size int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30862,
+          "lines": [
+            "pkg unicode/utf8, func DecodeRuneInString(string) (int32, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncodeRune",
+      "summary": "EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune. If the rune is out of range, it writes the encoding of [RuneError]. It returns the number of bytes written.",
+      "signature": "func EncodeRune(p []byte, r rune) int",
+      "params": [
+        {
+          "name": "p",
+          "type": "[]byte"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 342,
+          "lines": [
+            "func EncodeRune(p []byte, r rune) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30863,
+          "lines": [
+            "pkg unicode/utf8, func EncodeRune([]uint8, int32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FullRune",
+      "summary": "FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune. An invalid encoding is considered a full Rune since it will convert as a width-1 error rune.",
+      "signature": "func FullRune(p []byte) bool",
+      "params": [
+        {
+          "name": "p",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 110,
+          "lines": [
+            "func FullRune(p []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30864,
+          "lines": [
+            "pkg unicode/utf8, func FullRune([]uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FullRuneInString",
+      "summary": "FullRuneInString is like FullRune but its input is a string.",
+      "signature": "func FullRuneInString(s string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 130,
+          "lines": [
+            "func FullRuneInString(s string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30865,
+          "lines": [
+            "pkg unicode/utf8, func FullRuneInString(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RuneCount",
+      "summary": "RuneCount returns the number of runes in p. Erroneous and short encodings are treated as single runes of width 1 byte.",
+      "signature": "func RuneCount(p []byte) int",
+      "params": [
+        {
+          "name": "p",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 408,
+          "lines": [
+            "func RuneCount(p []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30866,
+          "lines": [
+            "pkg unicode/utf8, func RuneCount([]uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RuneCountInString",
+      "summary": "RuneCountInString is like [RuneCount] but its input is a string.",
+      "signature": "func RuneCountInString(s string) (n int)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(n int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 421,
+          "lines": [
+            "func RuneCountInString(s string) (n int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30867,
+          "lines": [
+            "pkg unicode/utf8, func RuneCountInString(string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RuneLen",
+      "summary": "RuneLen returns the number of bytes in the UTF-8 encoding of the rune. It returns -1 if the rune is not a valid value to encode in UTF-8.",
+      "signature": "func RuneLen(r rune) int",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 321,
+          "lines": [
+            "func RuneLen(r rune) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30868,
+          "lines": [
+            "pkg unicode/utf8, func RuneLen(int32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RuneStart",
+      "summary": "RuneStart reports whether the byte could be the first byte of an encoded, possibly invalid rune. Second and subsequent bytes always have the top two bits set to 10.",
+      "signature": "func RuneStart(b byte) bool { return b&0xC0 != 0x80 }",
+      "params": [
+        {
+          "name": "b",
+          "type": "byte"
+        }
+      ],
+      "returns": {
+        "type": "bool { return b&0xC0 != 0x80 }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 431,
+          "lines": [
+            "func RuneStart(b byte) bool { return b&0xC0 != 0x80 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30869,
+          "lines": [
+            "pkg unicode/utf8, func RuneStart(uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Valid",
+      "summary": "Valid reports whether p consists entirely of valid UTF-8-encoded runes.",
+      "signature": "func Valid(p []byte) bool",
+      "params": [
+        {
+          "name": "p",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 434,
+          "lines": [
+            "func Valid(p []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30870,
+          "lines": [
+            "pkg unicode/utf8, func Valid([]uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ValidRune",
+      "summary": "ValidRune reports whether r can be legally encoded as UTF-8. Code points that are out of range or a surrogate half are illegal.",
+      "signature": "func ValidRune(r rune) bool",
+      "params": [
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 532,
+          "lines": [
+            "func ValidRune(r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 50454,
+          "lines": [
+            "pkg unicode/utf8, func ValidRune(int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ValidString",
+      "summary": "ValidString reports whether s consists entirely of valid UTF-8-encoded runes.",
+      "signature": "func ValidString(s string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/unicode/utf8/utf8.go",
+          "line": 485,
+          "lines": [
+            "func ValidString(s string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30871,
+          "lines": [
+            "pkg unicode/utf8, func ValidString(string) bool"
+          ]
+        }
+      ]
+    }
+  ]
+}

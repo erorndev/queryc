@@ -1,0 +1,1526 @@
+{
+  "package": "sync/atomic",
+  "functions": [
+    {
+      "name": "AddInt32",
+      "summary": "AddInt32 atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Int32.Add] instead.",
+      "signature": "func AddInt32(addr *int32, delta int32) (new int32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int32"
+        },
+        {
+          "name": "delta",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": "(new int32)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 115,
+          "lines": [
+            "func AddInt32(addr *int32, delta int32) (new int32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5902,
+          "lines": [
+            "pkg sync/atomic, func AddInt32(*int32, int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AddInt64",
+      "summary": "AddInt64 atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Int64.Add] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func AddInt64(addr *int64, delta int64) (new int64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int64"
+        },
+        {
+          "name": "delta",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "(new int64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 32,
+          "lines": [
+            "func AddInt64(addr *int64, delta int64) (new int64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5903,
+          "lines": [
+            "pkg sync/atomic, func AddInt64(*int64, int64) int64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AddUint32",
+      "summary": "AddUint32 atomically adds delta to *addr and returns the new value. To subtract a signed positive constant value c from x, do AddUint32(&x, ^uint32(c-1)). In particular, to decrement x, do AddUint32(&x, ^uint32(0)). Consider using the more ergonomic and less error-prone [Uint32.Add] instead.",
+      "signature": "func AddUint32(addr *uint32, delta uint32) (new uint32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint32"
+        },
+        {
+          "name": "delta",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(new uint32)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 123,
+          "lines": [
+            "func AddUint32(addr *uint32, delta uint32) (new uint32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5904,
+          "lines": [
+            "pkg sync/atomic, func AddUint32(*uint32, uint32) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AddUint64",
+      "summary": "AddUint64 atomically adds delta to *addr and returns the new value. To subtract a signed positive constant value c from x, do AddUint64(&x, ^uint64(c-1)). In particular, to decrement x, do AddUint64(&x, ^uint64(0)). Consider using the more ergonomic and less error-prone [Uint64.Add] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func AddUint64(addr *uint64, delta uint64) (new uint64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint64"
+        },
+        {
+          "name": "delta",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(new uint64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 39,
+          "lines": [
+            "func AddUint64(addr *uint64, delta uint64) (new uint64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5905,
+          "lines": [
+            "pkg sync/atomic, func AddUint64(*uint64, uint64) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AddUintptr",
+      "summary": "AddUintptr atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Uintptr.Add] instead.",
+      "signature": "func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uintptr"
+        },
+        {
+          "name": "delta",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": "(new uintptr)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 129,
+          "lines": [
+            "func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5906,
+          "lines": [
+            "pkg sync/atomic, func AddUintptr(*uintptr, uintptr) uintptr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AndInt32",
+      "summary": "AndInt32 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int32.And] instead.",
+      "signature": "func AndInt32(addr *int32, mask int32) (old int32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int32"
+        },
+        {
+          "name": "mask",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": "(old int32)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 136,
+          "lines": [
+            "func AndInt32(addr *int32, mask int32) (old int32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 101,
+          "lines": [
+            "pkg sync/atomic, func AndInt32(*int32, int32) int32 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AndInt64",
+      "summary": "AndInt64 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int64.And] instead.",
+      "signature": "func AndInt64(addr *int64, mask int64) (old int64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int64"
+        },
+        {
+          "name": "mask",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "(old int64)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 44,
+          "lines": [
+            "func AndInt64(addr *int64, mask int64) (old int64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 102,
+          "lines": [
+            "pkg sync/atomic, func AndInt64(*int64, int64) int64 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AndUint32",
+      "summary": "AndUint32 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uint32.And] instead.",
+      "signature": "func AndUint32(addr *uint32, mask uint32) (old uint32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint32"
+        },
+        {
+          "name": "mask",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(old uint32)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 143,
+          "lines": [
+            "func AndUint32(addr *uint32, mask uint32) (old uint32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 103,
+          "lines": [
+            "pkg sync/atomic, func AndUint32(*uint32, uint32) uint32 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AndUint64",
+      "summary": "AndUint64 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old. Consider using the more ergonomic and less error-prone [Uint64.And] instead.",
+      "signature": "func AndUint64(addr *uint64, mask uint64) (old uint64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint64"
+        },
+        {
+          "name": "mask",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(old uint64)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 49,
+          "lines": [
+            "func AndUint64(addr *uint64, mask uint64) (old uint64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 104,
+          "lines": [
+            "pkg sync/atomic, func AndUint64(*uint64, uint64) uint64 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AndUintptr",
+      "summary": "AndUintptr atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uintptr.And] instead.",
+      "signature": "func AndUintptr(addr *uintptr, mask uintptr) (old uintptr)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uintptr"
+        },
+        {
+          "name": "mask",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": "(old uintptr)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 150,
+          "lines": [
+            "func AndUintptr(addr *uintptr, mask uintptr) (old uintptr)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 105,
+          "lines": [
+            "pkg sync/atomic, func AndUintptr(*uintptr, uintptr) uintptr #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CompareAndSwapInt32",
+      "summary": "CompareAndSwapInt32 executes the compare-and-swap operation for an int32 value. Consider using the more ergonomic and less error-prone [Int32.CompareAndSwap] instead.",
+      "signature": "func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int32"
+        },
+        {
+          "name": "old",
+          "type": "int32"
+        },
+        {
+          "name": "new",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": "(swapped bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 93,
+          "lines": [
+            "func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5907,
+          "lines": [
+            "pkg sync/atomic, func CompareAndSwapInt32(*int32, int32, int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CompareAndSwapInt64",
+      "summary": "CompareAndSwapInt64 executes the compare-and-swap operation for an int64 value. Consider using the more ergonomic and less error-prone [Int64.CompareAndSwap] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int64"
+        },
+        {
+          "name": "old",
+          "type": "int64"
+        },
+        {
+          "name": "new",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "(swapped bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 22,
+          "lines": [
+            "func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5908,
+          "lines": [
+            "pkg sync/atomic, func CompareAndSwapInt64(*int64, int64, int64) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CompareAndSwapPointer",
+      "summary": "CompareAndSwapPointer executes the compare-and-swap operation for a unsafe.Pointer value. Consider using the more ergonomic and less error-prone [Pointer.CompareAndSwap] instead.",
+      "signature": "func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapped bool)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*unsafe.Pointer"
+        },
+        {
+          "name": "old",
+          "type": "unsafe.Pointer"
+        },
+        {
+          "name": "new",
+          "type": "unsafe.Pointer"
+        }
+      ],
+      "returns": {
+        "type": "(swapped bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 109,
+          "lines": [
+            "func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapped bool)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5909,
+          "lines": [
+            "pkg sync/atomic, func CompareAndSwapPointer(*unsafe.Pointer, unsafe.Pointer, unsafe.Pointer) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CompareAndSwapUint32",
+      "summary": "CompareAndSwapUint32 executes the compare-and-swap operation for a uint32 value. Consider using the more ergonomic and less error-prone [Uint32.CompareAndSwap] instead.",
+      "signature": "func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint32"
+        },
+        {
+          "name": "old",
+          "type": "uint32"
+        },
+        {
+          "name": "new",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(swapped bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 99,
+          "lines": [
+            "func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5910,
+          "lines": [
+            "pkg sync/atomic, func CompareAndSwapUint32(*uint32, uint32, uint32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CompareAndSwapUint64",
+      "summary": "CompareAndSwapUint64 executes the compare-and-swap operation for a uint64 value. Consider using the more ergonomic and less error-prone [Uint64.CompareAndSwap] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint64"
+        },
+        {
+          "name": "old",
+          "type": "uint64"
+        },
+        {
+          "name": "new",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(swapped bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 27,
+          "lines": [
+            "func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5911,
+          "lines": [
+            "pkg sync/atomic, func CompareAndSwapUint64(*uint64, uint64, uint64) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CompareAndSwapUintptr",
+      "summary": "CompareAndSwapUintptr executes the compare-and-swap operation for a uintptr value. Consider using the more ergonomic and less error-prone [Uintptr.CompareAndSwap] instead.",
+      "signature": "func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uintptr"
+        },
+        {
+          "name": "old",
+          "type": "uintptr"
+        },
+        {
+          "name": "new",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": "(swapped bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 105,
+          "lines": [
+            "func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5912,
+          "lines": [
+            "pkg sync/atomic, func CompareAndSwapUintptr(*uintptr, uintptr, uintptr) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadInt32",
+      "summary": "LoadInt32 atomically loads *addr. Consider using the more ergonomic and less error-prone [Int32.Load] instead.",
+      "signature": "func LoadInt32(addr *int32) (val int32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int32"
+        }
+      ],
+      "returns": {
+        "type": "(val int32)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 177,
+          "lines": [
+            "func LoadInt32(addr *int32) (val int32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5913,
+          "lines": [
+            "pkg sync/atomic, func LoadInt32(*int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadInt64",
+      "summary": "LoadInt64 atomically loads *addr. Consider using the more ergonomic and less error-prone [Int64.Load] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func LoadInt64(addr *int64) (val int64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int64"
+        }
+      ],
+      "returns": {
+        "type": "(val int64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 64,
+          "lines": [
+            "func LoadInt64(addr *int64) (val int64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5914,
+          "lines": [
+            "pkg sync/atomic, func LoadInt64(*int64) int64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadPointer",
+      "summary": "LoadPointer atomically loads *addr. Consider using the more ergonomic and less error-prone [Pointer.Load] instead.",
+      "signature": "func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*unsafe.Pointer"
+        }
+      ],
+      "returns": {
+        "type": "(val unsafe.Pointer)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 193,
+          "lines": [
+            "func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5915,
+          "lines": [
+            "pkg sync/atomic, func LoadPointer(*unsafe.Pointer) unsafe.Pointer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadUint32",
+      "summary": "LoadUint32 atomically loads *addr. Consider using the more ergonomic and less error-prone [Uint32.Load] instead.",
+      "signature": "func LoadUint32(addr *uint32) (val uint32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint32"
+        }
+      ],
+      "returns": {
+        "type": "(val uint32)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 183,
+          "lines": [
+            "func LoadUint32(addr *uint32) (val uint32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5916,
+          "lines": [
+            "pkg sync/atomic, func LoadUint32(*uint32) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadUint64",
+      "summary": "LoadUint64 atomically loads *addr. Consider using the more ergonomic and less error-prone [Uint64.Load] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func LoadUint64(addr *uint64) (val uint64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint64"
+        }
+      ],
+      "returns": {
+        "type": "(val uint64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 69,
+          "lines": [
+            "func LoadUint64(addr *uint64) (val uint64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5917,
+          "lines": [
+            "pkg sync/atomic, func LoadUint64(*uint64) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadUintptr",
+      "summary": "LoadUintptr atomically loads *addr. Consider using the more ergonomic and less error-prone [Uintptr.Load] instead.",
+      "signature": "func LoadUintptr(addr *uintptr) (val uintptr)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uintptr"
+        }
+      ],
+      "returns": {
+        "type": "(val uintptr)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 189,
+          "lines": [
+            "func LoadUintptr(addr *uintptr) (val uintptr)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5918,
+          "lines": [
+            "pkg sync/atomic, func LoadUintptr(*uintptr) uintptr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OrInt32",
+      "summary": "OrInt32 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int32.Or] instead.",
+      "signature": "func OrInt32(addr *int32, mask int32) (old int32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int32"
+        },
+        {
+          "name": "mask",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": "(old int32)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 157,
+          "lines": [
+            "func OrInt32(addr *int32, mask int32) (old int32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 106,
+          "lines": [
+            "pkg sync/atomic, func OrInt32(*int32, int32) int32 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OrInt64",
+      "summary": "OrInt64 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int64.Or] instead.",
+      "signature": "func OrInt64(addr *int64, mask int64) (old int64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int64"
+        },
+        {
+          "name": "mask",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "(old int64)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 54,
+          "lines": [
+            "func OrInt64(addr *int64, mask int64) (old int64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 107,
+          "lines": [
+            "pkg sync/atomic, func OrInt64(*int64, int64) int64 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OrUint32",
+      "summary": "OrUint32 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uint32.Or] instead.",
+      "signature": "func OrUint32(addr *uint32, mask uint32) (old uint32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint32"
+        },
+        {
+          "name": "mask",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(old uint32)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 164,
+          "lines": [
+            "func OrUint32(addr *uint32, mask uint32) (old uint32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 108,
+          "lines": [
+            "pkg sync/atomic, func OrUint32(*uint32, uint32) uint32 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OrUint64",
+      "summary": "OrUint64 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uint64.Or] instead.",
+      "signature": "func OrUint64(addr *uint64, mask uint64) (old uint64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint64"
+        },
+        {
+          "name": "mask",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(old uint64)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 59,
+          "lines": [
+            "func OrUint64(addr *uint64, mask uint64) (old uint64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 109,
+          "lines": [
+            "pkg sync/atomic, func OrUint64(*uint64, uint64) uint64 #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OrUintptr",
+      "summary": "OrUintptr atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uintptr.Or] instead.",
+      "signature": "func OrUintptr(addr *uintptr, mask uintptr) (old uintptr)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uintptr"
+        },
+        {
+          "name": "mask",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": "(old uintptr)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 171,
+          "lines": [
+            "func OrUintptr(addr *uintptr, mask uintptr) (old uintptr)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 110,
+          "lines": [
+            "pkg sync/atomic, func OrUintptr(*uintptr, uintptr) uintptr #61395"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StoreInt32",
+      "summary": "StoreInt32 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Int32.Store] instead.",
+      "signature": "func StoreInt32(addr *int32, val int32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int32"
+        },
+        {
+          "name": "val",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 199,
+          "lines": [
+            "func StoreInt32(addr *int32, val int32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5919,
+          "lines": [
+            "pkg sync/atomic, func StoreInt32(*int32, int32)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StoreInt64",
+      "summary": "StoreInt64 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Int64.Store] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func StoreInt64(addr *int64, val int64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int64"
+        },
+        {
+          "name": "val",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 74,
+          "lines": [
+            "func StoreInt64(addr *int64, val int64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5920,
+          "lines": [
+            "pkg sync/atomic, func StoreInt64(*int64, int64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StorePointer",
+      "summary": "StorePointer atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Pointer.Store] instead.",
+      "signature": "func StorePointer(addr *unsafe.Pointer, val unsafe.Pointer)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*unsafe.Pointer"
+        },
+        {
+          "name": "val",
+          "type": "unsafe.Pointer"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 215,
+          "lines": [
+            "func StorePointer(addr *unsafe.Pointer, val unsafe.Pointer)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5921,
+          "lines": [
+            "pkg sync/atomic, func StorePointer(*unsafe.Pointer, unsafe.Pointer)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StoreUint32",
+      "summary": "StoreUint32 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Uint32.Store] instead.",
+      "signature": "func StoreUint32(addr *uint32, val uint32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint32"
+        },
+        {
+          "name": "val",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 205,
+          "lines": [
+            "func StoreUint32(addr *uint32, val uint32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5922,
+          "lines": [
+            "pkg sync/atomic, func StoreUint32(*uint32, uint32)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StoreUint64",
+      "summary": "StoreUint64 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Uint64.Store] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func StoreUint64(addr *uint64, val uint64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint64"
+        },
+        {
+          "name": "val",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 79,
+          "lines": [
+            "func StoreUint64(addr *uint64, val uint64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5923,
+          "lines": [
+            "pkg sync/atomic, func StoreUint64(*uint64, uint64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StoreUintptr",
+      "summary": "StoreUintptr atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Uintptr.Store] instead.",
+      "signature": "func StoreUintptr(addr *uintptr, val uintptr)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uintptr"
+        },
+        {
+          "name": "val",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 211,
+          "lines": [
+            "func StoreUintptr(addr *uintptr, val uintptr)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5924,
+          "lines": [
+            "pkg sync/atomic, func StoreUintptr(*uintptr, uintptr)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SwapInt32",
+      "summary": "SwapInt32 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Int32.Swap] instead.",
+      "signature": "func SwapInt32(addr *int32, new int32) (old int32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int32"
+        },
+        {
+          "name": "new",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": "(old int32)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 71,
+          "lines": [
+            "func SwapInt32(addr *int32, new int32) (old int32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 774,
+          "lines": [
+            "pkg sync/atomic, func SwapInt32(*int32, int32) int32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SwapInt64",
+      "summary": "SwapInt64 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Int64.Swap] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func SwapInt64(addr *int64, new int64) (old int64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*int64"
+        },
+        {
+          "name": "new",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "(old int64)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 12,
+          "lines": [
+            "func SwapInt64(addr *int64, new int64) (old int64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 775,
+          "lines": [
+            "pkg sync/atomic, func SwapInt64(*int64, int64) int64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SwapPointer",
+      "summary": "SwapPointer atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Pointer.Swap] instead.",
+      "signature": "func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*unsafe.Pointer"
+        },
+        {
+          "name": "new",
+          "type": "unsafe.Pointer"
+        }
+      ],
+      "returns": {
+        "type": "(old unsafe.Pointer)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 87,
+          "lines": [
+            "func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 776,
+          "lines": [
+            "pkg sync/atomic, func SwapPointer(*unsafe.Pointer, unsafe.Pointer) unsafe.Pointer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SwapUint32",
+      "summary": "SwapUint32 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Uint32.Swap] instead.",
+      "signature": "func SwapUint32(addr *uint32, new uint32) (old uint32)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint32"
+        },
+        {
+          "name": "new",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(old uint32)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 77,
+          "lines": [
+            "func SwapUint32(addr *uint32, new uint32) (old uint32)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 777,
+          "lines": [
+            "pkg sync/atomic, func SwapUint32(*uint32, uint32) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SwapUint64",
+      "summary": "SwapUint64 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Uint64.Swap] instead (particularly if you target 32-bit platforms; see the bugs section).",
+      "signature": "func SwapUint64(addr *uint64, new uint64) (old uint64)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uint64"
+        },
+        {
+          "name": "new",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(old uint64)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc_32.go",
+          "line": 17,
+          "lines": [
+            "func SwapUint64(addr *uint64, new uint64) (old uint64)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 778,
+          "lines": [
+            "pkg sync/atomic, func SwapUint64(*uint64, uint64) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SwapUintptr",
+      "summary": "SwapUintptr atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Uintptr.Swap] instead.",
+      "signature": "func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "*uintptr"
+        },
+        {
+          "name": "new",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": "(old uintptr)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/atomic/doc.go",
+          "line": 83,
+          "lines": [
+            "func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 779,
+          "lines": [
+            "pkg sync/atomic, func SwapUintptr(*uintptr, uintptr) uintptr"
+          ]
+        }
+      ]
+    }
+  ]
+}

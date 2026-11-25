@@ -1,0 +1,340 @@
+{
+  "package": "encoding/xml",
+  "functions": [
+    {
+      "name": "CopyToken",
+      "summary": "CopyToken returns a copy of a Token.",
+      "signature": "func CopyToken(t Token) Token",
+      "params": [
+        {
+          "name": "t",
+          "type": "Token"
+        }
+      ],
+      "returns": {
+        "type": "Token"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/xml.go",
+          "line": 113,
+          "lines": [
+            "func CopyToken(t Token) Token {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2409,
+          "lines": [
+            "pkg encoding/xml, func CopyToken(Token) Token"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Escape",
+      "summary": "Escape is like [EscapeText] but omits the error return value. It is provided for backwards compatibility with Go 1.0. Code targeting Go 1.1 or later should use [EscapeText].",
+      "signature": "func Escape(w io.Writer, s []byte)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/xml.go",
+          "line": 2011,
+          "lines": [
+            "func Escape(w io.Writer, s []byte) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2410,
+          "lines": [
+            "pkg encoding/xml, func Escape(io.Writer, []uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EscapeText",
+      "summary": "EscapeText writes to w the properly escaped XML equivalent of the plain text data s.",
+      "signature": "func EscapeText(w io.Writer, s []byte) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "s",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/xml.go",
+          "line": 1917,
+          "lines": [
+            "func EscapeText(w io.Writer, s []byte) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 857,
+          "lines": [
+            "pkg encoding/xml, func EscapeText(io.Writer, []uint8) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Marshal",
+      "summary": "Marshal returns the XML encoding of v.",
+      "signature": "func Marshal(v any) ([]byte, error)",
+      "params": [
+        {
+          "name": "v",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/marshal.go",
+          "line": 82,
+          "lines": [
+            "func Marshal(v any) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2411,
+          "lines": [
+            "pkg encoding/xml, func Marshal(interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalIndent",
+      "summary": "MarshalIndent works like [Marshal], but each XML element begins on a new indented line that starts with prefix and is followed by one or more copies of indent according to the nesting depth.",
+      "signature": "func MarshalIndent(v any, prefix, indent string) ([]byte, error)",
+      "params": [
+        {
+          "name": "v",
+          "type": "any"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "indent",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/marshal.go",
+          "line": 132,
+          "lines": [
+            "func MarshalIndent(v any, prefix, indent string) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2412,
+          "lines": [
+            "pkg encoding/xml, func MarshalIndent(interface{}, string, string) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewDecoder",
+      "summary": "NewDecoder creates a new XML parser reading from r. If r does not implement [io.ByteReader], NewDecoder will do its own buffering.",
+      "signature": "func NewDecoder(r io.Reader) *Decoder",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*Decoder"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/xml.go",
+          "line": 222,
+          "lines": [
+            "func NewDecoder(r io.Reader) *Decoder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2413,
+          "lines": [
+            "pkg encoding/xml, func NewDecoder(io.Reader) *Decoder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncoder",
+      "summary": "NewEncoder returns a new encoder that writes to w.",
+      "signature": "func NewEncoder(w io.Writer) *Encoder",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Encoder"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/marshal.go",
+          "line": 151,
+          "lines": [
+            "func NewEncoder(w io.Writer) *Encoder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2414,
+          "lines": [
+            "pkg encoding/xml, func NewEncoder(io.Writer) *Encoder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTokenDecoder",
+      "summary": "NewTokenDecoder creates a new XML parser using an underlying token stream.",
+      "signature": "func NewTokenDecoder(t TokenReader) *Decoder",
+      "params": [
+        {
+          "name": "t",
+          "type": "TokenReader"
+        }
+      ],
+      "returns": {
+        "type": "*Decoder"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/xml.go",
+          "line": 234,
+          "lines": [
+            "func NewTokenDecoder(t TokenReader) *Decoder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 570,
+          "lines": [
+            "pkg encoding/xml, func NewTokenDecoder(TokenReader) *Decoder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unmarshal",
+      "summary": "Unmarshal parses the XML-encoded data and stores the result in the value pointed to by v, which must be an arbitrary struct, slice, or string. Well-formed data that does not fit into v is discarded.",
+      "signature": "func Unmarshal(data []byte, v any) error",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "v",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/xml/read.go",
+          "line": 133,
+          "lines": [
+            "func Unmarshal(data []byte, v any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2415,
+          "lines": [
+            "pkg encoding/xml, func Unmarshal([]uint8, interface{}) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

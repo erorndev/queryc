@@ -1,0 +1,75 @@
+{
+  "package": "database/sql/driver",
+  "functions": [
+    {
+      "name": "IsScanValue",
+      "summary": "IsScanValue is equivalent to [IsValue]. It exists for compatibility.",
+      "signature": "func IsScanValue(v any) bool",
+      "params": [
+        {
+          "name": "v",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/database/sql/driver/types.go",
+          "line": 195,
+          "lines": [
+            "func IsScanValue(v any) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 771,
+          "lines": [
+            "pkg database/sql/driver, func IsScanValue(interface{}) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsValue",
+      "summary": "IsValue reports whether v is a valid [Value] parameter type.",
+      "signature": "func IsValue(v any) bool",
+      "params": [
+        {
+          "name": "v",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/database/sql/driver/types.go",
+          "line": 180,
+          "lines": [
+            "func IsValue(v any) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 772,
+          "lines": [
+            "pkg database/sql/driver, func IsValue(interface{}) bool"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "package": "hash/crc32",
+  "functions": [
+    {
+      "name": "Checksum",
+      "summary": "Checksum returns the CRC-32 checksum of data using the polynomial represented by the [Table].",
+      "signature": "func Checksum(data []byte, tab *Table) uint32 { return Update(0, tab, data) }",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "tab",
+          "type": "*Table"
+        }
+      ],
+      "returns": {
+        "type": "uint32 { return Update(0, tab, data) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc32/crc32.go",
+          "line": 239,
+          "lines": [
+            "func Checksum(data []byte, tab *Table) uint32 { return Update(0, tab, data) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3335,
+          "lines": [
+            "pkg hash/crc32, func Checksum([]uint8, *Table) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ChecksumIEEE",
+      "summary": "ChecksumIEEE returns the CRC-32 checksum of data using the [IEEE] polynomial.",
+      "signature": "func ChecksumIEEE(data []byte) uint32",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "uint32"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc32/crc32.go",
+          "line": 243,
+          "lines": [
+            "func ChecksumIEEE(data []byte) uint32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3336,
+          "lines": [
+            "pkg hash/crc32, func ChecksumIEEE([]uint8) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeTable",
+      "summary": "MakeTable returns a [Table] constructed from the specified polynomial. The contents of this [Table] must not be modified.",
+      "signature": "func MakeTable(poly uint32) *Table",
+      "params": [
+        {
+          "name": "poly",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "*Table"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc32/crc32.go",
+          "line": 122,
+          "lines": [
+            "func MakeTable(poly uint32) *Table {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3337,
+          "lines": [
+            "pkg hash/crc32, func MakeTable(uint32) *Table"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New creates a new [hash.Hash32] computing the CRC-32 checksum using the polynomial represented by the [Table]. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements [encoding.BinaryMarshaler] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New(tab *Table) hash.Hash32",
+      "params": [
+        {
+          "name": "tab",
+          "type": "*Table"
+        }
+      ],
+      "returns": {
+        "type": "hash.Hash32"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc32/crc32.go",
+          "line": 146,
+          "lines": [
+            "func New(tab *Table) hash.Hash32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3338,
+          "lines": [
+            "pkg hash/crc32, func New(*Table) hash.Hash32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewIEEE",
+      "summary": "NewIEEE creates a new [hash.Hash32] computing the CRC-32 checksum using the [IEEE] polynomial. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements [encoding.BinaryMarshaler] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func NewIEEE() hash.Hash32 { return New(IEEETable) }",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash32 { return New(IEEETable) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc32/crc32.go",
+          "line": 158,
+          "lines": [
+            "func NewIEEE() hash.Hash32 { return New(IEEETable) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3339,
+          "lines": [
+            "pkg hash/crc32, func NewIEEE() hash.Hash32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Update",
+      "summary": "Update returns the result of adding the bytes in p to the crc.",
+      "signature": "func Update(crc uint32, tab *Table, p []byte) uint32",
+      "params": [
+        {
+          "name": "crc",
+          "type": "uint32"
+        },
+        {
+          "name": "tab",
+          "type": "*Table"
+        },
+        {
+          "name": "p",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "uint32"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc32/crc32.go",
+          "line": 217,
+          "lines": [
+            "func Update(crc uint32, tab *Table, p []byte) uint32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3340,
+          "lines": [
+            "pkg hash/crc32, func Update(uint32, *Table, []uint8) uint32"
+          ]
+        }
+      ]
+    }
+  ]
+}

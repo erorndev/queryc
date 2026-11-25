@@ -1,0 +1,149 @@
+{
+  "package": "encoding/gob",
+  "functions": [
+    {
+      "name": "NewDecoder",
+      "summary": "NewDecoder returns a new decoder that reads from the [io.Reader]. If r does not also implement [io.ByteReader], it will be wrapped in a [bufio.Reader].",
+      "signature": "func NewDecoder(r io.Reader) *Decoder",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*Decoder"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/gob/decoder.go",
+          "line": 45,
+          "lines": [
+            "func NewDecoder(r io.Reader) *Decoder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2325,
+          "lines": [
+            "pkg encoding/gob, func NewDecoder(io.Reader) *Decoder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncoder",
+      "summary": "NewEncoder returns a new encoder that will transmit on the [io.Writer].",
+      "signature": "func NewEncoder(w io.Writer) *Encoder",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Encoder"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/gob/encoder.go",
+          "line": 34,
+          "lines": [
+            "func NewEncoder(w io.Writer) *Encoder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2326,
+          "lines": [
+            "pkg encoding/gob, func NewEncoder(io.Writer) *Encoder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Register",
+      "summary": "Register records a type, identified by a value for that type, under its internal type name. That name will identify the concrete type of a value sent or received as an interface variable. Only types that will be transferred as implementations of interface values need to be registered. Expecting to be used only during initialization, it panics if the mapping between types and names is not a bijection.",
+      "signature": "func Register(value any)",
+      "params": [
+        {
+          "name": "value",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/gob/type.go",
+          "line": 861,
+          "lines": [
+            "func Register(value any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2327,
+          "lines": [
+            "pkg encoding/gob, func Register(interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegisterName",
+      "summary": "RegisterName is like [Register] but uses the provided name rather than the type's default.",
+      "signature": "func RegisterName(name string, value any)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/gob/type.go",
+          "line": 832,
+          "lines": [
+            "func RegisterName(name string, value any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2328,
+          "lines": [
+            "pkg encoding/gob, func RegisterName(string, interface{})"
+          ]
+        }
+      ]
+    }
+  ]
+}

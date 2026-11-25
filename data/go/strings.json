@@ -1,0 +1,2204 @@
+{
+  "package": "strings",
+  "functions": [
+    {
+      "name": "Clone",
+      "summary": "Clone returns a fresh copy of s. It guarantees to make a copy of s into a new allocation, which can be important when retaining only a small substring of a much larger string. Using Clone can help such programs use less memory. Of course, since using Clone makes a copy, overuse of Clone can make programs use more memory. Clone should typically be used only rarely, and only when profiling indicates that it is needed. For strings of length zero the string \"\" will be returned and no allocation is made.",
+      "signature": "func Clone(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/clone.go",
+          "line": 21,
+          "lines": [
+            "func Clone(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 180,
+          "lines": [
+            "pkg strings, func Clone(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Compare",
+      "summary": "Compare returns an integer comparing two strings lexicographically. The result will be 0 if a == b, -1 if a < b, and +1 if a > b.",
+      "signature": "func Compare(a, b string) int",
+      "params": [
+        {
+          "name": "a",
+          "type": "string"
+        },
+        {
+          "name": "b",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/compare.go",
+          "line": 15,
+          "lines": [
+            "func Compare(a, b string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 885,
+          "lines": [
+            "pkg strings, func Compare(string, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Contains",
+      "summary": "Contains reports whether substr is within s.",
+      "signature": "func Contains(s, substr string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "substr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 62,
+          "lines": [
+            "func Contains(s, substr string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5826,
+          "lines": [
+            "pkg strings, func Contains(string, string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ContainsAny",
+      "summary": "ContainsAny reports whether any Unicode code points in chars are within s.",
+      "signature": "func ContainsAny(s, chars string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "chars",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 67,
+          "lines": [
+            "func ContainsAny(s, chars string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5827,
+          "lines": [
+            "pkg strings, func ContainsAny(string, string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ContainsFunc",
+      "summary": "ContainsFunc reports whether any Unicode code points r within s satisfy f(r).",
+      "signature": "func ContainsFunc(s string, f func(rune) bool) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 77,
+          "lines": [
+            "func ContainsFunc(s string, f func(rune) bool) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 403,
+          "lines": [
+            "pkg strings, func ContainsFunc(string, func(int32) bool) bool #54386"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ContainsRune",
+      "summary": "ContainsRune reports whether the Unicode code point r is within s.",
+      "signature": "func ContainsRune(s string, r rune) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 72,
+          "lines": [
+            "func ContainsRune(s string, r rune) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5828,
+          "lines": [
+            "pkg strings, func ContainsRune(string, int32) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Count",
+      "summary": "Count counts the number of non-overlapping instances of substr in s. If substr is an empty string, Count returns 1 + the number of Unicode code points in s.",
+      "signature": "func Count(s, substr string) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "substr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 42,
+          "lines": [
+            "func Count(s, substr string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5829,
+          "lines": [
+            "pkg strings, func Count(string, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cut",
+      "summary": "Cut slices s around the first instance of sep, returning the text before and after sep. The found result reports whether sep appears in s. If sep does not appear in s, cut returns s, \"\", false.",
+      "signature": "func Cut(s, sep string) (before, after string, found bool)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(before, after string, found bool)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1285,
+          "lines": [
+            "func Cut(s, sep string) (before, after string, found bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 181,
+          "lines": [
+            "pkg strings, func Cut(string, string) (string, string, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CutPrefix",
+      "summary": "CutPrefix returns s without the provided leading prefix string and reports whether it found the prefix. If s doesn't start with prefix, CutPrefix returns s, false. If prefix is the empty string, CutPrefix returns s, true.",
+      "signature": "func CutPrefix(s, prefix string) (after string, found bool)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(after string, found bool)"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1293,
+          "lines": [
+            "func CutPrefix(s, prefix string) (after string, found bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 302,
+          "lines": [
+            "pkg strings, func CutPrefix(string, string) (string, bool) #42537"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CutSuffix",
+      "summary": "CutSuffix returns s without the provided ending suffix string and reports whether it found the suffix. If s doesn't end with suffix, CutSuffix returns s, false. If suffix is the empty string, CutSuffix returns s, true.",
+      "signature": "func CutSuffix(s, suffix string) (before string, found bool)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "suffix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(before string, found bool)"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1301,
+          "lines": [
+            "func CutSuffix(s, suffix string) (before string, found bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 303,
+          "lines": [
+            "pkg strings, func CutSuffix(string, string) (string, bool) #42537"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EqualFold",
+      "summary": "EqualFold reports whether s and t, interpreted as UTF-8 strings, are equal under simple Unicode case-folding, which is a more general form of case-insensitivity.",
+      "signature": "func EqualFold(s, t string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "t",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1194,
+          "lines": [
+            "func EqualFold(s, t string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5830,
+          "lines": [
+            "pkg strings, func EqualFold(string, string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fields",
+      "summary": "Fields splits the string s around each instance of one or more consecutive white space characters, as defined by [unicode.IsSpace], returning a slice of substrings of s or an empty slice if s contains only white space. Every element of the returned slice is non-empty. Unlike [Split], leading and trailing runs runs of white space characters are discarded.",
+      "signature": "func Fields(s string) []string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "[]string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 384,
+          "lines": [
+            "func Fields(s string) []string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5831,
+          "lines": [
+            "pkg strings, func Fields(string) []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FieldsFunc",
+      "summary": "FieldsFunc splits the string s at each run of Unicode code points c satisfying f(c) and returns an array of slices of s. If all code points in s satisfy f(c) or the string is empty, an empty slice is returned. Every element of the returned slice is non-empty. Unlike [SplitFunc], leading and trailing runs of code points satisfying f(c) are discarded.",
+      "signature": "func FieldsFunc(s string, f func(rune) bool) []string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "[]string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 441,
+          "lines": [
+            "func FieldsFunc(s string, f func(rune) bool) []string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5832,
+          "lines": [
+            "pkg strings, func FieldsFunc(string, func(int32) bool) []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FieldsFuncSeq",
+      "summary": "FieldsFuncSeq returns an iterator over substrings of s split around runs of Unicode code points satisfying f(c). The iterator yields the same strings that would be returned by [FieldsFunc](s), but without constructing the slice.",
+      "signature": "func FieldsFuncSeq(s string, f func(rune) bool) iter.Seq[string]",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[string]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/iter.go",
+          "line": 116,
+          "lines": [
+            "func FieldsFuncSeq(s string, f func(rune) bool) iter.Seq[string] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 205,
+          "lines": [
+            "pkg strings, func FieldsFuncSeq(string, func(int32) bool) iter.Seq[string] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FieldsSeq",
+      "summary": "FieldsSeq returns an iterator over substrings of s split around runs of whitespace characters, as defined by [unicode.IsSpace]. The iterator yields the same strings that would be returned by [Fields](s), but without constructing the slice.",
+      "signature": "func FieldsSeq(s string) iter.Seq[string]",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[string]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/iter.go",
+          "line": 83,
+          "lines": [
+            "func FieldsSeq(s string) iter.Seq[string] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 206,
+          "lines": [
+            "pkg strings, func FieldsSeq(string) iter.Seq[string] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HasPrefix",
+      "summary": "HasPrefix reports whether the string s begins with prefix.",
+      "signature": "func HasPrefix(s, prefix string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 520,
+          "lines": [
+            "func HasPrefix(s, prefix string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5833,
+          "lines": [
+            "pkg strings, func HasPrefix(string, string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HasSuffix",
+      "summary": "HasSuffix reports whether the string s ends with suffix.",
+      "signature": "func HasSuffix(s, suffix string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "suffix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 525,
+          "lines": [
+            "func HasSuffix(s, suffix string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5834,
+          "lines": [
+            "pkg strings, func HasSuffix(string, string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Index",
+      "summary": "Index returns the index of the first instance of substr in s, or -1 if substr is not present in s.",
+      "signature": "func Index(s, substr string) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "substr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1277,
+          "lines": [
+            "func Index(s, substr string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5835,
+          "lines": [
+            "pkg strings, func Index(string, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexAny",
+      "summary": "IndexAny returns the index of the first instance of any Unicode code point from chars in s, or -1 if no Unicode code point from chars is present in s.",
+      "signature": "func IndexAny(s, chars string) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "chars",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 201,
+          "lines": [
+            "func IndexAny(s, chars string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5836,
+          "lines": [
+            "pkg strings, func IndexAny(string, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexByte",
+      "summary": "IndexByte returns the index of the first instance of c in s, or -1 if c is not present in s.",
+      "signature": "func IndexByte(s string, c byte) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "c",
+          "type": "byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 119,
+          "lines": [
+            "func IndexByte(s string, c byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 773,
+          "lines": [
+            "pkg strings, func IndexByte(string, uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexFunc",
+      "summary": "IndexFunc returns the index into s of the first Unicode code point satisfying f(c), or -1 if none do.",
+      "signature": "func IndexFunc(s string, f func(rune) bool) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 916,
+          "lines": [
+            "func IndexFunc(s string, f func(rune) bool) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5837,
+          "lines": [
+            "pkg strings, func IndexFunc(string, func(int32) bool) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IndexRune",
+      "summary": "IndexRune returns the index of the first instance of the Unicode code point r, or -1 if rune is not present in s. If r is [utf8.RuneError], it returns the first instance of any invalid UTF-8 byte sequence.",
+      "signature": "func IndexRune(s string, r rune) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "r",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 127,
+          "lines": [
+            "func IndexRune(s string, r rune) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5838,
+          "lines": [
+            "pkg strings, func IndexRune(string, int32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Join",
+      "summary": "Join concatenates the elements of its first argument to create a single string. The separator string sep is placed between elements in the resulting string.",
+      "signature": "func Join(elems []string, sep string) string",
+      "params": [
+        {
+          "name": "elems",
+          "type": "[]string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 487,
+          "lines": [
+            "func Join(elems []string, sep string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5839,
+          "lines": [
+            "pkg strings, func Join([]string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndex",
+      "summary": "LastIndex returns the index of the last instance of substr in s, or -1 if substr is not present in s.",
+      "signature": "func LastIndex(s, substr string) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "substr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 82,
+          "lines": [
+            "func LastIndex(s, substr string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5840,
+          "lines": [
+            "pkg strings, func LastIndex(string, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndexAny",
+      "summary": "LastIndexAny returns the index of the last instance of any Unicode code point from chars in s, or -1 if no Unicode code point from chars is present in s.",
+      "signature": "func LastIndexAny(s, chars string) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "chars",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 235,
+          "lines": [
+            "func LastIndexAny(s, chars string) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5841,
+          "lines": [
+            "pkg strings, func LastIndexAny(string, string) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndexByte",
+      "summary": "LastIndexByte returns the index of the last instance of c in s, or -1 if c is not present in s.",
+      "signature": "func LastIndexByte(s string, c byte) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "c",
+          "type": "byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 285,
+          "lines": [
+            "func LastIndexByte(s string, c byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 886,
+          "lines": [
+            "pkg strings, func LastIndexByte(string, uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LastIndexFunc",
+      "summary": "LastIndexFunc returns the index into s of the last Unicode code point satisfying f(c), or -1 if none do.",
+      "signature": "func LastIndexFunc(s string, f func(rune) bool) int",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 922,
+          "lines": [
+            "func LastIndexFunc(s string, f func(rune) bool) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5842,
+          "lines": [
+            "pkg strings, func LastIndexFunc(string, func(int32) bool) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lines",
+      "summary": "Lines returns an iterator over the newline-terminated lines in the string s. The lines yielded by the iterator include their terminating newlines. If s is empty, the iterator yields no lines at all. If s does not end in a newline, the final yielded line will not end in a newline. It returns a single-use iterator.",
+      "signature": "func Lines(s string) iter.Seq[string]",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[string]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/iter.go",
+          "line": 18,
+          "lines": [
+            "func Lines(s string) iter.Seq[string] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 207,
+          "lines": [
+            "pkg strings, func Lines(string) iter.Seq[string] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Map",
+      "summary": "Map returns a copy of the string s with all its characters modified according to the mapping function. If mapping returns a negative value, the character is dropped from the string with no replacement.",
+      "signature": "func Map(mapping func(rune) rune, s string) string",
+      "params": [
+        {
+          "name": "mapping",
+          "type": "func(rune) rune"
+        },
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 532,
+          "lines": [
+            "func Map(mapping func(rune) rune, s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5843,
+          "lines": [
+            "pkg strings, func Map(func(int32) int32, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReader",
+      "summary": "NewReader returns a new [Reader] reading from s. It is similar to [bytes.NewBufferString] but more efficient and non-writable.",
+      "signature": "func NewReader(s string) *Reader { return &Reader{s, 0, -1} }",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Reader { return &Reader{s, 0, -1} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/reader.go",
+          "line": 160,
+          "lines": [
+            "func NewReader(s string) *Reader { return &Reader{s, 0, -1} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5844,
+          "lines": [
+            "pkg strings, func NewReader(string) *Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReplacer",
+      "summary": "NewReplacer returns a new [Replacer] from a list of old, new string pairs. Replacements are performed in the order they appear in the target string, without overlapping matches. The old string comparisons are done in argument order.",
+      "signature": "func NewReplacer(oldnew ...string) *Replacer",
+      "params": [
+        {
+          "name": "oldnew",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "*Replacer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/replace.go",
+          "line": 32,
+          "lines": [
+            "func NewReplacer(oldnew ...string) *Replacer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5845,
+          "lines": [
+            "pkg strings, func NewReplacer(...string) *Replacer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Repeat",
+      "summary": "Repeat returns a new string consisting of count copies of the string s.",
+      "signature": "func Repeat(s string, count int) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "count",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 616,
+          "lines": [
+            "func Repeat(s string, count int) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5846,
+          "lines": [
+            "pkg strings, func Repeat(string, int) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Replace",
+      "summary": "Replace returns a copy of the string s with the first n non-overlapping instances of old replaced by new. If old is empty, it matches at the beginning of the string and after each UTF-8 sequence, yielding up to k+1 replacements for a k-rune string. If n < 0, there is no limit on the number of replacements.",
+      "signature": "func Replace(s, old, new string, n int) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "old",
+          "type": "string"
+        },
+        {
+          "name": "new",
+          "type": "string"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1145,
+          "lines": [
+            "func Replace(s, old, new string, n int) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5847,
+          "lines": [
+            "pkg strings, func Replace(string, string, string, int) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReplaceAll",
+      "summary": "ReplaceAll returns a copy of the string s with all non-overlapping instances of old replaced by new. If old is empty, it matches at the beginning of the string and after each UTF-8 sequence, yielding up to k+1 replacements for a k-rune string.",
+      "signature": "func ReplaceAll(s, old, new string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "old",
+          "type": "string"
+        },
+        {
+          "name": "new",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1187,
+          "lines": [
+            "func ReplaceAll(s, old, new string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 58,
+          "lines": [
+            "pkg strings, func ReplaceAll(string, string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Split",
+      "summary": "Split slices s into all substrings separated by sep and returns a slice of the substrings between those separators.",
+      "signature": "func Split(s, sep string) []string { return genSplit(s, sep, 0, -1) }",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "[]string { return genSplit(s, sep, 0, -1) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 361,
+          "lines": [
+            "func Split(s, sep string) []string { return genSplit(s, sep, 0, -1) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5848,
+          "lines": [
+            "pkg strings, func Split(string, string) []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitAfter",
+      "summary": "SplitAfter slices s into all substrings after each instance of sep and returns a slice of those substrings.",
+      "signature": "func SplitAfter(s, sep string) []string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "[]string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 373,
+          "lines": [
+            "func SplitAfter(s, sep string) []string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5849,
+          "lines": [
+            "pkg strings, func SplitAfter(string, string) []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitAfterN",
+      "summary": "SplitAfterN slices s into substrings after each instance of sep and returns a slice of those substrings.",
+      "signature": "func SplitAfterN(s, sep string, n int) []string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[]string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 345,
+          "lines": [
+            "func SplitAfterN(s, sep string, n int) []string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5850,
+          "lines": [
+            "pkg strings, func SplitAfterN(string, string, int) []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitAfterSeq",
+      "summary": "SplitAfterSeq returns an iterator over substrings of s split after each instance of sep. The iterator yields the same strings that would be returned by [SplitAfter](s, sep), but without constructing the slice. It returns a single-use iterator.",
+      "signature": "func SplitAfterSeq(s, sep string) iter.Seq[string]",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[string]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/iter.go",
+          "line": 75,
+          "lines": [
+            "func SplitAfterSeq(s, sep string) iter.Seq[string] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 208,
+          "lines": [
+            "pkg strings, func SplitAfterSeq(string, string) iter.Seq[string] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitN",
+      "summary": "SplitN slices s into substrings separated by sep and returns a slice of the substrings between those separators.",
+      "signature": "func SplitN(s, sep string, n int) []string { return genSplit(s, sep, 0, n) }",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[]string { return genSplit(s, sep, 0, n) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 333,
+          "lines": [
+            "func SplitN(s, sep string, n int) []string { return genSplit(s, sep, 0, n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5851,
+          "lines": [
+            "pkg strings, func SplitN(string, string, int) []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitSeq",
+      "summary": "SplitSeq returns an iterator over all substrings of s separated by sep. The iterator yields the same strings that would be returned by [Split](s, sep), but without constructing the slice. It returns a single-use iterator.",
+      "signature": "func SplitSeq(s, sep string) iter.Seq[string]",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "sep",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[string]"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/iter.go",
+          "line": 67,
+          "lines": [
+            "func SplitSeq(s, sep string) iter.Seq[string] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 209,
+          "lines": [
+            "pkg strings, func SplitSeq(string, string) iter.Seq[string] #61901"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Title",
+      "summary": "Title returns a copy of the string s with all Unicode letters that begin words mapped to their Unicode title case.",
+      "signature": "func Title(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 868,
+          "lines": [
+            "func Title(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5852,
+          "lines": [
+            "pkg strings, func Title(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToLower",
+      "summary": "ToLower returns s with all Unicode letters mapped to their lower case.",
+      "signature": "func ToLower(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 727,
+          "lines": [
+            "func ToLower(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5853,
+          "lines": [
+            "pkg strings, func ToLower(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToLowerSpecial",
+      "summary": "ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their lower case using the case mapping specified by c.",
+      "signature": "func ToLowerSpecial(c unicode.SpecialCase, s string) string",
+      "params": [
+        {
+          "name": "c",
+          "type": "unicode.SpecialCase"
+        },
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 778,
+          "lines": [
+            "func ToLowerSpecial(c unicode.SpecialCase, s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5854,
+          "lines": [
+            "pkg strings, func ToLowerSpecial(unicode.SpecialCase, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToTitle",
+      "summary": "ToTitle returns a copy of the string s with all Unicode letters mapped to their Unicode title case.",
+      "signature": "func ToTitle(s string) string { return Map(unicode.ToTitle, s) }",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string { return Map(unicode.ToTitle, s) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 768,
+          "lines": [
+            "func ToTitle(s string) string { return Map(unicode.ToTitle, s) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5855,
+          "lines": [
+            "pkg strings, func ToTitle(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToTitleSpecial",
+      "summary": "ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their Unicode title case, giving priority to the special casing rules.",
+      "signature": "func ToTitleSpecial(c unicode.SpecialCase, s string) string",
+      "params": [
+        {
+          "name": "c",
+          "type": "unicode.SpecialCase"
+        },
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 784,
+          "lines": [
+            "func ToTitleSpecial(c unicode.SpecialCase, s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5856,
+          "lines": [
+            "pkg strings, func ToTitleSpecial(unicode.SpecialCase, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToUpper",
+      "summary": "ToUpper returns s with all Unicode letters mapped to their upper case.",
+      "signature": "func ToUpper(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 687,
+          "lines": [
+            "func ToUpper(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5857,
+          "lines": [
+            "pkg strings, func ToUpper(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToUpperSpecial",
+      "summary": "ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their upper case using the case mapping specified by c.",
+      "signature": "func ToUpperSpecial(c unicode.SpecialCase, s string) string",
+      "params": [
+        {
+          "name": "c",
+          "type": "unicode.SpecialCase"
+        },
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 772,
+          "lines": [
+            "func ToUpperSpecial(c unicode.SpecialCase, s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5858,
+          "lines": [
+            "pkg strings, func ToUpperSpecial(unicode.SpecialCase, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToValidUTF8",
+      "summary": "ToValidUTF8 returns a copy of the string s with each run of invalid UTF-8 byte sequences replaced by the replacement string, which may be empty.",
+      "signature": "func ToValidUTF8(s, replacement string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "replacement",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 790,
+          "lines": [
+            "func ToValidUTF8(s, replacement string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 249,
+          "lines": [
+            "pkg strings, func ToValidUTF8(string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trim",
+      "summary": "Trim returns a slice of the string s with all leading and trailing Unicode code points contained in cutset removed.",
+      "signature": "func Trim(s, cutset string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "cutset",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 982,
+          "lines": [
+            "func Trim(s, cutset string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5859,
+          "lines": [
+            "pkg strings, func Trim(string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimFunc",
+      "summary": "TrimFunc returns a slice of the string s with all leading and trailing Unicode code points c satisfying f(c) removed.",
+      "signature": "func TrimFunc(s string, f func(rune) bool) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 910,
+          "lines": [
+            "func TrimFunc(s string, f func(rune) bool) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5860,
+          "lines": [
+            "pkg strings, func TrimFunc(string, func(int32) bool) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimLeft",
+      "summary": "TrimLeft returns a slice of the string s with all leading Unicode code points contained in cutset removed.",
+      "signature": "func TrimLeft(s, cutset string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "cutset",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 999,
+          "lines": [
+            "func TrimLeft(s, cutset string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5861,
+          "lines": [
+            "pkg strings, func TrimLeft(string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimLeftFunc",
+      "summary": "TrimLeftFunc returns a slice of the string s with all leading Unicode code points c satisfying f(c) removed.",
+      "signature": "func TrimLeftFunc(s string, f func(rune) bool) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 887,
+          "lines": [
+            "func TrimLeftFunc(s string, f func(rune) bool) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5862,
+          "lines": [
+            "pkg strings, func TrimLeftFunc(string, func(int32) bool) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimPrefix",
+      "summary": "TrimPrefix returns s without the provided leading prefix string. If s doesn't start with prefix, s is returned unchanged.",
+      "signature": "func TrimPrefix(s, prefix string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1129,
+          "lines": [
+            "func TrimPrefix(s, prefix string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2634,
+          "lines": [
+            "pkg strings, func TrimPrefix(string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimRight",
+      "summary": "TrimRight returns a slice of the string s, with all trailing Unicode code points contained in cutset removed.",
+      "signature": "func TrimRight(s, cutset string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "cutset",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1047,
+          "lines": [
+            "func TrimRight(s, cutset string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5863,
+          "lines": [
+            "pkg strings, func TrimRight(string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimRightFunc",
+      "summary": "TrimRightFunc returns a slice of the string s with all trailing Unicode code points c satisfying f(c) removed.",
+      "signature": "func TrimRightFunc(s string, f func(rune) bool) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "f",
+          "type": "func(rune) bool"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 897,
+          "lines": [
+            "func TrimRightFunc(s string, f func(rune) bool) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5864,
+          "lines": [
+            "pkg strings, func TrimRightFunc(string, func(int32) bool) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimSpace",
+      "summary": "TrimSpace returns a slice of the string s, with all leading and trailing white space removed, as defined by Unicode.",
+      "signature": "func TrimSpace(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1093,
+          "lines": [
+            "func TrimSpace(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5865,
+          "lines": [
+            "pkg strings, func TrimSpace(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimSuffix",
+      "summary": "TrimSuffix returns s without the provided trailing suffix string. If s doesn't end with suffix, s is returned unchanged.",
+      "signature": "func TrimSuffix(s, suffix string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "suffix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 1135,
+          "lines": [
+            "func TrimSuffix(s, suffix string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2635,
+          "lines": [
+            "pkg strings, func TrimSuffix(string, string) string"
+          ]
+        }
+      ]
+    }
+  ]
+}

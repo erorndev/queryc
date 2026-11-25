@@ -1,0 +1,996 @@
+{
+  "package": "crypto/x509",
+  "functions": [
+    {
+      "name": "CreateCertificate",
+      "summary": "CreateCertificate creates a new X.509 v3 certificate based on a template. The following members of template are currently used:",
+      "signature": "func CreateCertificate(rand io.Reader, template, parent *Certificate, pub, priv any) ([]byte, error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "template",
+          "type": "*Certificate"
+        },
+        {
+          "name": "parent",
+          "type": "*Certificate"
+        },
+        {
+          "name": "pub",
+          "type": "any"
+        },
+        {
+          "name": "priv",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 1662,
+          "lines": [
+            "func CreateCertificate(rand io.Reader, template, parent *Certificate, pub, priv any) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 593,
+          "lines": [
+            "pkg crypto/x509, func CreateCertificate(io.Reader, *Certificate, *Certificate, interface{}, interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CreateCertificateRequest",
+      "summary": "CreateCertificateRequest creates a new certificate request based on a template. The following members of template are used:",
+      "signature": "func CreateCertificateRequest(rand io.Reader, template *CertificateRequest, priv any) (csr []byte, err error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "template",
+          "type": "*CertificateRequest"
+        },
+        {
+          "name": "priv",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "(csr []byte, err error)"
+      },
+      "versions": [
+        "Go 1.3"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 2051,
+          "lines": [
+            "func CreateCertificateRequest(rand io.Reader, template *CertificateRequest, priv any) (csr []byte, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.3.txt",
+          "line": 21,
+          "lines": [
+            "pkg crypto/x509, func CreateCertificateRequest(io.Reader, *CertificateRequest, interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CreateRevocationList",
+      "summary": "CreateRevocationList creates a new X.509 v2 [Certificate] Revocation List, according to RFC 5280, based on template.",
+      "signature": "func CreateRevocationList(rand io.Reader, template *RevocationList, issuer *Certificate, priv crypto.Signer) ([]byte, error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "template",
+          "type": "*RevocationList"
+        },
+        {
+          "name": "issuer",
+          "type": "*Certificate"
+        },
+        {
+          "name": "priv",
+          "type": "crypto.Signer"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.15"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 2400,
+          "lines": [
+            "func CreateRevocationList(rand io.Reader, template *RevocationList, issuer *Certificate, priv crypto.Signer) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.15.txt",
+          "line": 22,
+          "lines": [
+            "pkg crypto/x509, func CreateRevocationList(io.Reader, *RevocationList, *Certificate, crypto.Signer) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecryptPEMBlock",
+      "summary": "DecryptPEMBlock takes a PEM block encrypted according to RFC 1423 and the password used to encrypt it and returns a slice of decrypted DER encoded bytes. It inspects the DEK-Info header to determine the algorithm used for decryption. If no DEK-Info header is present, an error is returned. If an incorrect password is detected an [IncorrectPasswordError] is returned. Because of deficiencies in the format, it's not always possible to detect an incorrect password. In these cases no error will be returned but the decrypted DER bytes will be random noise.",
+      "signature": "func DecryptPEMBlock(b *pem.Block, password []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "b",
+          "type": "*pem.Block"
+        },
+        {
+          "name": "password",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pem_decrypt.go",
+          "line": 124,
+          "lines": [
+            "func DecryptPEMBlock(b *pem.Block, password []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 172,
+          "lines": [
+            "pkg crypto/x509, func DecryptPEMBlock(*pem.Block, []uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncryptPEMBlock",
+      "summary": "EncryptPEMBlock returns a PEM block of the specified type holding the given DER encoded data encrypted with the specified algorithm and password according to RFC 1423.",
+      "signature": "func EncryptPEMBlock(rand io.Reader, blockType string, data, password []byte, alg PEMCipher) (*pem.Block, error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "blockType",
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "password",
+          "type": "[]byte"
+        },
+        {
+          "name": "alg",
+          "type": "PEMCipher"
+        }
+      ],
+      "returns": {
+        "type": "(*pem.Block, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pem_decrypt.go",
+          "line": 195,
+          "lines": [
+            "func EncryptPEMBlock(rand io.Reader, blockType string, data, password []byte, alg PEMCipher) (*pem.Block, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 173,
+          "lines": [
+            "pkg crypto/x509, func EncryptPEMBlock(io.Reader, string, []uint8, []uint8, PEMCipher) (*pem.Block, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsEncryptedPEMBlock",
+      "summary": "IsEncryptedPEMBlock returns whether the PEM block is password encrypted according to RFC 1423.",
+      "signature": "func IsEncryptedPEMBlock(b *pem.Block) bool",
+      "params": [
+        {
+          "name": "b",
+          "type": "*pem.Block"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pem_decrypt.go",
+          "line": 104,
+          "lines": [
+            "func IsEncryptedPEMBlock(b *pem.Block) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 174,
+          "lines": [
+            "pkg crypto/x509, func IsEncryptedPEMBlock(*pem.Block) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalECPrivateKey",
+      "summary": "MarshalECPrivateKey converts an EC private key to SEC 1, ASN.1 DER form.",
+      "signature": "func MarshalECPrivateKey(key *ecdsa.PrivateKey) ([]byte, error)",
+      "params": [
+        {
+          "name": "key",
+          "type": "*ecdsa.PrivateKey"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/sec1.go",
+          "line": 46,
+          "lines": [
+            "func MarshalECPrivateKey(key *ecdsa.PrivateKey) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 56,
+          "lines": [
+            "pkg crypto/x509, func MarshalECPrivateKey(*ecdsa.PrivateKey) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalPKCS1PrivateKey",
+      "summary": "MarshalPKCS1PrivateKey converts an [RSA] private key to PKCS #1, ASN.1 DER form.",
+      "signature": "func MarshalPKCS1PrivateKey(key *rsa.PrivateKey) []byte",
+      "params": [
+        {
+          "name": "key",
+          "type": "*rsa.PrivateKey"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pkcs1.go",
+          "line": 133,
+          "lines": [
+            "func MarshalPKCS1PrivateKey(key *rsa.PrivateKey) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 594,
+          "lines": [
+            "pkg crypto/x509, func MarshalPKCS1PrivateKey(*rsa.PrivateKey) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalPKCS1PublicKey",
+      "summary": "MarshalPKCS1PublicKey converts an [RSA] public key to PKCS #1, ASN.1 DER form.",
+      "signature": "func MarshalPKCS1PublicKey(key *rsa.PublicKey) []byte",
+      "params": [
+        {
+          "name": "key",
+          "type": "*rsa.PublicKey"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pkcs1.go",
+          "line": 196,
+          "lines": [
+            "func MarshalPKCS1PublicKey(key *rsa.PublicKey) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 32,
+          "lines": [
+            "pkg crypto/x509, func MarshalPKCS1PublicKey(*rsa.PublicKey) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalPKCS8PrivateKey",
+      "summary": "MarshalPKCS8PrivateKey converts a private key to PKCS #8, ASN.1 DER form.",
+      "signature": "func MarshalPKCS8PrivateKey(key any) ([]byte, error)",
+      "params": [
+        {
+          "name": "key",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pkcs8.go",
+          "line": 106,
+          "lines": [
+            "func MarshalPKCS8PrivateKey(key any) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 33,
+          "lines": [
+            "pkg crypto/x509, func MarshalPKCS8PrivateKey(interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalPKIXPublicKey",
+      "summary": "MarshalPKIXPublicKey converts a public key to PKIX, ASN.1 DER form. The encoded public key is a SubjectPublicKeyInfo structure (see RFC 5280, Section 4.1).",
+      "signature": "func MarshalPKIXPublicKey(pub any) ([]byte, error)",
+      "params": [
+        {
+          "name": "pub",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 151,
+          "lines": [
+            "func MarshalPKIXPublicKey(pub any) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 595,
+          "lines": [
+            "pkg crypto/x509, func MarshalPKIXPublicKey(interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCertPool",
+      "summary": "NewCertPool returns a new, empty CertPool.",
+      "signature": "func NewCertPool() *CertPool",
+      "params": [],
+      "returns": {
+        "type": "*CertPool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/cert_pool.go",
+          "line": 64,
+          "lines": [
+            "func NewCertPool() *CertPool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 596,
+          "lines": [
+            "pkg crypto/x509, func NewCertPool() *CertPool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OIDFromInts",
+      "summary": "OIDFromInts creates a new OID using ints, each integer is a separate component.",
+      "signature": "func OIDFromInts(oid []uint64) (OID, error)",
+      "params": [
+        {
+          "name": "oid",
+          "type": "[]uint64"
+        }
+      ],
+      "returns": {
+        "type": "(OID, error)"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/oid.go",
+          "line": 55,
+          "lines": [
+            "func OIDFromInts(oid []uint64) (OID, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 4,
+          "lines": [
+            "pkg crypto/x509, func OIDFromInts([]uint64) (OID, error) #60665"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseCRL",
+      "summary": "ParseCRL parses a CRL from the given bytes. It's often the case that PEM encoded CRLs will appear where they should be DER encoded, so this function will transparently handle PEM encoding as long as there isn't any leading garbage.",
+      "signature": "func ParseCRL(crlBytes []byte) (*pkix.CertificateList, error)",
+      "params": [
+        {
+          "name": "crlBytes",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*pkix.CertificateList, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 1810,
+          "lines": [
+            "func ParseCRL(crlBytes []byte) (*pkix.CertificateList, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 597,
+          "lines": [
+            "pkg crypto/x509, func ParseCRL([]uint8) (*pkix.CertificateList, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseCertificate",
+      "summary": "ParseCertificate parses a single certificate from the given ASN.1 DER data.",
+      "signature": "func ParseCertificate(der []byte) (*Certificate, error)",
+      "params": [
+        {
+          "name": "der",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*Certificate, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/parser.go",
+          "line": 1084,
+          "lines": [
+            "func ParseCertificate(der []byte) (*Certificate, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 598,
+          "lines": [
+            "pkg crypto/x509, func ParseCertificate([]uint8) (*Certificate, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseCertificateRequest",
+      "summary": "ParseCertificateRequest parses a single certificate request from the given ASN.1 DER data.",
+      "signature": "func ParseCertificateRequest(asn1Data []byte) (*CertificateRequest, error)",
+      "params": [
+        {
+          "name": "asn1Data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*CertificateRequest, error)"
+      },
+      "versions": [
+        "Go 1.3"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 2197,
+          "lines": [
+            "func ParseCertificateRequest(asn1Data []byte) (*CertificateRequest, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.3.txt",
+          "line": 22,
+          "lines": [
+            "pkg crypto/x509, func ParseCertificateRequest([]uint8) (*CertificateRequest, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseCertificates",
+      "summary": "ParseCertificates parses one or more certificates from the given ASN.1 DER data. The certificates must be concatenated with no intermediate padding.",
+      "signature": "func ParseCertificates(der []byte) ([]*Certificate, error)",
+      "params": [
+        {
+          "name": "der",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]*Certificate, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/parser.go",
+          "line": 1097,
+          "lines": [
+            "func ParseCertificates(der []byte) ([]*Certificate, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 599,
+          "lines": [
+            "pkg crypto/x509, func ParseCertificates([]uint8) ([]*Certificate, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseDERCRL",
+      "summary": "ParseDERCRL parses a DER encoded CRL from the given bytes.",
+      "signature": "func ParseDERCRL(derBytes []byte) (*pkix.CertificateList, error)",
+      "params": [
+        {
+          "name": "derBytes",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*pkix.CertificateList, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 1823,
+          "lines": [
+            "func ParseDERCRL(derBytes []byte) (*pkix.CertificateList, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 600,
+          "lines": [
+            "pkg crypto/x509, func ParseDERCRL([]uint8) (*pkix.CertificateList, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseECPrivateKey",
+      "summary": "ParseECPrivateKey parses an EC private key in SEC 1, ASN.1 DER form.",
+      "signature": "func ParseECPrivateKey(der []byte) (*ecdsa.PrivateKey, error)",
+      "params": [
+        {
+          "name": "der",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*ecdsa.PrivateKey, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/sec1.go",
+          "line": 37,
+          "lines": [
+            "func ParseECPrivateKey(der []byte) (*ecdsa.PrivateKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 175,
+          "lines": [
+            "pkg crypto/x509, func ParseECPrivateKey([]uint8) (*ecdsa.PrivateKey, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseOID",
+      "summary": "ParseOID parses a Object Identifier string, represented by ASCII numbers separated by dots.",
+      "signature": "func ParseOID(oid string) (OID, error)",
+      "params": [
+        {
+          "name": "oid",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(OID, error)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/oid.go",
+          "line": 28,
+          "lines": [
+            "func ParseOID(oid string) (OID, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 24,
+          "lines": [
+            "pkg crypto/x509, func ParseOID(string) (OID, error) #66249"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParsePKCS1PrivateKey",
+      "summary": "ParsePKCS1PrivateKey parses an [RSA] private key in PKCS #1, ASN.1 DER form.",
+      "signature": "func ParsePKCS1PrivateKey(der []byte) (*rsa.PrivateKey, error)",
+      "params": [
+        {
+          "name": "der",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*rsa.PrivateKey, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pkcs1.go",
+          "line": 54,
+          "lines": [
+            "func ParsePKCS1PrivateKey(der []byte) (*rsa.PrivateKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 601,
+          "lines": [
+            "pkg crypto/x509, func ParsePKCS1PrivateKey([]uint8) (*rsa.PrivateKey, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParsePKCS1PublicKey",
+      "summary": "ParsePKCS1PublicKey parses an [RSA] public key in PKCS #1, ASN.1 DER form.",
+      "signature": "func ParsePKCS1PublicKey(der []byte) (*rsa.PublicKey, error)",
+      "params": [
+        {
+          "name": "der",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*rsa.PublicKey, error)"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pkcs1.go",
+          "line": 167,
+          "lines": [
+            "func ParsePKCS1PublicKey(der []byte) (*rsa.PublicKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 34,
+          "lines": [
+            "pkg crypto/x509, func ParsePKCS1PublicKey([]uint8) (*rsa.PublicKey, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParsePKCS8PrivateKey",
+      "summary": "ParsePKCS8PrivateKey parses an unencrypted private key in PKCS #8, ASN.1 DER form.",
+      "signature": "func ParsePKCS8PrivateKey(der []byte) (key any, err error)",
+      "params": [
+        {
+          "name": "der",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(key any, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pkcs8.go",
+          "line": 38,
+          "lines": [
+            "func ParsePKCS8PrivateKey(der []byte) (key any, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 602,
+          "lines": [
+            "pkg crypto/x509, func ParsePKCS8PrivateKey([]uint8) (interface{}, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParsePKIXPublicKey",
+      "summary": "ParsePKIXPublicKey parses a public key in PKIX, ASN.1 DER form. The encoded public key is a SubjectPublicKeyInfo structure (see RFC 5280, Section 4.1).",
+      "signature": "func ParsePKIXPublicKey(derBytes []byte) (pub any, err error)",
+      "params": [
+        {
+          "name": "derBytes",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(pub any, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 72,
+          "lines": [
+            "func ParsePKIXPublicKey(derBytes []byte) (pub any, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 603,
+          "lines": [
+            "pkg crypto/x509, func ParsePKIXPublicKey([]uint8) (interface{}, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseRevocationList",
+      "summary": "ParseRevocationList parses a X509 v2 [Certificate] Revocation List from the given ASN.1 DER data.",
+      "signature": "func ParseRevocationList(der []byte) (*RevocationList, error)",
+      "params": [
+        {
+          "name": "der",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*RevocationList, error)"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/parser.go",
+          "line": 1116,
+          "lines": [
+            "func ParseRevocationList(der []byte) (*RevocationList, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 1,
+          "lines": [
+            "pkg crypto/x509, func ParseRevocationList([]uint8) (*RevocationList, error) #50674"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetFallbackRoots",
+      "summary": "SetFallbackRoots sets the roots to use during certificate verification, if no custom roots are specified and a platform verifier or a system certificate pool is not available (for instance in a container which does not have a root certificate bundle). SetFallbackRoots will panic if roots is nil.",
+      "signature": "func SetFallbackRoots(roots *CertPool)",
+      "params": [
+        {
+          "name": "roots",
+          "type": "*CertPool"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/root.go",
+          "line": 61,
+          "lines": [
+            "func SetFallbackRoots(roots *CertPool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 42,
+          "lines": [
+            "pkg crypto/x509, func SetFallbackRoots(*CertPool) #43958"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SystemCertPool",
+      "summary": "SystemCertPool returns a copy of the system cert pool.",
+      "signature": "func SystemCertPool() (*CertPool, error)",
+      "params": [],
+      "returns": {
+        "type": "(*CertPool, error)"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/x509/cert_pool.go",
+          "line": 117,
+          "lines": [
+            "func SystemCertPool() (*CertPool, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 29,
+          "lines": [
+            "pkg crypto/x509, func SystemCertPool() (*CertPool, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "package": "go/build/constraint",
+  "functions": [
+    {
+      "name": "GoVersion",
+      "summary": "GoVersion returns the minimum Go version implied by a given build expression. If the expression can be satisfied without any Go version tags, GoVersion returns an empty string.",
+      "signature": "func GoVersion(x Expr) string",
+      "params": [
+        {
+          "name": "x",
+          "type": "Expr"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/constraint/vers.go",
+          "line": 30,
+          "lines": [
+            "func GoVersion(x Expr) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 176,
+          "lines": [
+            "pkg go/build/constraint, func GoVersion(Expr) string #59033"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsGoBuild",
+      "summary": "IsGoBuild reports whether the line of text is a “//go:build” constraint. It only checks the prefix of the text, not that the expression itself parses.",
+      "signature": "func IsGoBuild(line string) bool",
+      "params": [
+        {
+          "name": "line",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/constraint/expr.go",
+          "line": 165,
+          "lines": [
+            "func IsGoBuild(line string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 235,
+          "lines": [
+            "pkg go/build/constraint, func IsGoBuild(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsPlusBuild",
+      "summary": "IsPlusBuild reports whether the line of text is a “// +build” constraint. It only checks the prefix of the text, not that the expression itself parses.",
+      "signature": "func IsPlusBuild(line string) bool",
+      "params": [
+        {
+          "name": "line",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/constraint/expr.go",
+          "line": 360,
+          "lines": [
+            "func IsPlusBuild(line string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 236,
+          "lines": [
+            "pkg go/build/constraint, func IsPlusBuild(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Parse",
+      "summary": "Parse parses a single build constraint line of the form “//go:build ...” or “// +build ...” and returns the corresponding boolean expression.",
+      "signature": "func Parse(line string) (Expr, error)",
+      "params": [
+        {
+          "name": "line",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Expr, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/constraint/expr.go",
+          "line": 153,
+          "lines": [
+            "func Parse(line string) (Expr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 237,
+          "lines": [
+            "pkg go/build/constraint, func Parse(string) (Expr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PlusBuildLines",
+      "summary": "PlusBuildLines returns a sequence of “// +build” lines that evaluate to the build expression x. If the expression is too complex to convert directly to “// +build” lines, PlusBuildLines returns an error.",
+      "signature": "func PlusBuildLines(x Expr) ([]string, error)",
+      "params": [
+        {
+          "name": "x",
+          "type": "Expr"
+        }
+      ],
+      "returns": {
+        "type": "([]string, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/build/constraint/expr.go",
+          "line": 473,
+          "lines": [
+            "func PlusBuildLines(x Expr) ([]string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 238,
+          "lines": [
+            "pkg go/build/constraint, func PlusBuildLines(Expr) ([]string, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "package": "net/http/httputil",
+  "functions": [
+    {
+      "name": "DumpRequest",
+      "summary": "DumpRequest returns the given request in its HTTP/1.x wire representation. It should only be used by servers to debug client requests. The returned representation is an approximation only; some details of the initial request are lost while parsing it into an [http.Request]. In particular, the order and case of header field names are lost. The order of values in multi-valued headers is kept intact. HTTP/2 requests are dumped in HTTP/1.x form, not in their original binary representations.",
+      "signature": "func DumpRequest(req *http.Request, body bool) ([]byte, error)",
+      "params": [
+        {
+          "name": "req",
+          "type": "*http.Request"
+        },
+        {
+          "name": "body",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/dump.go",
+          "line": 218,
+          "lines": [
+            "func DumpRequest(req *http.Request, body bool) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4891,
+          "lines": [
+            "pkg net/http/httputil, func DumpRequest(*http.Request, bool) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DumpRequestOut",
+      "summary": "DumpRequestOut is like [DumpRequest] but for outgoing client requests. It includes any headers that the standard [http.Transport] adds, such as User-Agent.",
+      "signature": "func DumpRequestOut(req *http.Request, body bool) ([]byte, error)",
+      "params": [
+        {
+          "name": "req",
+          "type": "*http.Request"
+        },
+        {
+          "name": "body",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/dump.go",
+          "line": 77,
+          "lines": [
+            "func DumpRequestOut(req *http.Request, body bool) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4892,
+          "lines": [
+            "pkg net/http/httputil, func DumpRequestOut(*http.Request, bool) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DumpResponse",
+      "summary": "DumpResponse is like DumpRequest but dumps a response.",
+      "signature": "func DumpResponse(resp *http.Response, body bool) ([]byte, error)",
+      "params": [
+        {
+          "name": "resp",
+          "type": "*http.Response"
+        },
+        {
+          "name": "body",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/dump.go",
+          "line": 305,
+          "lines": [
+            "func DumpResponse(resp *http.Response, body bool) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4893,
+          "lines": [
+            "pkg net/http/httputil, func DumpResponse(*http.Response, bool) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewChunkedReader",
+      "summary": "NewChunkedReader returns a new chunkedReader that translates the data read from r out of HTTP \"chunked\" format before returning it. The chunkedReader returns [io.EOF] when the final 0-length chunk is read.",
+      "signature": "func NewChunkedReader(r io.Reader) io.Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/httputil.go",
+          "line": 20,
+          "lines": [
+            "func NewChunkedReader(r io.Reader) io.Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4894,
+          "lines": [
+            "pkg net/http/httputil, func NewChunkedReader(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewChunkedWriter",
+      "summary": "NewChunkedWriter returns a new chunkedWriter that translates writes into HTTP \"chunked\" format before writing them to w. Closing the returned chunkedWriter sends the final 0-length chunk that marks the end of the stream but does not send the final CRLF that appears after trailers; trailers and the last CRLF must be written separately.",
+      "signature": "func NewChunkedWriter(w io.Writer) io.WriteCloser",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "io.WriteCloser"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/httputil.go",
+          "line": 35,
+          "lines": [
+            "func NewChunkedWriter(w io.Writer) io.WriteCloser {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4895,
+          "lines": [
+            "pkg net/http/httputil, func NewChunkedWriter(io.Writer) io.WriteCloser"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewClientConn",
+      "summary": "NewClientConn is an artifact of Go's early HTTP implementation. It is low-level, old, and unused by Go's current HTTP stack. We should have deleted it before Go 1.",
+      "signature": "func NewClientConn(c net.Conn, r *bufio.Reader) *ClientConn",
+      "params": [
+        {
+          "name": "c",
+          "type": "net.Conn"
+        },
+        {
+          "name": "r",
+          "type": "*bufio.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*ClientConn"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/persist.go",
+          "line": 248,
+          "lines": [
+            "func NewClientConn(c net.Conn, r *bufio.Reader) *ClientConn {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4896,
+          "lines": [
+            "pkg net/http/httputil, func NewClientConn(net.Conn, *bufio.Reader) *ClientConn"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewProxyClientConn",
+      "summary": "NewProxyClientConn is an artifact of Go's early HTTP implementation. It is low-level, old, and unused by Go's current HTTP stack. We should have deleted it before Go 1.",
+      "signature": "func NewProxyClientConn(c net.Conn, r *bufio.Reader) *ClientConn",
+      "params": [
+        {
+          "name": "c",
+          "type": "net.Conn"
+        },
+        {
+          "name": "r",
+          "type": "*bufio.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*ClientConn"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/persist.go",
+          "line": 265,
+          "lines": [
+            "func NewProxyClientConn(c net.Conn, r *bufio.Reader) *ClientConn {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4897,
+          "lines": [
+            "pkg net/http/httputil, func NewProxyClientConn(net.Conn, *bufio.Reader) *ClientConn"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewServerConn",
+      "summary": "NewServerConn is an artifact of Go's early HTTP implementation. It is low-level, old, and unused by Go's current HTTP stack. We should have deleted it before Go 1.",
+      "signature": "func NewServerConn(c net.Conn, r *bufio.Reader) *ServerConn",
+      "params": [
+        {
+          "name": "c",
+          "type": "net.Conn"
+        },
+        {
+          "name": "r",
+          "type": "*bufio.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*ServerConn"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/persist.go",
+          "line": 54,
+          "lines": [
+            "func NewServerConn(c net.Conn, r *bufio.Reader) *ServerConn {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4898,
+          "lines": [
+            "pkg net/http/httputil, func NewServerConn(net.Conn, *bufio.Reader) *ServerConn"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewSingleHostReverseProxy",
+      "summary": "NewSingleHostReverseProxy returns a new [ReverseProxy] that routes URLs to the scheme, host, and base path provided in target. If the target's path is \"/base\" and the incoming request was for \"/dir\", the target request will be for /base/dir.",
+      "signature": "func NewSingleHostReverseProxy(target *url.URL) *ReverseProxy",
+      "params": [
+        {
+          "name": "target",
+          "type": "*url.URL"
+        }
+      ],
+      "returns": {
+        "type": "*ReverseProxy"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/reverseproxy.go",
+          "line": 276,
+          "lines": [
+            "func NewSingleHostReverseProxy(target *url.URL) *ReverseProxy {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4899,
+          "lines": [
+            "pkg net/http/httputil, func NewSingleHostReverseProxy(*url.URL) *ReverseProxy"
+          ]
+        }
+      ]
+    }
+  ]
+}

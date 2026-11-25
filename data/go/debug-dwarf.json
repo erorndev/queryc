@@ -1,0 +1,68 @@
+{
+  "package": "debug/dwarf",
+  "functions": [
+    {
+      "name": "New",
+      "summary": "New returns a new [Data] object initialized from the given parameters. Rather than calling this function directly, clients should typically use the DWARF method of the File type of the appropriate package [debug/elf], [debug/macho], or [debug/pe].",
+      "signature": "func New(abbrev, aranges, frame, info, line, pubnames, ranges, str []byte) (*Data, error)",
+      "params": [
+        {
+          "name": "abbrev",
+          "type": "[]byte"
+        },
+        {
+          "name": "aranges",
+          "type": "[]byte"
+        },
+        {
+          "name": "frame",
+          "type": "[]byte"
+        },
+        {
+          "name": "info",
+          "type": "[]byte"
+        },
+        {
+          "name": "line",
+          "type": "[]byte"
+        },
+        {
+          "name": "pubnames",
+          "type": "[]byte"
+        },
+        {
+          "name": "ranges",
+          "type": "[]byte"
+        },
+        {
+          "name": "str",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*Data, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/dwarf/open.go",
+          "line": 63,
+          "lines": [
+            "func New(abbrev, aranges, frame, info, line, pubnames, ranges, str []byte) (*Data, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 947,
+          "lines": [
+            "pkg debug/dwarf, func New([]uint8, []uint8, []uint8, []uint8, []uint8, []uint8, []uint8, []uint8) (*Data, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "package": "os/signal",
+  "functions": [
+    {
+      "name": "Ignore",
+      "summary": "Ignore causes the provided signals to be ignored. If they are received by the program, nothing will happen. Ignore undoes the effect of any prior calls to [Notify] for the provided signals. If no signals are provided, all incoming signals will be ignored.",
+      "signature": "func Ignore(sig ...os.Signal)",
+      "params": [
+        {
+          "name": "sig",
+          "type": "...os.Signal"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/signal/signal.go",
+          "line": 87,
+          "lines": [
+            "func Ignore(sig ...os.Signal) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 875,
+          "lines": [
+            "pkg os/signal, func Ignore(...os.Signal)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ignored",
+      "summary": "Ignored reports whether sig is currently ignored.",
+      "signature": "func Ignored(sig os.Signal) bool",
+      "params": [
+        {
+          "name": "sig",
+          "type": "os.Signal"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/signal/signal.go",
+          "line": 92,
+          "lines": [
+            "func Ignored(sig os.Signal) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 466,
+          "lines": [
+            "pkg os/signal, func Ignored(os.Signal) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Notify",
+      "summary": "Notify causes package signal to relay incoming signals to c. If no signals are provided, all incoming signals will be relayed to c. Otherwise, just the provided signals will.",
+      "signature": "func Notify(c chan<- os.Signal, sig ...os.Signal)",
+      "params": [
+        {
+          "name": "c",
+          "type": "chan<- os.Signal"
+        },
+        {
+          "name": "sig",
+          "type": "...os.Signal"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/signal/signal.go",
+          "line": 122,
+          "lines": [
+            "func Notify(c chan<- os.Signal, sig ...os.Signal) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5312,
+          "lines": [
+            "pkg os/signal, func Notify(chan<- os.Signal, ...os.Signal)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NotifyContext",
+      "summary": "NotifyContext returns a copy of the parent context that is marked done (its Done channel is closed) when one of the listed signals arrives, when the returned stop function is called, or when the parent context's Done channel is closed, whichever happens first.",
+      "signature": "func NotifyContext(parent context.Context, signals ...os.Signal) (ctx context.Context, stop context.CancelFunc)",
+      "params": [
+        {
+          "name": "parent",
+          "type": "context.Context"
+        },
+        {
+          "name": "signals",
+          "type": "...os.Signal"
+        }
+      ],
+      "returns": {
+        "type": "(ctx context.Context, stop context.CancelFunc)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/signal/signal.go",
+          "line": 278,
+          "lines": [
+            "func NotifyContext(parent context.Context, signals ...os.Signal) (ctx context.Context, stop context.CancelFunc) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 409,
+          "lines": [
+            "pkg os/signal, func NotifyContext(context.Context, ...os.Signal) (context.Context, context.CancelFunc)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reset",
+      "summary": "Reset undoes the effect of any prior calls to [Notify] for the provided signals. If no signals are provided, all signal handlers will be reset.",
+      "signature": "func Reset(sig ...os.Signal)",
+      "params": [
+        {
+          "name": "sig",
+          "type": "...os.Signal"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/signal/signal.go",
+          "line": 174,
+          "lines": [
+            "func Reset(sig ...os.Signal) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 876,
+          "lines": [
+            "pkg os/signal, func Reset(...os.Signal)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stop",
+      "summary": "Stop causes package signal to stop relaying incoming signals to c. It undoes the effect of all prior calls to [Notify] using c. When Stop returns, it is guaranteed that c will receive no more signals.",
+      "signature": "func Stop(c chan<- os.Signal)",
+      "params": [
+        {
+          "name": "c",
+          "type": "chan<- os.Signal"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/signal/signal.go",
+          "line": 181,
+          "lines": [
+            "func Stop(c chan<- os.Signal) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2361,
+          "lines": [
+            "pkg os/signal, func Stop(chan<- os.Signal)"
+          ]
+        }
+      ]
+    }
+  ]
+}

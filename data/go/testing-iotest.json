@@ -1,0 +1,336 @@
+{
+  "package": "testing/iotest",
+  "functions": [
+    {
+      "name": "DataErrReader",
+      "summary": "DataErrReader changes the way errors are handled by a Reader. Normally, a Reader returns an error (typically EOF) from the first Read call after the last piece of data is read. DataErrReader wraps a Reader and changes its behavior so the final error is returned along with the final data, instead of in the first call after the final data.",
+      "signature": "func DataErrReader(r io.Reader) io.Reader { return &dataErrReader{r, nil, make([]byte, 1024)} }",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader { return &dataErrReader{r, nil, make([]byte, 1024)} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/reader.go",
+          "line": 47,
+          "lines": [
+            "func DataErrReader(r io.Reader) io.Reader { return &dataErrReader{r, nil, make([]byte, 1024)} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30251,
+          "lines": [
+            "pkg testing/iotest, func DataErrReader(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ErrReader",
+      "summary": "ErrReader returns an [io.Reader] that returns 0, err from all Read calls.",
+      "signature": "func ErrReader(err error) io.Reader",
+      "params": [
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/reader.go",
+          "line": 94,
+          "lines": [
+            "func ErrReader(err error) io.Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 479,
+          "lines": [
+            "pkg testing/iotest, func ErrReader(error) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HalfReader",
+      "summary": "HalfReader returns a Reader that implements Read by reading half as many requested bytes from r.",
+      "signature": "func HalfReader(r io.Reader) io.Reader { return &halfReader{r} }",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader { return &halfReader{r} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/reader.go",
+          "line": 32,
+          "lines": [
+            "func HalfReader(r io.Reader) io.Reader { return &halfReader{r} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30252,
+          "lines": [
+            "pkg testing/iotest, func HalfReader(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReadLogger",
+      "summary": "NewReadLogger returns a reader that behaves like r except that it logs (using [log.Printf]) each read to standard error, printing the prefix and the hexadecimal data read.",
+      "signature": "func NewReadLogger(prefix string, r io.Reader) io.Reader",
+      "params": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/logger.go",
+          "line": 52,
+          "lines": [
+            "func NewReadLogger(prefix string, r io.Reader) io.Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30253,
+          "lines": [
+            "pkg testing/iotest, func NewReadLogger(string, io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriteLogger",
+      "summary": "NewWriteLogger returns a writer that behaves like w except that it logs (using [log.Printf]) each write to standard error, printing the prefix and the hexadecimal data written.",
+      "signature": "func NewWriteLogger(prefix string, w io.Writer) io.Writer",
+      "params": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "io.Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/logger.go",
+          "line": 30,
+          "lines": [
+            "func NewWriteLogger(prefix string, w io.Writer) io.Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30254,
+          "lines": [
+            "pkg testing/iotest, func NewWriteLogger(string, io.Writer) io.Writer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OneByteReader",
+      "summary": "OneByteReader returns a Reader that implements each non-empty Read by reading one byte from r.",
+      "signature": "func OneByteReader(r io.Reader) io.Reader { return &oneByteReader{r} }",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader { return &oneByteReader{r} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/reader.go",
+          "line": 17,
+          "lines": [
+            "func OneByteReader(r io.Reader) io.Reader { return &oneByteReader{r} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30255,
+          "lines": [
+            "pkg testing/iotest, func OneByteReader(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TestReader",
+      "summary": "TestReader tests that reading from r returns the expected file content. It does reads of different sizes, until EOF. If r implements [io.ReaderAt] or [io.Seeker], TestReader also checks that those operations behave as they should.",
+      "signature": "func TestReader(r io.Reader, content []byte) error",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        },
+        {
+          "name": "content",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/reader.go",
+          "line": 136,
+          "lines": [
+            "func TestReader(r io.Reader, content []byte) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 480,
+          "lines": [
+            "pkg testing/iotest, func TestReader(io.Reader, []uint8) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TimeoutReader",
+      "summary": "TimeoutReader returns [ErrTimeout] on the second read with no data. Subsequent calls to read succeed.",
+      "signature": "func TimeoutReader(r io.Reader) io.Reader { return &timeoutReader{r, 0} }",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader { return &timeoutReader{r, 0} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/reader.go",
+          "line": 78,
+          "lines": [
+            "func TimeoutReader(r io.Reader) io.Reader { return &timeoutReader{r, 0} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30256,
+          "lines": [
+            "pkg testing/iotest, func TimeoutReader(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TruncateWriter",
+      "summary": "TruncateWriter returns a Writer that writes to w but stops silently after n bytes.",
+      "signature": "func TruncateWriter(w io.Writer, n int64) io.Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "n",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "io.Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/iotest/writer.go",
+          "line": 11,
+          "lines": [
+            "func TruncateWriter(w io.Writer, n int64) io.Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30257,
+          "lines": [
+            "pkg testing/iotest, func TruncateWriter(io.Writer, int64) io.Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

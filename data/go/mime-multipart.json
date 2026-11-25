@@ -1,0 +1,118 @@
+{
+  "package": "mime/multipart",
+  "functions": [
+    {
+      "name": "FileContentDisposition",
+      "summary": "FileContentDisposition returns the value of a Content-Disposition header with the provided field name and file name.",
+      "signature": "func FileContentDisposition(fieldname, filename string) string",
+      "params": [
+        {
+          "name": "fieldname",
+          "type": "string"
+        },
+        {
+          "name": "filename",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/multipart/writer.go",
+          "line": 154,
+          "lines": [
+            "func FileContentDisposition(fieldname, filename string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 65,
+          "lines": [
+            "pkg mime/multipart, func FileContentDisposition(string, string) string #46771"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReader",
+      "summary": "NewReader creates a new multipart [Reader] reading from r using the given MIME boundary.",
+      "signature": "func NewReader(r io.Reader, boundary string) *Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        },
+        {
+          "name": "boundary",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/multipart/multipart.go",
+          "line": 119,
+          "lines": [
+            "func NewReader(r io.Reader, boundary string) *Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4323,
+          "lines": [
+            "pkg mime/multipart, func NewReader(io.Reader, string) *Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter returns a new multipart [Writer] with a random boundary, writing to w.",
+      "signature": "func NewWriter(w io.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/multipart/writer.go",
+          "line": 28,
+          "lines": [
+            "func NewWriter(w io.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4324,
+          "lines": [
+            "pkg mime/multipart, func NewWriter(io.Writer) *Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,721 @@
+{
+  "package": "time",
+  "functions": [
+    {
+      "name": "After",
+      "summary": "After waits for the duration to elapse and then sends the current time on the returned channel. It is equivalent to [NewTimer](d).C.",
+      "signature": "func After(d Duration) <-chan Time",
+      "params": [
+        {
+          "name": "d",
+          "type": "Duration"
+        }
+      ],
+      "returns": {
+        "type": "<-chan Time"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/sleep.go",
+          "line": 202,
+          "lines": [
+            "func After(d Duration) <-chan Time {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30544,
+          "lines": [
+            "pkg time, func After(Duration) <-chan Time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AfterFunc",
+      "summary": "AfterFunc waits for the duration to elapse and then calls f in its own goroutine. It returns a [Timer] that can be used to cancel the call using its Stop method. The returned Timer's C field is not used and will be nil.",
+      "signature": "func AfterFunc(d Duration, f func()) *Timer",
+      "params": [
+        {
+          "name": "d",
+          "type": "Duration"
+        },
+        {
+          "name": "f",
+          "type": "func()"
+        }
+      ],
+      "returns": {
+        "type": "*Timer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/sleep.go",
+          "line": 210,
+          "lines": [
+            "func AfterFunc(d Duration, f func()) *Timer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30545,
+          "lines": [
+            "pkg time, func AfterFunc(Duration, func()) *Timer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Date",
+      "summary": "Date returns the Time corresponding to",
+      "signature": "func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) Time",
+      "params": [
+        {
+          "name": "year",
+          "type": "int"
+        },
+        {
+          "name": "month",
+          "type": "Month"
+        },
+        {
+          "name": "day",
+          "type": "int"
+        },
+        {
+          "name": "hour",
+          "type": "int"
+        },
+        {
+          "name": "min",
+          "type": "int"
+        },
+        {
+          "name": "sec",
+          "type": "int"
+        },
+        {
+          "name": "nsec",
+          "type": "int"
+        },
+        {
+          "name": "loc",
+          "type": "*Location"
+        }
+      ],
+      "returns": {
+        "type": "Time"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/time.go",
+          "line": 1730,
+          "lines": [
+            "func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) Time {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30546,
+          "lines": [
+            "pkg time, func Date(int, Month, int, int, int, int, int, *Location) Time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FixedZone",
+      "summary": "FixedZone returns a [Location] that always uses the given zone name and offset (seconds east of UTC).",
+      "signature": "func FixedZone(name string, offset int) *Location",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "*Location"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/zoneinfo.go",
+          "line": 112,
+          "lines": [
+            "func FixedZone(name string, offset int) *Location {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30547,
+          "lines": [
+            "pkg time, func FixedZone(string, int) *Location"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadLocation",
+      "summary": "LoadLocation returns the Location with the given name.",
+      "signature": "func LoadLocation(name string) (*Location, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Location, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/zoneinfo.go",
+          "line": 663,
+          "lines": [
+            "func LoadLocation(name string) (*Location, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30548,
+          "lines": [
+            "pkg time, func LoadLocation(string) (*Location, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoadLocationFromTZData",
+      "summary": "LoadLocationFromTZData returns a Location with the given name initialized from the IANA Time Zone database-formatted data. The data should be in the format of a standard IANA time zone file (for example, the content of /etc/localtime on Unix systems).",
+      "signature": "func LoadLocationFromTZData(name string, data []byte) (*Location, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*Location, error)"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/zoneinfo_read.go",
+          "line": 118,
+          "lines": [
+            "func LoadLocationFromTZData(name string, data []byte) (*Location, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 621,
+          "lines": [
+            "pkg time, func LoadLocationFromTZData(string, []uint8) (*Location, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTicker",
+      "summary": "NewTicker returns a new [Ticker] containing a channel that will send the current time on the channel after each tick. The period of the ticks is specified by the duration argument. The ticker will adjust the time interval or drop ticks to make up for slow receivers. The duration d must be greater than zero; if not, NewTicker will panic.",
+      "signature": "func NewTicker(d Duration) *Ticker",
+      "params": [
+        {
+          "name": "d",
+          "type": "Duration"
+        }
+      ],
+      "returns": {
+        "type": "*Ticker"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/tick.go",
+          "line": 36,
+          "lines": [
+            "func NewTicker(d Duration) *Ticker {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30549,
+          "lines": [
+            "pkg time, func NewTicker(Duration) *Ticker"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTimer",
+      "summary": "NewTimer creates a new Timer that will send the current time on its channel after at least duration d.",
+      "signature": "func NewTimer(d Duration) *Timer",
+      "params": [
+        {
+          "name": "d",
+          "type": "Duration"
+        }
+      ],
+      "returns": {
+        "type": "*Timer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/sleep.go",
+          "line": 143,
+          "lines": [
+            "func NewTimer(d Duration) *Timer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30550,
+          "lines": [
+            "pkg time, func NewTimer(Duration) *Timer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Now",
+      "summary": "Now returns the current local time.",
+      "signature": "func Now() Time",
+      "params": [],
+      "returns": {
+        "type": "Time"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/time.go",
+          "line": 1343,
+          "lines": [
+            "func Now() Time {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30551,
+          "lines": [
+            "pkg time, func Now() Time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Parse",
+      "summary": "Parse parses a formatted string and returns the time value it represents. See the documentation for the constant called [Layout] to see how to represent the format. The second argument must be parseable using the format string (layout) provided as the first argument.",
+      "signature": "func Parse(layout, value string) (Time, error)",
+      "params": [
+        {
+          "name": "layout",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Time, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/format.go",
+          "line": 1023,
+          "lines": [
+            "func Parse(layout, value string) (Time, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30552,
+          "lines": [
+            "pkg time, func Parse(string, string) (Time, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseDuration",
+      "summary": "ParseDuration parses a duration string. A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as \"300ms\", \"-1.5h\" or \"2h45m\". Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\".",
+      "signature": "func ParseDuration(s string) (Duration, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Duration, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/format.go",
+          "line": 1621,
+          "lines": [
+            "func ParseDuration(s string) (Duration, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30553,
+          "lines": [
+            "pkg time, func ParseDuration(string) (Duration, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseInLocation",
+      "summary": "ParseInLocation is like Parse but differs in two important ways. First, in the absence of time zone information, Parse interprets a time as UTC; ParseInLocation interprets the time as in the given location. Second, when given a zone offset or abbreviation, Parse tries to match it against the Local location; ParseInLocation uses the given location.",
+      "signature": "func ParseInLocation(layout, value string, loc *Location) (Time, error)",
+      "params": [
+        {
+          "name": "layout",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "loc",
+          "type": "*Location"
+        }
+      ],
+      "returns": {
+        "type": "(Time, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/format.go",
+          "line": 1038,
+          "lines": [
+            "func ParseInLocation(layout, value string, loc *Location) (Time, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 50427,
+          "lines": [
+            "pkg time, func ParseInLocation(string, string, *Location) (Time, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Since",
+      "summary": "Since returns the time elapsed since t. It is shorthand for time.Now().Sub(t).",
+      "signature": "func Since(t Time) Duration",
+      "params": [
+        {
+          "name": "t",
+          "type": "Time"
+        }
+      ],
+      "returns": {
+        "type": "Duration"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/time.go",
+          "line": 1223,
+          "lines": [
+            "func Since(t Time) Duration {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30554,
+          "lines": [
+            "pkg time, func Since(Time) Duration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sleep",
+      "summary": "Sleep pauses the current goroutine for at least the duration d. A negative or zero duration causes Sleep to return immediately.",
+      "signature": "func Sleep(d Duration)",
+      "params": [
+        {
+          "name": "d",
+          "type": "Duration"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/sleep.go",
+          "line": 14,
+          "lines": [
+            "func Sleep(d Duration)"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30555,
+          "lines": [
+            "pkg time, func Sleep(Duration)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tick",
+      "summary": "Tick is a convenience wrapper for [NewTicker] providing access to the ticking channel only. Unlike NewTicker, Tick will return nil if d <= 0.",
+      "signature": "func Tick(d Duration) <-chan Time",
+      "params": [
+        {
+          "name": "d",
+          "type": "Duration"
+        }
+      ],
+      "returns": {
+        "type": "<-chan Time"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/tick.go",
+          "line": 86,
+          "lines": [
+            "func Tick(d Duration) <-chan Time {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30556,
+          "lines": [
+            "pkg time, func Tick(Duration) <-chan Time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unix",
+      "summary": "Unix returns the local Time corresponding to the given Unix time, sec seconds and nsec nanoseconds since January 1, 1970 UTC. It is valid to pass nsec outside the range [0, 999999999]. Not all sec values have a corresponding time value. One such value is 1<<63-1 (the largest int64 value).",
+      "signature": "func Unix(sec int64, nsec int64) Time",
+      "params": [
+        {
+          "name": "sec",
+          "type": "int64"
+        },
+        {
+          "name": "nsec",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "Time"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/time.go",
+          "line": 1651,
+          "lines": [
+            "func Unix(sec int64, nsec int64) Time {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30557,
+          "lines": [
+            "pkg time, func Unix(int64, int64) Time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnixMicro",
+      "summary": "UnixMicro returns the local Time corresponding to the given Unix time, usec microseconds since January 1, 1970 UTC.",
+      "signature": "func UnixMicro(usec int64) Time",
+      "params": [
+        {
+          "name": "usec",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "Time"
+      },
+      "versions": [
+        "Go 1.17"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/time.go",
+          "line": 1672,
+          "lines": [
+            "func UnixMicro(usec int64) Time {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.17.txt",
+          "line": 298,
+          "lines": [
+            "pkg time, func UnixMicro(int64) Time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnixMilli",
+      "summary": "UnixMilli returns the local Time corresponding to the given Unix time, msec milliseconds since January 1, 1970 UTC.",
+      "signature": "func UnixMilli(msec int64) Time",
+      "params": [
+        {
+          "name": "msec",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "Time"
+      },
+      "versions": [
+        "Go 1.17"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/time.go",
+          "line": 1666,
+          "lines": [
+            "func UnixMilli(msec int64) Time {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.17.txt",
+          "line": 299,
+          "lines": [
+            "pkg time, func UnixMilli(int64) Time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Until",
+      "summary": "Until returns the duration until t. It is shorthand for t.Sub(time.Now()).",
+      "signature": "func Until(t Time) Duration",
+      "params": [
+        {
+          "name": "t",
+          "type": "Time"
+        }
+      ],
+      "returns": {
+        "type": "Duration"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/time/time.go",
+          "line": 1233,
+          "lines": [
+            "func Until(t Time) Duration {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 261,
+          "lines": [
+            "pkg time, func Until(Time) Duration"
+          ]
+        }
+      ]
+    }
+  ]
+}

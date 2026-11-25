@@ -1,0 +1,509 @@
+{
+  "package": "testing",
+  "functions": [
+    {
+      "name": "AllocsPerRun",
+      "summary": "AllocsPerRun returns the average number of allocations during calls to f. Although the return value has type float64, it will always be an integral value.",
+      "signature": "func AllocsPerRun(runs int, f func()) (avg float64)",
+      "params": [
+        {
+          "name": "runs",
+          "type": "int"
+        },
+        {
+          "name": "f",
+          "type": "func()"
+        }
+      ],
+      "returns": {
+        "type": "(avg float64)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/allocs.go",
+          "line": 20,
+          "lines": [
+            "func AllocsPerRun(runs int, f func()) (avg float64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 50270,
+          "lines": [
+            "pkg testing, func AllocsPerRun(int, func()) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Benchmark",
+      "summary": "Benchmark benchmarks a single function. It is useful for creating custom benchmarks that do not use the \"go test\" command.",
+      "signature": "func Benchmark(f func(b *B)) BenchmarkResult",
+      "params": [
+        {
+          "name": "f",
+          "type": "func(b *B)"
+        }
+      ],
+      "returns": {
+        "type": "BenchmarkResult"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/benchmark.go",
+          "line": 1003,
+          "lines": [
+            "func Benchmark(f func(b *B)) BenchmarkResult {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30203,
+          "lines": [
+            "pkg testing, func Benchmark(func(*B)) BenchmarkResult"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoverMode",
+      "summary": "CoverMode reports what the test coverage mode is set to. The values are \"set\", \"count\", or \"atomic\". The return value will be empty if test coverage is not enabled.",
+      "signature": "func CoverMode() string",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 710,
+          "lines": [
+            "func CoverMode() string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 256,
+          "lines": [
+            "pkg testing, func CoverMode() string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Coverage",
+      "summary": "Coverage reports the current code coverage as a fraction in the range [0, 1]. If coverage is not enabled, Coverage returns 0.",
+      "signature": "func Coverage() float64",
+      "params": [],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.4"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/newcover.go",
+          "line": 54,
+          "lines": [
+            "func Coverage() float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.4.txt",
+          "line": 563,
+          "lines": [
+            "pkg testing, func Coverage() float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Init",
+      "summary": "Init registers testing flags. These flags are automatically registered by the \"go test\" command before running test functions, so Init is only needed when calling functions such as Benchmark without using \"go test\".",
+      "signature": "func Init()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 439,
+          "lines": [
+            "func Init() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 8019,
+          "lines": [
+            "pkg testing, func Init()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Main",
+      "summary": "Main is an internal function, part of the implementation of the \"go test\" command. It was exported because it is cross-package and predates \"internal\" packages. It is no longer used by \"go test\" but preserved, as much as possible, for other systems that simulate \"go test\" using Main, but Main sometimes cannot be updated as new functionality is added to the testing package. Systems simulating \"go test\" should be updated to use [MainStart].",
+      "signature": "func Main(matchString func(pat, str string) (bool, error), tests []InternalTest, benchmarks []InternalBenchmark, examples []InternalExample)",
+      "params": [
+        {
+          "name": "matchString",
+          "type": "func(pat, str string) (bool, error)"
+        },
+        {
+          "name": "tests",
+          "type": "[]InternalTest"
+        },
+        {
+          "name": "benchmarks",
+          "type": "[]InternalBenchmark"
+        },
+        {
+          "name": "examples",
+          "type": "[]InternalExample"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 2166,
+          "lines": [
+            "func Main(matchString func(pat, str string) (bool, error), tests []InternalTest, benchmarks []InternalBenchmark, examples []InternalExample) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30204,
+          "lines": [
+            "pkg testing, func Main(func(string, string) (bool, error), []InternalTest, []InternalBenchmark, []InternalExample)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MainStart",
+      "summary": "MainStart is meant for use by tests generated by 'go test'. It is not meant to be called directly and is not subject to the Go 1 compatibility document. It may change signature from release to release.",
+      "signature": "func MainStart(deps testDeps, tests []InternalTest, benchmarks []InternalBenchmark, fuzzTargets []InternalFuzzTarget, examples []InternalExample) *M",
+      "params": [
+        {
+          "name": "deps",
+          "type": "testDeps"
+        },
+        {
+          "name": "tests",
+          "type": "[]InternalTest"
+        },
+        {
+          "name": "benchmarks",
+          "type": "[]InternalBenchmark"
+        },
+        {
+          "name": "fuzzTargets",
+          "type": "[]InternalFuzzTarget"
+        },
+        {
+          "name": "examples",
+          "type": "[]InternalExample"
+        }
+      ],
+      "returns": {
+        "type": "*M"
+      },
+      "versions": [
+        "Go 1.4"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 2213,
+          "lines": [
+            "func MainStart(deps testDeps, tests []InternalTest, benchmarks []InternalBenchmark, fuzzTargets []InternalFuzzTarget, examples []InternalExample) *M {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.4.txt",
+          "line": 566,
+          "lines": [
+            "pkg testing, func MainStart(func(string, string) (bool, error), []InternalTest, []InternalBenchmark, []InternalExample) *M"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegisterCover",
+      "summary": "RegisterCover records the coverage data accumulators for the tests. NOTE: This function is internal to the testing infrastructure and may change. It is not covered (yet) by the Go 1 compatibility guidelines.",
+      "signature": "func RegisterCover(c Cover)",
+      "params": [
+        {
+          "name": "c",
+          "type": "Cover"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/cover.go",
+          "line": 36,
+          "lines": [
+            "func RegisterCover(c Cover) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 32452,
+          "lines": [
+            "pkg testing, func RegisterCover(Cover)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RunBenchmarks",
+      "summary": "RunBenchmarks is an internal function but exported because it is cross-package; it is part of the implementation of the \"go test\" command.",
+      "signature": "func RunBenchmarks(matchString func(pat, str string) (bool, error), benchmarks []InternalBenchmark)",
+      "params": [
+        {
+          "name": "matchString",
+          "type": "func(pat, str string) (bool, error)"
+        },
+        {
+          "name": "benchmarks",
+          "type": "[]InternalBenchmark"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/benchmark.go",
+          "line": 682,
+          "lines": [
+            "func RunBenchmarks(matchString func(pat, str string) (bool, error), benchmarks []InternalBenchmark) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30205,
+          "lines": [
+            "pkg testing, func RunBenchmarks(func(string, string) (bool, error), []InternalBenchmark)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RunExamples",
+      "summary": "RunExamples is an internal function but exported because it is cross-package; it is part of the implementation of the \"go test\" command.",
+      "signature": "func RunExamples(matchString func(pat, str string) (bool, error), examples []InternalExample) (ok bool)",
+      "params": [
+        {
+          "name": "matchString",
+          "type": "func(pat, str string) (bool, error)"
+        },
+        {
+          "name": "examples",
+          "type": "[]InternalExample"
+        }
+      ],
+      "returns": {
+        "type": "(ok bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/example.go",
+          "line": 24,
+          "lines": [
+            "func RunExamples(matchString func(pat, str string) (bool, error), examples []InternalExample) (ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30206,
+          "lines": [
+            "pkg testing, func RunExamples(func(string, string) (bool, error), []InternalExample) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RunTests",
+      "summary": "RunTests is an internal function but exported because it is cross-package; it is part of the implementation of the \"go test\" command.",
+      "signature": "func RunTests(matchString func(pat, str string) (bool, error), tests []InternalTest) (ok bool)",
+      "params": [
+        {
+          "name": "matchString",
+          "type": "func(pat, str string) (bool, error)"
+        },
+        {
+          "name": "tests",
+          "type": "[]InternalTest"
+        }
+      ],
+      "returns": {
+        "type": "(ok bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 2433,
+          "lines": [
+            "func RunTests(matchString func(pat, str string) (bool, error), tests []InternalTest) (ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30207,
+          "lines": [
+            "pkg testing, func RunTests(func(string, string) (bool, error), []InternalTest) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Short",
+      "summary": "Short reports whether the -test.short flag is set.",
+      "signature": "func Short() bool",
+      "params": [],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 679,
+          "lines": [
+            "func Short() bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30208,
+          "lines": [
+            "pkg testing, func Short() bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Testing",
+      "summary": "Testing reports whether the current code is being run in a test. This will report true in programs created by \"go test\", false in programs created by \"go build\".",
+      "signature": "func Testing() bool",
+      "params": [],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 703,
+          "lines": [
+            "func Testing() bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 417,
+          "lines": [
+            "pkg testing, func Testing() bool #52600"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verbose",
+      "summary": "Verbose reports whether the -test.v flag is set.",
+      "signature": "func Verbose() bool",
+      "params": [],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/testing.go",
+          "line": 715,
+          "lines": [
+            "func Verbose() bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 50271,
+          "lines": [
+            "pkg testing, func Verbose() bool"
+          ]
+        }
+      ]
+    }
+  ]
+}

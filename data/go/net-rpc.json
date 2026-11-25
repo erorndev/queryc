@@ -1,0 +1,470 @@
+{
+  "package": "net/rpc",
+  "functions": [
+    {
+      "name": "Accept",
+      "summary": "Accept accepts connections on the listener and serves requests to [DefaultServer] for each incoming connection. Accept blocks; the caller typically invokes it in a go statement.",
+      "signature": "func Accept(lis net.Listener) { DefaultServer.Accept(lis) }",
+      "params": [
+        {
+          "name": "lis",
+          "type": "net.Listener"
+        }
+      ],
+      "returns": {
+        "type": "{ DefaultServer.Accept(lis) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 691,
+          "lines": [
+            "func Accept(lis net.Listener) { DefaultServer.Accept(lis) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4942,
+          "lines": [
+            "pkg net/rpc, func Accept(net.Listener)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dial",
+      "summary": "Dial connects to an RPC server at the specified network address.",
+      "signature": "func Dial(network, address string) (*Client, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Client, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/client.go",
+          "line": 273,
+          "lines": [
+            "func Dial(network, address string) (*Client, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4943,
+          "lines": [
+            "pkg net/rpc, func Dial(string, string) (*Client, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DialHTTP",
+      "summary": "DialHTTP connects to an HTTP RPC server at the specified network address listening on the default HTTP RPC path.",
+      "signature": "func DialHTTP(network, address string) (*Client, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Client, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/client.go",
+          "line": 241,
+          "lines": [
+            "func DialHTTP(network, address string) (*Client, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4944,
+          "lines": [
+            "pkg net/rpc, func DialHTTP(string, string) (*Client, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DialHTTPPath",
+      "summary": "DialHTTPPath connects to an HTTP RPC server at the specified network address and path.",
+      "signature": "func DialHTTPPath(network, address, path string) (*Client, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Client, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/client.go",
+          "line": 247,
+          "lines": [
+            "func DialHTTPPath(network, address, path string) (*Client, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4945,
+          "lines": [
+            "pkg net/rpc, func DialHTTPPath(string, string, string) (*Client, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HandleHTTP",
+      "summary": "HandleHTTP registers an HTTP handler for RPC messages to [DefaultServer] on [DefaultRPCPath] and a debugging handler on [DefaultDebugPath]. It is still necessary to invoke [http.Serve](), typically in a go statement.",
+      "signature": "func HandleHTTP()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 724,
+          "lines": [
+            "func HandleHTTP() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4946,
+          "lines": [
+            "pkg net/rpc, func HandleHTTP()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewClient",
+      "summary": "NewClient returns a new [Client] to handle requests to the set of services at the other end of the connection. It adds a buffer to the write side of the connection so the header and payload are sent as a unit.",
+      "signature": "func NewClient(conn io.ReadWriteCloser) *Client",
+      "params": [
+        {
+          "name": "conn",
+          "type": "io.ReadWriteCloser"
+        }
+      ],
+      "returns": {
+        "type": "*Client"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/client.go",
+          "line": 193,
+          "lines": [
+            "func NewClient(conn io.ReadWriteCloser) *Client {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4947,
+          "lines": [
+            "pkg net/rpc, func NewClient(io.ReadWriteCloser) *Client"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewClientWithCodec",
+      "summary": "NewClientWithCodec is like [NewClient] but uses the specified codec to encode requests and decode responses.",
+      "signature": "func NewClientWithCodec(codec ClientCodec) *Client",
+      "params": [
+        {
+          "name": "codec",
+          "type": "ClientCodec"
+        }
+      ],
+      "returns": {
+        "type": "*Client"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/client.go",
+          "line": 201,
+          "lines": [
+            "func NewClientWithCodec(codec ClientCodec) *Client {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4948,
+          "lines": [
+            "pkg net/rpc, func NewClientWithCodec(ClientCodec) *Client"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewServer",
+      "summary": "NewServer returns a new [Server].",
+      "signature": "func NewServer() *Server",
+      "params": [],
+      "returns": {
+        "type": "*Server"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 198,
+          "lines": [
+            "func NewServer() *Server {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4949,
+          "lines": [
+            "pkg net/rpc, func NewServer() *Server"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Register",
+      "summary": "Register publishes the receiver's methods in the [DefaultServer].",
+      "signature": "func Register(rcvr any) error { return DefaultServer.Register(rcvr) }",
+      "params": [
+        {
+          "name": "rcvr",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "error { return DefaultServer.Register(rcvr) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 641,
+          "lines": [
+            "func Register(rcvr any) error { return DefaultServer.Register(rcvr) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4950,
+          "lines": [
+            "pkg net/rpc, func Register(interface{}) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegisterName",
+      "summary": "RegisterName is like [Register] but uses the provided name for the type instead of the receiver's concrete type.",
+      "signature": "func RegisterName(name string, rcvr any) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "rcvr",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 645,
+          "lines": [
+            "func RegisterName(name string, rcvr any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4951,
+          "lines": [
+            "pkg net/rpc, func RegisterName(string, interface{}) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeCodec",
+      "summary": "ServeCodec is like [ServeConn] but uses the specified codec to decode requests and encode responses.",
+      "signature": "func ServeCodec(codec ServerCodec)",
+      "params": [
+        {
+          "name": "codec",
+          "type": "ServerCodec"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 678,
+          "lines": [
+            "func ServeCodec(codec ServerCodec) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4952,
+          "lines": [
+            "pkg net/rpc, func ServeCodec(ServerCodec)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeConn",
+      "summary": "ServeConn runs the [DefaultServer] on a single connection. ServeConn blocks, serving the connection until the client hangs up. The caller typically invokes ServeConn in a go statement. ServeConn uses the gob wire format (see package gob) on the connection. To use an alternate codec, use [ServeCodec]. See [NewClient]'s comment for information about concurrent access.",
+      "signature": "func ServeConn(conn io.ReadWriteCloser)",
+      "params": [
+        {
+          "name": "conn",
+          "type": "io.ReadWriteCloser"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 672,
+          "lines": [
+            "func ServeConn(conn io.ReadWriteCloser) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4953,
+          "lines": [
+            "pkg net/rpc, func ServeConn(io.ReadWriteCloser)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeRequest",
+      "summary": "ServeRequest is like [ServeCodec] but synchronously serves a single request. It does not close the codec upon completion.",
+      "signature": "func ServeRequest(codec ServerCodec) error",
+      "params": [
+        {
+          "name": "codec",
+          "type": "ServerCodec"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/server.go",
+          "line": 684,
+          "lines": [
+            "func ServeRequest(codec ServerCodec) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4954,
+          "lines": [
+            "pkg net/rpc, func ServeRequest(ServerCodec) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

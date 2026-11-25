@@ -1,0 +1,117 @@
+{
+  "package": "go/importer",
+  "functions": [
+    {
+      "name": "Default",
+      "summary": "Default returns an Importer for the compiler that built the running binary. If available, the result implements [types.ImporterFrom].",
+      "signature": "func Default() types.Importer",
+      "params": [],
+      "returns": {
+        "type": "types.Importer"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/importer/importer.go",
+          "line": 97,
+          "lines": [
+            "func Default() types.Importer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 332,
+          "lines": [
+            "pkg go/importer, func Default() types.Importer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "For",
+      "summary": "For calls [ForCompiler] with a new FileSet.",
+      "signature": "func For(compiler string, lookup Lookup) types.Importer",
+      "params": [
+        {
+          "name": "compiler",
+          "type": "string"
+        },
+        {
+          "name": "lookup",
+          "type": "Lookup"
+        }
+      ],
+      "returns": {
+        "type": "types.Importer"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/importer/importer.go",
+          "line": 85,
+          "lines": [
+            "func For(compiler string, lookup Lookup) types.Importer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 333,
+          "lines": [
+            "pkg go/importer, func For(string, Lookup) types.Importer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ForCompiler",
+      "summary": "ForCompiler returns an Importer for importing from installed packages for the compilers \"gc\" and \"gccgo\", or for importing directly from the source if the compiler argument is \"source\". In this latter case, importing may fail under circumstances where the exported API is not entirely defined in pure Go source code (if the package API depends on cgo-defined entities, the type checker won't have access to those).",
+      "signature": "func ForCompiler(fset *token.FileSet, compiler string, lookup Lookup) types.Importer",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "compiler",
+          "type": "string"
+        },
+        {
+          "name": "lookup",
+          "type": "Lookup"
+        }
+      ],
+      "returns": {
+        "type": "types.Importer"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/importer/importer.go",
+          "line": 47,
+          "lines": [
+            "func ForCompiler(fset *token.FileSet, compiler string, lookup Lookup) types.Importer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 18,
+          "lines": [
+            "pkg go/importer, func ForCompiler(*token.FileSet, string, Lookup) types.Importer"
+          ]
+        }
+      ]
+    }
+  ]
+}

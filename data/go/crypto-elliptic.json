@@ -1,0 +1,328 @@
+{
+  "package": "crypto/elliptic",
+  "functions": [
+    {
+      "name": "GenerateKey",
+      "summary": "GenerateKey returns a public/private key pair. The private key is generated using the given reader, which must return random data.",
+      "signature": "func GenerateKey(curve Curve, rand io.Reader) (priv []byte, x, y *big.Int, err error)",
+      "params": [
+        {
+          "name": "curve",
+          "type": "Curve"
+        },
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(priv []byte, x, y *big.Int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 75,
+          "lines": [
+            "func GenerateKey(curve Curve, rand io.Reader) (priv []byte, x, y *big.Int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 413,
+          "lines": [
+            "pkg crypto/elliptic, func GenerateKey(Curve, io.Reader) ([]uint8, *big.Int, *big.Int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Marshal",
+      "summary": "Marshal converts a point on the curve into the uncompressed form specified in SEC 1, Version 2.0, Section 2.3.3. If the point is not on the curve (or is the conventional point at infinity), the behavior is undefined.",
+      "signature": "func Marshal(curve Curve, x, y *big.Int) []byte",
+      "params": [
+        {
+          "name": "curve",
+          "type": "Curve"
+        },
+        {
+          "name": "x",
+          "type": "*big.Int"
+        },
+        {
+          "name": "y",
+          "type": "*big.Int"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 109,
+          "lines": [
+            "func Marshal(curve Curve, x, y *big.Int) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 414,
+          "lines": [
+            "pkg crypto/elliptic, func Marshal(Curve, *big.Int, *big.Int) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalCompressed",
+      "summary": "MarshalCompressed converts a point on the curve into the compressed form specified in SEC 1, Version 2.0, Section 2.3.3. If the point is not on the curve (or is the conventional point at infinity), the behavior is undefined.",
+      "signature": "func MarshalCompressed(curve Curve, x, y *big.Int) []byte",
+      "params": [
+        {
+          "name": "curve",
+          "type": "Curve"
+        },
+        {
+          "name": "x",
+          "type": "*big.Int"
+        },
+        {
+          "name": "y",
+          "type": "*big.Int"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.15"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 126,
+          "lines": [
+            "func MarshalCompressed(curve Curve, x, y *big.Int) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.15.txt",
+          "line": 9,
+          "lines": [
+            "pkg crypto/elliptic, func MarshalCompressed(Curve, *big.Int, *big.Int) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P224",
+      "summary": "P224 returns a [Curve] which implements NIST P-224 (FIPS 186-3, section D.2.2), also known as secp224r1. The CurveParams.Name of this [Curve] is \"P-224\".",
+      "signature": "func P224() Curve",
+      "params": [],
+      "returns": {
+        "type": "Curve"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 240,
+          "lines": [
+            "func P224() Curve {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 415,
+          "lines": [
+            "pkg crypto/elliptic, func P224() Curve"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P256",
+      "summary": "P256 returns a [Curve] which implements NIST P-256 (FIPS 186-3, section D.2.3), also known as secp256r1 or prime256v1. The CurveParams.Name of this [Curve] is \"P-256\".",
+      "signature": "func P256() Curve",
+      "params": [],
+      "returns": {
+        "type": "Curve"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 253,
+          "lines": [
+            "func P256() Curve {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 416,
+          "lines": [
+            "pkg crypto/elliptic, func P256() Curve"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P384",
+      "summary": "P384 returns a [Curve] which implements NIST P-384 (FIPS 186-3, section D.2.4), also known as secp384r1. The CurveParams.Name of this [Curve] is \"P-384\".",
+      "signature": "func P384() Curve",
+      "params": [],
+      "returns": {
+        "type": "Curve"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 265,
+          "lines": [
+            "func P384() Curve {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 417,
+          "lines": [
+            "pkg crypto/elliptic, func P384() Curve"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P521",
+      "summary": "P521 returns a [Curve] which implements NIST P-521 (FIPS 186-3, section D.2.5), also known as secp521r1. The CurveParams.Name of this [Curve] is \"P-521\".",
+      "signature": "func P521() Curve",
+      "params": [],
+      "returns": {
+        "type": "Curve"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 277,
+          "lines": [
+            "func P521() Curve {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 418,
+          "lines": [
+            "pkg crypto/elliptic, func P521() Curve"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unmarshal",
+      "summary": "Unmarshal converts a point, serialized by [Marshal], into an x, y pair. It is an error if the point is not in uncompressed form, is not on the curve, or is the point at infinity. On error, x = nil.",
+      "signature": "func Unmarshal(curve Curve, data []byte) (x, y *big.Int)",
+      "params": [
+        {
+          "name": "curve",
+          "type": "Curve"
+        },
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(x, y *big.Int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 153,
+          "lines": [
+            "func Unmarshal(curve Curve, data []byte) (x, y *big.Int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 419,
+          "lines": [
+            "pkg crypto/elliptic, func Unmarshal(Curve, []uint8) (*big.Int, *big.Int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnmarshalCompressed",
+      "summary": "UnmarshalCompressed converts a point, serialized by [MarshalCompressed], into an x, y pair. It is an error if the point is not in compressed form, is not on the curve, or is the point at infinity. On error, x = nil.",
+      "signature": "func UnmarshalCompressed(curve Curve, data []byte) (x, y *big.Int)",
+      "params": [
+        {
+          "name": "curve",
+          "type": "Curve"
+        },
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(x, y *big.Int)"
+      },
+      "versions": [
+        "Go 1.15"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 180,
+          "lines": [
+            "func UnmarshalCompressed(curve Curve, data []byte) (x, y *big.Int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.15.txt",
+          "line": 10,
+          "lines": [
+            "pkg crypto/elliptic, func UnmarshalCompressed(Curve, []uint8) (*big.Int, *big.Int)"
+          ]
+        }
+      ]
+    }
+  ]
+}

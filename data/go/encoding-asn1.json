@@ -1,0 +1,161 @@
+{
+  "package": "encoding/asn1",
+  "functions": [
+    {
+      "name": "Marshal",
+      "summary": "Marshal returns the ASN.1 encoding of val.",
+      "signature": "func Marshal(val any) ([]byte, error)",
+      "params": [
+        {
+          "name": "val",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/asn1/marshal.go",
+          "line": 731,
+          "lines": [
+            "func Marshal(val any) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2224,
+          "lines": [
+            "pkg encoding/asn1, func Marshal(interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalWithParams",
+      "summary": "MarshalWithParams allows field parameters to be specified for the top-level element. The form of the params is the same as the field tags.",
+      "signature": "func MarshalWithParams(val any, params string) ([]byte, error)",
+      "params": [
+        {
+          "name": "val",
+          "type": "any"
+        },
+        {
+          "name": "params",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/asn1/marshal.go",
+          "line": 737,
+          "lines": [
+            "func MarshalWithParams(val any, params string) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 565,
+          "lines": [
+            "pkg encoding/asn1, func MarshalWithParams(interface{}, string) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unmarshal",
+      "summary": "Unmarshal parses the DER-encoded ASN.1 data structure b and uses the reflect package to fill in an arbitrary value pointed at by val. Because Unmarshal uses the reflect package, the structs being written to must use upper case field names. If val is nil or not a pointer, Unmarshal returns an error.",
+      "signature": "func Unmarshal(b []byte, val any) (rest []byte, err error)",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "val",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "(rest []byte, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/asn1/asn1.go",
+          "line": 1149,
+          "lines": [
+            "func Unmarshal(b []byte, val any) (rest []byte, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2225,
+          "lines": [
+            "pkg encoding/asn1, func Unmarshal([]uint8, interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnmarshalWithParams",
+      "summary": "UnmarshalWithParams allows field parameters to be specified for the top-level element. The form of the params is the same as the field tags.",
+      "signature": "func UnmarshalWithParams(b []byte, val any, params string) (rest []byte, err error)",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        },
+        {
+          "name": "val",
+          "type": "any"
+        },
+        {
+          "name": "params",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(rest []byte, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/asn1/asn1.go",
+          "line": 1172,
+          "lines": [
+            "func UnmarshalWithParams(b []byte, val any, params string) (rest []byte, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2226,
+          "lines": [
+            "pkg encoding/asn1, func UnmarshalWithParams([]uint8, interface{}, string) ([]uint8, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "package": "go/token",
+  "functions": [
+    {
+      "name": "IsExported",
+      "summary": "IsExported reports whether name starts with an upper-case letter.",
+      "signature": "func IsExported(name string) bool",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/token/token.go",
+          "line": 316,
+          "lines": [
+            "func IsExported(name string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 51,
+          "lines": [
+            "pkg go/token, func IsExported(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsIdentifier",
+      "summary": "IsIdentifier reports whether name is a Go identifier, that is, a non-empty string made up of letters, digits, and underscores, where the first character is not a digit. Keywords are not identifiers.",
+      "signature": "func IsIdentifier(name string) bool",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/token/token.go",
+          "line": 331,
+          "lines": [
+            "func IsIdentifier(name string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 52,
+          "lines": [
+            "pkg go/token, func IsIdentifier(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsKeyword",
+      "summary": "IsKeyword reports whether name is a Go keyword, such as \"func\" or \"return\".",
+      "signature": "func IsKeyword(name string) bool",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/token/token.go",
+          "line": 322,
+          "lines": [
+            "func IsKeyword(name string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 53,
+          "lines": [
+            "pkg go/token, func IsKeyword(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lookup",
+      "summary": "Lookup maps an identifier to its keyword token or [IDENT] (if not a keyword).",
+      "signature": "func Lookup(ident string) Token",
+      "params": [
+        {
+          "name": "ident",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Token"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/token/token.go",
+          "line": 292,
+          "lines": [
+            "func Lookup(ident string) Token {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3270,
+          "lines": [
+            "pkg go/token, func Lookup(string) Token"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFileSet",
+      "summary": "NewFileSet creates a new file set.",
+      "signature": "func NewFileSet() *FileSet",
+      "params": [],
+      "returns": {
+        "type": "*FileSet"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/token/position.go",
+          "line": 437,
+          "lines": [
+            "func NewFileSet() *FileSet {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3271,
+          "lines": [
+            "pkg go/token, func NewFileSet() *FileSet"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "package": "database/sql",
+  "functions": [
+    {
+      "name": "Drivers",
+      "summary": "Drivers returns a sorted list of the names of the registered drivers.",
+      "signature": "func Drivers() []string",
+      "params": [],
+      "returns": {
+        "type": "[]string"
+      },
+      "versions": [
+        "Go 1.4"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/database/sql/sql.go",
+          "line": 76,
+          "lines": [
+            "func Drivers() []string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.4.txt",
+          "line": 54,
+          "lines": [
+            "pkg database/sql, func Drivers() []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Named",
+      "summary": "Named provides a more concise way to create [NamedArg] values.",
+      "signature": "func Named(name string, value any) NamedArg",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "NamedArg"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/database/sql/sql.go",
+          "line": 117,
+          "lines": [
+            "func Named(name string, value any) NamedArg {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 129,
+          "lines": [
+            "pkg database/sql, func Named(string, interface{}) NamedArg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Open",
+      "summary": "Open opens a database specified by its database driver name and a driver-specific data source name, usually consisting of at least a database name and connection information.",
+      "signature": "func Open(driverName, dataSourceName string) (*DB, error)",
+      "params": [
+        {
+          "name": "driverName",
+          "type": "string"
+        },
+        {
+          "name": "dataSourceName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*DB, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/database/sql/sql.go",
+          "line": 863,
+          "lines": [
+            "func Open(driverName, dataSourceName string) (*DB, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 712,
+          "lines": [
+            "pkg database/sql, func Open(string, string) (*DB, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OpenDB",
+      "summary": "OpenDB opens a database using a [driver.Connector], allowing drivers to bypass a string based data source name.",
+      "signature": "func OpenDB(c driver.Connector) *DB",
+      "params": [
+        {
+          "name": "c",
+          "type": "driver.Connector"
+        }
+      ],
+      "returns": {
+        "type": "*DB"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/database/sql/sql.go",
+          "line": 832,
+          "lines": [
+            "func OpenDB(c driver.Connector) *DB {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 48,
+          "lines": [
+            "pkg database/sql, func OpenDB(driver.Connector) *DB"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Register",
+      "summary": "Register makes a database driver available by the provided name. If Register is called twice with the same name or if driver is nil, it panics.",
+      "signature": "func Register(name string, driver driver.Driver)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "driver",
+          "type": "driver.Driver"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/database/sql/sql.go",
+          "line": 56,
+          "lines": [
+            "func Register(name string, driver driver.Driver) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 713,
+          "lines": [
+            "pkg database/sql, func Register(string, driver.Driver)"
+          ]
+        }
+      ]
+    }
+  ]
+}

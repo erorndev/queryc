@@ -1,0 +1,122 @@
+{
+  "package": "os/exec",
+  "functions": [
+    {
+      "name": "Command",
+      "summary": "Command returns the [Cmd] struct to execute the named program with the given arguments.",
+      "signature": "func Command(name string, arg ...string) *Cmd",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "arg",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "*Cmd"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/exec/exec.go",
+          "line": 398,
+          "lines": [
+            "func Command(name string, arg ...string) *Cmd {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5274,
+          "lines": [
+            "pkg os/exec, func Command(string, ...string) *Cmd"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CommandContext",
+      "summary": "CommandContext is like [Command] but includes a context.",
+      "signature": "func CommandContext(ctx context.Context, name string, arg ...string) *Cmd",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "arg",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "*Cmd"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/exec/exec.go",
+          "line": 478,
+          "lines": [
+            "func CommandContext(ctx context.Context, name string, arg ...string) *Cmd {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 242,
+          "lines": [
+            "pkg os/exec, func CommandContext(context.Context, string, ...string) *Cmd"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookPath",
+      "summary": "LookPath searches for an executable named file in the directories named by the path environment variable. If file begins with \"/\", \"#\", \"./\", or \"../\", it is tried directly and the path is not consulted. On success, the result is an absolute path.",
+      "signature": "func LookPath(file string) (string, error)",
+      "params": [
+        {
+          "name": "file",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/exec/lp_plan9.go",
+          "line": 38,
+          "lines": [
+            "func LookPath(file string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5275,
+          "lines": [
+            "pkg os/exec, func LookPath(string) (string, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

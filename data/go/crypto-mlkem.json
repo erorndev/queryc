@@ -1,0 +1,205 @@
+{
+  "package": "crypto/mlkem",
+  "functions": [
+    {
+      "name": "GenerateKey1024",
+      "summary": "GenerateKey1024 generates a new decapsulation key, drawing random bytes from the default crypto/rand source. The decapsulation key must be kept secret.",
+      "signature": "func GenerateKey1024() (*DecapsulationKey1024, error)",
+      "params": [],
+      "returns": {
+        "type": "(*DecapsulationKey1024, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/mlkem/mlkem.go",
+          "line": 123,
+          "lines": [
+            "func GenerateKey1024() (*DecapsulationKey1024, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 26,
+          "lines": [
+            "pkg crypto/mlkem, func GenerateKey1024() (*DecapsulationKey1024, error) #70122"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GenerateKey768",
+      "summary": "GenerateKey768 generates a new decapsulation key, drawing random bytes from the default crypto/rand source. The decapsulation key must be kept secret.",
+      "signature": "func GenerateKey768() (*DecapsulationKey768, error)",
+      "params": [],
+      "returns": {
+        "type": "(*DecapsulationKey768, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/mlkem/mlkem.go",
+          "line": 44,
+          "lines": [
+            "func GenerateKey768() (*DecapsulationKey768, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 27,
+          "lines": [
+            "pkg crypto/mlkem, func GenerateKey768() (*DecapsulationKey768, error) #70122"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewDecapsulationKey1024",
+      "summary": "NewDecapsulationKey1024 expands a decapsulation key from a 64-byte seed in the \"d || z\" form. The seed must be uniformly random.",
+      "signature": "func NewDecapsulationKey1024(seed []byte) (*DecapsulationKey1024, error)",
+      "params": [
+        {
+          "name": "seed",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*DecapsulationKey1024, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/mlkem/mlkem.go",
+          "line": 134,
+          "lines": [
+            "func NewDecapsulationKey1024(seed []byte) (*DecapsulationKey1024, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 28,
+          "lines": [
+            "pkg crypto/mlkem, func NewDecapsulationKey1024([]uint8) (*DecapsulationKey1024, error) #70122"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewDecapsulationKey768",
+      "summary": "NewDecapsulationKey768 expands a decapsulation key from a 64-byte seed in the \"d || z\" form. The seed must be uniformly random.",
+      "signature": "func NewDecapsulationKey768(seed []byte) (*DecapsulationKey768, error)",
+      "params": [
+        {
+          "name": "seed",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*DecapsulationKey768, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/mlkem/mlkem.go",
+          "line": 55,
+          "lines": [
+            "func NewDecapsulationKey768(seed []byte) (*DecapsulationKey768, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 29,
+          "lines": [
+            "pkg crypto/mlkem, func NewDecapsulationKey768([]uint8) (*DecapsulationKey768, error) #70122"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncapsulationKey1024",
+      "summary": "NewEncapsulationKey1024 parses an encapsulation key from its encoded form. If the encapsulation key is not valid, NewEncapsulationKey1024 returns an error.",
+      "signature": "func NewEncapsulationKey1024(encapsulationKey []byte) (*EncapsulationKey1024, error)",
+      "params": [
+        {
+          "name": "encapsulationKey",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*EncapsulationKey1024, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/mlkem/mlkem.go",
+          "line": 172,
+          "lines": [
+            "func NewEncapsulationKey1024(encapsulationKey []byte) (*EncapsulationKey1024, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 30,
+          "lines": [
+            "pkg crypto/mlkem, func NewEncapsulationKey1024([]uint8) (*EncapsulationKey1024, error) #70122"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncapsulationKey768",
+      "summary": "NewEncapsulationKey768 parses an encapsulation key from its encoded form. If the encapsulation key is not valid, NewEncapsulationKey768 returns an error.",
+      "signature": "func NewEncapsulationKey768(encapsulationKey []byte) (*EncapsulationKey768, error)",
+      "params": [
+        {
+          "name": "encapsulationKey",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*EncapsulationKey768, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/mlkem/mlkem.go",
+          "line": 93,
+          "lines": [
+            "func NewEncapsulationKey768(encapsulationKey []byte) (*EncapsulationKey768, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 31,
+          "lines": [
+            "pkg crypto/mlkem, func NewEncapsulationKey768([]uint8) (*EncapsulationKey768, error) #70122"
+          ]
+        }
+      ]
+    }
+  ]
+}

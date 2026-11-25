@@ -1,0 +1,70 @@
+{
+  "package": "crypto/md5",
+  "functions": [
+    {
+      "name": "New",
+      "summary": "New returns a new [hash.Hash] computing the MD5 checksum. The Hash also implements [encoding.BinaryMarshaler], [encoding.BinaryAppender] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/md5/md5.go",
+          "line": 116,
+          "lines": [
+            "func New() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 443,
+          "lines": [
+            "pkg crypto/md5, func New() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum",
+      "summary": "Sum returns the MD5 checksum of the data.",
+      "signature": "func Sum(data []byte) [Size]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[Size]byte"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/md5/md5.go",
+          "line": 205,
+          "lines": [
+            "func Sum(data []byte) [Size]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 21,
+          "lines": [
+            "pkg crypto/md5, func Sum([]uint8) [16]uint8"
+          ]
+        }
+      ]
+    }
+  ]
+}

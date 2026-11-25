@@ -1,0 +1,70 @@
+{
+  "package": "runtime/metrics",
+  "functions": [
+    {
+      "name": "All",
+      "summary": "All returns a slice of containing metric descriptions for all supported metrics.",
+      "signature": "func All() []Description",
+      "params": [],
+      "returns": {
+        "type": "[]Description"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/metrics/description.go",
+          "line": 475,
+          "lines": [
+            "func All() []Description {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 419,
+          "lines": [
+            "pkg runtime/metrics, func All() []Description"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Read",
+      "summary": "Read populates each [Value] field in the given slice of metric samples.",
+      "signature": "func Read(m []Sample)",
+      "params": [
+        {
+          "name": "m",
+          "type": "[]Sample"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/metrics/sample.go",
+          "line": 45,
+          "lines": [
+            "func Read(m []Sample) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 420,
+          "lines": [
+            "pkg runtime/metrics, func Read([]Sample)"
+          ]
+        }
+      ]
+    }
+  ]
+}

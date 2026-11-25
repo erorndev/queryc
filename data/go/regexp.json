@@ -1,0 +1,297 @@
+{
+  "package": "regexp",
+  "functions": [
+    {
+      "name": "Compile",
+      "summary": "Compile parses a regular expression and returns, if successful, a [Regexp] object that can be used to match against text.",
+      "signature": "func Compile(expr string) (*Regexp, error)",
+      "params": [
+        {
+          "name": "expr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Regexp, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 130,
+          "lines": [
+            "func Compile(expr string) (*Regexp, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5518,
+          "lines": [
+            "pkg regexp, func Compile(string) (*Regexp, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CompilePOSIX",
+      "summary": "CompilePOSIX is like [Compile] but restricts the regular expression to POSIX ERE (egrep) syntax and changes the match semantics to leftmost-longest.",
+      "signature": "func CompilePOSIX(expr string) (*Regexp, error)",
+      "params": [
+        {
+          "name": "expr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Regexp, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 153,
+          "lines": [
+            "func CompilePOSIX(expr string) (*Regexp, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5519,
+          "lines": [
+            "pkg regexp, func CompilePOSIX(string) (*Regexp, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Match",
+      "summary": "Match reports whether the byte slice b contains any match of the regular expression pattern. More complicated queries need to use [Compile] and the full [Regexp] interface.",
+      "signature": "func Match(pattern string, b []byte) (matched bool, err error)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(matched bool, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 561,
+          "lines": [
+            "func Match(pattern string, b []byte) (matched bool, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5520,
+          "lines": [
+            "pkg regexp, func Match(string, []uint8) (bool, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MatchReader",
+      "summary": "MatchReader reports whether the text returned by the [io.RuneReader] contains any match of the regular expression pattern. More complicated queries need to use [Compile] and the full [Regexp] interface.",
+      "signature": "func MatchReader(pattern string, r io.RuneReader) (matched bool, err error)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "r",
+          "type": "io.RuneReader"
+        }
+      ],
+      "returns": {
+        "type": "(matched bool, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 539,
+          "lines": [
+            "func MatchReader(pattern string, r io.RuneReader) (matched bool, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5521,
+          "lines": [
+            "pkg regexp, func MatchReader(string, io.RuneReader) (bool, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MatchString",
+      "summary": "MatchString reports whether the string s contains any match of the regular expression pattern. More complicated queries need to use [Compile] and the full [Regexp] interface.",
+      "signature": "func MatchString(pattern string, s string) (matched bool, err error)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(matched bool, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 550,
+          "lines": [
+            "func MatchString(pattern string, s string) (matched bool, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5522,
+          "lines": [
+            "pkg regexp, func MatchString(string, string) (bool, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MustCompile",
+      "summary": "MustCompile is like [Compile] but panics if the expression cannot be parsed. It simplifies safe initialization of global variables holding compiled regular expressions.",
+      "signature": "func MustCompile(str string) *Regexp",
+      "params": [
+        {
+          "name": "str",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Regexp"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 310,
+          "lines": [
+            "func MustCompile(str string) *Regexp {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5523,
+          "lines": [
+            "pkg regexp, func MustCompile(string) *Regexp"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MustCompilePOSIX",
+      "summary": "MustCompilePOSIX is like [CompilePOSIX] but panics if the expression cannot be parsed. It simplifies safe initialization of global variables holding compiled regular expressions.",
+      "signature": "func MustCompilePOSIX(str string) *Regexp",
+      "params": [
+        {
+          "name": "str",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Regexp"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 321,
+          "lines": [
+            "func MustCompilePOSIX(str string) *Regexp {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5524,
+          "lines": [
+            "pkg regexp, func MustCompilePOSIX(string) *Regexp"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "QuoteMeta",
+      "summary": "QuoteMeta returns a string that escapes all regular expression metacharacters inside the argument text; the returned string is a regular expression matching the literal text.",
+      "signature": "func QuoteMeta(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/regexp/regexp.go",
+          "line": 722,
+          "lines": [
+            "func QuoteMeta(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5525,
+          "lines": [
+            "pkg regexp, func QuoteMeta(string) string"
+          ]
+        }
+      ]
+    }
+  ]
+}

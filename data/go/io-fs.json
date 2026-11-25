@@ -1,0 +1,461 @@
+{
+  "package": "io/fs",
+  "functions": [
+    {
+      "name": "FileInfoToDirEntry",
+      "summary": "FileInfoToDirEntry returns a [DirEntry] that returns information from info. If info is nil, FileInfoToDirEntry returns nil.",
+      "signature": "func FileInfoToDirEntry(info FileInfo) DirEntry",
+      "params": [
+        {
+          "name": "info",
+          "type": "FileInfo"
+        }
+      ],
+      "returns": {
+        "type": "DirEntry"
+      },
+      "versions": [
+        "Go 1.17"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/readdir.go",
+          "line": 79,
+          "lines": [
+            "func FileInfoToDirEntry(info FileInfo) DirEntry {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.17.txt",
+          "line": 65,
+          "lines": [
+            "pkg io/fs, func FileInfoToDirEntry(FileInfo) DirEntry"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FormatDirEntry",
+      "summary": "FormatDirEntry returns a formatted version of dir for human readability. Implementations of [DirEntry] can call this from a String method. The outputs for a directory named subdir and a file named hello.go are:",
+      "signature": "func FormatDirEntry(dir DirEntry) string",
+      "params": [
+        {
+          "name": "dir",
+          "type": "DirEntry"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/format.go",
+          "line": 60,
+          "lines": [
+            "func FormatDirEntry(dir DirEntry) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 187,
+          "lines": [
+            "pkg io/fs, func FormatDirEntry(DirEntry) string #54451"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FormatFileInfo",
+      "summary": "FormatFileInfo returns a formatted version of info for human readability. Implementations of [FileInfo] can call this from a String method. The output for a file named \"hello.go\", 100 bytes, mode 0o644, created January 1, 1970 at noon is",
+      "signature": "func FormatFileInfo(info FileInfo) string",
+      "params": [
+        {
+          "name": "info",
+          "type": "FileInfo"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/format.go",
+          "line": 17,
+          "lines": [
+            "func FormatFileInfo(info FileInfo) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 188,
+          "lines": [
+            "pkg io/fs, func FormatFileInfo(FileInfo) string #54451"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Glob",
+      "summary": "Glob returns the names of all files matching pattern or nil if there is no matching file. The syntax of patterns is the same as in [path.Match]. The pattern may describe hierarchical names such as usr/*/bin/ed.",
+      "signature": "func Glob(fsys FS, pattern string) (matches []string, err error)",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "pattern",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(matches []string, err error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/glob.go",
+          "line": 33,
+          "lines": [
+            "func Glob(fsys FS, pattern string) (matches []string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 303,
+          "lines": [
+            "pkg io/fs, func Glob(FS, string) ([]string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lstat",
+      "summary": "Lstat returns a [FileInfo] describing the named file. If the file is a symbolic link, the returned [FileInfo] describes the symbolic link. Lstat makes no attempt to follow the link.",
+      "signature": "func Lstat(fsys FS, name string) (FileInfo, error)",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(FileInfo, error)"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/readlink.go",
+          "line": 39,
+          "lines": [
+            "func Lstat(fsys FS, name string) (FileInfo, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 57,
+          "lines": [
+            "pkg io/fs, func Lstat(FS, string) (FileInfo, error) #49580"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadDir",
+      "summary": "ReadDir reads the named directory and returns a list of directory entries sorted by filename.",
+      "signature": "func ReadDir(fsys FS, name string) ([]DirEntry, error)",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]DirEntry, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/readdir.go",
+          "line": 29,
+          "lines": [
+            "func ReadDir(fsys FS, name string) ([]DirEntry, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 304,
+          "lines": [
+            "pkg io/fs, func ReadDir(FS, string) ([]DirEntry, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadFile",
+      "summary": "ReadFile reads the named file from the file system fs and returns its contents. A successful call returns a nil error, not [io.EOF]. (Because ReadFile reads the whole file, the expected EOF from the final Read is not treated as an error to be reported.)",
+      "signature": "func ReadFile(fsys FS, name string) ([]byte, error)",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/readfile.go",
+          "line": 32,
+          "lines": [
+            "func ReadFile(fsys FS, name string) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 305,
+          "lines": [
+            "pkg io/fs, func ReadFile(FS, string) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadLink",
+      "summary": "ReadLink returns the destination of the named symbolic link.",
+      "signature": "func ReadLink(fsys FS, name string) (string, error)",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/readlink.go",
+          "line": 26,
+          "lines": [
+            "func ReadLink(fsys FS, name string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 58,
+          "lines": [
+            "pkg io/fs, func ReadLink(FS, string) (string, error) #49580"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stat",
+      "summary": "Stat returns a [FileInfo] describing the named file from the file system.",
+      "signature": "func Stat(fsys FS, name string) (FileInfo, error)",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(FileInfo, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/stat.go",
+          "line": 20,
+          "lines": [
+            "func Stat(fsys FS, name string) (FileInfo, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 306,
+          "lines": [
+            "pkg io/fs, func Stat(FS, string) (FileInfo, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sub",
+      "summary": "Sub returns an [FS] corresponding to the subtree rooted at fsys's dir.",
+      "signature": "func Sub(fsys FS, dir string) (FS, error)",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "dir",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(FS, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/sub.go",
+          "line": 35,
+          "lines": [
+            "func Sub(fsys FS, dir string) (FS, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 307,
+          "lines": [
+            "pkg io/fs, func Sub(FS, string) (FS, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ValidPath",
+      "summary": "ValidPath reports whether the given path name is valid for use in a call to Open.",
+      "signature": "func ValidPath(name string) bool",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/fs.go",
+          "line": 54,
+          "lines": [
+            "func ValidPath(name string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 308,
+          "lines": [
+            "pkg io/fs, func ValidPath(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WalkDir",
+      "summary": "WalkDir walks the file tree rooted at root, calling fn for each file or directory in the tree, including root.",
+      "signature": "func WalkDir(fsys FS, root string, fn WalkDirFunc) error",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "FS"
+        },
+        {
+          "name": "root",
+          "type": "string"
+        },
+        {
+          "name": "fn",
+          "type": "WalkDirFunc"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/io/fs/walk.go",
+          "line": 117,
+          "lines": [
+            "func WalkDir(fsys FS, root string, fn WalkDirFunc) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 309,
+          "lines": [
+            "pkg io/fs, func WalkDir(FS, string, WalkDirFunc) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

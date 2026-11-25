@@ -1,0 +1,476 @@
+{
+  "package": "html/template",
+  "functions": [
+    {
+      "name": "HTMLEscape",
+      "summary": "HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.",
+      "signature": "func HTMLEscape(w io.Writer, b []byte)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/escape.go",
+          "line": 976,
+          "lines": [
+            "func HTMLEscape(w io.Writer, b []byte) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3368,
+          "lines": [
+            "pkg html/template, func HTMLEscape(io.Writer, []uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HTMLEscapeString",
+      "summary": "HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.",
+      "signature": "func HTMLEscapeString(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/escape.go",
+          "line": 981,
+          "lines": [
+            "func HTMLEscapeString(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3369,
+          "lines": [
+            "pkg html/template, func HTMLEscapeString(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HTMLEscaper",
+      "summary": "HTMLEscaper returns the escaped HTML equivalent of the textual representation of its arguments.",
+      "signature": "func HTMLEscaper(args ...any) string",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/escape.go",
+          "line": 987,
+          "lines": [
+            "func HTMLEscaper(args ...any) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3370,
+          "lines": [
+            "pkg html/template, func HTMLEscaper(...interface{}) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsTrue",
+      "summary": "IsTrue reports whether the value is 'true', in the sense of not the zero of its type, and whether the value has a meaningful truth value. This is the definition of truth used by if and other such actions.",
+      "signature": "func IsTrue(val any) (truth, ok bool)",
+      "params": [
+        {
+          "name": "val",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "(truth, ok bool)"
+      },
+      "versions": [
+        "Go 1.6"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/template.go",
+          "line": 483,
+          "lines": [
+            "func IsTrue(val any) (truth, ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.6.txt",
+          "line": 193,
+          "lines": [
+            "pkg html/template, func IsTrue(interface{}) (bool, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "JSEscape",
+      "summary": "JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.",
+      "signature": "func JSEscape(w io.Writer, b []byte)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/escape.go",
+          "line": 992,
+          "lines": [
+            "func JSEscape(w io.Writer, b []byte) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3371,
+          "lines": [
+            "pkg html/template, func JSEscape(io.Writer, []uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "JSEscapeString",
+      "summary": "JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.",
+      "signature": "func JSEscapeString(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/escape.go",
+          "line": 997,
+          "lines": [
+            "func JSEscapeString(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3372,
+          "lines": [
+            "pkg html/template, func JSEscapeString(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "JSEscaper",
+      "summary": "JSEscaper returns the escaped JavaScript equivalent of the textual representation of its arguments.",
+      "signature": "func JSEscaper(args ...any) string",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/escape.go",
+          "line": 1003,
+          "lines": [
+            "func JSEscaper(args ...any) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3373,
+          "lines": [
+            "pkg html/template, func JSEscaper(...interface{}) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Must",
+      "summary": "Must is a helper that wraps a call to a function returning ([*Template], error) and panics if the error is non-nil. It is intended for use in variable initializations such as",
+      "signature": "func Must(t *Template, err error) *Template",
+      "params": [
+        {
+          "name": "t",
+          "type": "*Template"
+        },
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": "*Template"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/template.go",
+          "line": 366,
+          "lines": [
+            "func Must(t *Template, err error) *Template {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3374,
+          "lines": [
+            "pkg html/template, func Must(*Template, error) *Template"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New allocates a new HTML template with the given name.",
+      "signature": "func New(name string) *Template",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Template"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/template.go",
+          "line": 284,
+          "lines": [
+            "func New(name string) *Template {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3375,
+          "lines": [
+            "pkg html/template, func New(string) *Template"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseFS",
+      "summary": "ParseFS is like [ParseFiles] or [ParseGlob] but reads from the file system fs instead of the host operating system's file system. It accepts a list of glob patterns. (Note that most file names serve as glob patterns matching only themselves.)",
+      "signature": "func ParseFS(fs fs.FS, patterns ...string) (*Template, error)",
+      "params": [
+        {
+          "name": "fs",
+          "type": "fs.FS"
+        },
+        {
+          "name": "patterns",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "(*Template, error)"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/template.go",
+          "line": 491,
+          "lines": [
+            "func ParseFS(fs fs.FS, patterns ...string) (*Template, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 264,
+          "lines": [
+            "pkg html/template, func ParseFS(fs.FS, ...string) (*Template, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseFiles",
+      "summary": "ParseFiles creates a new [Template] and parses the template definitions from the named files. The returned template's name will have the (base) name and (parsed) contents of the first file. There must be at least one file. If an error occurs, parsing stops and the returned [*Template] is nil.",
+      "signature": "func ParseFiles(filenames ...string) (*Template, error)",
+      "params": [
+        {
+          "name": "filenames",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "(*Template, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/template.go",
+          "line": 382,
+          "lines": [
+            "func ParseFiles(filenames ...string) (*Template, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3376,
+          "lines": [
+            "pkg html/template, func ParseFiles(...string) (*Template, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseGlob",
+      "summary": "ParseGlob creates a new [Template] and parses the template definitions from the files identified by the pattern. The files are matched according to the semantics of filepath.Match, and the pattern must match at least one file. The returned template will have the (base) name and (parsed) contents of the first file matched by the pattern. ParseGlob is equivalent to calling [ParseFiles] with the list of files matched by the pattern.",
+      "signature": "func ParseGlob(pattern string) (*Template, error)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Template, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/template.go",
+          "line": 447,
+          "lines": [
+            "func ParseGlob(pattern string) (*Template, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3377,
+          "lines": [
+            "pkg html/template, func ParseGlob(string) (*Template, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "URLQueryEscaper",
+      "summary": "URLQueryEscaper returns the escaped value of the textual representation of its arguments in a form suitable for embedding in a URL query.",
+      "signature": "func URLQueryEscaper(args ...any) string",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/template/escape.go",
+          "line": 1009,
+          "lines": [
+            "func URLQueryEscaper(args ...any) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3378,
+          "lines": [
+            "pkg html/template, func URLQueryEscaper(...interface{}) string"
+          ]
+        }
+      ]
+    }
+  ]
+}

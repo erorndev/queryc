@@ -1,0 +1,125 @@
+{
+  "package": "crypto/ecdh",
+  "functions": [
+    {
+      "name": "P256",
+      "summary": "P256 returns a [Curve] which implements NIST P-256 (FIPS 186-3, section D.2.3), also known as secp256r1 or prime256v1.",
+      "signature": "func P256() Curve { return p256 }",
+      "params": [],
+      "returns": {
+        "type": "Curve { return p256 }"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdh/nist.go",
+          "line": 162,
+          "lines": [
+            "func P256() Curve { return p256 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 9,
+          "lines": [
+            "pkg crypto/ecdh, func P256() Curve #52221"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P384",
+      "summary": "P384 returns a [Curve] which implements NIST P-384 (FIPS 186-3, section D.2.4), also known as secp384r1.",
+      "signature": "func P384() Curve { return p384 }",
+      "params": [],
+      "returns": {
+        "type": "Curve { return p384 }"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdh/nist.go",
+          "line": 185,
+          "lines": [
+            "func P384() Curve { return p384 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 10,
+          "lines": [
+            "pkg crypto/ecdh, func P384() Curve #52221"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "P521",
+      "summary": "P521 returns a [Curve] which implements NIST P-521 (FIPS 186-3, section D.2.5), also known as secp521r1.",
+      "signature": "func P521() Curve { return p521 }",
+      "params": [],
+      "returns": {
+        "type": "Curve { return p521 }"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdh/nist.go",
+          "line": 208,
+          "lines": [
+            "func P521() Curve { return p521 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 11,
+          "lines": [
+            "pkg crypto/ecdh, func P521() Curve #52221"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "X25519",
+      "summary": "X25519 returns a [Curve] which implements the X25519 function over Curve25519 (RFC 7748, Section 5).",
+      "signature": "func X25519() Curve { return x25519 }",
+      "params": [],
+      "returns": {
+        "type": "Curve { return x25519 }"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdh/x25519.go",
+          "line": 27,
+          "lines": [
+            "func X25519() Curve { return x25519 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 12,
+          "lines": [
+            "pkg crypto/ecdh, func X25519() Curve #52221"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "package": "crypto/hmac",
+  "functions": [
+    {
+      "name": "Equal",
+      "summary": "Equal compares two MACs for equality without leaking timing information.",
+      "signature": "func Equal(mac1, mac2 []byte) bool",
+      "params": [
+        {
+          "name": "mac1",
+          "type": "[]byte"
+        },
+        {
+          "name": "mac2",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/hmac/hmac.go",
+          "line": 60,
+          "lines": [
+            "func Equal(mac1, mac2 []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 78,
+          "lines": [
+            "pkg crypto/hmac, func Equal([]uint8, []uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New returns a new HMAC hash using the given [hash.Hash] type and key. New functions like [crypto/sha256.New] can be used as h. h must return a new Hash every time it is called. Note that unlike other hash implementations in the standard library, the returned Hash does not implement [encoding.BinaryMarshaler] or [encoding.BinaryUnmarshaler].",
+      "signature": "func New(h func() hash.Hash, key []byte) hash.Hash",
+      "params": [
+        {
+          "name": "h",
+          "type": "func() hash.Hash"
+        },
+        {
+          "name": "key",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/hmac/hmac.go",
+          "line": 39,
+          "lines": [
+            "func New(h func() hash.Hash, key []byte) hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 440,
+          "lines": [
+            "pkg crypto/hmac, func New(func() hash.Hash, []uint8) hash.Hash"
+          ]
+        }
+      ]
+    }
+  ]
+}

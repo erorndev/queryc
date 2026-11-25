@@ -1,0 +1,60 @@
+{
+  "package": "text/tabwriter",
+  "functions": [
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter allocates and initializes a new [Writer]. The parameters are the same as for the Init function.",
+      "signature": "func NewWriter(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer",
+      "params": [
+        {
+          "name": "output",
+          "type": "io.Writer"
+        },
+        {
+          "name": "minwidth",
+          "type": "int"
+        },
+        {
+          "name": "tabwidth",
+          "type": "int"
+        },
+        {
+          "name": "padding",
+          "type": "int"
+        },
+        {
+          "name": "padchar",
+          "type": "byte"
+        },
+        {
+          "name": "flags",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/text/tabwriter/tabwriter.go",
+          "line": 599,
+          "lines": [
+            "func NewWriter(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30327,
+          "lines": [
+            "pkg text/tabwriter, func NewWriter(io.Writer, int, int, int, uint8, uint) *Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

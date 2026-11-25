@@ -1,0 +1,948 @@
+{
+  "package": "math/cmplx",
+  "functions": [
+    {
+      "name": "Abs",
+      "summary": "Abs returns the absolute value (also called the modulus) of x.",
+      "signature": "func Abs(x complex128) float64 { return math.Hypot(real(x), imag(x)) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "float64 { return math.Hypot(real(x), imag(x)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/abs.go",
+          "line": 13,
+          "lines": [
+            "func Abs(x complex128) float64 { return math.Hypot(real(x), imag(x)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4257,
+          "lines": [
+            "pkg math/cmplx, func Abs(complex128) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Acos",
+      "summary": "Acos returns the inverse cosine of x.",
+      "signature": "func Acos(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/asin.go",
+          "line": 133,
+          "lines": [
+            "func Acos(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4258,
+          "lines": [
+            "pkg math/cmplx, func Acos(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Acosh",
+      "summary": "Acosh returns the inverse hyperbolic cosine of x.",
+      "signature": "func Acosh(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/asin.go",
+          "line": 139,
+          "lines": [
+            "func Acosh(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4259,
+          "lines": [
+            "pkg math/cmplx, func Acosh(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asin",
+      "summary": "Asin returns the inverse sine of x.",
+      "signature": "func Asin(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/asin.go",
+          "line": 51,
+          "lines": [
+            "func Asin(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4260,
+          "lines": [
+            "pkg math/cmplx, func Asin(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asinh",
+      "summary": "Asinh returns the inverse hyperbolic sine of x.",
+      "signature": "func Asinh(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/asin.go",
+          "line": 87,
+          "lines": [
+            "func Asinh(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4261,
+          "lines": [
+            "pkg math/cmplx, func Asinh(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atan",
+      "summary": "Atan returns the inverse tangent of x.",
+      "signature": "func Atan(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/asin.go",
+          "line": 184,
+          "lines": [
+            "func Atan(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4262,
+          "lines": [
+            "pkg math/cmplx, func Atan(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atanh",
+      "summary": "Atanh returns the inverse hyperbolic tangent of x.",
+      "signature": "func Atanh(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/asin.go",
+          "line": 217,
+          "lines": [
+            "func Atanh(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4263,
+          "lines": [
+            "pkg math/cmplx, func Atanh(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Conj",
+      "summary": "Conj returns the complex conjugate of x.",
+      "signature": "func Conj(x complex128) complex128 { return complex(real(x), -imag(x)) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128 { return complex(real(x), -imag(x)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/conj.go",
+          "line": 8,
+          "lines": [
+            "func Conj(x complex128) complex128 { return complex(real(x), -imag(x)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4264,
+          "lines": [
+            "pkg math/cmplx, func Conj(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cos",
+      "summary": "Cos returns the cosine of x.",
+      "signature": "func Cos(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/sin.go",
+          "line": 124,
+          "lines": [
+            "func Cos(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4265,
+          "lines": [
+            "pkg math/cmplx, func Cos(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cosh",
+      "summary": "Cosh returns the hyperbolic cosine of x.",
+      "signature": "func Cosh(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/sin.go",
+          "line": 156,
+          "lines": [
+            "func Cosh(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4266,
+          "lines": [
+            "pkg math/cmplx, func Cosh(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cot",
+      "summary": "Cot returns the cotangent of x.",
+      "signature": "func Cot(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/tan.go",
+          "line": 288,
+          "lines": [
+            "func Cot(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4267,
+          "lines": [
+            "pkg math/cmplx, func Cot(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exp",
+      "summary": "Exp returns e**x, the base-e exponential of x.",
+      "signature": "func Exp(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/exp.go",
+          "line": 51,
+          "lines": [
+            "func Exp(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4268,
+          "lines": [
+            "pkg math/cmplx, func Exp(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inf",
+      "summary": "Inf returns a complex infinity, complex(+Inf, +Inf).",
+      "signature": "func Inf() complex128",
+      "params": [],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/isinf.go",
+          "line": 18,
+          "lines": [
+            "func Inf() complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4269,
+          "lines": [
+            "pkg math/cmplx, func Inf() complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsInf",
+      "summary": "IsInf reports whether either real(x) or imag(x) is an infinity.",
+      "signature": "func IsInf(x complex128) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/isinf.go",
+          "line": 10,
+          "lines": [
+            "func IsInf(x complex128) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4270,
+          "lines": [
+            "pkg math/cmplx, func IsInf(complex128) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsNaN",
+      "summary": "IsNaN reports whether either real(x) or imag(x) is NaN and neither is an infinity.",
+      "signature": "func IsNaN(x complex128) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/isnan.go",
+          "line": 11,
+          "lines": [
+            "func IsNaN(x complex128) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4271,
+          "lines": [
+            "pkg math/cmplx, func IsNaN(complex128) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log",
+      "summary": "Log returns the natural logarithm of x.",
+      "signature": "func Log(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/log.go",
+          "line": 57,
+          "lines": [
+            "func Log(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4272,
+          "lines": [
+            "pkg math/cmplx, func Log(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log10",
+      "summary": "Log10 returns the decimal logarithm of x.",
+      "signature": "func Log10(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/log.go",
+          "line": 62,
+          "lines": [
+            "func Log10(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4273,
+          "lines": [
+            "pkg math/cmplx, func Log10(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NaN",
+      "summary": "NaN returns a complex “not-a-number” value.",
+      "signature": "func NaN() complex128",
+      "params": [],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/isnan.go",
+          "line": 22,
+          "lines": [
+            "func NaN() complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4274,
+          "lines": [
+            "pkg math/cmplx, func NaN() complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Phase",
+      "summary": "Phase returns the phase (also called the argument) of x. The returned value is in the range [-Pi, Pi].",
+      "signature": "func Phase(x complex128) float64 { return math.Atan2(imag(x), real(x)) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "float64 { return math.Atan2(imag(x), real(x)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/phase.go",
+          "line": 11,
+          "lines": [
+            "func Phase(x complex128) float64 { return math.Atan2(imag(x), real(x)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4275,
+          "lines": [
+            "pkg math/cmplx, func Phase(complex128) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Polar",
+      "summary": "Polar returns the absolute value r and phase θ of x, such that x = r * e**θi. The phase is in the range [-Pi, Pi].",
+      "signature": "func Polar(x complex128) (r, θ float64)",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "(r, θ float64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/polar.go",
+          "line": 10,
+          "lines": [
+            "func Polar(x complex128) (r, θ float64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4276,
+          "lines": [
+            "pkg math/cmplx, func Polar(complex128) (float64, float64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pow",
+      "summary": "Pow returns x**y, the base-x exponential of y. For generalized compatibility with [math.Pow]:",
+      "signature": "func Pow(x, y complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        },
+        {
+          "name": "y",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/pow.go",
+          "line": 50,
+          "lines": [
+            "func Pow(x, y complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4277,
+          "lines": [
+            "pkg math/cmplx, func Pow(complex128, complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rect",
+      "summary": "Rect returns the complex number x with polar coordinates r, θ.",
+      "signature": "func Rect(r, θ float64) complex128",
+      "params": [
+        {
+          "name": "",
+          "type": "r"
+        },
+        {
+          "name": "",
+          "type": "θ float64"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/rect.go",
+          "line": 10,
+          "lines": [
+            "func Rect(r, θ float64) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4278,
+          "lines": [
+            "pkg math/cmplx, func Rect(float64, float64) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sin",
+      "summary": "Sin returns the sine of x.",
+      "signature": "func Sin(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/sin.go",
+          "line": 53,
+          "lines": [
+            "func Sin(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4279,
+          "lines": [
+            "pkg math/cmplx, func Sin(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sinh",
+      "summary": "Sinh returns the hyperbolic sine of x.",
+      "signature": "func Sinh(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/sin.go",
+          "line": 86,
+          "lines": [
+            "func Sinh(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4280,
+          "lines": [
+            "pkg math/cmplx, func Sinh(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sqrt",
+      "summary": "Sqrt returns the square root of x. The result r is chosen so that real(r) ≥ 0 and imag(r) has the same sign as imag(x).",
+      "signature": "func Sqrt(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/sqrt.go",
+          "line": 58,
+          "lines": [
+            "func Sqrt(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4281,
+          "lines": [
+            "pkg math/cmplx, func Sqrt(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tan",
+      "summary": "Tan returns the tangent of x.",
+      "signature": "func Tan(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/tan.go",
+          "line": 62,
+          "lines": [
+            "func Tan(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4282,
+          "lines": [
+            "pkg math/cmplx, func Tan(complex128) complex128"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tanh",
+      "summary": "Tanh returns the hyperbolic tangent of x.",
+      "signature": "func Tanh(x complex128) complex128",
+      "params": [
+        {
+          "name": "x",
+          "type": "complex128"
+        }
+      ],
+      "returns": {
+        "type": "complex128"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cmplx/tan.go",
+          "line": 96,
+          "lines": [
+            "func Tanh(x complex128) complex128 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4283,
+          "lines": [
+            "pkg math/cmplx, func Tanh(complex128) complex128"
+          ]
+        }
+      ]
+    }
+  ]
+}

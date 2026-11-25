@@ -1,0 +1,126 @@
+{
+  "package": "testing/quick",
+  "functions": [
+    {
+      "name": "Check",
+      "summary": "Check looks for an input to f, any function that returns bool, such that f returns false. It calls f repeatedly, with arbitrary values for each argument. If f returns false on a given input, Check returns that input as a *[CheckError]. For example:",
+      "signature": "func Check(f any, config *Config) error",
+      "params": [
+        {
+          "name": "f",
+          "type": "any"
+        },
+        {
+          "name": "config",
+          "type": "*Config"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/quick/quick.go",
+          "line": 263,
+          "lines": [
+            "func Check(f any, config *Config) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30259,
+          "lines": [
+            "pkg testing/quick, func Check(interface{}, *Config) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CheckEqual",
+      "summary": "CheckEqual looks for an input on which f and g return different results. It calls f and g repeatedly with arbitrary values for each argument. If f and g return different answers, CheckEqual returns a *[CheckEqualError] describing the input and the outputs.",
+      "signature": "func CheckEqual(f, g any, config *Config) error",
+      "params": [
+        {
+          "name": "f",
+          "type": "any"
+        },
+        {
+          "name": "g",
+          "type": "any"
+        },
+        {
+          "name": "config",
+          "type": "*Config"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/quick/quick.go",
+          "line": 302,
+          "lines": [
+            "func CheckEqual(f, g any, config *Config) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30260,
+          "lines": [
+            "pkg testing/quick, func CheckEqual(interface{}, interface{}, *Config) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Value",
+      "summary": "Value returns an arbitrary value of the given type. If the type implements the [Generator] interface, that will be used. Note: To create arbitrary values for structs, all the fields must be exported.",
+      "signature": "func Value(t reflect.Type, rand *rand.Rand) (value reflect.Value, ok bool)",
+      "params": [
+        {
+          "name": "t",
+          "type": "reflect.Type"
+        },
+        {
+          "name": "rand",
+          "type": "*rand.Rand"
+        }
+      ],
+      "returns": {
+        "type": "(value reflect.Value, ok bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/quick/quick.go",
+          "line": 59,
+          "lines": [
+            "func Value(t reflect.Type, rand *rand.Rand) (value reflect.Value, ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30261,
+          "lines": [
+            "pkg testing/quick, func Value(reflect.Type, *rand.Rand) (reflect.Value, bool)"
+          ]
+        }
+      ]
+    }
+  ]
+}

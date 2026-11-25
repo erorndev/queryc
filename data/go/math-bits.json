@@ -1,0 +1,1848 @@
+{
+  "package": "math/bits",
+  "functions": [
+    {
+      "name": "Add",
+      "summary": "Add returns the sum with carry of x, y and carry: sum = x + y + carry. The carry input must be 0 or 1; otherwise the behavior is undefined. The carryOut output is guaranteed to be 0 or 1.",
+      "signature": "func Add(x, y, carry uint) (sum, carryOut uint)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        },
+        {
+          "name": "y",
+          "type": "uint"
+        },
+        {
+          "name": "carry",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "(sum, carryOut uint)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 360,
+          "lines": [
+            "func Add(x, y, carry uint) (sum, carryOut uint) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 23,
+          "lines": [
+            "pkg math/bits, func Add(uint, uint, uint) (uint, uint)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Add32",
+      "summary": "Add32 returns the sum with carry of x, y and carry: sum = x + y + carry. The carry input must be 0 or 1; otherwise the behavior is undefined. The carryOut output is guaranteed to be 0 or 1.",
+      "signature": "func Add32(x, y, carry uint32) (sum, carryOut uint32)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        },
+        {
+          "name": "y",
+          "type": "uint32"
+        },
+        {
+          "name": "carry",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(sum, carryOut uint32)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 374,
+          "lines": [
+            "func Add32(x, y, carry uint32) (sum, carryOut uint32) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 24,
+          "lines": [
+            "pkg math/bits, func Add32(uint32, uint32, uint32) (uint32, uint32)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Add64",
+      "summary": "Add64 returns the sum with carry of x, y and carry: sum = x + y + carry. The carry input must be 0 or 1; otherwise the behavior is undefined. The carryOut output is guaranteed to be 0 or 1.",
+      "signature": "func Add64(x, y, carry uint64) (sum, carryOut uint64)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        },
+        {
+          "name": "y",
+          "type": "uint64"
+        },
+        {
+          "name": "carry",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(sum, carryOut uint64)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 386,
+          "lines": [
+            "func Add64(x, y, carry uint64) (sum, carryOut uint64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 25,
+          "lines": [
+            "pkg math/bits, func Add64(uint64, uint64, uint64) (uint64, uint64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Div",
+      "summary": "Div returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).",
+      "signature": "func Div(hi, lo, y uint) (quo, rem uint)",
+      "params": [
+        {
+          "name": "hi",
+          "type": "uint"
+        },
+        {
+          "name": "lo",
+          "type": "uint"
+        },
+        {
+          "name": "y",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "(quo, rem uint)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 492,
+          "lines": [
+            "func Div(hi, lo, y uint) (quo, rem uint) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 26,
+          "lines": [
+            "pkg math/bits, func Div(uint, uint, uint) (uint, uint)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Div32",
+      "summary": "Div32 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).",
+      "signature": "func Div32(hi, lo, y uint32) (quo, rem uint32)",
+      "params": [
+        {
+          "name": "hi",
+          "type": "uint32"
+        },
+        {
+          "name": "lo",
+          "type": "uint32"
+        },
+        {
+          "name": "y",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(quo, rem uint32)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 505,
+          "lines": [
+            "func Div32(hi, lo, y uint32) (quo, rem uint32) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 27,
+          "lines": [
+            "pkg math/bits, func Div32(uint32, uint32, uint32) (uint32, uint32)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Div64",
+      "summary": "Div64 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).",
+      "signature": "func Div64(hi, lo, y uint64) (quo, rem uint64)",
+      "params": [
+        {
+          "name": "hi",
+          "type": "uint64"
+        },
+        {
+          "name": "lo",
+          "type": "uint64"
+        },
+        {
+          "name": "y",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(quo, rem uint64)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 518,
+          "lines": [
+            "func Div64(hi, lo, y uint64) (quo, rem uint64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 28,
+          "lines": [
+            "pkg math/bits, func Div64(uint64, uint64, uint64) (uint64, uint64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LeadingZeros",
+      "summary": "LeadingZeros returns the number of leading zero bits in x; the result is [UintSize] for x == 0.",
+      "signature": "func LeadingZeros(x uint) int { return UintSize - Len(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "int { return UintSize - Len(x) }"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 25,
+          "lines": [
+            "func LeadingZeros(x uint) int { return UintSize - Len(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 81,
+          "lines": [
+            "pkg math/bits, func LeadingZeros(uint) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LeadingZeros16",
+      "summary": "LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.",
+      "signature": "func LeadingZeros16(x uint16) int { return 16 - Len16(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint16"
+        }
+      ],
+      "returns": {
+        "type": "int { return 16 - Len16(x) }"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 31,
+          "lines": [
+            "func LeadingZeros16(x uint16) int { return 16 - Len16(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 82,
+          "lines": [
+            "pkg math/bits, func LeadingZeros16(uint16) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LeadingZeros32",
+      "summary": "LeadingZeros32 returns the number of leading zero bits in x; the result is 32 for x == 0.",
+      "signature": "func LeadingZeros32(x uint32) int { return 32 - Len32(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "int { return 32 - Len32(x) }"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 34,
+          "lines": [
+            "func LeadingZeros32(x uint32) int { return 32 - Len32(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 83,
+          "lines": [
+            "pkg math/bits, func LeadingZeros32(uint32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LeadingZeros64",
+      "summary": "LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.",
+      "signature": "func LeadingZeros64(x uint64) int { return 64 - Len64(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "int { return 64 - Len64(x) }"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 37,
+          "lines": [
+            "func LeadingZeros64(x uint64) int { return 64 - Len64(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 84,
+          "lines": [
+            "pkg math/bits, func LeadingZeros64(uint64) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LeadingZeros8",
+      "summary": "LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.",
+      "signature": "func LeadingZeros8(x uint8) int { return 8 - Len8(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "int { return 8 - Len8(x) }"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 28,
+          "lines": [
+            "func LeadingZeros8(x uint8) int { return 8 - Len8(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 85,
+          "lines": [
+            "pkg math/bits, func LeadingZeros8(uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Len",
+      "summary": "Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.",
+      "signature": "func Len(x uint) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 302,
+          "lines": [
+            "func Len(x uint) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 86,
+          "lines": [
+            "pkg math/bits, func Len(uint) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Len16",
+      "summary": "Len16 returns the minimum number of bits required to represent x; the result is 0 for x == 0.",
+      "signature": "func Len16(x uint16) (n int)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint16"
+        }
+      ],
+      "returns": {
+        "type": "(n int)"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 315,
+          "lines": [
+            "func Len16(x uint16) (n int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 87,
+          "lines": [
+            "pkg math/bits, func Len16(uint16) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Len32",
+      "summary": "Len32 returns the minimum number of bits required to represent x; the result is 0 for x == 0.",
+      "signature": "func Len32(x uint32) (n int)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(n int)"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 324,
+          "lines": [
+            "func Len32(x uint32) (n int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 88,
+          "lines": [
+            "pkg math/bits, func Len32(uint32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Len64",
+      "summary": "Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.",
+      "signature": "func Len64(x uint64) (n int)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(n int)"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 337,
+          "lines": [
+            "func Len64(x uint64) (n int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 89,
+          "lines": [
+            "pkg math/bits, func Len64(uint64) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Len8",
+      "summary": "Len8 returns the minimum number of bits required to represent x; the result is 0 for x == 0.",
+      "signature": "func Len8(x uint8) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 310,
+          "lines": [
+            "func Len8(x uint8) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 90,
+          "lines": [
+            "pkg math/bits, func Len8(uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mul",
+      "summary": "Mul returns the full-width product of x and y: (hi, lo) = x * y with the product bits' upper half returned in hi and the lower half returned in lo.",
+      "signature": "func Mul(x, y uint) (hi, lo uint)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        },
+        {
+          "name": "y",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "(hi, lo uint)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 445,
+          "lines": [
+            "func Mul(x, y uint) (hi, lo uint) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 29,
+          "lines": [
+            "pkg math/bits, func Mul(uint, uint) (uint, uint)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mul32",
+      "summary": "Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y with the product bits' upper half returned in hi and the lower half returned in lo.",
+      "signature": "func Mul32(x, y uint32) (hi, lo uint32)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        },
+        {
+          "name": "y",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(hi, lo uint32)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 459,
+          "lines": [
+            "func Mul32(x, y uint32) (hi, lo uint32) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 30,
+          "lines": [
+            "pkg math/bits, func Mul32(uint32, uint32) (uint32, uint32)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mul64",
+      "summary": "Mul64 returns the 128-bit product of x and y: (hi, lo) = x * y with the product bits' upper half returned in hi and the lower half returned in lo.",
+      "signature": "func Mul64(x, y uint64) (hi, lo uint64)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        },
+        {
+          "name": "y",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(hi, lo uint64)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 470,
+          "lines": [
+            "func Mul64(x, y uint64) (hi, lo uint64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 31,
+          "lines": [
+            "pkg math/bits, func Mul64(uint64, uint64) (uint64, uint64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnesCount",
+      "summary": "OnesCount returns the number of one bits (\"population count\") in x.",
+      "signature": "func OnesCount(x uint) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 117,
+          "lines": [
+            "func OnesCount(x uint) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 91,
+          "lines": [
+            "pkg math/bits, func OnesCount(uint) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnesCount16",
+      "summary": "OnesCount16 returns the number of one bits (\"population count\") in x.",
+      "signature": "func OnesCount16(x uint16) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint16"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 130,
+          "lines": [
+            "func OnesCount16(x uint16) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 92,
+          "lines": [
+            "pkg math/bits, func OnesCount16(uint16) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnesCount32",
+      "summary": "OnesCount32 returns the number of one bits (\"population count\") in x.",
+      "signature": "func OnesCount32(x uint32) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 135,
+          "lines": [
+            "func OnesCount32(x uint32) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 93,
+          "lines": [
+            "pkg math/bits, func OnesCount32(uint32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnesCount64",
+      "summary": "OnesCount64 returns the number of one bits (\"population count\") in x.",
+      "signature": "func OnesCount64(x uint64) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 140,
+          "lines": [
+            "func OnesCount64(x uint64) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 94,
+          "lines": [
+            "pkg math/bits, func OnesCount64(uint64) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnesCount8",
+      "summary": "OnesCount8 returns the number of one bits (\"population count\") in x.",
+      "signature": "func OnesCount8(x uint8) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 125,
+          "lines": [
+            "func OnesCount8(x uint8) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 95,
+          "lines": [
+            "pkg math/bits, func OnesCount8(uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rem",
+      "summary": "Rem returns the remainder of (hi, lo) divided by y. Rem panics for y == 0 (division by zero) but, unlike Div, it doesn't panic on a quotient overflow.",
+      "signature": "func Rem(hi, lo, y uint) uint",
+      "params": [
+        {
+          "name": "hi",
+          "type": "uint"
+        },
+        {
+          "name": "lo",
+          "type": "uint"
+        },
+        {
+          "name": "y",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "uint"
+      },
+      "versions": [
+        "Go 1.14"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 573,
+          "lines": [
+            "func Rem(hi, lo, y uint) uint {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.14.txt",
+          "line": 169,
+          "lines": [
+            "pkg math/bits, func Rem(uint, uint, uint) uint"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rem32",
+      "summary": "Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics for y == 0 (division by zero) but, unlike [Div32], it doesn't panic on a quotient overflow.",
+      "signature": "func Rem32(hi, lo, y uint32) uint32",
+      "params": [
+        {
+          "name": "hi",
+          "type": "uint32"
+        },
+        {
+          "name": "lo",
+          "type": "uint32"
+        },
+        {
+          "name": "y",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "uint32"
+      },
+      "versions": [
+        "Go 1.14"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 583,
+          "lines": [
+            "func Rem32(hi, lo, y uint32) uint32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.14.txt",
+          "line": 170,
+          "lines": [
+            "pkg math/bits, func Rem32(uint32, uint32, uint32) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rem64",
+      "summary": "Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics for y == 0 (division by zero) but, unlike [Div64], it doesn't panic on a quotient overflow.",
+      "signature": "func Rem64(hi, lo, y uint64) uint64",
+      "params": [
+        {
+          "name": "hi",
+          "type": "uint64"
+        },
+        {
+          "name": "lo",
+          "type": "uint64"
+        },
+        {
+          "name": "y",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      },
+      "versions": [
+        "Go 1.14"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 590,
+          "lines": [
+            "func Rem64(hi, lo, y uint64) uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.14.txt",
+          "line": 171,
+          "lines": [
+            "pkg math/bits, func Rem64(uint64, uint64, uint64) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reverse",
+      "summary": "Reverse returns the value of x with its bits in reversed order.",
+      "signature": "func Reverse(x uint) uint",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "uint"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 226,
+          "lines": [
+            "func Reverse(x uint) uint {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 96,
+          "lines": [
+            "pkg math/bits, func Reverse(uint) uint"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reverse16",
+      "summary": "Reverse16 returns the value of x with its bits in reversed order.",
+      "signature": "func Reverse16(x uint16) uint16",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint16"
+        }
+      ],
+      "returns": {
+        "type": "uint16"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 239,
+          "lines": [
+            "func Reverse16(x uint16) uint16 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 97,
+          "lines": [
+            "pkg math/bits, func Reverse16(uint16) uint16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reverse32",
+      "summary": "Reverse32 returns the value of x with its bits in reversed order.",
+      "signature": "func Reverse32(x uint32) uint32",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "uint32"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 244,
+          "lines": [
+            "func Reverse32(x uint32) uint32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 98,
+          "lines": [
+            "pkg math/bits, func Reverse32(uint32) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reverse64",
+      "summary": "Reverse64 returns the value of x with its bits in reversed order.",
+      "signature": "func Reverse64(x uint64) uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 253,
+          "lines": [
+            "func Reverse64(x uint64) uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 99,
+          "lines": [
+            "pkg math/bits, func Reverse64(uint64) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reverse8",
+      "summary": "Reverse8 returns the value of x with its bits in reversed order.",
+      "signature": "func Reverse8(x uint8) uint8",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "uint8"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 234,
+          "lines": [
+            "func Reverse8(x uint8) uint8 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 100,
+          "lines": [
+            "pkg math/bits, func Reverse8(uint8) uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReverseBytes",
+      "summary": "ReverseBytes returns the value of x with its bytes in reversed order.",
+      "signature": "func ReverseBytes(x uint) uint",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "uint"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 266,
+          "lines": [
+            "func ReverseBytes(x uint) uint {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 101,
+          "lines": [
+            "pkg math/bits, func ReverseBytes(uint) uint"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReverseBytes16",
+      "summary": "ReverseBytes16 returns the value of x with its bytes in reversed order.",
+      "signature": "func ReverseBytes16(x uint16) uint16",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint16"
+        }
+      ],
+      "returns": {
+        "type": "uint16"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 276,
+          "lines": [
+            "func ReverseBytes16(x uint16) uint16 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 102,
+          "lines": [
+            "pkg math/bits, func ReverseBytes16(uint16) uint16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReverseBytes32",
+      "summary": "ReverseBytes32 returns the value of x with its bytes in reversed order.",
+      "signature": "func ReverseBytes32(x uint32) uint32",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "uint32"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 283,
+          "lines": [
+            "func ReverseBytes32(x uint32) uint32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 103,
+          "lines": [
+            "pkg math/bits, func ReverseBytes32(uint32) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReverseBytes64",
+      "summary": "ReverseBytes64 returns the value of x with its bytes in reversed order.",
+      "signature": "func ReverseBytes64(x uint64) uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 292,
+          "lines": [
+            "func ReverseBytes64(x uint64) uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 104,
+          "lines": [
+            "pkg math/bits, func ReverseBytes64(uint64) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RotateLeft",
+      "summary": "RotateLeft returns the value of x rotated left by (k mod [UintSize]) bits. To rotate x right by k bits, call RotateLeft(x, -k).",
+      "signature": "func RotateLeft(x uint, k int) uint",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        },
+        {
+          "name": "k",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "uint"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 176,
+          "lines": [
+            "func RotateLeft(x uint, k int) uint {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 105,
+          "lines": [
+            "pkg math/bits, func RotateLeft(uint, int) uint"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RotateLeft16",
+      "summary": "RotateLeft16 returns the value of x rotated left by (k mod 16) bits. To rotate x right by k bits, call RotateLeft16(x, -k).",
+      "signature": "func RotateLeft16(x uint16, k int) uint16",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint16"
+        },
+        {
+          "name": "k",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "uint16"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 197,
+          "lines": [
+            "func RotateLeft16(x uint16, k int) uint16 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 106,
+          "lines": [
+            "pkg math/bits, func RotateLeft16(uint16, int) uint16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RotateLeft32",
+      "summary": "RotateLeft32 returns the value of x rotated left by (k mod 32) bits. To rotate x right by k bits, call RotateLeft32(x, -k).",
+      "signature": "func RotateLeft32(x uint32, k int) uint32",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        },
+        {
+          "name": "k",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "uint32"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 207,
+          "lines": [
+            "func RotateLeft32(x uint32, k int) uint32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 107,
+          "lines": [
+            "pkg math/bits, func RotateLeft32(uint32, int) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RotateLeft64",
+      "summary": "RotateLeft64 returns the value of x rotated left by (k mod 64) bits. To rotate x right by k bits, call RotateLeft64(x, -k).",
+      "signature": "func RotateLeft64(x uint64, k int) uint64",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        },
+        {
+          "name": "k",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 217,
+          "lines": [
+            "func RotateLeft64(x uint64, k int) uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 108,
+          "lines": [
+            "pkg math/bits, func RotateLeft64(uint64, int) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RotateLeft8",
+      "summary": "RotateLeft8 returns the value of x rotated left by (k mod 8) bits. To rotate x right by k bits, call RotateLeft8(x, -k).",
+      "signature": "func RotateLeft8(x uint8, k int) uint8",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8"
+        },
+        {
+          "name": "k",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "uint8"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 187,
+          "lines": [
+            "func RotateLeft8(x uint8, k int) uint8 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 109,
+          "lines": [
+            "pkg math/bits, func RotateLeft8(uint8, int) uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sub",
+      "summary": "Sub returns the difference of x, y and borrow: diff = x - y - borrow. The borrow input must be 0 or 1; otherwise the behavior is undefined. The borrowOut output is guaranteed to be 0 or 1.",
+      "signature": "func Sub(x, y, borrow uint) (diff, borrowOut uint)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        },
+        {
+          "name": "y",
+          "type": "uint"
+        },
+        {
+          "name": "borrow",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "(diff, borrowOut uint)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 402,
+          "lines": [
+            "func Sub(x, y, borrow uint) (diff, borrowOut uint) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 32,
+          "lines": [
+            "pkg math/bits, func Sub(uint, uint, uint) (uint, uint)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sub32",
+      "summary": "Sub32 returns the difference of x, y and borrow, diff = x - y - borrow. The borrow input must be 0 or 1; otherwise the behavior is undefined. The borrowOut output is guaranteed to be 0 or 1.",
+      "signature": "func Sub32(x, y, borrow uint32) (diff, borrowOut uint32)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        },
+        {
+          "name": "y",
+          "type": "uint32"
+        },
+        {
+          "name": "borrow",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "(diff, borrowOut uint32)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 416,
+          "lines": [
+            "func Sub32(x, y, borrow uint32) (diff, borrowOut uint32) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 33,
+          "lines": [
+            "pkg math/bits, func Sub32(uint32, uint32, uint32) (uint32, uint32)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sub64",
+      "summary": "Sub64 returns the difference of x, y and borrow: diff = x - y - borrow. The borrow input must be 0 or 1; otherwise the behavior is undefined. The borrowOut output is guaranteed to be 0 or 1.",
+      "signature": "func Sub64(x, y, borrow uint64) (diff, borrowOut uint64)",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        },
+        {
+          "name": "y",
+          "type": "uint64"
+        },
+        {
+          "name": "borrow",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "(diff, borrowOut uint64)"
+      },
+      "versions": [
+        "Go 1.12"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 431,
+          "lines": [
+            "func Sub64(x, y, borrow uint64) (diff, borrowOut uint64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.12.txt",
+          "line": 34,
+          "lines": [
+            "pkg math/bits, func Sub64(uint64, uint64, uint64) (uint64, uint64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrailingZeros",
+      "summary": "TrailingZeros returns the number of trailing zero bits in x; the result is [UintSize] for x == 0.",
+      "signature": "func TrailingZeros(x uint) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 59,
+          "lines": [
+            "func TrailingZeros(x uint) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 110,
+          "lines": [
+            "pkg math/bits, func TrailingZeros(uint) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrailingZeros16",
+      "summary": "TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.",
+      "signature": "func TrailingZeros16(x uint16) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint16"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 72,
+          "lines": [
+            "func TrailingZeros16(x uint16) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 111,
+          "lines": [
+            "pkg math/bits, func TrailingZeros16(uint16) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrailingZeros32",
+      "summary": "TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.",
+      "signature": "func TrailingZeros32(x uint32) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 81,
+          "lines": [
+            "func TrailingZeros32(x uint32) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 112,
+          "lines": [
+            "pkg math/bits, func TrailingZeros32(uint32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrailingZeros64",
+      "summary": "TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.",
+      "signature": "func TrailingZeros64(x uint64) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 90,
+          "lines": [
+            "func TrailingZeros64(x uint64) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 113,
+          "lines": [
+            "pkg math/bits, func TrailingZeros64(uint64) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrailingZeros8",
+      "summary": "TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.",
+      "signature": "func TrailingZeros8(x uint8) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits/bits.go",
+          "line": 67,
+          "lines": [
+            "func TrailingZeros8(x uint8) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 114,
+          "lines": [
+            "pkg math/bits, func TrailingZeros8(uint8) int"
+          ]
+        }
+      ]
+    }
+  ]
+}

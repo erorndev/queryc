@@ -1,0 +1,115 @@
+{
+  "package": "image/draw",
+  "functions": [
+    {
+      "name": "Draw",
+      "summary": "Draw calls [DrawMask] with a nil mask.",
+      "signature": "func Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point, op Op)",
+      "params": [
+        {
+          "name": "dst",
+          "type": "Image"
+        },
+        {
+          "name": "r",
+          "type": "image.Rectangle"
+        },
+        {
+          "name": "src",
+          "type": "image.Image"
+        },
+        {
+          "name": "sp",
+          "type": "image.Point"
+        },
+        {
+          "name": "op",
+          "type": "Op"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/draw/draw.go",
+          "line": 110,
+          "lines": [
+            "func Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point, op Op) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3675,
+          "lines": [
+            "pkg image/draw, func Draw(Image, image.Rectangle, image.Image, image.Point, Op)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DrawMask",
+      "summary": "DrawMask aligns r.Min in dst with sp in src and mp in mask and then replaces the rectangle r in dst with the result of a Porter-Duff composition. A nil mask is treated as opaque.",
+      "signature": "func DrawMask(dst Image, r image.Rectangle, src image.Image, sp image.Point, mask image.Image, mp image.Point, op Op)",
+      "params": [
+        {
+          "name": "dst",
+          "type": "Image"
+        },
+        {
+          "name": "r",
+          "type": "image.Rectangle"
+        },
+        {
+          "name": "src",
+          "type": "image.Image"
+        },
+        {
+          "name": "sp",
+          "type": "image.Point"
+        },
+        {
+          "name": "mask",
+          "type": "image.Image"
+        },
+        {
+          "name": "mp",
+          "type": "image.Point"
+        },
+        {
+          "name": "op",
+          "type": "Op"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/draw/draw.go",
+          "line": 116,
+          "lines": [
+            "func DrawMask(dst Image, r image.Rectangle, src image.Image, sp image.Point, mask image.Image, mp image.Point, op Op) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3676,
+          "lines": [
+            "pkg image/draw, func DrawMask(Image, image.Rectangle, image.Image, image.Point, image.Image, image.Point, Op)"
+          ]
+        }
+      ]
+    }
+  ]
+}

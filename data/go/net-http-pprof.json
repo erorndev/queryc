@@ -1,0 +1,235 @@
+{
+  "package": "net/http/pprof",
+  "functions": [
+    {
+      "name": "Cmdline",
+      "summary": "Cmdline responds with the running program's command line, with arguments separated by NUL bytes. The package initialization registers it as /debug/pprof/cmdline.",
+      "signature": "func Cmdline(w http.ResponseWriter, r *http.Request)",
+      "params": [
+        {
+          "name": "w",
+          "type": "http.ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*http.Request"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/pprof/pprof.go",
+          "line": 110,
+          "lines": [
+            "func Cmdline(w http.ResponseWriter, r *http.Request) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4922,
+          "lines": [
+            "pkg net/http/pprof, func Cmdline(http.ResponseWriter, *http.Request)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Handler",
+      "summary": "Handler returns an HTTP handler that serves the named profile. Available profiles can be found in [runtime/pprof.Profile].",
+      "signature": "func Handler(name string) http.Handler",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "http.Handler"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/pprof/pprof.go",
+          "line": 244,
+          "lines": [
+            "func Handler(name string) http.Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4923,
+          "lines": [
+            "pkg net/http/pprof, func Handler(string) http.Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Index",
+      "summary": "Index responds with the pprof-formatted profile named by the request. For example, \"/debug/pprof/heap\" serves the \"heap\" profile. Index responds to a request for \"/debug/pprof/\" with an HTML page listing the available profiles.",
+      "signature": "func Index(w http.ResponseWriter, r *http.Request)",
+      "params": [
+        {
+          "name": "w",
+          "type": "http.ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*http.Request"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/pprof/pprof.go",
+          "line": 386,
+          "lines": [
+            "func Index(w http.ResponseWriter, r *http.Request) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4924,
+          "lines": [
+            "pkg net/http/pprof, func Index(http.ResponseWriter, *http.Request)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "summary": "Profile responds with the pprof-formatted cpu profile. Profiling lasts for duration specified in seconds GET parameter, or for 30 seconds if not specified. The package initialization registers it as /debug/pprof/profile.",
+      "signature": "func Profile(w http.ResponseWriter, r *http.Request)",
+      "params": [
+        {
+          "name": "w",
+          "type": "http.ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*http.Request"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/pprof/pprof.go",
+          "line": 144,
+          "lines": [
+            "func Profile(w http.ResponseWriter, r *http.Request) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4925,
+          "lines": [
+            "pkg net/http/pprof, func Profile(http.ResponseWriter, *http.Request)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Symbol",
+      "summary": "Symbol looks up the program counters listed in the request, responding with a table mapping program counters to function names. The package initialization registers it as /debug/pprof/symbol.",
+      "signature": "func Symbol(w http.ResponseWriter, r *http.Request)",
+      "params": [
+        {
+          "name": "w",
+          "type": "http.ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*http.Request"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/pprof/pprof.go",
+          "line": 196,
+          "lines": [
+            "func Symbol(w http.ResponseWriter, r *http.Request) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4926,
+          "lines": [
+            "pkg net/http/pprof, func Symbol(http.ResponseWriter, *http.Request)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trace",
+      "summary": "Trace responds with the execution trace in binary form. Tracing lasts for duration specified in seconds GET parameter, or for 1 second if not specified. The package initialization registers it as /debug/pprof/trace.",
+      "signature": "func Trace(w http.ResponseWriter, r *http.Request)",
+      "params": [
+        {
+          "name": "w",
+          "type": "http.ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*http.Request"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/pprof/pprof.go",
+          "line": 170,
+          "lines": [
+            "func Trace(w http.ResponseWriter, r *http.Request) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 866,
+          "lines": [
+            "pkg net/http/pprof, func Trace(http.ResponseWriter, *http.Request)"
+          ]
+        }
+      ]
+    }
+  ]
+}

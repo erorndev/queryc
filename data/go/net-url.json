@@ -1,0 +1,363 @@
+{
+  "package": "net/url",
+  "functions": [
+    {
+      "name": "JoinPath",
+      "summary": "JoinPath returns a [URL] string with the provided path elements joined to the existing path of base and the resulting path cleaned of any ./ or ../ elements.",
+      "signature": "func JoinPath(base string, elem ...string) (result string, err error)",
+      "params": [
+        {
+          "name": "base",
+          "type": "string"
+        },
+        {
+          "name": "elem",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "(result string, err error)"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 1355,
+          "lines": [
+            "func JoinPath(base string, elem ...string) (result string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 241,
+          "lines": [
+            "pkg net/url, func JoinPath(string, ...string) (string, error) #47005"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Parse",
+      "summary": "Parse parses a raw url into a [URL] structure.",
+      "signature": "func Parse(rawURL string) (*URL, error)",
+      "params": [
+        {
+          "name": "rawURL",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*URL, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 481,
+          "lines": [
+            "func Parse(rawURL string) (*URL, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5084,
+          "lines": [
+            "pkg net/url, func Parse(string) (*URL, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseQuery",
+      "summary": "ParseQuery parses the URL-encoded query string and returns a map listing the values specified for each key. ParseQuery always returns a non-nil map containing all the valid query parameters found; err describes the first decoding error encountered, if any.",
+      "signature": "func ParseQuery(query string) (Values, error)",
+      "params": [
+        {
+          "name": "query",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Values, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 993,
+          "lines": [
+            "func ParseQuery(query string) (Values, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5085,
+          "lines": [
+            "pkg net/url, func ParseQuery(string) (Values, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseRequestURI",
+      "summary": "ParseRequestURI parses a raw url into a [URL] structure. It assumes that url was received in an HTTP request, so the url is interpreted only as an absolute URI or an absolute path. The string url is assumed not to have a #fragment suffix. (Web browsers strip #fragment before sending the URL to a web server.)",
+      "signature": "func ParseRequestURI(rawURL string) (*URL, error)",
+      "params": [
+        {
+          "name": "rawURL",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*URL, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 502,
+          "lines": [
+            "func ParseRequestURI(rawURL string) (*URL, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5086,
+          "lines": [
+            "pkg net/url, func ParseRequestURI(string) (*URL, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PathEscape",
+      "summary": "PathEscape escapes the string so it can be safely placed inside a [URL] path segment, replacing special characters (including /) with %XX sequences as needed.",
+      "signature": "func PathEscape(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 289,
+          "lines": [
+            "func PathEscape(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 226,
+          "lines": [
+            "pkg net/url, func PathEscape(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PathUnescape",
+      "summary": "PathUnescape does the inverse transformation of [PathEscape], converting each 3-byte encoded substring of the form \"%AB\" into the hex-decoded byte 0xAB. It returns an error if any % is not followed by two hexadecimal digits.",
+      "signature": "func PathUnescape(s string) (string, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 202,
+          "lines": [
+            "func PathUnescape(s string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 227,
+          "lines": [
+            "pkg net/url, func PathUnescape(string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "QueryEscape",
+      "summary": "QueryEscape escapes the string so it can be safely placed inside a [URL] query.",
+      "signature": "func QueryEscape(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 283,
+          "lines": [
+            "func QueryEscape(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5087,
+          "lines": [
+            "pkg net/url, func QueryEscape(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "QueryUnescape",
+      "summary": "QueryUnescape does the inverse transformation of [QueryEscape], converting each 3-byte encoded substring of the form \"%AB\" into the hex-decoded byte 0xAB. It returns an error if any % is not followed by two hexadecimal digits.",
+      "signature": "func QueryUnescape(s string) (string, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 191,
+          "lines": [
+            "func QueryUnescape(s string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5088,
+          "lines": [
+            "pkg net/url, func QueryUnescape(string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "summary": "User returns a [Userinfo] containing the provided username and no password set.",
+      "signature": "func User(username string) *Userinfo",
+      "params": [
+        {
+          "name": "username",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Userinfo"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 393,
+          "lines": [
+            "func User(username string) *Userinfo {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5089,
+          "lines": [
+            "pkg net/url, func User(string) *Userinfo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UserPassword",
+      "summary": "UserPassword returns a [Userinfo] containing the provided username and password.",
+      "signature": "func UserPassword(username, password string) *Userinfo",
+      "params": [
+        {
+          "name": "username",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Userinfo"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/url/url.go",
+          "line": 405,
+          "lines": [
+            "func UserPassword(username, password string) *Userinfo {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5090,
+          "lines": [
+            "pkg net/url, func UserPassword(string, string) *Userinfo"
+          ]
+        }
+      ]
+    }
+  ]
+}

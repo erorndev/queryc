@@ -1,0 +1,216 @@
+{
+  "package": "image/color",
+  "functions": [
+    {
+      "name": "CMYKToRGB",
+      "summary": "CMYKToRGB converts a [CMYK] quadruple to an RGB triple.",
+      "signature": "func CMYKToRGB(c, m, y, k uint8) (uint8, uint8, uint8)",
+      "params": [
+        {
+          "name": "c",
+          "type": "uint8"
+        },
+        {
+          "name": "m",
+          "type": "uint8"
+        },
+        {
+          "name": "y",
+          "type": "uint8"
+        },
+        {
+          "name": "k",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "(uint8, uint8, uint8)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/color/ycbcr.go",
+          "line": 336,
+          "lines": [
+            "func CMYKToRGB(c, m, y, k uint8) (uint8, uint8, uint8) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 745,
+          "lines": [
+            "pkg image/color, func CMYKToRGB(uint8, uint8, uint8, uint8) (uint8, uint8, uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ModelFunc",
+      "summary": "ModelFunc returns a [Model] that invokes f to implement the conversion.",
+      "signature": "func ModelFunc(f func(Color) Color) Model",
+      "params": [
+        {
+          "name": "f",
+          "type": "func(Color) Color"
+        }
+      ],
+      "returns": {
+        "type": "Model"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/color/color.go",
+          "line": 147,
+          "lines": [
+            "func ModelFunc(f func(Color) Color) Model {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3609,
+          "lines": [
+            "pkg image/color, func ModelFunc(func(Color) Color) Model"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RGBToCMYK",
+      "summary": "RGBToCMYK converts an RGB triple to a CMYK quadruple.",
+      "signature": "func RGBToCMYK(r, g, b uint8) (uint8, uint8, uint8, uint8)",
+      "params": [
+        {
+          "name": "r",
+          "type": "uint8"
+        },
+        {
+          "name": "g",
+          "type": "uint8"
+        },
+        {
+          "name": "b",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "(uint8, uint8, uint8, uint8)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/color/ycbcr.go",
+          "line": 315,
+          "lines": [
+            "func RGBToCMYK(r, g, b uint8) (uint8, uint8, uint8, uint8) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 746,
+          "lines": [
+            "pkg image/color, func RGBToCMYK(uint8, uint8, uint8) (uint8, uint8, uint8, uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RGBToYCbCr",
+      "summary": "RGBToYCbCr converts an RGB triple to a Y'CbCr triple.",
+      "signature": "func RGBToYCbCr(r, g, b uint8) (uint8, uint8, uint8)",
+      "params": [
+        {
+          "name": "r",
+          "type": "uint8"
+        },
+        {
+          "name": "g",
+          "type": "uint8"
+        },
+        {
+          "name": "b",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "(uint8, uint8, uint8)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/color/ycbcr.go",
+          "line": 8,
+          "lines": [
+            "func RGBToYCbCr(r, g, b uint8) (uint8, uint8, uint8) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3610,
+          "lines": [
+            "pkg image/color, func RGBToYCbCr(uint8, uint8, uint8) (uint8, uint8, uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "YCbCrToRGB",
+      "summary": "YCbCrToRGB converts a Y'CbCr triple to an RGB triple.",
+      "signature": "func YCbCrToRGB(y, cb, cr uint8) (uint8, uint8, uint8)",
+      "params": [
+        {
+          "name": "y",
+          "type": "uint8"
+        },
+        {
+          "name": "cb",
+          "type": "uint8"
+        },
+        {
+          "name": "cr",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "(uint8, uint8, uint8)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/color/ycbcr.go",
+          "line": 58,
+          "lines": [
+            "func YCbCrToRGB(y, cb, cr uint8) (uint8, uint8, uint8) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3611,
+          "lines": [
+            "pkg image/color, func YCbCrToRGB(uint8, uint8, uint8) (uint8, uint8, uint8)"
+          ]
+        }
+      ]
+    }
+  ]
+}

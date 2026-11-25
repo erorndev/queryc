@@ -5,6 +5,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { hasClangTidy, runClangTidy } from './clang-tidy.js';
 import { draftSections } from './draft.js';
+import { validateGo } from './go-validate.js';
 
 const STANDARDS = ['C89', 'C95', 'C99', 'C11', 'C17', 'C23'];
 const IDENTIFIER = /^[A-Za-z_][A-Za-z0-9_]*$/;
@@ -425,10 +426,13 @@ try {
   rmSync(workDir, { recursive: true, force: true });
 }
 
+const go = validateGo({ root: repoRoot, error, warn: (m) => warnings.push(m) });
+
 for (const w of warnings) console.log(`WARN  ${w}`);
 for (const e of errors) console.log(`ERROR ${e}`);
 console.log(
   `\n${functionCount} functions, ${checkedEvidence} declarations checked against files, ${skippedEvidence} skipped, ${checkedWarnings} warnings re-checked, ${compiledExamples} examples compiled, ${uncompiledExamples} not compiled because no header source on this machine declares the function.`,
 );
+console.log(`${go.count} Go functions, ${go.checked} lines checked.`);
 console.log(`${errors.length} errors, ${warnings.length} warnings.`);
 process.exit(errors.length ? 1 : 0);

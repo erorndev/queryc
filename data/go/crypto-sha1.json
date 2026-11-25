@@ -1,0 +1,70 @@
+{
+  "package": "crypto/sha1",
+  "functions": [
+    {
+      "name": "New",
+      "summary": "New returns a new [hash.Hash] computing the SHA1 checksum. The Hash also implements [encoding.BinaryMarshaler], [encoding.BinaryAppender] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha1/sha1.go",
+          "line": 115,
+          "lines": [
+            "func New() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 487,
+          "lines": [
+            "pkg crypto/sha1, func New() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum",
+      "summary": "Sum returns the SHA-1 checksum of the data.",
+      "signature": "func Sum(data []byte) [Size]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[Size]byte"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha1/sha1.go",
+          "line": 273,
+          "lines": [
+            "func Sum(data []byte) [Size]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 30,
+          "lines": [
+            "pkg crypto/sha1, func Sum([]uint8) [20]uint8"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1125 @@
+{
+  "package": "go/constant",
+  "functions": [
+    {
+      "name": "BinaryOp",
+      "summary": "BinaryOp returns the result of the binary expression x op y. The operation must be defined for the operands. If one of the operands is [Unknown], the result is [Unknown]. BinaryOp doesn't handle comparisons or shifts; use [Compare] or [Shift] instead.",
+      "signature": "func BinaryOp(x_ Value, op token.Token, y_ Value) Value",
+      "params": [
+        {
+          "name": "x_",
+          "type": "Value"
+        },
+        {
+          "name": "op",
+          "type": "token.Token"
+        },
+        {
+          "name": "y_",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 1103,
+          "lines": [
+            "func BinaryOp(x_ Value, op token.Token, y_ Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 302,
+          "lines": [
+            "pkg go/constant, func BinaryOp(Value, token.Token, Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BitLen",
+      "summary": "BitLen returns the number of bits required to represent the absolute value x in binary representation; x must be an [Int] or an [Unknown]. If x is [Unknown], the result is 0.",
+      "signature": "func BitLen(x Value) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 645,
+          "lines": [
+            "func BitLen(x Value) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 303,
+          "lines": [
+            "pkg go/constant, func BitLen(Value) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BoolVal",
+      "summary": "BoolVal returns the Go boolean value of x, which must be a [Bool] or an [Unknown]. If x is [Unknown], the result is false.",
+      "signature": "func BoolVal(x Value) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 480,
+          "lines": [
+            "func BoolVal(x Value) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 304,
+          "lines": [
+            "pkg go/constant, func BoolVal(Value) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bytes",
+      "summary": "Bytes returns the bytes for the absolute value of x in little- endian binary representation; x must be an [Int].",
+      "signature": "func Bytes(x Value) []byte",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 702,
+          "lines": [
+            "func Bytes(x Value) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 305,
+          "lines": [
+            "pkg go/constant, func Bytes(Value) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Compare",
+      "summary": "Compare returns the result of the comparison x op y. The comparison must be defined for the operands. If one of the operands is [Unknown], the result is false.",
+      "signature": "func Compare(x_ Value, op token.Token, y_ Value) bool",
+      "params": [
+        {
+          "name": "x_",
+          "type": "Value"
+        },
+        {
+          "name": "op",
+          "type": "token.Token"
+        },
+        {
+          "name": "y_",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 1337,
+          "lines": [
+            "func Compare(x_ Value, op token.Token, y_ Value) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 306,
+          "lines": [
+            "pkg go/constant, func Compare(Value, token.Token, Value) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Denom",
+      "summary": "Denom returns the denominator of x; x must be [Int], [Float], or [Unknown]. If x is [Unknown], or if it is too large or small to represent as a fraction, the result is [Unknown]. Otherwise the result is an [Int] >= 1.",
+      "signature": "func Denom(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 788,
+          "lines": [
+            "func Denom(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 307,
+          "lines": [
+            "pkg go/constant, func Denom(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float32Val",
+      "summary": "Float32Val is like [Float64Val] but for float32 instead of float64.",
+      "signature": "func Float32Val(x Value) (float32, bool)",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "(float32, bool)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 537,
+          "lines": [
+            "func Float32Val(x Value) (float32, bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 308,
+          "lines": [
+            "pkg go/constant, func Float32Val(Value) (float32, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64Val",
+      "summary": "Float64Val returns the nearest Go float64 value of x and whether the result is exact; x must be numeric or an [Unknown], but not [Complex]. For values too small (too close to 0) to represent as float64, [Float64Val] silently underflows to 0. The result sign always matches the sign of x, even for 0. If x is [Unknown], the result is (0, false).",
+      "signature": "func Float64Val(x Value) (float64, bool)",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "(float64, bool)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 562,
+          "lines": [
+            "func Float64Val(x Value) (float64, bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 309,
+          "lines": [
+            "pkg go/constant, func Float64Val(Value) (float64, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Imag",
+      "summary": "Imag returns the imaginary part of x, which must be a numeric or unknown value. If x is [Unknown], the result is [Unknown].",
+      "signature": "func Imag(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 836,
+          "lines": [
+            "func Imag(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 310,
+          "lines": [
+            "pkg go/constant, func Imag(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int64Val",
+      "summary": "Int64Val returns the Go int64 value of x and whether the result is exact; x must be an [Int] or an [Unknown]. If the result is not exact, its value is undefined. If x is [Unknown], the result is (0, false).",
+      "signature": "func Int64Val(x Value) (int64, bool)",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "(int64, bool)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 507,
+          "lines": [
+            "func Int64Val(x Value) (int64, bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 311,
+          "lines": [
+            "pkg go/constant, func Int64Val(Value) (int64, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Make",
+      "summary": "Make returns the [Value] for x.",
+      "signature": "func Make(x any) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 623,
+          "lines": [
+            "func Make(x any) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 49,
+          "lines": [
+            "pkg go/constant, func Make(interface{}) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeBool",
+      "summary": "MakeBool returns the [Bool] value for b.",
+      "signature": "func MakeBool(b bool) Value { return boolVal(b) }",
+      "params": [
+        {
+          "name": "b",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "Value { return boolVal(b) }"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 386,
+          "lines": [
+            "func MakeBool(b bool) Value { return boolVal(b) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 312,
+          "lines": [
+            "pkg go/constant, func MakeBool(bool) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeFloat64",
+      "summary": "MakeFloat64 returns the [Float] value for x. If x is -0.0, the result is 0.0. If x is not finite, the result is an [Unknown].",
+      "signature": "func MakeFloat64(x float64) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 412,
+          "lines": [
+            "func MakeFloat64(x float64) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 313,
+          "lines": [
+            "pkg go/constant, func MakeFloat64(float64) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeFromBytes",
+      "summary": "MakeFromBytes returns the [Int] value given the bytes of its little-endian binary representation. An empty byte slice argument represents 0.",
+      "signature": "func MakeFromBytes(bytes []byte) Value",
+      "params": [
+        {
+          "name": "bytes",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 734,
+          "lines": [
+            "func MakeFromBytes(bytes []byte) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 314,
+          "lines": [
+            "pkg go/constant, func MakeFromBytes([]uint8) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeFromLiteral",
+      "summary": "MakeFromLiteral returns the corresponding integer, floating-point, imaginary, character, or string value for a Go literal string. The tok value must be one of [token.INT], [token.FLOAT], [token.IMAG], [token.CHAR], or [token.STRING]. The final argument must be zero. If the literal string syntax is invalid, the result is an [Unknown].",
+      "signature": "func MakeFromLiteral(lit string, tok token.Token, zero uint) Value",
+      "params": [
+        {
+          "name": "lit",
+          "type": "string"
+        },
+        {
+          "name": "tok",
+          "type": "token.Token"
+        },
+        {
+          "name": "zero",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 427,
+          "lines": [
+            "func MakeFromLiteral(lit string, tok token.Token, zero uint) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 315,
+          "lines": [
+            "pkg go/constant, func MakeFromLiteral(string, token.Token, uint) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeImag",
+      "summary": "MakeImag returns the [Complex] value x*i; x must be [Int], [Float], or [Unknown]. If x is [Unknown], the result is [Unknown].",
+      "signature": "func MakeImag(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 810,
+          "lines": [
+            "func MakeImag(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 316,
+          "lines": [
+            "pkg go/constant, func MakeImag(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeInt64",
+      "summary": "MakeInt64 returns the [Int] value for x.",
+      "signature": "func MakeInt64(x int64) Value { return int64Val(x) }",
+      "params": [
+        {
+          "name": "x",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "Value { return int64Val(x) }"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 399,
+          "lines": [
+            "func MakeInt64(x int64) Value { return int64Val(x) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 317,
+          "lines": [
+            "pkg go/constant, func MakeInt64(int64) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeString",
+      "summary": "MakeString returns the [String] value for s.",
+      "signature": "func MakeString(s string) Value",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 389,
+          "lines": [
+            "func MakeString(s string) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 318,
+          "lines": [
+            "pkg go/constant, func MakeString(string) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeUint64",
+      "summary": "MakeUint64 returns the [Int] value for x.",
+      "signature": "func MakeUint64(x uint64) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 402,
+          "lines": [
+            "func MakeUint64(x uint64) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 319,
+          "lines": [
+            "pkg go/constant, func MakeUint64(uint64) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeUnknown",
+      "summary": "MakeUnknown returns the [Unknown] value.",
+      "signature": "func MakeUnknown() Value { return unknownVal{} }",
+      "params": [],
+      "returns": {
+        "type": "Value { return unknownVal{} }"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 383,
+          "lines": [
+            "func MakeUnknown() Value { return unknownVal{} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 320,
+          "lines": [
+            "pkg go/constant, func MakeUnknown() Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Num",
+      "summary": "Num returns the numerator of x; x must be [Int], [Float], or [Unknown]. If x is [Unknown], or if it is too large or small to represent as a fraction, the result is [Unknown]. Otherwise the result is an [Int] with the same sign as x.",
+      "signature": "func Num(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 766,
+          "lines": [
+            "func Num(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 321,
+          "lines": [
+            "pkg go/constant, func Num(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Real",
+      "summary": "Real returns the real part of x, which must be a numeric or unknown value. If x is [Unknown], the result is [Unknown].",
+      "signature": "func Real(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 823,
+          "lines": [
+            "func Real(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 322,
+          "lines": [
+            "pkg go/constant, func Real(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shift",
+      "summary": "Shift returns the result of the shift expression x op s with op == [token.SHL] or [token.SHR] (<< or >>). x must be an [Int] or an [Unknown]. If x is [Unknown], the result is x.",
+      "signature": "func Shift(x Value, op token.Token, s uint) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        },
+        {
+          "name": "op",
+          "type": "token.Token"
+        },
+        {
+          "name": "s",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 1282,
+          "lines": [
+            "func Shift(x Value, op token.Token, s uint) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 323,
+          "lines": [
+            "pkg go/constant, func Shift(Value, token.Token, uint) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sign",
+      "summary": "Sign returns -1, 0, or 1 depending on whether x < 0, x == 0, or x > 0; x must be numeric or [Unknown]. For complex values x, the sign is 0 if x == 0, otherwise it is != 0. If x is [Unknown], the result is 1.",
+      "signature": "func Sign(x Value) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 665,
+          "lines": [
+            "func Sign(x Value) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 324,
+          "lines": [
+            "pkg go/constant, func Sign(Value) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StringVal",
+      "summary": "StringVal returns the Go string value of x, which must be a [String] or an [Unknown]. If x is [Unknown], the result is \"\".",
+      "signature": "func StringVal(x Value) string",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 493,
+          "lines": [
+            "func StringVal(x Value) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 325,
+          "lines": [
+            "pkg go/constant, func StringVal(Value) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToComplex",
+      "summary": "ToComplex converts x to a [Complex] value if x is representable as a [Complex]. Otherwise it returns an [Unknown].",
+      "signature": "func ToComplex(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.6"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 929,
+          "lines": [
+            "func ToComplex(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.6.txt",
+          "line": 184,
+          "lines": [
+            "pkg go/constant, func ToComplex(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToFloat",
+      "summary": "ToFloat converts x to a [Float] value if x is representable as a [Float]. Otherwise it returns an [Unknown].",
+      "signature": "func ToFloat(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.6"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 908,
+          "lines": [
+            "func ToFloat(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.6.txt",
+          "line": 185,
+          "lines": [
+            "pkg go/constant, func ToFloat(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToInt",
+      "summary": "ToInt converts x to an [Int] value if x is representable as an [Int]. Otherwise it returns an [Unknown].",
+      "signature": "func ToInt(x Value) Value",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.6"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 854,
+          "lines": [
+            "func ToInt(x Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.6.txt",
+          "line": 186,
+          "lines": [
+            "pkg go/constant, func ToInt(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint64Val",
+      "summary": "Uint64Val returns the Go uint64 value of x and whether the result is exact; x must be an [Int] or an [Unknown]. If the result is not exact, its value is undefined. If x is [Unknown], the result is (0, false).",
+      "signature": "func Uint64Val(x Value) (uint64, bool)",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "(uint64, bool)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 523,
+          "lines": [
+            "func Uint64Val(x Value) (uint64, bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 326,
+          "lines": [
+            "pkg go/constant, func Uint64Val(Value) (uint64, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnaryOp",
+      "summary": "UnaryOp returns the result of the unary expression op y. The operation must be defined for the operand. If prec > 0 it specifies the ^ (xor) result size in bits. If y is [Unknown], the result is [Unknown].",
+      "signature": "func UnaryOp(op token.Token, y Value, prec uint) Value",
+      "params": [
+        {
+          "name": "op",
+          "type": "token.Token"
+        },
+        {
+          "name": "y",
+          "type": "Value"
+        },
+        {
+          "name": "prec",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 958,
+          "lines": [
+            "func UnaryOp(op token.Token, y Value, prec uint) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 327,
+          "lines": [
+            "pkg go/constant, func UnaryOp(token.Token, Value, uint) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Val",
+      "summary": "Val returns the underlying value for a given constant. Since it returns an interface, it is up to the caller to type assert the result to the expected type. The possible dynamic return types are:",
+      "signature": "func Val(x Value) any",
+      "params": [
+        {
+          "name": "x",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "any"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/constant/value.go",
+          "line": 593,
+          "lines": [
+            "func Val(x Value) any {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 50,
+          "lines": [
+            "pkg go/constant, func Val(Value) interface{}"
+          ]
+        }
+      ]
+    }
+  ]
+}

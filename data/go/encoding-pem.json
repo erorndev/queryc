@@ -1,0 +1,114 @@
+{
+  "package": "encoding/pem",
+  "functions": [
+    {
+      "name": "Decode",
+      "summary": "Decode will find the next PEM formatted block (certificate, private key etc) in the input. It returns that block and the remainder of the input. If no PEM data is found, p is nil and the whole of the input is returned in rest. Blocks must start at the beginning of a line and end at the end of a line.",
+      "signature": "func Decode(data []byte) (p *Block, rest []byte)",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(p *Block, rest []byte)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/pem/pem.go",
+          "line": 89,
+          "lines": [
+            "func Decode(data []byte) (p *Block, rest []byte) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2401,
+          "lines": [
+            "pkg encoding/pem, func Decode([]uint8) (*Block, []uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Encode",
+      "summary": "Encode writes the PEM encoding of b to out.",
+      "signature": "func Encode(out io.Writer, b *Block) error",
+      "params": [
+        {
+          "name": "out",
+          "type": "io.Writer"
+        },
+        {
+          "name": "b",
+          "type": "*Block"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/pem/pem.go",
+          "line": 255,
+          "lines": [
+            "func Encode(out io.Writer, b *Block) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2402,
+          "lines": [
+            "pkg encoding/pem, func Encode(io.Writer, *Block) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncodeToMemory",
+      "summary": "EncodeToMemory returns the PEM encoding of b.",
+      "signature": "func EncodeToMemory(b *Block) []byte",
+      "params": [
+        {
+          "name": "b",
+          "type": "*Block"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/pem/pem.go",
+          "line": 325,
+          "lines": [
+            "func EncodeToMemory(b *Block) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2403,
+          "lines": [
+            "pkg encoding/pem, func EncodeToMemory(*Block) []uint8"
+          ]
+        }
+      ]
+    }
+  ]
+}

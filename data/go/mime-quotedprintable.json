@@ -1,0 +1,75 @@
+{
+  "package": "mime/quotedprintable",
+  "functions": [
+    {
+      "name": "NewReader",
+      "summary": "NewReader returns a quoted-printable reader, decoding from r.",
+      "signature": "func NewReader(r io.Reader) *Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*Reader"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/quotedprintable/reader.go",
+          "line": 24,
+          "lines": [
+            "func NewReader(r io.Reader) *Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 853,
+          "lines": [
+            "pkg mime/quotedprintable, func NewReader(io.Reader) *Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter returns a new [Writer] that writes to w.",
+      "signature": "func NewWriter(w io.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/mime/quotedprintable/writer.go",
+          "line": 24,
+          "lines": [
+            "func NewWriter(w io.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 854,
+          "lines": [
+            "pkg mime/quotedprintable, func NewWriter(io.Writer) *Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

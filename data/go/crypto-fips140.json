@@ -1,0 +1,35 @@
+{
+  "package": "crypto/fips140",
+  "functions": [
+    {
+      "name": "Enabled",
+      "summary": "Enabled reports whether the cryptography libraries are operating in FIPS 140-3 mode.",
+      "signature": "func Enabled() bool",
+      "params": [],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/fips140/fips140.go",
+          "line": 26,
+          "lines": [
+            "func Enabled() bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 10,
+          "lines": [
+            "pkg crypto/fips140, func Enabled() bool #70123"
+          ]
+        }
+      ]
+    }
+  ]
+}

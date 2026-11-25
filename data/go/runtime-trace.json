@@ -1,0 +1,346 @@
+{
+  "package": "runtime/trace",
+  "functions": [
+    {
+      "name": "IsEnabled",
+      "summary": "IsEnabled reports whether tracing is enabled. The information is advisory only. The tracing status may have changed by the time this function returns.",
+      "signature": "func IsEnabled() bool",
+      "params": [],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/annotation.go",
+          "line": 180,
+          "lines": [
+            "func IsEnabled() bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 468,
+          "lines": [
+            "pkg runtime/trace, func IsEnabled() bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log",
+      "summary": "Log emits a one-off event with the given category and message. Category can be empty and the API assumes there are only a handful of unique categories in the system.",
+      "signature": "func Log(ctx context.Context, category, message string)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/annotation.go",
+          "line": 95,
+          "lines": [
+            "func Log(ctx context.Context, category, message string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 469,
+          "lines": [
+            "pkg runtime/trace, func Log(context.Context, string, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logf",
+      "summary": "Logf is like [Log], but the value is formatted using the specified format spec.",
+      "signature": "func Logf(ctx context.Context, category, format string, args ...any)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/annotation.go",
+          "line": 101,
+          "lines": [
+            "func Logf(ctx context.Context, category, format string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 470,
+          "lines": [
+            "pkg runtime/trace, func Logf(context.Context, string, string, ...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFlightRecorder",
+      "summary": "NewFlightRecorder creates a new flight recorder from the provided configuration.",
+      "signature": "func NewFlightRecorder(cfg FlightRecorderConfig) *FlightRecorder",
+      "params": [
+        {
+          "name": "cfg",
+          "type": "FlightRecorderConfig"
+        }
+      ],
+      "returns": {
+        "type": "*FlightRecorder"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/flightrecorder.go",
+          "line": 48,
+          "lines": [
+            "func NewFlightRecorder(cfg FlightRecorderConfig) *FlightRecorder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 87,
+          "lines": [
+            "pkg runtime/trace, func NewFlightRecorder(FlightRecorderConfig) *FlightRecorder #63185"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTask",
+      "summary": "NewTask creates a task instance with the type taskType and returns it along with a Context that carries the task. If the input context contains a task, the new task is its subtask.",
+      "signature": "func NewTask(pctx context.Context, taskType string) (ctx context.Context, task *Task)",
+      "params": [
+        {
+          "name": "pctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "taskType",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(ctx context.Context, task *Task)"
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/annotation.go",
+          "line": 38,
+          "lines": [
+            "func NewTask(pctx context.Context, taskType string) (ctx context.Context, task *Task) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 471,
+          "lines": [
+            "pkg runtime/trace, func NewTask(context.Context, string) (context.Context, *Task)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Start",
+      "summary": "Start enables tracing for the current program. While tracing, the trace will be buffered and written to w. Start returns an error if tracing is already enabled.",
+      "signature": "func Start(w io.Writer) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/trace.go",
+          "line": 118,
+          "lines": [
+            "func Start(w io.Writer) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 883,
+          "lines": [
+            "pkg runtime/trace, func Start(io.Writer) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StartRegion",
+      "summary": "StartRegion starts a region and returns it. The returned Region's [Region.End] method must be called from the same goroutine where the region was started. Within each goroutine, regions must nest. That is, regions started after this region must be ended before this region can be ended. Recommended usage is",
+      "signature": "func StartRegion(ctx context.Context, regionType string) *Region",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "regionType",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Region"
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/annotation.go",
+          "line": 152,
+          "lines": [
+            "func StartRegion(ctx context.Context, regionType string) *Region {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 472,
+          "lines": [
+            "pkg runtime/trace, func StartRegion(context.Context, string) *Region"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Stop",
+      "summary": "Stop stops the current tracing, if any. Stop only returns after all the writes for the trace have completed.",
+      "signature": "func Stop()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/trace.go",
+          "line": 124,
+          "lines": [
+            "func Stop() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 884,
+          "lines": [
+            "pkg runtime/trace, func Stop()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WithRegion",
+      "summary": "WithRegion starts a region associated with its calling goroutine, runs fn, and then ends the region. If the context carries a task, the region is associated with the task. Otherwise, the region is attached to the background task.",
+      "signature": "func WithRegion(ctx context.Context, regionType string, fn func())",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "regionType",
+          "type": "string"
+        },
+        {
+          "name": "fn",
+          "type": "func()"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/trace/annotation.go",
+          "line": 122,
+          "lines": [
+            "func WithRegion(ctx context.Context, regionType string, fn func()) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 473,
+          "lines": [
+            "pkg runtime/trace, func WithRegion(context.Context, string, func())"
+          ]
+        }
+      ]
+    }
+  ]
+}

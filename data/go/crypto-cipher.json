@@ -1,0 +1,387 @@
+{
+  "package": "crypto/cipher",
+  "functions": [
+    {
+      "name": "NewCBCDecrypter",
+      "summary": "NewCBCDecrypter returns a BlockMode which decrypts in cipher block chaining mode, using the given Block. The length of iv must be the same as the Block's block size and must match the iv used to encrypt the data.",
+      "signature": "func NewCBCDecrypter(b Block, iv []byte) BlockMode",
+      "params": [
+        {
+          "name": "b",
+          "type": "Block"
+        },
+        {
+          "name": "iv",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "BlockMode"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/cbc.go",
+          "line": 129,
+          "lines": [
+            "func NewCBCDecrypter(b Block, iv []byte) BlockMode {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 341,
+          "lines": [
+            "pkg crypto/cipher, func NewCBCDecrypter(Block, []uint8) BlockMode"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCBCEncrypter",
+      "summary": "NewCBCEncrypter returns a BlockMode which encrypts in cipher block chaining mode, using the given Block. The length of iv must be the same as the Block's block size.",
+      "signature": "func NewCBCEncrypter(b Block, iv []byte) BlockMode",
+      "params": [
+        {
+          "name": "b",
+          "type": "Block"
+        },
+        {
+          "name": "iv",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "BlockMode"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/cbc.go",
+          "line": 50,
+          "lines": [
+            "func NewCBCEncrypter(b Block, iv []byte) BlockMode {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 342,
+          "lines": [
+            "pkg crypto/cipher, func NewCBCEncrypter(Block, []uint8) BlockMode"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCFBDecrypter",
+      "summary": "NewCFBDecrypter returns a [Stream] which decrypts with cipher feedback mode, using the given [Block]. The iv must be the same length as the [Block]'s block size.",
+      "signature": "func NewCFBDecrypter(block Block, iv []byte) Stream",
+      "params": [
+        {
+          "name": "block",
+          "type": "Block"
+        },
+        {
+          "name": "iv",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "Stream"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/cfb.go",
+          "line": 79,
+          "lines": [
+            "func NewCFBDecrypter(block Block, iv []byte) Stream {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 343,
+          "lines": [
+            "pkg crypto/cipher, func NewCFBDecrypter(Block, []uint8) Stream"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCFBEncrypter",
+      "summary": "NewCFBEncrypter returns a [Stream] which encrypts with cipher feedback mode, using the given [Block]. The iv must be the same length as the [Block]'s block size.",
+      "signature": "func NewCFBEncrypter(block Block, iv []byte) Stream",
+      "params": [
+        {
+          "name": "block",
+          "type": "Block"
+        },
+        {
+          "name": "iv",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "Stream"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/cfb.go",
+          "line": 63,
+          "lines": [
+            "func NewCFBEncrypter(block Block, iv []byte) Stream {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 344,
+          "lines": [
+            "pkg crypto/cipher, func NewCFBEncrypter(Block, []uint8) Stream"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCTR",
+      "summary": "NewCTR returns a [Stream] which encrypts/decrypts using the given [Block] in counter mode. The length of iv must be the same as the [Block]'s block size.",
+      "signature": "func NewCTR(block Block, iv []byte) Stream",
+      "params": [
+        {
+          "name": "block",
+          "type": "Block"
+        },
+        {
+          "name": "iv",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "Stream"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/ctr.go",
+          "line": 41,
+          "lines": [
+            "func NewCTR(block Block, iv []byte) Stream {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 345,
+          "lines": [
+            "pkg crypto/cipher, func NewCTR(Block, []uint8) Stream"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewGCM",
+      "summary": "NewGCM returns the given 128-bit, block cipher wrapped in Galois Counter Mode with the standard nonce length.",
+      "signature": "func NewGCM(cipher Block) (AEAD, error)",
+      "params": [
+        {
+          "name": "cipher",
+          "type": "Block"
+        }
+      ],
+      "returns": {
+        "type": "(AEAD, error)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/gcm.go",
+          "line": 30,
+          "lines": [
+            "func NewGCM(cipher Block) (AEAD, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 15,
+          "lines": [
+            "pkg crypto/cipher, func NewGCM(Block) (AEAD, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewGCMWithNonceSize",
+      "summary": "NewGCMWithNonceSize returns the given 128-bit, block cipher wrapped in Galois Counter Mode, which accepts nonces of the given length. The length must not be zero.",
+      "signature": "func NewGCMWithNonceSize(cipher Block, size int) (AEAD, error)",
+      "params": [
+        {
+          "name": "cipher",
+          "type": "Block"
+        },
+        {
+          "name": "size",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(AEAD, error)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/gcm.go",
+          "line": 44,
+          "lines": [
+            "func NewGCMWithNonceSize(cipher Block, size int) (AEAD, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 15,
+          "lines": [
+            "pkg crypto/cipher, func NewGCMWithNonceSize(Block, int) (AEAD, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewGCMWithRandomNonce",
+      "summary": "NewGCMWithRandomNonce returns the given cipher wrapped in Galois Counter Mode, with randomly-generated nonces. The cipher must have been created by [crypto/aes.NewCipher].",
+      "signature": "func NewGCMWithRandomNonce(cipher Block) (AEAD, error)",
+      "params": [
+        {
+          "name": "cipher",
+          "type": "Block"
+        }
+      ],
+      "returns": {
+        "type": "(AEAD, error)"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/gcm.go",
+          "line": 93,
+          "lines": [
+            "func NewGCMWithRandomNonce(cipher Block) (AEAD, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 8,
+          "lines": [
+            "pkg crypto/cipher, func NewGCMWithRandomNonce(Block) (AEAD, error) #69981"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewGCMWithTagSize",
+      "summary": "NewGCMWithTagSize returns the given 128-bit, block cipher wrapped in Galois Counter Mode, which generates tags with the given length.",
+      "signature": "func NewGCMWithTagSize(cipher Block, tagSize int) (AEAD, error)",
+      "params": [
+        {
+          "name": "cipher",
+          "type": "Block"
+        },
+        {
+          "name": "tagSize",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(AEAD, error)"
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/gcm.go",
+          "line": 59,
+          "lines": [
+            "func NewGCMWithTagSize(cipher Block, tagSize int) (AEAD, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 1,
+          "lines": [
+            "pkg crypto/cipher, func NewGCMWithTagSize(Block, int) (AEAD, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewOFB",
+      "summary": "NewOFB returns a [Stream] that encrypts or decrypts using the block cipher b in output feedback mode. The initialization vector iv's length must be equal to b's block size.",
+      "signature": "func NewOFB(b Block, iv []byte) Stream",
+      "params": [
+        {
+          "name": "b",
+          "type": "Block"
+        },
+        {
+          "name": "iv",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "Stream"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/ofb.go",
+          "line": 31,
+          "lines": [
+            "func NewOFB(b Block, iv []byte) Stream {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 346,
+          "lines": [
+            "pkg crypto/cipher, func NewOFB(Block, []uint8) Stream"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1018 @@
+{
+  "package": "reflect",
+  "functions": [
+    {
+      "name": "Append",
+      "summary": "Append appends the values x to a slice s and returns the resulting slice. As in Go, each x's value must be assignable to the slice's element type.",
+      "signature": "func Append(s Value, x ...Value) Value",
+      "params": [
+        {
+          "name": "s",
+          "type": "Value"
+        },
+        {
+          "name": "x",
+          "type": "...Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 2720,
+          "lines": [
+            "func Append(s Value, x ...Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5388,
+          "lines": [
+            "pkg reflect, func Append(Value, ...Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AppendSlice",
+      "summary": "AppendSlice appends a slice t to a slice s and returns the resulting slice. The slices s and t must have the same element type.",
+      "signature": "func AppendSlice(s, t Value) Value",
+      "params": [
+        {
+          "name": "s",
+          "type": "Value"
+        },
+        {
+          "name": "t",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 2732,
+          "lines": [
+            "func AppendSlice(s, t Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5389,
+          "lines": [
+            "pkg reflect, func AppendSlice(Value, Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ArrayOf",
+      "summary": "ArrayOf returns the array type with the given length and element type. For example, if t represents int, ArrayOf(5, t) represents [5]int.",
+      "signature": "func ArrayOf(length int, elem Type) Type",
+      "params": [
+        {
+          "name": "length",
+          "type": "int"
+        },
+        {
+          "name": "elem",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 2598,
+          "lines": [
+            "func ArrayOf(length int, elem Type) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 877,
+          "lines": [
+            "pkg reflect, func ArrayOf(int, Type) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ChanOf",
+      "summary": "ChanOf returns the channel type with the given direction and element type. For example, if t represents int, ChanOf(RecvDir, t) represents <-chan int.",
+      "signature": "func ChanOf(dir ChanDir, t Type) Type",
+      "params": [
+        {
+          "name": "dir",
+          "type": "ChanDir"
+        },
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 1769,
+          "lines": [
+            "func ChanOf(dir ChanDir, t Type) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2454,
+          "lines": [
+            "pkg reflect, func ChanOf(ChanDir, Type) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Copy",
+      "summary": "Copy copies the contents of src into dst until either dst has been filled or src has been exhausted. It returns the number of elements copied. Dst and src each must have kind [Slice] or [Array], and dst and src must have the same element type. It dst is an [Array], it panics if [Value.CanSet] returns false.",
+      "signature": "func Copy(dst, src Value) int",
+      "params": [
+        {
+          "name": "dst",
+          "type": "Value"
+        },
+        {
+          "name": "src",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 2751,
+          "lines": [
+            "func Copy(dst, src Value) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5390,
+          "lines": [
+            "pkg reflect, func Copy(Value, Value) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DeepEqual",
+      "summary": "DeepEqual reports whether x and y are “deeply equal,” defined as follows. Two values of identical type are deeply equal if one of the following cases applies. Values of distinct types are never deeply equal.",
+      "signature": "func DeepEqual(x, y any) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "any"
+        },
+        {
+          "name": "y",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/deepequal.go",
+          "line": 229,
+          "lines": [
+            "func DeepEqual(x, y any) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5391,
+          "lines": [
+            "pkg reflect, func DeepEqual(interface{}, interface{}) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FuncOf",
+      "summary": "FuncOf returns the function type with the given argument and result types. For example if k represents int and e represents string, FuncOf([]Type{k}, []Type{e}, false) represents func(int) string.",
+      "signature": "func FuncOf(in, out []Type, variadic bool) Type",
+      "params": [
+        {
+          "name": "in",
+          "type": "[]Type"
+        },
+        {
+          "name": "out",
+          "type": "[]Type"
+        },
+        {
+          "name": "variadic",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 1861,
+          "lines": [
+            "func FuncOf(in, out []Type, variadic bool) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 878,
+          "lines": [
+            "pkg reflect, func FuncOf([]Type, []Type, bool) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Indirect",
+      "summary": "Indirect returns the value that v points to. If v is a nil pointer, Indirect returns a zero Value. If v is not a pointer, Indirect returns v.",
+      "signature": "func Indirect(v Value) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "Value"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3041,
+          "lines": [
+            "func Indirect(v Value) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5392,
+          "lines": [
+            "pkg reflect, func Indirect(Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeChan",
+      "summary": "MakeChan creates a new channel with the specified type and buffer size.",
+      "signature": "func MakeChan(typ Type, buffer int) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "buffer",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3007,
+          "lines": [
+            "func MakeChan(typ Type, buffer int) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5393,
+          "lines": [
+            "pkg reflect, func MakeChan(Type, int) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeFunc",
+      "summary": "MakeFunc returns a new function of the given [Type] that wraps the function fn. When called, that new function does the following:",
+      "signature": "func MakeFunc(typ Type, fn func(args []Value) (results []Value)) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "fn",
+          "type": "func(args []Value) (results []Value)"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/makefunc.go",
+          "line": 46,
+          "lines": [
+            "func MakeFunc(typ Type, fn func(args []Value) (results []Value)) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2455,
+          "lines": [
+            "pkg reflect, func MakeFunc(Type, func([]Value) []Value) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeMap",
+      "summary": "MakeMap creates a new map with the specified type.",
+      "signature": "func MakeMap(typ Type) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3023,
+          "lines": [
+            "func MakeMap(typ Type) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5394,
+          "lines": [
+            "pkg reflect, func MakeMap(Type) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeMapWithSize",
+      "summary": "MakeMapWithSize creates a new map with the specified type and initial space for approximately n elements.",
+      "signature": "func MakeMapWithSize(typ Type, n int) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3029,
+          "lines": [
+            "func MakeMapWithSize(typ Type, n int) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 130,
+          "lines": [
+            "pkg reflect, func MakeMapWithSize(Type, int) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeSlice",
+      "summary": "MakeSlice creates a new zero-initialized slice value for the specified slice type, length, and capacity.",
+      "signature": "func MakeSlice(typ Type, len, cap int) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "len",
+          "type": "int"
+        },
+        {
+          "name": "cap",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 2978,
+          "lines": [
+            "func MakeSlice(typ Type, len, cap int) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5395,
+          "lines": [
+            "pkg reflect, func MakeSlice(Type, int, int) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MapOf",
+      "summary": "MapOf returns the map type with the given key and element types. For example, if k represents int and e represents string, MapOf(k, e) represents map[int]string.",
+      "signature": "func MapOf(key, elem Type) Type",
+      "params": [
+        {
+          "name": "key",
+          "type": "Type"
+        },
+        {
+          "name": "elem",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/map_noswiss.go",
+          "line": 42,
+          "lines": [
+            "func MapOf(key, elem Type) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2456,
+          "lines": [
+            "pkg reflect, func MapOf(Type, Type) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value's Type is [PointerTo](typ).",
+      "signature": "func New(typ Type) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3085,
+          "lines": [
+            "func New(typ Type) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5396,
+          "lines": [
+            "pkg reflect, func New(Type) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewAt",
+      "summary": "NewAt returns a Value representing a pointer to a value of the specified type, using p as that pointer.",
+      "signature": "func NewAt(typ Type, p unsafe.Pointer) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "p",
+          "type": "unsafe.Pointer"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3102,
+          "lines": [
+            "func NewAt(typ Type, p unsafe.Pointer) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5397,
+          "lines": [
+            "pkg reflect, func NewAt(Type, unsafe.Pointer) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PointerTo",
+      "summary": "PointerTo returns the pointer type with element t. For example, if t represents type Foo, PointerTo(t) represents *Foo.",
+      "signature": "func PointerTo(t Type) Type",
+      "params": [
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 1341,
+          "lines": [
+            "func PointerTo(t Type) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 163,
+          "lines": [
+            "pkg reflect, func PointerTo(Type) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PtrTo",
+      "summary": "PtrTo returns the pointer type with element t. For example, if t represents type Foo, PtrTo(t) represents *Foo.",
+      "signature": "func PtrTo(t Type) Type { return PointerTo(t) }",
+      "params": [
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type { return PointerTo(t) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 1337,
+          "lines": [
+            "func PtrTo(t Type) Type { return PointerTo(t) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5398,
+          "lines": [
+            "pkg reflect, func PtrTo(Type) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Select",
+      "summary": "Select executes a select operation described by the list of cases. Like the Go select statement, it blocks until at least one of the cases can proceed, makes a uniform pseudo-random choice, and then executes that case. It returns the index of the chosen case and, if that case was a receive operation, the value received and a boolean indicating whether the value corresponds to a send on the channel (as opposed to a zero value received because the channel is closed). Select supports a maximum of 65536 cases.",
+      "signature": "func Select(cases []SelectCase) (chosen int, recv Value, recvOK bool)",
+      "params": [
+        {
+          "name": "cases",
+          "type": "[]SelectCase"
+        }
+      ],
+      "returns": {
+        "type": "(chosen int, recv Value, recvOK bool)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 2865,
+          "lines": [
+            "func Select(cases []SelectCase) (chosen int, recv Value, recvOK bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2457,
+          "lines": [
+            "pkg reflect, func Select([]SelectCase) (int, Value, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SliceAt",
+      "summary": "SliceAt returns a [Value] representing a slice whose underlying data starts at p, with length and capacity equal to n.",
+      "signature": "func SliceAt(typ Type, p unsafe.Pointer, n int) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "p",
+          "type": "unsafe.Pointer"
+        },
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3000,
+          "lines": [
+            "func SliceAt(typ Type, p unsafe.Pointer, n int) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 78,
+          "lines": [
+            "pkg reflect, func SliceAt(Type, unsafe.Pointer, int) Value #61308"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SliceOf",
+      "summary": "SliceOf returns the slice type with element type t. For example, if t represents int, SliceOf(t) represents []int.",
+      "signature": "func SliceOf(t Type) Type",
+      "params": [
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 2076,
+          "lines": [
+            "func SliceOf(t Type) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2458,
+          "lines": [
+            "pkg reflect, func SliceOf(Type) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StructOf",
+      "summary": "StructOf returns the struct type containing fields. The Offset and Index fields are ignored and computed as they would be by the compiler.",
+      "signature": "func StructOf(fields []StructField) Type",
+      "params": [
+        {
+          "name": "fields",
+          "type": "[]StructField"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 2201,
+          "lines": [
+            "func StructOf(fields []StructField) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 253,
+          "lines": [
+            "pkg reflect, func StructOf([]StructField) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Swapper",
+      "summary": "Swapper returns a function that swaps the elements in the provided slice.",
+      "signature": "func Swapper(slice any) func(i, j int)",
+      "params": [
+        {
+          "name": "slice",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "func(i, j int)"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/swapper.go",
+          "line": 18,
+          "lines": [
+            "func Swapper(slice any) func(i, j int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 239,
+          "lines": [
+            "pkg reflect, func Swapper(interface{}) func(int, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TypeOf",
+      "summary": "TypeOf returns the reflection [Type] that represents the dynamic type of i. If i is a nil interface value, TypeOf returns nil.",
+      "signature": "func TypeOf(i any) Type",
+      "params": [
+        {
+          "name": "i",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 1311,
+          "lines": [
+            "func TypeOf(i any) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5399,
+          "lines": [
+            "pkg reflect, func TypeOf(interface{}) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ValueOf",
+      "summary": "ValueOf returns a new Value initialized to the concrete value stored in the interface i. ValueOf(nil) returns the zero Value.",
+      "signature": "func ValueOf(i any) Value",
+      "params": [
+        {
+          "name": "i",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3050,
+          "lines": [
+            "func ValueOf(i any) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5400,
+          "lines": [
+            "pkg reflect, func ValueOf(interface{}) Value"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VisibleFields",
+      "summary": "VisibleFields returns all the visible fields in t, which must be a struct type. A field is defined as visible if it's accessible directly with a FieldByName call. The returned fields include fields inside anonymous struct members and unexported fields. They follow the same order found in the struct, with anonymous fields followed immediately by their promoted fields.",
+      "signature": "func VisibleFields(t Type) []StructField",
+      "params": [
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "[]StructField"
+      },
+      "versions": [
+        "Go 1.17"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/visiblefields.go",
+          "line": 16,
+          "lines": [
+            "func VisibleFields(t Type) []StructField {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.17.txt",
+          "line": 173,
+          "lines": [
+            "pkg reflect, func VisibleFields(Type) []StructField"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Zero",
+      "summary": "Zero returns a Value representing the zero value for the specified type. The result is different from the zero value of the Value struct, which represents no value at all. For example, Zero(TypeOf(42)) returns a Value with Kind [Int] and value 0. The returned value is neither addressable nor settable.",
+      "signature": "func Zero(typ Type) Value",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/reflect/value.go",
+          "line": 3062,
+          "lines": [
+            "func Zero(typ Type) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5401,
+          "lines": [
+            "pkg reflect, func Zero(Type) Value"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "package": "encoding/ascii85",
+  "functions": [
+    {
+      "name": "Decode",
+      "summary": "Decode decodes src into dst, returning both the number of bytes written to dst and the number consumed from src. If src contains invalid ascii85 data, Decode will return the number of bytes successfully written and a [CorruptInputError]. Decode ignores space and control characters in src. Often, ascii85-encoded data is wrapped in <~ and ~> symbols. Decode expects these to have been stripped by the caller.",
+      "signature": "func Decode(dst, src []byte, flush bool) (ndst, nsrc int, err error)",
+      "params": [
+        {
+          "name": "dst",
+          "type": "[]byte"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        },
+        {
+          "name": "flush",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "(ndst, nsrc int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/ascii85/ascii85.go",
+          "line": 186,
+          "lines": [
+            "func Decode(dst, src []byte, flush bool) (ndst, nsrc int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2217,
+          "lines": [
+            "pkg encoding/ascii85, func Decode([]uint8, []uint8, bool) (int, int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Encode",
+      "summary": "Encode encodes src into at most [MaxEncodedLen](len(src)) bytes of dst, returning the actual number of bytes written.",
+      "signature": "func Encode(dst, src []byte) int",
+      "params": [
+        {
+          "name": "dst",
+          "type": "[]byte"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/ascii85/ascii85.go",
+          "line": 27,
+          "lines": [
+            "func Encode(dst, src []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2218,
+          "lines": [
+            "pkg encoding/ascii85, func Encode([]uint8, []uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MaxEncodedLen",
+      "summary": "MaxEncodedLen returns the maximum length of an encoding of n source bytes.",
+      "signature": "func MaxEncodedLen(n int) int { return (n + 3) / 4 * 5 }",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int { return (n + 3) / 4 * 5 }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/ascii85/ascii85.go",
+          "line": 86,
+          "lines": [
+            "func MaxEncodedLen(n int) int { return (n + 3) / 4 * 5 }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2219,
+          "lines": [
+            "pkg encoding/ascii85, func MaxEncodedLen(int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewDecoder",
+      "summary": "NewDecoder constructs a new ascii85 stream decoder.",
+      "signature": "func NewDecoder(r io.Reader) io.Reader { return &decoder{r: r} }",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader { return &decoder{r: r} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/ascii85/ascii85.go",
+          "line": 243,
+          "lines": [
+            "func NewDecoder(r io.Reader) io.Reader { return &decoder{r: r} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2220,
+          "lines": [
+            "pkg encoding/ascii85, func NewDecoder(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncoder",
+      "summary": "NewEncoder returns a new ascii85 stream encoder. Data written to the returned writer will be encoded and then written to w. Ascii85 encodings operate in 32-bit blocks; when finished writing, the caller must Close the returned encoder to flush any trailing partial block.",
+      "signature": "func NewEncoder(w io.Writer) io.WriteCloser { return &encoder{w: w} }",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "io.WriteCloser { return &encoder{w: w} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/ascii85/ascii85.go",
+          "line": 93,
+          "lines": [
+            "func NewEncoder(w io.Writer) io.WriteCloser { return &encoder{w: w} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2221,
+          "lines": [
+            "pkg encoding/ascii85, func NewEncoder(io.Writer) io.WriteCloser"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "package": "container/heap",
+  "functions": [
+    {
+      "name": "Fix",
+      "summary": "Fix re-establishes the heap ordering after the element at index i has changed its value. Changing the value of the element at index i and then calling Fix is equivalent to, but less expensive than, calling [Remove](h, i) followed by a Push of the new value. The complexity is O(log n) where n = h.Len().",
+      "signature": "func Fix(h Interface, i int)",
+      "params": [
+        {
+          "name": "h",
+          "type": "Interface"
+        },
+        {
+          "name": "i",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/container/heap/heap.go",
+          "line": 83,
+          "lines": [
+            "func Fix(h Interface, i int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 11,
+          "lines": [
+            "pkg container/heap, func Fix(Interface, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Init",
+      "summary": "Init establishes the heap invariants required by the other routines in this package. Init is idempotent with respect to the heap invariants and may be called whenever the heap invariants may have been invalidated. The complexity is O(n) where n = h.Len().",
+      "signature": "func Init(h Interface)",
+      "params": [
+        {
+          "name": "h",
+          "type": "Interface"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/container/heap/heap.go",
+          "line": 41,
+          "lines": [
+            "func Init(h Interface) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 283,
+          "lines": [
+            "pkg container/heap, func Init(Interface)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pop",
+      "summary": "Pop removes and returns the minimum element (according to Less) from the heap. The complexity is O(log n) where n = h.Len(). Pop is equivalent to [Remove](h, 0).",
+      "signature": "func Pop(h Interface) any",
+      "params": [
+        {
+          "name": "h",
+          "type": "Interface"
+        }
+      ],
+      "returns": {
+        "type": "any"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/container/heap/heap.go",
+          "line": 59,
+          "lines": [
+            "func Pop(h Interface) any {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 284,
+          "lines": [
+            "pkg container/heap, func Pop(Interface) interface{}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Push",
+      "summary": "Push pushes the element x onto the heap. The complexity is O(log n) where n = h.Len().",
+      "signature": "func Push(h Interface, x any)",
+      "params": [
+        {
+          "name": "h",
+          "type": "Interface"
+        },
+        {
+          "name": "x",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/container/heap/heap.go",
+          "line": 51,
+          "lines": [
+            "func Push(h Interface, x any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 285,
+          "lines": [
+            "pkg container/heap, func Push(Interface, interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Remove",
+      "summary": "Remove removes and returns the element at index i from the heap. The complexity is O(log n) where n = h.Len().",
+      "signature": "func Remove(h Interface, i int) any",
+      "params": [
+        {
+          "name": "h",
+          "type": "Interface"
+        },
+        {
+          "name": "i",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "any"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/container/heap/heap.go",
+          "line": 68,
+          "lines": [
+            "func Remove(h Interface, i int) any {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 286,
+          "lines": [
+            "pkg container/heap, func Remove(Interface, int) interface{}"
+          ]
+        }
+      ]
+    }
+  ]
+}

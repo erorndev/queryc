@@ -1,0 +1,9 @@
+{
+  "go-1.25": {
+    "kind": "go",
+    "label": "Go 1.25 standard library source",
+    "library": "Go",
+    "version": "1.25",
+    "root": "sources/go"
+  }
+}

@@ -1,0 +1,2413 @@
+{
+  "package": "math",
+  "functions": [
+    {
+      "name": "Abs",
+      "summary": "Abs returns the absolute value of x.",
+      "signature": "func Abs(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/abs.go",
+          "line": 13,
+          "lines": [
+            "func Abs(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4123,
+          "lines": [
+            "pkg math, func Abs(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Acos",
+      "summary": "Acos returns the arccosine, in radians, of x.",
+      "signature": "func Acos(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/asin.go",
+          "line": 58,
+          "lines": [
+            "func Acos(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4124,
+          "lines": [
+            "pkg math, func Acos(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Acosh",
+      "summary": "Acosh returns the inverse hyperbolic cosine of x.",
+      "signature": "func Acosh(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/acosh.go",
+          "line": 43,
+          "lines": [
+            "func Acosh(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4125,
+          "lines": [
+            "pkg math, func Acosh(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asin",
+      "summary": "Asin returns the arcsine, in radians, of x.",
+      "signature": "func Asin(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/asin.go",
+          "line": 20,
+          "lines": [
+            "func Asin(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4126,
+          "lines": [
+            "pkg math, func Asin(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Asinh",
+      "summary": "Asinh returns the inverse hyperbolic sine of x.",
+      "signature": "func Asinh(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/asinh.go",
+          "line": 40,
+          "lines": [
+            "func Asinh(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4127,
+          "lines": [
+            "pkg math, func Asinh(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atan",
+      "summary": "Atan returns the arctangent, in radians, of x.",
+      "signature": "func Atan(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/atan.go",
+          "line": 96,
+          "lines": [
+            "func Atan(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4128,
+          "lines": [
+            "pkg math, func Atan(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atan2",
+      "summary": "Atan2 returns the arc tangent of y/x, using the signs of the two to determine the quadrant of the return value.",
+      "signature": "func Atan2(y, x float64) float64",
+      "params": [
+        {
+          "name": "y",
+          "type": "float64"
+        },
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/atan2.go",
+          "line": 30,
+          "lines": [
+            "func Atan2(y, x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4129,
+          "lines": [
+            "pkg math, func Atan2(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atanh",
+      "summary": "Atanh returns the inverse hyperbolic tangent of x.",
+      "signature": "func Atanh(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/atanh.go",
+          "line": 48,
+          "lines": [
+            "func Atanh(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4130,
+          "lines": [
+            "pkg math, func Atanh(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cbrt",
+      "summary": "Cbrt returns the cube root of x.",
+      "signature": "func Cbrt(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/cbrt.go",
+          "line": 26,
+          "lines": [
+            "func Cbrt(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4131,
+          "lines": [
+            "pkg math, func Cbrt(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ceil",
+      "summary": "Ceil returns the least integer value greater than or equal to x.",
+      "signature": "func Ceil(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/floor.go",
+          "line": 43,
+          "lines": [
+            "func Ceil(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4132,
+          "lines": [
+            "pkg math, func Ceil(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Copysign",
+      "summary": "Copysign returns a value with the magnitude of f and the sign of sign.",
+      "signature": "func Copysign(f, sign float64) float64",
+      "params": [
+        {
+          "name": "f",
+          "type": "float64"
+        },
+        {
+          "name": "sign",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/copysign.go",
+          "line": 9,
+          "lines": [
+            "func Copysign(f, sign float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4133,
+          "lines": [
+            "pkg math, func Copysign(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cos",
+      "summary": "Cos returns the cosine of the radian argument x.",
+      "signature": "func Cos(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/sin.go",
+          "line": 118,
+          "lines": [
+            "func Cos(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4134,
+          "lines": [
+            "pkg math, func Cos(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cosh",
+      "summary": "Cosh returns the hyperbolic cosine of x.",
+      "signature": "func Cosh(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/sinh.go",
+          "line": 79,
+          "lines": [
+            "func Cosh(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4135,
+          "lines": [
+            "pkg math, func Cosh(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dim",
+      "summary": "Dim returns the maximum of x-y or 0.",
+      "signature": "func Dim(x, y float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/dim.go",
+          "line": 14,
+          "lines": [
+            "func Dim(x, y float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4136,
+          "lines": [
+            "pkg math, func Dim(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Erf",
+      "summary": "Erf returns the error function of x.",
+      "signature": "func Erf(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/erf.go",
+          "line": 189,
+          "lines": [
+            "func Erf(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4137,
+          "lines": [
+            "pkg math, func Erf(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Erfc",
+      "summary": "Erfc returns the complementary error function of x.",
+      "signature": "func Erfc(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/erf.go",
+          "line": 274,
+          "lines": [
+            "func Erfc(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4138,
+          "lines": [
+            "pkg math, func Erfc(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Erfcinv",
+      "summary": "Erfcinv returns the inverse of [Erfc](x).",
+      "signature": "func Erfcinv(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/erfinv.go",
+          "line": 127,
+          "lines": [
+            "func Erfcinv(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 577,
+          "lines": [
+            "pkg math, func Erfcinv(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Erfinv",
+      "summary": "Erfinv returns the inverse error function of x.",
+      "signature": "func Erfinv(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/erfinv.go",
+          "line": 77,
+          "lines": [
+            "func Erfinv(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 578,
+          "lines": [
+            "pkg math, func Erfinv(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exp",
+      "summary": "Exp returns e**x, the base-e exponential of x.",
+      "signature": "func Exp(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/exp.go",
+          "line": 16,
+          "lines": [
+            "func Exp(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4139,
+          "lines": [
+            "pkg math, func Exp(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exp2",
+      "summary": "Exp2 returns 2**x, the base-2 exponential of x.",
+      "signature": "func Exp2(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/exp.go",
+          "line": 142,
+          "lines": [
+            "func Exp2(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4140,
+          "lines": [
+            "pkg math, func Exp2(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Expm1",
+      "summary": "Expm1 returns e**x - 1, the base-e exponential of x minus 1. It is more accurate than [Exp](x) - 1 when x is near zero.",
+      "signature": "func Expm1(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/expm1.go",
+          "line": 126,
+          "lines": [
+            "func Expm1(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4141,
+          "lines": [
+            "pkg math, func Expm1(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FMA",
+      "summary": "FMA returns x * y + z, computed with only one rounding. (That is, FMA returns the fused multiply-add of x, y, and z.)",
+      "signature": "func FMA(x, y, z float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        },
+        {
+          "name": "z",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.14"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/fma.go",
+          "line": 95,
+          "lines": [
+            "func FMA(x, y, z float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.14.txt",
+          "line": 168,
+          "lines": [
+            "pkg math, func FMA(float64, float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float32bits",
+      "summary": "Float32bits returns the IEEE 754 binary representation of f, with the sign bit of f and the result in the same bit position. Float32bits(Float32frombits(x)) == x.",
+      "signature": "func Float32bits(f float32) uint32 { return *(*uint32)(unsafe.Pointer(&f)) }",
+      "params": [
+        {
+          "name": "f",
+          "type": "float32"
+        }
+      ],
+      "returns": {
+        "type": "uint32 { return *(*uint32)(unsafe.Pointer(&f)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/unsafe.go",
+          "line": 24,
+          "lines": [
+            "func Float32bits(f float32) uint32 { return *(*uint32)(unsafe.Pointer(&f)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4142,
+          "lines": [
+            "pkg math, func Float32bits(float32) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float32frombits",
+      "summary": "Float32frombits returns the floating-point number corresponding to the IEEE 754 binary representation b, with the sign bit of b and the result in the same bit position. Float32frombits(Float32bits(x)) == x.",
+      "signature": "func Float32frombits(b uint32) float32 { return *(*float32)(unsafe.Pointer(&b)) }",
+      "params": [
+        {
+          "name": "b",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "float32 { return *(*float32)(unsafe.Pointer(&b)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/unsafe.go",
+          "line": 30,
+          "lines": [
+            "func Float32frombits(b uint32) float32 { return *(*float32)(unsafe.Pointer(&b)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4143,
+          "lines": [
+            "pkg math, func Float32frombits(uint32) float32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64bits",
+      "summary": "Float64bits returns the IEEE 754 binary representation of f, with the sign bit of f and the result in the same bit position, and Float64bits(Float64frombits(x)) == x.",
+      "signature": "func Float64bits(f float64) uint64 { return *(*uint64)(unsafe.Pointer(&f)) }",
+      "params": [
+        {
+          "name": "f",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "uint64 { return *(*uint64)(unsafe.Pointer(&f)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/unsafe.go",
+          "line": 35,
+          "lines": [
+            "func Float64bits(f float64) uint64 { return *(*uint64)(unsafe.Pointer(&f)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4144,
+          "lines": [
+            "pkg math, func Float64bits(float64) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64frombits",
+      "summary": "Float64frombits returns the floating-point number corresponding to the IEEE 754 binary representation b, with the sign bit of b and the result in the same bit position. Float64frombits(Float64bits(x)) == x.",
+      "signature": "func Float64frombits(b uint64) float64 { return *(*float64)(unsafe.Pointer(&b)) }",
+      "params": [
+        {
+          "name": "b",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "float64 { return *(*float64)(unsafe.Pointer(&b)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/unsafe.go",
+          "line": 41,
+          "lines": [
+            "func Float64frombits(b uint64) float64 { return *(*float64)(unsafe.Pointer(&b)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4145,
+          "lines": [
+            "pkg math, func Float64frombits(uint64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Floor",
+      "summary": "Floor returns the greatest integer value less than or equal to x.",
+      "signature": "func Floor(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/floor.go",
+          "line": 14,
+          "lines": [
+            "func Floor(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4146,
+          "lines": [
+            "pkg math, func Floor(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frexp",
+      "summary": "Frexp breaks f into a normalized fraction and an integral power of two. It returns frac and exp satisfying f == frac × 2**exp, with the absolute value of frac in the interval [½, 1).",
+      "signature": "func Frexp(f float64) (frac float64, exp int)",
+      "params": [
+        {
+          "name": "f",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "(frac float64, exp int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/frexp.go",
+          "line": 17,
+          "lines": [
+            "func Frexp(f float64) (frac float64, exp int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4147,
+          "lines": [
+            "pkg math, func Frexp(float64) (float64, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gamma",
+      "summary": "Gamma returns the Gamma function of x.",
+      "signature": "func Gamma(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/gamma.go",
+          "line": 131,
+          "lines": [
+            "func Gamma(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4148,
+          "lines": [
+            "pkg math, func Gamma(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hypot",
+      "summary": "Hypot returns [Sqrt](p*p + q*q), taking care to avoid unnecessary overflow and underflow.",
+      "signature": "func Hypot(p, q float64) float64",
+      "params": [
+        {
+          "name": "p",
+          "type": "float64"
+        },
+        {
+          "name": "q",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/hypot.go",
+          "line": 20,
+          "lines": [
+            "func Hypot(p, q float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4149,
+          "lines": [
+            "pkg math, func Hypot(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ilogb",
+      "summary": "Ilogb returns the binary exponent of x as an integer.",
+      "signature": "func Ilogb(x float64) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/logb.go",
+          "line": 34,
+          "lines": [
+            "func Ilogb(x float64) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4150,
+          "lines": [
+            "pkg math, func Ilogb(float64) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inf",
+      "summary": "Inf returns positive infinity if sign >= 0, negative infinity if sign < 0.",
+      "signature": "func Inf(sign int) float64",
+      "params": [
+        {
+          "name": "sign",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits.go",
+          "line": 20,
+          "lines": [
+            "func Inf(sign int) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4151,
+          "lines": [
+            "pkg math, func Inf(int) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsInf",
+      "summary": "IsInf reports whether f is an infinity, according to sign. If sign > 0, IsInf reports whether f is positive infinity. If sign < 0, IsInf reports whether f is negative infinity. If sign == 0, IsInf reports whether f is either infinity.",
+      "signature": "func IsInf(f float64, sign int) bool",
+      "params": [
+        {
+          "name": "f",
+          "type": "float64"
+        },
+        {
+          "name": "sign",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits.go",
+          "line": 46,
+          "lines": [
+            "func IsInf(f float64, sign int) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4152,
+          "lines": [
+            "pkg math, func IsInf(float64, int) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsNaN",
+      "summary": "IsNaN reports whether f is an IEEE 754 “not-a-number” value.",
+      "signature": "func IsNaN(f float64) (is bool)",
+      "params": [
+        {
+          "name": "f",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "(is bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits.go",
+          "line": 34,
+          "lines": [
+            "func IsNaN(f float64) (is bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4153,
+          "lines": [
+            "pkg math, func IsNaN(float64) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "J0",
+      "summary": "J0 returns the order-zero Bessel function of the first kind.",
+      "signature": "func J0(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/j0.go",
+          "line": 77,
+          "lines": [
+            "func J0(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4154,
+          "lines": [
+            "pkg math, func J0(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "J1",
+      "summary": "J1 returns the order-one Bessel function of the first kind.",
+      "signature": "func J1(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/j1.go",
+          "line": 75,
+          "lines": [
+            "func J1(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4155,
+          "lines": [
+            "pkg math, func J1(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jn",
+      "summary": "Jn returns the order-n Bessel function of the first kind.",
+      "signature": "func Jn(n int, x float64) float64",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/jn.go",
+          "line": 54,
+          "lines": [
+            "func Jn(n int, x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4156,
+          "lines": [
+            "pkg math, func Jn(int, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ldexp",
+      "summary": "Ldexp is the inverse of [Frexp]. It returns frac × 2**exp.",
+      "signature": "func Ldexp(frac float64, exp int) float64",
+      "params": [
+        {
+          "name": "frac",
+          "type": "float64"
+        },
+        {
+          "name": "exp",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/ldexp.go",
+          "line": 15,
+          "lines": [
+            "func Ldexp(frac float64, exp int) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4157,
+          "lines": [
+            "pkg math, func Ldexp(float64, int) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lgamma",
+      "summary": "Lgamma returns the natural logarithm and sign (-1 or +1) of [Gamma](x).",
+      "signature": "func Lgamma(x float64) (lgamma float64, sign int)",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "(lgamma float64, sign int)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/lgamma.go",
+          "line": 175,
+          "lines": [
+            "func Lgamma(x float64) (lgamma float64, sign int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4158,
+          "lines": [
+            "pkg math, func Lgamma(float64) (float64, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log",
+      "summary": "Log returns the natural logarithm of x.",
+      "signature": "func Log(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/log.go",
+          "line": 81,
+          "lines": [
+            "func Log(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4159,
+          "lines": [
+            "pkg math, func Log(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log10",
+      "summary": "Log10 returns the decimal logarithm of x. The special cases are the same as for [Log].",
+      "signature": "func Log10(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/log10.go",
+          "line": 9,
+          "lines": [
+            "func Log10(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4160,
+          "lines": [
+            "pkg math, func Log10(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log1p",
+      "summary": "Log1p returns the natural logarithm of 1 plus its argument x. It is more accurate than [Log](1 + x) when x is near zero.",
+      "signature": "func Log1p(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/log1p.go",
+          "line": 96,
+          "lines": [
+            "func Log1p(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4161,
+          "lines": [
+            "pkg math, func Log1p(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log2",
+      "summary": "Log2 returns the binary logarithm of x. The special cases are the same as for [Log].",
+      "signature": "func Log2(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/log10.go",
+          "line": 22,
+          "lines": [
+            "func Log2(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4162,
+          "lines": [
+            "pkg math, func Log2(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logb",
+      "summary": "Logb returns the binary exponent of x.",
+      "signature": "func Logb(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/logb.go",
+          "line": 14,
+          "lines": [
+            "func Logb(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4163,
+          "lines": [
+            "pkg math, func Logb(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Max",
+      "summary": "Max returns the larger of x or y.",
+      "signature": "func Max(x, y float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/dim.go",
+          "line": 40,
+          "lines": [
+            "func Max(x, y float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4164,
+          "lines": [
+            "pkg math, func Max(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Min",
+      "summary": "Min returns the smaller of x or y.",
+      "signature": "func Min(x, y float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/dim.go",
+          "line": 76,
+          "lines": [
+            "func Min(x, y float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4165,
+          "lines": [
+            "pkg math, func Min(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mod",
+      "summary": "Mod returns the floating-point remainder of x/y. The magnitude of the result is less than y and its sign agrees with that of x.",
+      "signature": "func Mod(x, y float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/mod.go",
+          "line": 22,
+          "lines": [
+            "func Mod(x, y float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4166,
+          "lines": [
+            "pkg math, func Mod(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Modf",
+      "summary": "Modf returns integer and fractional floating-point numbers that sum to f. Both values have the same sign as f.",
+      "signature": "func Modf(f float64) (int float64, frac float64)",
+      "params": [
+        {
+          "name": "f",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "(int float64, frac float64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/modf.go",
+          "line": 14,
+          "lines": [
+            "func Modf(f float64) (int float64, frac float64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4167,
+          "lines": [
+            "pkg math, func Modf(float64) (float64, float64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NaN",
+      "summary": "NaN returns an IEEE 754 “not-a-number” value.",
+      "signature": "func NaN() float64 { return Float64frombits(uvnan) }",
+      "params": [],
+      "returns": {
+        "type": "float64 { return Float64frombits(uvnan) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/bits.go",
+          "line": 31,
+          "lines": [
+            "func NaN() float64 { return Float64frombits(uvnan) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4168,
+          "lines": [
+            "pkg math, func NaN() float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nextafter",
+      "summary": "Nextafter returns the next representable float64 value after x towards y.",
+      "signature": "func Nextafter(x, y float64) (r float64)",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "(r float64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/nextafter.go",
+          "line": 37,
+          "lines": [
+            "func Nextafter(x, y float64) (r float64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4169,
+          "lines": [
+            "pkg math, func Nextafter(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nextafter32",
+      "summary": "Nextafter32 returns the next representable float32 value after x towards y.",
+      "signature": "func Nextafter32(x, y float32) (r float32)",
+      "params": [
+        {
+          "name": "x",
+          "type": "float32"
+        },
+        {
+          "name": "y",
+          "type": "float32"
+        }
+      ],
+      "returns": {
+        "type": "(r float32)"
+      },
+      "versions": [
+        "Go 1.4"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/nextafter.go",
+          "line": 14,
+          "lines": [
+            "func Nextafter32(x, y float32) (r float32) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.4.txt",
+          "line": 362,
+          "lines": [
+            "pkg math, func Nextafter32(float32, float32) float32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pow",
+      "summary": "Pow returns x**y, the base-x exponential of y.",
+      "signature": "func Pow(x, y float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/pow.go",
+          "line": 48,
+          "lines": [
+            "func Pow(x, y float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4170,
+          "lines": [
+            "pkg math, func Pow(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pow10",
+      "summary": "Pow10 returns 10**n, the base-10 exponential of n.",
+      "signature": "func Pow10(n int) float64",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/pow10.go",
+          "line": 31,
+          "lines": [
+            "func Pow10(n int) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4171,
+          "lines": [
+            "pkg math, func Pow10(int) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Remainder",
+      "summary": "Remainder returns the IEEE 754 floating-point remainder of x/y.",
+      "signature": "func Remainder(x, y float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        },
+        {
+          "name": "y",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/remainder.go",
+          "line": 38,
+          "lines": [
+            "func Remainder(x, y float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4172,
+          "lines": [
+            "pkg math, func Remainder(float64, float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Round",
+      "summary": "Round returns the nearest integer, rounding half away from zero.",
+      "signature": "func Round(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/floor.go",
+          "line": 83,
+          "lines": [
+            "func Round(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 579,
+          "lines": [
+            "pkg math, func Round(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RoundToEven",
+      "summary": "RoundToEven returns the nearest integer, rounding ties to even.",
+      "signature": "func RoundToEven(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.10"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/floor.go",
+          "line": 121,
+          "lines": [
+            "func RoundToEven(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.10.txt",
+          "line": 580,
+          "lines": [
+            "pkg math, func RoundToEven(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Signbit",
+      "summary": "Signbit reports whether x is negative or negative zero.",
+      "signature": "func Signbit(x float64) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/signbit.go",
+          "line": 8,
+          "lines": [
+            "func Signbit(x float64) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4173,
+          "lines": [
+            "pkg math, func Signbit(float64) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sin",
+      "summary": "Sin returns the sine of the radian argument x.",
+      "signature": "func Sin(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/sin.go",
+          "line": 185,
+          "lines": [
+            "func Sin(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4174,
+          "lines": [
+            "pkg math, func Sin(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sincos",
+      "summary": "Sincos returns Sin(x), Cos(x).",
+      "signature": "func Sincos(x float64) (sin, cos float64)",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "(sin, cos float64)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/sincos.go",
+          "line": 16,
+          "lines": [
+            "func Sincos(x float64) (sin, cos float64) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4175,
+          "lines": [
+            "pkg math, func Sincos(float64) (float64, float64)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sinh",
+      "summary": "Sinh returns the hyperbolic sine of x.",
+      "signature": "func Sinh(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/sinh.go",
+          "line": 26,
+          "lines": [
+            "func Sinh(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4176,
+          "lines": [
+            "pkg math, func Sinh(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sqrt",
+      "summary": "Sqrt returns the square root of x.",
+      "signature": "func Sqrt(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/sqrt.go",
+          "line": 93,
+          "lines": [
+            "func Sqrt(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4177,
+          "lines": [
+            "pkg math, func Sqrt(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tan",
+      "summary": "Tan returns the tangent of the radian argument x.",
+      "signature": "func Tan(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/tan.go",
+          "line": 83,
+          "lines": [
+            "func Tan(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4178,
+          "lines": [
+            "pkg math, func Tan(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tanh",
+      "summary": "Tanh returns the hyperbolic tangent of x.",
+      "signature": "func Tanh(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/tanh.go",
+          "line": 75,
+          "lines": [
+            "func Tanh(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4179,
+          "lines": [
+            "pkg math, func Tanh(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trunc",
+      "summary": "Trunc returns the integer value of x.",
+      "signature": "func Trunc(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/floor.go",
+          "line": 61,
+          "lines": [
+            "func Trunc(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4180,
+          "lines": [
+            "pkg math, func Trunc(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Y0",
+      "summary": "Y0 returns the order-zero Bessel function of the second kind.",
+      "signature": "func Y0(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/j0.go",
+          "line": 156,
+          "lines": [
+            "func Y0(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4181,
+          "lines": [
+            "pkg math, func Y0(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Y1",
+      "summary": "Y1 returns the order-one Bessel function of the second kind.",
+      "signature": "func Y1(x float64) float64",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/j1.go",
+          "line": 156,
+          "lines": [
+            "func Y1(x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4182,
+          "lines": [
+            "pkg math, func Y1(float64) float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yn",
+      "summary": "Yn returns the order-n Bessel function of the second kind.",
+      "signature": "func Yn(n int, x float64) float64",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/jn.go",
+          "line": 235,
+          "lines": [
+            "func Yn(n int, x float64) float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4183,
+          "lines": [
+            "pkg math, func Yn(int, float64) float64"
+          ]
+        }
+      ]
+    }
+  ]
+}

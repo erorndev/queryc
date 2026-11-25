@@ -1,0 +1,165 @@
+{
+  "package": "text/template/parse",
+  "functions": [
+    {
+      "name": "IsEmptyTree",
+      "summary": "IsEmptyTree reports whether this tree (node) is empty of everything but space or comments.",
+      "signature": "func IsEmptyTree(n Node) bool",
+      "params": [
+        {
+          "name": "n",
+          "type": "Node"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/text/template/parse/parse.go",
+          "line": 283,
+          "lines": [
+            "func IsEmptyTree(n Node) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30375,
+          "lines": [
+            "pkg text/template/parse, func IsEmptyTree(Node) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New allocates a new parse tree with the given name.",
+      "signature": "func New(name string, funcs ...map[string]any) *Tree",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "funcs",
+          "type": "...map[string]any"
+        }
+      ],
+      "returns": {
+        "type": "*Tree"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/text/template/parse/parse.go",
+          "line": 143,
+          "lines": [
+            "func New(name string, funcs ...map[string]any) *Tree {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30376,
+          "lines": [
+            "pkg text/template/parse, func New(string, ...map[string]interface{}) *Tree"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewIdentifier",
+      "summary": "NewIdentifier returns a new [IdentifierNode] with the given identifier name.",
+      "signature": "func NewIdentifier(ident string) *IdentifierNode",
+      "params": [
+        {
+          "name": "ident",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*IdentifierNode"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/text/template/parse/node.go",
+          "line": 354,
+          "lines": [
+            "func NewIdentifier(ident string) *IdentifierNode {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30377,
+          "lines": [
+            "pkg text/template/parse, func NewIdentifier(string) *IdentifierNode"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Parse",
+      "summary": "Parse returns a map from template name to [Tree], created by parsing the templates described in the argument string. The top-level template will be given the specified name. If an error is encountered, parsing stops and an empty map is returned with the error.",
+      "signature": "func Parse(name, text, leftDelim, rightDelim string, funcs ...map[string]any) (map[string]*Tree, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "name": "leftDelim",
+          "type": "string"
+        },
+        {
+          "name": "rightDelim",
+          "type": "string"
+        },
+        {
+          "name": "funcs",
+          "type": "...map[string]any"
+        }
+      ],
+      "returns": {
+        "type": "(map[string]*Tree, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/text/template/parse/parse.go",
+          "line": 74,
+          "lines": [
+            "func Parse(name, text, leftDelim, rightDelim string, funcs ...map[string]any) (map[string]*Tree, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30378,
+          "lines": [
+            "pkg text/template/parse, func Parse(string, string, string, string, ...map[string]interface{}) (map[string]*Tree, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

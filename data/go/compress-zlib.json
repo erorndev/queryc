@@ -1,0 +1,196 @@
+{
+  "package": "compress/zlib",
+  "functions": [
+    {
+      "name": "NewReader",
+      "summary": "NewReader creates a new ReadCloser. Reads from the returned ReadCloser read and decompress data from r. If r does not implement [io.ByteReader], the decompressor may read more data than necessary from r. It is the caller's responsibility to call Close on the ReadCloser when done.",
+      "signature": "func NewReader(r io.Reader) (io.ReadCloser, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(io.ReadCloser, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/zlib/reader.go",
+          "line": 74,
+          "lines": [
+            "func NewReader(r io.Reader) (io.ReadCloser, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 271,
+          "lines": [
+            "pkg compress/zlib, func NewReader(io.Reader) (io.ReadCloser, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReaderDict",
+      "summary": "NewReaderDict is like [NewReader] but uses a preset dictionary. NewReaderDict ignores the dictionary if the compressed data does not refer to it. If the compressed data refers to a different dictionary, NewReaderDict returns [ErrDictionary].",
+      "signature": "func NewReaderDict(r io.Reader, dict []byte) (io.ReadCloser, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        },
+        {
+          "name": "dict",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(io.ReadCloser, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/zlib/reader.go",
+          "line": 83,
+          "lines": [
+            "func NewReaderDict(r io.Reader, dict []byte) (io.ReadCloser, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 272,
+          "lines": [
+            "pkg compress/zlib, func NewReaderDict(io.Reader, []uint8) (io.ReadCloser, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter creates a new [Writer]. Writes to the returned Writer are compressed and written to w.",
+      "signature": "func NewWriter(w io.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/zlib/writer.go",
+          "line": 44,
+          "lines": [
+            "func NewWriter(w io.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 273,
+          "lines": [
+            "pkg compress/zlib, func NewWriter(io.Writer) *Writer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriterLevel",
+      "summary": "NewWriterLevel is like [NewWriter] but specifies the compression level instead of assuming [DefaultCompression].",
+      "signature": "func NewWriterLevel(w io.Writer, level int) (*Writer, error)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "level",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(*Writer, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/zlib/writer.go",
+          "line": 55,
+          "lines": [
+            "func NewWriterLevel(w io.Writer, level int) (*Writer, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 274,
+          "lines": [
+            "pkg compress/zlib, func NewWriterLevel(io.Writer, int) (*Writer, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriterLevelDict",
+      "summary": "NewWriterLevelDict is like [NewWriterLevel] but specifies a dictionary to compress with.",
+      "signature": "func NewWriterLevelDict(w io.Writer, level int, dict []byte) (*Writer, error)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "level",
+          "type": "int"
+        },
+        {
+          "name": "dict",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*Writer, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/zlib/writer.go",
+          "line": 64,
+          "lines": [
+            "func NewWriterLevelDict(w io.Writer, level int, dict []byte) (*Writer, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 275,
+          "lines": [
+            "pkg compress/zlib, func NewWriterLevelDict(io.Writer, int, []uint8) (*Writer, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

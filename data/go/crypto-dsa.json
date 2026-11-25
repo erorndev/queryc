@@ -1,0 +1,177 @@
+{
+  "package": "crypto/dsa",
+  "functions": [
+    {
+      "name": "GenerateKey",
+      "summary": "GenerateKey generates a public&private key pair. The Parameters of the [PrivateKey] must already be valid (see [GenerateParameters]).",
+      "signature": "func GenerateKey(priv *PrivateKey, rand io.Reader) error",
+      "params": [
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/dsa/dsa.go",
+          "line": 164,
+          "lines": [
+            "func GenerateKey(priv *PrivateKey, rand io.Reader) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 375,
+          "lines": [
+            "pkg crypto/dsa, func GenerateKey(*PrivateKey, io.Reader) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GenerateParameters",
+      "summary": "GenerateParameters puts a random, valid set of DSA parameters into params. This function can take many seconds, even on fast machines.",
+      "signature": "func GenerateParameters(params *Parameters, rand io.Reader, sizes ParameterSizes) error",
+      "params": [
+        {
+          "name": "params",
+          "type": "*Parameters"
+        },
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "sizes",
+          "type": "ParameterSizes"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/dsa/dsa.go",
+          "line": 66,
+          "lines": [
+            "func GenerateParameters(params *Parameters, rand io.Reader, sizes ParameterSizes) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 376,
+          "lines": [
+            "pkg crypto/dsa, func GenerateParameters(*Parameters, io.Reader, ParameterSizes) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sign",
+      "summary": "Sign signs an arbitrary length hash (which should be the result of hashing a larger message) using the private key, priv. It returns the signature as a pair of integers. The security of the private key depends on the entropy of rand.",
+      "signature": "func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "hash",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(r, s *big.Int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/dsa/dsa.go",
+          "line": 214,
+          "lines": [
+            "func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 377,
+          "lines": [
+            "pkg crypto/dsa, func Sign(io.Reader, *PrivateKey, []uint8) (*big.Int, *big.Int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verify",
+      "summary": "Verify verifies the signature in r, s of hash using the public key, pub. It reports whether the signature is valid.",
+      "signature": "func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool",
+      "params": [
+        {
+          "name": "pub",
+          "type": "*PublicKey"
+        },
+        {
+          "name": "hash",
+          "type": "[]byte"
+        },
+        {
+          "name": "r",
+          "type": "*big.Int"
+        },
+        {
+          "name": "s",
+          "type": "*big.Int"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/dsa/dsa.go",
+          "line": 286,
+          "lines": [
+            "func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 378,
+          "lines": [
+            "pkg crypto/dsa, func Verify(*PublicKey, []uint8, *big.Int, *big.Int) bool"
+          ]
+        }
+      ]
+    }
+  ]
+}

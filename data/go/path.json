@@ -1,0 +1,289 @@
+{
+  "package": "path",
+  "functions": [
+    {
+      "name": "Base",
+      "summary": "Base returns the last element of path. Trailing slashes are removed before extracting the last element. If the path is empty, Base returns \".\". If the path consists entirely of slashes, Base returns \"/\".",
+      "signature": "func Base(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/path.go",
+          "line": 192,
+          "lines": [
+            "func Base(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5326,
+          "lines": [
+            "pkg path, func Base(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clean",
+      "summary": "Clean returns the shortest path name equivalent to path by purely lexical processing. It applies the following rules iteratively until no further processing can be done:",
+      "signature": "func Clean(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/path.go",
+          "line": 72,
+          "lines": [
+            "func Clean(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5327,
+          "lines": [
+            "pkg path, func Clean(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dir",
+      "summary": "Dir returns all but the last element of path, typically the path's directory. After dropping the final element using [Split], the path is Cleaned and trailing slashes are removed. If the path is empty, Dir returns \".\". If the path consists entirely of slashes followed by non-slash bytes, Dir returns a single slash. In any other case, the returned path does not end in a slash.",
+      "signature": "func Dir(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/path.go",
+          "line": 223,
+          "lines": [
+            "func Dir(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5328,
+          "lines": [
+            "pkg path, func Dir(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ext",
+      "summary": "Ext returns the file name extension used by path. The extension is the suffix beginning at the final dot in the final slash-separated element of path; it is empty if there is no dot.",
+      "signature": "func Ext(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/path.go",
+          "line": 179,
+          "lines": [
+            "func Ext(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5329,
+          "lines": [
+            "pkg path, func Ext(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsAbs",
+      "summary": "IsAbs reports whether the path is absolute.",
+      "signature": "func IsAbs(path string) bool",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/path.go",
+          "line": 212,
+          "lines": [
+            "func IsAbs(path string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5330,
+          "lines": [
+            "pkg path, func IsAbs(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Join",
+      "summary": "Join joins any number of path elements into a single path, separating them with slashes. Empty elements are ignored. The result is Cleaned. However, if the argument list is empty or all its elements are empty, Join returns an empty string.",
+      "signature": "func Join(elem ...string) string",
+      "params": [
+        {
+          "name": "elem",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/path.go",
+          "line": 155,
+          "lines": [
+            "func Join(elem ...string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5331,
+          "lines": [
+            "pkg path, func Join(...string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Match",
+      "summary": "Match reports whether name matches the shell pattern. The pattern syntax is:",
+      "signature": "func Match(pattern, name string) (matched bool, err error)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(matched bool, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/match.go",
+          "line": 37,
+          "lines": [
+            "func Match(pattern, name string) (matched bool, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5332,
+          "lines": [
+            "pkg path, func Match(string, string) (bool, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Split",
+      "summary": "Split splits path immediately following the final slash, separating it into a directory and file name component. If there is no slash in path, Split returns an empty dir and file set to path. The returned values have the property that path = dir+file.",
+      "signature": "func Split(path string) (dir, file string)",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(dir, file string)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/path.go",
+          "line": 145,
+          "lines": [
+            "func Split(path string) (dir, file string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5333,
+          "lines": [
+            "pkg path, func Split(string) (string, string)"
+          ]
+        }
+      ]
+    }
+  ]
+}

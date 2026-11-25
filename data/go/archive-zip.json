@@ -1,0 +1,227 @@
+{
+  "package": "archive/zip",
+  "functions": [
+    {
+      "name": "FileInfoHeader",
+      "summary": "FileInfoHeader creates a partially-populated [FileHeader] from an fs.FileInfo. Because fs.FileInfo's Name method returns only the base name of the file it describes, it may be necessary to modify the Name field of the returned header to provide the full path name of the file. If compression is desired, callers should set the FileHeader.Method field; it is unset by default.",
+      "signature": "func FileInfoHeader(fi fs.FileInfo) (*FileHeader, error)",
+      "params": [
+        {
+          "name": "fi",
+          "type": "fs.FileInfo"
+        }
+      ],
+      "returns": {
+        "type": "(*FileHeader, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/zip/struct.go",
+          "line": 204,
+          "lines": [
+            "func FileInfoHeader(fi fs.FileInfo) (*FileHeader, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 43,
+          "lines": [
+            "pkg archive/zip, func FileInfoHeader(os.FileInfo) (*FileHeader, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReader",
+      "summary": "NewReader returns a new [Reader] reading from r, which is assumed to have the given size in bytes.",
+      "signature": "func NewReader(r io.ReaderAt, size int64) (*Reader, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.ReaderAt"
+        },
+        {
+          "name": "size",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "(*Reader, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/zip/reader.go",
+          "line": 107,
+          "lines": [
+            "func NewReader(r io.ReaderAt, size int64) (*Reader, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 44,
+          "lines": [
+            "pkg archive/zip, func NewReader(io.ReaderAt, int64) (*Reader, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter returns a new [Writer] writing a zip file to w.",
+      "signature": "func NewWriter(w io.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/zip/writer.go",
+          "line": 45,
+          "lines": [
+            "func NewWriter(w io.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 45,
+          "lines": [
+            "pkg archive/zip, func NewWriter(io.Writer) *Writer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OpenReader",
+      "summary": "OpenReader will open the Zip file specified by name and return a ReadCloser.",
+      "signature": "func OpenReader(name string) (*ReadCloser, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*ReadCloser, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/zip/reader.go",
+          "line": 78,
+          "lines": [
+            "func OpenReader(name string) (*ReadCloser, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 46,
+          "lines": [
+            "pkg archive/zip, func OpenReader(string) (*ReadCloser, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegisterCompressor",
+      "summary": "RegisterCompressor registers custom compressors for a specified method ID. The common methods [Store] and [Deflate] are built in.",
+      "signature": "func RegisterCompressor(method uint16, comp Compressor)",
+      "params": [
+        {
+          "name": "method",
+          "type": "uint16"
+        },
+        {
+          "name": "comp",
+          "type": "Compressor"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/zip/register.go",
+          "line": 127,
+          "lines": [
+            "func RegisterCompressor(method uint16, comp Compressor) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 1,
+          "lines": [
+            "pkg archive/zip, func RegisterCompressor(uint16, Compressor)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegisterDecompressor",
+      "summary": "RegisterDecompressor allows custom decompressors for a specified method ID. The common methods [Store] and [Deflate] are built in.",
+      "signature": "func RegisterDecompressor(method uint16, dcomp Decompressor)",
+      "params": [
+        {
+          "name": "method",
+          "type": "uint16"
+        },
+        {
+          "name": "dcomp",
+          "type": "Decompressor"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/zip/register.go",
+          "line": 119,
+          "lines": [
+            "func RegisterDecompressor(method uint16, dcomp Decompressor) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 2,
+          "lines": [
+            "pkg archive/zip, func RegisterDecompressor(uint16, Decompressor)"
+          ]
+        }
+      ]
+    }
+  ]
+}

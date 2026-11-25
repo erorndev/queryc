@@ -1,0 +1,113 @@
+{
+  "package": "hash/maphash",
+  "functions": [
+    {
+      "name": "Bytes",
+      "summary": "Bytes returns the hash of b with the given seed.",
+      "signature": "func Bytes(seed Seed, b []byte) uint64",
+      "params": [
+        {
+          "name": "seed",
+          "type": "Seed"
+        },
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/maphash/maphash.go",
+          "line": 43,
+          "lines": [
+            "func Bytes(seed Seed, b []byte) uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 234,
+          "lines": [
+            "pkg hash/maphash, func Bytes(Seed, []uint8) uint64 #42710"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeSeed",
+      "summary": "MakeSeed returns a new random seed.",
+      "signature": "func MakeSeed() Seed",
+      "params": [],
+      "returns": {
+        "type": "Seed"
+      },
+      "versions": [
+        "Go 1.14"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/maphash/maphash.go",
+          "line": 249,
+          "lines": [
+            "func MakeSeed() Seed {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.14.txt",
+          "line": 153,
+          "lines": [
+            "pkg hash/maphash, func MakeSeed() Seed"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "String",
+      "summary": "String returns the hash of s with the given seed.",
+      "signature": "func String(seed Seed, s string) uint64",
+      "params": [
+        {
+          "name": "seed",
+          "type": "Seed"
+        },
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/maphash/maphash.go",
+          "line": 67,
+          "lines": [
+            "func String(seed Seed, s string) uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 235,
+          "lines": [
+            "pkg hash/maphash, func String(Seed, string) uint64 #42710"
+          ]
+        }
+      ]
+    }
+  ]
+}

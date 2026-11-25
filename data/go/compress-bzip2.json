@@ -1,0 +1,40 @@
+{
+  "package": "compress/bzip2",
+  "functions": [
+    {
+      "name": "NewReader",
+      "summary": "NewReader returns an [io.Reader] which decompresses bzip2 data from r. If r does not also implement [io.ByteReader], the decompressor may read more data than necessary from r.",
+      "signature": "func NewReader(r io.Reader) io.Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/bzip2/bzip2.go",
+          "line": 46,
+          "lines": [
+            "func NewReader(r io.Reader) io.Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 209,
+          "lines": [
+            "pkg compress/bzip2, func NewReader(io.Reader) io.Reader"
+          ]
+        }
+      ]
+    }
+  ]
+}

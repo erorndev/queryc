@@ -1,0 +1,481 @@
+{
+  "package": "crypto/sha3",
+  "functions": [
+    {
+      "name": "New224",
+      "summary": "New224 creates a new SHA3-224 hash.",
+      "signature": "func New224() *SHA3",
+      "params": [],
+      "returns": {
+        "type": "*SHA3"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 110,
+          "lines": [
+            "func New224() *SHA3 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 48,
+          "lines": [
+            "pkg crypto/sha3, func New224() *SHA3 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New256",
+      "summary": "New256 creates a new SHA3-256 hash.",
+      "signature": "func New256() *SHA3",
+      "params": [],
+      "returns": {
+        "type": "*SHA3"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 115,
+          "lines": [
+            "func New256() *SHA3 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 49,
+          "lines": [
+            "pkg crypto/sha3, func New256() *SHA3 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New384",
+      "summary": "New384 creates a new SHA3-384 hash.",
+      "signature": "func New384() *SHA3",
+      "params": [],
+      "returns": {
+        "type": "*SHA3"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 120,
+          "lines": [
+            "func New384() *SHA3 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 50,
+          "lines": [
+            "pkg crypto/sha3, func New384() *SHA3 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New512",
+      "summary": "New512 creates a new SHA3-512 hash.",
+      "signature": "func New512() *SHA3",
+      "params": [],
+      "returns": {
+        "type": "*SHA3"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 125,
+          "lines": [
+            "func New512() *SHA3 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 51,
+          "lines": [
+            "pkg crypto/sha3, func New512() *SHA3 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCSHAKE128",
+      "summary": "NewCSHAKE128 creates a new cSHAKE128 XOF.",
+      "signature": "func NewCSHAKE128(N, S []byte) *SHAKE",
+      "params": [
+        {
+          "name": "N",
+          "type": "[]byte"
+        },
+        {
+          "name": "S",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "*SHAKE"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 195,
+          "lines": [
+            "func NewCSHAKE128(N, S []byte) *SHAKE {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 52,
+          "lines": [
+            "pkg crypto/sha3, func NewCSHAKE128([]uint8, []uint8) *SHAKE #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCSHAKE256",
+      "summary": "NewCSHAKE256 creates a new cSHAKE256 XOF.",
+      "signature": "func NewCSHAKE256(N, S []byte) *SHAKE",
+      "params": [
+        {
+          "name": "N",
+          "type": "[]byte"
+        },
+        {
+          "name": "S",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "*SHAKE"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 204,
+          "lines": [
+            "func NewCSHAKE256(N, S []byte) *SHAKE {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 53,
+          "lines": [
+            "pkg crypto/sha3, func NewCSHAKE256([]uint8, []uint8) *SHAKE #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewSHAKE128",
+      "summary": "NewSHAKE128 creates a new SHAKE128 XOF.",
+      "signature": "func NewSHAKE128() *SHAKE",
+      "params": [],
+      "returns": {
+        "type": "*SHAKE"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 181,
+          "lines": [
+            "func NewSHAKE128() *SHAKE {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 54,
+          "lines": [
+            "pkg crypto/sha3, func NewSHAKE128() *SHAKE #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewSHAKE256",
+      "summary": "NewSHAKE256 creates a new SHAKE256 XOF.",
+      "signature": "func NewSHAKE256() *SHAKE",
+      "params": [],
+      "returns": {
+        "type": "*SHAKE"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 186,
+          "lines": [
+            "func NewSHAKE256() *SHAKE {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 55,
+          "lines": [
+            "pkg crypto/sha3, func NewSHAKE256() *SHAKE #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum224",
+      "summary": "Sum224 returns the SHA3-224 hash of data.",
+      "signature": "func Sum224(data []byte) [28]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[28]byte"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 24,
+          "lines": [
+            "func Sum224(data []byte) [28]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 56,
+          "lines": [
+            "pkg crypto/sha3, func Sum224([]uint8) [28]uint8 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum256",
+      "summary": "Sum256 returns the SHA3-256 hash of data.",
+      "signature": "func Sum256(data []byte) [32]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[32]byte"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 33,
+          "lines": [
+            "func Sum256(data []byte) [32]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 57,
+          "lines": [
+            "pkg crypto/sha3, func Sum256([]uint8) [32]uint8 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum384",
+      "summary": "Sum384 returns the SHA3-384 hash of data.",
+      "signature": "func Sum384(data []byte) [48]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[48]byte"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 42,
+          "lines": [
+            "func Sum384(data []byte) [48]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 58,
+          "lines": [
+            "pkg crypto/sha3, func Sum384([]uint8) [48]uint8 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum512",
+      "summary": "Sum512 returns the SHA3-512 hash of data.",
+      "signature": "func Sum512(data []byte) [64]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[64]byte"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 51,
+          "lines": [
+            "func Sum512(data []byte) [64]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 59,
+          "lines": [
+            "pkg crypto/sha3, func Sum512([]uint8) [64]uint8 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SumSHAKE128",
+      "summary": "SumSHAKE128 applies the SHAKE128 extendable output function to data and returns an output of the given length in bytes.",
+      "signature": "func SumSHAKE128(data []byte, length int) []byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "length",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 61,
+          "lines": [
+            "func SumSHAKE128(data []byte, length int) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 60,
+          "lines": [
+            "pkg crypto/sha3, func SumSHAKE128([]uint8, int) []uint8 #69982"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SumSHAKE256",
+      "summary": "SumSHAKE256 applies the SHAKE256 extendable output function to data and returns an output of the given length in bytes.",
+      "signature": "func SumSHAKE256(data []byte, length int) []byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "length",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha3/sha3.go",
+          "line": 81,
+          "lines": [
+            "func SumSHAKE256(data []byte, length int) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 61,
+          "lines": [
+            "pkg crypto/sha3, func SumSHAKE256([]uint8, int) []uint8 #69982"
+          ]
+        }
+      ]
+    }
+  ]
+}

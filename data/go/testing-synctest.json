@@ -1,0 +1,74 @@
+{
+  "package": "testing/synctest",
+  "functions": [
+    {
+      "name": "Test",
+      "summary": "Test executes f in a new bubble.",
+      "signature": "func Test(t *testing.T, f func(*testing.T))",
+      "params": [
+        {
+          "name": "t",
+          "type": "*testing.T"
+        },
+        {
+          "name": "f",
+          "type": "func(*testing.T)"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/synctest/synctest.go",
+          "line": 280,
+          "lines": [
+            "func Test(t *testing.T, f func(*testing.T)) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 107,
+          "lines": [
+            "pkg testing/synctest, func Test(*testing.T, func(*testing.T)) #67434"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wait",
+      "summary": "Wait blocks until every goroutine within the current bubble, other than the current goroutine, is durably blocked.",
+      "signature": "func Wait()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/synctest/synctest.go",
+          "line": 301,
+          "lines": [
+            "func Wait() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 108,
+          "lines": [
+            "pkg testing/synctest, func Wait() #67434"
+          ]
+        }
+      ]
+    }
+  ]
+}

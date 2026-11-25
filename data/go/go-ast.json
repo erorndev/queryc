@@ -1,0 +1,855 @@
+{
+  "package": "go/ast",
+  "functions": [
+    {
+      "name": "FileExports",
+      "summary": "FileExports trims the AST for a Go source file in place such that only exported nodes remain: all top-level identifiers which are not exported and their associated information (such as type, initial value, or function body) are removed. Non-exported fields and methods of exported types are stripped. The [File.Comments] list is not changed.",
+      "signature": "func FileExports(src *File) bool",
+      "params": [
+        {
+          "name": "src",
+          "type": "*File"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 27,
+          "lines": [
+            "func FileExports(src *File) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2629,
+          "lines": [
+            "pkg go/ast, func FileExports(*File) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FilterDecl",
+      "summary": "FilterDecl trims the AST for a Go declaration in place by removing all names (including struct field and interface method names, but not from parameter lists) that don't pass through the filter f.",
+      "signature": "func FilterDecl(decl Decl, f Filter) bool",
+      "params": [
+        {
+          "name": "decl",
+          "type": "Decl"
+        },
+        {
+          "name": "f",
+          "type": "Filter"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 232,
+          "lines": [
+            "func FilterDecl(decl Decl, f Filter) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2630,
+          "lines": [
+            "pkg go/ast, func FilterDecl(Decl, Filter) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FilterFile",
+      "summary": "FilterFile trims the AST for a Go file in place by removing all names from top-level declarations (including struct field and interface method names, but not from parameter lists) that don't pass through the filter f. If the declaration is empty afterwards, the declaration is removed from the AST. Import declarations are always removed. The [File.Comments] list is not changed.",
+      "signature": "func FilterFile(src *File, f Filter) bool",
+      "params": [
+        {
+          "name": "src",
+          "type": "*File"
+        },
+        {
+          "name": "f",
+          "type": "Filter"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 256,
+          "lines": [
+            "func FilterFile(src *File, f Filter) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2631,
+          "lines": [
+            "pkg go/ast, func FilterFile(*File, Filter) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FilterPackage",
+      "summary": "FilterPackage trims the AST for a Go package in place by removing all names from top-level declarations (including struct field and interface method names, but not from parameter lists) that don't pass through the filter f. If the declaration is empty afterwards, the declaration is removed from the AST. The pkg.Files list is not changed, so that file names and top-level package comments don't get lost.",
+      "signature": "func FilterPackage(pkg *Package, f Filter) bool",
+      "params": [
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "f",
+          "type": "Filter"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 285,
+          "lines": [
+            "func FilterPackage(pkg *Package, f Filter) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2632,
+          "lines": [
+            "pkg go/ast, func FilterPackage(*Package, Filter) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fprint",
+      "summary": "Fprint prints the (sub-)tree starting at AST node x to w. If fset != nil, position information is interpreted relative to that file set. Otherwise positions are printed as integer values (file set specific offsets).",
+      "signature": "func Fprint(w io.Writer, fset *token.FileSet, x any, f FieldFilter) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "x",
+          "type": "any"
+        },
+        {
+          "name": "f",
+          "type": "FieldFilter"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/print.go",
+          "line": 39,
+          "lines": [
+            "func Fprint(w io.Writer, fset *token.FileSet, x any, f FieldFilter) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2633,
+          "lines": [
+            "pkg go/ast, func Fprint(io.Writer, *token.FileSet, interface{}, FieldFilter) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inspect",
+      "summary": "Inspect traverses an AST in depth-first order: It starts by calling f(node); node must not be nil. If f returns true, Inspect invokes f recursively for each of the non-nil children of node, followed by a call of f(nil).",
+      "signature": "func Inspect(node Node, f func(Node) bool)",
+      "params": [
+        {
+          "name": "node",
+          "type": "Node"
+        },
+        {
+          "name": "f",
+          "type": "func(Node) bool"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/walk.go",
+          "line": 376,
+          "lines": [
+            "func Inspect(node Node, f func(Node) bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2634,
+          "lines": [
+            "pkg go/ast, func Inspect(Node, func(Node) bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsExported",
+      "summary": "IsExported reports whether name starts with an upper-case letter.",
+      "signature": "func IsExported(name string) bool { return token.IsExported(name) }",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool { return token.IsExported(name) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/ast.go",
+          "line": 599,
+          "lines": [
+            "func IsExported(name string) bool { return token.IsExported(name) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2635,
+          "lines": [
+            "pkg go/ast, func IsExported(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsGenerated",
+      "summary": "IsGenerated reports whether the file was generated by a program, not handwritten, by detecting the special comment described at https://go.dev/s/generatedcode.",
+      "signature": "func IsGenerated(file *File) bool",
+      "params": [
+        {
+          "name": "file",
+          "type": "*File"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/ast.go",
+          "line": 1112,
+          "lines": [
+            "func IsGenerated(file *File) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 169,
+          "lines": [
+            "pkg go/ast, func IsGenerated(*File) bool #28089"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MergePackageFiles",
+      "summary": "MergePackageFiles creates a file AST by merging the ASTs of the files belonging to a package. The mode flags control merging behavior.",
+      "signature": "func MergePackageFiles(pkg *Package, mode MergeMode) *File",
+      "params": [
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "mode",
+          "type": "MergeMode"
+        }
+      ],
+      "returns": {
+        "type": "*File"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 349,
+          "lines": [
+            "func MergePackageFiles(pkg *Package, mode MergeMode) *File {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2636,
+          "lines": [
+            "pkg go/ast, func MergePackageFiles(*Package, MergeMode) *File"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCommentMap",
+      "summary": "NewCommentMap creates a new comment map by associating comment groups of the comments list with the nodes of the AST specified by node.",
+      "signature": "func NewCommentMap(fset *token.FileSet, node Node, comments []*CommentGroup) CommentMap",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "node",
+          "type": "Node"
+        },
+        {
+          "name": "comments",
+          "type": "[]*CommentGroup"
+        }
+      ],
+      "returns": {
+        "type": "CommentMap"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/commentmap.go",
+          "line": 127,
+          "lines": [
+            "func NewCommentMap(fset *token.FileSet, node Node, comments []*CommentGroup) CommentMap {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 875,
+          "lines": [
+            "pkg go/ast, func NewCommentMap(*token.FileSet, Node, []*CommentGroup) CommentMap"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewIdent",
+      "summary": "NewIdent creates a new [Ident] without position. Useful for ASTs generated by code other than the Go parser.",
+      "signature": "func NewIdent(name string) *Ident { return &Ident{token.NoPos, name, nil} }",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Ident { return &Ident{token.NoPos, name, nil} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/ast.go",
+          "line": 596,
+          "lines": [
+            "func NewIdent(name string) *Ident { return &Ident{token.NoPos, name, nil} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2637,
+          "lines": [
+            "pkg go/ast, func NewIdent(string) *Ident"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewObj",
+      "summary": "NewObj creates a new object of a given kind and name.",
+      "signature": "func NewObj(kind ObjKind, name string) *Object",
+      "params": [
+        {
+          "name": "kind",
+          "type": "ObjKind"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Object"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/scope.go",
+          "line": 96,
+          "lines": [
+            "func NewObj(kind ObjKind, name string) *Object {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2638,
+          "lines": [
+            "pkg go/ast, func NewObj(ObjKind, string) *Object"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewPackage",
+      "summary": "NewPackage creates a new [Package] node from a set of [File] nodes. It resolves unresolved identifiers across files and updates each file's Unresolved list accordingly. If a non-nil importer and universe scope are provided, they are used to resolve identifiers not declared in any of the package files. Any remaining unresolved identifiers are reported as undeclared. If the files belong to different packages, one package name is selected and files with different package names are reported and then ignored. The result is a package node and a [scanner.ErrorList] if there were errors.",
+      "signature": "func NewPackage(fset *token.FileSet, files map[string]*File, importer Importer, universe *Scope) (*Package, error)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "files",
+          "type": "map[string]*File"
+        },
+        {
+          "name": "importer",
+          "type": "Importer"
+        },
+        {
+          "name": "universe",
+          "type": "*Scope"
+        }
+      ],
+      "returns": {
+        "type": "(*Package, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/resolve.go",
+          "line": 77,
+          "lines": [
+            "func NewPackage(fset *token.FileSet, files map[string]*File, importer Importer, universe *Scope) (*Package, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2639,
+          "lines": [
+            "pkg go/ast, func NewPackage(*token.FileSet, map[string]*File, Importer, *Scope) (*Package, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewScope",
+      "summary": "NewScope creates a new scope nested in the outer scope.",
+      "signature": "func NewScope(outer *Scope) *Scope",
+      "params": [
+        {
+          "name": "outer",
+          "type": "*Scope"
+        }
+      ],
+      "returns": {
+        "type": "*Scope"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/scope.go",
+          "line": 26,
+          "lines": [
+            "func NewScope(outer *Scope) *Scope {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2640,
+          "lines": [
+            "pkg go/ast, func NewScope(*Scope) *Scope"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NotNilFilter",
+      "summary": "NotNilFilter is a [FieldFilter] that returns true for field values that are not nil; it returns false otherwise.",
+      "signature": "func NotNilFilter(_ string, v reflect.Value) bool",
+      "params": [
+        {
+          "name": "_",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "reflect.Value"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/print.go",
+          "line": 22,
+          "lines": [
+            "func NotNilFilter(_ string, v reflect.Value) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2641,
+          "lines": [
+            "pkg go/ast, func NotNilFilter(string, reflect.Value) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PackageExports",
+      "summary": "PackageExports trims the AST for a Go package in place such that only exported nodes remain. The pkg.Files list is not changed, so that file names and top-level package comments don't get lost.",
+      "signature": "func PackageExports(pkg *Package) bool",
+      "params": [
+        {
+          "name": "pkg",
+          "type": "*Package"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 40,
+          "lines": [
+            "func PackageExports(pkg *Package) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2642,
+          "lines": [
+            "pkg go/ast, func PackageExports(*Package) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Preorder",
+      "summary": "Preorder returns an iterator over all the nodes of the syntax tree beneath (and including) the specified root, in depth-first preorder.",
+      "signature": "func Preorder(root Node) iter.Seq[Node]",
+      "params": [
+        {
+          "name": "root",
+          "type": "Node"
+        }
+      ],
+      "returns": {
+        "type": "iter.Seq[Node]"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/walk.go",
+          "line": 386,
+          "lines": [
+            "func Preorder(root Node) iter.Seq[Node] {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 40,
+          "lines": [
+            "pkg go/ast, func Preorder(Node) iter.Seq[Node] #66339"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PreorderStack",
+      "summary": "PreorderStack traverses the tree rooted at root, calling f before visiting each node.",
+      "signature": "func PreorderStack(root Node, stack []Node, f func(n Node, stack []Node) bool)",
+      "params": [
+        {
+          "name": "root",
+          "type": "Node"
+        },
+        {
+          "name": "stack",
+          "type": "[]Node"
+        },
+        {
+          "name": "f",
+          "type": "func(n Node, stack []Node) bool"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/walk.go",
+          "line": 411,
+          "lines": [
+            "func PreorderStack(root Node, stack []Node, f func(n Node, stack []Node) bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 23,
+          "lines": [
+            "pkg go/ast, func PreorderStack(Node, []Node, func(Node, []Node) bool) #73319"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Print",
+      "summary": "Print prints x to standard output, skipping nil fields. Print(fset, x) is the same as Fprint(os.Stdout, fset, x, NotNilFilter).",
+      "signature": "func Print(fset *token.FileSet, x any) error",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "x",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/print.go",
+          "line": 73,
+          "lines": [
+            "func Print(fset *token.FileSet, x any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2643,
+          "lines": [
+            "pkg go/ast, func Print(*token.FileSet, interface{}) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SortImports",
+      "summary": "SortImports sorts runs of consecutive import lines in import blocks in f. It also removes duplicate imports when it is possible to do so without data loss.",
+      "signature": "func SortImports(fset *token.FileSet, f *File)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "f",
+          "type": "*File"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/import.go",
+          "line": 16,
+          "lines": [
+            "func SortImports(fset *token.FileSet, f *File) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2644,
+          "lines": [
+            "pkg go/ast, func SortImports(*token.FileSet, *File)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unparen",
+      "summary": "Unparen returns the expression with any enclosing parentheses removed.",
+      "signature": "func Unparen(e Expr) Expr",
+      "params": [
+        {
+          "name": "e",
+          "type": "Expr"
+        }
+      ],
+      "returns": {
+        "type": "Expr"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/ast.go",
+          "line": 1140,
+          "lines": [
+            "func Unparen(e Expr) Expr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 43,
+          "lines": [
+            "pkg go/ast, func Unparen(Expr) Expr #60061"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "summary": "Walk traverses an AST in depth-first order: It starts by calling v.Visit(node); node must not be nil. If the visitor w returned by v.Visit(node) is not nil, Walk is invoked recursively with visitor w for each of the non-nil children of node, followed by a call of w.Visit(nil).",
+      "signature": "func Walk(v Visitor, node Node)",
+      "params": [
+        {
+          "name": "v",
+          "type": "Visitor"
+        },
+        {
+          "name": "node",
+          "type": "Node"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/ast/walk.go",
+          "line": 33,
+          "lines": [
+            "func Walk(v Visitor, node Node) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2645,
+          "lines": [
+            "pkg go/ast, func Walk(Visitor, Node)"
+          ]
+        }
+      ]
+    }
+  ]
+}

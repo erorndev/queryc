@@ -1,0 +1,75 @@
+{
+  "package": "html",
+  "functions": [
+    {
+      "name": "EscapeString",
+      "summary": "EscapeString escapes special characters like \"<\" to become \"&lt;\". It escapes only five such characters: <, >, &, ' and \". [UnescapeString](EscapeString(s)) == s always holds, but the converse isn't always true.",
+      "signature": "func EscapeString(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/escape.go",
+          "line": 178,
+          "lines": [
+            "func EscapeString(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3355,
+          "lines": [
+            "pkg html, func EscapeString(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnescapeString",
+      "summary": "UnescapeString unescapes entities like \"&lt;\" to become \"<\". It unescapes a larger range of entities than [EscapeString] escapes. For example, \"&aacute;\" unescapes to \"á\", as does \"&#225;\" and \"&#xE1;\". UnescapeString([EscapeString](s)) == s always holds, but the converse isn't always true.",
+      "signature": "func UnescapeString(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/html/escape.go",
+          "line": 187,
+          "lines": [
+            "func UnescapeString(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3356,
+          "lines": [
+            "pkg html, func UnescapeString(string) string"
+          ]
+        }
+      ]
+    }
+  ]
+}

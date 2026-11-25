@@ -1,0 +1,40 @@
+{
+  "package": "crypto/aes",
+  "functions": [
+    {
+      "name": "NewCipher",
+      "summary": "NewCipher creates and returns a new [cipher.Block]. The key argument must be the AES key, either 16, 24, or 32 bytes to select AES-128, AES-192, or AES-256.",
+      "signature": "func NewCipher(key []byte) (cipher.Block, error)",
+      "params": [
+        {
+          "name": "key",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(cipher.Block, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/aes/aes.go",
+          "line": 36,
+          "lines": [
+            "func NewCipher(key []byte) (cipher.Block, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 338,
+          "lines": [
+            "pkg crypto/aes, func NewCipher([]uint8) (cipher.Block, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "package": "archive/tar",
+  "functions": [
+    {
+      "name": "FileInfoHeader",
+      "summary": "FileInfoHeader creates a partially-populated [Header] from fi. If fi describes a symlink, FileInfoHeader records link as the link target. If fi describes a directory, a slash is appended to the name.",
+      "signature": "func FileInfoHeader(fi fs.FileInfo, link string) (*Header, error)",
+      "params": [
+        {
+          "name": "fi",
+          "type": "fs.FileInfo"
+        },
+        {
+          "name": "link",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Header, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/tar/common.go",
+          "line": 648,
+          "lines": [
+            "func FileInfoHeader(fi fs.FileInfo, link string) (*Header, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 16,
+          "lines": [
+            "pkg archive/tar, func FileInfoHeader(os.FileInfo, string) (*Header, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReader",
+      "summary": "NewReader creates a new [Reader] reading from r.",
+      "signature": "func NewReader(r io.Reader) *Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/tar/reader.go",
+          "line": 39,
+          "lines": [
+            "func NewReader(r io.Reader) *Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 12,
+          "lines": [
+            "pkg archive/tar, func NewReader(io.Reader) *Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter creates a new Writer writing to w.",
+      "signature": "func NewWriter(w io.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/archive/tar/writer.go",
+          "line": 36,
+          "lines": [
+            "func NewWriter(w io.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 13,
+          "lines": [
+            "pkg archive/tar, func NewWriter(io.Writer) *Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

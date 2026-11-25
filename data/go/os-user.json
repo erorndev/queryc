@@ -1,0 +1,175 @@
+{
+  "package": "os/user",
+  "functions": [
+    {
+      "name": "Current",
+      "summary": "Current returns the current user.",
+      "signature": "func Current() (*User, error)",
+      "params": [],
+      "returns": {
+        "type": "(*User, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/user/lookup.go",
+          "line": 21,
+          "lines": [
+            "func Current() (*User, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5313,
+          "lines": [
+            "pkg os/user, func Current() (*User, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lookup",
+      "summary": "Lookup looks up a user by username. If the user cannot be found, the returned error is of type [UnknownUserError].",
+      "signature": "func Lookup(username string) (*User, error)",
+      "params": [
+        {
+          "name": "username",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*User, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/user/lookup.go",
+          "line": 39,
+          "lines": [
+            "func Lookup(username string) (*User, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5314,
+          "lines": [
+            "pkg os/user, func Lookup(string) (*User, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupGroup",
+      "summary": "LookupGroup looks up a group by name. If the group cannot be found, the returned error is of type [UnknownGroupError].",
+      "signature": "func LookupGroup(name string) (*Group, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Group, error)"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/user/lookup.go",
+          "line": 57,
+          "lines": [
+            "func LookupGroup(name string) (*Group, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 243,
+          "lines": [
+            "pkg os/user, func LookupGroup(string) (*Group, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupGroupId",
+      "summary": "LookupGroupId looks up a group by groupid. If the group cannot be found, the returned error is of type [UnknownGroupIdError].",
+      "signature": "func LookupGroupId(gid string) (*Group, error)",
+      "params": [
+        {
+          "name": "gid",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Group, error)"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/user/lookup.go",
+          "line": 63,
+          "lines": [
+            "func LookupGroupId(gid string) (*Group, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 244,
+          "lines": [
+            "pkg os/user, func LookupGroupId(string) (*Group, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupId",
+      "summary": "LookupId looks up a user by userid. If the user cannot be found, the returned error is of type [UnknownUserIdError].",
+      "signature": "func LookupId(uid string) (*User, error)",
+      "params": [
+        {
+          "name": "uid",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*User, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/os/user/lookup.go",
+          "line": 48,
+          "lines": [
+            "func LookupId(uid string) (*User, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5315,
+          "lines": [
+            "pkg os/user, func LookupId(string) (*User, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

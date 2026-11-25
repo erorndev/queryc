@@ -1,0 +1,157 @@
+{
+  "package": "hash/crc64",
+  "functions": [
+    {
+      "name": "Checksum",
+      "summary": "Checksum returns the CRC-64 checksum of data using the polynomial represented by the [Table].",
+      "signature": "func Checksum(data []byte, tab *Table) uint64 { return update(0, tab, data) }",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "tab",
+          "type": "*Table"
+        }
+      ],
+      "returns": {
+        "type": "uint64 { return update(0, tab, data) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc64/crc64.go",
+          "line": 199,
+          "lines": [
+            "func Checksum(data []byte, tab *Table) uint64 { return update(0, tab, data) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3346,
+          "lines": [
+            "pkg hash/crc64, func Checksum([]uint8, *Table) uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MakeTable",
+      "summary": "MakeTable returns a [Table] constructed from the specified polynomial. The contents of this [Table] must not be modified.",
+      "signature": "func MakeTable(poly uint64) *Table",
+      "params": [
+        {
+          "name": "poly",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "*Table"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc64/crc64.go",
+          "line": 46,
+          "lines": [
+            "func MakeTable(poly uint64) *Table {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3347,
+          "lines": [
+            "pkg hash/crc64, func MakeTable(uint64) *Table"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New creates a new hash.Hash64 computing the CRC-64 checksum using the polynomial represented by the [Table]. Its Sum method will lay the value out in big-endian byte order. The returned Hash64 also implements [encoding.BinaryMarshaler] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New(tab *Table) hash.Hash64 { return &digest{0, tab} }",
+      "params": [
+        {
+          "name": "tab",
+          "type": "*Table"
+        }
+      ],
+      "returns": {
+        "type": "hash.Hash64 { return &digest{0, tab} }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc64/crc64.go",
+          "line": 98,
+          "lines": [
+            "func New(tab *Table) hash.Hash64 { return &digest{0, tab} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3348,
+          "lines": [
+            "pkg hash/crc64, func New(*Table) hash.Hash64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Update",
+      "summary": "Update returns the result of adding the bytes in p to the crc.",
+      "signature": "func Update(crc uint64, tab *Table, p []byte) uint64",
+      "params": [
+        {
+          "name": "crc",
+          "type": "uint64"
+        },
+        {
+          "name": "tab",
+          "type": "*Table"
+        },
+        {
+          "name": "p",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "uint64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/crc64/crc64.go",
+          "line": 181,
+          "lines": [
+            "func Update(crc uint64, tab *Table, p []byte) uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3349,
+          "lines": [
+            "pkg hash/crc64, func Update(uint64, *Table, []uint8) uint64"
+          ]
+        }
+      ]
+    }
+  ]
+}

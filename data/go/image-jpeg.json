@@ -1,0 +1,118 @@
+{
+  "package": "image/jpeg",
+  "functions": [
+    {
+      "name": "Decode",
+      "summary": "Decode reads a JPEG image from r and returns it as an [image.Image].",
+      "signature": "func Decode(r io.Reader) (image.Image, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(image.Image, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/jpeg/reader.go",
+          "line": 771,
+          "lines": [
+            "func Decode(r io.Reader) (image.Image, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3691,
+          "lines": [
+            "pkg image/jpeg, func Decode(io.Reader) (image.Image, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeConfig",
+      "summary": "DecodeConfig returns the color model and dimensions of a JPEG image without decoding the entire image.",
+      "signature": "func DecodeConfig(r io.Reader) (image.Config, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(image.Config, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/jpeg/reader.go",
+          "line": 778,
+          "lines": [
+            "func DecodeConfig(r io.Reader) (image.Config, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3692,
+          "lines": [
+            "pkg image/jpeg, func DecodeConfig(io.Reader) (image.Config, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Encode",
+      "summary": "Encode writes the Image m to w in JPEG 4:2:0 baseline format with the given options. Default parameters are used if a nil *[Options] is passed.",
+      "signature": "func Encode(w io.Writer, m image.Image, o *Options) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "m",
+          "type": "image.Image"
+        },
+        {
+          "name": "o",
+          "type": "*Options"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/jpeg/writer.go",
+          "line": 575,
+          "lines": [
+            "func Encode(w io.Writer, m image.Image, o *Options) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3693,
+          "lines": [
+            "pkg image/jpeg, func Encode(io.Writer, image.Image, *Options) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "package": "debug/gosym",
+  "functions": [
+    {
+      "name": "NewLineTable",
+      "summary": "NewLineTable returns a new PC/line table corresponding to the encoded data. Text must be the start address of the corresponding text segment, with the exact value stored in the 'runtime.text' symbol. This value may differ from the start address of the text segment if binary was built with cgo enabled.",
+      "signature": "func NewLineTable(data []byte, text uint64) *LineTable",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "text",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "*LineTable"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/gosym/pclntab.go",
+          "line": 156,
+          "lines": [
+            "func NewLineTable(data []byte, text uint64) *LineTable {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 1841,
+          "lines": [
+            "pkg debug/gosym, func NewLineTable([]uint8, uint64) *LineTable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTable",
+      "summary": "NewTable decodes the Go symbol table (the \".gosymtab\" section in ELF), returning an in-memory representation. Starting with Go 1.3, the Go symbol table no longer includes symbol data.",
+      "signature": "func NewTable(symtab []byte, pcln *LineTable) (*Table, error)",
+      "params": [
+        {
+          "name": "symtab",
+          "type": "[]byte"
+        },
+        {
+          "name": "pcln",
+          "type": "*LineTable"
+        }
+      ],
+      "returns": {
+        "type": "(*Table, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/gosym/symtab.go",
+          "line": 336,
+          "lines": [
+            "func NewTable(symtab []byte, pcln *LineTable) (*Table, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 1842,
+          "lines": [
+            "pkg debug/gosym, func NewTable([]uint8, *LineTable) (*Table, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

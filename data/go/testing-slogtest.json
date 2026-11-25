@@ -1,0 +1,87 @@
+{
+  "package": "testing/slogtest",
+  "functions": [
+    {
+      "name": "Run",
+      "summary": "Run exercises a [slog.Handler] on the same test cases as [TestHandler], but runs each case in a subtest. For each test case, it first calls newHandler to get an instance of the handler under test, then runs the test case, then calls result to get the result. If the test case fails, it calls t.Error.",
+      "signature": "func Run(t *testing.T, newHandler func(*testing.T) slog.Handler, result func(*testing.T) map[string]any)",
+      "params": [
+        {
+          "name": "t",
+          "type": "*testing.T"
+        },
+        {
+          "name": "newHandler",
+          "type": "func(*testing.T) slog.Handler"
+        },
+        {
+          "name": "result",
+          "type": "func(*testing.T) map[string]any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/slogtest/slogtest.go",
+          "line": 299,
+          "lines": [
+            "func Run(t *testing.T, newHandler func(*testing.T) slog.Handler, result func(*testing.T) map[string]any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 135,
+          "lines": [
+            "pkg testing/slogtest, func Run(*testing.T, func(*testing.T) slog.Handler, func(*testing.T) map[string]interface{}) #61758"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TestHandler",
+      "summary": "TestHandler tests a [slog.Handler]. If TestHandler finds any misbehaviors, it returns an error for each, combined into a single error with [errors.Join].",
+      "signature": "func TestHandler(h slog.Handler, results func() []map[string]any) error",
+      "params": [
+        {
+          "name": "h",
+          "type": "slog.Handler"
+        },
+        {
+          "name": "results",
+          "type": "func() []map[string]any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/testing/slogtest/slogtest.go",
+          "line": 267,
+          "lines": [
+            "func TestHandler(h slog.Handler, results func() []map[string]any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 418,
+          "lines": [
+            "pkg testing/slogtest, func TestHandler(slog.Handler, func() []map[string]interface{}) error #56345"
+          ]
+        }
+      ]
+    }
+  ]
+}

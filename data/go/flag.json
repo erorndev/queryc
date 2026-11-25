@@ -1,0 +1,1334 @@
+{
+  "package": "flag",
+  "functions": [
+    {
+      "name": "Arg",
+      "summary": "Arg returns the i'th command-line argument. Arg(0) is the first remaining argument after flags have been processed. Arg returns an empty string if the requested element does not exist.",
+      "signature": "func Arg(i int) string",
+      "params": [
+        {
+          "name": "i",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 730,
+          "lines": [
+            "func Arg(i int) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2506,
+          "lines": [
+            "pkg flag, func Arg(int) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Args",
+      "summary": "Args returns the non-flag command-line arguments.",
+      "signature": "func Args() []string { return CommandLine.args }",
+      "params": [],
+      "returns": {
+        "type": "[]string { return CommandLine.args }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 744,
+          "lines": [
+            "func Args() []string { return CommandLine.args }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2507,
+          "lines": [
+            "pkg flag, func Args() []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bool",
+      "summary": "Bool defines a bool flag with specified name, default value, and usage string. The return value is the address of a bool variable that stores the value of the flag.",
+      "signature": "func Bool(name string, value bool, usage string) *bool",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "bool"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 768,
+          "lines": [
+            "func Bool(name string, value bool, usage string) *bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2508,
+          "lines": [
+            "pkg flag, func Bool(string, bool, string) *bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BoolFunc",
+      "summary": "BoolFunc defines a flag with the specified name and usage string without requiring values. Each time the flag is seen, fn is called with the value of the flag. If fn returns a non-nil error, it will be treated as a flag value parsing error.",
+      "signature": "func BoolFunc(name, usage string, fn func(string) error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        },
+        {
+          "name": "fn",
+          "type": "func(string) error"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 1000,
+          "lines": [
+            "func BoolFunc(name, usage string, fn func(string) error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 167,
+          "lines": [
+            "pkg flag, func BoolFunc(string, string, func(string) error) #53747"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BoolVar",
+      "summary": "BoolVar defines a bool flag with specified name, default value, and usage string. The argument p points to a bool variable in which to store the value of the flag.",
+      "signature": "func BoolVar(p *bool, name string, value bool, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*bool"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "bool"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 754,
+          "lines": [
+            "func BoolVar(p *bool, name string, value bool, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2509,
+          "lines": [
+            "pkg flag, func BoolVar(*bool, string, bool, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Duration",
+      "summary": "Duration defines a time.Duration flag with specified name, default value, and usage string. The return value is the address of a time.Duration variable that stores the value of the flag. The flag accepts a value acceptable to time.ParseDuration.",
+      "signature": "func Duration(name string, value time.Duration, usage string) *time.Duration",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "time.Duration"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*time.Duration"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 954,
+          "lines": [
+            "func Duration(name string, value time.Duration, usage string) *time.Duration {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2510,
+          "lines": [
+            "pkg flag, func Duration(string, time.Duration, string) *time.Duration"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DurationVar",
+      "summary": "DurationVar defines a time.Duration flag with specified name, default value, and usage string. The argument p points to a time.Duration variable in which to store the value of the flag. The flag accepts a value acceptable to time.ParseDuration.",
+      "signature": "func DurationVar(p *time.Duration, name string, value time.Duration, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*time.Duration"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "time.Duration"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 938,
+          "lines": [
+            "func DurationVar(p *time.Duration, name string, value time.Duration, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2511,
+          "lines": [
+            "pkg flag, func DurationVar(*time.Duration, string, time.Duration, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64",
+      "summary": "Float64 defines a float64 flag with specified name, default value, and usage string. The return value is the address of a float64 variable that stores the value of the flag.",
+      "signature": "func Float64(name string, value float64, usage string) *float64",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "float64"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*float64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 924,
+          "lines": [
+            "func Float64(name string, value float64, usage string) *float64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2512,
+          "lines": [
+            "pkg flag, func Float64(string, float64, string) *float64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64Var",
+      "summary": "Float64Var defines a float64 flag with specified name, default value, and usage string. The argument p points to a float64 variable in which to store the value of the flag.",
+      "signature": "func Float64Var(p *float64, name string, value float64, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*float64"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "float64"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 910,
+          "lines": [
+            "func Float64Var(p *float64, name string, value float64, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2513,
+          "lines": [
+            "pkg flag, func Float64Var(*float64, string, float64, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Func",
+      "summary": "Func defines a flag with the specified name and usage string. Each time the flag is seen, fn is called with the value of the flag. If fn returns a non-nil error, it will be treated as a flag value parsing error.",
+      "signature": "func Func(name, usage string, fn func(string) error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        },
+        {
+          "name": "fn",
+          "type": "func(string) error"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 986,
+          "lines": [
+            "func Func(name, usage string, fn func(string) error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 226,
+          "lines": [
+            "pkg flag, func Func(string, string, func(string) error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int",
+      "summary": "Int defines an int flag with specified name, default value, and usage string. The return value is the address of an int variable that stores the value of the flag.",
+      "signature": "func Int(name string, value int, usage string) *int",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 794,
+          "lines": [
+            "func Int(name string, value int, usage string) *int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2514,
+          "lines": [
+            "pkg flag, func Int(string, int, string) *int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int64",
+      "summary": "Int64 defines an int64 flag with specified name, default value, and usage string. The return value is the address of an int64 variable that stores the value of the flag.",
+      "signature": "func Int64(name string, value int64, usage string) *int64",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "int64"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*int64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 820,
+          "lines": [
+            "func Int64(name string, value int64, usage string) *int64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2515,
+          "lines": [
+            "pkg flag, func Int64(string, int64, string) *int64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int64Var",
+      "summary": "Int64Var defines an int64 flag with specified name, default value, and usage string. The argument p points to an int64 variable in which to store the value of the flag.",
+      "signature": "func Int64Var(p *int64, name string, value int64, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*int64"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "int64"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 806,
+          "lines": [
+            "func Int64Var(p *int64, name string, value int64, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2516,
+          "lines": [
+            "pkg flag, func Int64Var(*int64, string, int64, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IntVar",
+      "summary": "IntVar defines an int flag with specified name, default value, and usage string. The argument p points to an int variable in which to store the value of the flag.",
+      "signature": "func IntVar(p *int, name string, value int, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*int"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 780,
+          "lines": [
+            "func IntVar(p *int, name string, value int, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2517,
+          "lines": [
+            "pkg flag, func IntVar(*int, string, int, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lookup",
+      "summary": "Lookup returns the [Flag] structure of the named command-line flag, returning nil if none exists.",
+      "signature": "func Lookup(name string) *Flag",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Flag"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 489,
+          "lines": [
+            "func Lookup(name string) *Flag {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2518,
+          "lines": [
+            "pkg flag, func Lookup(string) *Flag"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NArg",
+      "summary": "NArg is the number of arguments remaining after flags have been processed.",
+      "signature": "func NArg() int { return len(CommandLine.args) }",
+      "params": [],
+      "returns": {
+        "type": "int { return len(CommandLine.args) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 738,
+          "lines": [
+            "func NArg() int { return len(CommandLine.args) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2519,
+          "lines": [
+            "pkg flag, func NArg() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NFlag",
+      "summary": "NFlag returns the number of command-line flags that have been set.",
+      "signature": "func NFlag() int { return len(CommandLine.actual) }",
+      "params": [],
+      "returns": {
+        "type": "int { return len(CommandLine.actual) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 715,
+          "lines": [
+            "func NFlag() int { return len(CommandLine.actual) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2520,
+          "lines": [
+            "pkg flag, func NFlag() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFlagSet",
+      "summary": "NewFlagSet returns a new, empty flag set with the specified name and error handling property. If the name is not empty, it will be printed in the default usage message and in error messages.",
+      "signature": "func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "errorHandling",
+          "type": "ErrorHandling"
+        }
+      ],
+      "returns": {
+        "type": "*FlagSet"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 1223,
+          "lines": [
+            "func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2521,
+          "lines": [
+            "pkg flag, func NewFlagSet(string, ErrorHandling) *FlagSet"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Parse",
+      "summary": "Parse parses the command-line flags from [os.Args][1:]. Must be called after all flags are defined and before flags are accessed by the program.",
+      "signature": "func Parse()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 1186,
+          "lines": [
+            "func Parse() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2522,
+          "lines": [
+            "pkg flag, func Parse()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Parsed",
+      "summary": "Parsed reports whether the command-line flags have been parsed.",
+      "signature": "func Parsed() bool",
+      "params": [],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 1192,
+          "lines": [
+            "func Parsed() bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2523,
+          "lines": [
+            "pkg flag, func Parsed() bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PrintDefaults",
+      "summary": "PrintDefaults prints, to standard error unless configured otherwise, a usage message showing the default settings of all defined command-line flags. For an integer valued flag x, the default output has the form",
+      "signature": "func PrintDefaults()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 679,
+          "lines": [
+            "func PrintDefaults() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2524,
+          "lines": [
+            "pkg flag, func PrintDefaults()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Set",
+      "summary": "Set sets the value of the named command-line flag.",
+      "signature": "func Set(name, value string) error",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 532,
+          "lines": [
+            "func Set(name, value string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2525,
+          "lines": [
+            "pkg flag, func Set(string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "String",
+      "summary": "String defines a string flag with specified name, default value, and usage string. The return value is the address of a string variable that stores the value of the flag.",
+      "signature": "func String(name string, value string, usage string) *string",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 898,
+          "lines": [
+            "func String(name string, value string, usage string) *string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2526,
+          "lines": [
+            "pkg flag, func String(string, string, string) *string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StringVar",
+      "summary": "StringVar defines a string flag with specified name, default value, and usage string. The argument p points to a string variable in which to store the value of the flag.",
+      "signature": "func StringVar(p *string, name string, value string, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 884,
+          "lines": [
+            "func StringVar(p *string, name string, value string, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2527,
+          "lines": [
+            "pkg flag, func StringVar(*string, string, string, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TextVar",
+      "summary": "TextVar defines a flag with a specified name, default value, and usage string. The argument p must be a pointer to a variable that will hold the value of the flag, and p must implement encoding.TextUnmarshaler. If the flag is used, the flag value will be passed to p's UnmarshalText method. The type of the default value must be the same as the type of p.",
+      "signature": "func TextVar(p encoding.TextUnmarshaler, name string, value encoding.TextMarshaler, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "encoding.TextUnmarshaler"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "encoding.TextMarshaler"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.19"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 972,
+          "lines": [
+            "func TextVar(p encoding.TextUnmarshaler, name string, value encoding.TextMarshaler, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.19.txt",
+          "line": 166,
+          "lines": [
+            "pkg flag, func TextVar(encoding.TextUnmarshaler, string, encoding.TextMarshaler, string) #45754"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint",
+      "summary": "Uint defines a uint flag with specified name, default value, and usage string. The return value is the address of a uint variable that stores the value of the flag.",
+      "signature": "func Uint(name string, value uint, usage string) *uint",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "uint"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*uint"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 846,
+          "lines": [
+            "func Uint(name string, value uint, usage string) *uint {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2528,
+          "lines": [
+            "pkg flag, func Uint(string, uint, string) *uint"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint64",
+      "summary": "Uint64 defines a uint64 flag with specified name, default value, and usage string. The return value is the address of a uint64 variable that stores the value of the flag.",
+      "signature": "func Uint64(name string, value uint64, usage string) *uint64",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "uint64"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*uint64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 872,
+          "lines": [
+            "func Uint64(name string, value uint64, usage string) *uint64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2529,
+          "lines": [
+            "pkg flag, func Uint64(string, uint64, string) *uint64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint64Var",
+      "summary": "Uint64Var defines a uint64 flag with specified name, default value, and usage string. The argument p points to a uint64 variable in which to store the value of the flag.",
+      "signature": "func Uint64Var(p *uint64, name string, value uint64, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*uint64"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "uint64"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 858,
+          "lines": [
+            "func Uint64Var(p *uint64, name string, value uint64, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2530,
+          "lines": [
+            "pkg flag, func Uint64Var(*uint64, string, uint64, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UintVar",
+      "summary": "UintVar defines a uint flag with specified name, default value, and usage string. The argument p points to a uint variable in which to store the value of the flag.",
+      "signature": "func UintVar(p *uint, name string, value uint, usage string)",
+      "params": [
+        {
+          "name": "p",
+          "type": "*uint"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "uint"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 832,
+          "lines": [
+            "func UintVar(p *uint, name string, value uint, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2531,
+          "lines": [
+            "pkg flag, func UintVar(*uint, string, uint, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnquoteUsage",
+      "summary": "UnquoteUsage extracts a back-quoted name from the usage string for a flag and returns it and the un-quoted usage. Given \"a `name` to show\" it returns (\"name\", \"a name to show\"). If there are no back quotes, the name is an educated guess of the type of the flag's value, or the empty string if the flag is boolean.",
+      "signature": "func UnquoteUsage(flag *Flag) (name string, usage string)",
+      "params": [
+        {
+          "name": "flag",
+          "type": "*Flag"
+        }
+      ],
+      "returns": {
+        "type": "(name string, usage string)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 568,
+          "lines": [
+            "func UnquoteUsage(flag *Flag) (name string, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 287,
+          "lines": [
+            "pkg flag, func UnquoteUsage(*Flag) (string, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Var",
+      "summary": "Var defines a flag with the specified name and usage string. The type and value of the flag are represented by the first argument, of type [Value], which typically holds a user-defined implementation of [Value]. For instance, the caller could create a flag that turns a comma-separated string into a slice of strings by giving the slice the methods of [Value]; in particular, [Set] would decompose the comma-separated string into the slice.",
+      "signature": "func Var(value Value, name string, usage string)",
+      "params": [
+        {
+          "name": "value",
+          "type": "Value"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "usage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 1045,
+          "lines": [
+            "func Var(value Value, name string, usage string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2532,
+          "lines": [
+            "pkg flag, func Var(Value, string, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Visit",
+      "summary": "Visit visits the command-line flags in lexicographical order, calling fn for each. It visits only those flags that have been set.",
+      "signature": "func Visit(fn func(*Flag))",
+      "params": [
+        {
+          "name": "fn",
+          "type": "func(*Flag)"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 478,
+          "lines": [
+            "func Visit(fn func(*Flag)) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2533,
+          "lines": [
+            "pkg flag, func Visit(func(*Flag))"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VisitAll",
+      "summary": "VisitAll visits the command-line flags in lexicographical order, calling fn for each. It visits all flags, even those not set.",
+      "signature": "func VisitAll(fn func(*Flag))",
+      "params": [
+        {
+          "name": "fn",
+          "type": "func(*Flag)"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/flag/flag.go",
+          "line": 464,
+          "lines": [
+            "func VisitAll(fn func(*Flag)) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2534,
+          "lines": [
+            "pkg flag, func VisitAll(func(*Flag))"
+          ]
+        }
+      ]
+    }
+  ]
+}

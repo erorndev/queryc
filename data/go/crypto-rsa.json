@@ -1,0 +1,518 @@
+{
+  "package": "crypto/rsa",
+  "functions": [
+    {
+      "name": "DecryptOAEP",
+      "summary": "DecryptOAEP decrypts ciphertext using RSA-OAEP.",
+      "signature": "func DecryptOAEP(hash hash.Hash, random io.Reader, priv *PrivateKey, ciphertext []byte, label []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "hash",
+          "type": "hash.Hash"
+        },
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "ciphertext",
+          "type": "[]byte"
+        },
+        {
+          "name": "label",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/fips.go",
+          "line": 243,
+          "lines": [
+            "func DecryptOAEP(hash hash.Hash, random io.Reader, priv *PrivateKey, ciphertext []byte, label []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 454,
+          "lines": [
+            "pkg crypto/rsa, func DecryptOAEP(hash.Hash, io.Reader, *PrivateKey, []uint8, []uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecryptPKCS1v15",
+      "summary": "DecryptPKCS1v15 decrypts a plaintext using RSA and the padding scheme from PKCS #1 v1.5. The random parameter is legacy and ignored, and it can be nil.",
+      "signature": "func DecryptPKCS1v15(random io.Reader, priv *PrivateKey, ciphertext []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "ciphertext",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/pkcs1v15.go",
+          "line": 102,
+          "lines": [
+            "func DecryptPKCS1v15(random io.Reader, priv *PrivateKey, ciphertext []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 455,
+          "lines": [
+            "pkg crypto/rsa, func DecryptPKCS1v15(io.Reader, *PrivateKey, []uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecryptPKCS1v15SessionKey",
+      "summary": "DecryptPKCS1v15SessionKey decrypts a session key using RSA and the padding scheme from PKCS #1 v1.5. The random parameter is legacy and ignored, and it can be nil.",
+      "signature": "func DecryptPKCS1v15SessionKey(random io.Reader, priv *PrivateKey, ciphertext []byte, key []byte) error",
+      "params": [
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "ciphertext",
+          "type": "[]byte"
+        },
+        {
+          "name": "key",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/pkcs1v15.go",
+          "line": 163,
+          "lines": [
+            "func DecryptPKCS1v15SessionKey(random io.Reader, priv *PrivateKey, ciphertext []byte, key []byte) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 456,
+          "lines": [
+            "pkg crypto/rsa, func DecryptPKCS1v15SessionKey(io.Reader, *PrivateKey, []uint8, []uint8) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncryptOAEP",
+      "summary": "EncryptOAEP encrypts the given message with RSA-OAEP.",
+      "signature": "func EncryptOAEP(hash hash.Hash, random io.Reader, pub *PublicKey, msg []byte, label []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "hash",
+          "type": "hash.Hash"
+        },
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "pub",
+          "type": "*PublicKey"
+        },
+        {
+          "name": "msg",
+          "type": "[]byte"
+        },
+        {
+          "name": "label",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/fips.go",
+          "line": 193,
+          "lines": [
+            "func EncryptOAEP(hash hash.Hash, random io.Reader, pub *PublicKey, msg []byte, label []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 457,
+          "lines": [
+            "pkg crypto/rsa, func EncryptOAEP(hash.Hash, io.Reader, *PublicKey, []uint8, []uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EncryptPKCS1v15",
+      "summary": "EncryptPKCS1v15 encrypts the given message with RSA and the padding scheme from PKCS #1 v1.5. The message must be no longer than the length of the public modulus minus 11 bytes.",
+      "signature": "func EncryptPKCS1v15(random io.Reader, pub *PublicKey, msg []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "pub",
+          "type": "*PublicKey"
+        },
+        {
+          "name": "msg",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/pkcs1v15.go",
+          "line": 42,
+          "lines": [
+            "func EncryptPKCS1v15(random io.Reader, pub *PublicKey, msg []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 458,
+          "lines": [
+            "pkg crypto/rsa, func EncryptPKCS1v15(io.Reader, *PublicKey, []uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GenerateKey",
+      "summary": "GenerateKey generates a random RSA private key of the given bit size.",
+      "signature": "func GenerateKey(random io.Reader, bits int) (*PrivateKey, error)",
+      "params": [
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "bits",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(*PrivateKey, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/rsa.go",
+          "line": 278,
+          "lines": [
+            "func GenerateKey(random io.Reader, bits int) (*PrivateKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 459,
+          "lines": [
+            "pkg crypto/rsa, func GenerateKey(io.Reader, int) (*PrivateKey, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GenerateMultiPrimeKey",
+      "summary": "GenerateMultiPrimeKey generates a multi-prime RSA keypair of the given bit size and the given random source.",
+      "signature": "func GenerateMultiPrimeKey(random io.Reader, nprimes int, bits int) (*PrivateKey, error)",
+      "params": [
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "nprimes",
+          "type": "int"
+        },
+        {
+          "name": "bits",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(*PrivateKey, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/rsa.go",
+          "line": 389,
+          "lines": [
+            "func GenerateMultiPrimeKey(random io.Reader, nprimes int, bits int) (*PrivateKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 460,
+          "lines": [
+            "pkg crypto/rsa, func GenerateMultiPrimeKey(io.Reader, int, int) (*PrivateKey, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SignPKCS1v15",
+      "summary": "SignPKCS1v15 calculates the signature of hashed using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS #1 v1.5. Note that hashed must be the result of hashing the input message using the given hash function. If hash is zero, hashed is signed directly. This isn't advisable except for interoperability.",
+      "signature": "func SignPKCS1v15(random io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "random",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "hash",
+          "type": "crypto.Hash"
+        },
+        {
+          "name": "hashed",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/fips.go",
+          "line": 302,
+          "lines": [
+            "func SignPKCS1v15(random io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 461,
+          "lines": [
+            "pkg crypto/rsa, func SignPKCS1v15(io.Reader, *PrivateKey, crypto.Hash, []uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SignPSS",
+      "summary": "SignPSS calculates the signature of digest using PSS.",
+      "signature": "func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte, opts *PSSOptions) ([]byte, error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "hash",
+          "type": "crypto.Hash"
+        },
+        {
+          "name": "digest",
+          "type": "[]byte"
+        },
+        {
+          "name": "opts",
+          "type": "*PSSOptions"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/fips.go",
+          "line": 64,
+          "lines": [
+            "func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte, opts *PSSOptions) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 26,
+          "lines": [
+            "pkg crypto/rsa, func SignPSS(io.Reader, *PrivateKey, crypto.Hash, []uint8, *PSSOptions) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VerifyPKCS1v15",
+      "summary": "VerifyPKCS1v15 verifies an RSA PKCS #1 v1.5 signature. hashed is the result of hashing the input message using the given hash function and sig is the signature. A valid signature is indicated by returning a nil error. If hash is zero then hashed is used directly. This isn't advisable except for interoperability.",
+      "signature": "func VerifyPKCS1v15(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte) error",
+      "params": [
+        {
+          "name": "pub",
+          "type": "*PublicKey"
+        },
+        {
+          "name": "hash",
+          "type": "crypto.Hash"
+        },
+        {
+          "name": "hashed",
+          "type": "[]byte"
+        },
+        {
+          "name": "sig",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/fips.go",
+          "line": 345,
+          "lines": [
+            "func VerifyPKCS1v15(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 462,
+          "lines": [
+            "pkg crypto/rsa, func VerifyPKCS1v15(*PublicKey, crypto.Hash, []uint8, []uint8) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VerifyPSS",
+      "summary": "VerifyPSS verifies a PSS signature.",
+      "signature": "func VerifyPSS(pub *PublicKey, hash crypto.Hash, digest []byte, sig []byte, opts *PSSOptions) error",
+      "params": [
+        {
+          "name": "pub",
+          "type": "*PublicKey"
+        },
+        {
+          "name": "hash",
+          "type": "crypto.Hash"
+        },
+        {
+          "name": "digest",
+          "type": "[]byte"
+        },
+        {
+          "name": "sig",
+          "type": "[]byte"
+        },
+        {
+          "name": "opts",
+          "type": "*PSSOptions"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/rsa/fips.go",
+          "line": 131,
+          "lines": [
+            "func VerifyPSS(pub *PublicKey, hash crypto.Hash, digest []byte, sig []byte, opts *PSSOptions) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 27,
+          "lines": [
+            "pkg crypto/rsa, func VerifyPSS(*PublicKey, crypto.Hash, []uint8, []uint8, *PSSOptions) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2334 @@
+{
+  "package": "go/types",
+  "functions": [
+    {
+      "name": "AssertableTo",
+      "summary": "AssertableTo reports whether a value of type V can be asserted to have type T.",
+      "signature": "func AssertableTo(V *Interface, T Type) bool",
+      "params": [
+        {
+          "name": "V",
+          "type": "*Interface"
+        },
+        {
+          "name": "T",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/api_predicates.go",
+          "line": 19,
+          "lines": [
+            "func AssertableTo(V *Interface, T Type) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 424,
+          "lines": [
+            "pkg go/types, func AssertableTo(*Interface, Type) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AssignableTo",
+      "summary": "AssignableTo reports whether a value of type V is assignable to a variable of type T.",
+      "signature": "func AssignableTo(V, T Type) bool",
+      "params": [
+        {
+          "name": "V",
+          "type": "Type"
+        },
+        {
+          "name": "T",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/api_predicates.go",
+          "line": 33,
+          "lines": [
+            "func AssignableTo(V, T Type) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 425,
+          "lines": [
+            "pkg go/types, func AssignableTo(Type, Type) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CheckExpr",
+      "summary": "CheckExpr type checks the expression expr as if it had appeared at position pos of package pkg. [Type] information about the expression is recorded in info. The expression may be an identifier denoting an uninstantiated generic function or type.",
+      "signature": "func CheckExpr(fset *token.FileSet, pkg *Package, pos token.Pos, expr ast.Expr, info *Info) (err error)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "expr",
+          "type": "ast.Expr"
+        },
+        {
+          "name": "info",
+          "type": "*Info"
+        }
+      ],
+      "returns": {
+        "type": "(err error)"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/eval.go",
+          "line": 56,
+          "lines": [
+            "func CheckExpr(fset *token.FileSet, pkg *Package, pos token.Pos, expr ast.Expr, info *Info) (err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 54,
+          "lines": [
+            "pkg go/types, func CheckExpr(*token.FileSet, *Package, token.Pos, ast.Expr, *Info) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Comparable",
+      "summary": "Comparable reports whether values of type T are comparable.",
+      "signature": "func Comparable(T Type) bool",
+      "params": [
+        {
+          "name": "T",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/predicates.go",
+          "line": 153,
+          "lines": [
+            "func Comparable(T Type) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 426,
+          "lines": [
+            "pkg go/types, func Comparable(Type) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ConvertibleTo",
+      "summary": "ConvertibleTo reports whether a value of type V is convertible to a value of type T.",
+      "signature": "func ConvertibleTo(V, T Type) bool",
+      "params": [
+        {
+          "name": "V",
+          "type": "Type"
+        },
+        {
+          "name": "T",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/api_predicates.go",
+          "line": 44,
+          "lines": [
+            "func ConvertibleTo(V, T Type) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 427,
+          "lines": [
+            "pkg go/types, func ConvertibleTo(Type, Type) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DefPredeclaredTestFuncs",
+      "summary": "DefPredeclaredTestFuncs defines the assert and trace built-ins. These built-ins are intended for debugging and testing of this package only.",
+      "signature": "func DefPredeclaredTestFuncs()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/universe.go",
+          "line": 263,
+          "lines": [
+            "func DefPredeclaredTestFuncs() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 428,
+          "lines": [
+            "pkg go/types, func DefPredeclaredTestFuncs()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Default",
+      "summary": "Default returns the default \"typed\" type for an \"untyped\" type; it returns the incoming type for all other types. The default type for untyped nil is untyped nil.",
+      "signature": "func Default(t Type) Type",
+      "params": [
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/predicates.go",
+          "line": 523,
+          "lines": [
+            "func Default(t Type) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 180,
+          "lines": [
+            "pkg go/types, func Default(Type) Type"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eval",
+      "summary": "Eval returns the type and, if constant, the value for the expression expr, evaluated at position pos of package pkg, which must have been derived from type-checking an AST with complete position information relative to the provided file set.",
+      "signature": "func Eval(fset *token.FileSet, pkg *Package, pos token.Pos, expr string) (_ TypeAndValue, err error)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "expr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(_ TypeAndValue, err error)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/eval.go",
+          "line": 24,
+          "lines": [
+            "func Eval(fset *token.FileSet, pkg *Package, pos token.Pos, expr string) (_ TypeAndValue, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 429,
+          "lines": [
+            "pkg go/types, func Eval(*token.FileSet, *Package, token.Pos, string) (TypeAndValue, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ExprString",
+      "summary": "ExprString returns the (possibly shortened) string representation for x. Shortened representations are suitable for user interfaces but may not necessarily follow Go syntax.",
+      "signature": "func ExprString(x ast.Expr) string",
+      "params": [
+        {
+          "name": "x",
+          "type": "ast.Expr"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/exprstring.go",
+          "line": 18,
+          "lines": [
+            "func ExprString(x ast.Expr) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 430,
+          "lines": [
+            "pkg go/types, func ExprString(ast.Expr) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Id",
+      "summary": "Id returns name if it is exported, otherwise it returns the name qualified with the package path.",
+      "signature": "func Id(pkg *Package, name string) string",
+      "params": [
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 82,
+          "lines": [
+            "func Id(pkg *Package, name string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 431,
+          "lines": [
+            "pkg go/types, func Id(*Package, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Identical",
+      "summary": "Identical reports whether x and y are identical types. Receivers of [Signature] types are ignored.",
+      "signature": "func Identical(x, y Type) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "Type"
+        },
+        {
+          "name": "y",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/api_predicates.go",
+          "line": 88,
+          "lines": [
+            "func Identical(x, y Type) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 432,
+          "lines": [
+            "pkg go/types, func Identical(Type, Type) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IdenticalIgnoreTags",
+      "summary": "IdenticalIgnoreTags reports whether x and y are identical types if tags are ignored. Receivers of [Signature] types are ignored.",
+      "signature": "func IdenticalIgnoreTags(x, y Type) bool",
+      "params": [
+        {
+          "name": "x",
+          "type": "Type"
+        },
+        {
+          "name": "y",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/api_predicates.go",
+          "line": 95,
+          "lines": [
+            "func IdenticalIgnoreTags(x, y Type) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 181,
+          "lines": [
+            "pkg go/types, func IdenticalIgnoreTags(Type, Type) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Implements",
+      "summary": "Implements reports whether type V implements interface T.",
+      "signature": "func Implements(V Type, T *Interface) bool",
+      "params": [
+        {
+          "name": "V",
+          "type": "Type"
+        },
+        {
+          "name": "T",
+          "type": "*Interface"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/api_predicates.go",
+          "line": 53,
+          "lines": [
+            "func Implements(V Type, T *Interface) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 433,
+          "lines": [
+            "pkg go/types, func Implements(Type, *Interface) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Instantiate",
+      "summary": "Instantiate instantiates the type orig with the given type arguments targs. orig must be an *Alias, *Named, or *Signature type. If there is no error, the resulting Type is an instantiated type of the same kind (*Alias, *Named or *Signature, respectively).",
+      "signature": "func Instantiate(ctxt *Context, orig Type, targs []Type, validate bool) (Type, error)",
+      "params": [
+        {
+          "name": "ctxt",
+          "type": "*Context"
+        },
+        {
+          "name": "orig",
+          "type": "Type"
+        },
+        {
+          "name": "targs",
+          "type": "[]Type"
+        },
+        {
+          "name": "validate",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "(Type, error)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/instantiate.go",
+          "line": 55,
+          "lines": [
+            "func Instantiate(ctxt *Context, orig Type, targs []Type, validate bool) (Type, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 28,
+          "lines": [
+            "pkg go/types, func Instantiate(*Context, Type, []Type, bool) (Type, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsInterface",
+      "summary": "IsInterface reports whether t is an interface type.",
+      "signature": "func IsInterface(t Type) bool",
+      "params": [
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/predicates.go",
+          "line": 112,
+          "lines": [
+            "func IsInterface(t Type) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 434,
+          "lines": [
+            "pkg go/types, func IsInterface(Type) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupFieldOrMethod",
+      "summary": "LookupFieldOrMethod looks up a field or method with given package and name in T and returns the corresponding *Var or *Func, an index sequence, and a bool indicating if there were any pointer indirections on the path to the field or method. If addressable is set, T is the type of an addressable variable (only matters for method lookups). T must not be nil.",
+      "signature": "func LookupFieldOrMethod(T Type, addressable bool, pkg *Package, name string) (obj Object, index []int, indirect bool)",
+      "params": [
+        {
+          "name": "T",
+          "type": "Type"
+        },
+        {
+          "name": "addressable",
+          "type": "bool"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(obj Object, index []int, indirect bool)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/lookup.go",
+          "line": 85,
+          "lines": [
+            "func LookupFieldOrMethod(T Type, addressable bool, pkg *Package, name string) (obj Object, index []int, indirect bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 435,
+          "lines": [
+            "pkg go/types, func LookupFieldOrMethod(Type, bool, *Package, string) (Object, []int, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupSelection",
+      "summary": "LookupSelection selects the field or method whose ID is Id(pkg, name), on a value of type T. If addressable is set, T is the type of an addressable variable (this matters only for method lookups). T must not be nil.",
+      "signature": "func LookupSelection(T Type, addressable bool, pkg *Package, name string) (Selection, bool)",
+      "params": [
+        {
+          "name": "T",
+          "type": "Type"
+        },
+        {
+          "name": "addressable",
+          "type": "bool"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Selection, bool)"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/lookup.go",
+          "line": 37,
+          "lines": [
+            "func LookupSelection(T Type, addressable bool, pkg *Package, name string) (Selection, bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 39,
+          "lines": [
+            "pkg go/types, func LookupSelection(Type, bool, *Package, string) (Selection, bool) #70737"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MissingMethod",
+      "summary": "MissingMethod returns (nil, false) if V implements T, otherwise it returns a missing method required by T and whether it is missing or just has the wrong type: either a pointer receiver or wrong signature.",
+      "signature": "func MissingMethod(V Type, T *Interface, static bool) (method *Func, wrongType bool)",
+      "params": [
+        {
+          "name": "V",
+          "type": "Type"
+        },
+        {
+          "name": "T",
+          "type": "*Interface"
+        },
+        {
+          "name": "static",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "(method *Func, wrongType bool)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/lookup.go",
+          "line": 365,
+          "lines": [
+            "func MissingMethod(V Type, T *Interface, static bool) (method *Func, wrongType bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 436,
+          "lines": [
+            "pkg go/types, func MissingMethod(Type, *Interface, bool) (*Func, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewAlias",
+      "summary": "NewAlias creates a new Alias type with the given type name and rhs. rhs must not be nil.",
+      "signature": "func NewAlias(obj *TypeName, rhs Type) *Alias",
+      "params": [
+        {
+          "name": "obj",
+          "type": "*TypeName"
+        },
+        {
+          "name": "rhs",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Alias"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/alias.go",
+          "line": 57,
+          "lines": [
+            "func NewAlias(obj *TypeName, rhs Type) *Alias {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 48,
+          "lines": [
+            "pkg go/types, func NewAlias(*TypeName, Type) *Alias #63223"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewArray",
+      "summary": "NewArray returns a new array type for the given element type and length. A negative length indicates an unknown length.",
+      "signature": "func NewArray(elem Type, len int64) *Array { return &Array{len: len, elem: elem} }",
+      "params": [
+        {
+          "name": "elem",
+          "type": "Type"
+        },
+        {
+          "name": "len",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "*Array { return &Array{len: len, elem: elem} }"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/array.go",
+          "line": 18,
+          "lines": [
+            "func NewArray(elem Type, len int64) *Array { return &Array{len: len, elem: elem} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 437,
+          "lines": [
+            "pkg go/types, func NewArray(Type, int64) *Array"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewChan",
+      "summary": "NewChan returns a new channel type for the given direction and element type.",
+      "signature": "func NewChan(dir ChanDir, elem Type) *Chan",
+      "params": [
+        {
+          "name": "dir",
+          "type": "ChanDir"
+        },
+        {
+          "name": "elem",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Chan"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/chan.go",
+          "line": 27,
+          "lines": [
+            "func NewChan(dir ChanDir, elem Type) *Chan {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 438,
+          "lines": [
+            "pkg go/types, func NewChan(ChanDir, Type) *Chan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewChecker",
+      "summary": "NewChecker returns a new [Checker] instance for a given package. [Package] files may be added incrementally via checker.Files.",
+      "signature": "func NewChecker(conf *Config, fset *token.FileSet, pkg *Package, info *Info) *Checker",
+      "params": [
+        {
+          "name": "conf",
+          "type": "*Config"
+        },
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "info",
+          "type": "*Info"
+        }
+      ],
+      "returns": {
+        "type": "*Checker"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/check.go",
+          "line": 297,
+          "lines": [
+            "func NewChecker(conf *Config, fset *token.FileSet, pkg *Package, info *Info) *Checker {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 439,
+          "lines": [
+            "pkg go/types, func NewChecker(*Config, *token.FileSet, *Package, *Info) *Checker"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewConst",
+      "summary": "NewConst returns a new constant with value val. The remaining arguments set the attributes found with all Objects.",
+      "signature": "func NewConst(pos token.Pos, pkg *Package, name string, typ Type, val constant.Value) *Const",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "val",
+          "type": "constant.Value"
+        }
+      ],
+      "returns": {
+        "type": "*Const"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 268,
+          "lines": [
+            "func NewConst(pos token.Pos, pkg *Package, name string, typ Type, val constant.Value) *Const {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 440,
+          "lines": [
+            "pkg go/types, func NewConst(token.Pos, *Package, string, Type, constant.Value) *Const"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewContext",
+      "summary": "NewContext creates a new Context.",
+      "signature": "func NewContext() *Context",
+      "params": [],
+      "returns": {
+        "type": "*Context"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/context.go",
+          "line": 58,
+          "lines": [
+            "func NewContext() *Context {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 29,
+          "lines": [
+            "pkg go/types, func NewContext() *Context"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewField",
+      "summary": "NewField returns a new variable representing a struct field. For embedded fields, the name is the unqualified type name under which the field is accessible.",
+      "signature": "func NewField(pos token.Pos, pkg *Package, name string, typ Type, embedded bool) *Var",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "embedded",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "*Var"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 398,
+          "lines": [
+            "func NewField(pos token.Pos, pkg *Package, name string, typ Type, embedded bool) *Var {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 441,
+          "lines": [
+            "pkg go/types, func NewField(token.Pos, *Package, string, Type, bool) *Var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFunc",
+      "summary": "NewFunc returns a new function with the given signature, representing the function's type.",
+      "signature": "func NewFunc(pos token.Pos, pkg *Package, name string, sig *Signature) *Func",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "sig",
+          "type": "*Signature"
+        }
+      ],
+      "returns": {
+        "type": "*Func"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 447,
+          "lines": [
+            "func NewFunc(pos token.Pos, pkg *Package, name string, sig *Signature) *Func {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 442,
+          "lines": [
+            "pkg go/types, func NewFunc(token.Pos, *Package, string, *Signature) *Func"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewInterface",
+      "summary": "NewInterface returns a new interface for the given methods and embedded types. NewInterface takes ownership of the provided methods and may modify their types by setting missing receivers.",
+      "signature": "func NewInterface(methods []*Func, embeddeds []*Named) *Interface",
+      "params": [
+        {
+          "name": "methods",
+          "type": "[]*Func"
+        },
+        {
+          "name": "embeddeds",
+          "type": "[]*Named"
+        }
+      ],
+      "returns": {
+        "type": "*Interface"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/interface.go",
+          "line": 39,
+          "lines": [
+            "func NewInterface(methods []*Func, embeddeds []*Named) *Interface {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 443,
+          "lines": [
+            "pkg go/types, func NewInterface([]*Func, []*Named) *Interface"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewInterfaceType",
+      "summary": "NewInterfaceType returns a new interface for the given methods and embedded types. NewInterfaceType takes ownership of the provided methods and may modify their types by setting missing receivers.",
+      "signature": "func NewInterfaceType(methods []*Func, embeddeds []Type) *Interface",
+      "params": [
+        {
+          "name": "methods",
+          "type": "[]*Func"
+        },
+        {
+          "name": "embeddeds",
+          "type": "[]Type"
+        }
+      ],
+      "returns": {
+        "type": "*Interface"
+      },
+      "versions": [
+        "Go 1.11"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/interface.go",
+          "line": 53,
+          "lines": [
+            "func NewInterfaceType(methods []*Func, embeddeds []Type) *Interface {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.11.txt",
+          "line": 440,
+          "lines": [
+            "pkg go/types, func NewInterfaceType([]*Func, []Type) *Interface"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewLabel",
+      "summary": "NewLabel returns a new label.",
+      "signature": "func NewLabel(pos token.Pos, pkg *Package, name string) *Label",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Label"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 538,
+          "lines": [
+            "func NewLabel(pos token.Pos, pkg *Package, name string) *Label {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 444,
+          "lines": [
+            "pkg go/types, func NewLabel(token.Pos, *Package, string) *Label"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewMap",
+      "summary": "NewMap returns a new map for the given key and element types.",
+      "signature": "func NewMap(key, elem Type) *Map",
+      "params": [
+        {
+          "name": "key",
+          "type": "Type"
+        },
+        {
+          "name": "elem",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Map"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/map.go",
+          "line": 16,
+          "lines": [
+            "func NewMap(key, elem Type) *Map {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 445,
+          "lines": [
+            "pkg go/types, func NewMap(Type, Type) *Map"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewMethodSet",
+      "summary": "NewMethodSet returns the method set for the given type T. It always returns a non-nil method set, even if it is empty.",
+      "signature": "func NewMethodSet(T Type) *MethodSet",
+      "params": [
+        {
+          "name": "T",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*MethodSet"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/methodset.go",
+          "line": 72,
+          "lines": [
+            "func NewMethodSet(T Type) *MethodSet {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 446,
+          "lines": [
+            "pkg go/types, func NewMethodSet(Type) *MethodSet"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewNamed",
+      "summary": "NewNamed returns a new named type for the given type name, underlying type, and associated methods. If the given type name obj doesn't have a type yet, its type is set to the returned named type. The underlying type must not be a *Named.",
+      "signature": "func NewNamed(obj *TypeName, underlying Type, methods []*Func) *Named",
+      "params": [
+        {
+          "name": "obj",
+          "type": "*TypeName"
+        },
+        {
+          "name": "underlying",
+          "type": "Type"
+        },
+        {
+          "name": "methods",
+          "type": "[]*Func"
+        }
+      ],
+      "returns": {
+        "type": "*Named"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/named.go",
+          "line": 158,
+          "lines": [
+            "func NewNamed(obj *TypeName, underlying Type, methods []*Func) *Named {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 447,
+          "lines": [
+            "pkg go/types, func NewNamed(*TypeName, Type, []*Func) *Named"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewPackage",
+      "summary": "NewPackage returns a new Package for the given package path and name. The package is not complete and contains no explicit imports.",
+      "signature": "func NewPackage(path, name string) *Package",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Package"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/package.go",
+          "line": 28,
+          "lines": [
+            "func NewPackage(path, name string) *Package {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 448,
+          "lines": [
+            "pkg go/types, func NewPackage(string, string) *Package"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewParam",
+      "summary": "NewParam returns a new variable representing a function parameter.",
+      "signature": "func NewParam(pos token.Pos, pkg *Package, name string, typ Type) *Var",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "typ",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Var"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 391,
+          "lines": [
+            "func NewParam(pos token.Pos, pkg *Package, name string, typ Type) *Var {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 449,
+          "lines": [
+            "pkg go/types, func NewParam(token.Pos, *Package, string, Type) *Var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewPkgName",
+      "summary": "NewPkgName returns a new PkgName object representing an imported package. The remaining arguments set the attributes found with all Objects.",
+      "signature": "func NewPkgName(pos token.Pos, pkg *Package, name string, imported *Package) *PkgName",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "imported",
+          "type": "*Package"
+        }
+      ],
+      "returns": {
+        "type": "*PkgName"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 252,
+          "lines": [
+            "func NewPkgName(pos token.Pos, pkg *Package, name string, imported *Package) *PkgName {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 450,
+          "lines": [
+            "pkg go/types, func NewPkgName(token.Pos, *Package, string, *Package) *PkgName"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewPointer",
+      "summary": "NewPointer returns a new pointer type for the given element (base) type.",
+      "signature": "func NewPointer(elem Type) *Pointer { return &Pointer{base: elem} }",
+      "params": [
+        {
+          "name": "elem",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Pointer { return &Pointer{base: elem} }"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/pointer.go",
+          "line": 16,
+          "lines": [
+            "func NewPointer(elem Type) *Pointer { return &Pointer{base: elem} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 451,
+          "lines": [
+            "pkg go/types, func NewPointer(Type) *Pointer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewScope",
+      "summary": "NewScope returns a new, empty scope contained in the given parent scope, if any. The comment is for debugging only.",
+      "signature": "func NewScope(parent *Scope, pos, end token.Pos, comment string) *Scope",
+      "params": [
+        {
+          "name": "parent",
+          "type": "*Scope"
+        },
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "end",
+          "type": "token.Pos"
+        },
+        {
+          "name": "comment",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Scope"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/scope.go",
+          "line": 37,
+          "lines": [
+            "func NewScope(parent *Scope, pos, end token.Pos, comment string) *Scope {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 452,
+          "lines": [
+            "pkg go/types, func NewScope(*Scope, token.Pos, token.Pos, string) *Scope"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewSignature",
+      "summary": "NewSignature returns a new function type for the given receiver, parameters, and results, either of which may be nil. If variadic is set, the function is variadic, it must have at least one parameter, and the last parameter must be of unnamed slice type.",
+      "signature": "func NewSignature(recv *Var, params, results *Tuple, variadic bool) *Signature",
+      "params": [
+        {
+          "name": "recv",
+          "type": "*Var"
+        },
+        {
+          "name": "params",
+          "type": "*Tuple"
+        },
+        {
+          "name": "results",
+          "type": "*Tuple"
+        },
+        {
+          "name": "variadic",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "*Signature"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/signature.go",
+          "line": 43,
+          "lines": [
+            "func NewSignature(recv *Var, params, results *Tuple, variadic bool) *Signature {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 453,
+          "lines": [
+            "pkg go/types, func NewSignature(*Var, *Tuple, *Tuple, bool) *Signature"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewSignatureType",
+      "summary": "NewSignatureType creates a new function type for the given receiver, receiver type parameters, type parameters, parameters, and results. If variadic is set, params must hold at least one parameter and the last parameter must be an unnamed slice or a type parameter whose type set has an unnamed slice as common underlying type. As a special case, for variadic signatures the last parameter may also be a string type, or a type parameter containing a mix of byte slices and string types in its type set. If recv is non-nil, typeParams must be empty. If recvTypeParams is non-empty, recv must be non-nil.",
+      "signature": "func NewSignatureType(recv *Var, recvTypeParams, typeParams []*TypeParam, params, results *Tuple, variadic bool) *Signature",
+      "params": [
+        {
+          "name": "recv",
+          "type": "*Var"
+        },
+        {
+          "name": "recvTypeParams",
+          "type": "[]*TypeParam"
+        },
+        {
+          "name": "typeParams",
+          "type": "[]*TypeParam"
+        },
+        {
+          "name": "params",
+          "type": "*Tuple"
+        },
+        {
+          "name": "results",
+          "type": "*Tuple"
+        },
+        {
+          "name": "variadic",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "*Signature"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/signature.go",
+          "line": 57,
+          "lines": [
+            "func NewSignatureType(recv *Var, recvTypeParams, typeParams []*TypeParam, params, results *Tuple, variadic bool) *Signature {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 31,
+          "lines": [
+            "pkg go/types, func NewSignatureType(*Var, []*TypeParam, []*TypeParam, *Tuple, *Tuple, bool) *Signature"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewSlice",
+      "summary": "NewSlice returns a new slice type for the given element type.",
+      "signature": "func NewSlice(elem Type) *Slice { return &Slice{elem: elem} }",
+      "params": [
+        {
+          "name": "elem",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Slice { return &Slice{elem: elem} }"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/slice.go",
+          "line": 16,
+          "lines": [
+            "func NewSlice(elem Type) *Slice { return &Slice{elem: elem} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 454,
+          "lines": [
+            "pkg go/types, func NewSlice(Type) *Slice"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewStruct",
+      "summary": "NewStruct returns a new struct with the given fields and corresponding field tags. If a field with index i has a tag, tags[i] must be that tag, but len(tags) may be only as long as required to hold the tag with the largest index i. Consequently, if no field has a tag, tags may be nil.",
+      "signature": "func NewStruct(fields []*Var, tags []string) *Struct",
+      "params": [
+        {
+          "name": "fields",
+          "type": "[]*Var"
+        },
+        {
+          "name": "tags",
+          "type": "[]string"
+        }
+      ],
+      "returns": {
+        "type": "*Struct"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/struct.go",
+          "line": 27,
+          "lines": [
+            "func NewStruct(fields []*Var, tags []string) *Struct {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 455,
+          "lines": [
+            "pkg go/types, func NewStruct([]*Var, []string) *Struct"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTerm",
+      "summary": "NewTerm returns a new union term.",
+      "signature": "func NewTerm(tilde bool, typ Type) *Term { return &Term{tilde, typ} }",
+      "params": [
+        {
+          "name": "tilde",
+          "type": "bool"
+        },
+        {
+          "name": "typ",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Term { return &Term{tilde, typ} }"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/union.go",
+          "line": 40,
+          "lines": [
+            "func NewTerm(tilde bool, typ Type) *Term { return &Term{tilde, typ} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 32,
+          "lines": [
+            "pkg go/types, func NewTerm(bool, Type) *Term"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTuple",
+      "summary": "NewTuple returns a new tuple for the given variables.",
+      "signature": "func NewTuple(x ...*Var) *Tuple",
+      "params": [
+        {
+          "name": "x",
+          "type": "...*Var"
+        }
+      ],
+      "returns": {
+        "type": "*Tuple"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/tuple.go",
+          "line": 18,
+          "lines": [
+            "func NewTuple(x ...*Var) *Tuple {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 456,
+          "lines": [
+            "pkg go/types, func NewTuple(...*Var) *Tuple"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTypeName",
+      "summary": "NewTypeName returns a new type name denoting the given typ. The remaining arguments set the attributes found with all Objects.",
+      "signature": "func NewTypeName(pos token.Pos, pkg *Package, name string, typ Type) *TypeName",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "typ",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*TypeName"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 293,
+          "lines": [
+            "func NewTypeName(pos token.Pos, pkg *Package, name string, typ Type) *TypeName {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 457,
+          "lines": [
+            "pkg go/types, func NewTypeName(token.Pos, *Package, string, Type) *TypeName"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTypeParam",
+      "summary": "NewTypeParam returns a new TypeParam. Type parameters may be set on a Named type by calling SetTypeParams. Setting a type parameter on more than one type will result in a panic.",
+      "signature": "func NewTypeParam(obj *TypeName, constraint Type) *TypeParam",
+      "params": [
+        {
+          "name": "obj",
+          "type": "*TypeName"
+        },
+        {
+          "name": "constraint",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*TypeParam"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/typeparam.go",
+          "line": 39,
+          "lines": [
+            "func NewTypeParam(obj *TypeName, constraint Type) *TypeParam {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 33,
+          "lines": [
+            "pkg go/types, func NewTypeParam(*TypeName, Type) *TypeParam"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewUnion",
+      "summary": "NewUnion returns a new [Union] type with the given terms. It is an error to create an empty union; they are syntactically not possible.",
+      "signature": "func NewUnion(terms []*Term) *Union",
+      "params": [
+        {
+          "name": "terms",
+          "type": "[]*Term"
+        }
+      ],
+      "returns": {
+        "type": "*Union"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/union.go",
+          "line": 23,
+          "lines": [
+            "func NewUnion(terms []*Term) *Union {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 34,
+          "lines": [
+            "pkg go/types, func NewUnion([]*Term) *Union"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewVar",
+      "summary": "NewVar returns a new variable. The arguments set the attributes found with all Objects.",
+      "signature": "func NewVar(pos token.Pos, pkg *Package, name string, typ Type) *Var",
+      "params": [
+        {
+          "name": "pos",
+          "type": "token.Pos"
+        },
+        {
+          "name": "pkg",
+          "type": "*Package"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "typ",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "*Var"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 383,
+          "lines": [
+            "func NewVar(pos token.Pos, pkg *Package, name string, typ Type) *Var {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 458,
+          "lines": [
+            "pkg go/types, func NewVar(token.Pos, *Package, string, Type) *Var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ObjectString",
+      "summary": "ObjectString returns the string form of obj. The Qualifier controls the printing of package-level objects, and may be nil.",
+      "signature": "func ObjectString(obj Object, qf Qualifier) string",
+      "params": [
+        {
+          "name": "obj",
+          "type": "Object"
+        },
+        {
+          "name": "qf",
+          "type": "Qualifier"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/object.go",
+          "line": 679,
+          "lines": [
+            "func ObjectString(obj Object, qf Qualifier) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 459,
+          "lines": [
+            "pkg go/types, func ObjectString(Object, Qualifier) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RelativeTo",
+      "summary": "RelativeTo returns a [Qualifier] that fully qualifies members of all packages other than pkg.",
+      "signature": "func RelativeTo(pkg *Package) Qualifier",
+      "params": [
+        {
+          "name": "pkg",
+          "type": "*Package"
+        }
+      ],
+      "returns": {
+        "type": "Qualifier"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/typestring.go",
+          "line": 35,
+          "lines": [
+            "func RelativeTo(pkg *Package) Qualifier {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 460,
+          "lines": [
+            "pkg go/types, func RelativeTo(*Package) Qualifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Satisfies",
+      "summary": "Satisfies reports whether type V satisfies the constraint T.",
+      "signature": "func Satisfies(V Type, T *Interface) bool",
+      "params": [
+        {
+          "name": "V",
+          "type": "Type"
+        },
+        {
+          "name": "T",
+          "type": "*Interface"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/api_predicates.go",
+          "line": 70,
+          "lines": [
+            "func Satisfies(V Type, T *Interface) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 243,
+          "lines": [
+            "pkg go/types, func Satisfies(Type, *Interface) bool #56548"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SelectionString",
+      "summary": "SelectionString returns the string form of s. The Qualifier controls the printing of package-level objects, and may be nil.",
+      "signature": "func SelectionString(s *Selection, qf Qualifier) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "*Selection"
+        },
+        {
+          "name": "qf",
+          "type": "Qualifier"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/selection.go",
+          "line": 159,
+          "lines": [
+            "func SelectionString(s *Selection, qf Qualifier) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 461,
+          "lines": [
+            "pkg go/types, func SelectionString(*Selection, Qualifier) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SizesFor",
+      "summary": "SizesFor returns the Sizes used by a compiler for an architecture. The result is nil if a compiler/architecture pair is not known.",
+      "signature": "func SizesFor(compiler, arch string) Sizes",
+      "params": [
+        {
+          "name": "compiler",
+          "type": "string"
+        },
+        {
+          "name": "arch",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Sizes"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/sizes.go",
+          "line": 260,
+          "lines": [
+            "func SizesFor(compiler, arch string) Sizes {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 38,
+          "lines": [
+            "pkg go/types, func SizesFor(string, string) Sizes"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TypeString",
+      "summary": "TypeString returns the string representation of typ. The [Qualifier] controls the printing of package-level objects, and may be nil.",
+      "signature": "func TypeString(typ Type, qf Qualifier) string",
+      "params": [
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "qf",
+          "type": "Qualifier"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/typestring.go",
+          "line": 50,
+          "lines": [
+            "func TypeString(typ Type, qf Qualifier) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 462,
+          "lines": [
+            "pkg go/types, func TypeString(Type, Qualifier) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unalias",
+      "summary": "Unalias returns t if it is not an alias type; otherwise it follows t's alias chain until it reaches a non-alias type which is then returned. Consequently, the result is never an alias type.",
+      "signature": "func Unalias(t Type) Type",
+      "params": [
+        {
+          "name": "t",
+          "type": "Type"
+        }
+      ],
+      "returns": {
+        "type": "Type"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/alias.go",
+          "line": 104,
+          "lines": [
+            "func Unalias(t Type) Type {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 49,
+          "lines": [
+            "pkg go/types, func Unalias(Type) Type #63223"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteExpr",
+      "summary": "WriteExpr writes the (possibly shortened) string representation for x to buf. Shortened representations are suitable for user interfaces but may not necessarily follow Go syntax.",
+      "signature": "func WriteExpr(buf *bytes.Buffer, x ast.Expr)",
+      "params": [
+        {
+          "name": "buf",
+          "type": "*bytes.Buffer"
+        },
+        {
+          "name": "x",
+          "type": "ast.Expr"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/exprstring.go",
+          "line": 27,
+          "lines": [
+            "func WriteExpr(buf *bytes.Buffer, x ast.Expr) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 463,
+          "lines": [
+            "pkg go/types, func WriteExpr(*bytes.Buffer, ast.Expr)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteSignature",
+      "summary": "WriteSignature writes the representation of the signature sig to buf, without a leading \"func\" keyword. The [Qualifier] controls the printing of package-level objects, and may be nil.",
+      "signature": "func WriteSignature(buf *bytes.Buffer, sig *Signature, qf Qualifier)",
+      "params": [
+        {
+          "name": "buf",
+          "type": "*bytes.Buffer"
+        },
+        {
+          "name": "sig",
+          "type": "*Signature"
+        },
+        {
+          "name": "qf",
+          "type": "Qualifier"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/typestring.go",
+          "line": 66,
+          "lines": [
+            "func WriteSignature(buf *bytes.Buffer, sig *Signature, qf Qualifier) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 464,
+          "lines": [
+            "pkg go/types, func WriteSignature(*bytes.Buffer, *Signature, Qualifier)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteType",
+      "summary": "WriteType writes the string representation of typ to buf. The [Qualifier] controls the printing of package-level objects, and may be nil.",
+      "signature": "func WriteType(buf *bytes.Buffer, typ Type, qf Qualifier)",
+      "params": [
+        {
+          "name": "buf",
+          "type": "*bytes.Buffer"
+        },
+        {
+          "name": "typ",
+          "type": "Type"
+        },
+        {
+          "name": "qf",
+          "type": "Qualifier"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/types/typestring.go",
+          "line": 59,
+          "lines": [
+            "func WriteType(buf *bytes.Buffer, typ Type, qf Qualifier) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 465,
+          "lines": [
+            "pkg go/types, func WriteType(*bytes.Buffer, Type, Qualifier)"
+          ]
+        }
+      ]
+    }
+  ]
+}

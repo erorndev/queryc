@@ -1,0 +1,185 @@
+{
+  "package": "hash/fnv",
+  "functions": [
+    {
+      "name": "New128",
+      "summary": "New128 returns a new 128-bit FNV-1 [hash.Hash]. Its Sum method will lay the value out in big-endian byte order.",
+      "signature": "func New128() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/fnv/fnv.go",
+          "line": 72,
+          "lines": [
+            "func New128() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 40,
+          "lines": [
+            "pkg hash/fnv, func New128() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New128a",
+      "summary": "New128a returns a new 128-bit FNV-1a [hash.Hash]. Its Sum method will lay the value out in big-endian byte order.",
+      "signature": "func New128a() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/fnv/fnv.go",
+          "line": 81,
+          "lines": [
+            "func New128a() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 41,
+          "lines": [
+            "pkg hash/fnv, func New128a() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New32",
+      "summary": "New32 returns a new 32-bit FNV-1 [hash.Hash]. Its Sum method will lay the value out in big-endian byte order.",
+      "signature": "func New32() hash.Hash32",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash32"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/fnv/fnv.go",
+          "line": 44,
+          "lines": [
+            "func New32() hash.Hash32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3351,
+          "lines": [
+            "pkg hash/fnv, func New32() hash.Hash32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New32a",
+      "summary": "New32a returns a new 32-bit FNV-1a [hash.Hash]. Its Sum method will lay the value out in big-endian byte order.",
+      "signature": "func New32a() hash.Hash32",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash32"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/fnv/fnv.go",
+          "line": 51,
+          "lines": [
+            "func New32a() hash.Hash32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3352,
+          "lines": [
+            "pkg hash/fnv, func New32a() hash.Hash32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New64",
+      "summary": "New64 returns a new 64-bit FNV-1 [hash.Hash]. Its Sum method will lay the value out in big-endian byte order.",
+      "signature": "func New64() hash.Hash64",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/fnv/fnv.go",
+          "line": 58,
+          "lines": [
+            "func New64() hash.Hash64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3353,
+          "lines": [
+            "pkg hash/fnv, func New64() hash.Hash64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New64a",
+      "summary": "New64a returns a new 64-bit FNV-1a [hash.Hash]. Its Sum method will lay the value out in big-endian byte order.",
+      "signature": "func New64a() hash.Hash64",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/fnv/fnv.go",
+          "line": 65,
+          "lines": [
+            "func New64a() hash.Hash64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3354,
+          "lines": [
+            "pkg hash/fnv, func New64a() hash.Hash64"
+          ]
+        }
+      ]
+    }
+  ]
+}

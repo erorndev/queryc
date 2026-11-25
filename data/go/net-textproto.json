@@ -1,0 +1,254 @@
+{
+  "package": "net/textproto",
+  "functions": [
+    {
+      "name": "CanonicalMIMEHeaderKey",
+      "summary": "CanonicalMIMEHeaderKey returns the canonical format of the MIME header key s. The canonicalization converts the first letter and any letter following a hyphen to upper case; the rest are converted to lowercase. For example, the canonical key for \"accept-encoding\" is \"Accept-Encoding\". MIME header keys are assumed to be ASCII only. If s contains a space or invalid header field bytes as defined by RFC 9112, it is returned without modifications.",
+      "signature": "func CanonicalMIMEHeaderKey(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/textproto/reader.go",
+          "line": 652,
+          "lines": [
+            "func CanonicalMIMEHeaderKey(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5023,
+          "lines": [
+            "pkg net/textproto, func CanonicalMIMEHeaderKey(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dial",
+      "summary": "Dial connects to the given address on the given network using [net.Dial] and then returns a new [Conn] for the connection.",
+      "signature": "func Dial(network, addr string) (*Conn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "addr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Conn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/textproto/textproto.go",
+          "line": 83,
+          "lines": [
+            "func Dial(network, addr string) (*Conn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5024,
+          "lines": [
+            "pkg net/textproto, func Dial(string, string) (*Conn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewConn",
+      "summary": "NewConn returns a new [Conn] using conn for I/O.",
+      "signature": "func NewConn(conn io.ReadWriteCloser) *Conn",
+      "params": [
+        {
+          "name": "conn",
+          "type": "io.ReadWriteCloser"
+        }
+      ],
+      "returns": {
+        "type": "*Conn"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/textproto/textproto.go",
+          "line": 68,
+          "lines": [
+            "func NewConn(conn io.ReadWriteCloser) *Conn {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5025,
+          "lines": [
+            "pkg net/textproto, func NewConn(io.ReadWriteCloser) *Conn"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewReader",
+      "summary": "NewReader returns a new [Reader] reading from r.",
+      "signature": "func NewReader(r *bufio.Reader) *Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "*bufio.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/textproto/reader.go",
+          "line": 37,
+          "lines": [
+            "func NewReader(r *bufio.Reader) *Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5026,
+          "lines": [
+            "pkg net/textproto, func NewReader(*bufio.Reader) *Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter returns a new [Writer] writing to w.",
+      "signature": "func NewWriter(w *bufio.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "*bufio.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/textproto/writer.go",
+          "line": 21,
+          "lines": [
+            "func NewWriter(w *bufio.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5027,
+          "lines": [
+            "pkg net/textproto, func NewWriter(*bufio.Writer) *Writer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimBytes",
+      "summary": "TrimBytes returns b without leading and trailing ASCII space.",
+      "signature": "func TrimBytes(b []byte) []byte",
+      "params": [
+        {
+          "name": "b",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/textproto/textproto.go",
+          "line": 138,
+          "lines": [
+            "func TrimBytes(b []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2114,
+          "lines": [
+            "pkg net/textproto, func TrimBytes([]uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TrimString",
+      "summary": "TrimString returns s without leading and trailing ASCII space.",
+      "signature": "func TrimString(s string) string",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/textproto/textproto.go",
+          "line": 127,
+          "lines": [
+            "func TrimString(s string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2115,
+          "lines": [
+            "pkg net/textproto, func TrimString(string) string"
+          ]
+        }
+      ]
+    }
+  ]
+}

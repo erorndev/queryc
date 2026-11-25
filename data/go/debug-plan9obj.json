@@ -1,0 +1,75 @@
+{
+  "package": "debug/plan9obj",
+  "functions": [
+    {
+      "name": "NewFile",
+      "summary": "NewFile creates a new [File] for accessing a Plan 9 binary in an underlying reader. The Plan 9 binary is expected to start at position 0 in the ReaderAt.",
+      "signature": "func NewFile(r io.ReaderAt) (*File, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.ReaderAt"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.3"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/plan9obj/file.go",
+          "line": 141,
+          "lines": [
+            "func NewFile(r io.ReaderAt) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.3.txt",
+          "line": 163,
+          "lines": [
+            "pkg debug/plan9obj, func NewFile(io.ReaderAt) (*File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Open",
+      "summary": "Open opens the named file using [os.Open] and prepares it for use as a Plan 9 a.out binary.",
+      "signature": "func Open(name string) (*File, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.3"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/plan9obj/file.go",
+          "line": 104,
+          "lines": [
+            "func Open(name string) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.3.txt",
+          "line": 164,
+          "lines": [
+            "pkg debug/plan9obj, func Open(string) (*File, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

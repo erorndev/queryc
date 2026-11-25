@@ -1,0 +1,760 @@
+{
+  "package": "path/filepath",
+  "functions": [
+    {
+      "name": "Abs",
+      "summary": "Abs returns an absolute representation of path. If the path is not absolute it will be joined with the current working directory to turn it into an absolute path. The absolute path name for a given file is not guaranteed to be unique. Abs calls [Clean] on the result.",
+      "signature": "func Abs(path string) (string, error)",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 161,
+          "lines": [
+            "func Abs(path string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5337,
+          "lines": [
+            "pkg path/filepath, func Abs(string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Base",
+      "summary": "Base returns the last element of path. Trailing path separators are removed before extracting the last element. If the path is empty, Base returns \".\". If the path consists entirely of separators, Base returns a single separator.",
+      "signature": "func Base(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 455,
+          "lines": [
+            "func Base(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5338,
+          "lines": [
+            "pkg path/filepath, func Base(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clean",
+      "summary": "Clean returns the shortest path name equivalent to path by purely lexical processing. It applies the following rules iteratively until no further processing can be done:",
+      "signature": "func Clean(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 55,
+          "lines": [
+            "func Clean(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5339,
+          "lines": [
+            "pkg path/filepath, func Clean(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dir",
+      "summary": "Dir returns all but the last element of path, typically the path's directory. After dropping the final element, Dir calls [Clean] on the path and trailing slashes are removed. If the path is empty, Dir returns \".\". If the path consists entirely of separators, Dir returns a single separator. The returned path does not end in a separator unless it is the root directory.",
+      "signature": "func Dir(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 465,
+          "lines": [
+            "func Dir(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5340,
+          "lines": [
+            "pkg path/filepath, func Dir(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EvalSymlinks",
+      "summary": "EvalSymlinks returns the path name after the evaluation of any symbolic links. If path is relative the result will be relative to the current directory, unless one of the components is an absolute symbolic link. EvalSymlinks calls [Clean] on the result.",
+      "signature": "func EvalSymlinks(path string) (string, error)",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 147,
+          "lines": [
+            "func EvalSymlinks(path string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5341,
+          "lines": [
+            "pkg path/filepath, func EvalSymlinks(string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ext",
+      "summary": "Ext returns the file name extension used by path. The extension is the suffix beginning at the final dot in the final element of path; it is empty if there is no dot.",
+      "signature": "func Ext(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 138,
+          "lines": [
+            "func Ext(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5342,
+          "lines": [
+            "pkg path/filepath, func Ext(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FromSlash",
+      "summary": "FromSlash returns the result of replacing each slash ('/') character in path with a separator character. Multiple slashes are replaced by multiple separators.",
+      "signature": "func FromSlash(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 102,
+          "lines": [
+            "func FromSlash(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5343,
+          "lines": [
+            "pkg path/filepath, func FromSlash(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Glob",
+      "summary": "Glob returns the names of all files matching pattern or nil if there is no matching file. The syntax of patterns is the same as in [Match]. The pattern may describe hierarchical names such as /usr/*/bin/ed (assuming the [Separator] is '/').",
+      "signature": "func Glob(pattern string) (matches []string, err error)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(matches []string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/match.go",
+          "line": 243,
+          "lines": [
+            "func Glob(pattern string) (matches []string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5344,
+          "lines": [
+            "pkg path/filepath, func Glob(string) ([]string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HasPrefix",
+      "summary": "HasPrefix exists for historical compatibility and should not be used.",
+      "signature": "func HasPrefix(p, prefix string) bool",
+      "params": [
+        {
+          "name": "p",
+          "type": "string"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path_plan9.go",
+          "line": 15,
+          "lines": [
+            "func HasPrefix(p, prefix string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5345,
+          "lines": [
+            "pkg path/filepath, func HasPrefix(string, string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsAbs",
+      "summary": "IsAbs reports whether the path is absolute.",
+      "signature": "func IsAbs(path string) bool",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 152,
+          "lines": [
+            "func IsAbs(path string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5346,
+          "lines": [
+            "pkg path/filepath, func IsAbs(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsLocal",
+      "summary": "IsLocal reports whether path, using lexical analysis only, has all of these properties:",
+      "signature": "func IsLocal(path string) bool",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 73,
+          "lines": [
+            "func IsLocal(path string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 274,
+          "lines": [
+            "pkg path/filepath, func IsLocal(string) bool #56219"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Join",
+      "summary": "Join joins any number of path elements into a single path, separating them with an OS specific [Separator]. Empty elements are ignored. The result is Cleaned. However, if the argument list is empty or all its elements are empty, Join returns an empty string. On Windows, the result will only be a UNC path if the first non-empty element is a UNC path.",
+      "signature": "func Join(elem ...string) string",
+      "params": [
+        {
+          "name": "elem",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 130,
+          "lines": [
+            "func Join(elem ...string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5347,
+          "lines": [
+            "pkg path/filepath, func Join(...string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Localize",
+      "summary": "Localize converts a slash-separated path into an operating system path. The input path must be a valid path as reported by [io/fs.ValidPath].",
+      "signature": "func Localize(path string) (string, error)",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 85,
+          "lines": [
+            "func Localize(path string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 77,
+          "lines": [
+            "pkg path/filepath, func Localize(string) (string, error) #57151"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Match",
+      "summary": "Match reports whether name matches the shell file name pattern. The pattern syntax is:",
+      "signature": "func Match(pattern, name string) (matched bool, err error)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(matched bool, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/match.go",
+          "line": 44,
+          "lines": [
+            "func Match(pattern, name string) (matched bool, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5348,
+          "lines": [
+            "pkg path/filepath, func Match(string, string) (bool, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rel",
+      "summary": "Rel returns a relative path that is lexically equivalent to targpath when joined to basepath with an intervening separator. That is, [Join](basepath, Rel(basepath, targpath)) is equivalent to targpath itself. On success, the returned path will always be relative to basepath, even if basepath and targpath share no elements. An error is returned if targpath can't be made relative to basepath or if knowing the current working directory would be necessary to compute it. Rel calls [Clean] on the result.",
+      "signature": "func Rel(basepath, targpath string) (string, error)",
+      "params": [
+        {
+          "name": "basepath",
+          "type": "string"
+        },
+        {
+          "name": "targpath",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 184,
+          "lines": [
+            "func Rel(basepath, targpath string) (string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5349,
+          "lines": [
+            "pkg path/filepath, func Rel(string, string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Split",
+      "summary": "Split splits path immediately following the final [Separator], separating it into a directory and file name component. If there is no Separator in path, Split returns an empty dir and file set to path. The returned values have the property that path = dir+file.",
+      "signature": "func Split(path string) (dir, file string)",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(dir, file string)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 119,
+          "lines": [
+            "func Split(path string) (dir, file string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5350,
+          "lines": [
+            "pkg path/filepath, func Split(string) (string, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitList",
+      "summary": "SplitList splits a list of paths joined by the OS-specific [ListSeparator], usually found in PATH or GOPATH environment variables. Unlike strings.Split, SplitList returns an empty slice when passed an empty string.",
+      "signature": "func SplitList(path string) []string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "[]string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 110,
+          "lines": [
+            "func SplitList(path string) []string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5351,
+          "lines": [
+            "pkg path/filepath, func SplitList(string) []string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToSlash",
+      "summary": "ToSlash returns the result of replacing each separator character in path with a slash ('/') character. Multiple separators are replaced by multiple slashes.",
+      "signature": "func ToSlash(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 92,
+          "lines": [
+            "func ToSlash(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5352,
+          "lines": [
+            "pkg path/filepath, func ToSlash(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VolumeName",
+      "summary": "VolumeName returns leading volume name. Given \"C:\\foo\\bar\" it returns \"C:\" on Windows. Given \"\\\\host\\share\\foo\" it returns \"\\\\host\\share\". On other platforms it returns \"\".",
+      "signature": "func VolumeName(path string) string",
+      "params": [
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 473,
+          "lines": [
+            "func VolumeName(path string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5353,
+          "lines": [
+            "pkg path/filepath, func VolumeName(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "summary": "Walk walks the file tree rooted at root, calling fn for each file or directory in the tree, including root.",
+      "signature": "func Walk(root string, fn WalkFunc) error",
+      "params": [
+        {
+          "name": "root",
+          "type": "string"
+        },
+        {
+          "name": "fn",
+          "type": "WalkFunc"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 422,
+          "lines": [
+            "func Walk(root string, fn WalkFunc) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5354,
+          "lines": [
+            "pkg path/filepath, func Walk(string, WalkFunc) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WalkDir",
+      "summary": "WalkDir walks the file tree rooted at root, calling fn for each file or directory in the tree, including root.",
+      "signature": "func WalkDir(root string, fn fs.WalkDirFunc) error",
+      "params": [
+        {
+          "name": "root",
+          "type": "string"
+        },
+        {
+          "name": "fn",
+          "type": "fs.WalkDirFunc"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/path/filepath/path.go",
+          "line": 395,
+          "lines": [
+            "func WalkDir(root string, fn fs.WalkDirFunc) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 410,
+          "lines": [
+            "pkg path/filepath, func WalkDir(string, fs.WalkDirFunc) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,548 @@
+{
+  "package": "net/netip",
+  "functions": [
+    {
+      "name": "AddrFrom16",
+      "summary": "AddrFrom16 returns the IPv6 address given by the bytes in addr. An IPv4-mapped IPv6 address is left as an IPv6 address. (Use Unmap to convert them if needed.)",
+      "signature": "func AddrFrom16(addr [16]byte) Addr",
+      "params": [
+        {
+          "name": "addr",
+          "type": "[16]byte"
+        }
+      ],
+      "returns": {
+        "type": "Addr"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 102,
+          "lines": [
+            "func AddrFrom16(addr [16]byte) Addr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 91,
+          "lines": [
+            "pkg net/netip, func AddrFrom16([16]uint8) Addr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AddrFrom4",
+      "summary": "AddrFrom4 returns the address of the IPv4 address given by the bytes in addr.",
+      "signature": "func AddrFrom4(addr [4]byte) Addr",
+      "params": [
+        {
+          "name": "addr",
+          "type": "[4]byte"
+        }
+      ],
+      "returns": {
+        "type": "Addr"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 92,
+          "lines": [
+            "func AddrFrom4(addr [4]byte) Addr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 92,
+          "lines": [
+            "pkg net/netip, func AddrFrom4([4]uint8) Addr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AddrFromSlice",
+      "summary": "AddrFromSlice parses the 4- or 16-byte byte slice as an IPv4 or IPv6 address. Note that a [net.IP] can be passed directly as the []byte argument. If slice's length is not 4 or 16, AddrFromSlice returns [Addr]{}, false.",
+      "signature": "func AddrFromSlice(slice []byte) (ip Addr, ok bool)",
+      "params": [
+        {
+          "name": "slice",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(ip Addr, ok bool)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 349,
+          "lines": [
+            "func AddrFromSlice(slice []byte) (ip Addr, ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 93,
+          "lines": [
+            "pkg net/netip, func AddrFromSlice([]uint8) (Addr, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AddrPortFrom",
+      "summary": "AddrPortFrom returns an [AddrPort] with the provided IP and port. It does not allocate.",
+      "signature": "func AddrPortFrom(ip Addr, port uint16) AddrPort { return AddrPort{ip: ip, port: port} }",
+      "params": [
+        {
+          "name": "ip",
+          "type": "Addr"
+        },
+        {
+          "name": "port",
+          "type": "uint16"
+        }
+      ],
+      "returns": {
+        "type": "AddrPort { return AddrPort{ip: ip, port: port} }"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 1076,
+          "lines": [
+            "func AddrPortFrom(ip Addr, port uint16) AddrPort { return AddrPort{ip: ip, port: port} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 94,
+          "lines": [
+            "pkg net/netip, func AddrPortFrom(Addr, uint16) AddrPort"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IPv4Unspecified",
+      "summary": "IPv4Unspecified returns the IPv4 unspecified address \"0.0.0.0\".",
+      "signature": "func IPv4Unspecified() Addr { return AddrFrom4([4]byte{}) }",
+      "params": [],
+      "returns": {
+        "type": "Addr { return AddrFrom4([4]byte{}) }"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 89,
+          "lines": [
+            "func IPv4Unspecified() Addr { return AddrFrom4([4]byte{}) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 95,
+          "lines": [
+            "pkg net/netip, func IPv4Unspecified() Addr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IPv6LinkLocalAllNodes",
+      "summary": "IPv6LinkLocalAllNodes returns the IPv6 link-local all nodes multicast address ff02::1.",
+      "signature": "func IPv6LinkLocalAllNodes() Addr { return AddrFrom16([16]byte{0: 0xff, 1: 0x02, 15: 0x01}) }",
+      "params": [],
+      "returns": {
+        "type": "Addr { return AddrFrom16([16]byte{0: 0xff, 1: 0x02, 15: 0x01}) }"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 76,
+          "lines": [
+            "func IPv6LinkLocalAllNodes() Addr { return AddrFrom16([16]byte{0: 0xff, 1: 0x02, 15: 0x01}) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 96,
+          "lines": [
+            "pkg net/netip, func IPv6LinkLocalAllNodes() Addr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IPv6LinkLocalAllRouters",
+      "summary": "IPv6LinkLocalAllRouters returns the IPv6 link-local all routers multicast address ff02::2.",
+      "signature": "func IPv6LinkLocalAllRouters() Addr { return AddrFrom16([16]byte{0: 0xff, 1: 0x02, 15: 0x02}) }",
+      "params": [],
+      "returns": {
+        "type": "Addr { return AddrFrom16([16]byte{0: 0xff, 1: 0x02, 15: 0x02}) }"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 80,
+          "lines": [
+            "func IPv6LinkLocalAllRouters() Addr { return AddrFrom16([16]byte{0: 0xff, 1: 0x02, 15: 0x02}) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 268,
+          "lines": [
+            "pkg net/netip, func IPv6LinkLocalAllRouters() Addr #51766"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IPv6Loopback",
+      "summary": "IPv6Loopback returns the IPv6 loopback address ::1.",
+      "signature": "func IPv6Loopback() Addr { return AddrFrom16([16]byte{15: 0x01}) }",
+      "params": [],
+      "returns": {
+        "type": "Addr { return AddrFrom16([16]byte{15: 0x01}) }"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 83,
+          "lines": [
+            "func IPv6Loopback() Addr { return AddrFrom16([16]byte{15: 0x01}) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 269,
+          "lines": [
+            "pkg net/netip, func IPv6Loopback() Addr #51777"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IPv6Unspecified",
+      "summary": "IPv6Unspecified returns the IPv6 unspecified address \"::\".",
+      "signature": "func IPv6Unspecified() Addr { return Addr{z: z6noz} }",
+      "params": [],
+      "returns": {
+        "type": "Addr { return Addr{z: z6noz} }"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 86,
+          "lines": [
+            "func IPv6Unspecified() Addr { return Addr{z: z6noz} }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 97,
+          "lines": [
+            "pkg net/netip, func IPv6Unspecified() Addr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MustParseAddr",
+      "summary": "MustParseAddr calls [ParseAddr](s) and panics on error. It is intended for use in tests with hard-coded strings.",
+      "signature": "func MustParseAddr(s string) Addr",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Addr"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 133,
+          "lines": [
+            "func MustParseAddr(s string) Addr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 98,
+          "lines": [
+            "pkg net/netip, func MustParseAddr(string) Addr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MustParseAddrPort",
+      "summary": "MustParseAddrPort calls [ParseAddrPort](s) and panics on error. It is intended for use in tests with hard-coded strings.",
+      "signature": "func MustParseAddrPort(s string) AddrPort",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "AddrPort"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 1142,
+          "lines": [
+            "func MustParseAddrPort(s string) AddrPort {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 99,
+          "lines": [
+            "pkg net/netip, func MustParseAddrPort(string) AddrPort"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MustParsePrefix",
+      "summary": "MustParsePrefix calls [ParsePrefix](s) and panics on error. It is intended for use in tests with hard-coded strings.",
+      "signature": "func MustParsePrefix(s string) Prefix",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Prefix"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 1404,
+          "lines": [
+            "func MustParsePrefix(s string) Prefix {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 100,
+          "lines": [
+            "pkg net/netip, func MustParsePrefix(string) Prefix"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseAddr",
+      "summary": "ParseAddr parses s as an IP address, returning the result. The string s can be in dotted decimal (\"192.0.2.1\"), IPv6 (\"2001:db8::68\"), or IPv6 with a scoped addressing zone (\"fe80::1cc0:3e8c:119f:c2e1%ens18\").",
+      "signature": "func ParseAddr(s string) (Addr, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Addr, error)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 115,
+          "lines": [
+            "func ParseAddr(s string) (Addr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 101,
+          "lines": [
+            "pkg net/netip, func ParseAddr(string) (Addr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseAddrPort",
+      "summary": "ParseAddrPort parses s as an [AddrPort].",
+      "signature": "func ParseAddrPort(s string) (AddrPort, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(AddrPort, error)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 1117,
+          "lines": [
+            "func ParseAddrPort(s string) (AddrPort, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 102,
+          "lines": [
+            "pkg net/netip, func ParseAddrPort(string) (AddrPort, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParsePrefix",
+      "summary": "ParsePrefix parses s as an IP address prefix. The string can be in the form \"192.168.1.0/24\" or \"2001:db8::/32\", the CIDR notation defined in RFC 4632 and RFC 4291. IPv6 zones are not permitted in prefixes, and an error will be returned if a zone is present.",
+      "signature": "func ParsePrefix(s string) (Prefix, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Prefix, error)"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 1367,
+          "lines": [
+            "func ParsePrefix(s string) (Prefix, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 103,
+          "lines": [
+            "pkg net/netip, func ParsePrefix(string) (Prefix, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PrefixFrom",
+      "summary": "PrefixFrom returns a [Prefix] with the provided IP address and bit prefix length.",
+      "signature": "func PrefixFrom(ip Addr, bits int) Prefix",
+      "params": [
+        {
+          "name": "ip",
+          "type": "Addr"
+        },
+        {
+          "name": "bits",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Prefix"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/netip/netip.go",
+          "line": 1304,
+          "lines": [
+            "func PrefixFrom(ip Addr, bits int) Prefix {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 104,
+          "lines": [
+            "pkg net/netip, func PrefixFrom(Addr, int) Prefix"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "package": "net/http/httptrace",
+  "functions": [
+    {
+      "name": "ContextClientTrace",
+      "summary": "ContextClientTrace returns the [ClientTrace] associated with the provided context. If none, it returns nil.",
+      "signature": "func ContextClientTrace(ctx context.Context) *ClientTrace",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        }
+      ],
+      "returns": {
+        "type": "*ClientTrace"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptrace/trace.go",
+          "line": 24,
+          "lines": [
+            "func ContextClientTrace(ctx context.Context) *ClientTrace {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 213,
+          "lines": [
+            "pkg net/http/httptrace, func ContextClientTrace(context.Context) *ClientTrace"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WithClientTrace",
+      "summary": "WithClientTrace returns a new context based on the provided parent ctx. HTTP client requests made with the returned context will use the provided trace hooks, in addition to any previous hooks registered with ctx. Any hooks defined in the provided trace will be called first.",
+      "signature": "func WithClientTrace(ctx context.Context, trace *ClientTrace) context.Context",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "trace",
+          "type": "*ClientTrace"
+        }
+      ],
+      "returns": {
+        "type": "context.Context"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptrace/trace.go",
+          "line": 34,
+          "lines": [
+            "func WithClientTrace(ctx context.Context, trace *ClientTrace) context.Context {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 214,
+          "lines": [
+            "pkg net/http/httptrace, func WithClientTrace(context.Context, *ClientTrace) context.Context"
+          ]
+        }
+      ]
+    }
+  ]
+}

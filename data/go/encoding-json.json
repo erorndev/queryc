@@ -1,0 +1,352 @@
+{
+  "package": "encoding/json",
+  "functions": [
+    {
+      "name": "Compact",
+      "summary": "Compact appends to dst the JSON-encoded src with insignificant space characters elided.",
+      "signature": "func Compact(dst *bytes.Buffer, src []byte) error",
+      "params": [
+        {
+          "name": "dst",
+          "type": "*bytes.Buffer"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/indent.go",
+          "line": 43,
+          "lines": [
+            "func Compact(dst *bytes.Buffer, src []byte) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2353,
+          "lines": [
+            "pkg encoding/json, func Compact(*bytes.Buffer, []uint8) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HTMLEscape",
+      "summary": "HTMLEscape appends to dst the JSON-encoded src with <, >, &, U+2028 and U+2029 characters inside string literals changed to \\u003c, \\u003e, \\u0026, \\u2028, \\u2029 so that the JSON will be safe to embed inside HTML <script> tags. For historical reasons, web browsers don't honor standard HTML escaping within <script> tags, so an alternative JSON encoding must be used.",
+      "signature": "func HTMLEscape(dst *bytes.Buffer, src []byte)",
+      "params": [
+        {
+          "name": "dst",
+          "type": "*bytes.Buffer"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/indent.go",
+          "line": 16,
+          "lines": [
+            "func HTMLEscape(dst *bytes.Buffer, src []byte) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2354,
+          "lines": [
+            "pkg encoding/json, func HTMLEscape(*bytes.Buffer, []uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Indent",
+      "summary": "Indent appends to dst an indented form of the JSON-encoded src. Each element in a JSON object or array begins on a new, indented line beginning with prefix followed by one or more copies of indent according to the indentation nesting. The data appended to dst does not begin with the prefix nor any indentation, to make it easier to embed inside other formatted JSON data. Although leading space characters (space, tab, carriage return, newline) at the beginning of src are dropped, trailing space characters at the end of src are preserved and copied to dst. For example, if src has no trailing spaces, neither will dst; if src ends in a trailing newline, so will dst.",
+      "signature": "func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error",
+      "params": [
+        {
+          "name": "dst",
+          "type": "*bytes.Buffer"
+        },
+        {
+          "name": "src",
+          "type": "[]byte"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "indent",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/indent.go",
+          "line": 120,
+          "lines": [
+            "func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2355,
+          "lines": [
+            "pkg encoding/json, func Indent(*bytes.Buffer, []uint8, string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Marshal",
+      "summary": "Marshal returns the JSON encoding of v.",
+      "signature": "func Marshal(v any) ([]byte, error)",
+      "params": [
+        {
+          "name": "v",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/encode.go",
+          "line": 205,
+          "lines": [
+            "func Marshal(v any) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2356,
+          "lines": [
+            "pkg encoding/json, func Marshal(interface{}) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MarshalIndent",
+      "summary": "MarshalIndent is like [Marshal] but applies [Indent] to format the output. Each JSON element in the output will begin on a new line beginning with prefix followed by one or more copies of indent according to the indentation nesting.",
+      "signature": "func MarshalIndent(v any, prefix, indent string) ([]byte, error)",
+      "params": [
+        {
+          "name": "v",
+          "type": "any"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "indent",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/encode.go",
+          "line": 221,
+          "lines": [
+            "func MarshalIndent(v any, prefix, indent string) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2357,
+          "lines": [
+            "pkg encoding/json, func MarshalIndent(interface{}, string, string) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewDecoder",
+      "summary": "NewDecoder returns a new decoder that reads from r.",
+      "signature": "func NewDecoder(r io.Reader) *Decoder",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*Decoder"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/stream.go",
+          "line": 33,
+          "lines": [
+            "func NewDecoder(r io.Reader) *Decoder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2358,
+          "lines": [
+            "pkg encoding/json, func NewDecoder(io.Reader) *Decoder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncoder",
+      "summary": "NewEncoder returns a new encoder that writes to w.",
+      "signature": "func NewEncoder(w io.Writer) *Encoder",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Encoder"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/stream.go",
+          "line": 194,
+          "lines": [
+            "func NewEncoder(w io.Writer) *Encoder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2359,
+          "lines": [
+            "pkg encoding/json, func NewEncoder(io.Writer) *Encoder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unmarshal",
+      "summary": "Unmarshal parses the JSON-encoded data and stores the result in the value pointed to by v. If v is nil or not a pointer, Unmarshal returns an [InvalidUnmarshalError].",
+      "signature": "func Unmarshal(data []byte, v any) error",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        },
+        {
+          "name": "v",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/decode.go",
+          "line": 102,
+          "lines": [
+            "func Unmarshal(data []byte, v any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2360,
+          "lines": [
+            "pkg encoding/json, func Unmarshal([]uint8, interface{}) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Valid",
+      "summary": "Valid reports whether data is a valid JSON encoding.",
+      "signature": "func Valid(data []byte) bool",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/json/scanner.go",
+          "line": 24,
+          "lines": [
+            "func Valid(data []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 36,
+          "lines": [
+            "pkg encoding/json, func Valid([]uint8) bool"
+          ]
+        }
+      ]
+    }
+  ]
+}

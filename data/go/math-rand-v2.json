@@ -1,0 +1,745 @@
+{
+  "package": "math/rand/v2",
+  "functions": [
+    {
+      "name": "ExpFloat64",
+      "summary": "ExpFloat64 returns an exponentially distributed float64 in the range (0, +math.MaxFloat64] with an exponential distribution whose rate parameter (lambda) is 1 and whose mean is 1/lambda (1) from the default Source. To produce a distribution with a different rate parameter, callers can adjust the output using:",
+      "signature": "func ExpFloat64() float64 { return globalRand.ExpFloat64() }",
+      "params": [],
+      "returns": {
+        "type": "float64 { return globalRand.ExpFloat64() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 369,
+          "lines": [
+            "func ExpFloat64() float64 { return globalRand.ExpFloat64() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 64,
+          "lines": [
+            "pkg math/rand/v2, func ExpFloat64() float64 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float32",
+      "summary": "Float32 returns, as a float32, a pseudo-random number in the half-open interval [0.0,1.0) from the default Source.",
+      "signature": "func Float32() float32 { return globalRand.Float32() }",
+      "params": [],
+      "returns": {
+        "type": "float32 { return globalRand.Float32() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 341,
+          "lines": [
+            "func Float32() float32 { return globalRand.Float32() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 65,
+          "lines": [
+            "pkg math/rand/v2, func Float32() float32 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64",
+      "summary": "Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0) from the default Source.",
+      "signature": "func Float64() float64 { return globalRand.Float64() }",
+      "params": [],
+      "returns": {
+        "type": "float64 { return globalRand.Float64() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 337,
+          "lines": [
+            "func Float64() float64 { return globalRand.Float64() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 66,
+          "lines": [
+            "pkg math/rand/v2, func Float64() float64 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int",
+      "summary": "Int returns a non-negative pseudo-random int from the default Source.",
+      "signature": "func Int() int { return globalRand.Int() }",
+      "params": [],
+      "returns": {
+        "type": "int { return globalRand.Int() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 295,
+          "lines": [
+            "func Int() int { return globalRand.Int() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 67,
+          "lines": [
+            "pkg math/rand/v2, func Int() int #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int32",
+      "summary": "Int32 returns a non-negative pseudo-random 31-bit integer as an int32 from the default Source.",
+      "signature": "func Int32() int32 { return globalRand.Int32() }",
+      "params": [],
+      "returns": {
+        "type": "int32 { return globalRand.Int32() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 292,
+          "lines": [
+            "func Int32() int32 { return globalRand.Int32() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 68,
+          "lines": [
+            "pkg math/rand/v2, func Int32() int32 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int32N",
+      "summary": "Int32N returns, as an int32, a pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n <= 0.",
+      "signature": "func Int32N(n int32) int32 { return globalRand.Int32N(n) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": "int32 { return globalRand.Int32N(n) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 308,
+          "lines": [
+            "func Int32N(n int32) int32 { return globalRand.Int32N(n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 69,
+          "lines": [
+            "pkg math/rand/v2, func Int32N(int32) int32 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int64",
+      "summary": "Int64 returns a non-negative pseudo-random 63-bit integer as an int64 from the default Source.",
+      "signature": "func Int64() int64 { return globalRand.Int64() }",
+      "params": [],
+      "returns": {
+        "type": "int64 { return globalRand.Int64() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 270,
+          "lines": [
+            "func Int64() int64 { return globalRand.Int64() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 70,
+          "lines": [
+            "pkg math/rand/v2, func Int64() int64 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int64N",
+      "summary": "Int64N returns, as an int64, a pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n <= 0.",
+      "signature": "func Int64N(n int64) int64 { return globalRand.Int64N(n) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "int64 { return globalRand.Int64N(n) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 303,
+          "lines": [
+            "func Int64N(n int64) int64 { return globalRand.Int64N(n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 71,
+          "lines": [
+            "pkg math/rand/v2, func Int64N(int64) int64 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IntN",
+      "summary": "IntN returns, as an int, a pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n <= 0.",
+      "signature": "func IntN(n int) int { return globalRand.IntN(n) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int { return globalRand.IntN(n) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 313,
+          "lines": [
+            "func IntN(n int) int { return globalRand.IntN(n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 72,
+          "lines": [
+            "pkg math/rand/v2, func IntN(int) int #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New returns a new Rand that uses random values from src to generate other random values.",
+      "signature": "func New(src Source) *Rand",
+      "params": [
+        {
+          "name": "src",
+          "type": "Source"
+        }
+      ],
+      "returns": {
+        "type": "*Rand"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 40,
+          "lines": [
+            "func New(src Source) *Rand {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 74,
+          "lines": [
+            "pkg math/rand/v2, func New(Source) *Rand #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewChaCha8",
+      "summary": "NewChaCha8 returns a new ChaCha8 seeded with the given seed.",
+      "signature": "func NewChaCha8(seed [32]byte) *ChaCha8",
+      "params": [
+        {
+          "name": "seed",
+          "type": "[32]byte"
+        }
+      ],
+      "returns": {
+        "type": "*ChaCha8"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/chacha8.go",
+          "line": 24,
+          "lines": [
+            "func NewChaCha8(seed [32]byte) *ChaCha8 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 75,
+          "lines": [
+            "pkg math/rand/v2, func NewChaCha8([32]uint8) *ChaCha8 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewPCG",
+      "summary": "NewPCG returns a new PCG seeded with the given values.",
+      "signature": "func NewPCG(seed1, seed2 uint64) *PCG",
+      "params": [
+        {
+          "name": "seed1",
+          "type": "uint64"
+        },
+        {
+          "name": "seed2",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "*PCG"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/pcg.go",
+          "line": 24,
+          "lines": [
+            "func NewPCG(seed1, seed2 uint64) *PCG {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 76,
+          "lines": [
+            "pkg math/rand/v2, func NewPCG(uint64, uint64) *PCG #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewZipf",
+      "summary": "NewZipf returns a Zipf variate generator. The generator generates values k ∈ [0, imax] such that P(k) is proportional to (v + k) ** (-s). Requirements: s > 1 and v >= 1.",
+      "signature": "func NewZipf(r *Rand, s float64, v float64, imax uint64) *Zipf",
+      "params": [
+        {
+          "name": "r",
+          "type": "*Rand"
+        },
+        {
+          "name": "s",
+          "type": "float64"
+        },
+        {
+          "name": "v",
+          "type": "float64"
+        },
+        {
+          "name": "imax",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "*Zipf"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/zipf.go",
+          "line": 39,
+          "lines": [
+            "func NewZipf(r *Rand, s float64, v float64, imax uint64) *Zipf {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 77,
+          "lines": [
+            "pkg math/rand/v2, func NewZipf(*Rand, float64, float64, uint64) *Zipf #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NormFloat64",
+      "summary": "NormFloat64 returns a normally distributed float64 in the range [-math.MaxFloat64, +math.MaxFloat64] with standard normal distribution (mean = 0, stddev = 1) from the default Source. To produce a different normal distribution, callers can adjust the output using:",
+      "signature": "func NormFloat64() float64 { return globalRand.NormFloat64() }",
+      "params": [],
+      "returns": {
+        "type": "float64 { return globalRand.NormFloat64() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 360,
+          "lines": [
+            "func NormFloat64() float64 { return globalRand.NormFloat64() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 78,
+          "lines": [
+            "pkg math/rand/v2, func NormFloat64() float64 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Perm",
+      "summary": "Perm returns, as a slice of n ints, a pseudo-random permutation of the integers in the half-open interval [0,n) from the default Source.",
+      "signature": "func Perm(n int) []int { return globalRand.Perm(n) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "[]int { return globalRand.Perm(n) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 345,
+          "lines": [
+            "func Perm(n int) []int { return globalRand.Perm(n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 79,
+          "lines": [
+            "pkg math/rand/v2, func Perm(int) []int #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shuffle",
+      "summary": "Shuffle pseudo-randomizes the order of elements using the default Source. n is the number of elements. Shuffle panics if n < 0. swap swaps the elements with indexes i and j.",
+      "signature": "func Shuffle(n int, swap func(i, j int)) { globalRand.Shuffle(n, swap) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "int"
+        },
+        {
+          "name": "swap",
+          "type": "func(i, j int)"
+        }
+      ],
+      "returns": {
+        "type": "{ globalRand.Shuffle(n, swap) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 350,
+          "lines": [
+            "func Shuffle(n int, swap func(i, j int)) { globalRand.Shuffle(n, swap) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 80,
+          "lines": [
+            "pkg math/rand/v2, func Shuffle(int, func(int, int)) #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint",
+      "summary": "Uint returns a pseudo-random uint from the default Source.",
+      "signature": "func Uint() uint { return globalRand.Uint() }",
+      "params": [],
+      "returns": {
+        "type": "uint { return globalRand.Uint() }"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 298,
+          "lines": [
+            "func Uint() uint { return globalRand.Uint() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 56,
+          "lines": [
+            "pkg math/rand/v2, func Uint() uint #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint32",
+      "summary": "Uint32 returns a pseudo-random 32-bit value as a uint32 from the default Source.",
+      "signature": "func Uint32() uint32 { return globalRand.Uint32() }",
+      "params": [],
+      "returns": {
+        "type": "uint32 { return globalRand.Uint32() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 274,
+          "lines": [
+            "func Uint32() uint32 { return globalRand.Uint32() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 81,
+          "lines": [
+            "pkg math/rand/v2, func Uint32() uint32 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint32N",
+      "summary": "Uint32N returns, as a uint32, a pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n == 0.",
+      "signature": "func Uint32N(n uint32) uint32 { return globalRand.Uint32N(n) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "uint32"
+        }
+      ],
+      "returns": {
+        "type": "uint32 { return globalRand.Uint32N(n) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 284,
+          "lines": [
+            "func Uint32N(n uint32) uint32 { return globalRand.Uint32N(n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 82,
+          "lines": [
+            "pkg math/rand/v2, func Uint32N(uint32) uint32 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint64",
+      "summary": "Uint64 returns a pseudo-random 64-bit value as a uint64 from the default Source.",
+      "signature": "func Uint64() uint64 { return globalRand.Uint64() }",
+      "params": [],
+      "returns": {
+        "type": "uint64 { return globalRand.Uint64() }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 288,
+          "lines": [
+            "func Uint64() uint64 { return globalRand.Uint64() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 83,
+          "lines": [
+            "pkg math/rand/v2, func Uint64() uint64 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint64N",
+      "summary": "Uint64N returns, as a uint64, a pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n == 0.",
+      "signature": "func Uint64N(n uint64) uint64 { return globalRand.Uint64N(n) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "uint64 { return globalRand.Uint64N(n) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 279,
+          "lines": [
+            "func Uint64N(n uint64) uint64 { return globalRand.Uint64N(n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 84,
+          "lines": [
+            "pkg math/rand/v2, func Uint64N(uint64) uint64 #61716"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UintN",
+      "summary": "UintN returns, as a uint, a pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n == 0.",
+      "signature": "func UintN(n uint) uint { return globalRand.UintN(n) }",
+      "params": [
+        {
+          "name": "n",
+          "type": "uint"
+        }
+      ],
+      "returns": {
+        "type": "uint { return globalRand.UintN(n) }"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/rand/v2/rand.go",
+          "line": 318,
+          "lines": [
+            "func UintN(n uint) uint { return globalRand.UintN(n) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 85,
+          "lines": [
+            "pkg math/rand/v2, func UintN(uint) uint #61716"
+          ]
+        }
+      ]
+    }
+  ]
+}

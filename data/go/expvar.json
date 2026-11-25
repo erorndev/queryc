@@ -1,0 +1,144 @@
+{
+  "package": "expvar",
+  "functions": [
+    {
+      "name": "Do",
+      "summary": "Do calls f for each exported variable. The global variable map is locked during the iteration, but existing entries may be concurrently updated.",
+      "signature": "func Do(f func(KeyValue))",
+      "params": [
+        {
+          "name": "f",
+          "type": "func(KeyValue)"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/expvar/expvar.go",
+          "line": 354,
+          "lines": [
+            "func Do(f func(KeyValue)) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2470,
+          "lines": [
+            "pkg expvar, func Do(func(KeyValue))"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Get",
+      "summary": "Get retrieves a named exported variable. It returns nil if the name has not been registered.",
+      "signature": "func Get(name string) Var",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Var"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/expvar/expvar.go",
+          "line": 321,
+          "lines": [
+            "func Get(name string) Var {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2471,
+          "lines": [
+            "pkg expvar, func Get(string) Var"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Handler",
+      "summary": "Handler returns the expvar HTTP Handler.",
+      "signature": "func Handler() http.Handler",
+      "params": [],
+      "returns": {
+        "type": "http.Handler"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/expvar/expvar.go",
+          "line": 366,
+          "lines": [
+            "func Handler() http.Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 174,
+          "lines": [
+            "pkg expvar, func Handler() http.Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Publish",
+      "summary": "Publish declares a named exported variable. This should be called from a package's init function when it creates its Vars. If the name is already registered then this will log.Panic.",
+      "signature": "func Publish(name string, v Var)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "Var"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/expvar/expvar.go",
+          "line": 309,
+          "lines": [
+            "func Publish(name string, v Var) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2476,
+          "lines": [
+            "pkg expvar, func Publish(string, Var)"
+          ]
+        }
+      ]
+    }
+  ]
+}

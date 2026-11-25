@@ -1,0 +1,435 @@
+{
+  "package": "runtime/pprof",
+  "functions": [
+    {
+      "name": "Do",
+      "summary": "Do calls f with a copy of the parent context with the given labels added to the parent's label map. Goroutines spawned while executing f will inherit the augmented label-set. Each key/value pair in labels is inserted into the label map in the order provided, overriding any previous value for the same key. The augmented label map will be set for the duration of the call to f and restored once f returns.",
+      "signature": "func Do(ctx context.Context, labels LabelSet, f func(context.Context))",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "labels",
+          "type": "LabelSet"
+        },
+        {
+          "name": "f",
+          "type": "func(context.Context)"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/runtime.go",
+          "line": 47,
+          "lines": [
+            "func Do(ctx context.Context, labels LabelSet, f func(context.Context)) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 131,
+          "lines": [
+            "pkg runtime/pprof, func Do(context.Context, LabelSet, func(context.Context))"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ForLabels",
+      "summary": "ForLabels invokes f with each label set on the context. The function f should return true to continue iteration or false to stop iteration early.",
+      "signature": "func ForLabels(ctx context.Context, f func(key, value string) bool)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "f",
+          "type": "func(key, value string) bool"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/label.go",
+          "line": 144,
+          "lines": [
+            "func ForLabels(ctx context.Context, f func(key, value string) bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 132,
+          "lines": [
+            "pkg runtime/pprof, func ForLabels(context.Context, func(string, string) bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Label",
+      "summary": "Label returns the value of the label with the given key on ctx, and a boolean indicating whether that label exists.",
+      "signature": "func Label(ctx context.Context, key string) (string, bool)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "key",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(string, bool)"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/label.go",
+          "line": 132,
+          "lines": [
+            "func Label(ctx context.Context, key string) (string, bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 133,
+          "lines": [
+            "pkg runtime/pprof, func Label(context.Context, string) (string, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Labels",
+      "summary": "Labels takes an even number of strings representing key-value pairs and makes a [LabelSet] containing them. A label overwrites a prior label with the same key. Currently only the CPU and goroutine profiles utilize any labels information. See https://golang.org/issue/23458 for details.",
+      "signature": "func Labels(args ...string) LabelSet",
+      "params": [
+        {
+          "name": "args",
+          "type": "...string"
+        }
+      ],
+      "returns": {
+        "type": "LabelSet"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/label.go",
+          "line": 102,
+          "lines": [
+            "func Labels(args ...string) LabelSet {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 134,
+          "lines": [
+            "pkg runtime/pprof, func Labels(...string) LabelSet"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lookup",
+      "summary": "Lookup returns the profile with the given name, or nil if no such profile exists.",
+      "signature": "func Lookup(name string) *Profile",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Profile"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/pprof.go",
+          "line": 265,
+          "lines": [
+            "func Lookup(name string) *Profile {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5746,
+          "lines": [
+            "pkg runtime/pprof, func Lookup(string) *Profile"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewProfile",
+      "summary": "NewProfile creates a new profile with the given name. If a profile with that name already exists, NewProfile panics. The convention is to use a 'import/path.' prefix to create separate name spaces for each package. For compatibility with various tools that read pprof data, profile names should not contain spaces.",
+      "signature": "func NewProfile(name string) *Profile",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Profile"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/pprof.go",
+          "line": 247,
+          "lines": [
+            "func NewProfile(name string) *Profile {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5747,
+          "lines": [
+            "pkg runtime/pprof, func NewProfile(string) *Profile"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Profiles",
+      "summary": "Profiles returns a slice of all the known profiles, sorted by name.",
+      "signature": "func Profiles() []*Profile",
+      "params": [],
+      "returns": {
+        "type": "[]*Profile"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/pprof.go",
+          "line": 272,
+          "lines": [
+            "func Profiles() []*Profile {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5748,
+          "lines": [
+            "pkg runtime/pprof, func Profiles() []*Profile"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetGoroutineLabels",
+      "summary": "SetGoroutineLabels sets the current goroutine's labels to match ctx. A new goroutine inherits the labels of the goroutine that created it. This is a lower-level API than [Do], which should be used instead when possible.",
+      "signature": "func SetGoroutineLabels(ctx context.Context)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/runtime.go",
+          "line": 35,
+          "lines": [
+            "func SetGoroutineLabels(ctx context.Context) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 135,
+          "lines": [
+            "pkg runtime/pprof, func SetGoroutineLabels(context.Context)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StartCPUProfile",
+      "summary": "StartCPUProfile enables CPU profiling for the current process. While profiling, the profile will be buffered and written to w. StartCPUProfile returns an error if profiling is already enabled.",
+      "signature": "func StartCPUProfile(w io.Writer) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/pprof.go",
+          "line": 825,
+          "lines": [
+            "func StartCPUProfile(w io.Writer) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5749,
+          "lines": [
+            "pkg runtime/pprof, func StartCPUProfile(io.Writer) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StopCPUProfile",
+      "summary": "StopCPUProfile stops the current CPU profile, if any. StopCPUProfile only returns after all the writes for the profile have completed.",
+      "signature": "func StopCPUProfile()",
+      "params": [],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/pprof.go",
+          "line": 884,
+          "lines": [
+            "func StopCPUProfile() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5750,
+          "lines": [
+            "pkg runtime/pprof, func StopCPUProfile()"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WithLabels",
+      "summary": "WithLabels returns a new [context.Context] with the given labels added. A label overwrites a prior label with the same key.",
+      "signature": "func WithLabels(ctx context.Context, labels LabelSet) context.Context",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "labels",
+          "type": "LabelSet"
+        }
+      ],
+      "returns": {
+        "type": "context.Context"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/label.go",
+          "line": 60,
+          "lines": [
+            "func WithLabels(ctx context.Context, labels LabelSet) context.Context {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 136,
+          "lines": [
+            "pkg runtime/pprof, func WithLabels(context.Context, LabelSet) context.Context"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WriteHeapProfile",
+      "summary": "WriteHeapProfile is shorthand for [Lookup](\"heap\").WriteTo(w, 0). It is preserved for backwards compatibility.",
+      "signature": "func WriteHeapProfile(w io.Writer) error",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/runtime/pprof/pprof.go",
+          "line": 573,
+          "lines": [
+            "func WriteHeapProfile(w io.Writer) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5751,
+          "lines": [
+            "pkg runtime/pprof, func WriteHeapProfile(io.Writer) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

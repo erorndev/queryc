@@ -1,0 +1,75 @@
+{
+  "package": "debug/elf",
+  "functions": [
+    {
+      "name": "NewFile",
+      "summary": "NewFile creates a new [File] for accessing an ELF binary in an underlying reader. The ELF binary is expected to start at position 0 in the ReaderAt.",
+      "signature": "func NewFile(r io.ReaderAt) (*File, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.ReaderAt"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/elf/file.go",
+          "line": 287,
+          "lines": [
+            "func NewFile(r io.ReaderAt) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 1592,
+          "lines": [
+            "pkg debug/elf, func NewFile(io.ReaderAt) (*File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Open",
+      "summary": "Open opens the named file using [os.Open] and prepares it for use as an ELF binary.",
+      "signature": "func Open(name string) (*File, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/elf/file.go",
+          "line": 248,
+          "lines": [
+            "func Open(name string) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 1593,
+          "lines": [
+            "pkg debug/elf, func Open(string) (*File, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

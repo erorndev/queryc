@@ -1,0 +1,294 @@
+{
+  "package": "go/doc",
+  "functions": [
+    {
+      "name": "Examples",
+      "summary": "Examples returns the examples found in testFiles, sorted by Name field. The Order fields record the order in which the examples were encountered. The Suffix field is not populated when Examples is called directly, it is only populated by [NewFromFiles] for examples it finds in _test.go files.",
+      "signature": "func Examples(testFiles ...*ast.File) []*Example",
+      "params": [
+        {
+          "name": "testFiles",
+          "type": "...*ast.File"
+        }
+      ],
+      "returns": {
+        "type": "[]*Example"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/example.go",
+          "line": 51,
+          "lines": [
+            "func Examples(testFiles ...*ast.File) []*Example {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3096,
+          "lines": [
+            "pkg go/doc, func Examples(...*ast.File) []*Example"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IsPredeclared",
+      "summary": "IsPredeclared reports whether s is a predeclared identifier.",
+      "signature": "func IsPredeclared(s string) bool",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/reader.go",
+          "line": 929,
+          "lines": [
+            "func IsPredeclared(s string) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 179,
+          "lines": [
+            "pkg go/doc, func IsPredeclared(string) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New computes the package documentation for the given package AST. New takes ownership of the AST pkg and may edit or overwrite it. To have the [Examples] fields populated, use [NewFromFiles] and include the package's _test.go files.",
+      "signature": "func New(pkg *ast.Package, importPath string, mode Mode) *Package",
+      "params": [
+        {
+          "name": "pkg",
+          "type": "*ast.Package"
+        },
+        {
+          "name": "importPath",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "Mode"
+        }
+      ],
+      "returns": {
+        "type": "*Package"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/doc.go",
+          "line": 121,
+          "lines": [
+            "func New(pkg *ast.Package, importPath string, mode Mode) *Package {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3097,
+          "lines": [
+            "pkg go/doc, func New(*ast.Package, string, Mode) *Package"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFromFiles",
+      "summary": "NewFromFiles computes documentation for a package.",
+      "signature": "func NewFromFiles(fset *token.FileSet, files []*ast.File, importPath string, opts ...any) (*Package, error)",
+      "params": [
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "files",
+          "type": "[]*ast.File"
+        },
+        {
+          "name": "importPath",
+          "type": "string"
+        },
+        {
+          "name": "opts",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "(*Package, error)"
+      },
+      "versions": [
+        "Go 1.14"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/doc.go",
+          "line": 209,
+          "lines": [
+            "func NewFromFiles(fset *token.FileSet, files []*ast.File, importPath string, opts ...any) (*Package, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.14.txt",
+          "line": 148,
+          "lines": [
+            "pkg go/doc, func NewFromFiles(*token.FileSet, []*ast.File, string, ...interface{}) (*Package, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Synopsis",
+      "summary": "Synopsis returns a cleaned version of the first sentence in text.",
+      "signature": "func Synopsis(text string) string",
+      "params": [
+        {
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/synopsis.go",
+          "line": 37,
+          "lines": [
+            "func Synopsis(text string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3098,
+          "lines": [
+            "pkg go/doc, func Synopsis(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToHTML",
+      "summary": "ToHTML converts comment text to formatted HTML.",
+      "signature": "func ToHTML(w io.Writer, text string, words map[string]string)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "name": "words",
+          "type": "map[string]string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/comment.go",
+          "line": 32,
+          "lines": [
+            "func ToHTML(w io.Writer, text string, words map[string]string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3099,
+          "lines": [
+            "pkg go/doc, func ToHTML(io.Writer, string, map[string]string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ToText",
+      "summary": "ToText converts comment text to formatted text.",
+      "signature": "func ToText(w io.Writer, text string, prefix, codePrefix string, width int)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "codePrefix",
+          "type": "string"
+        },
+        {
+          "name": "width",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/doc/comment.go",
+          "line": 63,
+          "lines": [
+            "func ToText(w io.Writer, text string, prefix, codePrefix string, width int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3100,
+          "lines": [
+            "pkg go/doc, func ToText(io.Writer, string, string, string, int)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "package": "go/scanner",
+  "functions": [
+    {
+      "name": "PrintError",
+      "summary": "PrintError is a utility function that prints a list of errors to w, one error per line, if the err parameter is an [ErrorList]. Otherwise it prints the err string.",
+      "signature": "func PrintError(w io.Writer, err error)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "err",
+          "type": "error"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/scanner/errors.go",
+          "line": 112,
+          "lines": [
+            "func PrintError(w io.Writer, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3164,
+          "lines": [
+            "pkg go/scanner, func PrintError(io.Writer, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

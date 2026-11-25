@@ -1,0 +1,83 @@
+{
+  "package": "go/format",
+  "functions": [
+    {
+      "name": "Node",
+      "summary": "Node formats node in canonical gofmt style and writes the result to dst.",
+      "signature": "func Node(dst io.Writer, fset *token.FileSet, node any) error",
+      "params": [
+        {
+          "name": "dst",
+          "type": "io.Writer"
+        },
+        {
+          "name": "fset",
+          "type": "*token.FileSet"
+        },
+        {
+          "name": "node",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/format/format.go",
+          "line": 53,
+          "lines": [
+            "func Node(dst io.Writer, fset *token.FileSet, node any) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 901,
+          "lines": [
+            "pkg go/format, func Node(io.Writer, *token.FileSet, interface{}) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Source",
+      "summary": "Source formats src in canonical gofmt style and returns the result or an (I/O or syntax) error. src is expected to be a syntactically correct Go source file, or a list of Go declarations or statements.",
+      "signature": "func Source(src []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "src",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/go/format/format.go",
+          "line": 101,
+          "lines": [
+            "func Source(src []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 902,
+          "lines": [
+            "pkg go/format, func Source([]uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

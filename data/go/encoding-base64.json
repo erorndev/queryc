@@ -1,0 +1,118 @@
+{
+  "package": "encoding/base64",
+  "functions": [
+    {
+      "name": "NewDecoder",
+      "summary": "NewDecoder constructs a new base64 stream decoder.",
+      "signature": "func NewDecoder(enc *Encoding, r io.Reader) io.Reader",
+      "params": [
+        {
+          "name": "enc",
+          "type": "*Encoding"
+        },
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "io.Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/base64/base64.go",
+          "line": 648,
+          "lines": [
+            "func NewDecoder(enc *Encoding, r io.Reader) io.Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2263,
+          "lines": [
+            "pkg encoding/base64, func NewDecoder(*Encoding, io.Reader) io.Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncoder",
+      "summary": "NewEncoder returns a new base64 stream encoder. Data written to the returned writer will be encoded using enc and then written to w. Base64 encodings operate in 4-byte blocks; when finished writing, the caller must Close the returned encoder to flush any partially written blocks.",
+      "signature": "func NewEncoder(enc *Encoding, w io.Writer) io.WriteCloser",
+      "params": [
+        {
+          "name": "enc",
+          "type": "*Encoding"
+        },
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "io.WriteCloser"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/base64/base64.go",
+          "line": 284,
+          "lines": [
+            "func NewEncoder(enc *Encoding, w io.Writer) io.WriteCloser {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2264,
+          "lines": [
+            "pkg encoding/base64, func NewEncoder(*Encoding, io.Writer) io.WriteCloser"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewEncoding",
+      "summary": "NewEncoding returns a new padded Encoding defined by the given alphabet, which must be a 64-byte string that contains unique byte values and does not contain the padding character or CR / LF ('\\r', '\\n'). The alphabet is treated as a sequence of byte values without any special treatment for multi-byte UTF-8. The resulting Encoding uses the default padding character ('='), which may be changed or disabled via [Encoding.WithPadding].",
+      "signature": "func NewEncoding(encoder string) *Encoding",
+      "params": [
+        {
+          "name": "encoder",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "*Encoding"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/base64/base64.go",
+          "line": 64,
+          "lines": [
+            "func NewEncoding(encoder string) *Encoding {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2265,
+          "lines": [
+            "pkg encoding/base64, func NewEncoding(string) *Encoding"
+          ]
+        }
+      ]
+    }
+  ]
+}

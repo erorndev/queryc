@@ -1,0 +1,216 @@
+{
+  "package": "net/smtp",
+  "functions": [
+    {
+      "name": "CRAMMD5Auth",
+      "summary": "CRAMMD5Auth returns an [Auth] that implements the CRAM-MD5 authentication mechanism as defined in RFC 2195. The returned Auth uses the given username and secret to authenticate to the server using the challenge-response mechanism.",
+      "signature": "func CRAMMD5Auth(username, secret string) Auth",
+      "params": [
+        {
+          "name": "username",
+          "type": "string"
+        },
+        {
+          "name": "secret",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Auth"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/smtp/auth.go",
+          "line": 93,
+          "lines": [
+            "func CRAMMD5Auth(username, secret string) Auth {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5000,
+          "lines": [
+            "pkg net/smtp, func CRAMMD5Auth(string, string) Auth"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dial",
+      "summary": "Dial returns a new [Client] connected to an SMTP server at addr. The addr must include a port, as in \"mail.example.com:smtp\".",
+      "signature": "func Dial(addr string) (*Client, error)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Client, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/smtp/smtp.go",
+          "line": 53,
+          "lines": [
+            "func Dial(addr string) (*Client, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5001,
+          "lines": [
+            "pkg net/smtp, func Dial(string) (*Client, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewClient",
+      "summary": "NewClient returns a new [Client] using an existing connection and host as a server name to be used when authenticating.",
+      "signature": "func NewClient(conn net.Conn, host string) (*Client, error)",
+      "params": [
+        {
+          "name": "conn",
+          "type": "net.Conn"
+        },
+        {
+          "name": "host",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Client, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/smtp/smtp.go",
+          "line": 64,
+          "lines": [
+            "func NewClient(conn net.Conn, host string) (*Client, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5002,
+          "lines": [
+            "pkg net/smtp, func NewClient(net.Conn, string) (*Client, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PlainAuth",
+      "summary": "PlainAuth returns an [Auth] that implements the PLAIN authentication mechanism as defined in RFC 4616. The returned Auth uses the given username and password to authenticate to host and act as identity. Usually identity should be the empty string, to act as username.",
+      "signature": "func PlainAuth(identity, username, password, host string) Auth",
+      "params": [
+        {
+          "name": "identity",
+          "type": "string"
+        },
+        {
+          "name": "username",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "type": "string"
+        },
+        {
+          "name": "host",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Auth"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/smtp/auth.go",
+          "line": 53,
+          "lines": [
+            "func PlainAuth(identity, username, password, host string) Auth {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5003,
+          "lines": [
+            "pkg net/smtp, func PlainAuth(string, string, string, string) Auth"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SendMail",
+      "summary": "SendMail connects to the server at addr, switches to TLS if possible, authenticates with the optional mechanism a if possible, and then sends an email from address from, to addresses to, with message msg. The addr must include a port, as in \"mail.example.com:smtp\".",
+      "signature": "func SendMail(addr string, a Auth, from string, to []string, msg []byte) error",
+      "params": [
+        {
+          "name": "addr",
+          "type": "string"
+        },
+        {
+          "name": "a",
+          "type": "Auth"
+        },
+        {
+          "name": "from",
+          "type": "string"
+        },
+        {
+          "name": "to",
+          "type": "[]string"
+        },
+        {
+          "name": "msg",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/smtp/smtp.go",
+          "line": 321,
+          "lines": [
+            "func SendMail(addr string, a Auth, from string, to []string, msg []byte) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5004,
+          "lines": [
+            "pkg net/smtp, func SendMail(string, Auth, string, []string, []uint8) error"
+          ]
+        }
+      ]
+    }
+  ]
+}

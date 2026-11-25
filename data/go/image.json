@@ -1,0 +1,675 @@
+{
+  "package": "image",
+  "functions": [
+    {
+      "name": "Decode",
+      "summary": "Decode decodes an image that has been encoded in a registered format. The string returned is the format name used during format registration. Format registration is typically done by an init function in the codec- specific package.",
+      "signature": "func Decode(r io.Reader) (Image, string, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(Image, string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/format.go",
+          "line": 87,
+          "lines": [
+            "func Decode(r io.Reader) (Image, string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3410,
+          "lines": [
+            "pkg image, func Decode(io.Reader) (Image, string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DecodeConfig",
+      "summary": "DecodeConfig decodes the color model and dimensions of an image that has been encoded in a registered format. The string returned is the format name used during format registration. Format registration is typically done by an init function in the codec-specific package.",
+      "signature": "func DecodeConfig(r io.Reader) (Config, string, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(Config, string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/format.go",
+          "line": 101,
+          "lines": [
+            "func DecodeConfig(r io.Reader) (Config, string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3411,
+          "lines": [
+            "pkg image, func DecodeConfig(io.Reader) (Config, string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewAlpha",
+      "summary": "NewAlpha returns a new [Alpha] image with the given bounds.",
+      "signature": "func NewAlpha(r Rectangle) *Alpha",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*Alpha"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 723,
+          "lines": [
+            "func NewAlpha(r Rectangle) *Alpha {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3412,
+          "lines": [
+            "pkg image, func NewAlpha(Rectangle) *Alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewAlpha16",
+      "summary": "NewAlpha16 returns a new [Alpha16] image with the given bounds.",
+      "signature": "func NewAlpha16(r Rectangle) *Alpha16",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*Alpha16"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 834,
+          "lines": [
+            "func NewAlpha16(r Rectangle) *Alpha16 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3413,
+          "lines": [
+            "pkg image, func NewAlpha16(Rectangle) *Alpha16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCMYK",
+      "summary": "NewCMYK returns a new CMYK image with the given bounds.",
+      "signature": "func NewCMYK(r Rectangle) *CMYK",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*CMYK"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 1140,
+          "lines": [
+            "func NewCMYK(r Rectangle) *CMYK {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 728,
+          "lines": [
+            "pkg image, func NewCMYK(Rectangle) *CMYK"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewGray",
+      "summary": "NewGray returns a new [Gray] image with the given bounds.",
+      "signature": "func NewGray(r Rectangle) *Gray",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*Gray"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 931,
+          "lines": [
+            "func NewGray(r Rectangle) *Gray {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3414,
+          "lines": [
+            "pkg image, func NewGray(Rectangle) *Gray"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewGray16",
+      "summary": "NewGray16 returns a new [Gray16] image with the given bounds.",
+      "signature": "func NewGray16(r Rectangle) *Gray16",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*Gray16"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 1031,
+          "lines": [
+            "func NewGray16(r Rectangle) *Gray16 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3415,
+          "lines": [
+            "pkg image, func NewGray16(Rectangle) *Gray16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewNRGBA",
+      "summary": "NewNRGBA returns a new [NRGBA] image with the given bounds.",
+      "signature": "func NewNRGBA(r Rectangle) *NRGBA",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*NRGBA"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 471,
+          "lines": [
+            "func NewNRGBA(r Rectangle) *NRGBA {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3416,
+          "lines": [
+            "pkg image, func NewNRGBA(Rectangle) *NRGBA"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewNRGBA64",
+      "summary": "NewNRGBA64 returns a new [NRGBA64] image with the given bounds.",
+      "signature": "func NewNRGBA64(r Rectangle) *NRGBA64",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*NRGBA64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 615,
+          "lines": [
+            "func NewNRGBA64(r Rectangle) *NRGBA64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3417,
+          "lines": [
+            "pkg image, func NewNRGBA64(Rectangle) *NRGBA64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewNYCbCrA",
+      "summary": "NewNYCbCrA returns a new [NYCbCrA] image with the given bounds and subsample ratio.",
+      "signature": "func NewNYCbCrA(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *NYCbCrA",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        },
+        {
+          "name": "subsampleRatio",
+          "type": "YCbCrSubsampleRatio"
+        }
+      ],
+      "returns": {
+        "type": "*NYCbCrA"
+      },
+      "versions": [
+        "Go 1.6"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/ycbcr.go",
+          "line": 299,
+          "lines": [
+            "func NewNYCbCrA(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *NYCbCrA {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.6.txt",
+          "line": 195,
+          "lines": [
+            "pkg image, func NewNYCbCrA(Rectangle, YCbCrSubsampleRatio) *NYCbCrA"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewPaletted",
+      "summary": "NewPaletted returns a new [Paletted] image with the given width, height and palette.",
+      "signature": "func NewPaletted(r Rectangle, p color.Palette) *Paletted",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        },
+        {
+          "name": "p",
+          "type": "color.Palette"
+        }
+      ],
+      "returns": {
+        "type": "*Paletted"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 1280,
+          "lines": [
+            "func NewPaletted(r Rectangle, p color.Palette) *Paletted {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3418,
+          "lines": [
+            "pkg image, func NewPaletted(Rectangle, color.Palette) *Paletted"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRGBA",
+      "summary": "NewRGBA returns a new [RGBA] image with the given bounds.",
+      "signature": "func NewRGBA(r Rectangle) *RGBA",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*RGBA"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 227,
+          "lines": [
+            "func NewRGBA(r Rectangle) *RGBA {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3419,
+          "lines": [
+            "pkg image, func NewRGBA(Rectangle) *RGBA"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRGBA64",
+      "summary": "NewRGBA64 returns a new [RGBA64] image with the given bounds.",
+      "signature": "func NewRGBA64(r Rectangle) *RGBA64",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        }
+      ],
+      "returns": {
+        "type": "*RGBA64"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/image.go",
+          "line": 344,
+          "lines": [
+            "func NewRGBA64(r Rectangle) *RGBA64 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3420,
+          "lines": [
+            "pkg image, func NewRGBA64(Rectangle) *RGBA64"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewUniform",
+      "summary": "NewUniform returns a new [Uniform] image of the given color.",
+      "signature": "func NewUniform(c color.Color) *Uniform",
+      "params": [
+        {
+          "name": "c",
+          "type": "color.Color"
+        }
+      ],
+      "returns": {
+        "type": "*Uniform"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/names.go",
+          "line": 56,
+          "lines": [
+            "func NewUniform(c color.Color) *Uniform {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3421,
+          "lines": [
+            "pkg image, func NewUniform(color.Color) *Uniform"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewYCbCr",
+      "summary": "NewYCbCr returns a new YCbCr image with the given bounds and subsample ratio.",
+      "signature": "func NewYCbCr(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *YCbCr",
+      "params": [
+        {
+          "name": "r",
+          "type": "Rectangle"
+        },
+        {
+          "name": "subsampleRatio",
+          "type": "YCbCrSubsampleRatio"
+        }
+      ],
+      "returns": {
+        "type": "*YCbCr"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/ycbcr.go",
+          "line": 175,
+          "lines": [
+            "func NewYCbCr(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *YCbCr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3422,
+          "lines": [
+            "pkg image, func NewYCbCr(Rectangle, YCbCrSubsampleRatio) *YCbCr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pt",
+      "summary": "Pt is shorthand for [Point]{X, Y}.",
+      "signature": "func Pt(X, Y int) Point",
+      "params": [
+        {
+          "name": "X",
+          "type": "int"
+        },
+        {
+          "name": "Y",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Point"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/geom.go",
+          "line": 76,
+          "lines": [
+            "func Pt(X, Y int) Point {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3423,
+          "lines": [
+            "pkg image, func Pt(int, int) Point"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rect",
+      "summary": "Rect is shorthand for [Rectangle]{Pt(x0, y0), [Pt](x1, y1)}. The returned rectangle has minimum and maximum coordinates swapped if necessary so that it is well-formed.",
+      "signature": "func Rect(x0, y0, x1, y1 int) Rectangle",
+      "params": [
+        {
+          "name": "x0",
+          "type": "int"
+        },
+        {
+          "name": "y0",
+          "type": "int"
+        },
+        {
+          "name": "x1",
+          "type": "int"
+        },
+        {
+          "name": "y1",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Rectangle"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/geom.go",
+          "line": 275,
+          "lines": [
+            "func Rect(x0, y0, x1, y1 int) Rectangle {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3424,
+          "lines": [
+            "pkg image, func Rect(int, int, int, int) Rectangle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegisterFormat",
+      "summary": "RegisterFormat registers an image format for use by [Decode]. Name is the name of the format, like \"jpeg\" or \"png\". Magic is the magic prefix that identifies the format's encoding. The magic string can contain \"?\" wildcards that each match any one byte. [Decode] is the function that decodes the encoded image. [DecodeConfig] is the function that decodes just its configuration.",
+      "signature": "func RegisterFormat(name, magic string, decode func(io.Reader) (Image, error), decodeConfig func(io.Reader) (Config, error))",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "magic",
+          "type": "string"
+        },
+        {
+          "name": "decode",
+          "type": "func(io.Reader) (Image, error)"
+        },
+        {
+          "name": "decodeConfig",
+          "type": "func(io.Reader) (Config, error)"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/image/format.go",
+          "line": 37,
+          "lines": [
+            "func RegisterFormat(name, magic string, decode func(io.Reader) (Image, error), decodeConfig func(io.Reader) (Config, error)) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3425,
+          "lines": [
+            "pkg image, func RegisterFormat(string, string, func(io.Reader) (Image, error), func(io.Reader) (Config, error))"
+          ]
+        }
+      ]
+    }
+  ]
+}

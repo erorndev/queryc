@@ -1,0 +1,75 @@
+{
+  "package": "crypto/des",
+  "functions": [
+    {
+      "name": "NewCipher",
+      "summary": "NewCipher creates and returns a new [cipher.Block].",
+      "signature": "func NewCipher(key []byte) (cipher.Block, error)",
+      "params": [
+        {
+          "name": "key",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(cipher.Block, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/des/cipher.go",
+          "line": 31,
+          "lines": [
+            "func NewCipher(key []byte) (cipher.Block, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 367,
+          "lines": [
+            "pkg crypto/des, func NewCipher([]uint8) (cipher.Block, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTripleDESCipher",
+      "summary": "NewTripleDESCipher creates and returns a new [cipher.Block].",
+      "signature": "func NewTripleDESCipher(key []byte) (cipher.Block, error)",
+      "params": [
+        {
+          "name": "key",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(cipher.Block, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/des/cipher.go",
+          "line": 79,
+          "lines": [
+            "func NewTripleDESCipher(key []byte) (cipher.Block, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 368,
+          "lines": [
+            "pkg crypto/des, func NewTripleDESCipher([]uint8) (cipher.Block, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

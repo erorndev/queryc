@@ -1,0 +1,1733 @@
+{
+  "package": "net/http",
+  "functions": [
+    {
+      "name": "AllowQuerySemicolons",
+      "summary": "AllowQuerySemicolons returns a handler that serves requests by converting any unescaped semicolons in the URL query to ampersands, and invoking the handler h.",
+      "signature": "func AllowQuerySemicolons(h Handler) Handler",
+      "params": [
+        {
+          "name": "h",
+          "type": "Handler"
+        }
+      ],
+      "returns": {
+        "type": "Handler"
+      },
+      "versions": [
+        "Go 1.17"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 3354,
+          "lines": [
+            "func AllowQuerySemicolons(h Handler) Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.17.txt",
+          "line": 171,
+          "lines": [
+            "pkg net/http, func AllowQuerySemicolons(Handler) Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CanonicalHeaderKey",
+      "summary": "CanonicalHeaderKey returns the canonical format of the header key s. The canonicalization converts the first letter and any letter following a hyphen to upper case; the rest are converted to lowercase. For example, the canonical key for \"accept-encoding\" is \"Accept-Encoding\". If s contains a space or invalid header field bytes, it is returned without modifications.",
+      "signature": "func CanonicalHeaderKey(s string) string { return textproto.CanonicalMIMEHeaderKey(s) }",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string { return textproto.CanonicalMIMEHeaderKey(s) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/header.go",
+          "line": 234,
+          "lines": [
+            "func CanonicalHeaderKey(s string) string { return textproto.CanonicalMIMEHeaderKey(s) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4670,
+          "lines": [
+            "pkg net/http, func CanonicalHeaderKey(string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DetectContentType",
+      "summary": "DetectContentType implements the algorithm described at https://mimesniff.spec.whatwg.org/ to determine the Content-Type of the given data. It considers at most the first 512 bytes of data. DetectContentType always returns a valid MIME type: if it cannot determine a more specific one, it returns \"application/octet-stream\".",
+      "signature": "func DetectContentType(data []byte) string",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/sniff.go",
+          "line": 21,
+          "lines": [
+            "func DetectContentType(data []byte) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4671,
+          "lines": [
+            "pkg net/http, func DetectContentType([]uint8) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Error",
+      "summary": "Error replies to the request with the specified error message and HTTP code. It does not otherwise end the request; the caller should ensure no further writes are done to w. The error message should be plain text.",
+      "signature": "func Error(w ResponseWriter, error string, code int)",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "error",
+          "type": "string"
+        },
+        {
+          "name": "code",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2337,
+          "lines": [
+            "func Error(w ResponseWriter, error string, code int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4672,
+          "lines": [
+            "pkg net/http, func Error(ResponseWriter, string, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FS",
+      "summary": "FS converts fsys to a [FileSystem] implementation, for use with [FileServer] and [NewFileTransport]. The files provided by fsys must implement [io.Seeker].",
+      "signature": "func FS(fsys fs.FS) FileSystem",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "fs.FS"
+        }
+      ],
+      "returns": {
+        "type": "FileSystem"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fs.go",
+          "line": 954,
+          "lines": [
+            "func FS(fsys fs.FS) FileSystem {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 370,
+          "lines": [
+            "pkg net/http, func FS(fs.FS) FileSystem"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FileServer",
+      "summary": "FileServer returns a handler that serves HTTP requests with the contents of the file system rooted at root.",
+      "signature": "func FileServer(root FileSystem) Handler",
+      "params": [
+        {
+          "name": "root",
+          "type": "FileSystem"
+        }
+      ],
+      "returns": {
+        "type": "Handler"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fs.go",
+          "line": 971,
+          "lines": [
+            "func FileServer(root FileSystem) Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4673,
+          "lines": [
+            "pkg net/http, func FileServer(FileSystem) Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FileServerFS",
+      "summary": "FileServerFS returns a handler that serves HTTP requests with the contents of the file system fsys. The files provided by fsys must implement [io.Seeker].",
+      "signature": "func FileServerFS(root fs.FS) Handler",
+      "params": [
+        {
+          "name": "root",
+          "type": "fs.FS"
+        }
+      ],
+      "returns": {
+        "type": "Handler"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fs.go",
+          "line": 984,
+          "lines": [
+            "func FileServerFS(root fs.FS) Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 119,
+          "lines": [
+            "pkg net/http, func FileServerFS(fs.FS) Handler #51971"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Get",
+      "summary": "Get issues a GET to the specified URL. If the response is one of the following redirect codes, Get follows the redirect, up to a maximum of 10 redirects:",
+      "signature": "func Get(url string) (resp *Response, err error)",
+      "params": [
+        {
+          "name": "url",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(resp *Response, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/client.go",
+          "line": 452,
+          "lines": [
+            "func Get(url string) (resp *Response, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4674,
+          "lines": [
+            "pkg net/http, func Get(string) (*Response, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Handle",
+      "summary": "Handle registers the handler for the given pattern in [DefaultServeMux]. The documentation for [ServeMux] explains how patterns are matched.",
+      "signature": "func Handle(pattern string, handler Handler)",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "handler",
+          "type": "Handler"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2891,
+          "lines": [
+            "func Handle(pattern string, handler Handler) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4675,
+          "lines": [
+            "pkg net/http, func Handle(string, Handler)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HandleFunc",
+      "summary": "HandleFunc registers the handler function for the given pattern in [DefaultServeMux]. The documentation for [ServeMux] explains how patterns are matched.",
+      "signature": "func HandleFunc(pattern string, handler func(ResponseWriter, *Request))",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string"
+        },
+        {
+          "name": "handler",
+          "type": "func(ResponseWriter, *Request)"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2901,
+          "lines": [
+            "func HandleFunc(pattern string, handler func(ResponseWriter, *Request)) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4676,
+          "lines": [
+            "pkg net/http, func HandleFunc(string, func(ResponseWriter, *Request))"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Head",
+      "summary": "Head issues a HEAD to the specified URL. If the response is one of the following redirect codes, Head follows the redirect, up to a maximum of 10 redirects:",
+      "signature": "func Head(url string) (resp *Response, err error)",
+      "params": [
+        {
+          "name": "url",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(resp *Response, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/client.go",
+          "line": 922,
+          "lines": [
+            "func Head(url string) (resp *Response, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4677,
+          "lines": [
+            "pkg net/http, func Head(string) (*Response, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenAndServe",
+      "summary": "ListenAndServe listens on the TCP network address addr and then calls [Serve] with handler to handle requests on incoming connections. Accepted connections are configured to enable TCP keep-alives.",
+      "signature": "func ListenAndServe(addr string, handler Handler) error",
+      "params": [
+        {
+          "name": "addr",
+          "type": "string"
+        },
+        {
+          "name": "handler",
+          "type": "Handler"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 3702,
+          "lines": [
+            "func ListenAndServe(addr string, handler Handler) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4678,
+          "lines": [
+            "pkg net/http, func ListenAndServe(string, Handler) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenAndServeTLS",
+      "summary": "ListenAndServeTLS acts identically to [ListenAndServe], except that it expects HTTPS connections. Additionally, files containing a certificate and matching private key for the server must be provided. If the certificate is signed by a certificate authority, the certFile should be the concatenation of the server's certificate, any intermediates, and the CA's certificate.",
+      "signature": "func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error",
+      "params": [
+        {
+          "name": "addr",
+          "type": "string"
+        },
+        {
+          "name": "certFile",
+          "type": "string"
+        },
+        {
+          "name": "keyFile",
+          "type": "string"
+        },
+        {
+          "name": "handler",
+          "type": "Handler"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 3712,
+          "lines": [
+            "func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4679,
+          "lines": [
+            "pkg net/http, func ListenAndServeTLS(string, string, string, Handler) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MaxBytesHandler",
+      "summary": "MaxBytesHandler returns a [Handler] that runs h with its [ResponseWriter] and [Request.Body] wrapped by a MaxBytesReader.",
+      "signature": "func MaxBytesHandler(h Handler, n int64) Handler",
+      "params": [
+        {
+          "name": "h",
+          "type": "Handler"
+        },
+        {
+          "name": "n",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "Handler"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 4096,
+          "lines": [
+            "func MaxBytesHandler(h Handler, n int64) Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 89,
+          "lines": [
+            "pkg net/http, func MaxBytesHandler(Handler, int64) Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MaxBytesReader",
+      "summary": "MaxBytesReader is similar to [io.LimitReader] but is intended for limiting the size of incoming request bodies. In contrast to io.LimitReader, MaxBytesReader's result is a ReadCloser, returns a non-nil error of type [*MaxBytesError] for a Read beyond the limit, and closes the underlying reader when its Close method is called.",
+      "signature": "func MaxBytesReader(w ResponseWriter, r io.ReadCloser, n int64) io.ReadCloser",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "io.ReadCloser"
+        },
+        {
+          "name": "n",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "io.ReadCloser"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/request.go",
+          "line": 1186,
+          "lines": [
+            "func MaxBytesReader(w ResponseWriter, r io.ReadCloser, n int64) io.ReadCloser {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4680,
+          "lines": [
+            "pkg net/http, func MaxBytesReader(ResponseWriter, io.ReadCloser, int64) io.ReadCloser"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewCrossOriginProtection",
+      "summary": "NewCrossOriginProtection returns a new [CrossOriginProtection] value.",
+      "signature": "func NewCrossOriginProtection() *CrossOriginProtection",
+      "params": [],
+      "returns": {
+        "type": "*CrossOriginProtection"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/csrf.go",
+          "line": 44,
+          "lines": [
+            "func NewCrossOriginProtection() *CrossOriginProtection {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 66,
+          "lines": [
+            "pkg net/http, func NewCrossOriginProtection() *CrossOriginProtection #73626"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFileTransport",
+      "summary": "NewFileTransport returns a new [RoundTripper], serving the provided [FileSystem]. The returned RoundTripper ignores the URL host in its incoming requests, as well as most other properties of the request.",
+      "signature": "func NewFileTransport(fs FileSystem) RoundTripper",
+      "params": [
+        {
+          "name": "fs",
+          "type": "FileSystem"
+        }
+      ],
+      "returns": {
+        "type": "RoundTripper"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/filetransport.go",
+          "line": 31,
+          "lines": [
+            "func NewFileTransport(fs FileSystem) RoundTripper {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4681,
+          "lines": [
+            "pkg net/http, func NewFileTransport(FileSystem) RoundTripper"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFileTransportFS",
+      "summary": "NewFileTransportFS returns a new [RoundTripper], serving the provided file system fsys. The returned RoundTripper ignores the URL host in its incoming requests, as well as most other properties of the request. The files provided by fsys must implement [io.Seeker].",
+      "signature": "func NewFileTransportFS(fsys fs.FS) RoundTripper",
+      "params": [
+        {
+          "name": "fsys",
+          "type": "fs.FS"
+        }
+      ],
+      "returns": {
+        "type": "RoundTripper"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/filetransport.go",
+          "line": 49,
+          "lines": [
+            "func NewFileTransportFS(fsys fs.FS) RoundTripper {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 120,
+          "lines": [
+            "pkg net/http, func NewFileTransportFS(fs.FS) RoundTripper #51971"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRequest",
+      "summary": "NewRequest wraps [NewRequestWithContext] using [context.Background].",
+      "signature": "func NewRequest(method, url string, body io.Reader) (*Request, error)",
+      "params": [
+        {
+          "name": "method",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(*Request, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/request.go",
+          "line": 862,
+          "lines": [
+            "func NewRequest(method, url string, body io.Reader) (*Request, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4682,
+          "lines": [
+            "pkg net/http, func NewRequest(string, string, io.Reader) (*Request, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRequestWithContext",
+      "summary": "NewRequestWithContext returns a new [Request] given a method, URL, and optional body.",
+      "signature": "func NewRequestWithContext(ctx context.Context, method, url string, body io.Reader) (*Request, error)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "method",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(*Request, error)"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/request.go",
+          "line": 889,
+          "lines": [
+            "func NewRequestWithContext(ctx context.Context, method, url string, body io.Reader) (*Request, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 204,
+          "lines": [
+            "pkg net/http, func NewRequestWithContext(context.Context, string, string, io.Reader) (*Request, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewResponseController",
+      "summary": "NewResponseController creates a [ResponseController] for a request.",
+      "signature": "func NewResponseController(rw ResponseWriter) *ResponseController",
+      "params": [
+        {
+          "name": "rw",
+          "type": "ResponseWriter"
+        }
+      ],
+      "returns": {
+        "type": "*ResponseController"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/responsecontroller.go",
+          "line": 38,
+          "lines": [
+            "func NewResponseController(rw ResponseWriter) *ResponseController {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 254,
+          "lines": [
+            "pkg net/http, func NewResponseController(ResponseWriter) *ResponseController #54136"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewServeMux",
+      "summary": "NewServeMux allocates and returns a new [ServeMux].",
+      "signature": "func NewServeMux() *ServeMux",
+      "params": [],
+      "returns": {
+        "type": "*ServeMux"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2619,
+          "lines": [
+            "func NewServeMux() *ServeMux {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4683,
+          "lines": [
+            "pkg net/http, func NewServeMux() *ServeMux"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NotFound",
+      "summary": "NotFound replies to the request with an HTTP 404 not found error.",
+      "signature": "func NotFound(w ResponseWriter, r *Request) { Error(w, \"404 page not found\", StatusNotFound) }",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*Request"
+        }
+      ],
+      "returns": {
+        "type": "{ Error(w, \"404 page not found\", StatusNotFound) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2358,
+          "lines": [
+            "func NotFound(w ResponseWriter, r *Request) { Error(w, \"404 page not found\", StatusNotFound) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4684,
+          "lines": [
+            "pkg net/http, func NotFound(ResponseWriter, *Request)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NotFoundHandler",
+      "summary": "NotFoundHandler returns a simple request handler that replies to each request with a “404 page not found” reply.",
+      "signature": "func NotFoundHandler() Handler { return HandlerFunc(NotFound) }",
+      "params": [],
+      "returns": {
+        "type": "Handler { return HandlerFunc(NotFound) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2362,
+          "lines": [
+            "func NotFoundHandler() Handler { return HandlerFunc(NotFound) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4685,
+          "lines": [
+            "pkg net/http, func NotFoundHandler() Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseCookie",
+      "summary": "ParseCookie parses a Cookie header value and returns all the cookies which were set in it. Since the same cookie name can appear multiple times the returned Values can contain more than one value for a given key.",
+      "signature": "func ParseCookie(line string) ([]*Cookie, error)",
+      "params": [
+        {
+          "name": "line",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]*Cookie, error)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/cookie.go",
+          "line": 91,
+          "lines": [
+            "func ParseCookie(line string) ([]*Cookie, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 69,
+          "lines": [
+            "pkg net/http, func ParseCookie(string) ([]*Cookie, error) #66008"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseHTTPVersion",
+      "summary": "ParseHTTPVersion parses an HTTP version string according to RFC 7230, section 2.6. \"HTTP/1.0\" returns (1, 0, true). Note that strings without a minor version, such as \"HTTP/2\", are not valid.",
+      "signature": "func ParseHTTPVersion(vers string) (major, minor int, ok bool)",
+      "params": [
+        {
+          "name": "vers",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(major, minor int, ok bool)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/request.go",
+          "line": 817,
+          "lines": [
+            "func ParseHTTPVersion(vers string) (major, minor int, ok bool) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4686,
+          "lines": [
+            "pkg net/http, func ParseHTTPVersion(string) (int, int, bool)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseSetCookie",
+      "summary": "ParseSetCookie parses a Set-Cookie header value and returns a cookie. It returns an error on syntax error.",
+      "signature": "func ParseSetCookie(line string) (*Cookie, error)",
+      "params": [
+        {
+          "name": "line",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Cookie, error)"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/cookie.go",
+          "line": 120,
+          "lines": [
+            "func ParseSetCookie(line string) (*Cookie, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 70,
+          "lines": [
+            "pkg net/http, func ParseSetCookie(string) (*Cookie, error) #66008"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseTime",
+      "summary": "ParseTime parses a time header (such as the Date: header), trying each of the three formats allowed by HTTP/1.1: [TimeFormat], [time.RFC850], and [time.ANSIC].",
+      "signature": "func ParseTime(text string) (t time.Time, err error)",
+      "params": [
+        {
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(t time.Time, err error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/header.go",
+          "line": 129,
+          "lines": [
+            "func ParseTime(text string) (t time.Time, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2090,
+          "lines": [
+            "pkg net/http, func ParseTime(string) (time.Time, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Post",
+      "summary": "Post issues a POST to the specified URL.",
+      "signature": "func Post(url, contentType string, body io.Reader) (resp *Response, err error)",
+      "params": [
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "contentType",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(resp *Response, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/client.go",
+          "line": 843,
+          "lines": [
+            "func Post(url, contentType string, body io.Reader) (resp *Response, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4687,
+          "lines": [
+            "pkg net/http, func Post(string, string, io.Reader) (*Response, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PostForm",
+      "summary": "PostForm issues a POST to the specified URL, with data's keys and values URL-encoded as the request body.",
+      "signature": "func PostForm(url string, data url.Values) (resp *Response, err error)",
+      "params": [
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "type": "url.Values"
+        }
+      ],
+      "returns": {
+        "type": "(resp *Response, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/client.go",
+          "line": 886,
+          "lines": [
+            "func PostForm(url string, data url.Values) (resp *Response, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4688,
+          "lines": [
+            "pkg net/http, func PostForm(string, url.Values) (*Response, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ProxyFromEnvironment",
+      "summary": "ProxyFromEnvironment returns the URL of the proxy to use for a given request, as indicated by the environment variables HTTP_PROXY, HTTPS_PROXY and NO_PROXY (or the lowercase versions thereof). Requests use the proxy from the environment variable matching their scheme, unless excluded by NO_PROXY.",
+      "signature": "func ProxyFromEnvironment(req *Request) (*url.URL, error)",
+      "params": [
+        {
+          "name": "req",
+          "type": "*Request"
+        }
+      ],
+      "returns": {
+        "type": "(*url.URL, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/transport.go",
+          "line": 499,
+          "lines": [
+            "func ProxyFromEnvironment(req *Request) (*url.URL, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4689,
+          "lines": [
+            "pkg net/http, func ProxyFromEnvironment(*Request) (*url.URL, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ProxyURL",
+      "summary": "ProxyURL returns a proxy function (for use in a [Transport]) that always returns the same URL.",
+      "signature": "func ProxyURL(fixedURL *url.URL) func(*Request) (*url.URL, error)",
+      "params": [
+        {
+          "name": "fixedURL",
+          "type": "*url.URL"
+        }
+      ],
+      "returns": {
+        "type": "func(*Request) (*url.URL, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/transport.go",
+          "line": 505,
+          "lines": [
+            "func ProxyURL(fixedURL *url.URL) func(*Request) (*url.URL, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4690,
+          "lines": [
+            "pkg net/http, func ProxyURL(*url.URL) func(*Request) (*url.URL, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadRequest",
+      "summary": "ReadRequest reads and parses an incoming request from b.",
+      "signature": "func ReadRequest(b *bufio.Reader) (*Request, error)",
+      "params": [
+        {
+          "name": "b",
+          "type": "*bufio.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(*Request, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/request.go",
+          "line": 1058,
+          "lines": [
+            "func ReadRequest(b *bufio.Reader) (*Request, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4691,
+          "lines": [
+            "pkg net/http, func ReadRequest(*bufio.Reader) (*Request, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadResponse",
+      "summary": "ReadResponse reads and returns an HTTP response from r. The req parameter optionally specifies the [Request] that corresponds to this [Response]. If nil, a GET request is assumed. Clients must call resp.Body.Close when finished reading resp.Body. After that call, clients can inspect resp.Trailer to find key/value pairs included in the response trailer.",
+      "signature": "func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "*bufio.Reader"
+        },
+        {
+          "name": "req",
+          "type": "*Request"
+        }
+      ],
+      "returns": {
+        "type": "(*Response, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/response.go",
+          "line": 154,
+          "lines": [
+            "func ReadResponse(r *bufio.Reader, req *Request) (*Response, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4692,
+          "lines": [
+            "pkg net/http, func ReadResponse(*bufio.Reader, *Request) (*Response, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Redirect",
+      "summary": "Redirect replies to the request with a redirect to url, which may be a path relative to the request path. Any non-ASCII characters in url will be percent-encoded, but existing percent encodings will not be changed.",
+      "signature": "func Redirect(w ResponseWriter, r *Request, url string, code int)",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*Request"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "code",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2403,
+          "lines": [
+            "func Redirect(w ResponseWriter, r *Request, url string, code int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4693,
+          "lines": [
+            "pkg net/http, func Redirect(ResponseWriter, *Request, string, int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RedirectHandler",
+      "summary": "RedirectHandler returns a request handler that redirects each request it receives to the given url using the given status code.",
+      "signature": "func RedirectHandler(url string, code int) Handler",
+      "params": [
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "code",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Handler"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2488,
+          "lines": [
+            "func RedirectHandler(url string, code int) Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4694,
+          "lines": [
+            "pkg net/http, func RedirectHandler(string, int) Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Serve",
+      "summary": "Serve accepts incoming HTTP connections on the listener l, creating a new service goroutine for each. The service goroutines read requests and then call handler to reply to them.",
+      "signature": "func Serve(l net.Listener, handler Handler) error",
+      "params": [
+        {
+          "name": "l",
+          "type": "net.Listener"
+        },
+        {
+          "name": "handler",
+          "type": "Handler"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2969,
+          "lines": [
+            "func Serve(l net.Listener, handler Handler) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4695,
+          "lines": [
+            "pkg net/http, func Serve(net.Listener, Handler) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeContent",
+      "summary": "ServeContent replies to the request using the content in the provided ReadSeeker. The main benefit of ServeContent over [io.Copy] is that it handles Range requests properly, sets the MIME type, and handles If-Match, If-Unmodified-Since, If-None-Match, If-Modified-Since, and If-Range requests.",
+      "signature": "func ServeContent(w ResponseWriter, req *Request, name string, modtime time.Time, content io.ReadSeeker)",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "req",
+          "type": "*Request"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "modtime",
+          "type": "time.Time"
+        },
+        {
+          "name": "content",
+          "type": "io.ReadSeeker"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fs.go",
+          "line": 245,
+          "lines": [
+            "func ServeContent(w ResponseWriter, req *Request, name string, modtime time.Time, content io.ReadSeeker) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4696,
+          "lines": [
+            "pkg net/http, func ServeContent(ResponseWriter, *Request, string, time.Time, io.ReadSeeker)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeFile",
+      "summary": "ServeFile replies to the request with the contents of the named file or directory.",
+      "signature": "func ServeFile(w ResponseWriter, r *Request, name string)",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*Request"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fs.go",
+          "line": 814,
+          "lines": [
+            "func ServeFile(w ResponseWriter, r *Request, name string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4697,
+          "lines": [
+            "pkg net/http, func ServeFile(ResponseWriter, *Request, string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeFileFS",
+      "summary": "ServeFileFS replies to the request with the contents of the named file or directory from the file system fsys. The files provided by fsys must implement [io.Seeker].",
+      "signature": "func ServeFileFS(w ResponseWriter, r *Request, fsys fs.FS, name string)",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "r",
+          "type": "*Request"
+        },
+        {
+          "name": "fsys",
+          "type": "fs.FS"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/fs.go",
+          "line": 848,
+          "lines": [
+            "func ServeFileFS(w ResponseWriter, r *Request, fsys fs.FS, name string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 121,
+          "lines": [
+            "pkg net/http, func ServeFileFS(ResponseWriter, *Request, fs.FS, string) #51971"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeTLS",
+      "summary": "ServeTLS accepts incoming HTTPS connections on the listener l, creating a new service goroutine for each. The service goroutines read requests and then call handler to reply to them.",
+      "signature": "func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error",
+      "params": [
+        {
+          "name": "l",
+          "type": "net.Listener"
+        },
+        {
+          "name": "handler",
+          "type": "Handler"
+        },
+        {
+          "name": "certFile",
+          "type": "string"
+        },
+        {
+          "name": "keyFile",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.9"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2986,
+          "lines": [
+            "func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.9.txt",
+          "line": 124,
+          "lines": [
+            "pkg net/http, func ServeTLS(net.Listener, Handler, string, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetCookie",
+      "summary": "SetCookie adds a Set-Cookie header to the provided [ResponseWriter]'s headers. The provided cookie must have a valid Name. Invalid cookies may be silently dropped.",
+      "signature": "func SetCookie(w ResponseWriter, cookie *Cookie)",
+      "params": [
+        {
+          "name": "w",
+          "type": "ResponseWriter"
+        },
+        {
+          "name": "cookie",
+          "type": "*Cookie"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/cookie.go",
+          "line": 251,
+          "lines": [
+            "func SetCookie(w ResponseWriter, cookie *Cookie) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4698,
+          "lines": [
+            "pkg net/http, func SetCookie(ResponseWriter, *Cookie)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StatusText",
+      "summary": "StatusText returns a text for the HTTP status code. It returns the empty string if the code is unknown.",
+      "signature": "func StatusText(code int) string",
+      "params": [
+        {
+          "name": "code",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/status.go",
+          "line": 81,
+          "lines": [
+            "func StatusText(code int) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4699,
+          "lines": [
+            "pkg net/http, func StatusText(int) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StripPrefix",
+      "summary": "StripPrefix returns a handler that serves HTTP requests by removing the given prefix from the request URL's Path (and RawPath if set) and invoking the handler h. StripPrefix handles a request for a path that doesn't begin with prefix by replying with an HTTP 404 not found error. The prefix must match exactly: if the prefix in the request contains escaped characters the reply is also an HTTP 404 not found error.",
+      "signature": "func StripPrefix(prefix string, h Handler) Handler",
+      "params": [
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "h",
+          "type": "Handler"
+        }
+      ],
+      "returns": {
+        "type": "Handler"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 2370,
+          "lines": [
+            "func StripPrefix(prefix string, h Handler) Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4700,
+          "lines": [
+            "pkg net/http, func StripPrefix(string, Handler) Handler"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TimeoutHandler",
+      "summary": "TimeoutHandler returns a [Handler] that runs h with the given time limit.",
+      "signature": "func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler",
+      "params": [
+        {
+          "name": "h",
+          "type": "Handler"
+        },
+        {
+          "name": "dt",
+          "type": "time.Duration"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Handler"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/server.go",
+          "line": 3816,
+          "lines": [
+            "func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4701,
+          "lines": [
+            "pkg net/http, func TimeoutHandler(Handler, time.Duration, string) Handler"
+          ]
+        }
+      ]
+    }
+  ]
+}

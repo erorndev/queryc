@@ -1,0 +1,70 @@
+{
+  "package": "hash/adler32",
+  "functions": [
+    {
+      "name": "Checksum",
+      "summary": "Checksum returns the Adler-32 checksum of data.",
+      "signature": "func Checksum(data []byte) uint32 { return uint32(update(1, data)) }",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "uint32 { return uint32(update(1, data)) }"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/adler32/adler32.go",
+          "line": 129,
+          "lines": [
+            "func Checksum(data []byte) uint32 { return uint32(update(1, data)) }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3329,
+          "lines": [
+            "pkg hash/adler32, func Checksum([]uint8) uint32"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New returns a new hash.Hash32 computing the Adler-32 checksum. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements [encoding.BinaryMarshaler] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New() hash.Hash32",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash32"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/hash/adler32/adler32.go",
+          "line": 45,
+          "lines": [
+            "func New() hash.Hash32 {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3330,
+          "lines": [
+            "pkg hash/adler32, func New() hash.Hash32"
+          ]
+        }
+      ]
+    }
+  ]
+}

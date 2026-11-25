@@ -1,0 +1,75 @@
+{
+  "package": "debug/pe",
+  "functions": [
+    {
+      "name": "NewFile",
+      "summary": "NewFile creates a new [File] for accessing a PE binary in an underlying reader.",
+      "signature": "func NewFile(r io.ReaderAt) (*File, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.ReaderAt"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/pe/file.go",
+          "line": 72,
+          "lines": [
+            "func NewFile(r io.ReaderAt) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2163,
+          "lines": [
+            "pkg debug/pe, func NewFile(io.ReaderAt) (*File, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Open",
+      "summary": "Open opens the named file using [os.Open] and prepares it for use as a PE binary.",
+      "signature": "func Open(name string) (*File, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*File, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/debug/pe/file.go",
+          "line": 43,
+          "lines": [
+            "func Open(name string) (*File, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2164,
+          "lines": [
+            "pkg debug/pe, func Open(string) (*File, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

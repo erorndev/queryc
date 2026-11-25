@@ -1,0 +1,145 @@
+{
+  "package": "net/mail",
+  "functions": [
+    {
+      "name": "ParseAddress",
+      "summary": "ParseAddress parses a single RFC 5322 address, e.g. \"Barry Gibbs <bg@example.com>\"",
+      "signature": "func ParseAddress(address string) (*Address, error)",
+      "params": [
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Address, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/mail/message.go",
+          "line": 237,
+          "lines": [
+            "func ParseAddress(address string) (*Address, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2109,
+          "lines": [
+            "pkg net/mail, func ParseAddress(string) (*Address, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseAddressList",
+      "summary": "ParseAddressList parses the given string as a list of addresses.",
+      "signature": "func ParseAddressList(list string) ([]*Address, error)",
+      "params": [
+        {
+          "name": "list",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]*Address, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/mail/message.go",
+          "line": 242,
+          "lines": [
+            "func ParseAddressList(list string) ([]*Address, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2110,
+          "lines": [
+            "pkg net/mail, func ParseAddressList(string) ([]*Address, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseDate",
+      "summary": "ParseDate parses an RFC 5322 date string.",
+      "signature": "func ParseDate(date string) (time.Time, error)",
+      "params": [
+        {
+          "name": "date",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(time.Time, error)"
+      },
+      "versions": [
+        "Go 1.8"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/mail/message.go",
+          "line": 148,
+          "lines": [
+            "func ParseDate(date string) (time.Time, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.8.txt",
+          "line": 209,
+          "lines": [
+            "pkg net/mail, func ParseDate(string) (time.Time, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReadMessage",
+      "summary": "ReadMessage reads a message from r. The headers are parsed, and the body of the message will be available for reading from msg.Body.",
+      "signature": "func ReadMessage(r io.Reader) (msg *Message, err error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(msg *Message, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/mail/message.go",
+          "line": 54,
+          "lines": [
+            "func ReadMessage(r io.Reader) (msg *Message, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4927,
+          "lines": [
+            "pkg net/mail, func ReadMessage(io.Reader) (*Message, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

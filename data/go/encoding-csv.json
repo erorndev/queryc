@@ -1,0 +1,75 @@
+{
+  "package": "encoding/csv",
+  "functions": [
+    {
+      "name": "NewReader",
+      "summary": "NewReader returns a new Reader that reads from r.",
+      "signature": "func NewReader(r io.Reader) *Reader",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*Reader"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/csv/reader.go",
+          "line": 181,
+          "lines": [
+            "func NewReader(r io.Reader) *Reader {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2299,
+          "lines": [
+            "pkg encoding/csv, func NewReader(io.Reader) *Reader"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter returns a new Writer that writes to w.",
+      "signature": "func NewWriter(w io.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/encoding/csv/writer.go",
+          "line": 39,
+          "lines": [
+            "func NewWriter(w io.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 2300,
+          "lines": [
+            "pkg encoding/csv, func NewWriter(io.Writer) *Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

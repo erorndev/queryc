@@ -1,0 +1,40 @@
+{
+  "package": "net/http/cookiejar",
+  "functions": [
+    {
+      "name": "New",
+      "summary": "New returns a new cookie jar. A nil [*Options] is equivalent to a zero Options.",
+      "signature": "func New(o *Options) (*Jar, error)",
+      "params": [
+        {
+          "name": "o",
+          "type": "*Options"
+        }
+      ],
+      "returns": {
+        "type": "(*Jar, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/cookiejar/jar.go",
+          "line": 79,
+          "lines": [
+            "func New(o *Options) (*Jar, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2099,
+          "lines": [
+            "pkg net/http/cookiejar, func New(*Options) (*Jar, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

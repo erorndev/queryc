@@ -1,0 +1,114 @@
+{
+  "package": "compress/gzip",
+  "functions": [
+    {
+      "name": "NewReader",
+      "summary": "NewReader creates a new [Reader] reading the given reader. If r does not also implement [io.ByteReader], the decompressor may read more data than necessary from r.",
+      "signature": "func NewReader(r io.Reader) (*Reader, error)",
+      "params": [
+        {
+          "name": "r",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(*Reader, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/gzip/gunzip.go",
+          "line": 92,
+          "lines": [
+            "func NewReader(r io.Reader) (*Reader, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 243,
+          "lines": [
+            "pkg compress/gzip, func NewReader(io.Reader) (*Reader, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriter",
+      "summary": "NewWriter returns a new [Writer]. Writes to the returned writer are compressed and written to w.",
+      "signature": "func NewWriter(w io.Writer) *Writer",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": "*Writer"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/gzip/gzip.go",
+          "line": 49,
+          "lines": [
+            "func NewWriter(w io.Writer) *Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 244,
+          "lines": [
+            "pkg compress/gzip, func NewWriter(io.Writer) *Writer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewWriterLevel",
+      "summary": "NewWriterLevel is like [NewWriter] but specifies the compression level instead of assuming [DefaultCompression].",
+      "signature": "func NewWriterLevel(w io.Writer, level int) (*Writer, error)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "level",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(*Writer, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/compress/gzip/gzip.go",
+          "line": 60,
+          "lines": [
+            "func NewWriterLevel(w io.Writer, level int) (*Writer, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 245,
+          "lines": [
+            "pkg compress/gzip, func NewWriterLevel(io.Writer, int) (*Writer, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

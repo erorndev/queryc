@@ -1,0 +1,200 @@
+{
+  "package": "math/big",
+  "functions": [
+    {
+      "name": "Jacobi",
+      "summary": "Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0. The y argument must be an odd integer.",
+      "signature": "func Jacobi(x, y *Int) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "*Int"
+        },
+        {
+          "name": "y",
+          "type": "*Int"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/big/int.go",
+          "line": 925,
+          "lines": [
+            "func Jacobi(x, y *Int) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 792,
+          "lines": [
+            "pkg math/big, func Jacobi(*Int, *Int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewFloat",
+      "summary": "NewFloat allocates and returns a new [Float] set to x, with precision 53 and rounding mode [ToNearestEven]. NewFloat panics with [ErrNaN] if x is a NaN.",
+      "signature": "func NewFloat(x float64) *Float",
+      "params": [
+        {
+          "name": "x",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "*Float"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/big/float.go",
+          "line": 88,
+          "lines": [
+            "func NewFloat(x float64) *Float {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 793,
+          "lines": [
+            "pkg math/big, func NewFloat(float64) *Float"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewInt",
+      "summary": "NewInt allocates and returns a new [Int] set to x.",
+      "signature": "func NewInt(x int64) *Int",
+      "params": [
+        {
+          "name": "x",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "*Int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/big/int.go",
+          "line": 77,
+          "lines": [
+            "func NewInt(x int64) *Int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4185,
+          "lines": [
+            "pkg math/big, func NewInt(int64) *Int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRat",
+      "summary": "NewRat creates a new [Rat] with numerator a and denominator b.",
+      "signature": "func NewRat(a, b int64) *Rat",
+      "params": [
+        {
+          "name": "a",
+          "type": "int64"
+        },
+        {
+          "name": "b",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "*Rat"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/big/rat.go",
+          "line": 33,
+          "lines": [
+            "func NewRat(a, b int64) *Rat {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4186,
+          "lines": [
+            "pkg math/big, func NewRat(int64, int64) *Rat"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseFloat",
+      "summary": "ParseFloat is like f.Parse(s, base) with f set to the given precision and rounding mode.",
+      "signature": "func ParseFloat(s string, base int, prec uint, mode RoundingMode) (f *Float, b int, err error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        },
+        {
+          "name": "base",
+          "type": "int"
+        },
+        {
+          "name": "prec",
+          "type": "uint"
+        },
+        {
+          "name": "mode",
+          "type": "RoundingMode"
+        }
+      ],
+      "returns": {
+        "type": "(f *Float, b int, err error)"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/math/big/floatconv.go",
+          "line": 287,
+          "lines": [
+            "func ParseFloat(s string, base int, prec uint, mode RoundingMode) (f *Float, b int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 794,
+          "lines": [
+            "pkg math/big, func ParseFloat(string, int, uint, RoundingMode) (*Float, int, error)"
+          ]
+        }
+      ]
+    }
+  ]
+}

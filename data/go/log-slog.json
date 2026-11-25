@@ -1,0 +1,1540 @@
+{
+  "package": "log/slog",
+  "functions": [
+    {
+      "name": "Any",
+      "summary": "Any returns an Attr for the supplied value. See [AnyValue] for how values are treated.",
+      "signature": "func Any(key string, value any) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 93,
+          "lines": [
+            "func Any(key string, value any) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 225,
+          "lines": [
+            "pkg log/slog, func Any(string, interface{}) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AnyValue",
+      "summary": "AnyValue returns a [Value] for the supplied value.",
+      "signature": "func AnyValue(v any) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "any"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 221,
+          "lines": [
+            "func AnyValue(v any) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 226,
+          "lines": [
+            "pkg log/slog, func AnyValue(interface{}) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bool",
+      "summary": "Bool returns an Attr for a bool.",
+      "signature": "func Bool(key string, v bool) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 44,
+          "lines": [
+            "func Bool(key string, v bool) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 227,
+          "lines": [
+            "pkg log/slog, func Bool(string, bool) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BoolValue",
+      "summary": "BoolValue returns a [Value] for a bool.",
+      "signature": "func BoolValue(v bool) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "bool"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 134,
+          "lines": [
+            "func BoolValue(v bool) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 228,
+          "lines": [
+            "pkg log/slog, func BoolValue(bool) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Debug",
+      "summary": "Debug calls [Logger.Debug] on the default logger.",
+      "signature": "func Debug(msg string, args ...any)",
+      "params": [
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 280,
+          "lines": [
+            "func Debug(msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 230,
+          "lines": [
+            "pkg log/slog, func Debug(string, ...interface{}) #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DebugContext",
+      "summary": "DebugContext calls [Logger.DebugContext] on the default logger.",
+      "signature": "func DebugContext(ctx context.Context, msg string, args ...any)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 285,
+          "lines": [
+            "func DebugContext(ctx context.Context, msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 229,
+          "lines": [
+            "pkg log/slog, func DebugContext(context.Context, string, ...interface{}) #61200"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Default",
+      "summary": "Default returns the default [Logger].",
+      "signature": "func Default() *Logger { return defaultLogger.Load() }",
+      "params": [],
+      "returns": {
+        "type": "*Logger { return defaultLogger.Load() }"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 55,
+          "lines": [
+            "func Default() *Logger { return defaultLogger.Load() }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 231,
+          "lines": [
+            "pkg log/slog, func Default() *Logger #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Duration",
+      "summary": "Duration returns an Attr for a [time.Duration].",
+      "signature": "func Duration(key string, v time.Duration) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "time.Duration"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 55,
+          "lines": [
+            "func Duration(key string, v time.Duration) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 232,
+          "lines": [
+            "pkg log/slog, func Duration(string, time.Duration) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DurationValue",
+      "summary": "DurationValue returns a [Value] for a [time.Duration].",
+      "signature": "func DurationValue(v time.Duration) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "time.Duration"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 173,
+          "lines": [
+            "func DurationValue(v time.Duration) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 233,
+          "lines": [
+            "pkg log/slog, func DurationValue(time.Duration) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Error",
+      "summary": "Error calls [Logger.Error] on the default logger.",
+      "signature": "func Error(msg string, args ...any)",
+      "params": [
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 310,
+          "lines": [
+            "func Error(msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 235,
+          "lines": [
+            "pkg log/slog, func Error(string, ...interface{}) #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ErrorContext",
+      "summary": "ErrorContext calls [Logger.ErrorContext] on the default logger.",
+      "signature": "func ErrorContext(ctx context.Context, msg string, args ...any)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 315,
+          "lines": [
+            "func ErrorContext(ctx context.Context, msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 234,
+          "lines": [
+            "pkg log/slog, func ErrorContext(context.Context, string, ...interface{}) #61200"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64",
+      "summary": "Float64 returns an Attr for a floating-point number.",
+      "signature": "func Float64(key string, v float64) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 39,
+          "lines": [
+            "func Float64(key string, v float64) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 236,
+          "lines": [
+            "pkg log/slog, func Float64(string, float64) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Float64Value",
+      "summary": "Float64Value returns a [Value] for a floating-point number.",
+      "signature": "func Float64Value(v float64) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "float64"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 129,
+          "lines": [
+            "func Float64Value(v float64) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 237,
+          "lines": [
+            "pkg log/slog, func Float64Value(float64) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Group",
+      "summary": "Group returns an Attr for a Group [Value]. The first argument is the key; the remaining arguments are converted to Attrs as in [Logger.Log].",
+      "signature": "func Group(key string, args ...any) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 66,
+          "lines": [
+            "func Group(key string, args ...any) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 238,
+          "lines": [
+            "pkg log/slog, func Group(string, ...interface{}) Attr #59204"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GroupAttrs",
+      "summary": "GroupAttrs returns an Attr for a Group [Value] consisting of the given Attrs.",
+      "signature": "func GroupAttrs(key string, attrs ...Attr) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "attrs",
+          "type": "...Attr"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 75,
+          "lines": [
+            "func GroupAttrs(key string, attrs ...Attr) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 63,
+          "lines": [
+            "pkg log/slog, func GroupAttrs(string, ...Attr) Attr #66365"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GroupValue",
+      "summary": "GroupValue returns a new [Value] for a list of Attrs. The caller must not subsequently mutate the argument slice.",
+      "signature": "func GroupValue(as ...Attr) Value",
+      "params": [
+        {
+          "name": "as",
+          "type": "...Attr"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 179,
+          "lines": [
+            "func GroupValue(as ...Attr) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 239,
+          "lines": [
+            "pkg log/slog, func GroupValue(...Attr) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Info",
+      "summary": "Info calls [Logger.Info] on the default logger.",
+      "signature": "func Info(msg string, args ...any)",
+      "params": [
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 290,
+          "lines": [
+            "func Info(msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 241,
+          "lines": [
+            "pkg log/slog, func Info(string, ...interface{}) #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "InfoContext",
+      "summary": "InfoContext calls [Logger.InfoContext] on the default logger.",
+      "signature": "func InfoContext(ctx context.Context, msg string, args ...any)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 295,
+          "lines": [
+            "func InfoContext(ctx context.Context, msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 240,
+          "lines": [
+            "pkg log/slog, func InfoContext(context.Context, string, ...interface{}) #61200"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int",
+      "summary": "Int converts an int to an int64 and returns an Attr with that value.",
+      "signature": "func Int(key string, value int) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 29,
+          "lines": [
+            "func Int(key string, value int) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 244,
+          "lines": [
+            "pkg log/slog, func Int(string, int) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int64",
+      "summary": "Int64 returns an Attr for an int64.",
+      "signature": "func Int64(key string, value int64) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 23,
+          "lines": [
+            "func Int64(key string, value int64) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 242,
+          "lines": [
+            "pkg log/slog, func Int64(string, int64) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Int64Value",
+      "summary": "Int64Value returns a [Value] for an int64.",
+      "signature": "func Int64Value(v int64) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "int64"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 119,
+          "lines": [
+            "func Int64Value(v int64) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 243,
+          "lines": [
+            "pkg log/slog, func Int64Value(int64) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IntValue",
+      "summary": "IntValue returns a [Value] for an int.",
+      "signature": "func IntValue(v int) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 114,
+          "lines": [
+            "func IntValue(v int) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 245,
+          "lines": [
+            "pkg log/slog, func IntValue(int) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Log",
+      "summary": "Log calls [Logger.Log] on the default logger.",
+      "signature": "func Log(ctx context.Context, level Level, msg string, args ...any)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "level",
+          "type": "Level"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 320,
+          "lines": [
+            "func Log(ctx context.Context, level Level, msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 247,
+          "lines": [
+            "pkg log/slog, func Log(context.Context, Level, string, ...interface{}) #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LogAttrs",
+      "summary": "LogAttrs calls [Logger.LogAttrs] on the default logger.",
+      "signature": "func LogAttrs(ctx context.Context, level Level, msg string, attrs ...Attr)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "level",
+          "type": "Level"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "attrs",
+          "type": "...Attr"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 325,
+          "lines": [
+            "func LogAttrs(ctx context.Context, level Level, msg string, attrs ...Attr) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 246,
+          "lines": [
+            "pkg log/slog, func LogAttrs(context.Context, Level, string, ...Attr) #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New creates a new Logger with the given non-nil Handler.",
+      "signature": "func New(h Handler) *Logger",
+      "params": [
+        {
+          "name": "h",
+          "type": "Handler"
+        }
+      ],
+      "returns": {
+        "type": "*Logger"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 151,
+          "lines": [
+            "func New(h Handler) *Logger {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 248,
+          "lines": [
+            "pkg log/slog, func New(Handler) *Logger #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewJSONHandler",
+      "summary": "NewJSONHandler creates a [JSONHandler] that writes to w, using the given options. If opts is nil, the default options are used.",
+      "signature": "func NewJSONHandler(w io.Writer, opts *HandlerOptions) *JSONHandler",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "opts",
+          "type": "*HandlerOptions"
+        }
+      ],
+      "returns": {
+        "type": "*JSONHandler"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/json_handler.go",
+          "line": 30,
+          "lines": [
+            "func NewJSONHandler(w io.Writer, opts *HandlerOptions) *JSONHandler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 249,
+          "lines": [
+            "pkg log/slog, func NewJSONHandler(io.Writer, *HandlerOptions) *JSONHandler #59339"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewLogLogger",
+      "summary": "NewLogLogger returns a new [log.Logger] such that each call to its Output method dispatches a Record to the specified handler. The logger acts as a bridge from the older log API to newer structured logging handlers.",
+      "signature": "func NewLogLogger(h Handler, level Level) *log.Logger",
+      "params": [
+        {
+          "name": "h",
+          "type": "Handler"
+        },
+        {
+          "name": "level",
+          "type": "Level"
+        }
+      ],
+      "returns": {
+        "type": "*log.Logger"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 174,
+          "lines": [
+            "func NewLogLogger(h Handler, level Level) *log.Logger {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 250,
+          "lines": [
+            "pkg log/slog, func NewLogLogger(Handler, Level) *log.Logger #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRecord",
+      "summary": "NewRecord creates a [Record] from the given arguments. Use [Record.AddAttrs] to add attributes to the Record.",
+      "signature": "func NewRecord(t time.Time, level Level, msg string, pc uintptr) Record",
+      "params": [
+        {
+          "name": "t",
+          "type": "time.Time"
+        },
+        {
+          "name": "level",
+          "type": "Level"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "pc",
+          "type": "uintptr"
+        }
+      ],
+      "returns": {
+        "type": "Record"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/record.go",
+          "line": 58,
+          "lines": [
+            "func NewRecord(t time.Time, level Level, msg string, pc uintptr) Record {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 251,
+          "lines": [
+            "pkg log/slog, func NewRecord(time.Time, Level, string, uintptr) Record #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTextHandler",
+      "summary": "NewTextHandler creates a [TextHandler] that writes to w, using the given options. If opts is nil, the default options are used.",
+      "signature": "func NewTextHandler(w io.Writer, opts *HandlerOptions) *TextHandler",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        },
+        {
+          "name": "opts",
+          "type": "*HandlerOptions"
+        }
+      ],
+      "returns": {
+        "type": "*TextHandler"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/text_handler.go",
+          "line": 28,
+          "lines": [
+            "func NewTextHandler(w io.Writer, opts *HandlerOptions) *TextHandler {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 252,
+          "lines": [
+            "pkg log/slog, func NewTextHandler(io.Writer, *HandlerOptions) *TextHandler #59339"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetDefault",
+      "summary": "SetDefault makes l the default [Logger], which is used by the top-level functions [Info], [Debug] and so on. After this call, output from the log package's default Logger (as with [log.Print], etc.) will be logged using l's Handler, at a level controlled by [SetLogLoggerLevel].",
+      "signature": "func SetDefault(l *Logger)",
+      "params": [
+        {
+          "name": "l",
+          "type": "*Logger"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 62,
+          "lines": [
+            "func SetDefault(l *Logger) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 253,
+          "lines": [
+            "pkg log/slog, func SetDefault(*Logger) #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetLogLoggerLevel",
+      "summary": "SetLogLoggerLevel controls the level for the bridge to the [log] package.",
+      "signature": "func SetLogLoggerLevel(level Level) (oldLevel Level)",
+      "params": [
+        {
+          "name": "level",
+          "type": "Level"
+        }
+      ],
+      "returns": {
+        "type": "(oldLevel Level)"
+      },
+      "versions": [
+        "Go 1.22"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 44,
+          "lines": [
+            "func SetLogLoggerLevel(level Level) (oldLevel Level) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.22.txt",
+          "line": 62,
+          "lines": [
+            "pkg log/slog, func SetLogLoggerLevel(Level) Level #62418"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "String",
+      "summary": "String returns an Attr for a string value.",
+      "signature": "func String(key, value string) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 18,
+          "lines": [
+            "func String(key, value string) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 254,
+          "lines": [
+            "pkg log/slog, func String(string, string) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StringValue",
+      "summary": "StringValue returns a new [Value] for a string.",
+      "signature": "func StringValue(value string) Value",
+      "params": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 109,
+          "lines": [
+            "func StringValue(value string) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 255,
+          "lines": [
+            "pkg log/slog, func StringValue(string) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Time",
+      "summary": "Time returns an Attr for a [time.Time]. It discards the monotonic portion.",
+      "signature": "func Time(key string, v time.Time) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "time.Time"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 50,
+          "lines": [
+            "func Time(key string, v time.Time) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 256,
+          "lines": [
+            "pkg log/slog, func Time(string, time.Time) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TimeValue",
+      "summary": "TimeValue returns a [Value] for a [time.Time]. It discards the monotonic portion.",
+      "signature": "func TimeValue(v time.Time) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "time.Time"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 153,
+          "lines": [
+            "func TimeValue(v time.Time) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 257,
+          "lines": [
+            "pkg log/slog, func TimeValue(time.Time) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint64",
+      "summary": "Uint64 returns an Attr for a uint64.",
+      "signature": "func Uint64(key string, v uint64) Attr",
+      "params": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "Attr"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/attr.go",
+          "line": 34,
+          "lines": [
+            "func Uint64(key string, v uint64) Attr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 258,
+          "lines": [
+            "pkg log/slog, func Uint64(string, uint64) Attr #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uint64Value",
+      "summary": "Uint64Value returns a [Value] for a uint64.",
+      "signature": "func Uint64Value(v uint64) Value",
+      "params": [
+        {
+          "name": "v",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "Value"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/value.go",
+          "line": 124,
+          "lines": [
+            "func Uint64Value(v uint64) Value {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 259,
+          "lines": [
+            "pkg log/slog, func Uint64Value(uint64) Value #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Warn",
+      "summary": "Warn calls [Logger.Warn] on the default logger.",
+      "signature": "func Warn(msg string, args ...any)",
+      "params": [
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 300,
+          "lines": [
+            "func Warn(msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 261,
+          "lines": [
+            "pkg log/slog, func Warn(string, ...interface{}) #56345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WarnContext",
+      "summary": "WarnContext calls [Logger.WarnContext] on the default logger.",
+      "signature": "func WarnContext(ctx context.Context, msg string, args ...any)",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "msg",
+          "type": "string"
+        },
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 305,
+          "lines": [
+            "func WarnContext(ctx context.Context, msg string, args ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 260,
+          "lines": [
+            "pkg log/slog, func WarnContext(context.Context, string, ...interface{})  #61200"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "With",
+      "summary": "With calls [Logger.With] on the default logger.",
+      "signature": "func With(args ...any) *Logger",
+      "params": [
+        {
+          "name": "args",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": "*Logger"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/slog/logger.go",
+          "line": 159,
+          "lines": [
+            "func With(args ...any) *Logger {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 262,
+          "lines": [
+            "pkg log/slog, func With(...interface{}) *Logger #56345"
+          ]
+        }
+      ]
+    }
+  ]
+}

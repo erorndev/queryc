@@ -1,0 +1,184 @@
+{
+  "package": "net/rpc/jsonrpc",
+  "functions": [
+    {
+      "name": "Dial",
+      "summary": "Dial connects to a JSON-RPC server at the specified network address.",
+      "signature": "func Dial(network, address string) (*rpc.Client, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*rpc.Client, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/jsonrpc/client.go",
+          "line": 118,
+          "lines": [
+            "func Dial(network, address string) (*rpc.Client, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4995,
+          "lines": [
+            "pkg net/rpc/jsonrpc, func Dial(string, string) (*rpc.Client, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewClient",
+      "summary": "NewClient returns a new [rpc.Client] to handle requests to the set of services at the other end of the connection.",
+      "signature": "func NewClient(conn io.ReadWriteCloser) *rpc.Client",
+      "params": [
+        {
+          "name": "conn",
+          "type": "io.ReadWriteCloser"
+        }
+      ],
+      "returns": {
+        "type": "*rpc.Client"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/jsonrpc/client.go",
+          "line": 113,
+          "lines": [
+            "func NewClient(conn io.ReadWriteCloser) *rpc.Client {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4996,
+          "lines": [
+            "pkg net/rpc/jsonrpc, func NewClient(io.ReadWriteCloser) *rpc.Client"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewClientCodec",
+      "summary": "NewClientCodec returns a new [rpc.ClientCodec] using JSON-RPC on conn.",
+      "signature": "func NewClientCodec(conn io.ReadWriteCloser) rpc.ClientCodec",
+      "params": [
+        {
+          "name": "conn",
+          "type": "io.ReadWriteCloser"
+        }
+      ],
+      "returns": {
+        "type": "rpc.ClientCodec"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/jsonrpc/client.go",
+          "line": 37,
+          "lines": [
+            "func NewClientCodec(conn io.ReadWriteCloser) rpc.ClientCodec {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4997,
+          "lines": [
+            "pkg net/rpc/jsonrpc, func NewClientCodec(io.ReadWriteCloser) rpc.ClientCodec"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewServerCodec",
+      "summary": "NewServerCodec returns a new [rpc.ServerCodec] using JSON-RPC on conn.",
+      "signature": "func NewServerCodec(conn io.ReadWriteCloser) rpc.ServerCodec",
+      "params": [
+        {
+          "name": "conn",
+          "type": "io.ReadWriteCloser"
+        }
+      ],
+      "returns": {
+        "type": "rpc.ServerCodec"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/jsonrpc/server.go",
+          "line": 37,
+          "lines": [
+            "func NewServerCodec(conn io.ReadWriteCloser) rpc.ServerCodec {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4998,
+          "lines": [
+            "pkg net/rpc/jsonrpc, func NewServerCodec(io.ReadWriteCloser) rpc.ServerCodec"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServeConn",
+      "summary": "ServeConn runs the JSON-RPC server on a single connection. ServeConn blocks, serving the connection until the client hangs up. The caller typically invokes ServeConn in a go statement.",
+      "signature": "func ServeConn(conn io.ReadWriteCloser)",
+      "params": [
+        {
+          "name": "conn",
+          "type": "io.ReadWriteCloser"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/rpc/jsonrpc/server.go",
+          "line": 132,
+          "lines": [
+            "func ServeConn(conn io.ReadWriteCloser) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4999,
+          "lines": [
+            "pkg net/rpc/jsonrpc, func ServeConn(io.ReadWriteCloser)"
+          ]
+        }
+      ]
+    }
+  ]
+}

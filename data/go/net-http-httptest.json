@@ -1,0 +1,230 @@
+{
+  "package": "net/http/httptest",
+  "functions": [
+    {
+      "name": "NewRecorder",
+      "summary": "NewRecorder returns an initialized [ResponseRecorder].",
+      "signature": "func NewRecorder() *ResponseRecorder",
+      "params": [],
+      "returns": {
+        "type": "*ResponseRecorder"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptest/recorder.go",
+          "line": 51,
+          "lines": [
+            "func NewRecorder() *ResponseRecorder {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4869,
+          "lines": [
+            "pkg net/http/httptest, func NewRecorder() *ResponseRecorder"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRequest",
+      "summary": "NewRequest wraps NewRequestWithContext using context.Background.",
+      "signature": "func NewRequest(method, target string, body io.Reader) *http.Request",
+      "params": [
+        {
+          "name": "method",
+          "type": "string"
+        },
+        {
+          "name": "target",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*http.Request"
+      },
+      "versions": [
+        "Go 1.7"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptest/httptest.go",
+          "line": 19,
+          "lines": [
+            "func NewRequest(method, target string, body io.Reader) *http.Request {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.7.txt",
+          "line": 211,
+          "lines": [
+            "pkg net/http/httptest, func NewRequest(string, string, io.Reader) *http.Request"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewRequestWithContext",
+      "summary": "NewRequestWithContext returns a new incoming server Request, suitable for passing to an [http.Handler] for testing.",
+      "signature": "func NewRequestWithContext(ctx context.Context, method, target string, body io.Reader) *http.Request",
+      "params": [
+        {
+          "name": "ctx",
+          "type": "context.Context"
+        },
+        {
+          "name": "method",
+          "type": "string"
+        },
+        {
+          "name": "target",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "*http.Request"
+      },
+      "versions": [
+        "Go 1.23"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptest/httptest.go",
+          "line": 46,
+          "lines": [
+            "func NewRequestWithContext(ctx context.Context, method, target string, body io.Reader) *http.Request {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.23.txt",
+          "line": 75,
+          "lines": [
+            "pkg net/http/httptest, func NewRequestWithContext(context.Context, string, string, io.Reader) *http.Request #59473"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewServer",
+      "summary": "NewServer starts and returns a new [Server]. The caller should call Close when finished, to shut it down.",
+      "signature": "func NewServer(handler http.Handler) *Server",
+      "params": [
+        {
+          "name": "handler",
+          "type": "http.Handler"
+        }
+      ],
+      "returns": {
+        "type": "*Server"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptest/server.go",
+          "line": 105,
+          "lines": [
+            "func NewServer(handler http.Handler) *Server {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4870,
+          "lines": [
+            "pkg net/http/httptest, func NewServer(http.Handler) *Server"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewTLSServer",
+      "summary": "NewTLSServer starts and returns a new [Server] using TLS. The caller should call Close when finished, to shut it down.",
+      "signature": "func NewTLSServer(handler http.Handler) *Server",
+      "params": [
+        {
+          "name": "handler",
+          "type": "http.Handler"
+        }
+      ],
+      "returns": {
+        "type": "*Server"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptest/server.go",
+          "line": 190,
+          "lines": [
+            "func NewTLSServer(handler http.Handler) *Server {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4871,
+          "lines": [
+            "pkg net/http/httptest, func NewTLSServer(http.Handler) *Server"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewUnstartedServer",
+      "summary": "NewUnstartedServer returns a new [Server] but doesn't start it.",
+      "signature": "func NewUnstartedServer(handler http.Handler) *Server",
+      "params": [
+        {
+          "name": "handler",
+          "type": "http.Handler"
+        }
+      ],
+      "returns": {
+        "type": "*Server"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/http/httptest/server.go",
+          "line": 117,
+          "lines": [
+            "func NewUnstartedServer(handler http.Handler) *Server {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4872,
+          "lines": [
+            "pkg net/http/httptest, func NewUnstartedServer(http.Handler) *Server"
+          ]
+        }
+      ]
+    }
+  ]
+}

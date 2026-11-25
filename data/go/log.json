@@ -1,0 +1,639 @@
+{
+  "package": "log",
+  "functions": [
+    {
+      "name": "Default",
+      "summary": "Default returns the standard logger used by the package-level output functions.",
+      "signature": "func Default() *Logger { return std }",
+      "params": [],
+      "returns": {
+        "type": "*Logger { return std }"
+      },
+      "versions": [
+        "Go 1.16"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 90,
+          "lines": [
+            "func Default() *Logger { return std }"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.16.txt",
+          "line": 368,
+          "lines": [
+            "pkg log, func Default() *Logger"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fatal",
+      "summary": "Fatal is equivalent to [Print] followed by a call to [os.Exit](1).",
+      "signature": "func Fatal(v ...any)",
+      "params": [
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 422,
+          "lines": [
+            "func Fatal(v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3813,
+          "lines": [
+            "pkg log, func Fatal(...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fatalf",
+      "summary": "Fatalf is equivalent to [Printf] followed by a call to [os.Exit](1).",
+      "signature": "func Fatalf(format string, v ...any)",
+      "params": [
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 430,
+          "lines": [
+            "func Fatalf(format string, v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3814,
+          "lines": [
+            "pkg log, func Fatalf(string, ...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fatalln",
+      "summary": "Fatalln is equivalent to [Println] followed by a call to [os.Exit](1).",
+      "signature": "func Fatalln(v ...any)",
+      "params": [
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 438,
+          "lines": [
+            "func Fatalln(v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3815,
+          "lines": [
+            "pkg log, func Fatalln(...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flags",
+      "summary": "Flags returns the output flags for the standard logger. The flag bits are [Ldate], [Ltime], and so on.",
+      "signature": "func Flags() int",
+      "params": [],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 370,
+          "lines": [
+            "func Flags() int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3816,
+          "lines": [
+            "pkg log, func Flags() int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New",
+      "summary": "New creates a new [Logger]. The out variable sets the destination to which log data will be written. The prefix appears at the beginning of each generated log line, or after the log header if the [Lmsgprefix] flag is provided. The flag argument defines the logging properties.",
+      "signature": "func New(out io.Writer, prefix string, flag int) *Logger",
+      "params": [
+        {
+          "name": "out",
+          "type": "io.Writer"
+        },
+        {
+          "name": "prefix",
+          "type": "string"
+        },
+        {
+          "name": "flag",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "*Logger"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 71,
+          "lines": [
+            "func New(out io.Writer, prefix string, flag int) *Logger {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3817,
+          "lines": [
+            "pkg log, func New(io.Writer, string, int) *Logger"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Output",
+      "summary": "Output writes the output for a logging event. The string s contains the text to print after the prefix specified by the flags of the Logger. A newline is appended if the last character of s is not already a newline. Calldepth is the count of the number of frames to skip when computing the file name and line number if [Llongfile] or [Lshortfile] is set; a value of 1 will print the details for the caller of Output.",
+      "signature": "func Output(calldepth int, s string) error",
+      "params": [
+        {
+          "name": "calldepth",
+          "type": "int"
+        },
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 479,
+          "lines": [
+            "func Output(calldepth int, s string) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 766,
+          "lines": [
+            "pkg log, func Output(int, string) error"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Panic",
+      "summary": "Panic is equivalent to [Print] followed by a call to panic().",
+      "signature": "func Panic(v ...any)",
+      "params": [
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 446,
+          "lines": [
+            "func Panic(v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3818,
+          "lines": [
+            "pkg log, func Panic(...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Panicf",
+      "summary": "Panicf is equivalent to [Printf] followed by a call to panic().",
+      "signature": "func Panicf(format string, v ...any)",
+      "params": [
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 455,
+          "lines": [
+            "func Panicf(format string, v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3819,
+          "lines": [
+            "pkg log, func Panicf(string, ...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Panicln",
+      "summary": "Panicln is equivalent to [Println] followed by a call to panic().",
+      "signature": "func Panicln(v ...any)",
+      "params": [
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 464,
+          "lines": [
+            "func Panicln(v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3820,
+          "lines": [
+            "pkg log, func Panicln(...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prefix",
+      "summary": "Prefix returns the output prefix for the standard logger.",
+      "signature": "func Prefix() string",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 381,
+          "lines": [
+            "func Prefix() string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3821,
+          "lines": [
+            "pkg log, func Prefix() string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Print",
+      "summary": "Print calls Output to print to the standard logger. Arguments are handled in the manner of [fmt.Print].",
+      "signature": "func Print(v ...any)",
+      "params": [
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 399,
+          "lines": [
+            "func Print(v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3822,
+          "lines": [
+            "pkg log, func Print(...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Printf",
+      "summary": "Printf calls Output to print to the standard logger. Arguments are handled in the manner of [fmt.Printf].",
+      "signature": "func Printf(format string, v ...any)",
+      "params": [
+        {
+          "name": "format",
+          "type": "string"
+        },
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 407,
+          "lines": [
+            "func Printf(format string, v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3823,
+          "lines": [
+            "pkg log, func Printf(string, ...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Println",
+      "summary": "Println calls Output to print to the standard logger. Arguments are handled in the manner of [fmt.Println].",
+      "signature": "func Println(v ...any)",
+      "params": [
+        {
+          "name": "v",
+          "type": "...any"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 415,
+          "lines": [
+            "func Println(v ...any) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3824,
+          "lines": [
+            "pkg log, func Println(...interface{})"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetFlags",
+      "summary": "SetFlags sets the output flags for the standard logger. The flag bits are [Ldate], [Ltime], and so on.",
+      "signature": "func SetFlags(flag int)",
+      "params": [
+        {
+          "name": "flag",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 376,
+          "lines": [
+            "func SetFlags(flag int) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3825,
+          "lines": [
+            "pkg log, func SetFlags(int)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetOutput",
+      "summary": "SetOutput sets the output destination for the standard logger.",
+      "signature": "func SetOutput(w io.Writer)",
+      "params": [
+        {
+          "name": "w",
+          "type": "io.Writer"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 364,
+          "lines": [
+            "func SetOutput(w io.Writer) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3826,
+          "lines": [
+            "pkg log, func SetOutput(io.Writer)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SetPrefix",
+      "summary": "SetPrefix sets the output prefix for the standard logger.",
+      "signature": "func SetPrefix(prefix string)",
+      "params": [
+        {
+          "name": "prefix",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 386,
+          "lines": [
+            "func SetPrefix(prefix string) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 3827,
+          "lines": [
+            "pkg log, func SetPrefix(string)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Writer",
+      "summary": "Writer returns the output destination for the standard logger.",
+      "signature": "func Writer() io.Writer",
+      "params": [],
+      "returns": {
+        "type": "io.Writer"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/log/log.go",
+          "line": 391,
+          "lines": [
+            "func Writer() io.Writer {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 55,
+          "lines": [
+            "pkg log, func Writer() io.Writer"
+          ]
+        }
+      ]
+    }
+  ]
+}

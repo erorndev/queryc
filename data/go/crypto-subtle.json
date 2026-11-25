@@ -1,0 +1,325 @@
+{
+  "package": "crypto/subtle",
+  "functions": [
+    {
+      "name": "ConstantTimeByteEq",
+      "summary": "ConstantTimeByteEq returns 1 if x == y and 0 otherwise.",
+      "signature": "func ConstantTimeByteEq(x, y uint8) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "uint8"
+        },
+        {
+          "name": "y",
+          "type": "uint8"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/constant_time.go",
+          "line": 26,
+          "lines": [
+            "func ConstantTimeByteEq(x, y uint8) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 498,
+          "lines": [
+            "pkg crypto/subtle, func ConstantTimeByteEq(uint8, uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ConstantTimeCompare",
+      "summary": "ConstantTimeCompare returns 1 if the two slices, x and y, have equal contents and 0 otherwise. The time taken is a function of the length of the slices and is independent of the contents. If the lengths of x and y do not match it returns 0 immediately.",
+      "signature": "func ConstantTimeCompare(x, y []byte) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "[]byte"
+        },
+        {
+          "name": "y",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/constant_time.go",
+          "line": 15,
+          "lines": [
+            "func ConstantTimeCompare(x, y []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 499,
+          "lines": [
+            "pkg crypto/subtle, func ConstantTimeCompare([]uint8, []uint8) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ConstantTimeCopy",
+      "summary": "ConstantTimeCopy copies the contents of y into x (a slice of equal length) if v == 1. If v == 0, x is left unchanged. Its behavior is undefined if v takes any other value.",
+      "signature": "func ConstantTimeCopy(v int, x, y []byte)",
+      "params": [
+        {
+          "name": "v",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "[]byte"
+        },
+        {
+          "name": "y",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/constant_time.go",
+          "line": 38,
+          "lines": [
+            "func ConstantTimeCopy(v int, x, y []byte) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 500,
+          "lines": [
+            "pkg crypto/subtle, func ConstantTimeCopy(int, []uint8, []uint8)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ConstantTimeEq",
+      "summary": "ConstantTimeEq returns 1 if x == y and 0 otherwise.",
+      "signature": "func ConstantTimeEq(x, y int32) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "int32"
+        },
+        {
+          "name": "y",
+          "type": "int32"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/constant_time.go",
+          "line": 31,
+          "lines": [
+            "func ConstantTimeEq(x, y int32) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 501,
+          "lines": [
+            "pkg crypto/subtle, func ConstantTimeEq(int32, int32) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ConstantTimeLessOrEq",
+      "summary": "ConstantTimeLessOrEq returns 1 if x <= y and 0 otherwise. Its behavior is undefined if x or y are negative or > 2**31 - 1.",
+      "signature": "func ConstantTimeLessOrEq(x, y int) int",
+      "params": [
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/constant_time.go",
+          "line": 44,
+          "lines": [
+            "func ConstantTimeLessOrEq(x, y int) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 35,
+          "lines": [
+            "pkg crypto/subtle, func ConstantTimeLessOrEq(int, int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ConstantTimeSelect",
+      "summary": "ConstantTimeSelect returns x if v == 1 and y if v == 0. Its behavior is undefined if v takes any other value.",
+      "signature": "func ConstantTimeSelect(v, x, y int) int",
+      "params": [
+        {
+          "name": "v",
+          "type": "int"
+        },
+        {
+          "name": "x",
+          "type": "int"
+        },
+        {
+          "name": "y",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/constant_time.go",
+          "line": 21,
+          "lines": [
+            "func ConstantTimeSelect(v, x, y int) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 502,
+          "lines": [
+            "pkg crypto/subtle, func ConstantTimeSelect(int, int, int) int"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WithDataIndependentTiming",
+      "summary": "WithDataIndependentTiming enables architecture specific features which ensure that the timing of specific instructions is independent of their inputs before executing f. On f returning it disables these features.",
+      "signature": "func WithDataIndependentTiming(f func())",
+      "params": [
+        {
+          "name": "f",
+          "type": "func()"
+        }
+      ],
+      "returns": {
+        "type": ""
+      },
+      "versions": [
+        "Go 1.24"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/dit.go",
+          "line": 30,
+          "lines": [
+            "func WithDataIndependentTiming(f func()) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.24.txt",
+          "line": 79,
+          "lines": [
+            "pkg crypto/subtle, func WithDataIndependentTiming(func()) #66450"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XORBytes",
+      "summary": "XORBytes sets dst[i] = x[i] ^ y[i] for all i < n = min(len(x), len(y)), returning n, the number of bytes written to dst.",
+      "signature": "func XORBytes(dst, x, y []byte) int",
+      "params": [
+        {
+          "name": "dst",
+          "type": "[]byte"
+        },
+        {
+          "name": "x",
+          "type": "[]byte"
+        },
+        {
+          "name": "y",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "int"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/subtle/xor.go",
+          "line": 17,
+          "lines": [
+            "func XORBytes(dst, x, y []byte) int {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 36,
+          "lines": [
+            "pkg crypto/subtle, func XORBytes([]uint8, []uint8, []uint8) int #53021"
+          ]
+        }
+      ]
+    }
+  ]
+}

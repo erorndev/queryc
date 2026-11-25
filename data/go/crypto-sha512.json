@@ -1,0 +1,265 @@
+{
+  "package": "crypto/sha512",
+  "functions": [
+    {
+      "name": "New",
+      "summary": "New returns a new [hash.Hash] computing the SHA-512 checksum. The Hash also implements [encoding.BinaryMarshaler], [encoding.BinaryAppender] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 49,
+          "lines": [
+            "func New() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 496,
+          "lines": [
+            "pkg crypto/sha512, func New() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New384",
+      "summary": "New384 returns a new [hash.Hash] computing the SHA-384 checksum. The Hash also implements [encoding.BinaryMarshaler], [encoding.BinaryAppender] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New384() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 76,
+          "lines": [
+            "func New384() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 497,
+          "lines": [
+            "pkg crypto/sha512, func New384() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New512_224",
+      "summary": "New512_224 returns a new [hash.Hash] computing the SHA-512/224 checksum. The Hash also implements [encoding.BinaryMarshaler], [encoding.BinaryAppender] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New512_224() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 60,
+          "lines": [
+            "func New512_224() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 27,
+          "lines": [
+            "pkg crypto/sha512, func New512_224() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New512_256",
+      "summary": "New512_256 returns a new [hash.Hash] computing the SHA-512/256 checksum. The Hash also implements [encoding.BinaryMarshaler], [encoding.BinaryAppender] and [encoding.BinaryUnmarshaler] to marshal and unmarshal the internal state of the hash.",
+      "signature": "func New512_256() hash.Hash",
+      "params": [],
+      "returns": {
+        "type": "hash.Hash"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 68,
+          "lines": [
+            "func New512_256() hash.Hash {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 28,
+          "lines": [
+            "pkg crypto/sha512, func New512_256() hash.Hash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum384",
+      "summary": "Sum384 returns the SHA384 checksum of the data.",
+      "signature": "func Sum384(data []byte) [Size384]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[Size384]byte"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 96,
+          "lines": [
+            "func Sum384(data []byte) [Size384]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 33,
+          "lines": [
+            "pkg crypto/sha512, func Sum384([]uint8) [48]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum512",
+      "summary": "Sum512 returns the SHA512 checksum of the data.",
+      "signature": "func Sum512(data []byte) [Size]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[Size]byte"
+      },
+      "versions": [
+        "Go 1.2"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 84,
+          "lines": [
+            "func Sum512(data []byte) [Size]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.2.txt",
+          "line": 34,
+          "lines": [
+            "pkg crypto/sha512, func Sum512([]uint8) [64]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum512_224",
+      "summary": "Sum512_224 returns the Sum512/224 checksum of the data.",
+      "signature": "func Sum512_224(data []byte) [Size224]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[Size224]byte"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 108,
+          "lines": [
+            "func Sum512_224(data []byte) [Size224]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 29,
+          "lines": [
+            "pkg crypto/sha512, func Sum512_224([]uint8) [28]uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sum512_256",
+      "summary": "Sum512_256 returns the Sum512/256 checksum of the data.",
+      "signature": "func Sum512_256(data []byte) [Size256]byte",
+      "params": [
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[Size256]byte"
+      },
+      "versions": [
+        "Go 1.5"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/sha512/sha512.go",
+          "line": 117,
+          "lines": [
+            "func Sum512_256(data []byte) [Size256]byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.5.txt",
+          "line": 30,
+          "lines": [
+            "pkg crypto/sha512, func Sum512_256([]uint8) [32]uint8"
+          ]
+        }
+      ]
+    }
+  ]
+}

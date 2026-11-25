@@ -1,0 +1,40 @@
+{
+  "package": "text/scanner",
+  "functions": [
+    {
+      "name": "TokenString",
+      "summary": "TokenString returns a printable string for a token or Unicode character.",
+      "signature": "func TokenString(tok rune) string",
+      "params": [
+        {
+          "name": "tok",
+          "type": "rune"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/text/scanner/scanner.go",
+          "line": 102,
+          "lines": [
+            "func TokenString(tok rune) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 30298,
+          "lines": [
+            "pkg text/scanner, func TokenString(int32) string"
+          ]
+        }
+      ]
+    }
+  ]
+}

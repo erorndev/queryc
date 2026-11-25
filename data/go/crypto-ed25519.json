@@ -1,0 +1,204 @@
+{
+  "package": "crypto/ed25519",
+  "functions": [
+    {
+      "name": "GenerateKey",
+      "summary": "GenerateKey generates a public/private key pair using entropy from rand. If rand is nil, [crypto/rand.Reader] will be used.",
+      "signature": "func GenerateKey(rand io.Reader) (PublicKey, PrivateKey, error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(PublicKey, PrivateKey, error)"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ed25519/ed25519.go",
+          "line": 143,
+          "lines": [
+            "func GenerateKey(rand io.Reader) (PublicKey, PrivateKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 10,
+          "lines": [
+            "pkg crypto/ed25519, func GenerateKey(io.Reader) (PublicKey, PrivateKey, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NewKeyFromSeed",
+      "summary": "NewKeyFromSeed calculates a private key from a seed. It will panic if len(seed) is not [SeedSize]. This function is provided for interoperability with RFC 8032. RFC 8032's private keys correspond to seeds in this package.",
+      "signature": "func NewKeyFromSeed(seed []byte) PrivateKey",
+      "params": [
+        {
+          "name": "seed",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "PrivateKey"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ed25519/ed25519.go",
+          "line": 162,
+          "lines": [
+            "func NewKeyFromSeed(seed []byte) PrivateKey {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 11,
+          "lines": [
+            "pkg crypto/ed25519, func NewKeyFromSeed([]uint8) PrivateKey"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sign",
+      "summary": "Sign signs the message with privateKey and returns a signature. It will panic if len(privateKey) is not [PrivateKeySize].",
+      "signature": "func Sign(privateKey PrivateKey, message []byte) []byte",
+      "params": [
+        {
+          "name": "privateKey",
+          "type": "PrivateKey"
+        },
+        {
+          "name": "message",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "[]byte"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ed25519/ed25519.go",
+          "line": 180,
+          "lines": [
+            "func Sign(privateKey PrivateKey, message []byte) []byte {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 12,
+          "lines": [
+            "pkg crypto/ed25519, func Sign(PrivateKey, []uint8) []uint8"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verify",
+      "summary": "Verify reports whether sig is a valid signature of message by publicKey. It will panic if len(publicKey) is not [PublicKeySize].",
+      "signature": "func Verify(publicKey PublicKey, message, sig []byte) bool",
+      "params": [
+        {
+          "name": "publicKey",
+          "type": "PublicKey"
+        },
+        {
+          "name": "message",
+          "type": "[]byte"
+        },
+        {
+          "name": "sig",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.13"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ed25519/ed25519.go",
+          "line": 206,
+          "lines": [
+            "func Verify(publicKey PublicKey, message, sig []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.13.txt",
+          "line": 13,
+          "lines": [
+            "pkg crypto/ed25519, func Verify(PublicKey, []uint8, []uint8) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VerifyWithOptions",
+      "summary": "VerifyWithOptions reports whether sig is a valid signature of message by publicKey. A valid signature is indicated by returning a nil error. It will panic if len(publicKey) is not [PublicKeySize].",
+      "signature": "func VerifyWithOptions(publicKey PublicKey, message, sig []byte, opts *Options) error",
+      "params": [
+        {
+          "name": "publicKey",
+          "type": "PublicKey"
+        },
+        {
+          "name": "message",
+          "type": "[]byte"
+        },
+        {
+          "name": "sig",
+          "type": "[]byte"
+        },
+        {
+          "name": "opts",
+          "type": "*Options"
+        }
+      ],
+      "returns": {
+        "type": "error"
+      },
+      "versions": [
+        "Go 1.20"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ed25519/ed25519.go",
+          "line": 221,
+          "lines": [
+            "func VerifyWithOptions(publicKey PublicKey, message, sig []byte, opts *Options) error {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.20.txt",
+          "line": 30,
+          "lines": [
+            "pkg crypto/ed25519, func VerifyWithOptions(PublicKey, []uint8, []uint8, *Options) error #31804"
+          ]
+        }
+      ]
+    }
+  ]
+}

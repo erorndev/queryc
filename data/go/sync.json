@@ -1,0 +1,75 @@
+{
+  "package": "sync",
+  "functions": [
+    {
+      "name": "NewCond",
+      "summary": "NewCond returns a new Cond with Locker l.",
+      "signature": "func NewCond(l Locker) *Cond",
+      "params": [
+        {
+          "name": "l",
+          "type": "Locker"
+        }
+      ],
+      "returns": {
+        "type": "*Cond"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/cond.go",
+          "line": 48,
+          "lines": [
+            "func NewCond(l Locker) *Cond {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 5878,
+          "lines": [
+            "pkg sync, func NewCond(Locker) *Cond"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnceFunc",
+      "summary": "OnceFunc returns a function that invokes f only once. The returned function may be called concurrently.",
+      "signature": "func OnceFunc(f func()) func()",
+      "params": [
+        {
+          "name": "f",
+          "type": "func()"
+        }
+      ],
+      "returns": {
+        "type": "func()"
+      },
+      "versions": [
+        "Go 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/sync/oncefunc.go",
+          "line": 11,
+          "lines": [
+            "func OnceFunc(f func()) func() {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.21.txt",
+          "line": 404,
+          "lines": [
+            "pkg sync, func OnceFunc(func()) func() #56102"
+          ]
+        }
+      ]
+    }
+  ]
+}

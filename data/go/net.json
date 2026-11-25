@@ -1,0 +1,1705 @@
+{
+  "package": "net",
+  "functions": [
+    {
+      "name": "CIDRMask",
+      "summary": "CIDRMask returns an [IPMask] consisting of 'ones' 1 bits followed by 0s up to a total length of 'bits' bits. For a mask of this form, CIDRMask is the inverse of [IPMask.Size].",
+      "signature": "func CIDRMask(ones, bits int) IPMask",
+      "params": [
+        {
+          "name": "ones",
+          "type": "int"
+        },
+        {
+          "name": "bits",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "IPMask"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/ip.go",
+          "line": 79,
+          "lines": [
+            "func CIDRMask(ones, bits int) IPMask {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4362,
+          "lines": [
+            "pkg net, func CIDRMask(int, int) IPMask"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dial",
+      "summary": "Dial connects to the address on the named network.",
+      "signature": "func Dial(network, address string) (Conn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Conn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/dial.go",
+          "line": 469,
+          "lines": [
+            "func Dial(network, address string) (Conn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4363,
+          "lines": [
+            "pkg net, func Dial(string, string) (Conn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DialIP",
+      "summary": "DialIP acts like [Dial] for IP networks.",
+      "signature": "func DialIP(network string, laddr, raddr *IPAddr) (*IPConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*IPAddr"
+        },
+        {
+          "name": "raddr",
+          "type": "*IPAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*IPConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/iprawsock.go",
+          "line": 208,
+          "lines": [
+            "func DialIP(network string, laddr, raddr *IPAddr) (*IPConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4364,
+          "lines": [
+            "pkg net, func DialIP(string, *IPAddr, *IPAddr) (*IPConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DialTCP",
+      "summary": "DialTCP acts like [Dial] for TCP networks.",
+      "signature": "func DialTCP(network string, laddr, raddr *TCPAddr) (*TCPConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*TCPAddr"
+        },
+        {
+          "name": "raddr",
+          "type": "*TCPAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*TCPConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/tcpsock.go",
+          "line": 317,
+          "lines": [
+            "func DialTCP(network string, laddr, raddr *TCPAddr) (*TCPConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4365,
+          "lines": [
+            "pkg net, func DialTCP(string, *TCPAddr, *TCPAddr) (*TCPConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DialTimeout",
+      "summary": "DialTimeout acts like [Dial] but takes a timeout.",
+      "signature": "func DialTimeout(network, address string, timeout time.Duration) (Conn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        },
+        {
+          "name": "timeout",
+          "type": "time.Duration"
+        }
+      ],
+      "returns": {
+        "type": "(Conn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/dial.go",
+          "line": 484,
+          "lines": [
+            "func DialTimeout(network, address string, timeout time.Duration) (Conn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4366,
+          "lines": [
+            "pkg net, func DialTimeout(string, string, time.Duration) (Conn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DialUDP",
+      "summary": "DialUDP acts like [Dial] for UDP networks.",
+      "signature": "func DialUDP(network string, laddr, raddr *UDPAddr) (*UDPConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*UDPAddr"
+        },
+        {
+          "name": "raddr",
+          "type": "*UDPAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*UDPConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/udpsock.go",
+          "line": 287,
+          "lines": [
+            "func DialUDP(network string, laddr, raddr *UDPAddr) (*UDPConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4367,
+          "lines": [
+            "pkg net, func DialUDP(string, *UDPAddr, *UDPAddr) (*UDPConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DialUnix",
+      "summary": "DialUnix acts like [Dial] for Unix networks.",
+      "signature": "func DialUnix(network string, laddr, raddr *UnixAddr) (*UnixConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*UnixAddr"
+        },
+        {
+          "name": "raddr",
+          "type": "*UnixAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*UnixConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/unixsock.go",
+          "line": 203,
+          "lines": [
+            "func DialUnix(network string, laddr, raddr *UnixAddr) (*UnixConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4368,
+          "lines": [
+            "pkg net, func DialUnix(string, *UnixAddr, *UnixAddr) (*UnixConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FileConn",
+      "summary": "FileConn returns a copy of the network connection corresponding to the open file f. It is the caller's responsibility to close f when finished. Closing c does not affect f, and closing f does not affect c.",
+      "signature": "func FileConn(f *os.File) (c Conn, err error)",
+      "params": [
+        {
+          "name": "f",
+          "type": "*os.File"
+        }
+      ],
+      "returns": {
+        "type": "(c Conn, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/file.go",
+          "line": 21,
+          "lines": [
+            "func FileConn(f *os.File) (c Conn, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4369,
+          "lines": [
+            "pkg net, func FileConn(*os.File) (Conn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FileListener",
+      "summary": "FileListener returns a copy of the network listener corresponding to the open file f. It is the caller's responsibility to close ln when finished. Closing ln does not affect f, and closing f does not affect ln.",
+      "signature": "func FileListener(f *os.File) (ln Listener, err error)",
+      "params": [
+        {
+          "name": "f",
+          "type": "*os.File"
+        }
+      ],
+      "returns": {
+        "type": "(ln Listener, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/file.go",
+          "line": 33,
+          "lines": [
+            "func FileListener(f *os.File) (ln Listener, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4370,
+          "lines": [
+            "pkg net, func FileListener(*os.File) (Listener, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FilePacketConn",
+      "summary": "FilePacketConn returns a copy of the packet network connection corresponding to the open file f. It is the caller's responsibility to close f when finished. Closing c does not affect f, and closing f does not affect c.",
+      "signature": "func FilePacketConn(f *os.File) (c PacketConn, err error)",
+      "params": [
+        {
+          "name": "f",
+          "type": "*os.File"
+        }
+      ],
+      "returns": {
+        "type": "(c PacketConn, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/file.go",
+          "line": 45,
+          "lines": [
+            "func FilePacketConn(f *os.File) (c PacketConn, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4371,
+          "lines": [
+            "pkg net, func FilePacketConn(*os.File) (PacketConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IPv4",
+      "summary": "IPv4 returns the IP address (in 16-byte form) of the IPv4 address a.b.c.d.",
+      "signature": "func IPv4(a, b, c, d byte) IP",
+      "params": [
+        {
+          "name": "a",
+          "type": "byte"
+        },
+        {
+          "name": "b",
+          "type": "byte"
+        },
+        {
+          "name": "c",
+          "type": "byte"
+        },
+        {
+          "name": "d",
+          "type": "byte"
+        }
+      ],
+      "returns": {
+        "type": "IP"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/ip.go",
+          "line": 53,
+          "lines": [
+            "func IPv4(a, b, c, d byte) IP {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4372,
+          "lines": [
+            "pkg net, func IPv4(uint8, uint8, uint8, uint8) IP"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IPv4Mask",
+      "summary": "IPv4Mask returns the IP mask (in 4-byte form) of the IPv4 mask a.b.c.d.",
+      "signature": "func IPv4Mask(a, b, c, d byte) IPMask",
+      "params": [
+        {
+          "name": "a",
+          "type": "byte"
+        },
+        {
+          "name": "b",
+          "type": "byte"
+        },
+        {
+          "name": "c",
+          "type": "byte"
+        },
+        {
+          "name": "d",
+          "type": "byte"
+        }
+      ],
+      "returns": {
+        "type": "IPMask"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/ip.go",
+          "line": 67,
+          "lines": [
+            "func IPv4Mask(a, b, c, d byte) IPMask {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4373,
+          "lines": [
+            "pkg net, func IPv4Mask(uint8, uint8, uint8, uint8) IPMask"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "InterfaceAddrs",
+      "summary": "InterfaceAddrs returns a list of the system's unicast interface addresses.",
+      "signature": "func InterfaceAddrs() ([]Addr, error)",
+      "params": [],
+      "returns": {
+        "type": "([]Addr, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/interface.go",
+          "line": 129,
+          "lines": [
+            "func InterfaceAddrs() ([]Addr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4374,
+          "lines": [
+            "pkg net, func InterfaceAddrs() ([]Addr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "InterfaceByIndex",
+      "summary": "InterfaceByIndex returns the interface specified by index.",
+      "signature": "func InterfaceByIndex(index int) (*Interface, error)",
+      "params": [
+        {
+          "name": "index",
+          "type": "int"
+        }
+      ],
+      "returns": {
+        "type": "(*Interface, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/interface.go",
+          "line": 142,
+          "lines": [
+            "func InterfaceByIndex(index int) (*Interface, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4375,
+          "lines": [
+            "pkg net, func InterfaceByIndex(int) (*Interface, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "InterfaceByName",
+      "summary": "InterfaceByName returns the interface specified by name.",
+      "signature": "func InterfaceByName(name string) (*Interface, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*Interface, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/interface.go",
+          "line": 167,
+          "lines": [
+            "func InterfaceByName(name string) (*Interface, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4376,
+          "lines": [
+            "pkg net, func InterfaceByName(string) (*Interface, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Interfaces",
+      "summary": "Interfaces returns a list of the system's network interfaces.",
+      "signature": "func Interfaces() ([]Interface, error)",
+      "params": [],
+      "returns": {
+        "type": "([]Interface, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/interface.go",
+          "line": 113,
+          "lines": [
+            "func Interfaces() ([]Interface, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4377,
+          "lines": [
+            "pkg net, func Interfaces() ([]Interface, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "JoinHostPort",
+      "summary": "JoinHostPort combines host and port into a network address of the form \"host:port\". If host contains a colon, as found in literal IPv6 addresses, then JoinHostPort returns \"[host]:port\".",
+      "signature": "func JoinHostPort(host, port string) string",
+      "params": [
+        {
+          "name": "host",
+          "type": "string"
+        },
+        {
+          "name": "port",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/ipsock.go",
+          "line": 236,
+          "lines": [
+            "func JoinHostPort(host, port string) string {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4378,
+          "lines": [
+            "pkg net, func JoinHostPort(string, string) string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Listen",
+      "summary": "Listen announces on the local network address.",
+      "signature": "func Listen(network, address string) (Listener, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(Listener, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/dial.go",
+          "line": 896,
+          "lines": [
+            "func Listen(network, address string) (Listener, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4379,
+          "lines": [
+            "pkg net, func Listen(string, string) (Listener, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenIP",
+      "summary": "ListenIP acts like [ListenPacket] for IP networks.",
+      "signature": "func ListenIP(network string, laddr *IPAddr) (*IPConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*IPAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*IPConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/iprawsock.go",
+          "line": 227,
+          "lines": [
+            "func ListenIP(network string, laddr *IPAddr) (*IPConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4380,
+          "lines": [
+            "pkg net, func ListenIP(string, *IPAddr) (*IPConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenMulticastUDP",
+      "summary": "ListenMulticastUDP acts like [ListenPacket] for UDP networks but takes a group address on a specific network interface.",
+      "signature": "func ListenMulticastUDP(network string, ifi *Interface, gaddr *UDPAddr) (*UDPConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "ifi",
+          "type": "*Interface"
+        },
+        {
+          "name": "gaddr",
+          "type": "*UDPAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*UDPConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/udpsock.go",
+          "line": 350,
+          "lines": [
+            "func ListenMulticastUDP(network string, ifi *Interface, gaddr *UDPAddr) (*UDPConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4381,
+          "lines": [
+            "pkg net, func ListenMulticastUDP(string, *Interface, *UDPAddr) (*UDPConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenPacket",
+      "summary": "ListenPacket announces on the local network address.",
+      "signature": "func ListenPacket(network, address string) (PacketConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(PacketConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/dial.go",
+          "line": 926,
+          "lines": [
+            "func ListenPacket(network, address string) (PacketConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4382,
+          "lines": [
+            "pkg net, func ListenPacket(string, string) (PacketConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenTCP",
+      "summary": "ListenTCP acts like [Listen] for TCP networks.",
+      "signature": "func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*TCPAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*TCPListener, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/tcpsock.go",
+          "line": 443,
+          "lines": [
+            "func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4383,
+          "lines": [
+            "pkg net, func ListenTCP(string, *TCPAddr) (*TCPListener, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenUDP",
+      "summary": "ListenUDP acts like [ListenPacket] for UDP networks.",
+      "signature": "func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*UDPAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*UDPConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/udpsock.go",
+          "line": 313,
+          "lines": [
+            "func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4384,
+          "lines": [
+            "pkg net, func ListenUDP(string, *UDPAddr) (*UDPConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenUnix",
+      "summary": "ListenUnix acts like [Listen] for Unix networks.",
+      "signature": "func ListenUnix(network string, laddr *UnixAddr) (*UnixListener, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*UnixAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*UnixListener, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/unixsock.go",
+          "line": 317,
+          "lines": [
+            "func ListenUnix(network string, laddr *UnixAddr) (*UnixListener, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4385,
+          "lines": [
+            "pkg net, func ListenUnix(string, *UnixAddr) (*UnixListener, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ListenUnixgram",
+      "summary": "ListenUnixgram acts like [ListenPacket] for Unix networks.",
+      "signature": "func ListenUnixgram(network string, laddr *UnixAddr) (*UnixConn, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "laddr",
+          "type": "*UnixAddr"
+        }
+      ],
+      "returns": {
+        "type": "(*UnixConn, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/unixsock.go",
+          "line": 337,
+          "lines": [
+            "func ListenUnixgram(network string, laddr *UnixAddr) (*UnixConn, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4386,
+          "lines": [
+            "pkg net, func ListenUnixgram(string, *UnixAddr) (*UDPConn, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupAddr",
+      "summary": "LookupAddr performs a reverse lookup for the given address, returning a list of names mapping to that address.",
+      "signature": "func LookupAddr(addr string) (names []string, err error)",
+      "params": [
+        {
+          "name": "addr",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(names []string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 652,
+          "lines": [
+            "func LookupAddr(addr string) (names []string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4387,
+          "lines": [
+            "pkg net, func LookupAddr(string) ([]string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupCNAME",
+      "summary": "LookupCNAME returns the canonical name for the given host. Callers that do not care about the canonical name can call [LookupHost] or [LookupIP] directly; both take care of resolving the canonical name as part of the lookup.",
+      "signature": "func LookupCNAME(host string) (cname string, err error)",
+      "params": [
+        {
+          "name": "host",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(cname string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 452,
+          "lines": [
+            "func LookupCNAME(host string) (cname string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4388,
+          "lines": [
+            "pkg net, func LookupCNAME(string) (string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupHost",
+      "summary": "LookupHost looks up the given host using the local resolver. It returns a slice of that host's addresses.",
+      "signature": "func LookupHost(host string) (addrs []string, err error)",
+      "params": [
+        {
+          "name": "host",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(addrs []string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 187,
+          "lines": [
+            "func LookupHost(host string) (addrs []string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4389,
+          "lines": [
+            "pkg net, func LookupHost(string) ([]string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupIP",
+      "summary": "LookupIP looks up host using the local resolver. It returns a slice of that host's IPv4 and IPv6 addresses.",
+      "signature": "func LookupIP(host string) ([]IP, error)",
+      "params": [
+        {
+          "name": "host",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]IP, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 206,
+          "lines": [
+            "func LookupIP(host string) ([]IP, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4390,
+          "lines": [
+            "pkg net, func LookupIP(string) ([]IP, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupMX",
+      "summary": "LookupMX returns the DNS MX records for the given domain name sorted by preference.",
+      "signature": "func LookupMX(name string) ([]*MX, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]*MX, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 545,
+          "lines": [
+            "func LookupMX(name string) ([]*MX, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4391,
+          "lines": [
+            "pkg net, func LookupMX(string) ([]*MX, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupNS",
+      "summary": "LookupNS returns the DNS NS records for the given domain name.",
+      "signature": "func LookupNS(name string) ([]*NS, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]*NS, error)"
+      },
+      "versions": [
+        "Go 1.1"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 590,
+          "lines": [
+            "func LookupNS(name string) ([]*NS, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.1.txt",
+          "line": 2029,
+          "lines": [
+            "pkg net, func LookupNS(string) ([]*NS, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupPort",
+      "summary": "LookupPort looks up the port for the given network and service.",
+      "signature": "func LookupPort(network, service string) (port int, err error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "service",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(port int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 408,
+          "lines": [
+            "func LookupPort(network, service string) (port int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4392,
+          "lines": [
+            "pkg net, func LookupPort(string, string) (int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupSRV",
+      "summary": "LookupSRV tries to resolve an [SRV] query of the given service, protocol, and domain name. The proto is \"tcp\" or \"udp\". The returned records are sorted by priority and randomized by weight within a priority.",
+      "signature": "func LookupSRV(service, proto, name string) (cname string, addrs []*SRV, err error)",
+      "params": [
+        {
+          "name": "service",
+          "type": "string"
+        },
+        {
+          "name": "proto",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(cname string, addrs []*SRV, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 494,
+          "lines": [
+            "func LookupSRV(service, proto, name string) (cname string, addrs []*SRV, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4393,
+          "lines": [
+            "pkg net, func LookupSRV(string, string, string) (string, []*SRV, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LookupTXT",
+      "summary": "LookupTXT returns the DNS TXT records for the given domain name.",
+      "signature": "func LookupTXT(name string) ([]string, error)",
+      "params": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "([]string, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/lookup.go",
+          "line": 628,
+          "lines": [
+            "func LookupTXT(name string) ([]string, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4394,
+          "lines": [
+            "pkg net, func LookupTXT(string) ([]string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseCIDR",
+      "summary": "ParseCIDR parses s as a CIDR notation IP address and prefix length, like \"192.0.2.0/24\" or \"2001:db8::/32\", as defined in RFC 4632 and RFC 4291.",
+      "signature": "func ParseCIDR(s string) (IP, *IPNet, error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(IP, *IPNet, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/ip.go",
+          "line": 550,
+          "lines": [
+            "func ParseCIDR(s string) (IP, *IPNet, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4395,
+          "lines": [
+            "pkg net, func ParseCIDR(string) (IP, *IPNet, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseIP",
+      "summary": "ParseIP parses s as an IP address, returning the result. The string s can be in IPv4 dotted decimal (\"192.0.2.1\"), IPv6 (\"2001:db8::68\"), or IPv4-mapped IPv6 (\"::ffff:192.0.2.1\") form. If s is not a valid textual representation of an IP address, ParseIP returns nil. The returned address is always 16 bytes, IPv4 addresses are returned in IPv4-mapped IPv6 form.",
+      "signature": "func ParseIP(s string) IP",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "IP"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/ip.go",
+          "line": 527,
+          "lines": [
+            "func ParseIP(s string) IP {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4396,
+          "lines": [
+            "pkg net, func ParseIP(string) IP"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseMAC",
+      "summary": "ParseMAC parses s as an IEEE 802 MAC-48, EUI-48, EUI-64, or a 20-octet IP over InfiniBand link-layer address using one of the following formats:",
+      "signature": "func ParseMAC(s string) (hw HardwareAddr, err error)",
+      "params": [
+        {
+          "name": "s",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(hw HardwareAddr, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/mac.go",
+          "line": 39,
+          "lines": [
+            "func ParseMAC(s string) (hw HardwareAddr, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4397,
+          "lines": [
+            "pkg net, func ParseMAC(string) (HardwareAddr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pipe",
+      "summary": "Pipe creates a synchronous, in-memory, full duplex network connection; both ends implement the [Conn] interface. Reads on one end are matched with writes on the other, copying data directly between the two; there is no internal buffering.",
+      "signature": "func Pipe() (Conn, Conn)",
+      "params": [],
+      "returns": {
+        "type": "(Conn, Conn)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/pipe.go",
+          "line": 113,
+          "lines": [
+            "func Pipe() (Conn, Conn) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4398,
+          "lines": [
+            "pkg net, func Pipe() (Conn, Conn)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ResolveIPAddr",
+      "summary": "ResolveIPAddr returns an address of IP end point.",
+      "signature": "func ResolveIPAddr(network, address string) (*IPAddr, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*IPAddr, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/iprawsock.go",
+          "line": 74,
+          "lines": [
+            "func ResolveIPAddr(network, address string) (*IPAddr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4399,
+          "lines": [
+            "pkg net, func ResolveIPAddr(string, string) (*IPAddr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ResolveTCPAddr",
+      "summary": "ResolveTCPAddr returns an address of TCP end point.",
+      "signature": "func ResolveTCPAddr(network, address string) (*TCPAddr, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*TCPAddr, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/tcpsock.go",
+          "line": 84,
+          "lines": [
+            "func ResolveTCPAddr(network, address string) (*TCPAddr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4400,
+          "lines": [
+            "pkg net, func ResolveTCPAddr(string, string) (*TCPAddr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ResolveUDPAddr",
+      "summary": "ResolveUDPAddr returns an address of UDP end point.",
+      "signature": "func ResolveUDPAddr(network, address string) (*UDPAddr, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*UDPAddr, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/udpsock.go",
+          "line": 84,
+          "lines": [
+            "func ResolveUDPAddr(network, address string) (*UDPAddr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4401,
+          "lines": [
+            "pkg net, func ResolveUDPAddr(string, string) (*UDPAddr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ResolveUnixAddr",
+      "summary": "ResolveUnixAddr returns an address of Unix domain socket end point.",
+      "signature": "func ResolveUnixAddr(network, address string) (*UnixAddr, error)",
+      "params": [
+        {
+          "name": "network",
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(*UnixAddr, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/unixsock.go",
+          "line": 57,
+          "lines": [
+            "func ResolveUnixAddr(network, address string) (*UnixAddr, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4402,
+          "lines": [
+            "pkg net, func ResolveUnixAddr(string, string) (*UnixAddr, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplitHostPort",
+      "summary": "SplitHostPort splits a network address of the form \"host:port\", \"host%zone:port\", \"[host]:port\" or \"[host%zone]:port\" into host or host%zone and port.",
+      "signature": "func SplitHostPort(hostport string) (host, port string, err error)",
+      "params": [
+        {
+          "name": "hostport",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "(host, port string, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/ipsock.go",
+          "line": 165,
+          "lines": [
+            "func SplitHostPort(hostport string) (host, port string, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 4403,
+          "lines": [
+            "pkg net, func SplitHostPort(string) (string, string, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TCPAddrFromAddrPort",
+      "summary": "TCPAddrFromAddrPort returns addr as a [TCPAddr]. If addr.IsValid() is false, then the returned TCPAddr will contain a nil IP field, indicating an address family-agnostic unspecified address.",
+      "signature": "func TCPAddrFromAddrPort(addr netip.AddrPort) *TCPAddr",
+      "params": [
+        {
+          "name": "addr",
+          "type": "netip.AddrPort"
+        }
+      ],
+      "returns": {
+        "type": "*TCPAddr"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/tcpsock.go",
+          "line": 102,
+          "lines": [
+            "func TCPAddrFromAddrPort(addr netip.AddrPort) *TCPAddr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 79,
+          "lines": [
+            "pkg net, func TCPAddrFromAddrPort(netip.AddrPort) *TCPAddr"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UDPAddrFromAddrPort",
+      "summary": "UDPAddrFromAddrPort returns addr as a [UDPAddr]. If addr.IsValid() is false, then the returned UDPAddr will contain a nil IP field, indicating an address family-agnostic unspecified address.",
+      "signature": "func UDPAddrFromAddrPort(addr netip.AddrPort) *UDPAddr",
+      "params": [
+        {
+          "name": "addr",
+          "type": "netip.AddrPort"
+        }
+      ],
+      "returns": {
+        "type": "*UDPAddr"
+      },
+      "versions": [
+        "Go 1.18"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/net/udpsock.go",
+          "line": 102,
+          "lines": [
+            "func UDPAddrFromAddrPort(addr netip.AddrPort) *UDPAddr {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.18.txt",
+          "line": 80,
+          "lines": [
+            "pkg net, func UDPAddrFromAddrPort(netip.AddrPort) *UDPAddr"
+          ]
+        }
+      ]
+    }
+  ]
+}

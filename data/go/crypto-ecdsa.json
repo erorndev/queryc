@@ -1,0 +1,298 @@
+{
+  "package": "crypto/ecdsa",
+  "functions": [
+    {
+      "name": "GenerateKey",
+      "summary": "GenerateKey generates a new ECDSA private key for the specified curve.",
+      "signature": "func GenerateKey(c elliptic.Curve, rand io.Reader) (*PrivateKey, error)",
+      "params": [
+        {
+          "name": "c",
+          "type": "elliptic.Curve"
+        },
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        }
+      ],
+      "returns": {
+        "type": "(*PrivateKey, error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdsa/ecdsa.go",
+          "line": 337,
+          "lines": [
+            "func GenerateKey(c elliptic.Curve, rand io.Reader) (*PrivateKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 391,
+          "lines": [
+            "pkg crypto/ecdsa, func GenerateKey(elliptic.Curve, io.Reader) (*PrivateKey, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseRawPrivateKey",
+      "summary": "ParseRawPrivateKey parses a private key encoded as a fixed-length big-endian integer, according to SEC 1, Version 2.0, Section 2.3.6 (sometimes referred to as the raw format). It returns an error if the value is not reduced modulo the curve's order, or if it's zero.",
+      "signature": "func ParseRawPrivateKey(curve elliptic.Curve, data []byte) (*PrivateKey, error)",
+      "params": [
+        {
+          "name": "curve",
+          "type": "elliptic.Curve"
+        },
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*PrivateKey, error)"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdsa/ecdsa.go",
+          "line": 249,
+          "lines": [
+            "func ParseRawPrivateKey(curve elliptic.Curve, data []byte) (*PrivateKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 6,
+          "lines": [
+            "pkg crypto/ecdsa, func ParseRawPrivateKey(elliptic.Curve, []uint8) (*PrivateKey, error) #63963"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ParseUncompressedPublicKey",
+      "summary": "ParseUncompressedPublicKey parses a public key encoded as an uncompressed point according to SEC 1, Version 2.0, Section 2.3.3 (also known as the X9.62 uncompressed format). It returns an error if the point is not in uncompressed form, is not on the curve, or is the point at infinity.",
+      "signature": "func ParseUncompressedPublicKey(curve elliptic.Curve, data []byte) (*PublicKey, error)",
+      "params": [
+        {
+          "name": "curve",
+          "type": "elliptic.Curve"
+        },
+        {
+          "name": "data",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(*PublicKey, error)"
+      },
+      "versions": [
+        "Go 1.25"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdsa/ecdsa.go",
+          "line": 108,
+          "lines": [
+            "func ParseUncompressedPublicKey(curve elliptic.Curve, data []byte) (*PublicKey, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.25.txt",
+          "line": 7,
+          "lines": [
+            "pkg crypto/ecdsa, func ParseUncompressedPublicKey(elliptic.Curve, []uint8) (*PublicKey, error) #63963"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sign",
+      "summary": "Sign signs a hash (which should be the result of hashing a larger message) using the private key, priv. If the hash is longer than the bit-length of the private key's curve order, the hash will be truncated to that length. It returns the signature as a pair of integers. Most applications should use [SignASN1] instead of dealing directly with r, s.",
+      "signature": "func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "hash",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "(r, s *big.Int, err error)"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdsa/ecdsa_legacy.go",
+          "line": 64,
+          "lines": [
+            "func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 392,
+          "lines": [
+            "pkg crypto/ecdsa, func Sign(io.Reader, *PrivateKey, []uint8) (*big.Int, *big.Int, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SignASN1",
+      "summary": "SignASN1 signs a hash (which should be the result of hashing a larger message) using the private key, priv. If the hash is longer than the bit-length of the private key's curve order, the hash will be truncated to that length. It returns the ASN.1 encoded signature.",
+      "signature": "func SignASN1(rand io.Reader, priv *PrivateKey, hash []byte) ([]byte, error)",
+      "params": [
+        {
+          "name": "rand",
+          "type": "io.Reader"
+        },
+        {
+          "name": "priv",
+          "type": "*PrivateKey"
+        },
+        {
+          "name": "hash",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "([]byte, error)"
+      },
+      "versions": [
+        "Go 1.15"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdsa/ecdsa.go",
+          "line": 386,
+          "lines": [
+            "func SignASN1(rand io.Reader, priv *PrivateKey, hash []byte) ([]byte, error) {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.15.txt",
+          "line": 3,
+          "lines": [
+            "pkg crypto/ecdsa, func SignASN1(io.Reader, *PrivateKey, []uint8) ([]uint8, error)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Verify",
+      "summary": "Verify verifies the signature in r, s of hash using the public key, pub. Its return value records whether the signature is valid. Most applications should use VerifyASN1 instead of dealing directly with r, s.",
+      "signature": "func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool",
+      "params": [
+        {
+          "name": "pub",
+          "type": "*PublicKey"
+        },
+        {
+          "name": "hash",
+          "type": "[]byte"
+        },
+        {
+          "name": "r",
+          "type": "*big.Int"
+        },
+        {
+          "name": "s",
+          "type": "*big.Int"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdsa/ecdsa_legacy.go",
+          "line": 144,
+          "lines": [
+            "func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.txt",
+          "line": 393,
+          "lines": [
+            "pkg crypto/ecdsa, func Verify(*PublicKey, []uint8, *big.Int, *big.Int) bool"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VerifyASN1",
+      "summary": "VerifyASN1 verifies the ASN.1 encoded signature, sig, of hash using the public key, pub. Its return value records whether the signature is valid.",
+      "signature": "func VerifyASN1(pub *PublicKey, hash, sig []byte) bool",
+      "params": [
+        {
+          "name": "pub",
+          "type": "*PublicKey"
+        },
+        {
+          "name": "hash",
+          "type": "[]byte"
+        },
+        {
+          "name": "sig",
+          "type": "[]byte"
+        }
+      ],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Go 1.15"
+      ],
+      "evidence": [
+        {
+          "source": "go-1.25",
+          "file": "src/crypto/ecdsa/ecdsa.go",
+          "line": 500,
+          "lines": [
+            "func VerifyASN1(pub *PublicKey, hash, sig []byte) bool {"
+          ]
+        },
+        {
+          "source": "go-1.25",
+          "file": "api/go1.15.txt",
+          "line": 4,
+          "lines": [
+            "pkg crypto/ecdsa, func VerifyASN1(*PublicKey, []uint8, []uint8) bool"
+          ]
+        }
+      ]
+    }
+  ]
+}
