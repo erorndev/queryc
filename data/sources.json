@@ -46,5 +46,15 @@
     "version": "14.44.35207",
     "label": "MSVC 14.44.35207 VC runtime",
     "root": "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/include"
+  },
+  "wdk-10.0.26100.0": {
+    "kind": "headers",
+    "compiler": "MSVC",
+    "library": "WDK",
+    "version": "10.0.26100.0",
+    "label": "Windows Driver Kit 10.0.26100.0",
+    "root": "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/km",
+    "includes": [".", "../shared"],
+    "defines": ["_AMD64_"]
   }
 }

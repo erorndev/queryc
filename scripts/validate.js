@@ -153,7 +153,14 @@ function checkExample(at, fn, workDir) {
   if (!compileExamples || !clang) return;
   const path = join(workDir, `${fn.name}.c`);
   writeFileSync(path, fn.example);
-  const result = spawnSync(clang, ['-fsyntax-only', '-std=c23', '-Wno-deprecated-declarations', path], {
+  const extra = [];
+  for (const id of new Set(fn.evidence.map((e) => e.source))) {
+    const source = sources[id];
+    if (source?.kind !== 'headers' || !source.includes) continue;
+    for (const dir of source.includes) extra.push('-I', join(sourceRoot(id, source), dir));
+    for (const define of source.defines || []) extra.push(`-D${define}`);
+  }
+  const result = spawnSync(clang, ['-fsyntax-only', '-std=c23', '-w', ...extra, path], {
     encoding: 'utf8',
   });
   compiledExamples += 1;

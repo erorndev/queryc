@@ -4,3 +4,4 @@ dist/
 sources/standards/*.pdf
 .claude/
 sources/standards/*.txt
+sources/wdk-docs/
