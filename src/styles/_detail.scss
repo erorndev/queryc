@@ -101,7 +101,6 @@
 }
 
 .code-block {
-  position: relative;
   border: 1px solid $color-border;
   border-radius: $radius;
   background: $color-bg-alt;
@@ -113,16 +112,23 @@
     font-size: 13px;
     line-height: 20px;
   }
+}
 
-  .copy-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-bottom: 1px solid $color-border;
+}
+
+.code-lang {
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-muted;
 }
 
 .code-block-signature pre {
-  padding-right: 130px;
   white-space: pre-wrap;
   font-size: 14px;
 }
@@ -225,10 +231,30 @@
       border: 0;
     }
   }
+}
 
-  .code-block-signature pre {
-    padding-right: 16px;
-    padding-top: 40px;
+.header-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: $color-bg-alt;
+  font-size: 14px;
+
+  span {
+    font-size: 12px;
+    color: $color-muted;
   }
 }
 
@@ -280,4 +306,10 @@
   margin: 2px 0 0;
   font-size: 12px;
   color: $color-muted;
+}
+
+.docs-credit {
+  margin-top: 16px;
+  color: $color-muted;
+  font-size: 14px;
 }

@@ -15,6 +15,7 @@ export function parseRoute(url = new URL(window.location.href)) {
   };
 
   if (parts.length === 0) return search;
+  if (parts.length === 1 && parts[0] === 'headers') return { view: 'headers' };
   if (parts.length === 1 && headers.includes(parts[0])) return { ...search, q: parts[0], redirect: true };
   if (parts.length === 2) return { view: 'function', header: parts[0], name: parts[1] };
   return { view: 'missing', path: pathname };

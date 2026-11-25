@@ -2,8 +2,8 @@ import { withBase } from './base.js';
 import '@fontsource-variable/geist-mono';
 import './styles/main.scss';
 import { initResults } from './results.js';
-import { findFunction, functions, headers } from './data.js';
-import { bindCopyButtons, renderDetail, renderMissing } from './detail.js';
+import { findFunction, functions, headers, loadFunction } from './data.js';
+import { bindCopyButtons, renderDetail, renderHeaders, renderMissing } from './detail.js';
 import { navigate, onRoute, startRouter } from './router.js';
 
 document.getElementById('coverage').textContent = `${functions.length} functions across ${headers.length} headers`;
@@ -137,14 +137,31 @@ function showSearch(route) {
   input.focus();
 }
 
-function showDetail(route) {
+let detailRequest = 0;
+
+async function showDetail(route) {
+  detailRequest += 1;
+  const request = detailRequest;
   lastSearchUrl = finder.hidden ? lastSearchUrl : results.url();
   results.hide();
   finder.hidden = true;
   detail.hidden = false;
-  const fn = findFunction(route.header, route.name);
+  const found = findFunction(route.header, route.name);
+  const fn = found ? await loadFunction(found) : null;
+  if (request !== detailRequest || detail.hidden) return;
   detail.innerHTML = fn ? renderDetail(fn, lastSearchUrl) : renderMissing(route);
   document.title = fn ? `${fn.name} in <${fn.header}> | ${baseTitle}` : `Function Not Found | ${baseTitle}`;
+  window.scrollTo(0, 0);
+  detail.querySelector('h1')?.focus({ preventScroll: true });
+}
+
+function showHeaders() {
+  lastSearchUrl = finder.hidden ? lastSearchUrl : results.url();
+  results.hide();
+  finder.hidden = true;
+  detail.hidden = false;
+  detail.innerHTML = renderHeaders(headers, functions);
+  document.title = `Headers | ${baseTitle}`;
   window.scrollTo(0, 0);
   detail.querySelector('h1')?.focus({ preventScroll: true });
 }
@@ -155,6 +172,7 @@ onRoute((route) => {
     return;
   }
   if (route.view === 'search') showSearch(route);
+  else if (route.view === 'headers') showHeaders();
   else if (route.view === 'function') showDetail(route);
   else showDetail({ path: route.path });
 });

@@ -26,6 +26,7 @@ body {
 
 .site-nav {
   display: flex;
+  align-items: center;
   gap: 20px;
 
   a {
@@ -91,10 +92,6 @@ body {
   .theme-icon-sun {
     display: block;
   }
-}
-
-.site-nav {
-  align-items: center;
 }
 
 .site-main {

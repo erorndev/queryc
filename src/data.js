@@ -1,7 +1,8 @@
 import { withBase } from './base.js';
 import sourceRegistry from '../data/sources.json';
+import files from 'virtual:queryc-index';
 
-const files = import.meta.glob('../data/functions/*.json', { eager: true, import: 'default' });
+const fullFiles = import.meta.glob('../data/functions/*.json', { import: 'default' });
 
 export const STANDARDS = ['C89', 'C95', 'C99', 'C11', 'C17', 'C23'];
 export const sources = sourceRegistry;
@@ -13,10 +14,10 @@ const availableStandards = new Set(
 );
 
 function compilersFor(fn) {
-  const labels = fn.evidence
-    .map((e) => sources[e.source])
+  const labels = fn.sources
+    .map((id) => sources[id])
     .filter((s) => s && s.kind === 'headers')
-    .map((s) => s.compiler);
+    .map((s) => (s.library === 'WDK' ? 'WDK' : s.compiler));
   return [...new Set(labels)];
 }
 
@@ -40,7 +41,7 @@ function advisory(fn) {
   return { level, removedIn: removed, warnings };
 }
 
-export const functions = Object.values(files)
+export const functions = files
   .flatMap((file) =>
     file.functions.map((fn) => ({
       ...fn,
@@ -67,4 +68,10 @@ export function findByName(name) {
 
 export function findFunction(header, name) {
   return functions.find((f) => f.header === header && f.name === name) || null;
+}
+
+export async function loadFunction(fn) {
+  const file = await fullFiles[`../data/functions/${fn.header}.json`]();
+  const full = file.functions.find((f) => f.name === fn.name);
+  return { ...fn, ...full };
 }

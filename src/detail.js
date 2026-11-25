@@ -1,3 +1,4 @@
+import hljs from './highlight.js';
 import { STANDARDS, findByName, sources } from './data.js';
 import { escapeHtml } from './html.js';
 import { withBase } from './base.js';
@@ -7,10 +8,14 @@ function copyButton(label, text) {
 }
 
 function codeBlock(code, label, extraClass = '') {
+  const highlighted = hljs.highlight(code, { language: 'c' }).value;
   return `
     <div class="code-block ${extraClass}">
-      <pre><code>${escapeHtml(code)}</code></pre>
-      ${copyButton(label, code)}
+      <div class="code-header">
+        <span class="code-lang">C</span>
+        ${copyButton(label, code)}
+      </div>
+      <pre><code class="hljs language-c">${highlighted}</code></pre>
     </div>`;
 }
 
@@ -58,7 +63,7 @@ function renderEvidence(evidence) {
         <span class="evidence-source">${label}</span>
         <span class="evidence-location">${location}</span>
       </div>
-      <pre class="evidence-code"><code>${escapeHtml(evidence.lines.join('\n'))}</code></pre>
+      <pre class="evidence-code"><code class="hljs language-c">${hljs.highlight(evidence.lines.join('\n'), { language: 'c' }).value}</code></pre>
     </li>`;
 }
 
@@ -154,6 +159,35 @@ export function renderDetail(fn, backUrl) {
 
       <h2 class="detail-heading">Sources</h2>
       <ul class="evidence-list">${evidence.map(renderEvidence).join('')}</ul>
+      ${fn.docs ? `<p class="docs-credit">Text from <a href="https://learn.microsoft.com/windows-hardware/drivers/ddi/${escapeHtml(fn.docs.replace(/\.md$/, ''))}">Microsoft's driver docs</a>, shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>` : ''}
+    </div>`;
+}
+
+const WDK_HEADERS = new Set(['wdm.h', 'ntddk.h']);
+
+export function renderHeaders(headers, functions) {
+  const counts = new Map();
+  for (const fn of functions) counts.set(fn.header, (counts.get(fn.header) || 0) + 1);
+  const renderList = (list) =>
+    list
+      .map((h) => {
+        const count = counts.get(h) || 0;
+        const href = withBase(`?q=${encodeURIComponent(h)}`);
+        return `<li class="header-item"><a href="${escapeHtml(href)}"><code>&lt;${escapeHtml(h)}&gt;</code></a><span>${count} ${count === 1 ? 'function' : 'functions'}</span></li>`;
+      })
+      .join('');
+  const stdHeaders = headers.filter((h) => !WDK_HEADERS.has(h));
+  const wdkHeaders = headers.filter((h) => WDK_HEADERS.has(h));
+  return `
+    <div class="container">
+      <div class="detail-top">
+        <a class="detail-back" href="${escapeHtml(withBase(''))}">← Back to Search</a>
+      </div>
+      <h1 class="detail-name" tabindex="-1">Headers</h1>
+      <p class="detail-summary">${functions.length} functions across ${headers.length} headers.</p>
+      <h2 class="detail-heading">C Standard Library</h2>
+      <ul class="header-list">${renderList(stdHeaders)}</ul>
+      ${wdkHeaders.length ? `<h2 class="detail-heading">Windows Driver Kit (WDK)</h2><ul class="header-list">${renderList(wdkHeaders)}</ul>` : ''}
     </div>`;
 }
 

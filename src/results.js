@@ -1,3 +1,4 @@
+import hljs from './highlight.js';
 import { compilerOptions, headers, standardOptions } from './data.js';
 import { search } from './search.js';
 import { navigate, replaceUrl, searchUrl } from './router.js';
@@ -25,7 +26,7 @@ function renderResult({ fn, match }, index) {
       <a class="result${level === 'avoid' ? ' is-discouraged' : ''}" href="${escapeHtml(fn.path)}" data-state='{"fromSearch":true}' tabindex="-1">
         <span class="result-name">${highlight(fn.name, match.ranges)}</span>
         <span class="result-header">${escapeHtml(fn.header)}</span>
-        <code class="result-signature">${escapeHtml(fn.signature)}</code>
+        <code class="result-signature hljs language-c">${hljs.highlight(fn.signature, { language: 'c' }).value}</code>
         <span class="result-summary">${escapeHtml(fn.summary)}</span>
         <span class="result-tags">${caution}${standards}${compilers}</span>
       </a>
