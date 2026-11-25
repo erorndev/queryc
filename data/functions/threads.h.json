@@ -1,0 +1,1295 @@
+{
+  "header": "threads.h",
+  "functions": [
+    {
+      "name": "call_once",
+      "summary": "Uses the once_flag pointed to by flag to ensure func is called exactly once on the first call with that flag, synchronizing with subsequent calls.",
+      "signature": "void call_once(once_flag *flag, void (*func)(void));",
+      "params": [
+        {
+          "name": "flag",
+          "type": "once_flag *",
+          "description": "Pointer to the once_flag object."
+        },
+        {
+          "name": "func",
+          "type": "void (*)(void)",
+          "description": "Function to invoke once."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdio.h>\n#include <threads.h>\n\nstatic once_flag flag = ONCE_FLAG_INIT;\n\nstatic void init(void) {\n    puts(\"initialized\");\n}\n\nint main(void) {\n    call_once(&flag, init);\n    call_once(&flag, init);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.2.1 The call_once function",
+          "line": 20567,
+          "lines": [
+            "void call_once(once_flag *flag, void (*func)(void));"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.2.1 The call_once function",
+          "line": 26674,
+          "lines": [
+            "void call_once(once_flag *flag, void (*func)(void));"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 140,
+          "lines": [
+            "void __cdecl call_once(once_flag* _Flag, void(*_Func)(void));"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cnd_broadcast",
+      "summary": "Unblocks all threads currently blocked on the condition variable pointed to by cond, or does nothing if none are blocked.",
+      "signature": "int cnd_broadcast(cnd_t *cond);",
+      "params": [
+        {
+          "name": "cond",
+          "type": "cnd_t *",
+          "description": "Pointer to the condition variable."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    cnd_t cond;\n    if (cnd_init(&cond) == thrd_success) {\n        cnd_broadcast(&cond);\n        cnd_destroy(&cond);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.3.1 The cnd_broadcast function",
+          "line": 20588,
+          "lines": [
+            "int cnd_broadcast(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.3.1 The cnd_broadcast function",
+          "line": 26694,
+          "lines": [
+            "int cnd_broadcast(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 63,
+          "lines": [
+            "int __cdecl cnd_broadcast(cnd_t* _Cond);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cnd_destroy",
+      "summary": "Releases all resources used by the condition variable pointed to by cond; no threads may be blocked waiting on it.",
+      "signature": "void cnd_destroy(cnd_t *cond);",
+      "params": [
+        {
+          "name": "cond",
+          "type": "cnd_t *",
+          "description": "Pointer to the condition variable to destroy."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    cnd_t cond;\n    if (cnd_init(&cond) == thrd_success) {\n        cnd_destroy(&cond);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.3.2 The cnd_destroy function",
+          "line": 20608,
+          "lines": [
+            "void cnd_destroy(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.3.2 The cnd_destroy function",
+          "line": 26716,
+          "lines": [
+            "void cnd_destroy(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 64,
+          "lines": [
+            "void __cdecl cnd_destroy(cnd_t* _Cond);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cnd_init",
+      "summary": "Creates a condition variable and stores its identifier in the object pointed to by cond.",
+      "signature": "int cnd_init(cnd_t *cond);",
+      "params": [
+        {
+          "name": "cond",
+          "type": "cnd_t *",
+          "description": "Pointer to the condition variable to initialize."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, thrd_nomem if memory could not be allocated, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    cnd_t cond;\n    if (cnd_init(&cond) == thrd_success) {\n        cnd_destroy(&cond);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.3.3 The cnd_init function",
+          "line": 20629,
+          "lines": [
+            "int cnd_init(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.3.3 The cnd_init function",
+          "line": 26732,
+          "lines": [
+            "int cnd_init(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 65,
+          "lines": [
+            "int __cdecl cnd_init(_Out_ cnd_t* _Cond);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cnd_signal",
+      "summary": "Unblocks one thread currently blocked on the condition variable pointed to by cond, or does nothing if none are blocked.",
+      "signature": "int cnd_signal(cnd_t *cond);",
+      "params": [
+        {
+          "name": "cond",
+          "type": "cnd_t *",
+          "description": "Pointer to the condition variable."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    cnd_t cond;\n    if (cnd_init(&cond) == thrd_success) {\n        cnd_signal(&cond);\n        cnd_destroy(&cond);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.3.4 The cnd_signal function",
+          "line": 20650,
+          "lines": [
+            "int cnd_signal(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.3.4 The cnd_signal function",
+          "line": 26750,
+          "lines": [
+            "int cnd_signal(cnd_t *cond);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 66,
+          "lines": [
+            "int __cdecl cnd_signal(cnd_t* _Cond);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cnd_timedwait",
+      "summary": "Atomically unlocks mtx and blocks on cond until signaled, broadcast, unblocked, or until after the TIME_UTC calendar time ts, then re-locks mtx before returning.",
+      "signature": "int cnd_timedwait(cnd_t * restrict cond, mtx_t * restrict mtx, const struct timespec * restrict ts);",
+      "params": [
+        {
+          "name": "cond",
+          "type": "cnd_t * restrict",
+          "description": "Pointer to the condition variable."
+        },
+        {
+          "name": "mtx",
+          "type": "mtx_t * restrict",
+          "description": "Pointer to the locked mutex."
+        },
+        {
+          "name": "ts",
+          "type": "const struct timespec * restrict",
+          "description": "Pointer to the TIME_UTC deadline."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, thrd_timedout if the specified time was reached, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n#include <time.h>\n\nint main(void) {\n    mtx_t mtx;\n    cnd_t cond;\n    struct timespec ts;\n    timespec_get(&ts, TIME_UTC);\n    mtx_init(&mtx, mtx_plain);\n    cnd_init(&cond);\n    mtx_lock(&mtx);\n    cnd_timedwait(&cond, &mtx, &ts);\n    mtx_unlock(&mtx);\n    cnd_destroy(&cond);\n    mtx_destroy(&mtx);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.3.5 The cnd_timedwait function",
+          "line": 20670,
+          "lines": [
+            "int cnd_timedwait(cnd_t *restrict cond,",
+            "mtx_t *restrict mtx,",
+            "const struct timespec *restrict ts);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.3.5 The cnd_timedwait function",
+          "line": 26768,
+          "lines": [
+            "int cnd_timedwait(cnd_t * restrict cond, mtx_t * restrict mtx,",
+            "const struct timespec * restrict ts);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 76,
+          "lines": [
+            "static inline int __cdecl cnd_timedwait(cnd_t* _Cond, mtx_t* _Mtx, const struct timespec* _Ts) {",
+            "return _cnd_timedwait64(_Cond, _Mtx, (struct _timespec64*) _Ts);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cnd_wait",
+      "summary": "Atomically unlocks the locked mutex mtx and blocks on cond until signaled, broadcast, or unblocked, then re-locks mtx before returning.",
+      "signature": "int cnd_wait(cnd_t *cond, mtx_t *mtx);",
+      "params": [
+        {
+          "name": "cond",
+          "type": "cnd_t *",
+          "description": "Pointer to the condition variable."
+        },
+        {
+          "name": "mtx",
+          "type": "mtx_t *",
+          "description": "Pointer to the locked mutex."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nstatic mtx_t mtx;\nstatic cnd_t cond;\nstatic int ready = 0;\n\nstatic int worker(void *arg) {\n    (void)arg;\n    mtx_lock(&mtx);\n    ready = 1;\n    cnd_signal(&cond);\n    mtx_unlock(&mtx);\n    return 0;\n}\n\nint main(void) {\n    thrd_t thr;\n    mtx_init(&mtx, mtx_plain);\n    cnd_init(&cond);\n    thrd_create(&thr, worker, NULL);\n    mtx_lock(&mtx);\n    while (!ready) {\n        cnd_wait(&cond, &mtx);\n    }\n    mtx_unlock(&mtx);\n    thrd_join(thr, NULL);\n    cnd_destroy(&cond);\n    mtx_destroy(&mtx);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.3.6 The cnd_wait function",
+          "line": 20700,
+          "lines": [
+            "int cnd_wait(cnd_t *cond, mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.3.6 The cnd_wait function",
+          "line": 26799,
+          "lines": [
+            "int cnd_wait(cnd_t *cond, mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 81,
+          "lines": [
+            "int cnd_wait(cnd_t* _Cond, mtx_t* _Mtx);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mtx_destroy",
+      "summary": "Releases any resources used by the mutex pointed to by mtx; no threads may be blocked waiting on it.",
+      "signature": "void mtx_destroy(mtx_t *mtx);",
+      "params": [
+        {
+          "name": "mtx",
+          "type": "mtx_t *",
+          "description": "Pointer to the mutex to destroy."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    mtx_t mtx;\n    if (mtx_init(&mtx, mtx_plain) == thrd_success) {\n        mtx_destroy(&mtx);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.4.1 The mtx_destroy function",
+          "line": 20723,
+          "lines": [
+            "void mtx_destroy(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.4.1 The mtx_destroy function",
+          "line": 26829,
+          "lines": [
+            "void mtx_destroy(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 34,
+          "lines": [
+            "void __cdecl mtx_destroy(mtx_t* _Mtx);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mtx_init",
+      "summary": "Creates a mutex object at mtx with properties indicated by type (mtx_plain, mtx_timed, or combined with mtx_recursive).",
+      "signature": "int mtx_init(mtx_t *mtx, int type);",
+      "params": [
+        {
+          "name": "mtx",
+          "type": "mtx_t *",
+          "description": "Pointer to the mutex to initialize."
+        },
+        {
+          "name": "type",
+          "type": "int",
+          "description": "Mutex type flags."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    mtx_t mtx;\n    if (mtx_init(&mtx, mtx_plain) == thrd_success) {\n        mtx_destroy(&mtx);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.4.2 The mtx_init function",
+          "line": 20743,
+          "lines": [
+            "int mtx_init(mtx_t *mtx, int type);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.4.2 The mtx_init function",
+          "line": 26844,
+          "lines": [
+            "int mtx_init(mtx_t *mtx, int type);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 35,
+          "lines": [
+            "int __cdecl mtx_init(_Out_ mtx_t* _Mtx, int _Type);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mtx_lock",
+      "summary": "Blocks until the mutex pointed to by mtx is locked; prior mtx_unlock calls on the same mutex synchronize with this operation.",
+      "signature": "int mtx_lock(mtx_t *mtx);",
+      "params": [
+        {
+          "name": "mtx",
+          "type": "mtx_t *",
+          "description": "Pointer to the mutex to lock."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    mtx_t mtx;\n    mtx_init(&mtx, mtx_plain);\n    mtx_lock(&mtx);\n    mtx_unlock(&mtx);\n    mtx_destroy(&mtx);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.4.3 The mtx_lock function",
+          "line": 20773,
+          "lines": [
+            "int mtx_lock(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.4.3 The mtx_lock function",
+          "line": 26873,
+          "lines": [
+            "int mtx_lock(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 36,
+          "lines": [
+            "_Acquires_lock_(*_Mtx) int __cdecl mtx_lock(mtx_t* _Mtx);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mtx_timedlock",
+      "summary": "Attempts to lock the timeout-capable mutex mtx, blocking until locked or until after the TIME_UTC calendar time ts.",
+      "signature": "int mtx_timedlock(mtx_t * restrict mtx, const struct timespec * restrict ts);",
+      "params": [
+        {
+          "name": "mtx",
+          "type": "mtx_t * restrict",
+          "description": "Pointer to the mutex to lock."
+        },
+        {
+          "name": "ts",
+          "type": "const struct timespec * restrict",
+          "description": "Pointer to the TIME_UTC deadline."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, thrd_timedout if the specified time was reached, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n#include <time.h>\n\nint main(void) {\n    mtx_t mtx;\n    struct timespec ts;\n    timespec_get(&ts, TIME_UTC);\n    mtx_init(&mtx, mtx_timed);\n    if (mtx_timedlock(&mtx, &ts) == thrd_success) {\n        mtx_unlock(&mtx);\n    }\n    mtx_destroy(&mtx);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.4.4 The mtx_timedlock function",
+          "line": 20792,
+          "lines": [
+            "int mtx_timedlock(mtx_t *restrict mtx,",
+            "const struct timespec *restrict ts);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.4.4 The mtx_timedlock function",
+          "line": 26891,
+          "lines": [
+            "int mtx_timedlock(mtx_t * restrict mtx, const struct timespec * restrict ts);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 49,
+          "lines": [
+            "static inline int __cdecl mtx_timedlock(mtx_t* __restrict _Mtx, const struct timespec* __restrict _Ts) {",
+            "return _mtx_timedlock64(_Mtx, (struct _timespec64*) _Ts);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mtx_trylock",
+      "summary": "Attempts to lock the mutex pointed to by mtx without blocking if it is already locked.",
+      "signature": "int mtx_trylock(mtx_t *mtx);",
+      "params": [
+        {
+          "name": "mtx",
+          "type": "mtx_t *",
+          "description": "Pointer to the mutex to lock."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, thrd_busy if the mutex is already in use (or on spurious failure), or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    mtx_t mtx;\n    mtx_init(&mtx, mtx_plain);\n    if (mtx_trylock(&mtx) == thrd_success) {\n        mtx_unlock(&mtx);\n    }\n    mtx_destroy(&mtx);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.4.5 The mtx_trylock function",
+          "line": 20818,
+          "lines": [
+            "int mtx_trylock(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.4.5 The mtx_trylock function",
+          "line": 26912,
+          "lines": [
+            "int mtx_trylock(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 55,
+          "lines": [
+            "int __cdecl mtx_trylock(mtx_t* _Mtx);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mtx_unlock",
+      "summary": "Unlocks the mutex pointed to by mtx, which must be locked by the calling thread.",
+      "signature": "int mtx_unlock(mtx_t *mtx);",
+      "params": [
+        {
+          "name": "mtx",
+          "type": "mtx_t *",
+          "description": "Pointer to the mutex to unlock."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    mtx_t mtx;\n    mtx_init(&mtx, mtx_plain);\n    mtx_lock(&mtx);\n    mtx_unlock(&mtx);\n    mtx_destroy(&mtx);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.4.6 The mtx_unlock function",
+          "line": 20838,
+          "lines": [
+            "int mtx_unlock(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.4.6 The mtx_unlock function",
+          "line": 26936,
+          "lines": [
+            "int mtx_unlock(mtx_t *mtx);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 57,
+          "lines": [
+            "_Releases_lock_(*_Mtx) int __cdecl mtx_unlock(mtx_t* _Mtx);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_create",
+      "summary": "Creates a new thread executing func(arg) and stores its identifier in *thr; returning from func behaves like calling thrd_exit.",
+      "signature": "int thrd_create(thrd_t *thr, thrd_start_t func, void *arg);",
+      "params": [
+        {
+          "name": "thr",
+          "type": "thrd_t *",
+          "description": "Pointer to receive the new thread identifier."
+        },
+        {
+          "name": "func",
+          "type": "thrd_start_t",
+          "description": "Thread start function."
+        },
+        {
+          "name": "arg",
+          "type": "void *",
+          "description": "Argument passed to func."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, thrd_nomem if memory could not be allocated, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nstatic int run(void *arg) {\n    (void)arg;\n    return 0;\n}\n\nint main(void) {\n    thrd_t thr;\n    if (thrd_create(&thr, run, NULL) == thrd_success) {\n        thrd_join(thr, NULL);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.1 The thrd_create function",
+          "line": 20861,
+          "lines": [
+            "int thrd_create(thrd_t *thr, thrd_start_t func,",
+            "void *arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.1 The thrd_create function",
+          "line": 26955,
+          "lines": [
+            "int thrd_create(thrd_t *thr, thrd_start_t func, void *arg);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 93,
+          "lines": [
+            "_Success_(return == thrd_success) int __cdecl thrd_create(_Out_ thrd_t* _Thr, thrd_start_t _Func, void* _Arg);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_current",
+      "summary": "Identifies the calling thread.",
+      "signature": "thrd_t thrd_current(void);",
+      "params": [],
+      "returns": {
+        "type": "thrd_t",
+        "description": "The identifier of the calling thread."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    thrd_t self = thrd_current();\n    (void)self;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.2 The thrd_current function",
+          "line": 20886,
+          "lines": [
+            "thrd_t thrd_current(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.2 The thrd_current function",
+          "line": 26978,
+          "lines": [
+            "thrd_t thrd_current(void);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 94,
+          "lines": [
+            "thrd_t __cdecl thrd_current(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_detach",
+      "summary": "Tells the operating system to dispose of resources allocated to thr when it terminates; thr must not have been previously detached or joined.",
+      "signature": "int thrd_detach(thrd_t thr);",
+      "params": [
+        {
+          "name": "thr",
+          "type": "thrd_t",
+          "description": "Thread identifier to detach."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nstatic int run(void *arg) {\n    (void)arg;\n    return 0;\n}\n\nint main(void) {\n    thrd_t thr;\n    if (thrd_create(&thr, run, NULL) == thrd_success) {\n        thrd_detach(thr);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.3 The thrd_detach function",
+          "line": 20902,
+          "lines": [
+            "int thrd_detach(thrd_t thr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.3 The thrd_detach function",
+          "line": 26995,
+          "lines": [
+            "int thrd_detach(thrd_t thr);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 95,
+          "lines": [
+            "int __cdecl thrd_detach(thrd_t _Thr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_equal",
+      "summary": "Determines whether thr0 and thr1 refer to the same thread.",
+      "signature": "int thrd_equal(thrd_t thr0, thrd_t thr1);",
+      "params": [
+        {
+          "name": "thr0",
+          "type": "thrd_t",
+          "description": "First thread identifier."
+        },
+        {
+          "name": "thr1",
+          "type": "thrd_t",
+          "description": "Second thread identifier."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero if thr0 and thr1 refer to different threads, or a nonzero value if they refer to the same thread."
+      },
+      "example": "#include <stdio.h>\n#include <threads.h>\n\nint main(void) {\n    thrd_t self = thrd_current();\n    printf(\"%d\\n\", thrd_equal(self, self));\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.4 The thrd_equal function",
+          "line": 20924,
+          "lines": [
+            "int thrd_equal(thrd_t thr0, thrd_t thr1);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.4 The thrd_equal function",
+          "line": 27013,
+          "lines": [
+            "int thrd_equal(thrd_t thr0, thrd_t thr1);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 96,
+          "lines": [
+            "int __cdecl thrd_equal(thrd_t _Thr0, thrd_t _Thr1);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_exit",
+      "summary": "Runs thread-specific storage destructors up to TSS_DTOR_ITERATIONS times, then terminates the calling thread with result code res.",
+      "signature": "[[noreturn]] void thrd_exit(int res);",
+      "params": [
+        {
+          "name": "res",
+          "type": "int",
+          "description": "Thread result code."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <threads.h>\n\nstatic int run(void *arg) {\n    (void)arg;\n    thrd_exit(0);\n}\n\nint main(void) {\n    thrd_t thr;\n    if (thrd_create(&thr, run, NULL) == thrd_success) {\n        thrd_join(thr, NULL);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.5 The thrd_exit function",
+          "line": 20942,
+          "lines": [
+            "_Noreturn void thrd_exit(int res);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.5 The thrd_exit function",
+          "line": 27030,
+          "lines": [
+            "[[noreturn]] void thrd_exit(int res);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 101,
+          "lines": [
+            "_Noreturn void __cdecl thrd_exit(int _Res);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_join",
+      "summary": "Blocks until the thread thr terminates and, if res is not null, stores its result code in *res.",
+      "signature": "int thrd_join(thrd_t thr, int *res);",
+      "params": [
+        {
+          "name": "thr",
+          "type": "thrd_t",
+          "description": "Thread identifier to join."
+        },
+        {
+          "name": "res",
+          "type": "int *",
+          "description": "Optional pointer to store the thread result code."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nstatic int run(void *arg) {\n    (void)arg;\n    return 42;\n}\n\nint main(void) {\n    thrd_t thr;\n    int res = 0;\n    if (thrd_create(&thr, run, NULL) == thrd_success) {\n        thrd_join(thr, &res);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.6 The thrd_join function",
+          "line": 20963,
+          "lines": [
+            "int thrd_join(thrd_t thr, int *res);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.6 The thrd_join function",
+          "line": 27056,
+          "lines": [
+            "int thrd_join(thrd_t thr, int *res);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 104,
+          "lines": [
+            "int __cdecl thrd_join(thrd_t _Thr, int* _Res);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_sleep",
+      "summary": "Suspends the calling thread until duration has elapsed or an unignored signal is received, optionally storing remaining time in remaining.",
+      "signature": "int thrd_sleep(const struct timespec *duration, struct timespec *remaining);",
+      "params": [
+        {
+          "name": "duration",
+          "type": "const struct timespec *",
+          "description": "Pointer to the requested sleep duration."
+        },
+        {
+          "name": "remaining",
+          "type": "struct timespec *",
+          "description": "Optional pointer to store remaining time if interrupted."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero if the requested time elapsed, -1 if interrupted by a signal, or a negative value on failure."
+      },
+      "example": "#include <threads.h>\n#include <time.h>\n\nint main(void) {\n    struct timespec dur = { 0, 1000000 };\n    thrd_sleep(&dur, NULL);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.7 The thrd_sleep function",
+          "line": 20988,
+          "lines": [
+            "int thrd_sleep(const struct timespec *duration,",
+            "struct timespec *remaining);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.7 The thrd_sleep function",
+          "line": 27080,
+          "lines": [
+            "int thrd_sleep(const struct timespec *duration, struct timespec *remaining);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 116,
+          "lines": [
+            "static inline int __cdecl thrd_sleep(const struct timespec* duration, struct timespec* remaining) {",
+            "return _thrd_sleep64((struct _timespec64*) duration, (struct _timespec64*) remaining);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thrd_yield",
+      "summary": "Endeavors to permit other threads to run even if the calling thread would ordinarily continue running.",
+      "signature": "void thrd_yield(void);",
+      "params": [],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    thrd_yield();\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.5.8 The thrd_yield function",
+          "line": 21017,
+          "lines": [
+            "void thrd_yield(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.5.8 The thrd_yield function",
+          "line": 27105,
+          "lines": [
+            "void thrd_yield(void);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 122,
+          "lines": [
+            "void __cdecl thrd_yield(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tss_create",
+      "summary": "Creates a thread-specific storage key with optional destructor dtor, initialized to a null pointer in all existing and future threads.",
+      "signature": "int tss_create(tss_t *key, tss_dtor_t dtor);",
+      "params": [
+        {
+          "name": "key",
+          "type": "tss_t *",
+          "description": "Pointer to receive the new key."
+        },
+        {
+          "name": "dtor",
+          "type": "tss_dtor_t",
+          "description": "Optional destructor function, or NULL."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    tss_t key;\n    if (tss_create(&key, NULL) == thrd_success) {\n        tss_delete(key);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.6.1 The tss_create function",
+          "line": 21039,
+          "lines": [
+            "int tss_create(tss_t *key, tss_dtor_t dtor);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.6.1 The tss_create function",
+          "line": 27122,
+          "lines": [
+            "int tss_create(tss_t *key, tss_dtor_t dtor);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 131,
+          "lines": [
+            "int __cdecl tss_create(tss_t* _Key, tss_dtor_t _Dtor);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tss_delete",
+      "summary": "Releases resources used by the thread-specific storage key without invoking any destructors.",
+      "signature": "void tss_delete(tss_t key);",
+      "params": [
+        {
+          "name": "key",
+          "type": "tss_t",
+          "description": "Thread-specific storage key to delete."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    tss_t key;\n    if (tss_create(&key, NULL) == thrd_success) {\n        tss_delete(key);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.6.2 The tss_delete function",
+          "line": 21059,
+          "lines": [
+            "void tss_delete(tss_t key);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.6.2 The tss_delete function",
+          "line": 27153,
+          "lines": [
+            "void tss_delete(tss_t key);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 132,
+          "lines": [
+            "void __cdecl tss_delete(tss_t _Key);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tss_get",
+      "summary": "Returns the value held in thread-specific storage key for the current thread.",
+      "signature": "void *tss_get(tss_t key);",
+      "params": [
+        {
+          "name": "key",
+          "type": "tss_t",
+          "description": "Thread-specific storage key."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "The value for the current thread if successful, or zero if unsuccessful."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    tss_t key;\n    if (tss_create(&key, NULL) == thrd_success) {\n        void *val = tss_get(key);\n        (void)val;\n        tss_delete(key);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.6.3 The tss_get function",
+          "line": 21076,
+          "lines": [
+            "void *tss_get(tss_t key);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.6.3 The tss_get function",
+          "line": 27174,
+          "lines": [
+            "void *tss_get(tss_t key);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 133,
+          "lines": [
+            "void* __cdecl tss_get(tss_t _Key);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tss_set",
+      "summary": "Sets the value held in thread-specific storage key for the current thread to val without invoking the destructor on the replaced value.",
+      "signature": "int tss_set(tss_t key, void *val);",
+      "params": [
+        {
+          "name": "key",
+          "type": "tss_t",
+          "description": "Thread-specific storage key."
+        },
+        {
+          "name": "val",
+          "type": "void *",
+          "description": "Value to associate with key for the current thread."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "thrd_success on success, or thrd_error if the request could not be honored."
+      },
+      "example": "#include <threads.h>\n\nint main(void) {\n    tss_t key;\n    int x = 1;\n    if (tss_create(&key, NULL) == thrd_success) {\n        tss_set(key, &x);\n        tss_delete(key);\n    }\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.26.6.4 The tss_set function",
+          "line": 21097,
+          "lines": [
+            "int tss_set(tss_t key, void *val);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.28.6.4 The tss_set function",
+          "line": 27190,
+          "lines": [
+            "int tss_set(tss_t key, void *val);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "threads.h",
+          "line": 134,
+          "lines": [
+            "int __cdecl tss_set(tss_t _Key, void* _Val);"
+          ]
+        }
+      ]
+    }
+  ]
+}
