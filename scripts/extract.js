@@ -96,7 +96,7 @@ function parseDraft(id, source) {
     for (let k = s + 1; k < end; k += 1) {
       const raw = lines[k];
       if (!raw.trim()) continue;
-      if (/#\s*(include|define)/.test(raw)) continue;
+      if (/#\s*(include|define|if|ifdef|ifndef|elif|else|endif)\b/.test(raw)) continue;
       if (PAGE_NOISE.test(raw)) {
         current = null;
         continue;
@@ -277,8 +277,9 @@ function joinWrapped(lines) {
 }
 
 function standardWarnings(name) {
+  const errnoClause = `\\bThe functions [\\w, ]*\\b${name}\\b[\\w, ]* (need not|are not required to) affect`;
   const pattern = new RegExp(
-    `\\bThe ${name} function is (obsolescent|deprecated)|\\bThe ${name} function is not required to avoid data races|\\bCalls to the ${name} function .*may introduce data races`,
+    `\\bThe ${name} function is (obsolescent|deprecated)|\\bThe ${name} function is not required to avoid data\\b|\\bCalls to the ${name} function .*may introduce data races|${errnoClause}`,
   );
   const byMessage = new Map();
   for (const [id, source] of Object.entries(sources)) {
@@ -290,13 +291,21 @@ function standardWarnings(name) {
     const index = lines.findIndex((l) => pattern.test(l));
     if (index === -1) continue;
     const cited = [normalize(lines[index])];
-    for (let next = index + 1; !/\.(\d+\))?(\s|$)/.test(cited.at(-1)) && next < index + 4; next += 1) {
+    const start = new RegExp(`\\b(The|Calls to the) ${name} function|${errnoClause}`);
+    const count = new RegExp(errnoClause).test(lines[index]) ? 2 : 1;
+    const fromStart = () => {
+      const joined = joinWrapped(cited);
+      return joined.slice(Math.max(0, joined.search(start)));
+    };
+    const ends = () => (fromStart().match(/\.(?=\d+\)|\s|$)/g) || []).length;
+    for (let next = index + 1; ends() < count && next < index + 4; next += 1) {
       if (lines[next].trim()) cited.push(normalize(lines[next]));
     }
-    const message = joinWrapped(cited)
-      .replace(/^\d+\s+/, '')
-      .match(/^.*?\.(?=\d+\)|\s|$)/)[0];
-    byMessage.set(/data races/.test(message) ? 'race' : message, {
+    const message = fromStart().match(new RegExp(`^(?:.*?\\.(?=\\d+\\)|\\s|$)){${count}}`))[0];
+    let key = message;
+    if (/data races/.test(message)) key = 'race';
+    if (count === 2) key = 'errno';
+    byMessage.set(key, {
       by: 'standard',
       message,
       source: id,

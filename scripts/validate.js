@@ -183,7 +183,12 @@ function validateFunction(at, fn, header, sources, workDir) {
       error(at, `param "${param.name}" isn't in the signature`);
     }
   }
-  if (fn.returns && !normalize(fn.signature).startsWith(normalize(fn.returns.type))) {
+  if (
+    fn.returns &&
+    !normalize(fn.signature)
+      .replace(/^(\[\[[^\]]*\]\]\s*)+/, '')
+      .startsWith(normalize(fn.returns.type))
+  ) {
     error(at, `signature doesn't start with the return type "${fn.returns.type}"`);
   }
 

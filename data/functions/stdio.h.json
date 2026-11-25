@@ -3116,6 +3116,11 @@
             "_Pre_maybenull_ _Always_(_Post_z_), char, _Buffer",
             ")"
           ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
         }
       ],
       "standards": [

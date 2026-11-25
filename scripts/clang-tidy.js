@@ -3,7 +3,14 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 
-export const TIDY_CHECKS = '-*,bugprone-unsafe-functions,clang-analyzer-security.insecureAPI.*';
+export const TIDY_CHECKS = [
+  '-*',
+  'bugprone-unsafe-functions',
+  'clang-analyzer-security.insecureAPI.*',
+  'bugprone-unchecked-string-to-number-conversion',
+  'concurrency-mt-unsafe',
+  'misc-predictable-rand',
+].join(',');
 const TIDY_FLAGS = ['-std=c11'];
 const ANNEX_K_FLAGS = [...TIDY_FLAGS, '-D__STDC_LIB_EXT1__=201112L', '-D__STDC_WANT_LIB_EXT1__=1'];
 

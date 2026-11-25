@@ -1168,6 +1168,11 @@
         },
         {
           "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
           "check": "bugprone-unsafe-functions",
           "message": "function 'strerror' is not bounds-checking; 'strerror_s' should be used instead"
         }
@@ -2001,6 +2006,11 @@
           "lines": [
             "_Check_return_ _CRT_INSECURE_DEPRECATE(strtok_s)"
           ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
         },
         {
           "by": "clang-tidy",

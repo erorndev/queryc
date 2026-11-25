@@ -29,7 +29,9 @@ function removedIn(fn) {
 function advisory(fn) {
   const warnings = fn.warnings || [];
   const removed = removedIn(fn);
-  const fromStandard = warnings.some((w) => w.by === 'standard' && /obsolescent|deprecated/.test(w.message));
+  const fromStandard = warnings.some(
+    (w) => w.by === 'standard' && /obsolescent|deprecated|behavior is undefined/.test(w.message),
+  );
   const msvcUnsafe = warnings.some((w) => w.by === 'msvc' && /may be unsafe/.test(w.message));
   const tidy = warnings.some((w) => w.by === 'clang-tidy');
   let level = null;
