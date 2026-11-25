@@ -4,7 +4,16 @@ import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { hasClangTidy, runClangTidy } from './clang-tidy.js';
-import { HEADING, ANY_HEADING, SYNOPSIS, DESCRIPTION, PAGE_NOISE, draftNotes } from './draft.js';
+import {
+  HEADING,
+  TITLE_HEADING,
+  ANY_HEADING,
+  SYNOPSIS,
+  DESCRIPTION,
+  RETURNS,
+  PAGE_NOISE,
+  draftNotes,
+} from './draft.js';
 
 const STANDARDS = ['C89', 'C95', 'C99', 'C11', 'C17', 'C23'];
 const NOT_NAMES = new Set([
@@ -29,6 +38,13 @@ const NOT_NAMES = new Set([
   'static',
   'extern',
   'inline',
+  'typeof',
+  'typeof_unqual',
+  'constexpr',
+  '_BitInt',
+  'alignas',
+  'alignof',
+  'thread_local',
 ]);
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -69,14 +85,20 @@ function parseDraft(id, source) {
   const found = new Map();
 
   for (let i = 0; i < lines.length; i += 1) {
-    const heading = lines[i].match(HEADING);
+    const heading = lines[i].match(HEADING) || lines[i].match(TITLE_HEADING);
     if (!heading) continue;
     let s = i + 1;
     while (s < Math.min(lines.length, i + 20) && !SYNOPSIS.test(lines[s]) && !HEADING.test(lines[s])) s += 1;
     if (!SYNOPSIS.test(lines[s] || '')) continue;
 
     let end = s + 1;
-    while (end < lines.length && end - s < 80 && !DESCRIPTION.test(lines[end]) && !ANY_HEADING.test(lines[end]))
+    while (
+      end < lines.length &&
+      end - s < 80 &&
+      !DESCRIPTION.test(lines[end]) &&
+      !RETURNS.test(lines[end]) &&
+      !ANY_HEADING.test(lines[end])
+    )
       end += 1;
 
     const region = lines.slice(s + 1, end);
@@ -101,7 +123,7 @@ function parseDraft(id, source) {
       if (current.lines.join(' ').trim().endsWith(';')) {
         const text = tight(current.lines.join(' '));
         const name = declName(text);
-        if (name && !found.has(name)) {
+        if (name && !found.has(name) && !/\bgeneric_/.test(text)) {
           found.set(name, {
             source: id,
             file: source.file,

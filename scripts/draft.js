@@ -1,5 +1,6 @@
 export const HEADING = /^\s*(\d+(?:\.\d+)+)\s+The\s+(.+?)\s+(generic functions?|functions?)\s*$/;
 export const ANY_HEADING = /^\s*[A-Z]?\d+(?:\.\d+)+\s+\S/;
+export const TITLE_HEADING = /^\s*(7\.\d+\.\d+)\s+[A-Z][A-Za-z-]*(?:\s+[A-Za-z-]+)*\s*$/;
 export const SYNOPSIS = /^\s*Synopsis\s*$/;
 export const DESCRIPTION = /^\s*(\d+\s+)?Description\s*$/;
 export const RETURNS = /^\s*(\d+\s+)?Returns\s*$/;

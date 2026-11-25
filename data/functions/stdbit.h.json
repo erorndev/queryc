@@ -1,0 +1,2189 @@
+{
+  "header": "stdbit.h",
+  "functions": [
+    {
+      "name": "stdc_bit_ceil_uc",
+      "summary": "Computes the smallest power of 2 that isn't less than value.",
+      "signature": "unsigned char stdc_bit_ceil_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned char",
+        "description": "The smallest power of 2 not less than value, or 0 if that power of 2 doesn't fit in the return type."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_bit_ceil_uc(40) = %u\\n\", stdc_bit_ceil_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.16 Bit Ceiling",
+          "line": 21339,
+          "lines": [
+            "unsigned char stdc_bit_ceil_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_ceil_ui",
+      "summary": "Computes the smallest power of 2 that isn't less than value.",
+      "signature": "unsigned int stdc_bit_ceil_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The smallest power of 2 not less than value, or 0 if that power of 2 doesn't fit in the return type."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_bit_ceil_ui(40) = %u\\n\", stdc_bit_ceil_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.16 Bit Ceiling",
+          "line": 21343,
+          "lines": [
+            "unsigned int stdc_bit_ceil_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_ceil_ul",
+      "summary": "Computes the smallest power of 2 that isn't less than value.",
+      "signature": "unsigned long int stdc_bit_ceil_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long int",
+        "description": "The smallest power of 2 not less than value, or 0 if that power of 2 doesn't fit in the return type."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_bit_ceil_ul(40) = %lu\\n\", stdc_bit_ceil_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.16 Bit Ceiling",
+          "line": 21345,
+          "lines": [
+            "unsigned long int stdc_bit_ceil_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_ceil_ull",
+      "summary": "Computes the smallest power of 2 that isn't less than value.",
+      "signature": "unsigned long long int stdc_bit_ceil_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long long int",
+        "description": "The smallest power of 2 not less than value, or 0 if that power of 2 doesn't fit in the return type."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_bit_ceil_ull(40) = %llu\\n\", stdc_bit_ceil_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.16 Bit Ceiling",
+          "line": 21347,
+          "lines": [
+            "unsigned long long int",
+            "stdc_bit_ceil_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_ceil_us",
+      "summary": "Computes the smallest power of 2 that isn't less than value.",
+      "signature": "unsigned short stdc_bit_ceil_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned short",
+        "description": "The smallest power of 2 not less than value, or 0 if that power of 2 doesn't fit in the return type."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_bit_ceil_us(40) = %u\\n\", stdc_bit_ceil_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.16 Bit Ceiling",
+          "line": 21341,
+          "lines": [
+            "unsigned short stdc_bit_ceil_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_floor_uc",
+      "summary": "Computes the largest power of 2 that isn't greater than value.",
+      "signature": "unsigned char stdc_bit_floor_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned char",
+        "description": "The largest power of 2 not greater than value, or 0 if value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_bit_floor_uc(40) = %u\\n\", stdc_bit_floor_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.15 Bit Floor",
+          "line": 21301,
+          "lines": [
+            "unsigned char stdc_bit_floor_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_floor_ui",
+      "summary": "Computes the largest power of 2 that isn't greater than value.",
+      "signature": "unsigned int stdc_bit_floor_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The largest power of 2 not greater than value, or 0 if value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_bit_floor_ui(40) = %u\\n\", stdc_bit_floor_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.15 Bit Floor",
+          "line": 21305,
+          "lines": [
+            "unsigned int stdc_bit_floor_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_floor_ul",
+      "summary": "Computes the largest power of 2 that isn't greater than value.",
+      "signature": "unsigned long int stdc_bit_floor_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long int",
+        "description": "The largest power of 2 not greater than value, or 0 if value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_bit_floor_ul(40) = %lu\\n\", stdc_bit_floor_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.15 Bit Floor",
+          "line": 21307,
+          "lines": [
+            "unsigned long int stdc_bit_floor_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_floor_ull",
+      "summary": "Computes the largest power of 2 that isn't greater than value.",
+      "signature": "unsigned long long int stdc_bit_floor_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long long int",
+        "description": "The largest power of 2 not greater than value, or 0 if value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_bit_floor_ull(40) = %llu\\n\", stdc_bit_floor_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.15 Bit Floor",
+          "line": 21309,
+          "lines": [
+            "unsigned long long int",
+            "stdc_bit_floor_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_floor_us",
+      "summary": "Computes the largest power of 2 that isn't greater than value.",
+      "signature": "unsigned short stdc_bit_floor_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned short",
+        "description": "The largest power of 2 not greater than value, or 0 if value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_bit_floor_us(40) = %u\\n\", stdc_bit_floor_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.15 Bit Floor",
+          "line": 21303,
+          "lines": [
+            "unsigned short stdc_bit_floor_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_width_uc",
+      "summary": "Computes the smallest number of bits needed to store value.",
+      "signature": "unsigned int stdc_bit_width_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of bits needed to represent value, which is 0 when value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_bit_width_uc(40) = %u\\n\", stdc_bit_width_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.14 Bit Width",
+          "line": 21260,
+          "lines": [
+            "unsigned int stdc_bit_width_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_width_ui",
+      "summary": "Computes the smallest number of bits needed to store value.",
+      "signature": "unsigned int stdc_bit_width_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of bits needed to represent value, which is 0 when value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_bit_width_ui(40) = %u\\n\", stdc_bit_width_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.14 Bit Width",
+          "line": 21264,
+          "lines": [
+            "unsigned int stdc_bit_width_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_width_ul",
+      "summary": "Computes the smallest number of bits needed to store value.",
+      "signature": "unsigned int stdc_bit_width_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of bits needed to represent value, which is 0 when value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_bit_width_ul(40) = %u\\n\", stdc_bit_width_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.14 Bit Width",
+          "line": 21266,
+          "lines": [
+            "unsigned int stdc_bit_width_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_width_ull",
+      "summary": "Computes the smallest number of bits needed to store value.",
+      "signature": "unsigned int stdc_bit_width_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of bits needed to represent value, which is 0 when value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_bit_width_ull(40) = %u\\n\", stdc_bit_width_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.14 Bit Width",
+          "line": 21268,
+          "lines": [
+            "unsigned int",
+            "stdc_bit_width_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_bit_width_us",
+      "summary": "Computes the smallest number of bits needed to store value.",
+      "signature": "unsigned int stdc_bit_width_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of bits needed to represent value, which is 0 when value is zero."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_bit_width_us(40) = %u\\n\", stdc_bit_width_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.14 Bit Width",
+          "line": 21262,
+          "lines": [
+            "unsigned int stdc_bit_width_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_ones_uc",
+      "summary": "Counts the 1 bits in value.",
+      "signature": "unsigned int stdc_count_ones_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 1 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_count_ones_uc(40) = %u\\n\", stdc_count_ones_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.12 Count Ones",
+          "line": 21191,
+          "lines": [
+            "unsigned int stdc_count_ones_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_ones_ui",
+      "summary": "Counts the 1 bits in value.",
+      "signature": "unsigned int stdc_count_ones_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 1 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_count_ones_ui(40) = %u\\n\", stdc_count_ones_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.12 Count Ones",
+          "line": 21195,
+          "lines": [
+            "unsigned int stdc_count_ones_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_ones_ul",
+      "summary": "Counts the 1 bits in value.",
+      "signature": "unsigned int stdc_count_ones_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 1 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_count_ones_ul(40) = %u\\n\", stdc_count_ones_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.12 Count Ones",
+          "line": 21197,
+          "lines": [
+            "unsigned int stdc_count_ones_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_ones_ull",
+      "summary": "Counts the 1 bits in value.",
+      "signature": "unsigned int stdc_count_ones_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 1 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_count_ones_ull(40) = %u\\n\", stdc_count_ones_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.12 Count Ones",
+          "line": 21199,
+          "lines": [
+            "unsigned int",
+            "stdc_count_ones_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_ones_us",
+      "summary": "Counts the 1 bits in value.",
+      "signature": "unsigned int stdc_count_ones_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 1 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_count_ones_us(40) = %u\\n\", stdc_count_ones_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.12 Count Ones",
+          "line": 21193,
+          "lines": [
+            "unsigned int stdc_count_ones_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_zeros_uc",
+      "summary": "Counts the 0 bits in value.",
+      "signature": "unsigned int stdc_count_zeros_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 0 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_count_zeros_uc(40) = %u\\n\", stdc_count_zeros_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.11 Count Zeros",
+          "line": 21157,
+          "lines": [
+            "unsigned int stdc_count_zeros_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_zeros_ui",
+      "summary": "Counts the 0 bits in value.",
+      "signature": "unsigned int stdc_count_zeros_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 0 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_count_zeros_ui(40) = %u\\n\", stdc_count_zeros_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.11 Count Zeros",
+          "line": 21161,
+          "lines": [
+            "unsigned int stdc_count_zeros_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_zeros_ul",
+      "summary": "Counts the 0 bits in value.",
+      "signature": "unsigned int stdc_count_zeros_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 0 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_count_zeros_ul(40) = %u\\n\", stdc_count_zeros_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.11 Count Zeros",
+          "line": 21163,
+          "lines": [
+            "unsigned int stdc_count_zeros_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_zeros_ull",
+      "summary": "Counts the 0 bits in value.",
+      "signature": "unsigned int stdc_count_zeros_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 0 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_count_zeros_ull(40) = %u\\n\", stdc_count_zeros_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.11 Count Zeros",
+          "line": 21165,
+          "lines": [
+            "unsigned int",
+            "stdc_count_zeros_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_count_zeros_us",
+      "summary": "Counts the 0 bits in value.",
+      "signature": "unsigned int stdc_count_zeros_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The total number of 0 bits in value."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_count_zeros_us(40) = %u\\n\", stdc_count_zeros_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.11 Count Zeros",
+          "line": 21159,
+          "lines": [
+            "unsigned int stdc_count_zeros_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_one_uc",
+      "summary": "Finds the first 1 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_one_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_first_leading_one_uc(40) = %u\\n\", stdc_first_leading_one_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.8 First Leading One",
+          "line": 21039,
+          "lines": [
+            "unsigned int stdc_first_leading_one_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_one_ui",
+      "summary": "Finds the first 1 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_one_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_first_leading_one_ui(40) = %u\\n\", stdc_first_leading_one_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.8 First Leading One",
+          "line": 21043,
+          "lines": [
+            "unsigned int stdc_first_leading_one_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_one_ul",
+      "summary": "Finds the first 1 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_one_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_first_leading_one_ul(40) = %u\\n\", stdc_first_leading_one_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.8 First Leading One",
+          "line": 21045,
+          "lines": [
+            "unsigned int stdc_first_leading_one_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_one_ull",
+      "summary": "Finds the first 1 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_one_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_first_leading_one_ull(40) = %u\\n\", stdc_first_leading_one_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.8 First Leading One",
+          "line": 21047,
+          "lines": [
+            "unsigned int",
+            "stdc_first_leading_one_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_one_us",
+      "summary": "Finds the first 1 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_one_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_first_leading_one_us(40) = %u\\n\", stdc_first_leading_one_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.8 First Leading One",
+          "line": 21041,
+          "lines": [
+            "unsigned int stdc_first_leading_one_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_zero_uc",
+      "summary": "Finds the first 0 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_zero_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_first_leading_zero_uc(40) = %u\\n\", stdc_first_leading_zero_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.7 First Leading Zero",
+          "line": 21002,
+          "lines": [
+            "unsigned int stdc_first_leading_zero_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_zero_ui",
+      "summary": "Finds the first 0 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_zero_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_first_leading_zero_ui(40) = %u\\n\", stdc_first_leading_zero_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.7 First Leading Zero",
+          "line": 21006,
+          "lines": [
+            "unsigned int stdc_first_leading_zero_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_zero_ul",
+      "summary": "Finds the first 0 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_zero_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_first_leading_zero_ul(40) = %u\\n\", stdc_first_leading_zero_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.7 First Leading Zero",
+          "line": 21008,
+          "lines": [
+            "unsigned int stdc_first_leading_zero_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_zero_ull",
+      "summary": "Finds the first 0 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_zero_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_first_leading_zero_ull(40) = %u\\n\", stdc_first_leading_zero_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.7 First Leading Zero",
+          "line": 21010,
+          "lines": [
+            "unsigned int",
+            "stdc_first_leading_zero_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_leading_zero_us",
+      "summary": "Finds the first 0 bit in value, searching from the most significant bit.",
+      "signature": "unsigned int stdc_first_leading_zero_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The most significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_first_leading_zero_us(40) = %u\\n\", stdc_first_leading_zero_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.7 First Leading Zero",
+          "line": 21004,
+          "lines": [
+            "unsigned int stdc_first_leading_zero_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_one_uc",
+      "summary": "Finds the first 1 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_one_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_first_trailing_one_uc(40) = %u\\n\", stdc_first_trailing_one_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.10 First Trailing One",
+          "line": 21117,
+          "lines": [
+            "unsigned int stdc_first_trailing_one_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_one_ui",
+      "summary": "Finds the first 1 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_one_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_first_trailing_one_ui(40) = %u\\n\", stdc_first_trailing_one_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.10 First Trailing One",
+          "line": 21121,
+          "lines": [
+            "unsigned int stdc_first_trailing_one_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_one_ul",
+      "summary": "Finds the first 1 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_one_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_first_trailing_one_ul(40) = %u\\n\", stdc_first_trailing_one_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.10 First Trailing One",
+          "line": 21123,
+          "lines": [
+            "unsigned int stdc_first_trailing_one_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_one_ull",
+      "summary": "Finds the first 1 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_one_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_first_trailing_one_ull(40) = %u\\n\", stdc_first_trailing_one_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.10 First Trailing One",
+          "line": 21125,
+          "lines": [
+            "unsigned int",
+            "stdc_first_trailing_one_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_one_us",
+      "summary": "Finds the first 1 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_one_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 1 bit, plus 1, or 0 if value has no 1 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_first_trailing_one_us(40) = %u\\n\", stdc_first_trailing_one_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.10 First Trailing One",
+          "line": 21119,
+          "lines": [
+            "unsigned int stdc_first_trailing_one_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_zero_uc",
+      "summary": "Finds the first 0 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_zero_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_first_trailing_zero_uc(40) = %u\\n\", stdc_first_trailing_zero_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.9 First Trailing Zero",
+          "line": 21079,
+          "lines": [
+            "unsigned int stdc_first_trailing_zero_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_zero_ui",
+      "summary": "Finds the first 0 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_zero_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_first_trailing_zero_ui(40) = %u\\n\", stdc_first_trailing_zero_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.9 First Trailing Zero",
+          "line": 21083,
+          "lines": [
+            "unsigned int stdc_first_trailing_zero_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_zero_ul",
+      "summary": "Finds the first 0 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_zero_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_first_trailing_zero_ul(40) = %u\\n\", stdc_first_trailing_zero_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.9 First Trailing Zero",
+          "line": 21085,
+          "lines": [
+            "unsigned int",
+            "stdc_first_trailing_zero_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_zero_ull",
+      "summary": "Finds the first 0 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_zero_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_first_trailing_zero_ull(40) = %u\\n\", stdc_first_trailing_zero_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.9 First Trailing Zero",
+          "line": 21088,
+          "lines": [
+            "unsigned int",
+            "stdc_first_trailing_zero_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_first_trailing_zero_us",
+      "summary": "Finds the first 0 bit in value, searching from the least significant bit.",
+      "signature": "unsigned int stdc_first_trailing_zero_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The least significant index of the first 0 bit, plus 1, or 0 if value has no 0 bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_first_trailing_zero_us(40) = %u\\n\", stdc_first_trailing_zero_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.9 First Trailing Zero",
+          "line": 21081,
+          "lines": [
+            "unsigned int stdc_first_trailing_zero_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_has_single_bit_uc",
+      "summary": "Checks whether value is a power of 2, with exactly one bit set.",
+      "signature": "bool stdc_has_single_bit_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "true if exactly one bit in value is set, otherwise false."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_has_single_bit_uc(40) = %d\\n\", (int)stdc_has_single_bit_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.13 Single-bit Check",
+          "line": 21229,
+          "lines": [
+            "bool stdc_has_single_bit_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_has_single_bit_ui",
+      "summary": "Checks whether value is a power of 2, with exactly one bit set.",
+      "signature": "bool stdc_has_single_bit_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "true if exactly one bit in value is set, otherwise false."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_has_single_bit_ui(40) = %d\\n\", (int)stdc_has_single_bit_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.13 Single-bit Check",
+          "line": 21233,
+          "lines": [
+            "bool stdc_has_single_bit_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_has_single_bit_ul",
+      "summary": "Checks whether value is a power of 2, with exactly one bit set.",
+      "signature": "bool stdc_has_single_bit_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "true if exactly one bit in value is set, otherwise false."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_has_single_bit_ul(40) = %d\\n\", (int)stdc_has_single_bit_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.13 Single-bit Check",
+          "line": 21235,
+          "lines": [
+            "bool stdc_has_single_bit_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_has_single_bit_ull",
+      "summary": "Checks whether value is a power of 2, with exactly one bit set.",
+      "signature": "bool stdc_has_single_bit_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "true if exactly one bit in value is set, otherwise false."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_has_single_bit_ull(40) = %d\\n\", (int)stdc_has_single_bit_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.13 Single-bit Check",
+          "line": 21237,
+          "lines": [
+            "bool stdc_has_single_bit_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_has_single_bit_us",
+      "summary": "Checks whether value is a power of 2, with exactly one bit set.",
+      "signature": "bool stdc_has_single_bit_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "true if exactly one bit in value is set, otherwise false."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_has_single_bit_us(40) = %d\\n\", (int)stdc_has_single_bit_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.13 Single-bit Check",
+          "line": 21231,
+          "lines": [
+            "bool stdc_has_single_bit_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_ones_uc",
+      "summary": "Counts the consecutive 1 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_ones_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_leading_ones_uc(40) = %u\\n\", stdc_leading_ones_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.4 Count Leading Ones",
+          "line": 20892,
+          "lines": [
+            "unsigned int stdc_leading_ones_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_ones_ui",
+      "summary": "Counts the consecutive 1 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_ones_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_leading_ones_ui(40) = %u\\n\", stdc_leading_ones_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.4 Count Leading Ones",
+          "line": 20896,
+          "lines": [
+            "unsigned int stdc_leading_ones_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_ones_ul",
+      "summary": "Counts the consecutive 1 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_ones_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_leading_ones_ul(40) = %u\\n\", stdc_leading_ones_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.4 Count Leading Ones",
+          "line": 20898,
+          "lines": [
+            "unsigned int stdc_leading_ones_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_ones_ull",
+      "summary": "Counts the consecutive 1 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_ones_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_leading_ones_ull(40) = %u\\n\", stdc_leading_ones_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.4 Count Leading Ones",
+          "line": 20900,
+          "lines": [
+            "unsigned int",
+            "stdc_leading_ones_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_ones_us",
+      "summary": "Counts the consecutive 1 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_ones_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_leading_ones_us(40) = %u\\n\", stdc_leading_ones_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.4 Count Leading Ones",
+          "line": 20894,
+          "lines": [
+            "unsigned int stdc_leading_ones_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_zeros_uc",
+      "summary": "Counts the consecutive 0 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_zeros_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_leading_zeros_uc(40) = %u\\n\", stdc_leading_zeros_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.3 Count Leading Zeros",
+          "line": 20858,
+          "lines": [
+            "unsigned int stdc_leading_zeros_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_zeros_ui",
+      "summary": "Counts the consecutive 0 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_zeros_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_leading_zeros_ui(40) = %u\\n\", stdc_leading_zeros_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.3 Count Leading Zeros",
+          "line": 20862,
+          "lines": [
+            "unsigned int stdc_leading_zeros_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_zeros_ul",
+      "summary": "Counts the consecutive 0 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_zeros_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_leading_zeros_ul(40) = %u\\n\", stdc_leading_zeros_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.3 Count Leading Zeros",
+          "line": 20864,
+          "lines": [
+            "unsigned int stdc_leading_zeros_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_zeros_ull",
+      "summary": "Counts the consecutive 0 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_zeros_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_leading_zeros_ull(40) = %u\\n\", stdc_leading_zeros_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.3 Count Leading Zeros",
+          "line": 20866,
+          "lines": [
+            "unsigned int",
+            "stdc_leading_zeros_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_leading_zeros_us",
+      "summary": "Counts the consecutive 0 bits in value, starting from the most significant bit.",
+      "signature": "unsigned int stdc_leading_zeros_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the most significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_leading_zeros_us(40) = %u\\n\", stdc_leading_zeros_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.3 Count Leading Zeros",
+          "line": 20860,
+          "lines": [
+            "unsigned int stdc_leading_zeros_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_ones_uc",
+      "summary": "Counts the consecutive 1 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_ones_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_trailing_ones_uc(40) = %u\\n\", stdc_trailing_ones_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.6 Count Trailing Ones",
+          "line": 20964,
+          "lines": [
+            "unsigned int stdc_trailing_ones_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_ones_ui",
+      "summary": "Counts the consecutive 1 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_ones_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_trailing_ones_ui(40) = %u\\n\", stdc_trailing_ones_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.6 Count Trailing Ones",
+          "line": 20968,
+          "lines": [
+            "unsigned int stdc_trailing_ones_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_ones_ul",
+      "summary": "Counts the consecutive 1 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_ones_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_trailing_ones_ul(40) = %u\\n\", stdc_trailing_ones_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.6 Count Trailing Ones",
+          "line": 20970,
+          "lines": [
+            "unsigned int stdc_trailing_ones_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_ones_ull",
+      "summary": "Counts the consecutive 1 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_ones_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_trailing_ones_ull(40) = %u\\n\", stdc_trailing_ones_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.6 Count Trailing Ones",
+          "line": 20972,
+          "lines": [
+            "unsigned int",
+            "stdc_trailing_ones_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_ones_us",
+      "summary": "Counts the consecutive 1 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_ones_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 1 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_trailing_ones_us(40) = %u\\n\", stdc_trailing_ones_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.6 Count Trailing Ones",
+          "line": 20966,
+          "lines": [
+            "unsigned int stdc_trailing_ones_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_zeros_uc",
+      "summary": "Counts the consecutive 0 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_zeros_uc(unsigned char value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned char",
+          "description": "The unsigned char value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned char value = 40;\n  printf(\"stdc_trailing_zeros_uc(40) = %u\\n\", stdc_trailing_zeros_uc(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.5 Count Trailing Zeros",
+          "line": 20929,
+          "lines": [
+            "unsigned int stdc_trailing_zeros_uc(unsigned char value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_zeros_ui",
+      "summary": "Counts the consecutive 0 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_zeros_ui(unsigned int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned int",
+          "description": "The unsigned int value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned int value = 40;\n  printf(\"stdc_trailing_zeros_ui(40) = %u\\n\", stdc_trailing_zeros_ui(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.5 Count Trailing Zeros",
+          "line": 20933,
+          "lines": [
+            "unsigned int stdc_trailing_zeros_ui(unsigned int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_zeros_ul",
+      "summary": "Counts the consecutive 0 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_zeros_ul(unsigned long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long int",
+          "description": "The unsigned long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long value = 40;\n  printf(\"stdc_trailing_zeros_ul(40) = %u\\n\", stdc_trailing_zeros_ul(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.5 Count Trailing Zeros",
+          "line": 20935,
+          "lines": [
+            "unsigned int stdc_trailing_zeros_ul(unsigned long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_zeros_ull",
+      "summary": "Counts the consecutive 0 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_zeros_ull(unsigned long long int value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned long long int",
+          "description": "The unsigned long long value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned long long value = 40;\n  printf(\"stdc_trailing_zeros_ull(40) = %u\\n\", stdc_trailing_zeros_ull(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.5 Count Trailing Zeros",
+          "line": 20937,
+          "lines": [
+            "unsigned int",
+            "stdc_trailing_zeros_ull(unsigned long long int value) [[unsequenced]];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stdc_trailing_zeros_us",
+      "summary": "Counts the consecutive 0 bits in value, starting from the least significant bit.",
+      "signature": "unsigned int stdc_trailing_zeros_us(unsigned short value) [[unsequenced]];",
+      "params": [
+        {
+          "name": "value",
+          "type": "unsigned short",
+          "description": "The unsigned short value to examine."
+        }
+      ],
+      "returns": {
+        "type": "unsigned int",
+        "description": "The number of consecutive 0 bits in value, starting from the least significant bit."
+      },
+      "example": "#include <stdbit.h>\n#include <stdio.h>\n\nint main(void) {\n  unsigned short value = 40;\n  printf(\"stdc_trailing_zeros_us(40) = %u\\n\", stdc_trailing_zeros_us(value));\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.18.5 Count Trailing Zeros",
+          "line": 20931,
+          "lines": [
+            "unsigned int stdc_trailing_zeros_us(unsigned short value) [[unsequenced]];"
+          ]
+        }
+      ]
+    }
+  ]
+}
