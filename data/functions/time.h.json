@@ -1,0 +1,1001 @@
+{
+  "header": "time.h",
+  "functions": [
+    {
+      "name": "asctime",
+      "summary": "Converts a broken-down time into a string like \"Sun Sep 16 01:03:52 1973\" followed by a new-line. Obsolescent: use strftime in new code.",
+      "signature": "[[deprecated]] char *asctime(const struct tm *timeptr);",
+      "params": [
+        {
+          "name": "timeptr",
+          "type": "const struct tm *",
+          "description": "Pointer to the broken-down time to convert. Values outside their normal ranges, or a year below 1000 or above 9999, give undefined behavior."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the string."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  struct tm t = {.tm_year = 73, .tm_mon = 8, .tm_mday = 16, .tm_hour = 1, .tm_min = 3, .tm_sec = 52};\n  fputs(asctime(&t), stdout);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "This function is obsolescent and should be avoided in new code.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 27548,
+          "lines": [
+            "2 This function is obsolescent and should be avoided in new code."
+          ]
+        },
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using asctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 122,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(asctime_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'asctime' is not bounds-checking and non-reentrant; 'strftime' should be used instead"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'asctime' is not bounds-checking and non-reentrant; 'asctime_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.3.1 The asctime function",
+          "line": 11233,
+          "lines": [
+            "char *asctime(const struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.3.1 The asctime function",
+          "line": 18468,
+          "lines": [
+            "char *asctime(const struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.3.1 The asctime function",
+          "line": 21356,
+          "lines": [
+            "char *asctime(const struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.3.1 The asctime function",
+          "line": 27545,
+          "lines": [
+            "[[deprecated]] char *asctime(const struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 122,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(asctime_s)",
+            "_ACRTIMP char* __cdecl asctime(",
+            "_In_ struct tm const* _Tm",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clock",
+      "summary": "Returns the processor time the program has used.",
+      "signature": "clock_t clock(void);",
+      "params": [],
+      "returns": {
+        "type": "clock_t",
+        "description": "The best approximation of the processor time used since an era tied to the program's start; divide by CLOCKS_PER_SEC to get seconds. Returns (clock_t)(-1) if the processor time isn't available, and an unspecified value if it can't be represented."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  clock_t start = clock();\n  volatile double sum = 0;\n  for (int i = 0; i < 10000000; i++) sum += i;\n  printf(\"%.3f seconds\\n\", (double)(clock() - start) / CLOCKS_PER_SEC);\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.2.1 The clock function",
+          "line": 11109,
+          "lines": [
+            "clock_t clock(void);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.2.1 The clock function",
+          "line": 18338,
+          "lines": [
+            "clock_t clock(void);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.2.1 The clock function",
+          "line": 21196,
+          "lines": [
+            "clock_t clock(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.2.1 The clock function",
+          "line": 27313,
+          "lines": [
+            "clock_t clock(void);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 144,
+          "lines": [
+            "_ACRTIMP clock_t __cdecl clock(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ctime",
+      "summary": "Converts a calendar time to local time as a string, the same as asctime(localtime(timer)). Obsolescent: use strftime in new code.",
+      "signature": "[[deprecated]] char *ctime(const time_t *timer);",
+      "params": [
+        {
+          "name": "timer",
+          "type": "const time_t *",
+          "description": "Pointer to the calendar time to convert."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "The pointer asctime returns for the converted local time."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  fputs(ctime(&now), stdout);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "This function is obsolescent and should be avoided in new code.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 27606,
+          "lines": [
+            "2 This function is obsolescent and should be avoided in new code."
+          ]
+        },
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 500,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(ctime_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'ctime' is not bounds-checking and non-reentrant; 'ctime_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.3.2 The ctime function",
+          "line": 11274,
+          "lines": [
+            "char *ctime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.3.2 The ctime function",
+          "line": 18515,
+          "lines": [
+            "char *ctime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.3.2 The ctime function",
+          "line": 21412,
+          "lines": [
+            "char *ctime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.3.2 The ctime function",
+          "line": 27603,
+          "lines": [
+            "[[deprecated]] char *ctime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 500,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(ctime_s)",
+            "_CRT_NONSTANDARD_STATIC __inline char* __CRTDECL ctime(",
+            "_In_ time_t const* const _Time",
+            ")",
+            "{",
+            "return _ctime64(_Time);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "difftime",
+      "summary": "Computes the difference between two calendar times.",
+      "signature": "double difftime(time_t time1, time_t time0);",
+      "params": [
+        {
+          "name": "time1",
+          "type": "time_t",
+          "description": "The later calendar time."
+        },
+        {
+          "name": "time0",
+          "type": "time_t",
+          "description": "The earlier calendar time, subtracted from the first."
+        }
+      ],
+      "returns": {
+        "type": "double",
+        "description": "The difference in seconds, as a double."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t start = time(NULL);\n  time_t later = start + 90;\n  printf(\"%.0f seconds\\n\", difftime(later, start));\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.2.2 The difftime function",
+          "line": 11131,
+          "lines": [
+            "double difftime(time_t time1, time_t time0);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.2.2 The difftime function",
+          "line": 18359,
+          "lines": [
+            "double difftime(time_t time1, time_t time0);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.2.2 The difftime function",
+          "line": 21225,
+          "lines": [
+            "double difftime(time_t time1, time_t time0);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.2.2 The difftime function",
+          "line": 27334,
+          "lines": [
+            "double difftime(time_t time1, time_t time0);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 509,
+          "lines": [
+            "_CRT_NONSTANDARD_STATIC __inline double __CRTDECL difftime(",
+            "_In_ time_t const _Time1,",
+            "_In_ time_t const _Time2",
+            ")",
+            "{",
+            "return _difftime64(_Time1, _Time2);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gmtime",
+      "summary": "Converts a calendar time into a broken-down time in UTC.",
+      "signature": "struct tm *gmtime(const time_t *timer);",
+      "params": [
+        {
+          "name": "timer",
+          "type": "const time_t *",
+          "description": "Pointer to the calendar time to convert."
+        }
+      ],
+      "returns": {
+        "type": "struct tm *",
+        "description": "A pointer to the broken-down time, or a null pointer if the time can't be converted to UTC."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  struct tm *utc = gmtime(&now);\n  if (utc == NULL) return 1;\n  printf(\"%02d:%02d UTC\\n\", utc->tm_hour, utc->tm_min);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 517,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(gmtime_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'gmtime' is not bounds-checking; 'gmtime_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.3.3 The gmtime function",
+          "line": 11295,
+          "lines": [
+            "struct tm *gmtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.3.3 The gmtime function",
+          "line": 18540,
+          "lines": [
+            "struct tm *gmtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.3.3 The gmtime function",
+          "line": 21433,
+          "lines": [
+            "struct tm *gmtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.3.3 The gmtime functions",
+          "line": 27631,
+          "lines": [
+            "struct tm *gmtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 517,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(gmtime_s)",
+            "_CRT_NONSTANDARD_STATIC __inline struct tm* __CRTDECL gmtime(",
+            "_In_ time_t const* const _Time)",
+            "{",
+            "return _gmtime64(_Time);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gmtime_r",
+      "summary": "Converts a calendar time into a broken-down time in UTC, storing it in a structure you provide.",
+      "signature": "struct tm *gmtime_r(const time_t *timer, struct tm *buf);",
+      "params": [
+        {
+          "name": "timer",
+          "type": "const time_t *",
+          "description": "Pointer to the calendar time to convert."
+        },
+        {
+          "name": "buf",
+          "type": "struct tm *",
+          "description": "Pointer to the structure that receives the broken-down time."
+        }
+      ],
+      "returns": {
+        "type": "struct tm *",
+        "description": "A pointer to the broken-down time, or a null pointer if the time can't be converted to UTC."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  struct tm utc;\n  if (gmtime_r(&now, &utc) == NULL) return 1;\n  printf(\"%02d:%02d UTC\\n\", utc.tm_hour, utc.tm_min);\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.3.3 The gmtime functions",
+          "line": 27632,
+          "lines": [
+            "struct tm *gmtime_r(const time_t *timer, struct tm *buf);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "localtime",
+      "summary": "Converts a calendar time into a broken-down time in local time.",
+      "signature": "struct tm *localtime(const time_t *timer);",
+      "params": [
+        {
+          "name": "timer",
+          "type": "const time_t *",
+          "description": "Pointer to the calendar time to convert."
+        }
+      ],
+      "returns": {
+        "type": "struct tm *",
+        "description": "A pointer to the broken-down time, or a null pointer if the time can't be converted to local time."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  struct tm *local = localtime(&now);\n  if (local == NULL) return 1;\n  printf(\"%04d-%02d-%02d\\n\", local->tm_year + 1900, local->tm_mon + 1, local->tm_mday);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 524,
+          "lines": [
+            "_CRT_INSECURE_DEPRECATE(localtime_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'localtime' is not bounds-checking; 'localtime_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.3.4 The localtime function",
+          "line": 11314,
+          "lines": [
+            "struct tm *localtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.3.4 The localtime function",
+          "line": 18558,
+          "lines": [
+            "struct tm *localtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.3.4 The localtime function",
+          "line": 21456,
+          "lines": [
+            "struct tm *localtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.3.4 The localtime functions",
+          "line": 27649,
+          "lines": [
+            "struct tm *localtime(const time_t *timer);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 524,
+          "lines": [
+            "_CRT_INSECURE_DEPRECATE(localtime_s)",
+            "_CRT_NONSTANDARD_STATIC __inline struct tm* __CRTDECL localtime(",
+            "_In_ time_t const* const _Time",
+            ")",
+            "{",
+            "return _localtime64(_Time);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "localtime_r",
+      "summary": "Converts a calendar time into a broken-down time in local time, storing it in a structure you provide.",
+      "signature": "struct tm *localtime_r(const time_t *timer, struct tm *buf);",
+      "params": [
+        {
+          "name": "timer",
+          "type": "const time_t *",
+          "description": "Pointer to the calendar time to convert."
+        },
+        {
+          "name": "buf",
+          "type": "struct tm *",
+          "description": "Pointer to the structure that receives the broken-down time."
+        }
+      ],
+      "returns": {
+        "type": "struct tm *",
+        "description": "A pointer to the broken-down time, or a null pointer if the time can't be converted to local time."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  struct tm local;\n  if (localtime_r(&now, &local) == NULL) return 1;\n  printf(\"%04d-%02d-%02d\\n\", local.tm_year + 1900, local.tm_mon + 1, local.tm_mday);\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.3.4 The localtime functions",
+          "line": 27650,
+          "lines": [
+            "struct tm *localtime_r(const time_t *timer, struct tm *buf);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mktime",
+      "summary": "Converts a broken-down local time into a calendar time, ignoring tm_wday and tm_yday and accepting out-of-range members. On success it rewrites the structure with normalized values.",
+      "signature": "time_t mktime(struct tm *timeptr);",
+      "params": [
+        {
+          "name": "timeptr",
+          "type": "struct tm *",
+          "description": "Pointer to the broken-down local time to convert. A negative tm_isdst asks the function to work out whether Daylight Saving Time applies."
+        }
+      ],
+      "returns": {
+        "type": "time_t",
+        "description": "The calendar time as a time_t, or (time_t)(-1) if it can't be represented, in which case tm_wday is left unchanged."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  struct tm t = {.tm_year = 2001 - 1900, .tm_mon = 6, .tm_mday = 4, .tm_hour = 12, .tm_isdst = -1};\n  if (mktime(&t) == (time_t)(-1)) return 1;\n  static const char *const days[] = {\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"};\n  printf(\"July 4, 2001 was a %s\\n\", days[t.tm_wday]);\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.2.3 The mktime function",
+          "line": 11149,
+          "lines": [
+            "time_t mktime(struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.2.3 The mktime function",
+          "line": 18382,
+          "lines": [
+            "time_t mktime(struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.2.3 The mktime function",
+          "line": 21242,
+          "lines": [
+            "time_t mktime(struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.2.3 The mktime function",
+          "line": 27355,
+          "lines": [
+            "time_t mktime(struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 541,
+          "lines": [
+            "_CRT_NONSTANDARD_STATIC __inline time_t __CRTDECL mktime(",
+            "_Inout_ struct tm* const _Tm",
+            ")",
+            "{",
+            "return _mktime64(_Tm);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strftime",
+      "summary": "Formats a broken-down time into a string under the control of a format string, using the LC_TIME category of the current locale.",
+      "signature": "size_t strftime(char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Pointer to the array that receives the string."
+        },
+        {
+          "name": "maxsize",
+          "type": "size_t",
+          "description": "Maximum number of characters to write, terminating null character included."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string of ordinary characters and conversion specifiers such as %Y and %H."
+        },
+        {
+          "name": "timeptr",
+          "type": "const struct tm * restrict",
+          "description": "Pointer to the broken-down time to format."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of characters written, not counting the terminating null character, if the result fits; otherwise zero, and the array contents are indeterminate."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  struct tm *local = localtime(&now);\n  if (local == NULL) return 1;\n  char buf[64];\n  if (strftime(buf, sizeof buf, \"%Y-%m-%d %H:%M:%S\", local) == 0) return 1;\n  puts(buf);\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.3.5 The strftime function",
+          "line": 11331,
+          "lines": [
+            "size_t strftime(char *s, size_t maxsize,",
+            "const char *format, const struct tm *timeptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.3.5 The strftime function",
+          "line": 18576,
+          "lines": [
+            "size_t strftime(char * restrict s,",
+            "size_t maxsize,",
+            "const char * restrict format,",
+            "const struct tm * restrict timeptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.3.5 The strftime function",
+          "line": 21474,
+          "lines": [
+            "size_t strftime(char * restrict s,",
+            "size_t maxsize,",
+            "const char * restrict format,",
+            "const struct tm * restrict timeptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.3.5 The strftime function",
+          "line": 27667,
+          "lines": [
+            "size_t strftime(char * restrict s, size_t maxsize, const char * restrict format,",
+            "const struct tm * restrict timeptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 268,
+          "lines": [
+            "_ACRTIMP size_t __cdecl strftime(",
+            "_Out_writes_z_(_SizeInBytes)  char*            _Buffer,",
+            "_In_                          size_t           _SizeInBytes,",
+            "_In_z_ _Printf_format_string_ char const*      _Format,",
+            "_In_                          struct tm const* _Tm",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "time",
+      "summary": "Returns the current calendar time.",
+      "signature": "time_t time(time_t *timer);",
+      "params": [
+        {
+          "name": "timer",
+          "type": "time_t *",
+          "description": "Pointer to an object that also receives the result, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "time_t",
+        "description": "The best approximation of the current calendar time, or (time_t)(-1) if the calendar time isn't available."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  if (now == (time_t)(-1)) return 1;\n  printf(\"%lld\\n\", (long long)now);\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.12.2.4 The time function",
+          "line": 11203,
+          "lines": [
+            "time_t time(time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.23.2.4 The time function",
+          "line": 18439,
+          "lines": [
+            "time_t time(time_t *timer);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.2.4 The time function",
+          "line": 21299,
+          "lines": [
+            "time_t time(time_t *timer);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.2.5 The time function",
+          "line": 27443,
+          "lines": [
+            "time_t time(time_t *timer);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 548,
+          "lines": [
+            "_CRT_NONSTANDARD_STATIC __inline time_t __CRTDECL time(",
+            "_Out_opt_ time_t* const _Time",
+            ")",
+            "{",
+            "return _time64(_Time);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "timegm",
+      "summary": "Converts a broken-down UTC time into a calendar time, ignoring tm_wday and tm_yday and accepting out-of-range members. On success it normalizes the structure and sets tm_wday and tm_yday.",
+      "signature": "time_t timegm(struct tm *timeptr);",
+      "params": [
+        {
+          "name": "timeptr",
+          "type": "struct tm *",
+          "description": "Pointer to the broken-down UTC time to convert."
+        }
+      ],
+      "returns": {
+        "type": "time_t",
+        "description": "The calendar time as a time_t, or (time_t)(-1) if it can't be represented, in which case tm_wday is left unchanged."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  struct tm t = {.tm_year = 70, .tm_mday = 2};\n  time_t seconds = timegm(&t);\n  if (seconds == (time_t)(-1)) return 1;\n  printf(\"%lld\\n\", (long long)seconds);\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.2.4 The timegm function",
+          "line": 27417,
+          "lines": [
+            "time_t timegm(struct tm *timeptr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "timespec_get",
+      "summary": "Stores the current calendar time, to nanosecond precision, in a timespec for the given time base.",
+      "signature": "int timespec_get(struct timespec *ts, int base);",
+      "params": [
+        {
+          "name": "ts",
+          "type": "struct timespec *",
+          "description": "Pointer to the timespec that receives the time."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "The time base, such as TIME_UTC."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The nonzero value of the time base on success, or zero on failure."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  struct timespec ts;\n  if (timespec_get(&ts, TIME_UTC) == 0) return 1;\n  printf(\"%lld.%09ld\\n\", (long long)ts.tv_sec, ts.tv_nsec);\n  return 0;\n}\n",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.27.2.5 The timespec_get function",
+          "line": 21319,
+          "lines": [
+            "int timespec_get(struct timespec *ts, int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.2.6 The timespec_get function",
+          "line": 27459,
+          "lines": [
+            "int timespec_get(struct timespec *ts, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "time.h",
+          "line": 556,
+          "lines": [
+            "_CRT_NONSTANDARD_STATIC __inline int __CRTDECL timespec_get(",
+            "_Out_ struct timespec* const _Ts,",
+            "_In_  int              const _Base",
+            ")",
+            "{",
+            "return _timespec64_get((struct _timespec64*)_Ts, _Base);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "timespec_getres",
+      "summary": "Stores the resolution of timespec_get for a time base in a timespec.",
+      "signature": "int timespec_getres(struct timespec *ts, int base);",
+      "params": [
+        {
+          "name": "ts",
+          "type": "struct timespec *",
+          "description": "Pointer to the timespec that receives the resolution, or a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "The time base, such as TIME_UTC."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The nonzero value of the time base if timespec_get supports it, otherwise zero."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n\nint main(void) {\n  struct timespec res;\n  if (timespec_getres(&res, TIME_UTC) == 0) return 1;\n  printf(\"%lld.%09ld seconds\\n\", (long long)res.tv_sec, res.tv_nsec);\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.29.2.7 The timespec_getres function",
+          "line": 27510,
+          "lines": [
+            "int timespec_getres(struct timespec *ts, int base);"
+          ]
+        }
+      ]
+    }
+  ]
+}

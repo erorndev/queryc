@@ -46,6 +46,7 @@ if (!header || !/^[a-z0-9_]+\.h$/.test(header)) {
 }
 
 const normalize = (text) => text.replace(/\s+/g, ' ').trim();
+const tight = (text) => normalize(text).replace(/\( /g, '(').replace(/ \)/g, ')');
 const sources = JSON.parse(readFileSync(join(dataDir, 'sources.json'), 'utf8'));
 
 function sourceRoot(id, source) {
@@ -98,7 +99,7 @@ function parseDraft(id, source) {
       if (!current) current = { line: k + 1, lines: [] };
       current.lines.push(normalize(raw));
       if (current.lines.join(' ').trim().endsWith(';')) {
-        const text = normalize(current.lines.join(' '));
+        const text = tight(current.lines.join(' '));
         const name = declName(text);
         if (name && !found.has(name)) {
           found.set(name, {
@@ -260,6 +261,19 @@ function joinWrapped(lines) {
   return lines.join(' ').replace(/(\w)- (\w)/g, '$1$2');
 }
 
+function sectionWarning(lines, name) {
+  const heading = lines.findIndex((l) => {
+    const match = l.match(HEADING);
+    return match && match[2] === name;
+  });
+  if (heading === -1) return -1;
+  for (let k = heading + 1; k < Math.min(lines.length, heading + 40); k += 1) {
+    if (ANY_HEADING.test(lines[k])) return -1;
+    if (/\bThis function is (obsolescent|deprecated)\b/.test(lines[k])) return k;
+  }
+  return -1;
+}
+
 function standardWarnings(name) {
   const errnoClause = `\\bThe functions [\\w, ]*\\b${name}\\b[\\w, ]* (need not|are not required to) affect`;
   const pattern = new RegExp(
@@ -272,10 +286,13 @@ function standardWarnings(name) {
     if (!existsSync(path)) continue;
     if (!draftCache.has(path)) draftCache.set(path, readFileSync(path, 'latin1').split(/\r?\n/));
     const lines = draftCache.get(path);
-    const index = lines.findIndex((l) => pattern.test(l));
+    let index = lines.findIndex((l) => pattern.test(l));
+    if (index === -1) index = sectionWarning(lines, name);
     if (index === -1) continue;
     const cited = [normalize(lines[index])];
-    const start = new RegExp(`\\b(The|Calls to the) ${name} function|${errnoClause}`);
+    const start = new RegExp(
+      `\\b(The|Calls to the) ${name} function|\\bThis function is (obsolescent|deprecated)|${errnoClause}`,
+    );
     const count = new RegExp(errnoClause).test(lines[index]) ? 2 : 1;
     const fromStart = () => {
       const joined = joinWrapped(cited);
@@ -373,7 +390,10 @@ const report = [];
 const functions = names.map((name) => {
   const claims = STANDARDS.filter((s) => perStandard.get(s)?.has(name));
   const standardEvidence = claims.map((s) => perStandard.get(s).get(name));
-  const plain = [...standardEvidence].reverse().find((e) => !isGeneric(e.synopsis)) || standardEvidence.at(-1);
+  const arity = (e) => parseSignature(e.synopsis, name).params.length;
+  const intact = (i) => i === 0 || arity(standardEvidence[i]) === arity(standardEvidence[i - 1]);
+  const chosen = standardEvidence.findLastIndex((e, i) => !isGeneric(e.synopsis) && intact(i));
+  const plain = standardEvidence[chosen] || standardEvidence.at(-1);
   const signature = plain.synopsis;
   const parsed = parseSignature(signature, name);
   const previous = existing.get(name);

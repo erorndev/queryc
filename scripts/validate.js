@@ -36,6 +36,7 @@ let uncompiledExamples = 0;
 let checkedWarnings = 0;
 
 const normalize = (text) => text.replace(/\s+/g, ' ').trim();
+const tight = (text) => normalize(text).replace(/\( /g, '(').replace(/ \)/g, ')');
 const error = (where, message) => errors.push(`${where}: ${message}`);
 const warn = (where, message) => warnings.push(`${where}: ${message}`);
 
@@ -276,8 +277,8 @@ function validateFunction(at, fn, header, sources, workDir) {
       const available = Object.values(sources).some((s) => s.kind === 'standard' && s.standard === standard);
       if (available) warn(at, `skips ${standard} even though a ${standard} source exists`);
     }
-    const synopses = ordered.filter((s) => evidenced.has(s)).map((s) => normalize(evidenced.get(s).lines.join(' ')));
-    if (synopses.length && !synopses.includes(normalize(fn.signature))) {
+    const synopses = ordered.filter((s) => evidenced.has(s)).map((s) => tight(evidenced.get(s).lines.join(' ')));
+    if (synopses.length && !synopses.includes(tight(fn.signature))) {
       error(at, `signature doesn't match any claimed standard's synopsis, for example "${synopses.at(-1)}"`);
     }
   } else {

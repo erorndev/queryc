@@ -1,0 +1,5021 @@
+{
+  "header": "wchar.h",
+  "functions": [
+    {
+      "name": "btowc",
+      "summary": "Converts a single-byte character in the initial shift state to its wide character.",
+      "signature": "wint_t btowc(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to convert, as an unsigned char value, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "WEOF if c is EOF or doesn't form a valid single-byte character in the initial shift state; otherwise the wide character representation of c."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wint_t wc = btowc('A');\n  if (wc == WEOF) return 1;\n  wprintf(L\"%lc\\n\", (wchar_t)wc);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.1.1 The btowc function",
+          "line": 21026,
+          "lines": [
+            "wint_t btowc(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.1.1 The btowc function",
+          "line": 24142,
+          "lines": [
+            "wint_t btowc(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.1.1 The btowc function",
+          "line": 30402,
+          "lines": [
+            "wint_t btowc(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 68,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl btowc(",
+            "_In_ int _Ch",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fgetwc",
+      "summary": "Reads the next wide character from a stream and advances its file position indicator.",
+      "signature": "wint_t fgetwc(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "The input stream to read from."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The next wide character from the stream. Returns WEOF and sets the end-of-file indicator at end-of-file, or WEOF and sets the error indicator on a read error; an encoding error also returns WEOF and stores EILSEQ in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wint_t wc;\n  while ((wc = fgetwc(stdin)) != WEOF) fputwc((wchar_t)wc, stdout);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.1 The fgetwc function",
+          "line": 19918,
+          "lines": [
+            "wint_t fgetwc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.1 The fgetwc function",
+          "line": 23039,
+          "lines": [
+            "wint_t fgetwc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.1 The fgetwc function",
+          "line": 29307,
+          "lines": [
+            "wint_t fgetwc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 51,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl fgetwc(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fgetws",
+      "summary": "Reads at most one fewer than n wide characters from a stream into an array, stopping after a new-line wide character or at end-of-file, and adds a terminating null wide character.",
+      "signature": "wchar_t *fgetws(wchar_t * restrict s, int n, FILE * restrict stream);",
+      "params": [
+        {
+          "name": "s",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the array that receives the wide string."
+        },
+        {
+          "name": "n",
+          "type": "int",
+          "description": "Size of the array in wide characters."
+        },
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "The input stream to read from."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "s on success. Returns a null pointer if end-of-file is reached before any wide character is read, leaving the array unchanged, or if a read or encoding error occurs, leaving the array contents indeterminate."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t line[128];\n  if (fgetws(line, 128, stdin) == NULL) return 1;\n  fputws(line, stdout);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.2 The fgetws function",
+          "line": 19944,
+          "lines": [
+            "wchar_t *fgetws(wchar_t * restrict s,",
+            "int n, FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.2 The fgetws function",
+          "line": 23068,
+          "lines": [
+            "wchar_t *fgetws(wchar_t * restrict s,",
+            "int n, FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.2 The fgetws function",
+          "line": 29330,
+          "lines": [
+            "wchar_t *fgetws(wchar_t * restrict s, int n, FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 79,
+          "lines": [
+            "_ACRTIMP wchar_t* __cdecl fgetws(",
+            "_Out_writes_z_(_BufferCount) wchar_t* _Buffer,",
+            "_In_                         int      _BufferCount,",
+            "_Inout_                      FILE*    _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fputwc",
+      "summary": "Writes a wide character to a stream at its file position indicator and advances the indicator.",
+      "signature": "wint_t fputwc(wchar_t c, FILE *stream);",
+      "params": [
+        {
+          "name": "c",
+          "type": "wchar_t",
+          "description": "The wide character to write."
+        },
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "The output stream to write to."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The wide character written. Returns WEOF and sets the error indicator on a write error; an encoding error also stores EILSEQ in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  if (fputwc(L'Q', stdout) == WEOF) return 1;\n  fputwc(L'\\n', stdout);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.3 The fputwc function",
+          "line": 19978,
+          "lines": [
+            "wint_t fputwc(wchar_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.3 The fputwc function",
+          "line": 23095,
+          "lines": [
+            "wint_t fputwc(wchar_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.3 The fputwc function",
+          "line": 29353,
+          "lines": [
+            "wint_t fputwc(wchar_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 59,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl fputwc(",
+            "_In_    wchar_t _Character,",
+            "_Inout_ FILE*   _Stream);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fputws",
+      "summary": "Writes a wide string to a stream, without its terminating null wide character.",
+      "signature": "int fputws(const wchar_t * restrict s, FILE * restrict stream);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to write."
+        },
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "The output stream to write to."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF on a write or encoding error; otherwise a nonnegative value."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  if (fputws(L\"Hello, wide world\\n\", stdout) == EOF) return 1;\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.4 The fputws function",
+          "line": 20002,
+          "lines": [
+            "int fputws(const wchar_t * restrict s,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.4 The fputws function",
+          "line": 23126,
+          "lines": [
+            "int fputws(const wchar_t * restrict s,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.4 The fputws function",
+          "line": 29382,
+          "lines": [
+            "int fputws(const wchar_t * restrict s, FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 86,
+          "lines": [
+            "_ACRTIMP int __cdecl fputws(",
+            "_In_z_  wchar_t const* _Buffer,",
+            "_Inout_ FILE*          _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fwide",
+      "summary": "Determines a stream's orientation and, if it has none yet, can make it wide-oriented or byte-oriented.",
+      "signature": "int fwide(FILE *stream, int mode);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "The stream to query or orient."
+        },
+        {
+          "name": "mode",
+          "type": "int",
+          "description": "Greater than zero to try to make the stream wide-oriented, less than zero to try to make it byte-oriented, or zero to leave it unchanged."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A value greater than zero if the stream is wide-oriented after the call, less than zero if it's byte-oriented, or zero if it has no orientation."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  int mode = fwide(stdout, 1);\n  wprintf(L\"%ls\\n\", mode > 0 ? L\"wide\" : L\"not wide\");\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.5 The fwide function",
+          "line": 20027,
+          "lines": [
+            "int fwide(FILE *stream, int mode);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.5 The fwide function",
+          "line": 23148,
+          "lines": [
+            "int fwide(FILE *stream, int mode);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.5 The fwide function",
+          "line": 29401,
+          "lines": [
+            "int fwide(FILE *stream, int mode);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 190,
+          "lines": [
+            "__inline int __CRTDECL fwide(",
+            "_In_opt_ FILE* _F,",
+            "_In_     int   _M",
+            ")",
+            "{",
+            "_CRT_UNUSED(_F);",
+            "return (_M);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fwprintf",
+      "summary": "Writes formatted output to a stream under the control of a wide format string.",
+      "signature": "int fwprintf(FILE * restrict stream, const wchar_t * restrict format, ...);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "The output stream to write to."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string of ordinary wide characters and conversion specifications."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "The values to convert, one per conversion specification."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of wide characters transmitted, or a negative value on an output or encoding error."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  if (fwprintf(stdout, L\"%d apples, %.1f kg\\n\", 3, 1.5) < 0) return 1;\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.1 The fwprintf function",
+          "line": 18849,
+          "lines": [
+            "int fwprintf(FILE * restrict stream,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.1 The fwprintf function",
+          "line": 21961,
+          "lines": [
+            "int fwprintf(FILE * restrict stream,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.1 The fwprintf function",
+          "line": 28223,
+          "lines": [
+            "int fwprintf(FILE * restrict stream, const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 494,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL fwprintf(",
+            "_Inout_                       FILE*          const _Stream,",
+            "_In_z_ _Printf_format_string_ wchar_t const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfwprintf_l(_Stream, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fwscanf",
+      "summary": "Reads input from a stream under the control of a wide format string and stores the converted values through the pointer arguments.",
+      "signature": "int fwscanf(FILE * restrict stream, const wchar_t * restrict format, ...);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "The input stream to read from."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string that says which input to accept and how to convert it."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Pointers to the objects that receive the converted values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF if an input failure occurs before the first conversion has completed; otherwise the number of input items assigned, which can be fewer than provided, or zero on an early matching failure."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  int n;\n  if (fwscanf(stdin, L\"%d\", &n) != 1) return 1;\n  wprintf(L\"%d\\n\", n * 2);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using fwscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 855,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(fwscanf_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'fwscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fwscanf_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'fwscanf' is not bounds-checking; 'fwscanf_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.2 The fwscanf function",
+          "line": 19277,
+          "lines": [
+            "int fwscanf(FILE * restrict stream,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.2 The fwscanf function",
+          "line": 22390,
+          "lines": [
+            "int fwscanf(FILE * restrict stream,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.2 The fwscanf function",
+          "line": 28708,
+          "lines": [
+            "int fwscanf(FILE * restrict stream, const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 855,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(fwscanf_s)",
+            "_CRT_STDIO_INLINE int __CRTDECL fwscanf(",
+            "_Inout_                      FILE*          const _Stream,",
+            "_In_z_ _Scanf_format_string_ wchar_t const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE // SCANF",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfwscanf_l(_Stream, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getwc",
+      "summary": "Reads the next wide character from a stream, like fgetwc, but may be a macro that evaluates stream more than once.",
+      "signature": "wint_t getwc(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "The input stream to read from. Avoid arguments with side effects."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The next wide character from the stream, or WEOF at end-of-file or on a read or encoding error, with the stream's end-of-file or error indicator set."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wint_t wc = getwc(stdin);\n  if (wc == WEOF) return 1;\n  wprintf(L\"Read %lc\\n\", (wchar_t)wc);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.6 The getwc function",
+          "line": 20052,
+          "lines": [
+            "wint_t getwc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.6 The getwc function",
+          "line": 23178,
+          "lines": [
+            "wint_t getwc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.6 The getwc function",
+          "line": 29421,
+          "lines": [
+            "wint_t getwc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 69,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl getwc(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getwchar",
+      "summary": "Reads the next wide character from stdin, the same as getwc(stdin).",
+      "signature": "wint_t getwchar(void);",
+      "params": [],
+      "returns": {
+        "type": "wint_t",
+        "description": "The next wide character from stdin, or WEOF at end-of-file or on a read or encoding error, with the stream's end-of-file or error indicator set."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wint_t wc;\n  int count = 0;\n  while ((wc = getwchar()) != WEOF) count++;\n  wprintf(L\"%d wide characters\\n\", count);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.7 The getwchar function",
+          "line": 20071,
+          "lines": [
+            "wint_t getwchar(void);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.7 The getwchar function",
+          "line": 23197,
+          "lines": [
+            "wint_t getwchar(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.7 The getwchar function",
+          "line": 29438,
+          "lines": [
+            "wint_t getwchar(void);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 74,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl getwchar(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbrlen",
+      "summary": "Determines the number of bytes that complete the next multibyte character, the same as mbrtowc(NULL, s, n, ps) but with its own internal state when ps is a null pointer.",
+      "signature": "size_t mbrlen(const char * restrict s, size_t n, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "Pointer to the multibyte character to inspect."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to examine."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the conversion state, or a null pointer to use an internal one."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "0 if the next bytes complete the null wide character; a value between 1 and n giving the bytes that complete a valid character; (size_t)(-2) if the n bytes form an incomplete but potentially valid character; or (size_t)(-1) on an encoding error, with EILSEQ stored in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  mbstate_t state = {0};\n  const char *s = \"abc\";\n  size_t len = mbrlen(s, 3, &state);\n  if (len == (size_t)(-1) || len == (size_t)(-2)) return 1;\n  wprintf(L\"%zu byte(s)\\n\", len);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.3.1 The mbrlen function",
+          "line": 21103,
+          "lines": [
+            "size_t mbrlen(const char * restrict s,",
+            "size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.3.1 The mbrlen function",
+          "line": 24217,
+          "lines": [
+            "size_t mbrlen(const char * restrict s,",
+            "size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.3.1 The mbrlen function",
+          "line": 30479,
+          "lines": [
+            "size_t mbrlen(const char * restrict s, size_t n, mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 72,
+          "lines": [
+            "_ACRTIMP size_t __cdecl mbrlen(",
+            "_In_reads_bytes_opt_(_SizeInBytes) _Pre_opt_z_ char const* _Ch,",
+            "_In_                                           size_t      _SizeInBytes,",
+            "_Inout_                                        mbstate_t*  _State",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbrtowc",
+      "summary": "Converts the next multibyte character to a wide character, examining at most n bytes and updating the conversion state.",
+      "signature": "size_t mbrtowc(wchar_t * restrict pwc, const char * restrict s, size_t n, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "pwc",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the object that receives the wide character, or a null pointer."
+        },
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "Pointer to the multibyte character to convert, or a null pointer to reset the state."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to examine."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the conversion state, or a null pointer to use an internal one."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "0 if the next bytes complete the null wide character; a value between 1 and n giving the bytes that complete a valid character; (size_t)(-2) if the n bytes form an incomplete but potentially valid character; (size_t)(-3) if it stores the next character of an earlier multi-character sequence; or (size_t)(-1) on an encoding error, with EILSEQ stored in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  mbstate_t state = {0};\n  wchar_t wc;\n  size_t len = mbrtowc(&wc, \"Z\", 1, &state);\n  if (len == (size_t)(-1) || len == (size_t)(-2)) return 1;\n  wprintf(L\"%lc\\n\", wc);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.3.2 The mbrtowc function",
+          "line": 21134,
+          "lines": [
+            "size_t mbrtowc(wchar_t * restrict pwc,",
+            "const char * restrict s,",
+            "size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.3.2 The mbrtowc function",
+          "line": 24247,
+          "lines": [
+            "size_t mbrtowc(wchar_t * restrict pwc,",
+            "const char * restrict s,",
+            "size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.3.2 The mbrtowc function",
+          "line": 30501,
+          "lines": [
+            "size_t mbrtowc(wchar_t * restrict pwc, const char * restrict s, size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 78,
+          "lines": [
+            "_ACRTIMP size_t __cdecl mbrtowc(",
+            "_Pre_maybenull_ _Post_z_                       wchar_t*    _DstCh,",
+            "_In_reads_bytes_opt_(_SizeInBytes) _Pre_opt_z_ char const* _SrcCh,",
+            "_In_                                           size_t      _SizeInBytes,",
+            "_Inout_                                        mbstate_t*  _State",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbsinit",
+      "summary": "Tests whether a conversion state object describes the initial conversion state.",
+      "signature": "int mbsinit(const mbstate_t *ps);",
+      "params": [
+        {
+          "name": "ps",
+          "type": "const mbstate_t *",
+          "description": "Pointer to the conversion state to test, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if ps is a null pointer or points to an initial conversion state; otherwise zero."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  mbstate_t state = {0};\n  wprintf(L\"%ls\\n\", mbsinit(&state) ? L\"initial\" : L\"not initial\");\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.2.1 The mbsinit function",
+          "line": 21069,
+          "lines": [
+            "int mbsinit(const mbstate_t *ps);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.2.1 The mbsinit function",
+          "line": 24183,
+          "lines": [
+            "int mbsinit(const mbstate_t *ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.2.1 The mbsinit function",
+          "line": 30446,
+          "lines": [
+            "int mbsinit(const mbstate_t *ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 199,
+          "lines": [
+            "__inline int __CRTDECL mbsinit(",
+            "_In_opt_ mbstate_t const* _P",
+            ")",
+            "{",
+            "return _P == NULL || _P->_Wchar == 0;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbsrtowcs",
+      "summary": "Converts a multibyte string, starting in the state ps describes, into a wide string, storing at most len wide characters when dst isn't a null pointer.",
+      "signature": "size_t mbsrtowcs(wchar_t * restrict dst, const char ** restrict src, size_t len, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "dst",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the array that receives the wide characters, or a null pointer to only count them."
+        },
+        {
+          "name": "src",
+          "type": "const char ** restrict",
+          "description": "Pointer to the pointer to the multibyte string. It's updated to point past the last character converted, or set to a null pointer if conversion stopped at the null character."
+        },
+        {
+          "name": "len",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to store."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the conversion state, or a null pointer to use an internal one."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of multibyte characters converted, not counting the terminating null, or (size_t)(-1) on an encoding error, with EILSEQ stored in errno and the state unspecified."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  const char *src = \"hello\";\n  wchar_t dst[16];\n  mbstate_t state = {0};\n  size_t n = mbsrtowcs(dst, &src, 16, &state);\n  if (n == (size_t)(-1)) return 1;\n  wprintf(L\"%ls (%zu)\\n\", dst, n);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using mbsrtowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 105,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE(",
+            "_Success_(return == 0) _ACRTIMP, mbsrtowcs,",
+            "_Out_writes_opt_z_(_Count),           wchar_t,      _Dest,",
+            "_Deref_pre_opt_z_                 char const**, _PSrc,",
+            "_In_                              size_t,       _Count,",
+            "_Inout_                           mbstate_t*,   _State",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'mbsrtowcs' is not bounds-checking; 'mbsrtowcs_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.4.1 The mbsrtowcs function",
+          "line": 21245,
+          "lines": [
+            "size_t mbsrtowcs(wchar_t * restrict dst,",
+            "const char ** restrict src,",
+            "size_t len,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.4.1 The mbsrtowcs function",
+          "line": 24358,
+          "lines": [
+            "size_t mbsrtowcs(wchar_t * restrict dst,",
+            "const char ** restrict src,",
+            "size_t len,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.4.1 The mbsrtowcs function",
+          "line": 30600,
+          "lines": [
+            "size_t mbsrtowcs(wchar_t * restrict dst, const char ** restrict src, size_t len,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 105,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE(",
+            "_Success_(return == 0) _ACRTIMP, mbsrtowcs,",
+            "_Out_writes_opt_z_(_Count),           wchar_t,      _Dest,",
+            "_Deref_pre_opt_z_                 char const**, _PSrc,",
+            "_In_                              size_t,       _Count,",
+            "_Inout_                           mbstate_t*,   _State",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "putwc",
+      "summary": "Writes a wide character to a stream, like fputwc, but may be a macro that evaluates stream more than once.",
+      "signature": "wint_t putwc(wchar_t c, FILE *stream);",
+      "params": [
+        {
+          "name": "c",
+          "type": "wchar_t",
+          "description": "The wide character to write."
+        },
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "The output stream to write to. Avoid arguments with side effects."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The wide character written, or WEOF on a write or encoding error, with the stream's error indicator set."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  if (putwc(L'x', stdout) == WEOF) return 1;\n  putwc(L'\\n', stdout);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.8 The putwc function",
+          "line": 20095,
+          "lines": [
+            "wint_t putwc(wchar_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.8 The putwc function",
+          "line": 23216,
+          "lines": [
+            "wint_t putwc(wchar_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.8 The putwc function",
+          "line": 29460,
+          "lines": [
+            "wint_t putwc(wchar_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 105,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl putwc(",
+            "_In_    wchar_t _Character,",
+            "_Inout_ FILE*   _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "putwchar",
+      "summary": "Writes a wide character to stdout, the same as putwc(c, stdout).",
+      "signature": "wint_t putwchar(wchar_t c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "wchar_t",
+          "description": "The wide character to write."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The wide character written, or WEOF on a write or encoding error, with the stream's error indicator set."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  for (wchar_t c = L'a'; c <= L'e'; c++) putwchar(c);\n  if (putwchar(L'\\n') == WEOF) return 1;\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.9 The putwchar function",
+          "line": 20113,
+          "lines": [
+            "wint_t putwchar(wchar_t c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.9 The putwchar function",
+          "line": 23237,
+          "lines": [
+            "wint_t putwchar(wchar_t c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.9 The putwchar function",
+          "line": 29475,
+          "lines": [
+            "wint_t putwchar(wchar_t c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 111,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl putwchar(",
+            "_In_ wchar_t _Character",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "swprintf",
+      "summary": "Writes formatted output into a wide character array, writing at most n wide characters including the terminating null wide character.",
+      "signature": "int swprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format, ...);",
+      "params": [
+        {
+          "name": "s",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the array that receives the wide string."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to write, terminating null wide character included."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string of ordinary wide characters and conversion specifications."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "The values to convert, one per conversion specification."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of wide characters written, not counting the terminating null wide character, or a negative value on an encoding error or if n or more wide characters were requested."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t buf[32];\n  if (swprintf(buf, 32, L\"%d + %d = %d\", 2, 3, 5) < 0) return 1;\n  wprintf(L\"%ls\\n\", buf);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'swprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'swprintf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.3 The swprintf function",
+          "line": 19611,
+          "lines": [
+            "int swprintf(wchar_t * restrict s,",
+            "size_t n,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.3 The swprintf function",
+          "line": 22732,
+          "lines": [
+            "int swprintf(wchar_t * restrict s,",
+            "size_t n,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.3 The swprintf function",
+          "line": 29055,
+          "lines": [
+            "int swprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format,",
+            "...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 1457,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL swprintf(",
+            "_Out_writes_opt_(_BufferCount) _Always_(_Post_z_) wchar_t*       const _Buffer,",
+            "_In_                                              size_t         const _BufferCount,",
+            "_In_z_ _Printf_format_string_                     wchar_t const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vswprintf_c_l(_Buffer, _BufferCount, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "swscanf",
+      "summary": "Reads input from a wide string under the control of a wide format string, like fwscanf; reaching the end of the wide string counts as end-of-file.",
+      "signature": "int swscanf(const wchar_t * restrict s, const wchar_t * restrict format, ...);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to read from."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string that says which input to accept and how to convert it."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Pointers to the objects that receive the converted values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF if an input failure occurs before the first conversion has completed; otherwise the number of input items assigned, which can be fewer than provided, or zero on an early matching failure."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  int day, month, year;\n  if (swscanf(L\"25/11/2026\", L\"%d/%d/%d\", &day, &month, &year) != 3) return 1;\n  wprintf(L\"%d-%02d-%02d\\n\", year, month, day);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 2017,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(swscanf_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'swscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'swscanf_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'swscanf' is not bounds-checking; 'swscanf_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.4 The swscanf function",
+          "line": 19636,
+          "lines": [
+            "int swscanf(const wchar_t * restrict s,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.4 The swscanf function",
+          "line": 22760,
+          "lines": [
+            "int swscanf(const wchar_t * restrict s,",
+            "const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.4 The swscanf function",
+          "line": 29077,
+          "lines": [
+            "int swscanf(const wchar_t * restrict s, const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 2017,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(swscanf_s)",
+            "_CRT_STDIO_INLINE int __CRTDECL swscanf(",
+            "_In_z_                       wchar_t const* const _Buffer,",
+            "_In_z_ _Scanf_format_string_ wchar_t const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE // SCANF",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vswscanf_l(_Buffer, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ungetwc",
+      "summary": "Pushes a wide character back onto an input stream so the next read returns it. Only one pushback is guaranteed.",
+      "signature": "wint_t ungetwc(wint_t c, FILE *stream);",
+      "params": [
+        {
+          "name": "c",
+          "type": "wint_t",
+          "description": "The wide character to push back. Pushing WEOF fails and leaves the stream unchanged."
+        },
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "The input stream to push the character onto."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The wide character pushed back, or WEOF if the operation fails."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wint_t wc = fgetwc(stdin);\n  if (wc == WEOF) return 1;\n  if (ungetwc(wc, stdin) == WEOF) return 1;\n  wprintf(L\"Next is %lc\\n\", (wchar_t)fgetwc(stdin));\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.3.10 The ungetwc function",
+          "line": 20131,
+          "lines": [
+            "wint_t ungetwc(wint_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.3.10 The ungetwc function",
+          "line": 23255,
+          "lines": [
+            "wint_t ungetwc(wint_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.3.10 The ungetwc function",
+          "line": 29489,
+          "lines": [
+            "wint_t ungetwc(wint_t c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 121,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl ungetwc(",
+            "_In_    wint_t _Character,",
+            "_Inout_ FILE*  _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vfwprintf",
+      "summary": "Writes formatted output to a stream like fwprintf, taking the values from a va_list instead of a variable argument list. It doesn't call va_end.",
+      "signature": "int vfwprintf(FILE * restrict stream, const wchar_t * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "The output stream to write to."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string of ordinary wide characters and conversion specifications."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized by va_start."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of wide characters transmitted, or a negative value on an output or encoding error."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n#include <wchar.h>\n\nstatic int log_line(const wchar_t *format, ...) {\n  va_list args;\n  va_start(args, format);\n  int n = vfwprintf(stderr, format, args);\n  va_end(args);\n  return n;\n}\n\nint main(void) {\n  if (log_line(L\"%ls: %d\\n\", L\"count\", 7) < 0) return 1;\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.5 The vfwprintf function",
+          "line": 19667,
+          "lines": [
+            "int vfwprintf(FILE * restrict stream,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.5 The vfwprintf function",
+          "line": 22788,
+          "lines": [
+            "int vfwprintf(FILE * restrict stream,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.5 The vfwprintf function",
+          "line": 29104,
+          "lines": [
+            "int vfwprintf(FILE * restrict stream, const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 314,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vfwprintf(",
+            "_Inout_                       FILE*          const _Stream,",
+            "_In_z_ _Printf_format_string_ wchar_t const* const _Format,",
+            "va_list              _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfwprintf_l(_Stream, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vfwscanf",
+      "summary": "Reads formatted input from a stream like fwscanf, taking the pointers from a va_list instead of a variable argument list. It doesn't call va_end.",
+      "signature": "int vfwscanf(FILE * restrict stream, const wchar_t * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "The input stream to read from."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string that says which input to accept and how to convert it."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized by va_start, holding the pointers that receive the values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF if an input failure occurs before the first conversion has completed; otherwise the number of input items assigned, which can be fewer than provided, or zero on an early matching failure."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n#include <wchar.h>\n\nstatic int read_input(const wchar_t *format, ...) {\n  va_list args;\n  va_start(args, format);\n  int n = vfwscanf(stdin, format, args);\n  va_end(args);\n  return n;\n}\n\nint main(void) {\n  int x;\n  if (read_input(L\"%d\", &x) != 1) return 1;\n  wprintf(L\"%d\\n\", x);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vfwscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vfwscanf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.6 The vfwscanf function",
+          "line": 19724,
+          "lines": [
+            "int vfwscanf(FILE * restrict stream,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.6 The vfwscanf function",
+          "line": 22845,
+          "lines": [
+            "int vfwscanf(FILE * restrict stream,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.6 The vfwscanf function",
+          "line": 29146,
+          "lines": [
+            "int vfwscanf(FILE * restrict stream, const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 731,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vfwscanf(",
+            "_Inout_ FILE*                                const _Stream,",
+            "_In_z_ _Printf_format_string_ wchar_t const* const _Format,",
+            "va_list              _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfwscanf_l(_Stream, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vswprintf",
+      "summary": "Writes formatted output into a wide character array like swprintf, taking the values from a va_list instead of a variable argument list. It doesn't call va_end.",
+      "signature": "int vswprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "s",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the array that receives the wide string."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to write, terminating null wide character included."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string of ordinary wide characters and conversion specifications."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized by va_start."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of wide characters written, not counting the terminating null wide character, or a negative value on an encoding error or if n or more wide characters were requested."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n#include <wchar.h>\n\nstatic int format(wchar_t *buf, size_t n, const wchar_t *fmt, ...) {\n  va_list args;\n  va_start(args, fmt);\n  int len = vswprintf(buf, n, fmt, args);\n  va_end(args);\n  return len;\n}\n\nint main(void) {\n  wchar_t buf[32];\n  if (format(buf, 32, L\"%ls #%d\", L\"item\", 4) < 0) return 1;\n  wprintf(L\"%ls\\n\", buf);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vswprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vswprintf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.7 The vswprintf function",
+          "line": 19754,
+          "lines": [
+            "int vswprintf(wchar_t * restrict s,",
+            "size_t n,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.7 The vswprintf function",
+          "line": 22878,
+          "lines": [
+            "int vswprintf(wchar_t * restrict s,",
+            "size_t n,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.7 The vswprintf function",
+          "line": 29176,
+          "lines": [
+            "int vswprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 1230,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vswprintf(",
+            "_Out_writes_opt_(_BufferCount) _Always_(_Post_z_) wchar_t*       const _Buffer,",
+            "_In_                                              size_t         const _BufferCount,",
+            "_In_z_ _Printf_format_string_params_(1)           wchar_t const* const _Format,",
+            "va_list              _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vswprintf_c_l(_Buffer, _BufferCount, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vswscanf",
+      "summary": "Reads formatted input from a wide string like swscanf, taking the pointers from a va_list instead of a variable argument list. It doesn't call va_end.",
+      "signature": "int vswscanf(const wchar_t * restrict s, const wchar_t * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to read from."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string that says which input to accept and how to convert it."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized by va_start, holding the pointers that receive the values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF if an input failure occurs before the first conversion has completed; otherwise the number of input items assigned, which can be fewer than provided, or zero on an early matching failure."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n#include <wchar.h>\n\nstatic int parse(const wchar_t *s, const wchar_t *format, ...) {\n  va_list args;\n  va_start(args, format);\n  int n = vswscanf(s, format, args);\n  va_end(args);\n  return n;\n}\n\nint main(void) {\n  int a, b;\n  if (parse(L\"12 34\", L\"%d %d\", &a, &b) != 2) return 1;\n  wprintf(L\"%d\\n\", a + b);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vswscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vswscanf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.8 The vswscanf function",
+          "line": 19788,
+          "lines": [
+            "int vswscanf(const wchar_t * restrict s,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.8 The vswscanf function",
+          "line": 22909,
+          "lines": [
+            "int vswscanf(const wchar_t * restrict s,",
+            "const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.8 The vswscanf function",
+          "line": 29198,
+          "lines": [
+            "int vswscanf(const wchar_t * restrict s, const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 1900,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vswscanf(",
+            "_In_z_                        wchar_t const* _Buffer,",
+            "_In_z_ _Printf_format_string_ wchar_t const* _Format,",
+            "va_list        _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vswscanf_l(_Buffer, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vwprintf",
+      "summary": "Writes formatted output to stdout like wprintf, taking the values from a va_list instead of a variable argument list. It doesn't call va_end.",
+      "signature": "int vwprintf(const wchar_t * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string of ordinary wide characters and conversion specifications."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized by va_start."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of wide characters transmitted, or a negative value on an output or encoding error."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n#include <wchar.h>\n\nstatic int say(const wchar_t *format, ...) {\n  va_list args;\n  va_start(args, format);\n  int n = vwprintf(format, args);\n  va_end(args);\n  return n;\n}\n\nint main(void) {\n  if (say(L\"%ls has %d items\\n\", L\"cart\", 3) < 0) return 1;\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.9 The vwprintf function",
+          "line": 19818,
+          "lines": [
+            "int vwprintf(const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.9 The vwprintf function",
+          "line": 22942,
+          "lines": [
+            "int vwprintf(const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.9 The vwprintf function",
+          "line": 29221,
+          "lines": [
+            "int vwprintf(const wchar_t * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 404,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vwprintf(",
+            "_In_z_ _Printf_format_string_ wchar_t const* const _Format,",
+            "va_list              _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfwprintf_l(stdout, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vwscanf",
+      "summary": "Reads formatted input from stdin like wscanf, taking the pointers from a va_list instead of a variable argument list. It doesn't call va_end.",
+      "signature": "int vwscanf(const wchar_t * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string that says which input to accept and how to convert it."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized by va_start, holding the pointers that receive the values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF if an input failure occurs before the first conversion has completed; otherwise the number of input items assigned, which can be fewer than provided, or zero on an early matching failure."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n#include <wchar.h>\n\nstatic int ask(const wchar_t *format, ...) {\n  va_list args;\n  va_start(args, format);\n  int n = vwscanf(format, args);\n  va_end(args);\n  return n;\n}\n\nint main(void) {\n  double value;\n  if (ask(L\"%lf\", &value) != 1) return 1;\n  wprintf(L\"%.2f\\n\", value);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vwscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vwscanf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.10 The vwscanf function",
+          "line": 19847,
+          "lines": [
+            "int vwscanf(const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.10 The vwscanf function",
+          "line": 22968,
+          "lines": [
+            "int vwscanf(const wchar_t * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.10 The vwscanf function",
+          "line": 29244,
+          "lines": [
+            "int vwscanf(const wchar_t * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 793,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vwscanf(",
+            "_In_z_ _Printf_format_string_ wchar_t const* const _Format,",
+            "va_list              _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfwscanf_l(stdin, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcrtomb",
+      "summary": "Converts a wide character to its multibyte representation, including any shift sequences, and stores it in s, updating the conversion state.",
+      "signature": "size_t wcrtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Pointer to the array that receives at most MB_CUR_MAX bytes, or a null pointer to reset the state."
+        },
+        {
+          "name": "wc",
+          "type": "wchar_t",
+          "description": "The wide character to convert."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the conversion state, or a null pointer to use an internal one."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of bytes stored, including any shift sequences, or (size_t)(-1) if wc isn't a valid wide character, with EILSEQ stored in errno and the state unspecified."
+      },
+      "example": "#include <limits.h>\n#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  char buf[MB_LEN_MAX];\n  mbstate_t state = {0};\n  size_t n = wcrtomb(buf, L'A', &state);\n  if (n == (size_t)(-1)) return 1;\n  wprintf(L\"%zu byte(s)\\n\", n);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcrtomb_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 131,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_2_SIZE(",
+            "_ACRTIMP, wcrtomb,",
+            "_Pre_maybenull_ _Post_z_, char,       _Dest,",
+            "_In_                      wchar_t,    _Source,",
+            "_Inout_opt_              mbstate_t*, _State",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcrtomb' is not bounds-checking; 'wcrtomb_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.3.3 The wcrtomb function",
+          "line": 21193,
+          "lines": [
+            "size_t wcrtomb(char * restrict s,",
+            "wchar_t wc,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.3.3 The wcrtomb function",
+          "line": 24305,
+          "lines": [
+            "size_t wcrtomb(char * restrict s,",
+            "wchar_t wc,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.3.3 The wcrtomb function",
+          "line": 30547,
+          "lines": [
+            "size_t wcrtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 131,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_2_SIZE(",
+            "_ACRTIMP, wcrtomb,",
+            "_Pre_maybenull_ _Post_z_, char,       _Dest,",
+            "_In_                      wchar_t,    _Source,",
+            "_Inout_opt_              mbstate_t*, _State",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcscat",
+      "summary": "Appends a copy of the wide string s2, including its terminating null wide character, to the end of the wide string s1.",
+      "signature": "wchar_t *wcscat(wchar_t * restrict s1, const wchar_t * restrict s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t * restrict",
+          "description": "The destination wide string, with room for the result. Its terminating null wide character is overwritten."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to append. It mustn't overlap s1."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t path[32] = L\"/usr\";\n  wcscat(path, L\"/local\");\n  wprintf(L\"%ls\\n\", path);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcscat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 100,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcscat,",
+            "_Inout_updates_z_(_String_length_(_Destination) + _String_length_(_Source) + 1), wchar_t,        _Destination,",
+            "_In_z_                                                                           wchar_t const*, _Source",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcscat' is not bounds-checking; 'wcscat_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.3.1 The wcscat function",
+          "line": 20522,
+          "lines": [
+            "wchar_t *wcscat(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.3.1 The wcscat function",
+          "line": 23641,
+          "lines": [
+            "wchar_t *wcscat(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.3.1 The wcscat function",
+          "line": 29955,
+          "lines": [
+            "wchar_t *wcscat(wchar_t * restrict s1, const wchar_t * restrict s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 100,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcscat,",
+            "_Inout_updates_z_(_String_length_(_Destination) + _String_length_(_Source) + 1), wchar_t,        _Destination,",
+            "_In_z_                                                                           wchar_t const*, _Source",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcschr",
+      "summary": "Finds the first occurrence of a wide character in a wide string. The terminating null wide character counts as part of the string.",
+      "signature": "QWchar_t *wcschr(QWchar_t *s, wchar_t c);",
+      "params": [
+        {
+          "name": "s",
+          "type": "QWchar_t *",
+          "description": "The wide string to search."
+        },
+        {
+          "name": "c",
+          "type": "wchar_t",
+          "description": "The wide character to find."
+        }
+      ],
+      "returns": {
+        "type": "QWchar_t *",
+        "description": "A pointer to the located wide character, or a null pointer if it doesn't occur in the wide string."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  const wchar_t *at = wcschr(L\"user@example.com\", L'@');\n  if (at == NULL) return 1;\n  wprintf(L\"Domain: %ls\\n\", at + 1);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.1 The wcschr function",
+          "line": 20706,
+          "lines": [
+            "wchar_t *wcschr(const wchar_t *s, wchar_t c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.1 The wcschr function",
+          "line": 23825,
+          "lines": [
+            "wchar_t *wcschr(const wchar_t *s, wchar_t c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.2 The wcschr generic function",
+          "line": 30116,
+          "lines": [
+            "QWchar_t *wcschr(QWchar_t *s, wchar_t c);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 89,
+          "lines": [
+            "_VCRTIMP wchar_t _CONST_RETURN* __cdecl wcschr(",
+            "_In_z_ wchar_t const* _Str,",
+            "_In_   wchar_t        _Ch",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcscmp",
+      "summary": "Compares two wide strings wide character by wide character, using the integer values of wchar_t.",
+      "signature": "int wcscmp(const wchar_t *s1, const wchar_t *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const wchar_t *",
+          "description": "The first wide string."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "The second wide string."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "An integer greater than, equal to, or less than zero as s1 is greater than, equal to, or less than s2."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  int result = wcscmp(L\"apple\", L\"banana\");\n  wprintf(L\"%ls\\n\", result < 0 ? L\"apple first\" : L\"banana first\");\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.4.1 The wcscmp function",
+          "line": 20577,
+          "lines": [
+            "int wcscmp(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.4.1 The wcscmp function",
+          "line": 23696,
+          "lines": [
+            "int wcscmp(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.4.1 The wcscmp function",
+          "line": 29993,
+          "lines": [
+            "int wcscmp(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 108,
+          "lines": [
+            "_ACRTIMP int __cdecl wcscmp(",
+            "_In_z_ wchar_t const* _String1,",
+            "_In_z_ wchar_t const* _String2",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcscoll",
+      "summary": "Compares two wide strings, interpreting both according to the LC_COLLATE category of the current locale.",
+      "signature": "int wcscoll(const wchar_t *s1, const wchar_t *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const wchar_t *",
+          "description": "The first wide string."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "The second wide string."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "An integer greater than, equal to, or less than zero as s1 is greater than, equal to, or less than s2 under the current locale."
+      },
+      "example": "#include <locale.h>\n#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  setlocale(LC_COLLATE, \"\");\n  int result = wcscoll(L\"cote\", L\"coté\");\n  wprintf(L\"%d\\n\", result);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.4.2 The wcscoll function",
+          "line": 20596,
+          "lines": [
+            "int wcscoll(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.4.2 The wcscoll function",
+          "line": 23715,
+          "lines": [
+            "int wcscoll(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.4.2 The wcscoll function",
+          "line": 30014,
+          "lines": [
+            "int wcscoll(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 463,
+          "lines": [
+            "_ACRTIMP int __cdecl wcscoll(",
+            "_In_z_ wchar_t const* _String1,",
+            "_In_z_ wchar_t const* _String2",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcscpy",
+      "summary": "Copies the wide string s2, including its terminating null wide character, into the array s1.",
+      "signature": "wchar_t *wcscpy(wchar_t * restrict s1, const wchar_t * restrict s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the destination array, large enough for the copy."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to copy. It mustn't overlap s1."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t name[16];\n  wcscpy(name, L\"QueryC\");\n  wprintf(L\"%ls\\n\", name);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcscpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 119,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcscpy,",
+            "_Out_writes_z_(_String_length_(_Source) + 1), wchar_t,        _Destination,",
+            "_In_z_                                        wchar_t const*, _Source",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcscpy' is not bounds-checking; 'wcscpy_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.2.1 The wcscpy function",
+          "line": 20422,
+          "lines": [
+            "wchar_t *wcscpy(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.2.1 The wcscpy function",
+          "line": 23541,
+          "lines": [
+            "wchar_t *wcscpy(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.2.1 The wcscpy function",
+          "line": 29879,
+          "lines": [
+            "wchar_t *wcscpy(wchar_t * restrict s1, const wchar_t * restrict s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 119,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcscpy,",
+            "_Out_writes_z_(_String_length_(_Source) + 1), wchar_t,        _Destination,",
+            "_In_z_                                        wchar_t const*, _Source",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcscspn",
+      "summary": "Computes the length of the initial segment of s1 made up entirely of wide characters not in s2.",
+      "signature": "size_t wcscspn(const wchar_t *s1, const wchar_t *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const wchar_t *",
+          "description": "The wide string to scan."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "The wide characters that end the segment."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The length of the segment."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  size_t n = wcscspn(L\"key=value\", L\"=:\");\n  wprintf(L\"Key length: %zu\\n\", n);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.2 The wcscspn function",
+          "line": 20724,
+          "lines": [
+            "size_t wcscspn(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.2 The wcscspn function",
+          "line": 23843,
+          "lines": [
+            "size_t wcscspn(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.3 The wcscspn function",
+          "line": 30133,
+          "lines": [
+            "size_t wcscspn(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 126,
+          "lines": [
+            "_ACRTIMP size_t __cdecl wcscspn(",
+            "_In_z_ wchar_t const* _String,",
+            "_In_z_ wchar_t const* _Control",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsftime",
+      "summary": "Formats a broken-down time into a wide string under the control of a wide format string, like strftime but with wide characters.",
+      "signature": "size_t wcsftime(wchar_t * restrict s, size_t maxsize, const wchar_t * restrict format, const struct tm * restrict timeptr);",
+      "params": [
+        {
+          "name": "s",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the array that receives the wide string."
+        },
+        {
+          "name": "maxsize",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to write, terminating null wide character included."
+        },
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string of ordinary wide characters and conversion specifiers such as %Y and %H."
+        },
+        {
+          "name": "timeptr",
+          "type": "const struct tm * restrict",
+          "description": "Pointer to the broken-down time to format."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of wide characters written, not counting the terminating null wide character, if the result fits; otherwise zero, and the array contents are indeterminate."
+      },
+      "example": "#include <stdio.h>\n#include <time.h>\n#include <wchar.h>\n\nint main(void) {\n  time_t now = time(NULL);\n  struct tm *local = localtime(&now);\n  if (local == NULL) return 1;\n  wchar_t buf[64];\n  if (wcsftime(buf, 64, L\"%Y-%m-%d %H:%M\", local) == 0) return 1;\n  wprintf(L\"%ls\\n\", buf);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.5.1 The wcsftime function",
+          "line": 20950,
+          "lines": [
+            "size_t wcsftime(wchar_t * restrict s,",
+            "size_t maxsize,",
+            "const wchar_t * restrict format,",
+            "const struct tm * restrict timeptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.5.1 The wcsftime function",
+          "line": 24068,
+          "lines": [
+            "size_t wcsftime(wchar_t * restrict s,",
+            "size_t maxsize,",
+            "const wchar_t * restrict format,",
+            "const struct tm * restrict timeptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.5.1 The wcsftime function",
+          "line": 30345,
+          "lines": [
+            "size_t wcsftime(wchar_t * restrict s, size_t maxsize,",
+            "const wchar_t * restrict format, const struct tm * restrict timeptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wtime.h",
+          "line": 69,
+          "lines": [
+            "_ACRTIMP size_t __cdecl wcsftime(",
+            "_Out_writes_z_(_SizeInWords)  wchar_t*         _Buffer,",
+            "_In_                          size_t           _SizeInWords,",
+            "_In_z_                        wchar_t const*   _Format,",
+            "_In_                          struct tm const* _Tm",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcslen",
+      "summary": "Computes the length of a wide string.",
+      "signature": "size_t wcslen(const wchar_t *s);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const wchar_t *",
+          "description": "The wide string to measure."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of wide characters before the terminating null wide character."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wprintf(L\"%zu\\n\", wcslen(L\"wide\"));\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.6.1 The wcslen function",
+          "line": 20912,
+          "lines": [
+            "size_t wcslen(const wchar_t *s);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.6.1 The wcslen function",
+          "line": 24030,
+          "lines": [
+            "size_t wcslen(const wchar_t *s);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.6.1 The wcslen function",
+          "line": 30312,
+          "lines": [
+            "size_t wcslen(const wchar_t *s);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 132,
+          "lines": [
+            "_ACRTIMP size_t __cdecl wcslen(",
+            "_In_z_ wchar_t const* _String",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsncat",
+      "summary": "Appends at most n wide characters from s2 to the end of s1, stopping at a null wide character, then always adds a terminating null wide character.",
+      "signature": "wchar_t *wcsncat(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t * restrict",
+          "description": "The destination wide string, with room for the result."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to append from. It mustn't overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to append."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t buf[16] = L\"ab\";\n  wcsncat(buf, L\"cdefgh\", 3);\n  wprintf(L\"%ls\\n\", buf);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcsncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 178,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcsncat, wcsncat_s,",
+            "_Inout_updates_z_(_Size)   wchar_t,",
+            "_Inout_updates_z_(_Count), wchar_t,        _Destination,",
+            "_In_reads_or_z_(_Count)    wchar_t const*, _Source,",
+            "_In_                       size_t,         _Count",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcsncat' is not bounds-checking; 'wcsncat_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.3.2 The wcsncat function",
+          "line": 20542,
+          "lines": [
+            "wchar_t *wcsncat(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.3.2 The wcsncat function",
+          "line": 23661,
+          "lines": [
+            "wchar_t *wcsncat(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.3.2 The wcsncat function",
+          "line": 29971,
+          "lines": [
+            "wchar_t *wcsncat(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 178,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcsncat, wcsncat_s,",
+            "_Inout_updates_z_(_Size)   wchar_t,",
+            "_Inout_updates_z_(_Count), wchar_t,        _Destination,",
+            "_In_reads_or_z_(_Count)    wchar_t const*, _Source,",
+            "_In_                       size_t,         _Count",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsncmp",
+      "summary": "Compares at most n wide characters of two wide strings, stopping at a null wide character.",
+      "signature": "int wcsncmp(const wchar_t *s1, const wchar_t *s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const wchar_t *",
+          "description": "The first wide string."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "The second wide string."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to compare."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "An integer greater than, equal to, or less than zero as the compared part of s1 is greater than, equal to, or less than that of s2."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  if (wcsncmp(L\"https://example.com\", L\"https\", 5) == 0) wprintf(L\"Secure\\n\");\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.4.3 The wcsncmp function",
+          "line": 20624,
+          "lines": [
+            "int wcsncmp(const wchar_t *s1, const wchar_t *s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.4.3 The wcsncmp function",
+          "line": 23743,
+          "lines": [
+            "int wcsncmp(const wchar_t *s1, const wchar_t *s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.4.3 The wcsncmp function",
+          "line": 30032,
+          "lines": [
+            "int wcsncmp(const wchar_t *s1, const wchar_t *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 187,
+          "lines": [
+            "_ACRTIMP int __cdecl wcsncmp(",
+            "_In_reads_or_z_(_MaxCount) wchar_t const* _String1,",
+            "_In_reads_or_z_(_MaxCount) wchar_t const* _String2,",
+            "_In_                       size_t         _MaxCount",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsncpy",
+      "summary": "Copies at most n wide characters from s2 into s1, padding with null wide characters if s2 is shorter. If s2 is n or longer, s1 isn't null-terminated.",
+      "signature": "wchar_t *wcsncpy(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the destination array of at least n wide characters."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to copy from. It mustn't overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of wide characters to write."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t buf[8];\n  wcsncpy(buf, L\"truncate me\", 7);\n  buf[7] = L'\\0';\n  wprintf(L\"%ls\\n\", buf);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 200,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcsncpy, wcsncpy_s,",
+            "_Pre_notnull_ _Post_maybez_         wchar_t,",
+            "_Out_writes_(_Count) _Post_maybez_, wchar_t,        _Destination,",
+            "_In_reads_or_z_(_Count)             wchar_t const*, _Source,",
+            "_In_                                size_t,         _Count",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcsncpy' is not bounds-checking; 'wcsncpy_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.2.2 The wcsncpy function",
+          "line": 20444,
+          "lines": [
+            "wchar_t *wcsncpy(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.2.2 The wcsncpy function",
+          "line": 23563,
+          "lines": [
+            "wchar_t *wcsncpy(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.2.2 The wcsncpy function",
+          "line": 29894,
+          "lines": [
+            "wchar_t *wcsncpy(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 200,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "wchar_t*, __RETURN_POLICY_DST, _ACRTIMP, wcsncpy, wcsncpy_s,",
+            "_Pre_notnull_ _Post_maybez_         wchar_t,",
+            "_Out_writes_(_Count) _Post_maybez_, wchar_t,        _Destination,",
+            "_In_reads_or_z_(_Count)             wchar_t const*, _Source,",
+            "_In_                                size_t,         _Count",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcspbrk",
+      "summary": "Finds the first wide character in s1 that matches any wide character in s2.",
+      "signature": "QWchar_t *wcspbrk(QWchar_t *s1, const wchar_t *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "QWchar_t *",
+          "description": "The wide string to search."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "The wide characters to look for."
+        }
+      ],
+      "returns": {
+        "type": "QWchar_t *",
+        "description": "A pointer to the wide character in s1, or a null pointer if no wide character from s2 occurs in s1."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  const wchar_t *p = wcspbrk(L\"hello, world\", L\" ,\");\n  if (p == NULL) return 1;\n  wprintf(L\"First separator at %td\\n\", p - L\"hello, world\");\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.3 The wcspbrk function",
+          "line": 20745,
+          "lines": [
+            "wchar_t *wcspbrk(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.3 The wcspbrk function",
+          "line": 23864,
+          "lines": [
+            "wchar_t *wcspbrk(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.4 The wcspbrk generic function",
+          "line": 30158,
+          "lines": [
+            "QWchar_t *wcspbrk(QWchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 209,
+          "lines": [
+            "_ACRTIMP wchar_t _CONST_RETURN* __cdecl wcspbrk(",
+            "_In_z_ wchar_t const* _String,",
+            "_In_z_ wchar_t const* _Control",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsrchr",
+      "summary": "Finds the last occurrence of a wide character in a wide string. The terminating null wide character counts as part of the string.",
+      "signature": "QWchar_t *wcsrchr(QWchar_t *s, wchar_t c);",
+      "params": [
+        {
+          "name": "s",
+          "type": "QWchar_t *",
+          "description": "The wide string to search."
+        },
+        {
+          "name": "c",
+          "type": "wchar_t",
+          "description": "The wide character to find."
+        }
+      ],
+      "returns": {
+        "type": "QWchar_t *",
+        "description": "A pointer to the wide character, or a null pointer if it doesn't occur in the wide string."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  const wchar_t *dot = wcsrchr(L\"archive.tar.gz\", L'.');\n  if (dot == NULL) return 1;\n  wprintf(L\"Extension: %ls\\n\", dot + 1);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.4 The wcsrchr function",
+          "line": 20763,
+          "lines": [
+            "wchar_t *wcsrchr(const wchar_t *s, wchar_t c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.4 The wcsrchr function",
+          "line": 23882,
+          "lines": [
+            "wchar_t *wcsrchr(const wchar_t *s, wchar_t c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.5 The wcsrchr generic function",
+          "line": 30175,
+          "lines": [
+            "QWchar_t *wcsrchr(QWchar_t *s, wchar_t c);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 95,
+          "lines": [
+            "_VCRTIMP wchar_t _CONST_RETURN* __cdecl wcsrchr(",
+            "_In_z_ wchar_t const* _Str,",
+            "_In_   wchar_t        _Ch",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsrtombs",
+      "summary": "Converts a wide string, starting in the state ps describes, into a multibyte string, storing at most len bytes when dst isn't a null pointer.",
+      "signature": "size_t wcsrtombs(char * restrict dst, const wchar_t ** restrict src, size_t len, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "dst",
+          "type": "char * restrict",
+          "description": "Pointer to the array that receives the bytes, or a null pointer to only count them."
+        },
+        {
+          "name": "src",
+          "type": "const wchar_t ** restrict",
+          "description": "Pointer to the pointer to the wide string. It's updated to point past the last wide character converted, or set to a null pointer if conversion stopped at the null wide character."
+        },
+        {
+          "name": "len",
+          "type": "size_t",
+          "description": "Maximum number of bytes to store."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the conversion state, or a null pointer to use an internal one."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of bytes in the resulting multibyte string, not counting the terminating null character, or (size_t)(-1) if a wide character doesn't correspond to a valid multibyte character, with EILSEQ stored in errno and the state unspecified."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  const wchar_t *src = L\"hello\";\n  char dst[32];\n  mbstate_t state = {0};\n  size_t n = wcsrtombs(dst, &src, sizeof dst, &state);\n  if (n == (size_t)(-1)) return 1;\n  printf(\"%s (%zu bytes)\\n\", dst, n);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcsrtombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 158,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE(",
+            "_ACRTIMP, wcsrtombs,",
+            "_Pre_maybenull_ _Post_z_, char,            _Dest,",
+            "_Inout_ _Deref_prepost_z_ wchar_t const**, _PSource,",
+            "_In_                      size_t,          _Count,",
+            "_Inout_opt_               mbstate_t*,      _State",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcsrtombs' is not bounds-checking; 'wcsrtombs_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.4.2 The wcsrtombs function",
+          "line": 21290,
+          "lines": [
+            "size_t wcsrtombs(char * restrict dst,",
+            "const wchar_t ** restrict src,",
+            "size_t len,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.4.2 The wcsrtombs function",
+          "line": 24403,
+          "lines": [
+            "size_t wcsrtombs(char * restrict dst,",
+            "const wchar_t ** restrict src,",
+            "size_t len,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.4.2 The wcsrtombs function",
+          "line": 30631,
+          "lines": [
+            "size_t wcsrtombs(char * restrict dst, const wchar_t ** restrict src, size_t len,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 158,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_3_SIZE(",
+            "_ACRTIMP, wcsrtombs,",
+            "_Pre_maybenull_ _Post_z_, char,            _Dest,",
+            "_Inout_ _Deref_prepost_z_ wchar_t const**, _PSource,",
+            "_In_                      size_t,          _Count,",
+            "_Inout_opt_               mbstate_t*,      _State",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsspn",
+      "summary": "Computes the length of the initial segment of s1 made up entirely of wide characters from s2.",
+      "signature": "size_t wcsspn(const wchar_t *s1, const wchar_t *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const wchar_t *",
+          "description": "The wide string to scan."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "The wide characters allowed in the segment."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The length of the segment."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  size_t n = wcsspn(L\"2026abc\", L\"0123456789\");\n  wprintf(L\"%zu leading digits\\n\", n);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.5 The wcsspn function",
+          "line": 20781,
+          "lines": [
+            "size_t wcsspn(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.5 The wcsspn function",
+          "line": 23900,
+          "lines": [
+            "size_t wcsspn(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.6 The wcsspn function",
+          "line": 30192,
+          "lines": [
+            "size_t wcsspn(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 215,
+          "lines": [
+            "_ACRTIMP size_t __cdecl wcsspn(",
+            "_In_z_ wchar_t const* _String,",
+            "_In_z_ wchar_t const* _Control",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsstr",
+      "summary": "Finds the first occurrence of the wide character sequence s2, without its terminating null wide character, in the wide string s1.",
+      "signature": "QWchar_t *wcsstr(QWchar_t *s1, const wchar_t *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "QWchar_t *",
+          "description": "The wide string to search."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "The wide string to find."
+        }
+      ],
+      "returns": {
+        "type": "QWchar_t *",
+        "description": "A pointer to the located wide string, a null pointer if it isn't found, or s1 if s2 has zero length."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  const wchar_t *found = wcsstr(L\"the quick brown fox\", L\"brown\");\n  if (found == NULL) return 1;\n  wprintf(L\"%ls\\n\", found);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.6 The wcsstr function",
+          "line": 20802,
+          "lines": [
+            "wchar_t *wcsstr(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.6 The wcsstr function",
+          "line": 23920,
+          "lines": [
+            "wchar_t *wcsstr(const wchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.7 The wcsstr generic function",
+          "line": 30207,
+          "lines": [
+            "QWchar_t *wcsstr(QWchar_t *s1, const wchar_t *s2);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 102,
+          "lines": [
+            "_VCRTIMP wchar_t _CONST_RETURN* __cdecl wcsstr(",
+            "_In_z_ wchar_t const* _Str,",
+            "_In_z_ wchar_t const* _SubStr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstod",
+      "summary": "Converts the initial portion of a wide string to double, skipping leading white space and accepting decimal or hexadecimal floating constants, infinity, and NaN.",
+      "signature": "double wcstod(const wchar_t * restrict nptr, wchar_t ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "double",
+        "description": "The converted value, or zero if no conversion could be performed. If the value overflows, it returns plus or minus HUGE_VAL and stores ERANGE in errno; on underflow it returns a value no greater in magnitude than the smallest normalized positive number."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t *end;\n  double d = wcstod(L\"3.14 rest\", &end);\n  wprintf(L\"%f, then \\\"%ls\\\"\\n\", d, end);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.1.1 The wcstod, wcstof, and wcstold functions",
+          "line": 20193,
+          "lines": [
+            "double wcstod(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.1.1 The wcstod, wcstof, and wcstold functions",
+          "line": 23313,
+          "lines": [
+            "double wcstod(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.2 The wcstod, wcstof, and wcstold functions",
+          "line": 29545,
+          "lines": [
+            "double wcstod(const wchar_t * restrict nptr, wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdlib.h",
+          "line": 121,
+          "lines": [
+            "_ACRTIMP double __cdecl wcstod(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstod128",
+      "summary": "Converts the initial portion of a wide string to _Decimal128, skipping leading white space and accepting decimal floating constants, infinity, and NaN.",
+      "signature": "_Decimal128 wcstod128(const wchar_t * restrict nptr, wchar_t ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "_Decimal128",
+        "description": "The converted value, or zero if no conversion could be performed. If the value overflows, it returns plus or minus HUGE_VAL_D128 and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t *end;\n  _Decimal128 d = wcstod128(L\"0.1\", &end);\n  if (end == L\"0.1\") return 1;\n  wprintf(L\"%ls\\n\", d > 0 ? L\"positive\" : L\"not positive\");\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.3 The wcstodN functions",
+          "line": 29693,
+          "lines": [
+            "_Decimal128 wcstod128(const wchar_t * restrict nptr, wchar_t ** restrict endptr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstod32",
+      "summary": "Converts the initial portion of a wide string to _Decimal32, skipping leading white space and accepting decimal floating constants, infinity, and NaN.",
+      "signature": "_Decimal32 wcstod32(const wchar_t * restrict nptr, wchar_t ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "_Decimal32",
+        "description": "The converted value, or zero if no conversion could be performed. If the value overflows, it returns plus or minus HUGE_VAL_D32 and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  _Decimal32 d = wcstod32(L\"2.5\", NULL);\n  wprintf(L\"%ls\\n\", d > 2 ? L\"above 2\" : L\"2 or less\");\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.3 The wcstodN functions",
+          "line": 29691,
+          "lines": [
+            "_Decimal32 wcstod32(const wchar_t * restrict nptr, wchar_t ** restrict endptr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstod64",
+      "summary": "Converts the initial portion of a wide string to _Decimal64, skipping leading white space and accepting decimal floating constants, infinity, and NaN.",
+      "signature": "_Decimal64 wcstod64(const wchar_t * restrict nptr, wchar_t ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "_Decimal64",
+        "description": "The converted value, or zero if no conversion could be performed. If the value overflows, it returns plus or minus HUGE_VAL_D64 and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  _Decimal64 price = wcstod64(L\"19.99\", NULL);\n  wprintf(L\"%ls\\n\", price < 20 ? L\"under 20\" : L\"20 or more\");\n  return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.3 The wcstodN functions",
+          "line": 29692,
+          "lines": [
+            "_Decimal64 wcstod64(const wchar_t * restrict nptr, wchar_t ** restrict endptr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstof",
+      "summary": "Converts the initial portion of a wide string to float, like wcstod.",
+      "signature": "float wcstof(const wchar_t * restrict nptr, wchar_t ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "float",
+        "description": "The converted value, or zero if no conversion could be performed. If the value overflows, it returns plus or minus HUGE_VALF and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  float f = wcstof(L\"1.5e3\", NULL);\n  wprintf(L\"%.1f\\n\", f);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.1.1 The wcstod, wcstof, and wcstold functions",
+          "line": 20197,
+          "lines": [
+            "float wcstof(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.1.1 The wcstod, wcstof, and wcstold functions",
+          "line": 23317,
+          "lines": [
+            "float wcstof(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.2 The wcstod, wcstof, and wcstold functions",
+          "line": 29546,
+          "lines": [
+            "float wcstof(const wchar_t * restrict nptr, wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdlib.h",
+          "line": 207,
+          "lines": [
+            "_ACRTIMP float __cdecl wcstof(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstok",
+      "summary": "Breaks a wide string into tokens separated by wide characters from s2, keeping its position in a pointer you provide so separate sequences don't interfere.",
+      "signature": "wchar_t *wcstok(wchar_t * restrict s1, const wchar_t * restrict s2, wchar_t ** restrict ptr);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t * restrict",
+          "description": "The wide string to tokenize on the first call, or a null pointer to continue the same sequence. It's modified."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t * restrict",
+          "description": "The separator wide characters, which may differ between calls."
+        },
+        {
+          "name": "ptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to a caller-provided wchar_t pointer that holds the scanning position between calls."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "A pointer to the first wide character of a token, or a null pointer if there is no token."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t text[] = L\"red, green, blue\";\n  wchar_t *state;\n  for (wchar_t *tok = wcstok(text, L\", \", &state); tok != NULL; tok = wcstok(NULL, L\", \", &state))\n    wprintf(L\"%ls\\n\", tok);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcstok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 220,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(wcstok_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcstok' is not bounds-checking; 'wcstok_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.7 The wcstok function",
+          "line": 20822,
+          "lines": [
+            "wchar_t *wcstok(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "wchar_t ** restrict ptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.7 The wcstok function",
+          "line": 23940,
+          "lines": [
+            "wchar_t *wcstok(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "wchar_t ** restrict ptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.8 The wcstok function",
+          "line": 30233,
+          "lines": [
+            "wchar_t *wcstok(wchar_t * restrict s1, const wchar_t * restrict s2,",
+            "wchar_t ** restrict ptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 220,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(wcstok_s)",
+            "_ACRTIMP wchar_t* __cdecl wcstok(",
+            "_Inout_opt_z_                     wchar_t*       _String,",
+            "_In_z_                            wchar_t const* _Delimiter,",
+            "_Inout_opt_ _Deref_prepost_opt_z_ wchar_t**      _Context",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstol",
+      "summary": "Converts the initial portion of a wide string to long int in the given base, skipping leading white space.",
+      "signature": "long int wcstol(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "The base, from 2 to 36, or 0 to detect it from the prefix."
+        }
+      ],
+      "returns": {
+        "type": "long int",
+        "description": "The converted value, or zero if no conversion could be performed. If the value is out of range, it returns LONG_MIN or LONG_MAX and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t *end;\n  long n = wcstol(L\"0x1F\", &end, 0);\n  wprintf(L\"%ld\\n\", n);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 20326,
+          "lines": [
+            "long int wcstol(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 23445,
+          "lines": [
+            "long int wcstol(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.4 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 29804,
+          "lines": [
+            "long int wcstol(const wchar_t * restrict nptr, wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdlib.h",
+          "line": 134,
+          "lines": [
+            "_ACRTIMP long __cdecl wcstol(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr,",
+            "_In_                     int            _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstold",
+      "summary": "Converts the initial portion of a wide string to long double, like wcstod.",
+      "signature": "long double wcstold(const wchar_t * restrict nptr, wchar_t ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "long double",
+        "description": "The converted value, or zero if no conversion could be performed. If the value overflows, it returns plus or minus HUGE_VALL and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  long double x = wcstold(L\"2.718281828\", NULL);\n  wprintf(L\"%.9Lf\\n\", x);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.1.1 The wcstod, wcstof, and wcstold functions",
+          "line": 20201,
+          "lines": [
+            "long double wcstold(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.1.1 The wcstod, wcstof, and wcstold functions",
+          "line": 23321,
+          "lines": [
+            "long double wcstold(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.2 The wcstod, wcstof, and wcstold functions",
+          "line": 29547,
+          "lines": [
+            "long double wcstold(const wchar_t * restrict nptr, wchar_t ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdlib.h",
+          "line": 194,
+          "lines": [
+            "_ACRTIMP long double __cdecl wcstold(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstoll",
+      "summary": "Converts the initial portion of a wide string to long long int in the given base, like wcstol.",
+      "signature": "long long int wcstoll(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "The base, from 2 to 36, or 0 to detect it from the prefix."
+        }
+      ],
+      "returns": {
+        "type": "long long int",
+        "description": "The converted value, or zero if no conversion could be performed. If the value is out of range, it returns LLONG_MIN or LLONG_MAX and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  long long n = wcstoll(L\"-9000000000\", NULL, 10);\n  wprintf(L\"%lld\\n\", n);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 20334,
+          "lines": [
+            "long long int wcstoll(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 23453,
+          "lines": [
+            "long long int wcstoll(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.4 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 29808,
+          "lines": [
+            "long long int wcstoll(const wchar_t * restrict nptr, wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdlib.h",
+          "line": 149,
+          "lines": [
+            "_ACRTIMP long long __cdecl wcstoll(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr,",
+            "_In_                     int            _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstoul",
+      "summary": "Converts the initial portion of a wide string to unsigned long int in the given base, like wcstol.",
+      "signature": "unsigned long int wcstoul(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "The base, from 2 to 36, or 0 to detect it from the prefix."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long int",
+        "description": "The converted value, or zero if no conversion could be performed. If the value is out of range, it returns ULONG_MAX and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  unsigned long mask = wcstoul(L\"ff\", NULL, 16);\n  wprintf(L\"%lu\\n\", mask);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 20342,
+          "lines": [
+            "unsigned long int wcstoul(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 23461,
+          "lines": [
+            "unsigned long int wcstoul(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.4 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 29812,
+          "lines": [
+            "unsigned long int wcstoul(const wchar_t * restrict nptr, nptr,",
+            "wchar_t ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdlib.h",
+          "line": 164,
+          "lines": [
+            "_ACRTIMP unsigned long __cdecl wcstoul(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr,",
+            "_In_                     int            _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstoull",
+      "summary": "Converts the initial portion of a wide string to unsigned long long int in the given base, like wcstol.",
+      "signature": "unsigned long long int wcstoull(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t ** restrict",
+          "description": "Pointer to an object that receives a pointer to the first unconverted wide character, or a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "The base, from 2 to 36, or 0 to detect it from the prefix."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long long int",
+        "description": "The converted value, or zero if no conversion could be performed. If the value is out of range, it returns ULLONG_MAX and stores ERANGE in errno."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  unsigned long long n = wcstoull(L\"18446744073709551615\", NULL, 10);\n  wprintf(L\"%llu\\n\", n);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 20350,
+          "lines": [
+            "unsigned long long int wcstoull(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.1.2 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 23469,
+          "lines": [
+            "unsigned long long int wcstoull(",
+            "const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.1.4 The wcstol, wcstoll, wcstoul, and wcstoull functions",
+          "line": 29814,
+          "lines": [
+            "long int wcstoull(const wchar_t * restrict",
+            "unsigned long ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdlib.h",
+          "line": 179,
+          "lines": [
+            "_ACRTIMP unsigned long long __cdecl wcstoull(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr,",
+            "_In_                     int            _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcsxfrm",
+      "summary": "Transforms a wide string so that comparing two transformed wide strings with wcscmp gives the same result as wcscoll on the originals, storing at most n wide characters.",
+      "signature": "size_t wcsxfrm(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the array that receives the transformed wide string, or a null pointer if n is zero."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t * restrict",
+          "description": "The wide string to transform. It mustn't overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to store, terminating null wide character included."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The length of the transformed wide string, not counting the terminating null wide character. If it's n or more, the array contents are indeterminate."
+      },
+      "example": "#include <locale.h>\n#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  setlocale(LC_COLLATE, \"\");\n  wchar_t key[64];\n  size_t n = wcsxfrm(key, L\"Straße\", 64);\n  if (n >= 64) return 1;\n  wprintf(L\"Key has %zu wide characters\\n\", n);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.4.4 The wcsxfrm function",
+          "line": 20646,
+          "lines": [
+            "size_t wcsxfrm(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.4.4 The wcsxfrm function",
+          "line": 23765,
+          "lines": [
+            "size_t wcsxfrm(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.4.4 The wcsxfrm function",
+          "line": 30050,
+          "lines": [
+            "size_t wcsxfrm(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstring.h",
+          "line": 447,
+          "lines": [
+            "_ACRTIMP size_t __cdecl wcsxfrm(",
+            "_Out_writes_opt_(_MaxCount) _Post_maybez_ wchar_t*       _Destination,",
+            "_In_z_                                    wchar_t const* _Source,",
+            "_In_ _In_range_(<= ,_CRT_INT_MAX)         size_t         _MaxCount",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wctob",
+      "summary": "Converts a wide character to its single-byte representation in the initial shift state, if it has one.",
+      "signature": "int wctob(wint_t c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "wint_t",
+          "description": "The wide character to convert."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF if c doesn't correspond to a multibyte character of exactly one byte in the initial shift state; otherwise that byte as an unsigned char converted to int."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  int c = wctob(L'A');\n  if (c == EOF) return 1;\n  printf(\"%c\\n\", c);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.6.1.2 The wctob function",
+          "line": 21047,
+          "lines": [
+            "int wctob(wint_t c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.6.1.2 The wctob function",
+          "line": 24161,
+          "lines": [
+            "int wctob(wint_t c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.6.1.2 The wctob function",
+          "line": 30420,
+          "lines": [
+            "int wctob(wint_t c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 166,
+          "lines": [
+            "_ACRTIMP int __cdecl wctob(",
+            "_In_ wint_t _WCh",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wmemchr",
+      "summary": "Finds the first occurrence of a wide character in the first n wide characters of an object.",
+      "signature": "QWchar_t *wmemchr(QWchar_t *s, wchar_t c, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "QWchar_t *",
+          "description": "Pointer to the wide characters to search."
+        },
+        {
+          "name": "c",
+          "type": "wchar_t",
+          "description": "The wide character to find."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of wide characters to search."
+        }
+      ],
+      "returns": {
+        "type": "QWchar_t *",
+        "description": "A pointer to the located wide character, or a null pointer if it doesn't occur in the object."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  const wchar_t data[] = {L'a', L'b', L'\\0', L'c'};\n  const wchar_t *p = wmemchr(data, L'c', 4);\n  if (p == NULL) return 1;\n  wprintf(L\"Found at index %td\\n\", p - data);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.5.8 The wmemchr function",
+          "line": 20887,
+          "lines": [
+            "wchar_t *wmemchr(const wchar_t *s, wchar_t c,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.5.8 The wmemchr function",
+          "line": 24005,
+          "lines": [
+            "wchar_t *wmemchr(const wchar_t *s, wchar_t c,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.5.9 The wmemchr generic function",
+          "line": 30290,
+          "lines": [
+            "QWchar_t *wmemchr(QWchar_t *s, wchar_t c, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 218,
+          "lines": [
+            "__inline wchar_t _CONST_RETURN* __CRTDECL wmemchr(",
+            "_In_reads_(_N) wchar_t const* _S,",
+            "_In_           wchar_t        _C,",
+            "_In_           size_t         _N",
+            ")",
+            "{",
+            "size_t __count = 0;",
+            "#if !defined(_M_CEE)",
+            "#if defined(_M_ARM64) || defined(_M_ARM64EC) || defined(_M_HYBRID_X86_ARM64)",
+            "unsigned long __index = 0;",
+            "wchar_t const* __s = _S;",
+            "if (_N >= 4)",
+            "{",
+            "uint16x8_t __v2 = vdupq_n_u16(_C);",
+            "while (__count + 8 <= _N)",
+            "{",
+            "uint16x8_t __v1 = vreinterpretq_u16_u8(vld1q_u8((unsigned char const *)__s));",
+            "__v1 = vceqq_u16(__v1, __v2);",
+            "unsigned __int64 __mask = vget_lane_u64(vreinterpret_u64_u8(vshrn_n_u16(__v1, 4)), 0);",
+            "if (__mask != 0)",
+            "{",
+            "_BitScanForward64(&__index, __mask);",
+            "__index >>= 3;",
+            "return (wchar_t _CONST_RETURN*)&_S[__count + __index];",
+            "}",
+            "__count += 8;",
+            "__s += 8;",
+            "}",
+            "if (__count + 4 <= _N)",
+            "{",
+            "uint16x8_t __v1 = vreinterpretq_u16_u64(vdupq_lane_u64(vreinterpret_u64_u8(vld1_u8((unsigned char const *)__s)), 0));",
+            "__v1 = vceqq_u16(__v1, __v2);",
+            "unsigned int __mask = vget_lane_u32(vreinterpret_u32_u8(vshrn_n_u16(__v1, 4)), 0);",
+            "if (__mask != 0)",
+            "{",
+            "_BitScanForward(&__index, __mask);",
+            "__index >>= 3;",
+            "return (wchar_t _CONST_RETURN*)&_S[__count + __index];",
+            "}",
+            "__count += 4;",
+            "}",
+            "}",
+            "#elif (defined(_M_IX86) && _M_IX86_FP >= 2) || defined(_M_X64)",
+            "unsigned long __index = 0;",
+            "wchar_t const* __s = _S;",
+            "#if !defined(__clang__) || defined(__AVX2__)",
+            "if (_Avx2WmemEnabled && _N >= 16)",
+            "{",
+            "__m256i __v2 = _mm256_broadcastw_epi16(_mm_cvtsi32_si128(_C));",
+            "do",
+            "{",
+            "__m256i __v1 = _mm256_loadu_si256((__m256i const*)__s);",
+            "__v1 = _mm256_cmpeq_epi16(__v1, __v2);",
+            "unsigned int __mask = (unsigned int)_mm256_movemask_epi8(__v1);",
+            "if (__mask != 0)",
+            "{",
+            "_BitScanForward(&__index, __mask);",
+            "__index >>= 1;",
+            "return (wchar_t _CONST_RETURN*)&_S[__count + __index];",
+            "}",
+            "__count += 16;",
+            "__s += 16;",
+            "} while (__count + 16 <= _N);",
+            "}",
+            "#endif",
+            "if (__count + 4 <= _N)",
+            "{",
+            "__m128i __v2 = _mm_set1_epi16((short)_C);",
+            "while (__count + 8 <= _N)",
+            "{",
+            "__m128i __v1 = _mm_loadu_si128((__m128i const*)__s);",
+            "__v1 = _mm_cmpeq_epi16(__v1, __v2);",
+            "unsigned short __mask = (unsigned short)_mm_movemask_epi8(__v1);",
+            "if (__mask != 0)",
+            "{",
+            "_BitScanForward(&__index, __mask);",
+            "__index >>= 1;",
+            "return (wchar_t _CONST_RETURN*)&_S[__count + __index];",
+            "}",
+            "__count += 8;",
+            "__s += 8;",
+            "}",
+            "if (__count + 4 <= _N)",
+            "{",
+            "__m128i __v1 = _mm_loadu_si64(__s);",
+            "__v1 = _mm_cmpeq_epi16(__v1, __v2);",
+            "unsigned char __mask = (unsigned char)_mm_movemask_epi8(__v1);",
+            "if (__mask != 0)",
+            "{",
+            "_BitScanForward(&__index, __mask);",
+            "__index >>= 1;",
+            "return (wchar_t _CONST_RETURN*)&_S[__count + __index];",
+            "}",
+            "__count += 4;",
+            "}",
+            "}",
+            "#endif // (defined(_M_IX86) && _M_IX86_FP >= 2) || defined(_M_X64)",
+            "#endif // !defined(_M_CEE)",
+            "for (; __count < _N; ++__count)",
+            "{",
+            "if (_S[__count] == _C)",
+            "{",
+            "return (wchar_t _CONST_RETURN*)&_S[__count];",
+            "}",
+            "}",
+            "return NULL;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wmemcmp",
+      "summary": "Compares the first n wide characters of two objects.",
+      "signature": "int wmemcmp(const wchar_t *s1, const wchar_t *s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const wchar_t *",
+          "description": "Pointer to the first object."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "Pointer to the second object."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of wide characters to compare."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "An integer greater than, equal to, or less than zero as the object s1 points to is greater than, equal to, or less than the one s2 points to."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  if (wmemcmp(L\"abcd\", L\"abce\", 3) == 0) wprintf(L\"First 3 match\\n\");\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.4.5 The wmemcmp function",
+          "line": 20683,
+          "lines": [
+            "int wmemcmp(const wchar_t *s1, const wchar_t *s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.4.5 The wmemcmp function",
+          "line": 23802,
+          "lines": [
+            "int wmemcmp(const wchar_t *s1, const wchar_t *s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.4.5 The wmemcmp function",
+          "line": 30081,
+          "lines": [
+            "int wmemcmp(const wchar_t *s1, const wchar_t *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 344,
+          "lines": [
+            "__inline int __CRTDECL wmemcmp(",
+            "_In_reads_(_N) wchar_t const* _S1,",
+            "_In_reads_(_N) wchar_t const* _S2,",
+            "_In_           size_t         _N",
+            ")",
+            "{",
+            "size_t __count = 0;",
+            "#if !defined(_M_CEE)",
+            "#if defined(_M_ARM64) || defined(_M_ARM64EC) || defined(_M_HYBRID_X86_ARM64)",
+            "unsigned long __index = 0;",
+            "wchar_t const* __s1 = _S1;",
+            "wchar_t const* __s2 = _S2;",
+            "while (__count + 8 <= _N)",
+            "{",
+            "uint16x8_t __v1 = vreinterpretq_u16_u8(vld1q_u8((unsigned char const *)__s1));",
+            "uint16x8_t __v2 = vreinterpretq_u16_u8(vld1q_u8((unsigned char const *)__s2));",
+            "__v1 = vceqq_u16(__v1, __v2);",
+            "unsigned __int64 __mask = vget_lane_u64(vreinterpret_u64_u8(vshrn_n_u16(__v1, 4)), 0);",
+            "__mask = ~__mask;",
+            "if (__mask != 0)",
+            "{",
+            "_BitScanForward64(&__index, __mask);",
+            "__index >>= 3;",
+            "return _S1[__count + __index] < _S2[__count + __index] ? -1 : 1;",
+            "}",
+            "__count += 8;",
+            "__s1 += 8;",
+            "__s2 += 8;",
+            "}",
+            "if (__count + 4 <= _N)",
+            "{",
+            "uint16x4_t __v1 = vreinterpret_u16_u8(vld1_u8((unsigned char const *)__s1));",
+            "uint16x4_t __v2 = vreinterpret_u16_u8(vld1_u8((unsigned char const *)__s2));",
+            "__v1 = veor_u16(__v1, __v2);",
+            "unsigned __int64 __mask = vget_lane_u64(vreinterpret_u64_u16(__v1), 0);",
+            "if (__mask != 0)",
+            "{",
+            "_BitScanForward64(&__index, __mask);",
+            "__index >>= 4;",
+            "return _S1[__count + __index] < _S2[__count + __index] ? -1 : 1;",
+            "}",
+            "__count += 4;",
+            "}",
+            "#elif (defined(_M_IX86) && _M_IX86_FP >= 2) || defined(_M_X64)",
+            "unsigned long __index = 0;",
+            "wchar_t const* __s1 = _S1;",
+            "wchar_t const* __s2 = _S2;",
+            "#if !defined(__clang__) || defined(__AVX2__)",
+            "if (_Avx2WmemEnabled)",
+            "{",
+            "while (__count + 16 <= _N)",
+            "{",
+            "__m256i __v1 = _mm256_loadu_si256((__m256i const*)__s1);",
+            "__m256i __v2 = _mm256_loadu_si256((__m256i const*)__s2);",
+            "__v1 = _mm256_cmpeq_epi16(__v1, __v2);",
+            "unsigned int __mask = (unsigned int)_mm256_movemask_epi8(__v1);",
+            "if (__mask != 0xffffffff)",
+            "{",
+            "_BitScanForward(&__index, ~__mask);",
+            "__index >>= 1;",
+            "return _S1[__count + __index] < _S2[__count + __index] ? -1 : 1;",
+            "}",
+            "__count += 16;",
+            "__s1 += 16;",
+            "__s2 += 16;",
+            "}",
+            "}",
+            "#endif",
+            "while (__count + 8 <= _N)",
+            "{",
+            "__m128i __v1 = _mm_loadu_si128((__m128i const*)__s1);",
+            "__m128i __v2 = _mm_loadu_si128((__m128i const*)__s2);",
+            "__v1 = _mm_cmpeq_epi16(__v1, __v2);",
+            "unsigned short __mask = (unsigned short)_mm_movemask_epi8(__v1);",
+            "if (__mask != 0xffff)",
+            "{",
+            "_BitScanForward(&__index, (unsigned long)~__mask);",
+            "__index >>= 1;",
+            "return _S1[__count + __index] < _S2[__count + __index] ? -1 : 1;",
+            "}",
+            "__count += 8;",
+            "__s1 += 8;",
+            "__s2 += 8;",
+            "}",
+            "#if defined(_M_IX86)",
+            "if (__count + 4 <= _N)",
+            "{",
+            "__m128i __v1 = _mm_loadu_si64(__s1);",
+            "__m128i __v2 = _mm_loadu_si64(__s2);",
+            "__v1 = _mm_cmpeq_epi16(__v1, __v2);",
+            "unsigned char __mask = (unsigned char)_mm_movemask_epi8(__v1);",
+            "if (__mask != 0xff)",
+            "{",
+            "_BitScanForward(&__index, (unsigned long)~__mask);",
+            "__index >>= 1;",
+            "return _S1[__count + __index] < _S2[__count + __index] ? -1 : 1;",
+            "}",
+            "__count += 4;",
+            "}",
+            "#else",
+            "if (__count + 4 <= _N)",
+            "{",
+            "unsigned __int64 __v1 = *(unsigned __int64*)__s1;",
+            "unsigned __int64 __v2 = *(unsigned __int64*)__s2;",
+            "if (__v1 != __v2)",
+            "{",
+            "_BitScanForward64(&__index, (__v1 ^ __v2));",
+            "__index >>= 4;",
+            "return _S1[__count + __index] < _S2[__count + __index] ? -1 : 1;",
+            "}",
+            "__count += 4;",
+            "}",
+            "#endif // defined(_M_IX86)",
+            "#endif // (defined(_M_IX86) && _M_IX86_FP >= 2) || defined(_M_X64)",
+            "#endif // !defined(_M_CEE)",
+            "for (; __count < _N; ++__count)",
+            "{",
+            "if (_S1[__count] != _S2[__count])",
+            "{",
+            "return _S1[__count] < _S2[__count] ? -1 : 1;",
+            "}",
+            "}",
+            "return 0;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wmemcpy",
+      "summary": "Copies n wide characters from s2 to s1. The objects mustn't overlap; use wmemmove when they might.",
+      "signature": "wchar_t *wmemcpy(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t * restrict",
+          "description": "Pointer to the destination."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t * restrict",
+          "description": "Pointer to the source."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of wide characters to copy."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t dst[6];\n  wmemcpy(dst, L\"hello\", 6);\n  wprintf(L\"%ls\\n\", dst);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.2.3 The wmemcpy function",
+          "line": 20471,
+          "lines": [
+            "wchar_t *wmemcpy(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.2.3 The wmemcpy function",
+          "line": 23590,
+          "lines": [
+            "wchar_t *wmemcpy(wchar_t * restrict s1,",
+            "const wchar_t * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.2.3 The wmemcpy function",
+          "line": 29913,
+          "lines": [
+            "wchar_t *wmemcpy(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 486,
+          "lines": [
+            "__inline _CRT_INSECURE_DEPRECATE_MEMORY(wmemcpy_s)",
+            "wchar_t* __CRTDECL wmemcpy(",
+            "_Out_writes_all_(_N) wchar_t*       _S1,",
+            "_In_reads_(_N)       wchar_t const* _S2,",
+            "_In_                 size_t         _N",
+            ")",
+            "{",
+            "#pragma warning(suppress: 6386) // Buffer overrun",
+            "return (wchar_t*)memcpy(_S1, _S2, _N*sizeof(wchar_t));",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wmemmove",
+      "summary": "Copies n wide characters from s2 to s1, working correctly even when the objects overlap.",
+      "signature": "wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "wchar_t *",
+          "description": "Pointer to the destination."
+        },
+        {
+          "name": "s2",
+          "type": "const wchar_t *",
+          "description": "Pointer to the source."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of wide characters to copy."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t buf[16] = L\"abcdef\";\n  wmemmove(buf + 2, buf, 4);\n  wprintf(L\"%ls\\n\", buf);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.2.4 The wmemmove function",
+          "line": 20498,
+          "lines": [
+            "wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.2.4 The wmemmove function",
+          "line": 23617,
+          "lines": [
+            "wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.2.4 The wmemmove function",
+          "line": 29936,
+          "lines": [
+            "wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 497,
+          "lines": [
+            "__inline _CRT_INSECURE_DEPRECATE_MEMORY(wmemmove_s)",
+            "wchar_t* __CRTDECL wmemmove(",
+            "_Out_writes_all_opt_(_N) wchar_t*       _S1,",
+            "_In_reads_opt_(_N)       wchar_t const* _S2,",
+            "_In_                     size_t         _N",
+            ")",
+            "{",
+            "#pragma warning(suppress: 6386) // Buffer overrun",
+            "return (wchar_t*)memmove(_S1, _S2, _N*sizeof(wchar_t));",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wmemset",
+      "summary": "Copies a wide character into each of the first n wide characters of an object.",
+      "signature": "wchar_t *wmemset(wchar_t *s, wchar_t c, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "wchar_t *",
+          "description": "Pointer to the object to fill."
+        },
+        {
+          "name": "c",
+          "type": "wchar_t",
+          "description": "The wide character to store."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of wide characters to fill."
+        }
+      ],
+      "returns": {
+        "type": "wchar_t *",
+        "description": "The value of s."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t line[11];\n  wmemset(line, L'-', 10);\n  line[10] = L'\\0';\n  wprintf(L\"%ls\\n\", line);\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.4.6.2 The wmemset function",
+          "line": 20929,
+          "lines": [
+            "wchar_t *wmemset(wchar_t *s, wchar_t c, size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.4.6.2 The wmemset function",
+          "line": 24047,
+          "lines": [
+            "wchar_t *wmemset(wchar_t *s, wchar_t c, size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.4.6.2 The wmemset function",
+          "line": 30327,
+          "lines": [
+            "wchar_t *wmemset(wchar_t *s, wchar_t c, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wchar.h",
+          "line": 510,
+          "lines": [
+            "__inline wchar_t* __CRTDECL wmemset(",
+            "_Out_writes_all_(_N) wchar_t* _S,",
+            "_In_                 wchar_t  _C,",
+            "_In_                 size_t   _N",
+            ")",
+            "{",
+            "wchar_t *_Su = _S;",
+            "for (; 0 < _N; ++_Su, --_N)",
+            "{",
+            "*_Su = _C;",
+            "}",
+            "return _S;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wprintf",
+      "summary": "Writes formatted output to stdout under the control of a wide format string, the same as fwprintf with stdout.",
+      "signature": "int wprintf(const wchar_t * restrict format, ...);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string of ordinary wide characters and conversion specifications."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "The values to convert, one per conversion specification."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of wide characters transmitted, or a negative value on an output or encoding error."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  if (wprintf(L\"%ls is %d\\n\", L\"answer\", 42) < 0) return 1;\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.11 The wprintf function",
+          "line": 19873,
+          "lines": [
+            "int wprintf(const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.11 The wprintf function",
+          "line": 22997,
+          "lines": [
+            "int wprintf(const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.11 The wprintf function",
+          "line": 29264,
+          "lines": [
+            "int wprintf(const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 608,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL wprintf(",
+            "_In_z_ _Printf_format_string_ wchar_t const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfwprintf_l(stdout, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wscanf",
+      "summary": "Reads input from stdin under the control of a wide format string, the same as fwscanf with stdin.",
+      "signature": "int wscanf(const wchar_t * restrict format, ...);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const wchar_t * restrict",
+          "description": "Wide format string that says which input to accept and how to convert it."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Pointers to the objects that receive the converted values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "EOF if an input failure occurs before the first conversion has completed; otherwise the number of input items assigned, which can be fewer than provided, or zero on an early matching failure."
+      },
+      "example": "#include <stdio.h>\n#include <wchar.h>\n\nint main(void) {\n  wchar_t word[32];\n  if (wscanf(L\"%31ls\", word) != 1) return 1;\n  wprintf(L\"Hello, %ls\\n\", word);\n  return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 932,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(wscanf_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'wscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'wscanf_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wscanf' is not bounds-checking; 'wscanf_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.24.2.12 The wscanf function",
+          "line": 19891,
+          "lines": [
+            "int wscanf(const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.29.2.12 The wscanf function",
+          "line": 23015,
+          "lines": [
+            "int wscanf(const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.31.2.12 The wscanf function",
+          "line": 29281,
+          "lines": [
+            "int wscanf(const wchar_t * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wstdio.h",
+          "line": 932,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(wscanf_s)",
+            "_CRT_STDIO_INLINE int __CRTDECL wscanf(",
+            "_In_z_ _Scanf_format_string_ wchar_t const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE // SCANF",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfwscanf_l(stdin, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    }
+  ]
+}
