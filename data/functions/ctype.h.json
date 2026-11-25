@@ -1,0 +1,961 @@
+{
+  "header": "ctype.h",
+  "functions": [
+    {
+      "name": "isalnum",
+      "summary": "Tests whether a character is a letter or a decimal digit.",
+      "signature": "int isalnum(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the letters or digits, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'a', '7', '#'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isalnum(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.1 The isalnum function",
+          "line": 6717,
+          "lines": [
+            "int isalnum(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.1 The isalnum function",
+          "line": 9995,
+          "lines": [
+            "int isalnum(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.1 The isalnum function",
+          "line": 11286,
+          "lines": [
+            "int isalnum(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.1 The isalnum function",
+          "line": 14162,
+          "lines": [
+            "int isalnum(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 53,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl isalnum(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isalpha",
+      "summary": "Tests whether a character is alphabetic. In the \"C\" locale, only uppercase and lowercase letters count.",
+      "signature": "int isalpha(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the letters, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'Q', '3', ' '};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isalpha(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.2 The isalpha function",
+          "line": 6730,
+          "lines": [
+            "int isalpha(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.2 The isalpha function",
+          "line": 10007,
+          "lines": [
+            "int isalpha(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.2 The isalpha function",
+          "line": 11298,
+          "lines": [
+            "int isalpha(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.2 The isalpha function",
+          "line": 14172,
+          "lines": [
+            "int isalpha(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 31,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl isalpha(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isblank",
+      "summary": "Tests whether a character is a blank: a standard blank character or a locale-specific character that separates words within a line.",
+      "signature": "int isblank(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the blanks, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {' ', '\t', 'x'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isblank(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.3 The isblank function",
+          "line": 10032,
+          "lines": [
+            "int isblank(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.3 The isblank function",
+          "line": 11323,
+          "lines": [
+            "int isblank(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.3 The isblank function",
+          "line": 14186,
+          "lines": [
+            "int isblank(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 51,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl isblank(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iscntrl",
+      "summary": "Tests whether a character is a control character.",
+      "signature": "int iscntrl(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the control characters, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'\\n', 'A', ''};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, iscntrl(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.3 The iscntrl function",
+          "line": 6746,
+          "lines": [
+            "int iscntrl(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.4 The iscntrl function",
+          "line": 10048,
+          "lines": [
+            "int iscntrl(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.4 The iscntrl function",
+          "line": 11339,
+          "lines": [
+            "int iscntrl(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.4 The iscntrl function",
+          "line": 14212,
+          "lines": [
+            "int iscntrl(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 59,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iscntrl(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isdigit",
+      "summary": "Tests whether a character is a decimal digit.",
+      "signature": "int isdigit(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the digits, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'5', 'x', '0'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isdigit(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.4 The isdigit function",
+          "line": 6758,
+          "lines": [
+            "int isdigit(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.5 The isdigit function",
+          "line": 10060,
+          "lines": [
+            "int isdigit(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.5 The isdigit function",
+          "line": 11351,
+          "lines": [
+            "int isdigit(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.5 The isdigit function",
+          "line": 14222,
+          "lines": [
+            "int isdigit(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 39,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl isdigit(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isgraph",
+      "summary": "Tests whether a character is a printing character other than space.",
+      "signature": "int isgraph(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the printing characters other than space, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'!', ' ', 'z'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isgraph(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.5 The isgraph function",
+          "line": 6771,
+          "lines": [
+            "int isgraph(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.6 The isgraph function",
+          "line": 10072,
+          "lines": [
+            "int isgraph(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.6 The isgraph function",
+          "line": 11363,
+          "lines": [
+            "int isgraph(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.6 The isgraph function",
+          "line": 14232,
+          "lines": [
+            "int isgraph(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 57,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl isgraph(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "islower",
+      "summary": "Tests whether a character is a lowercase letter. Other locales can add characters that aren't control, digit, punctuation, or white-space characters.",
+      "signature": "int islower(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the lowercase letters, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'a', 'A', '9'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, islower(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.6 The islower function",
+          "line": 6783,
+          "lines": [
+            "int islower(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.7 The islower function",
+          "line": 10090,
+          "lines": [
+            "int islower(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.7 The islower function",
+          "line": 11381,
+          "lines": [
+            "int islower(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.7 The islower function",
+          "line": 14242,
+          "lines": [
+            "int islower(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 35,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl islower(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isprint",
+      "summary": "Tests whether a character is a printing character, space included.",
+      "signature": "int isprint(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the printing characters, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {' ', '\\n', 'k'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isprint(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.7 The isprint function",
+          "line": 6799,
+          "lines": [
+            "int isprint(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.8 The isprint function",
+          "line": 10105,
+          "lines": [
+            "int isprint(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.8 The isprint function",
+          "line": 11396,
+          "lines": [
+            "int isprint(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.8 The isprint function",
+          "line": 14255,
+          "lines": [
+            "int isprint(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 55,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl isprint(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ispunct",
+      "summary": "Tests whether a character is punctuation: a printing character that is neither white space nor alphanumeric in the \"C\" locale.",
+      "signature": "int ispunct(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the punctuation characters, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'.', 'a', '@'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, ispunct(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.8 The ispunct function",
+          "line": 6812,
+          "lines": [
+            "int ispunct(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.9 The ispunct function",
+          "line": 10117,
+          "lines": [
+            "int ispunct(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.9 The ispunct function",
+          "line": 11408,
+          "lines": [
+            "int ispunct(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.9 The ispunct function",
+          "line": 14265,
+          "lines": [
+            "int ispunct(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 49,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl ispunct(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isspace",
+      "summary": "Tests whether a character is white space: space, form feed, new-line, carriage return, horizontal tab, or vertical tab in the \"C\" locale.",
+      "signature": "int isspace(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the white-space characters, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {' ', '\f', 'x'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isspace(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.9 The isspace function",
+          "line": 6825,
+          "lines": [
+            "int isspace(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.10 The isspace function",
+          "line": 10132,
+          "lines": [
+            "int isspace(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.10 The isspace function",
+          "line": 11423,
+          "lines": [
+            "int isspace(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.10 The isspace function",
+          "line": 14282,
+          "lines": [
+            "int isspace(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 46,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl isspace(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isupper",
+      "summary": "Tests whether a character is an uppercase letter. Other locales can add characters that aren't control, digit, punctuation, or white-space characters.",
+      "signature": "int isupper(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the uppercase letters, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'A', 'a', '1'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isupper(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.10 The isupper function",
+          "line": 6843,
+          "lines": [
+            "int isupper(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.11 The isupper function",
+          "line": 10152,
+          "lines": [
+            "int isupper(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.11 The isupper function",
+          "line": 11443,
+          "lines": [
+            "int isupper(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.11 The isupper function",
+          "line": 14297,
+          "lines": [
+            "int isupper(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 33,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl isupper(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isxdigit",
+      "summary": "Tests whether a character is a hexadecimal digit.",
+      "signature": "int isxdigit(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to test, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero (true) if the character is one of the hexadecimal digits, zero (false) otherwise."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  const char tests[] = {'f', 'G', '9'};\n  for (int i = 0; i < 3; i++) {\n    unsigned char ch = (unsigned char)tests[i];\n    printf(\"0x%02x: %s\\n\", ch, isxdigit(ch) ? \"yes\" : \"no\");\n  }\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.1.11 The isxdigit function",
+          "line": 6858,
+          "lines": [
+            "int isxdigit(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.1.12 The isxdigit function",
+          "line": 10167,
+          "lines": [
+            "int isxdigit(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.1.12 The isxdigit function",
+          "line": 11458,
+          "lines": [
+            "int isxdigit(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.2.12 The isxdigit function",
+          "line": 14310,
+          "lines": [
+            "int isxdigit(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 42,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl isxdigit(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tolower",
+      "summary": "Converts an uppercase letter to the matching lowercase letter.",
+      "signature": "int tolower(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to convert, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A matching character for which islower is true, chosen by the current locale, when the argument is a character for which isupper is true and such a character exists; otherwise the argument unchanged."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  char text[] = \"Hello, World\";\n  for (char *p = text; *p; p++) {\n    *p = (char)tolower((unsigned char)*p);\n  }\n  puts(text);\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.2.1 The tolower function",
+          "line": 6873,
+          "lines": [
+            "int tolower(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.2.1 The tolower function",
+          "line": 10181,
+          "lines": [
+            "int tolower(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.2.1 The tolower function",
+          "line": 11472,
+          "lines": [
+            "int tolower(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.3.1 The tolower function",
+          "line": 14322,
+          "lines": [
+            "int tolower(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 66,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl tolower(_In_ int _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toupper",
+      "summary": "Converts an lowercase letter to the matching uppercase letter.",
+      "signature": "int toupper(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "The character to convert, as an unsigned char value converted to int, or EOF."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A matching character for which isupper is true, chosen by the current locale, when the argument is a character for which islower is true and such a character exists; otherwise the argument unchanged."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n  char text[] = \"Hello, World\";\n  for (char *p = text; *p; p++) {\n    *p = (char)toupper((unsigned char)*p);\n  }\n  puts(text);\n  return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.3.2.2 The toupper function",
+          "line": 6894,
+          "lines": [
+            "int toupper(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.4.2.2 The toupper function",
+          "line": 10203,
+          "lines": [
+            "int toupper(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.4.2.2 The toupper function",
+          "line": 11494,
+          "lines": [
+            "int toupper(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.4.3.2 The toupper function",
+          "line": 14344,
+          "lines": [
+            "int toupper(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "ctype.h",
+          "line": 63,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int __cdecl toupper(_In_ int _C);"
+          ]
+        }
+      ]
+    }
+  ]
+}
