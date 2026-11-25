@@ -4,11 +4,19 @@ import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { hasClangTidy, runClangTidy } from './clang-tidy.js';
+import { draftSections } from './draft.js';
 
 const STANDARDS = ['C89', 'C95', 'C99', 'C11', 'C17', 'C23'];
 const IDENTIFIER = /^[A-Za-z_][A-Za-z0-9_]*$/;
 const HEADING_WINDOW = 30;
 const WARNING_SOURCES = ['standard', 'msvc', 'clang-tidy'];
+const RETURN_VALUES = [
+  ['a null pointer', /\breturns? a null pointer\b|\bnull pointer is returned\b/i, /\bnull pointer\b|\bNULL\b/],
+  ['EOF', /\bEOF\b/, /\bEOF\b/],
+  ['HUGE_VAL', /\bHUGE_VAL/, /\bHUGE_VAL/],
+  ['zero', /\breturns? zero\b|\bzero (is returned|if)\b/i, /\bzero\b|\b0\b/i],
+  ['nonzero', /\breturns? (a )?nonzero\b|\bnonzero (value )?(is returned|if)\b/i, /\bnonzero\b/i],
+];
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = join(repoRoot, 'data');
@@ -154,6 +162,53 @@ function checkExample(at, fn, workDir) {
   }
 }
 
+function synopsisParams(signature) {
+  const open = signature.indexOf('(');
+  let depth = 0;
+  let current = '';
+  const parts = [];
+  for (const ch of signature.slice(open + 1)) {
+    if (ch === '(') depth += 1;
+    if (ch === ')') {
+      if (depth === 0) break;
+      depth -= 1;
+    }
+    if (ch === ',' && depth === 0) {
+      parts.push(current.trim());
+      current = '';
+    } else current += ch;
+  }
+  parts.push(current.trim());
+  return parts.filter((p) => p && p !== 'void');
+}
+
+function checkProse(at, fn, sources, evidence) {
+  const declared = synopsisParams(fn.signature);
+  if (declared.length !== fn.params.length) {
+    error(at, `signature has ${declared.length} parameters but params has ${fn.params.length}`);
+  }
+  declared.forEach((text, i) => {
+    const param = fn.params[i];
+    if (!param) return;
+    const named = param.name === '...' ? text === '...' : new RegExp(`\\b${param.name}\\b`).test(text);
+    if (!named) error(at, `params[${i}] is "${param.name}" but the signature's parameter ${i + 1} is "${text}"`);
+    if (!param.description?.trim()) error(at, `params[${i}] (${param.name}) has no description`);
+  });
+
+  const source = evidence && sources[evidence.source];
+  if (!source) return;
+  const sections = draftSections(
+    fileLines(join(sourceRoot(evidence.source, source), evidence.file)),
+    evidence.line - 1,
+  );
+  if (!sections?.returns) return;
+  for (const [name, inDraft, inProse] of RETURN_VALUES) {
+    if (inDraft.test(sections.returns) && !inProse.test(fn.returns.description)) {
+      error(at, `returns.description doesn't mention ${name}, which the ${source.standard} Returns paragraph names`);
+    }
+  }
+}
+
 function validateFunction(at, fn, header, sources, workDir) {
   for (const key of ['name', 'summary', 'signature', 'example']) {
     if (typeof fn[key] !== 'string' || !fn[key].trim()) error(at, `${key} is required`);
@@ -228,6 +283,16 @@ function validateFunction(at, fn, header, sources, workDir) {
   } else {
     warn(at, 'claims no standard, so the signature is unchecked');
   }
+
+  checkProse(
+    at,
+    fn,
+    sources,
+    ordered
+      .filter((s) => evidenced.has(s))
+      .map((s) => evidenced.get(s))
+      .at(-1),
+  );
 
   if (fn.caution !== undefined) error(at, 'caution is no longer used; warnings come from scripts/extract.js');
   validateWarnings(at, fn, header, sources);

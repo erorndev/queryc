@@ -974,7 +974,7 @@
       ],
       "returns": {
         "type": "size_t",
-        "description": "The number of complete elements read, which is less than nmemb at end of file or on a read error."
+        "description": "The number of complete elements read, which is less than nmemb at end of file or on a read error, or zero if size or nmemb is zero."
       },
       "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"image.bin\", \"rb\");\n    if (f == NULL) {\n        return 1;\n    }\n    unsigned char header[8];\n    size_t got = fread(header, 1, sizeof header, f);\n    printf(\"read %zu bytes\\n\", got);\n    fclose(f);\n    return 0;\n}\n",
       "standards": [
@@ -1525,7 +1525,7 @@
       ],
       "returns": {
         "type": "size_t",
-        "description": "The number of complete elements written, which is less than nmemb only on a write error."
+        "description": "The number of complete elements written, which is less than nmemb only on a write error, or zero if size or nmemb is zero."
       },
       "example": "#include <stdio.h>\n\nint main(void) {\n    int scores[] = {90, 72, 85};\n    FILE *f = fopen(\"scores.bin\", \"wb\");\n    if (f == NULL) {\n        return 1;\n    }\n    size_t n = sizeof scores / sizeof scores[0];\n    if (fwrite(scores, sizeof scores[0], n, f) != n) {\n        perror(\"scores.bin\");\n    }\n    fclose(f);\n    return 0;\n}\n",
       "standards": [
