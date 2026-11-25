@@ -1,0 +1,32 @@
+$color-text: var(--color-text);
+$color-muted: var(--color-muted);
+$color-placeholder: var(--color-placeholder);
+$color-border: var(--color-border);
+$color-input-border: var(--color-input-border);
+$color-bg: var(--color-bg);
+$color-bg-alt: var(--color-bg-alt);
+$color-input-bg: var(--color-input-bg);
+$color-header: var(--color-header);
+$color-accent: var(--color-accent);
+$color-accent-dark: var(--color-accent-dark);
+$color-focus-ring: var(--color-focus-ring);
+$color-danger: var(--color-danger);
+$color-danger-bg: var(--color-danger-bg);
+$color-warning: var(--color-warning);
+$color-warning-bg: var(--color-warning-bg);
+$discouraged-opacity: var(--discouraged-opacity);
+
+$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-mono: 'Geist Mono Variable', Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+$font-size-base: 16px;
+$tracking-heading: -0.02em;
+$tracking-subheading: -0.01em;
+$line-height-base: 1.5;
+
+$radius: 3px;
+$container-width: 960px;
+$column-width: 640px;
+$gutter: 16px;
+
+$breakpoint-sm: 600px;

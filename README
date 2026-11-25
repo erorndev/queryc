@@ -1,0 +1,64 @@
+ .d88888b.                                      .d8888b.
+d88P" "Y88b                                    d88P  Y88b
+888     888                                    888    888
+888     888 888  888  .d88b.  888d888 888  888 888
+888     888 888  888 d8P  Y8b 888P"   888  888 888
+888 Y8b 888 888  888 88888888 888     888  888 888    888
+Y88b.Y8b88P Y88b 888 Y8b.     888     Y88b 888 Y88b  d88P
+ "Y888888"   "Y88888  "Y8888  888      "Y88888  "Y8888P"
+       Y8b                                 888
+                                      Y8b d88P
+                                       "Y88P"
+
+QueryC is a search engine for standard libraries.
+currently it includes all the functions in stdio.h and
+string.h (72 so far). in due course Rust and C++ will
+also be supported.
+
+whilst I have unfortunately vibecoded the entire thing,
+the UI was designed to be both simple and user friendly.
+if shit works it works.
+
+each signature and standard links directly to the line in
+either a WG14 draft standard or an MSVC header file where
+it is defined. bun run validate then re-scans these 338
+lines.
+
+
+Running it
+----------
+
+  bun install     install dependencies
+  bun run dev     dev server at http://localhost:5173
+  bun run build   static site in dist/
+
+you need Bun. to check data and compile the examples, you
+also need clang with the Windows SDK and MSVC Build Tools
+headers.
+
+
+Checking it
+-----------
+
+  bun run lint       ESLint, Stylelint, Prettier
+  bun run validate   check data against its sources
+
+
+Searching
+---------
+
+very self explanatory no? you type in box and it shows
+you. it also shows not recommended functions if they are
+fucky enough.
+
+
+Contributing
+------------
+
+If you want to make any contributions, just contact me,
+or just directly do a pr.
+
+License
+-------
+
+BSD 3-Clause, see LICENSE.

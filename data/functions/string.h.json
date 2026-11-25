@@ -1,0 +1,2158 @@
+{
+  "header": "string.h",
+  "functions": [
+    {
+      "name": "memccpy",
+      "summary": "Copies bytes from s2 to s1 until it copies the byte c or has copied n bytes, whichever comes first.",
+      "signature": "void *memccpy(void * restrict s1, const void * restrict s2, int c, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "void * restrict",
+          "description": "Destination buffer."
+        },
+        {
+          "name": "s2",
+          "type": "const void * restrict",
+          "description": "Source buffer. Must not overlap s1."
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Byte value that stops the copy, converted to unsigned char."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to copy."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "A pointer to the byte after the copy of c in s1, or a null pointer if c isn't in the first n bytes of s2."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char out[16];\n    char *end = memccpy(out, \"key=value\", '=', sizeof out);\n    if (end != NULL) {\n        *end = '\\0';\n    }\n    puts(out);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _memccpy. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_memory.h",
+          "line": 82,
+          "lines": [
+            "_CRT_NONSTDC_DEPRECATE(_memccpy)"
+          ]
+        }
+      ],
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.2.2 The memccpy function",
+          "line": 25736,
+          "lines": [
+            "void *memccpy(void * restrict s1, const void * restrict s2, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_memory.h",
+          "line": 82,
+          "lines": [
+            "_CRT_NONSTDC_DEPRECATE(_memccpy)",
+            "_ACRTIMP void* __cdecl memccpy(",
+            "_Out_writes_bytes_opt_(_Size) void*       _Dst,",
+            "_In_reads_bytes_opt_(_Size)   void const* _Src,",
+            "_In_                          int         _Val,",
+            "_In_                          size_t      _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memchr",
+      "summary": "Finds the first byte equal to c in the first n bytes of an object.",
+      "signature": "void *memchr(const void *s, int c, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const void *",
+          "description": "Object to search."
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Byte value to find, converted to unsigned char."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of bytes to search."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "A pointer to the matching byte, or a null pointer if no byte matches."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char data[] = {'a', 'b', 0, 'c'};\n    const char *hit = memchr(data, 'c', sizeof data);\n    if (hit != NULL) {\n        printf(\"found at offset %d\\n\", (int)(hit - data));\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.1 The memchr function",
+          "line": 10809,
+          "lines": [
+            "void *memchr(const void *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.1 The memchr function",
+          "line": 17896,
+          "lines": [
+            "void *memchr(const void *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.1 The memchr function",
+          "line": 20079,
+          "lines": [
+            "void *memchr(const void *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.2 The memchr generic function",
+          "line": 26031,
+          "lines": [
+            "QVoid *memchr(QVoid *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 22,
+          "lines": [
+            "_VCRTIMP void _CONST_RETURN* __cdecl memchr(",
+            "_In_reads_bytes_opt_(_MaxCount) void const* _Buf,",
+            "_In_                            int         _Val,",
+            "_In_                            size_t      _MaxCount",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memcmp",
+      "summary": "Compares the first n bytes of two objects.",
+      "signature": "int memcmp(const void *s1, const void *s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const void *",
+          "description": "First object."
+        },
+        {
+          "name": "s2",
+          "type": "const void *",
+          "description": "Second object."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of bytes to compare."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A value less than, equal to, or greater than zero when s1 is less than, equal to, or greater than s2."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    unsigned char a[] = {1, 2, 3};\n    unsigned char b[] = {1, 2, 4};\n    if (memcmp(a, b, sizeof a) < 0) {\n        puts(\"a sorts before b\");\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.4.1 The memcmp function",
+          "line": 10691,
+          "lines": [
+            "int memcmp(const void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.4.1 The memcmp function",
+          "line": 17770,
+          "lines": [
+            "int memcmp(const void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.4.1 The memcmp function",
+          "line": 19953,
+          "lines": [
+            "int memcmp(const void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.4.1 The memcmp function",
+          "line": 25909,
+          "lines": [
+            "int memcmp(const void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 29,
+          "lines": [
+            "int __cdecl memcmp(",
+            "_In_reads_bytes_(_Size) void const* _Buf1,",
+            "_In_reads_bytes_(_Size) void const* _Buf2,",
+            "_In_                    size_t      _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memcpy",
+      "summary": "Copies n bytes from s2 to s1. The two objects must not overlap.",
+      "signature": "void *memcpy(void * restrict s1, const void * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "void * restrict",
+          "description": "Destination object."
+        },
+        {
+          "name": "s2",
+          "type": "const void * restrict",
+          "description": "Source object. Must not overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of bytes to copy."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nstruct point { int x, y; };\n\nint main(void) {\n    struct point a = {3, 4};\n    struct point b;\n    memcpy(&b, &a, sizeof b);\n    printf(\"%d %d\\n\", b.x, b.y);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.2.1 The memcpy function",
+          "line": 10556,
+          "lines": [
+            "void *memcpy(void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.2.1 The memcpy function",
+          "line": 17605,
+          "lines": [
+            "void *memcpy(void * restrict s1,",
+            "const void * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.2.1 The memcpy function",
+          "line": 19788,
+          "lines": [
+            "void *memcpy(void * restrict s1,",
+            "const void * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.2.1 The memcpy function",
+          "line": 25721,
+          "lines": [
+            "void *memcpy(void * restrict s1, const void * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 43,
+          "lines": [
+            "void* __cdecl memcpy(",
+            "_Out_writes_bytes_all_(_Size) void* _Dst,",
+            "_In_reads_bytes_(_Size)       void const* _Src,",
+            "_In_                          size_t      _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memmove",
+      "summary": "Copies n bytes from s2 to s1, giving the right result even when the two objects overlap.",
+      "signature": "void *memmove(void *s1, const void *s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "void *",
+          "description": "Destination object."
+        },
+        {
+          "name": "s2",
+          "type": "const void *",
+          "description": "Source object. May overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of bytes to copy."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char text[] = \"abcdef\";\n    memmove(text + 2, text, 3);\n    puts(text);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'memmove' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memmove_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.2.2 The memmove function",
+          "line": 10574,
+          "lines": [
+            "void *memmove(void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.2.2 The memmove function",
+          "line": 17632,
+          "lines": [
+            "void *memmove(void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.2.2 The memmove function",
+          "line": 19815,
+          "lines": [
+            "void *memmove(void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.2.3 The memmove function",
+          "line": 25762,
+          "lines": [
+            "void *memmove(void *s1, const void *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 50,
+          "lines": [
+            "_VCRTIMP void* __cdecl memmove(",
+            "_Out_writes_bytes_all_opt_(_Size) void*       _Dst,",
+            "_In_reads_bytes_opt_(_Size)       void const* _Src,",
+            "_In_                              size_t      _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memset",
+      "summary": "Sets the first n bytes of an object to the byte value c.",
+      "signature": "void *memset(void *s, int c, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "void *",
+          "description": "Object to fill."
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Byte value to store, converted to unsigned char."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of bytes to set."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "The value of s."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    int counts[8];\n    memset(counts, 0, sizeof counts);\n    printf(\"%d\\n\", counts[7]);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.6.1 The memset function",
+          "line": 10998,
+          "lines": [
+            "void *memset(void *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.6.1 The memset function",
+          "line": 18088,
+          "lines": [
+            "void *memset(void *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.6.1 The memset function",
+          "line": 20280,
+          "lines": [
+            "void *memset(void *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.6.1 The memset function",
+          "line": 26220,
+          "lines": [
+            "void *memset(void *s, int c, size_t n);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 63,
+          "lines": [
+            "void* __cdecl memset(",
+            "_Out_writes_bytes_all_(_Size) void*  _Dst,",
+            "_In_                          int    _Val,",
+            "_In_                          size_t _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memset_explicit",
+      "summary": "Sets the first n bytes of an object to c, like memset, but for wiping secrets: the compiler may not remove the call as dead code.",
+      "signature": "void *memset_explicit(void *s, int c, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "void *",
+          "description": "Object to fill."
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Byte value to store, converted to unsigned char."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of bytes to set."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "The value of s."
+      },
+      "example": "#include <string.h>\n\nint main(void) {\n    char password[64] = \"hunter2\";\n    memset_explicit(password, 0, sizeof password);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.6.2 The memset_explicit function",
+          "line": 26235,
+          "lines": [
+            "void *memset_explicit(void *s, int c, size_t n);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strcat",
+      "summary": "Appends a copy of the string s2, including its null terminator, to the end of the string s1.",
+      "signature": "char *strcat(char * restrict s1, const char * restrict s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "char * restrict",
+          "description": "String to append to. Its array must have room for both strings."
+        },
+        {
+          "name": "s2",
+          "type": "const char * restrict",
+          "description": "String to append. Must not overlap s1."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char path[32] = \"include/\";\n    strcat(path, \"stdio.h\");\n    puts(path);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 91,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "char*, __RETURN_POLICY_DST, __EMPTY_DECLSPEC, strcat,",
+            "_Inout_updates_z_(_String_length_(_Destination) + _String_length_(_Source) + 1), char,        _Destination,",
+            "_In_z_                                                                           char const*, _Source",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.strcpy",
+          "message": "Call to function 'strcat' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcat'. CWE-119"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'strcat' is not bounds-checking; 'strcat_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.3.1 The strcat function",
+          "line": 10639,
+          "lines": [
+            "char *strcat(char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.3.1 The strcat function",
+          "line": 17704,
+          "lines": [
+            "char *strcat(char * restrict s1,",
+            "const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.3.1 The strcat function",
+          "line": 19887,
+          "lines": [
+            "char *strcat(char * restrict s1,",
+            "const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.3.1 The strcat function",
+          "line": 25860,
+          "lines": [
+            "char *strcat(char * restrict s1, const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 91,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "char*, __RETURN_POLICY_DST, __EMPTY_DECLSPEC, strcat,",
+            "_Inout_updates_z_(_String_length_(_Destination) + _String_length_(_Source) + 1), char,        _Destination,",
+            "_In_z_                                                                           char const*, _Source",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strchr",
+      "summary": "Finds the first occurrence of the character c in a string. The null terminator counts as part of the string.",
+      "signature": "char *strchr(const char *s, int c);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "String to search."
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Character to find, converted to char."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the matching character, or a null pointer if c isn't in the string."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *file = \"notes.txt\";\n    const char *dot = strchr(file, '.');\n    if (dot != NULL) {\n        printf(\"extension: %s\\n\", dot + 1);\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.2 The strchr function",
+          "line": 10828,
+          "lines": [
+            "char *strchr(const char *s, int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.2 The strchr function",
+          "line": 17915,
+          "lines": [
+            "char *strchr(const char *s, int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.2 The strchr function",
+          "line": 20099,
+          "lines": [
+            "char *strchr(const char *s, int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.3 The strchr generic function",
+          "line": 26059,
+          "lines": [
+            "QChar *strchr(QChar *s, int c);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 70,
+          "lines": [
+            "_VCRTIMP char _CONST_RETURN* __cdecl strchr(",
+            "_In_z_ char const* _Str,",
+            "_In_   int         _Val",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strcmp",
+      "summary": "Compares two strings character by character.",
+      "signature": "int strcmp(const char *s1, const char *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const char *",
+          "description": "First string."
+        },
+        {
+          "name": "s2",
+          "type": "const char *",
+          "description": "Second string."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A value less than, equal to, or greater than zero when s1 is less than, equal to, or greater than s2."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *cmd = \"help\";\n    if (strcmp(cmd, \"help\") == 0) {\n        puts(\"usage: tool [options]\");\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.4.2 The strcmp function",
+          "line": 10711,
+          "lines": [
+            "int strcmp(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.4.2 The strcmp function",
+          "line": 17789,
+          "lines": [
+            "int strcmp(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.4.2 The strcmp function",
+          "line": 19972,
+          "lines": [
+            "int strcmp(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.4.2 The strcmp function",
+          "line": 25926,
+          "lines": [
+            "int strcmp(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 100,
+          "lines": [
+            "int __cdecl strcmp(",
+            "_In_z_ char const* _Str1,",
+            "_In_z_ char const* _Str2",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strcoll",
+      "summary": "Compares two strings using the collation rules of the current locale's LC_COLLATE category.",
+      "signature": "int strcoll(const char *s1, const char *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const char *",
+          "description": "First string."
+        },
+        {
+          "name": "s2",
+          "type": "const char *",
+          "description": "Second string."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A value less than, equal to, or greater than zero when s1 sorts before, the same as, or after s2 in the current locale."
+      },
+      "example": "#include <locale.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    setlocale(LC_COLLATE, \"\");\n    int order = strcoll(\"apple\", \"banana\");\n    printf(\"%s\\n\", order < 0 ? \"apple first\" : \"banana first\");\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.4.3 The strcoll function",
+          "line": 10730,
+          "lines": [
+            "int strcoll(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.4.3 The strcoll function",
+          "line": 17816,
+          "lines": [
+            "int strcoll(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.4.3 The strcoll function",
+          "line": 19999,
+          "lines": [
+            "int strcoll(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.4.3 The strcoll function",
+          "line": 25941,
+          "lines": [
+            "int strcoll(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 112,
+          "lines": [
+            "_ACRTIMP int __cdecl strcoll(",
+            "_In_z_ char const* _String1,",
+            "_In_z_ char const* _String2",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strcpy",
+      "summary": "Copies the string s2, including its null terminator, into the array s1.",
+      "signature": "char *strcpy(char * restrict s1, const char * restrict s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "char * restrict",
+          "description": "Destination array. Must be large enough for s2."
+        },
+        {
+          "name": "s2",
+          "type": "const char * restrict",
+          "description": "String to copy. Must not overlap s1."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char name[16];\n    strcpy(name, \"stdio\");\n    puts(name);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 130,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "char*, __RETURN_POLICY_DST, __EMPTY_DECLSPEC, strcpy,",
+            "_Out_writes_z_(_String_length_(_Source) + 1), char,        _Destination,",
+            "_In_z_                                        char const*, _Source",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.strcpy",
+          "message": "Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'strcpy' is not bounds-checking; 'strcpy_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.2.3 The strcpy function",
+          "line": 10595,
+          "lines": [
+            "char *strcpy(char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.2.3 The strcpy function",
+          "line": 17652,
+          "lines": [
+            "char *strcpy(char * restrict s1,",
+            "const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.2.3 The strcpy function",
+          "line": 19835,
+          "lines": [
+            "char *strcpy(char * restrict s1,",
+            "const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.2.4 The strcpy function",
+          "line": 25779,
+          "lines": [
+            "char *strcpy(char * restrict s1, const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 130,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_1(",
+            "char*, __RETURN_POLICY_DST, __EMPTY_DECLSPEC, strcpy,",
+            "_Out_writes_z_(_String_length_(_Source) + 1), char,        _Destination,",
+            "_In_z_                                        char const*, _Source",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strcspn",
+      "summary": "Counts how many characters at the start of s1 are not in the string s2.",
+      "signature": "size_t strcspn(const char *s1, const char *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const char *",
+          "description": "String to scan."
+        },
+        {
+          "name": "s2",
+          "type": "const char *",
+          "description": "Characters that end the span."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The length of the initial span of s1 that contains no character from s2."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char line[] = \"hello\\n\";\n    line[strcspn(line, \"\\r\\n\")] = '\\0';\n    printf(\"[%s]\\n\", line);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.3 The strcspn function",
+          "line": 10847,
+          "lines": [
+            "size_t strcspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.3 The strcspn function",
+          "line": 17937,
+          "lines": [
+            "size_t strcspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.3 The strcspn function",
+          "line": 20121,
+          "lines": [
+            "size_t strcspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.4 The strcspn function",
+          "line": 26076,
+          "lines": [
+            "size_t strcspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 137,
+          "lines": [
+            "_ACRTIMP size_t __cdecl strcspn(",
+            "_In_z_ char const* _Str,",
+            "_In_z_ char const* _Control",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strdup",
+      "summary": "Returns a copy of a string in memory allocated as if by malloc.",
+      "signature": "char *strdup(const char *s);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "String to copy."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the new string, which you release with free, or a null pointer if allocation fails."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void) {\n    char *copy = strdup(\"stdio.h\");\n    if (copy == NULL) {\n        return 1;\n    }\n    puts(copy);\n    free(copy);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 531,
+          "lines": [
+            "_Check_return_ _CRT_NONSTDC_DEPRECATE(_strdup)"
+          ]
+        }
+      ],
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.2.6 The strdup function",
+          "line": 25814,
+          "lines": [
+            "char *strdup(const char *s);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 531,
+          "lines": [
+            "_Check_return_ _CRT_NONSTDC_DEPRECATE(_strdup)",
+            "_ACRTIMP char* __cdecl strdup(",
+            "_In_opt_z_ char const* _String",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strerror",
+      "summary": "Returns a message string for an error number, usually a value of errno.",
+      "signature": "char *strerror(int errnum);",
+      "params": [
+        {
+          "name": "errnum",
+          "type": "int",
+          "description": "Error number to describe."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to a locale-specific message. Don't modify it, and don't use it after a later call to strerror."
+      },
+      "example": "#include <errno.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    FILE *f = fopen(\"missing.txt\", \"r\");\n    if (f == NULL) {\n        printf(\"open failed: %s\\n\", strerror(errno));\n        return 1;\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The strerror function is not required to avoid data races with other calls to the strerror function.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 26267,
+          "lines": [
+            "3 The strerror function is not required to avoid data races with other calls to the strerror func-",
+            "tion.368) The implementation shall behave as if no library function calls the strerror function."
+          ]
+        },
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 177,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(strerror_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'strerror' is not bounds-checking; 'strerror_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.6.2 The strerror function",
+          "line": 11016,
+          "lines": [
+            "char *strerror(int errnum);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.6.2 The strerror function",
+          "line": 18108,
+          "lines": [
+            "char *strerror(int errnum);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.6.2 The strerror function",
+          "line": 20297,
+          "lines": [
+            "char *strerror(int errnum);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.6.3 The strerror function",
+          "line": 26251,
+          "lines": [
+            "char *strerror(int errnum);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 177,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(strerror_s)",
+            "_ACRTIMP char* __cdecl strerror(",
+            "_In_ int _ErrorMessage",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strlen",
+      "summary": "Returns the length of a string, not counting the null terminator.",
+      "signature": "size_t strlen(const char *s);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "String to measure."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of characters before the null terminator."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *name = \"printf\";\n    printf(\"%zu characters\\n\", strlen(name));\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.6.3 The strlen function",
+          "line": 11039,
+          "lines": [
+            "size_t strlen(const char *s);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.6.3 The strlen function",
+          "line": 18130,
+          "lines": [
+            "size_t strlen(const char *s);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.6.3 The strlen function",
+          "line": 20329,
+          "lines": [
+            "size_t strlen(const char *s);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.6.4 The strlen function",
+          "line": 26284,
+          "lines": [
+            "size_t strlen(const char *s);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 215,
+          "lines": [
+            "size_t __cdecl strlen(",
+            "_In_z_ char const* _Str",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strncat",
+      "summary": "Appends at most n characters of s2 to the end of the string s1, then always adds a null terminator.",
+      "signature": "char *strncat(char * restrict s1, const char * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "char * restrict",
+          "description": "String to append to. Its array needs room for strlen(s1) + n + 1 characters."
+        },
+        {
+          "name": "s2",
+          "type": "const char * restrict",
+          "description": "Array to append from. Must not overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of characters to append, not the size of s1."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char path[16] = \"src/\";\n    strncat(path, \"main_window.c\", sizeof path - strlen(path) - 1);\n    puts(path);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 262,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "char*, __RETURN_POLICY_DST, _ACRTIMP, strncat, strncat_s,",
+            "_Inout_updates_z_(_Size)   char,",
+            "_Inout_updates_z_(_Count), char,        _Destination,",
+            "_In_reads_or_z_(_Count)    char const*, _Source,",
+            "_In_                       size_t,      _Count",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'strncat' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncat_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'strncat' is not bounds-checking; 'strncat_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.3.2 The strncat function",
+          "line": 10659,
+          "lines": [
+            "char *strncat(char *s1, const char *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.3.2 The strncat function",
+          "line": 17725,
+          "lines": [
+            "char *strncat(char * restrict s1,",
+            "const char * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.3.2 The strncat function",
+          "line": 19908,
+          "lines": [
+            "char *strncat(char * restrict s1,",
+            "const char * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.3.2 The strncat function",
+          "line": 25877,
+          "lines": [
+            "char *strncat(char * restrict s1, const char * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 262,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "char*, __RETURN_POLICY_DST, _ACRTIMP, strncat, strncat_s,",
+            "_Inout_updates_z_(_Size)   char,",
+            "_Inout_updates_z_(_Count), char,        _Destination,",
+            "_In_reads_or_z_(_Count)    char const*, _Source,",
+            "_In_                       size_t,      _Count",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strncmp",
+      "summary": "Compares at most n characters of two strings, stopping at a null character.",
+      "signature": "int strncmp(const char *s1, const char *s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const char *",
+          "description": "First array."
+        },
+        {
+          "name": "s2",
+          "type": "const char *",
+          "description": "Second array."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of characters to compare."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A value less than, equal to, or greater than zero when s1 is less than, equal to, or greater than s2 within the first n characters."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *arg = \"--verbose\";\n    if (strncmp(arg, \"--\", 2) == 0) {\n        printf(\"option: %s\\n\", arg + 2);\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.4.4 The strncmp function",
+          "line": 10751,
+          "lines": [
+            "int strncmp(const char *s1, const char *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.4.4 The strncmp function",
+          "line": 17835,
+          "lines": [
+            "int strncmp(const char *s1, const char *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.4.4 The strncmp function",
+          "line": 20018,
+          "lines": [
+            "int strncmp(const char *s1, const char *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.4.4 The strncmp function",
+          "line": 25959,
+          "lines": [
+            "int strncmp(const char *s1, const char *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 271,
+          "lines": [
+            "_ACRTIMP int __cdecl strncmp(",
+            "_In_reads_or_z_(_MaxCount) char const* _Str1,",
+            "_In_reads_or_z_(_MaxCount) char const* _Str2,",
+            "_In_                       size_t      _MaxCount",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strncpy",
+      "summary": "Copies at most n characters from s2 to s1, padding s1 with null characters if s2 is shorter than n.",
+      "signature": "char *strncpy(char * restrict s1, const char * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "char * restrict",
+          "description": "Destination array."
+        },
+        {
+          "name": "s2",
+          "type": "const char * restrict",
+          "description": "Array to copy from. Must not overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Number of characters to write to s1."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "The value of s1."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char code[4];\n    strncpy(code, \"USD\", sizeof code);\n    code[sizeof code - 1] = '\\0';\n    puts(code);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 334,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "char*, __RETURN_POLICY_DST, _ACRTIMP, strncpy, strncpy_s,",
+            "_Out_writes_z_(_Size)               char,",
+            "_Out_writes_(_Count) _Post_maybez_, char,        _Destination,",
+            "_In_reads_or_z_(_Count)             char const*, _Source,",
+            "_In_                                size_t,      _Count",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'strncpy' is not bounds-checking; 'strncpy_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.2.4 The strncpy function",
+          "line": 10614,
+          "lines": [
+            "char *strncpy(char *s1, const char *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.2.4 The strncpy function",
+          "line": 17672,
+          "lines": [
+            "char *strncpy(char * restrict s1,",
+            "const char * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.2.4 The strncpy function",
+          "line": 19855,
+          "lines": [
+            "char *strncpy(char * restrict s1,",
+            "const char * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.2.5 The strncpy function",
+          "line": 25795,
+          "lines": [
+            "char *strncpy(char * restrict s1, const char * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 334,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_EX(",
+            "char*, __RETURN_POLICY_DST, _ACRTIMP, strncpy, strncpy_s,",
+            "_Out_writes_z_(_Size)               char,",
+            "_Out_writes_(_Count) _Post_maybez_, char,        _Destination,",
+            "_In_reads_or_z_(_Count)             char const*, _Source,",
+            "_In_                                size_t,      _Count",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strndup",
+      "summary": "Returns a copy of at most n characters of a string, always null-terminated, in memory allocated as if by malloc.",
+      "signature": "char *strndup(const char *s, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "Array to copy from."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of characters to copy."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the new string, which you release with free, or a null pointer if allocation fails."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void) {\n    char *head = strndup(\"stdio.h\", 5);\n    if (head == NULL) {\n        return 1;\n    }\n    puts(head);\n    free(head);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.2.7 The strndup function",
+          "line": 25838,
+          "lines": [
+            "char *strndup(const char *s, size_t n);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strpbrk",
+      "summary": "Finds the first character in s1 that matches any character in s2.",
+      "signature": "char *strpbrk(const char *s1, const char *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const char *",
+          "description": "String to search."
+        },
+        {
+          "name": "s2",
+          "type": "const char *",
+          "description": "Characters to look for."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the matching character in s1, or a null pointer if none of the characters in s2 appear in s1."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *expr = \"a+b*c\";\n    const char *op = strpbrk(expr, \"+-*/\");\n    if (op != NULL) {\n        printf(\"first operator: %c\\n\", *op);\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.4 The strpbrk function",
+          "line": 10865,
+          "lines": [
+            "char *strpbrk(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.4 The strpbrk function",
+          "line": 17955,
+          "lines": [
+            "char *strpbrk(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.4 The strpbrk function",
+          "line": 20139,
+          "lines": [
+            "char *strpbrk(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.5 The strpbrk generic function",
+          "line": 26091,
+          "lines": [
+            "QChar *strpbrk(QChar *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 401,
+          "lines": [
+            "_ACRTIMP char _CONST_RETURN* __cdecl strpbrk(",
+            "_In_z_ char const* _Str,",
+            "_In_z_ char const* _Control",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strrchr",
+      "summary": "Finds the last occurrence of the character c in a string. The null terminator counts as part of the string.",
+      "signature": "char *strrchr(const char *s, int c);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "String to search."
+        },
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Character to find, converted to char."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the last matching character, or a null pointer if c isn't in the string."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *path = \"src/styles/main.scss\";\n    const char *slash = strrchr(path, '/');\n    puts(slash != NULL ? slash + 1 : path);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.5 The strrchr function",
+          "line": 10883,
+          "lines": [
+            "char *strrchr(const char *s, int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.5 The strrchr function",
+          "line": 17973,
+          "lines": [
+            "char *strrchr(const char *s, int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.5 The strrchr function",
+          "line": 20157,
+          "lines": [
+            "char *strrchr(const char *s, int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.6 The strrchr generic function",
+          "line": 26108,
+          "lines": [
+            "QChar *strrchr(QChar *s, int c);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 76,
+          "lines": [
+            "_VCRTIMP char _CONST_RETURN* __cdecl strrchr(",
+            "_In_z_ char const* _Str,",
+            "_In_   int         _Ch",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strspn",
+      "summary": "Counts how many characters at the start of s1 are all in the string s2.",
+      "signature": "size_t strspn(const char *s1, const char *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const char *",
+          "description": "String to scan."
+        },
+        {
+          "name": "s2",
+          "type": "const char *",
+          "description": "Characters allowed in the span."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The length of the initial span of s1 made only of characters from s2."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *line = \"   indented\";\n    size_t spaces = strspn(line, \" \\t\");\n    printf(\"%zu leading blanks\\n\", spaces);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.6 The strspn function",
+          "line": 10902,
+          "lines": [
+            "size_t strspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.6 The strspn function",
+          "line": 17995,
+          "lines": [
+            "size_t strspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.6 The strspn function",
+          "line": 20179,
+          "lines": [
+            "size_t strspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.7 The strspn function",
+          "line": 26129,
+          "lines": [
+            "size_t strspn(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 430,
+          "lines": [
+            "_ACRTIMP size_t __cdecl strspn(",
+            "_In_z_ char const* _Str,",
+            "_In_z_ char const* _Control",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strstr",
+      "summary": "Finds the first occurrence of the string s2 inside the string s1.",
+      "signature": "char *strstr(const char *s1, const char *s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "const char *",
+          "description": "String to search."
+        },
+        {
+          "name": "s2",
+          "type": "const char *",
+          "description": "Substring to find."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the start of the match, or a null pointer if s2 isn't found. Returns s1 when s2 is empty."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    const char *header = \"Content-Type: text/html\";\n    if (strstr(header, \"text/\") != NULL) {\n        puts(\"text content\");\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.7 The strstr function",
+          "line": 10920,
+          "lines": [
+            "char *strstr(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.7 The strstr function",
+          "line": 18012,
+          "lines": [
+            "char *strstr(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.7 The strstr function",
+          "line": 20196,
+          "lines": [
+            "char *strstr(const char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.8 The strstr generic function",
+          "line": 26144,
+          "lines": [
+            "QChar *strstr(QChar *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "vcruntime_string.h",
+          "line": 82,
+          "lines": [
+            "_VCRTIMP char _CONST_RETURN* __cdecl strstr(",
+            "_In_z_ char const* _Str,",
+            "_In_z_ char const* _SubStr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtok",
+      "summary": "Splits a string into tokens separated by any of the characters in s2, one token per call.",
+      "signature": "char *strtok(char * restrict s1, const char * restrict s2);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "char * restrict",
+          "description": "String to split on the first call, then a null pointer to continue with the same string."
+        },
+        {
+          "name": "s2",
+          "type": "const char * restrict",
+          "description": "Separator characters. Can change between calls."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the next token, or a null pointer when no tokens remain."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char list[] = \"C89,C99,C11\";\n    for (char *tok = strtok(list, \",\"); tok != NULL; tok = strtok(NULL, \",\")) {\n        puts(tok);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The strtok function is not required to avoid data races with other calls to the strtok function.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 26189,
+          "lines": [
+            "6 The strtok function is not required to avoid data races with other calls to the strtok function.366)"
+          ]
+        },
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 435,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(strtok_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'strtok' is not bounds-checking; 'strtok_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.5.8 The strtok function",
+          "line": 10940,
+          "lines": [
+            "char *strtok(char *s1, const char *s2);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.5.8 The strtok function",
+          "line": 18031,
+          "lines": [
+            "char *strtok(char * restrict s1,",
+            "const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.5.8 The strtok function",
+          "line": 20215,
+          "lines": [
+            "char *strtok(char * restrict s1,",
+            "const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.5.9 The strtok function",
+          "line": 26161,
+          "lines": [
+            "char *strtok(char * restrict s1, const char * restrict s2);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 435,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(strtok_s)",
+            "_ACRTIMP char* __cdecl strtok(",
+            "_Inout_opt_z_ char*       _String,",
+            "_In_z_        char const* _Delimiter",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strxfrm",
+      "summary": "Transforms a string so that strcmp on two transformed strings gives the same order as strcoll on the originals.",
+      "signature": "size_t strxfrm(char * restrict s1, const char * restrict s2, size_t n);",
+      "params": [
+        {
+          "name": "s1",
+          "type": "char * restrict",
+          "description": "Array that receives the transformed string. Can be a null pointer when n is 0."
+        },
+        {
+          "name": "s2",
+          "type": "const char * restrict",
+          "description": "String to transform. Must not overlap s1."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of s1, including the null terminator."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The length of the transformed string, not counting the null terminator. If the result is n or more, s1's contents are indeterminate."
+      },
+      "example": "#include <locale.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    setlocale(LC_COLLATE, \"\");\n    char key[64];\n    size_t len = strxfrm(key, \"apple\", sizeof key);\n    if (len >= sizeof key) {\n        return 1;\n    }\n    printf(\"sort key is %zu bytes\\n\", len);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.11.4.5 The strxfrm function",
+          "line": 10772,
+          "lines": [
+            "size_t strxfrm(char *s1, const char *s2, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.21.4.5 The strxfrm function",
+          "line": 17855,
+          "lines": [
+            "size_t strxfrm(char * restrict s1,",
+            "const char * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.24.4.5 The strxfrm function",
+          "line": 20038,
+          "lines": [
+            "size_t strxfrm(char * restrict s1,",
+            "const char * restrict s2,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.26.4.5 The strxfrm function",
+          "line": 25985,
+          "lines": [
+            "size_t strxfrm(char * restrict s1, const char * restrict s2, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "string.h",
+          "line": 479,
+          "lines": [
+            "_ACRTIMP size_t __cdecl strxfrm(",
+            "_Out_writes_opt_(_MaxCount) _Post_maybez_ char*       _Destination,",
+            "_In_z_                                    char const* _Source,",
+            "_In_ _In_range_(<=,_CRT_INT_MAX)          size_t      _MaxCount",
+            ");"
+          ]
+        }
+      ]
+    }
+  ]
+}

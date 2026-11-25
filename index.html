@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QueryC</title>
+    <meta name="description" content="Search C library functions, their usage & the headers that declare them." />
+    <script>
+      try {
+        var theme = localStorage.getItem("theme");
+        if (theme === "dark" || theme === "light") document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <a class="brand-name" href="/" aria-label="QueryC Home">Query</a>
+          <div class="lang-switch" id="lang-switch">
+            <button
+              type="button"
+              class="lang-current"
+              id="lang-current"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="lang-menu"
+              aria-label="Language: C"
+            >
+              <img class="brand-logo" src="/c-logo.svg" alt="" width="22" height="24" />
+            </button>
+            <ul class="lang-menu" id="lang-menu">
+              <li>
+                <a class="lang-item is-current" href="/" aria-current="page">
+                  <img src="/c-logo.svg" alt="" width="22" height="24" />
+                  <span>C</span>
+                </a>
+              </li>
+              <li>
+                <span class="lang-item is-soon" aria-disabled="true" title="Coming Soon">
+                  <img src="/cpp-logo.svg" alt="" width="22" height="24" />
+                  <span>C++</span>
+                  <small>Coming Soon</small>
+                </span>
+              </li>
+              <li>
+                <span class="lang-item is-soon" aria-disabled="true" title="Coming Soon">
+                  <img class="lang-logo-mono" src="/rust-logo.svg" alt="" width="24" height="24" />
+                  <span>Rust</span>
+                  <small>Coming Soon</small>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <nav class="site-nav">
+          <a href="/" class="is-active">Functions</a>
+          <a href="/" aria-disabled="true">Headers</a>
+          <a href="/" aria-disabled="true">About</a>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to Dark Mode">
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M6 1a7 7 0 1 0 9 9A6 6 0 0 1 6 1z" />
+            </svg>
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="8" cy="8" r="3.2" />
+              <path
+                d="M8 0v2.5M8 13.5V16M0 8h2.5M13.5 8H16M2.3 2.3l1.8 1.8M11.9 11.9l1.8 1.8M2.3 13.7l1.8-1.8M11.9 4.1l1.8-1.8"
+              />
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="finder">
+        <div class="container finder-column">
+          <h1 class="finder-title">C Library Reference</h1>
+          <p class="finder-lead">Query the C library directly.</p>
+
+          <form class="search" role="search" id="search-form" autocomplete="off">
+            <label for="search-input" class="visually-hidden">Search functions</label>
+            <div class="search-field">
+              <input
+                id="search-input"
+                class="search-input"
+                type="search"
+                placeholder="printf, memcpy, strtol"
+                spellcheck="false"
+              />
+              <kbd class="search-shortcut" title="Press / to search">/</kbd>
+            </div>
+            <button type="submit" class="search-button">Search</button>
+          </form>
+
+          <div class="filters">
+            <label class="filter">
+              <span>Standard</span>
+              <select id="filter-standard">
+                <option value="">Any</option>
+              </select>
+            </label>
+            <label class="filter">
+              <span>Compiler</span>
+              <select id="filter-compiler">
+                <option value="">Any</option>
+              </select>
+            </label>
+          </div>
+
+          <p class="results-empty" id="results-hint">
+            Type a function name or a header like <code id="example-header">stdio.h</code><br />Patterns work too:
+            <code>str*cpy</code> or <code>/^mem/</code>
+          </p>
+          <p class="results-status" id="results-status" aria-live="polite" hidden></p>
+          <ol id="results" class="results-list"></ol>
+        </div>
+      </section>
+
+      <section class="detail" id="detail" hidden></section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

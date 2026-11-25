@@ -1,0 +1,55 @@
+@mixin light {
+  color-scheme: light;
+  --color-text: #333;
+  --color-muted: #5c6166;
+  --color-placeholder: #80868b;
+  --color-border: #ddd;
+  --color-input-border: #bbb;
+  --color-bg: #fff;
+  --color-bg-alt: #f7f7f7;
+  --color-input-bg: #fff;
+  --color-header: #2c3e50;
+  --color-accent: #2980b9;
+  --color-accent-dark: #226a99;
+  --color-focus-ring: rgb(41 128 185 / 25%);
+  --color-danger: #c0392b;
+  --color-danger-bg: #fdf2f1;
+  --color-warning: #a0620a;
+  --color-warning-bg: #fdf6ea;
+  --discouraged-opacity: 0.8;
+}
+
+@mixin dark {
+  color-scheme: dark;
+  --color-text: #d4d7db;
+  --color-muted: #8b929a;
+  --color-placeholder: #636a72;
+  --color-border: #33383e;
+  --color-input-border: #454b52;
+  --color-bg: #1c1f23;
+  --color-bg-alt: #24282d;
+  --color-input-bg: #15171a;
+  --color-header: #14181c;
+  --color-accent: #3498db;
+  --color-accent-dark: #2980b9;
+  --color-focus-ring: rgb(52 152 219 / 35%);
+  --color-danger: #e74c3c;
+  --color-danger-bg: #2c1f20;
+  --color-warning: #f0a830;
+  --color-warning-bg: #2c2618;
+  --discouraged-opacity: 0.5;
+}
+
+:root {
+  @include light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  @include dark;
+}

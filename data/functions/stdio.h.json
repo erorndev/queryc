@@ -1,0 +1,3912 @@
+{
+  "header": "stdio.h",
+  "functions": [
+    {
+      "name": "clearerr",
+      "summary": "Clears the end-of-file and error indicators of a stream.",
+      "signature": "void clearerr(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to reset."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Nothing."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int c;\n    while ((c = getchar()) != EOF) {\n    }\n    clearerr(stdin);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.10.1 The clearerr function",
+          "line": 9532,
+          "lines": [
+            "void clearerr(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.10.1 The clearerr function",
+          "line": 16502,
+          "lines": [
+            "void clearerr(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.10.1 The clearerr function",
+          "line": 18562,
+          "lines": [
+            "void clearerr(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.10.1 The clearerr function",
+          "line": 24286,
+          "lines": [
+            "void clearerr(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 146,
+          "lines": [
+            "_ACRTIMP void __cdecl clearerr(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fclose",
+      "summary": "Flushes a stream's unwritten output and closes its file. The stream is detached from the file even if the call fails.",
+      "signature": "int fclose(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to close."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success, or EOF if an error occurred."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"log.txt\", \"w\");\n    if (f == NULL) {\n        return 1;\n    }\n    fputs(\"done\\n\", f);\n    if (fclose(f) == EOF) {\n        perror(\"log.txt\");\n        return 1;\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.5.1 The fclose function",
+          "line": 8278,
+          "lines": [
+            "int fclose(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.5.1 The fclose function",
+          "line": 14541,
+          "lines": [
+            "int fclose(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.5.1 The fclose function",
+          "line": 16618,
+          "lines": [
+            "int fclose(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.5.1 The fclose function",
+          "line": 22299,
+          "lines": [
+            "int fclose(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 152,
+          "lines": [
+            "_ACRTIMP int __cdecl fclose(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "feof",
+      "summary": "Tests a stream's end-of-file indicator.",
+      "signature": "int feof(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to test."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if the end-of-file indicator is set, otherwise zero."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    char line[128];\n    while (fgets(line, sizeof line, stdin) != NULL) {\n        fputs(line, stdout);\n    }\n    if (!feof(stdin)) {\n        perror(\"read\");\n        return 1;\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.10.2 The feof function",
+          "line": 9549,
+          "lines": [
+            "int feof(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.10.2 The feof function",
+          "line": 16522,
+          "lines": [
+            "int feof(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.10.2 The feof function",
+          "line": 18582,
+          "lines": [
+            "int feof(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.10.2 The feof function",
+          "line": 24301,
+          "lines": [
+            "int feof(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 166,
+          "lines": [
+            "_ACRTIMP int __cdecl feof(",
+            "_In_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ferror",
+      "summary": "Tests a stream's error indicator.",
+      "signature": "int ferror(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to test."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if the error indicator is set, otherwise zero."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int c;\n    while ((c = getchar()) != EOF) {\n        putchar(c);\n    }\n    if (ferror(stdin)) {\n        perror(\"stdin\");\n        return 1;\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.10.3 The ferror function",
+          "line": 9568,
+          "lines": [
+            "int ferror(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.10.3 The ferror function",
+          "line": 16539,
+          "lines": [
+            "int ferror(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.10.3 The ferror function",
+          "line": 18599,
+          "lines": [
+            "int ferror(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.10.3 The ferror function",
+          "line": 24318,
+          "lines": [
+            "int ferror(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 171,
+          "lines": [
+            "_ACRTIMP int __cdecl ferror(",
+            "_In_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fflush",
+      "summary": "Writes a stream's buffered output to its file. With a null pointer, flushes every output stream.",
+      "signature": "int fflush(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Output or update stream to flush, or a null pointer for all output streams."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success, or EOF if a write error occurred."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Working...\");\n    fflush(stdout);\n    printf(\" done\\n\");\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.5.2 The fflush function",
+          "line": 8300,
+          "lines": [
+            "int fflush(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.5.2 The fflush function",
+          "line": 14563,
+          "lines": [
+            "int fflush(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.5.2 The fflush function",
+          "line": 16643,
+          "lines": [
+            "int fflush(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.5.2 The fflush function",
+          "line": 22319,
+          "lines": [
+            "int fflush(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 176,
+          "lines": [
+            "_ACRTIMP int __cdecl fflush(",
+            "_Inout_opt_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fgetc",
+      "summary": "Reads the next character from a stream.",
+      "signature": "int fgetc(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Input stream."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The character as an unsigned char converted to int, or EOF at end of file or on a read error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int c;\n    int lines = 0;\n    while ((c = fgetc(stdin)) != EOF) {\n        if (c == '\\n') {\n            lines++;\n        }\n    }\n    printf(\"%d lines\\n\", lines);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.1 The fgetc function",
+          "line": 9085,
+          "lines": [
+            "int fgetc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.1 The fgetc function",
+          "line": 16034,
+          "lines": [
+            "int fgetc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.1 The fgetc function",
+          "line": 18122,
+          "lines": [
+            "int fgetc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.1 The fgetc function",
+          "line": 23886,
+          "lines": [
+            "int fgetc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 182,
+          "lines": [
+            "_ACRTIMP int __cdecl fgetc(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fgetpos",
+      "summary": "Saves a stream's current position so fsetpos can return to it later.",
+      "signature": "int fgetpos(FILE * restrict stream, fpos_t * restrict pos);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Stream to query."
+        },
+        {
+          "name": "pos",
+          "type": "fpos_t * restrict",
+          "description": "Object that receives the position."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success. On failure, a nonzero value, with errno set to a positive value."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"data.txt\", \"r\");\n    if (f == NULL) {\n        return 1;\n    }\n    fpos_t start;\n    if (fgetpos(f, &start) == 0) {\n        fgetc(f);\n        fsetpos(f, &start);\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.9.1 The fgetpos function",
+          "line": 9395,
+          "lines": [
+            "int fgetpos(FILE *stream, fpos_t *pos);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.9.1 The fgetpos function",
+          "line": 16364,
+          "lines": [
+            "int fgetpos(FILE * restrict stream,",
+            "fpos_t * restrict pos);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.9.1 The fgetpos function",
+          "line": 18428,
+          "lines": [
+            "int fgetpos(FILE * restrict stream,",
+            "fpos_t * restrict pos);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.9.1 The fgetpos function",
+          "line": 24157,
+          "lines": [
+            "int fgetpos(FILE * restrict stream, fpos_t * restrict pos);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 191,
+          "lines": [
+            "_ACRTIMP int __cdecl fgetpos(",
+            "_Inout_ FILE*   _Stream,",
+            "_Out_   fpos_t* _Position",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fgets",
+      "summary": "Reads one line from a stream into s, storing at most n - 1 characters and keeping the newline.",
+      "signature": "char *fgets(char * restrict s, int n, FILE * restrict stream);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Array that receives the line."
+        },
+        {
+          "name": "n",
+          "type": "int",
+          "description": "Size of s. Must be greater than zero."
+        },
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Input stream."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "s on success, or a null pointer at end of file with nothing read, or on a read error."
+      },
+      "example": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char name[64];\n    printf(\"Name: \");\n    if (fgets(name, sizeof name, stdin) == NULL) {\n        return 1;\n    }\n    name[strcspn(name, \"\\n\")] = '\\0';\n    printf(\"Hello, %s\\n\", name);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.2 The fgets function",
+          "line": 9108,
+          "lines": [
+            "char *fgets(char *s, int n, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.2 The fgets function",
+          "line": 16057,
+          "lines": [
+            "char *fgets(char * restrict s, int n,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.2 The fgets function",
+          "line": 18150,
+          "lines": [
+            "char *fgets(char * restrict s, int n,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.2 The fgets function",
+          "line": 23906,
+          "lines": [
+            "char *fgets(char * restrict s, int n, FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 198,
+          "lines": [
+            "_ACRTIMP char* __cdecl fgets(",
+            "_Out_writes_z_(_MaxCount) char* _Buffer,",
+            "_In_                      int   _MaxCount,",
+            "_Inout_                   FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fopen",
+      "summary": "Opens the file named by filename and returns a stream for it.",
+      "signature": "FILE *fopen(const char * restrict filename, const char * restrict mode);",
+      "params": [
+        {
+          "name": "filename",
+          "type": "const char * restrict",
+          "description": "Path of the file to open."
+        },
+        {
+          "name": "mode",
+          "type": "const char * restrict",
+          "description": "Access mode such as \"r\", \"w\", \"a\", or \"rb\"."
+        }
+      ],
+      "returns": {
+        "type": "FILE *",
+        "description": "A pointer to the stream, or a null pointer if fopen can't open the file."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"notes.txt\", \"r\");\n    if (f == NULL) {\n        perror(\"notes.txt\");\n        return 1;\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 212,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(fopen_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'fopen' has no exclusive access to the opened file; 'fopen_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.5.3 The fopen function",
+          "line": 8325,
+          "lines": [
+            "FILE *fopen(const char *filename, const char *mode);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.5.3 The fopen function",
+          "line": 14591,
+          "lines": [
+            "FILE *fopen(const char * restrict filename,",
+            "const char * restrict mode);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.5.3 The fopen function",
+          "line": 16668,
+          "lines": [
+            "FILE *fopen(const char * restrict filename,",
+            "const char * restrict mode);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.5.3 The fopen function",
+          "line": 22342,
+          "lines": [
+            "FILE *fopen(const char * restrict filename, const char * restrict mode);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 212,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(fopen_s)",
+            "_ACRTIMP FILE* __cdecl fopen(",
+            "_In_z_ char const* _FileName,",
+            "_In_z_ char const* _Mode",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fprintf",
+      "summary": "Writes formatted output to a stream.",
+      "signature": "int fprintf(FILE * restrict stream, const char * restrict format, ...);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Output stream."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string with conversion specifiers such as %d, %s, and %f."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Values to convert, one for each conversion specifier in format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters written, or a negative value if an output or encoding error occurred."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int missing = 2;\n    fprintf(stderr, \"warning: %d headers not found\\n\", missing);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'fprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fprintf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.1 The fprintf function",
+          "line": 8464,
+          "lines": [
+            "int fprintf(FILE *stream, const char *format, ...);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.1 The fprintf function",
+          "line": 14767,
+          "lines": [
+            "int fprintf(FILE * restrict stream,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.1 The fprintf function",
+          "line": 16856,
+          "lines": [
+            "int fprintf(FILE * restrict stream,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.1 The fprintf function",
+          "line": 22510,
+          "lines": [
+            "int fprintf(FILE * restrict stream, const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 830,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL fprintf(",
+            "_Inout_                       FILE*       const _Stream,",
+            "_In_z_ _Printf_format_string_ char const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfprintf_l(_Stream, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fputc",
+      "summary": "Writes one character to a stream.",
+      "signature": "int fputc(int c, FILE *stream);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Character to write, converted to unsigned char."
+        },
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Output stream."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The character written, or EOF on a write error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 0; i < 3; i++) {\n        fputc('*', stdout);\n    }\n    fputc('\\n', stdout);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.3 The fputc function",
+          "line": 9133,
+          "lines": [
+            "int fputc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.3 The fputc function",
+          "line": 16086,
+          "lines": [
+            "int fputc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.3 The fputc function",
+          "line": 18174,
+          "lines": [
+            "int fputc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.3 The fputc function",
+          "line": 23933,
+          "lines": [
+            "int fputc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 221,
+          "lines": [
+            "_ACRTIMP int __cdecl fputc(",
+            "_In_    int   _Character,",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fputs",
+      "summary": "Writes a string to a stream, without its null terminator and without adding a newline.",
+      "signature": "int fputs(const char * restrict s, FILE * restrict stream);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "String to write."
+        },
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Output stream."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A nonnegative value on success, or EOF on a write error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    fputs(\"error: file not found\\n\", stderr);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.4 The fputs function",
+          "line": 9156,
+          "lines": [
+            "int fputs(const char *s, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.4 The fputs function",
+          "line": 16107,
+          "lines": [
+            "int fputs(const char * restrict s,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.4 The fputs function",
+          "line": 18195,
+          "lines": [
+            "int fputs(const char * restrict s,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.4 The fputs function",
+          "line": 23953,
+          "lines": [
+            "int fputs(const char * restrict s, FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 233,
+          "lines": [
+            "_ACRTIMP int __cdecl fputs(",
+            "_In_z_  char const* _Buffer,",
+            "_Inout_ FILE*       _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fread",
+      "summary": "Reads up to nmemb elements of size bytes each from a stream into an array.",
+      "signature": "size_t fread(void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream);",
+      "params": [
+        {
+          "name": "ptr",
+          "type": "void * restrict",
+          "description": "Array that receives the data."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Size of each element in bytes."
+        },
+        {
+          "name": "nmemb",
+          "type": "size_t",
+          "description": "Maximum number of elements to read."
+        },
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Input stream."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of complete elements read, which is less than nmemb at end of file or on a read error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"image.bin\", \"rb\");\n    if (f == NULL) {\n        return 1;\n    }\n    unsigned char header[8];\n    size_t got = fread(header, 1, sizeof header, f);\n    printf(\"read %zu bytes\\n\", got);\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.8.1 The fread function",
+          "line": 9343,
+          "lines": [
+            "size_t fread(void *ptr, size_t size, size_t nmemb,",
+            "FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.8.1 The fread function",
+          "line": 16302,
+          "lines": [
+            "size_t fread(void * restrict ptr,",
+            "size_t size, size_t nmemb,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.8.1 The fread function",
+          "line": 18366,
+          "lines": [
+            "size_t fread(void * restrict ptr,",
+            "size_t size, size_t nmemb,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.8.1 The fread function",
+          "line": 24097,
+          "lines": [
+            "size_t fread(void * restrict ptr, size_t size, size_t nmemb,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 239,
+          "lines": [
+            "_ACRTIMP size_t __cdecl fread(",
+            "_Out_writes_bytes_(_ElementSize * _ElementCount) void*  _Buffer,",
+            "_In_                                             size_t _ElementSize,",
+            "_In_                                             size_t _ElementCount,",
+            "_Inout_                                          FILE*  _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "freopen",
+      "summary": "Closes the file a stream is attached to and opens another file on the same stream, often to redirect stdin, stdout, or stderr.",
+      "signature": "FILE *freopen(const char * restrict filename, const char * restrict mode, FILE * restrict stream);",
+      "params": [
+        {
+          "name": "filename",
+          "type": "const char * restrict",
+          "description": "File to open, or a null pointer to change the mode of the current file."
+        },
+        {
+          "name": "mode",
+          "type": "const char * restrict",
+          "description": "Access mode, as for fopen."
+        },
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Stream to reuse."
+        }
+      ],
+      "returns": {
+        "type": "FILE *",
+        "description": "stream on success, or a null pointer on failure."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    if (freopen(\"output.log\", \"w\", stdout) == NULL) {\n        return 1;\n    }\n    printf(\"this goes to output.log\\n\");\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 247,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(freopen_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'freopen' has no exclusive access to the opened file; 'freopen_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.5.4 The freopen function",
+          "line": 8390,
+          "lines": [
+            "FILE *freopen(const char *filename, const char *mode,",
+            "FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.5.4 The freopen function",
+          "line": 14667,
+          "lines": [
+            "FILE *freopen(const char * restrict filename,",
+            "const char * restrict mode,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.5.4 The freopen function",
+          "line": 16753,
+          "lines": [
+            "FILE *freopen(const char * restrict filename,",
+            "const char * restrict mode,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.5.4 The freopen function",
+          "line": 22423,
+          "lines": [
+            "FILE *freopen(const char * restrict filename, const char * restrict mode,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 247,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(freopen_s)",
+            "_ACRTIMP FILE* __cdecl freopen(",
+            "_In_z_  char const* _FileName,",
+            "_In_z_  char const* _Mode,",
+            "_Inout_ FILE*       _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fscanf",
+      "summary": "Reads formatted input from a stream and stores the converted values through pointer arguments.",
+      "signature": "int fscanf(FILE * restrict stream, const char * restrict format, ...);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Input stream."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string with conversion specifiers such as %d, %s, and %f."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Pointers to objects that receive the converted values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of items assigned, or EOF if input failed before the first conversion."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"size.txt\", \"r\");\n    if (f == NULL) {\n        return 1;\n    }\n    int width, height;\n    if (fscanf(f, \"%d %d\", &width, &height) == 2) {\n        printf(\"%d x %d\\n\", width, height);\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1198,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(fscanf_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'fscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'fscanf_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'fscanf' is not bounds-checking; 'fscanf_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.2 The fscanf function",
+          "line": 8659,
+          "lines": [
+            "int fscanf(FILE *stream, const char *format, ...);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.2 The fscanf function",
+          "line": 15240,
+          "lines": [
+            "int fscanf(FILE * restrict stream,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.2 The fscanf function",
+          "line": 17321,
+          "lines": [
+            "int fscanf(FILE * restrict stream,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.2 The fscanf function",
+          "line": 23123,
+          "lines": [
+            "int fscanf(FILE * restrict stream, const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1198,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(fscanf_s)",
+            "_CRT_STDIO_INLINE int __CRTDECL fscanf(",
+            "_Inout_                      FILE*       const _Stream,",
+            "_In_z_ _Scanf_format_string_ char const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE // SCANF",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfscanf_l(_Stream, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fseek",
+      "summary": "Moves a stream's file position to offset relative to the start, the current position, or the end of the file.",
+      "signature": "int fseek(FILE *stream, long int offset, int whence);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to reposition."
+        },
+        {
+          "name": "offset",
+          "type": "long int",
+          "description": "Offset in characters for binary streams, or a value from ftell for text streams."
+        },
+        {
+          "name": "whence",
+          "type": "int",
+          "description": "SEEK_SET, SEEK_CUR, or SEEK_END."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success, or nonzero if the request can't be satisfied."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"data.bin\", \"rb\");\n    if (f == NULL) {\n        return 1;\n    }\n    if (fseek(f, 0, SEEK_END) == 0) {\n        printf(\"size: %ld bytes\\n\", ftell(f));\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.9.2 The fseek function",
+          "line": 9419,
+          "lines": [
+            "int fseek(FILE *stream, long int offset, int whence);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.9.2 The fseek function",
+          "line": 16388,
+          "lines": [
+            "int fseek(FILE *stream, long int offset, int whence);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.9.2 The fseek function",
+          "line": 18452,
+          "lines": [
+            "int fseek(FILE *stream, long int offset, int whence);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.9.2 The fseek function",
+          "line": 24178,
+          "lines": [
+            "int fseek(FILE *stream, long int offset, int whence);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 270,
+          "lines": [
+            "_ACRTIMP int __cdecl fseek(",
+            "_Inout_ FILE* _Stream,",
+            "_In_    long  _Offset,",
+            "_In_    int   _Origin",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fsetpos",
+      "summary": "Moves a stream back to a position saved earlier by fgetpos.",
+      "signature": "int fsetpos(FILE *stream, const fpos_t *pos);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to reposition."
+        },
+        {
+          "name": "pos",
+          "type": "const fpos_t *",
+          "description": "Position from an earlier fgetpos call on the same file."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success. On failure, a nonzero value, with errno set to a positive value."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"data.txt\", \"r\");\n    if (f == NULL) {\n        return 1;\n    }\n    fpos_t mark;\n    fgetpos(f, &mark);\n    int first = fgetc(f);\n    fsetpos(f, &mark);\n    printf(\"%d %d\\n\", first, fgetc(f));\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.9.3 The fsetpos function",
+          "line": 9456,
+          "lines": [
+            "int fsetpos(FILE *stream, const fpos_t *pos);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.9.3 The fsetpos function",
+          "line": 16425,
+          "lines": [
+            "int fsetpos(FILE *stream, const fpos_t *pos);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.9.3 The fsetpos function",
+          "line": 18489,
+          "lines": [
+            "int fsetpos(FILE *stream, const fpos_t *pos);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.9.3 The fsetpos function",
+          "line": 24215,
+          "lines": [
+            "int fsetpos(FILE *stream, const fpos_t *pos);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 263,
+          "lines": [
+            "_ACRTIMP int __cdecl fsetpos(",
+            "_Inout_ FILE*         _Stream,",
+            "_In_    fpos_t const* _Position",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ftell",
+      "summary": "Returns a stream's current file position.",
+      "signature": "long int ftell(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to query."
+        }
+      ],
+      "returns": {
+        "type": "long int",
+        "description": "The current position (a character count for binary streams), or -1L on failure."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"data.bin\", \"rb\");\n    if (f == NULL) {\n        return 1;\n    }\n    fgetc(f);\n    printf(\"at offset %ld\\n\", ftell(f));\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.9.4 The ftell function",
+          "line": 9482,
+          "lines": [
+            "long int ftell(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.9.4 The ftell function",
+          "line": 16451,
+          "lines": [
+            "long int ftell(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.9.4 The ftell function",
+          "line": 18515,
+          "lines": [
+            "long int ftell(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.9.4 The ftell function",
+          "line": 24239,
+          "lines": [
+            "long int ftell(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 286,
+          "lines": [
+            "_ACRTIMP long __cdecl ftell(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fwrite",
+      "summary": "Writes up to nmemb elements of size bytes each from an array to a stream.",
+      "signature": "size_t fwrite(const void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream);",
+      "params": [
+        {
+          "name": "ptr",
+          "type": "const void * restrict",
+          "description": "Array to write from."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Size of each element in bytes."
+        },
+        {
+          "name": "nmemb",
+          "type": "size_t",
+          "description": "Number of elements to write."
+        },
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Output stream."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of complete elements written, which is less than nmemb only on a write error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int scores[] = {90, 72, 85};\n    FILE *f = fopen(\"scores.bin\", \"wb\");\n    if (f == NULL) {\n        return 1;\n    }\n    size_t n = sizeof scores / sizeof scores[0];\n    if (fwrite(scores, sizeof scores[0], n, f) != n) {\n        perror(\"scores.bin\");\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.8.2 The fwrite function",
+          "line": 9369,
+          "lines": [
+            "size_t fwrite(const void *ptr, size_t size, size_t nmemb,",
+            "FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.8.2 The fwrite function",
+          "line": 16331,
+          "lines": [
+            "size_t fwrite(const void * restrict ptr,",
+            "size_t size, size_t nmemb,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.8.2 The fwrite function",
+          "line": 18395,
+          "lines": [
+            "size_t fwrite(const void * restrict ptr,",
+            "size_t size, size_t nmemb,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.8.2 The fwrite function",
+          "line": 24131,
+          "lines": [
+            "size_t fwrite(const void * restrict ptr, size_t size, size_t nmemb,",
+            "FILE * restrict stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 297,
+          "lines": [
+            "_ACRTIMP size_t __cdecl fwrite(",
+            "_In_reads_bytes_(_ElementSize * _ElementCount) void const* _Buffer,",
+            "_In_                                           size_t      _ElementSize,",
+            "_In_                                           size_t      _ElementCount,",
+            "_Inout_                                        FILE*       _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getc",
+      "summary": "Reads the next character from a stream, like fgetc, but may be a macro that evaluates stream more than once.",
+      "signature": "int getc(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Input stream. Don't pass an expression with side effects."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The next character as an unsigned char converted to int, or EOF at end of file or on a read error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int c;\n    long count = 0;\n    while ((c = getc(stdin)) != EOF) {\n        count++;\n    }\n    printf(\"%ld characters\\n\", count);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.5 The getc function",
+          "line": 9174,
+          "lines": [
+            "int getc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.5 The getc function",
+          "line": 16127,
+          "lines": [
+            "int getc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.5 The getc function",
+          "line": 18218,
+          "lines": [
+            "int getc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.5 The getc function",
+          "line": 23968,
+          "lines": [
+            "int getc(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 306,
+          "lines": [
+            "_ACRTIMP int __cdecl getc(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getchar",
+      "summary": "Reads the next character from stdin.",
+      "signature": "int getchar(void);",
+      "params": [],
+      "returns": {
+        "type": "int",
+        "description": "The next character as an unsigned char converted to int, or EOF at end of file or on a read error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Continue? [y/n] \");\n    int answer = getchar();\n    if (answer == 'y') {\n        puts(\"continuing\");\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.6 The getchar function",
+          "line": 9196,
+          "lines": [
+            "int getchar(void);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.6 The getchar function",
+          "line": 16151,
+          "lines": [
+            "int getchar(void);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.6 The getchar function",
+          "line": 18239,
+          "lines": [
+            "int getchar(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.6 The getchar function",
+          "line": 23990,
+          "lines": [
+            "int getchar(void);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 311,
+          "lines": [
+            "_ACRTIMP int __cdecl getchar(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gets",
+      "summary": "Reads a line from stdin into s, dropping the newline. C11 removed this function.",
+      "signature": "char *gets(char *s);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char *",
+          "description": "Array that receives the line."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "s on success, or a null pointer at end of file with nothing read, or on a read error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    char line[80];\n    if (gets(line) != NULL) {\n        puts(line);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The gets function is obsolescent, and is deprecated.",
+          "source": "n1256",
+          "file": "n1256.txt",
+          "line": 21812,
+          "lines": [
+            "2 The gets function is obsolescent, and is deprecated."
+          ]
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.7 The gets function",
+          "line": 9216,
+          "lines": [
+            "char *gets(char *s);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.7 The gets function",
+          "line": 16170,
+          "lines": [
+            "char *gets(char *s);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "perror",
+      "summary": "Writes s, a colon, and the message for the current errno value to stderr.",
+      "signature": "void perror(const char *s);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "Prefix for the message, usually the name of what failed. Can be a null pointer or an empty string."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Nothing."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = fopen(\"missing.txt\", \"r\");\n    if (f == NULL) {\n        perror(\"missing.txt\");\n        return 1;\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.10.4 The perror function",
+          "line": 9586,
+          "lines": [
+            "void perror(const char *s);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.10.4 The perror function",
+          "line": 16556,
+          "lines": [
+            "void perror(const char *s);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.10.4 The perror function",
+          "line": 18616,
+          "lines": [
+            "void perror(const char *s);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.10.4 The perror function",
+          "line": 24331,
+          "lines": [
+            "void perror(const char *s);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 325,
+          "lines": [
+            "_ACRTIMP void __cdecl perror(",
+            "_In_opt_z_ char const* _ErrorMessage",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "printf",
+      "summary": "Writes formatted output to stdout.",
+      "signature": "int printf(const char * restrict format, ...);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string with conversion specifiers such as %d, %s, and %f."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Values to convert, one for each conversion specifier in format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters written, or a negative value if an output or encoding error occurred."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int count = 8;\n    printf(\"%d functions found\\n\", count);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.3 The printf function",
+          "line": 8915,
+          "lines": [
+            "int printf(const char *format, ...);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.3 The printf function",
+          "line": 15685,
+          "lines": [
+            "int printf(const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.3 The printf function",
+          "line": 17774,
+          "lines": [
+            "int printf(const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.3 The printf function",
+          "line": 23601,
+          "lines": [
+            "int printf(const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 950,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL printf(",
+            "_In_z_ _Printf_format_string_ char const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfprintf_l(stdout, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "putc",
+      "summary": "Writes one character to a stream, like fputc, but may be a macro that evaluates stream more than once.",
+      "signature": "int putc(int c, FILE *stream);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Character to write, converted to unsigned char."
+        },
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Output stream. Don't pass an expression with side effects."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The character written, or EOF on a write error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    const char *word = \"ok\";\n    while (*word != '\\0') {\n        putc(*word++, stdout);\n    }\n    putc('\\n', stdout);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.8 The putc function",
+          "line": 9240,
+          "lines": [
+            "int putc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.8 The putc function",
+          "line": 16197,
+          "lines": [
+            "int putc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.7 The putc function",
+          "line": 18261,
+          "lines": [
+            "int putc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.7 The putc function",
+          "line": 24006,
+          "lines": [
+            "int putc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 347,
+          "lines": [
+            "_ACRTIMP int __cdecl putc(",
+            "_In_    int   _Character,",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "putchar",
+      "summary": "Writes one character to stdout.",
+      "signature": "int putchar(int c);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Character to write, converted to unsigned char."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The character written, or EOF on a write error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    for (char c = 'a'; c <= 'e'; c++) {\n        putchar(c);\n    }\n    putchar('\\n');\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.9 The putchar function",
+          "line": 9259,
+          "lines": [
+            "int putchar(int c);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.9 The putchar function",
+          "line": 16216,
+          "lines": [
+            "int putchar(int c);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.8 The putchar function",
+          "line": 18280,
+          "lines": [
+            "int putchar(int c);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.8 The putchar function",
+          "line": 24023,
+          "lines": [
+            "int putchar(int c);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 353,
+          "lines": [
+            "_ACRTIMP int __cdecl putchar(",
+            "_In_ int _Character",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "puts",
+      "summary": "Writes a string to stdout followed by a newline.",
+      "signature": "int puts(const char *s);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "String to write."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "A nonnegative value on success, or EOF on a write error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    puts(\"Hello, world\");\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.10 The puts function",
+          "line": 9278,
+          "lines": [
+            "int puts(const char *s);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.10 The puts function",
+          "line": 16233,
+          "lines": [
+            "int puts(const char *s);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.9 The puts function",
+          "line": 18297,
+          "lines": [
+            "int puts(const char *s);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.9 The puts function",
+          "line": 24038,
+          "lines": [
+            "int puts(const char *s);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 358,
+          "lines": [
+            "_ACRTIMP int __cdecl puts(",
+            "_In_z_ char const* _Buffer",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "summary": "Deletes a file by name.",
+      "signature": "int remove(const char *filename);",
+      "params": [
+        {
+          "name": "filename",
+          "type": "const char *",
+          "description": "Name of the file to delete."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success, or nonzero on failure."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    if (remove(\"old.log\") != 0) {\n        perror(\"old.log\");\n        return 1;\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.4.1 The remove function",
+          "line": 8176,
+          "lines": [
+            "int remove(const char *filename);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.4.1 The remove function",
+          "line": 14424,
+          "lines": [
+            "int remove(const char *filename);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.4.1 The remove function",
+          "line": 16499,
+          "lines": [
+            "int remove(const char *filename);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.4.1 The remove function",
+          "line": 22186,
+          "lines": [
+            "int remove(const char *filename);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 369,
+          "lines": [
+            "_ACRTIMP int __cdecl remove(",
+            "_In_z_ char const* _FileName",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rename",
+      "summary": "Renames a file. What happens when a file named new already exists depends on the implementation.",
+      "signature": "int rename(const char *old, const char *new);",
+      "params": [
+        {
+          "name": "old",
+          "type": "const char *",
+          "description": "Current name of the file."
+        },
+        {
+          "name": "new",
+          "type": "const char *",
+          "description": "New name for the file."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success. On failure, nonzero, and the file keeps its old name."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    if (rename(\"draft.txt\", \"final.txt\") != 0) {\n        perror(\"rename\");\n        return 1;\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.4.2 The rename function",
+          "line": 8197,
+          "lines": [
+            "int rename(const char *old, const char *new);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.4.2 The rename function",
+          "line": 14443,
+          "lines": [
+            "int rename(const char *old, const char *new);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.4.2 The rename function",
+          "line": 16518,
+          "lines": [
+            "int rename(const char *old, const char *new);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.4.2 The rename function",
+          "line": 22210,
+          "lines": [
+            "int rename(const char *old, const char *new);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 374,
+          "lines": [
+            "_ACRTIMP int __cdecl rename(",
+            "_In_z_ char const* _OldFileName,",
+            "_In_z_ char const* _NewFileName",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rewind",
+      "summary": "Moves a stream back to the beginning of its file and clears its error indicator.",
+      "signature": "void rewind(FILE *stream);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Stream to rewind."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Nothing."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *f = tmpfile();\n    if (f == NULL) {\n        return 1;\n    }\n    fputs(\"hello\", f);\n    rewind(f);\n    printf(\"%c\\n\", fgetc(f));\n    fclose(f);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'rewind' has no error detection; 'fseek' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.9.5 The rewind function",
+          "line": 9509,
+          "lines": [
+            "void rewind(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.9.5 The rewind function",
+          "line": 16479,
+          "lines": [
+            "void rewind(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.9.5 The rewind function",
+          "line": 18541,
+          "lines": [
+            "void rewind(FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.9.5 The rewind function",
+          "line": 24261,
+          "lines": [
+            "void rewind(FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 392,
+          "lines": [
+            "_ACRTIMP void __cdecl rewind(",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scanf",
+      "summary": "Reads formatted input from stdin and stores the converted values through pointer arguments.",
+      "signature": "int scanf(const char * restrict format, ...);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string with conversion specifiers such as %d, %s, and %f."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Pointers to objects that receive the converted values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of items assigned, or EOF if input failed before the first conversion."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int age;\n    printf(\"Age: \");\n    if (scanf(\"%d\", &age) != 1) {\n        puts(\"not a number\");\n        return 1;\n    }\n    printf(\"Next year: %d\\n\", age + 1);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1275,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(scanf_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'scanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'scanf_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'scanf' is not bounds-checking; 'scanf_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.4 The scanf function",
+          "line": 8933,
+          "lines": [
+            "int scanf(const char *format, ...);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.4 The scanf function",
+          "line": 15703,
+          "lines": [
+            "int scanf(const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.4 The scanf function",
+          "line": 17795,
+          "lines": [
+            "int scanf(const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.4 The scanf function",
+          "line": 23618,
+          "lines": [
+            "int scanf(const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1275,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(scanf_s)",
+            "_CRT_STDIO_INLINE int __CRTDECL scanf(",
+            "_In_z_ _Scanf_format_string_ char const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE // SCANF",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vfscanf_l(stdin, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setbuf",
+      "summary": "Gives a stream a buffer of BUFSIZ bytes, or turns buffering off when buf is a null pointer.",
+      "signature": "void setbuf(FILE * restrict stream, char * restrict buf);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Open stream with no operations performed on it yet."
+        },
+        {
+          "name": "buf",
+          "type": "char * restrict",
+          "description": "Array of at least BUFSIZ bytes, or a null pointer for no buffering."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Nothing."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    setbuf(stdout, NULL);\n    printf(\"written immediately\\n\");\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using setvbuf instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 399,
+          "lines": [
+            "_CRT_INSECURE_DEPRECATE(setvbuf)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'setbuf' has no error detection; 'setvbuf' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.5.5 The setbuf function",
+          "line": 8416,
+          "lines": [
+            "void setbuf(FILE *stream, char *buf);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.5.5 The setbuf function",
+          "line": 14703,
+          "lines": [
+            "void setbuf(FILE * restrict stream,",
+            "char * restrict buf);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.5.5 The setbuf function",
+          "line": 16786,
+          "lines": [
+            "void setbuf(FILE * restrict stream,",
+            "char * restrict buf);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.5.5 The setbuf function",
+          "line": 22450,
+          "lines": [
+            "void setbuf(FILE * restrict stream, char * restrict buf);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 399,
+          "lines": [
+            "_CRT_INSECURE_DEPRECATE(setvbuf)",
+            "_ACRTIMP void __cdecl setbuf(",
+            "_Inout_                                             FILE* _Stream,",
+            "_Inout_updates_opt_(BUFSIZ) _Post_readable_size_(0) char* _Buffer",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setvbuf",
+      "summary": "Sets how a stream is buffered: fully (_IOFBF), by line (_IOLBF), or not at all (_IONBF). Call it before any other operation on the stream.",
+      "signature": "int setvbuf(FILE * restrict stream, char * restrict buf, int mode, size_t size);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Open stream with no operations performed on it yet."
+        },
+        {
+          "name": "buf",
+          "type": "char * restrict",
+          "description": "Buffer to use, or a null pointer to let the library allocate one."
+        },
+        {
+          "name": "mode",
+          "type": "int",
+          "description": "_IOFBF, _IOLBF, or _IONBF."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Size of buf in bytes."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero on success, or nonzero if mode or size is invalid."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    if (setvbuf(stdout, NULL, _IOLBF, 0) != 0) {\n        return 1;\n    }\n    printf(\"flushed at each newline\\n\");\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.5.6 The setvbuf function",
+          "line": 8437,
+          "lines": [
+            "int setvbuf(FILE *stream, char *buf, int mode, size_t size);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.5.6 The setvbuf function",
+          "line": 14725,
+          "lines": [
+            "int setvbuf(FILE * restrict stream,",
+            "char * restrict buf,",
+            "int mode, size_t size);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.5.6 The setvbuf function",
+          "line": 16815,
+          "lines": [
+            "int setvbuf(FILE * restrict stream,",
+            "char * restrict buf,",
+            "int mode, size_t size);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.5.6 The setvbuf function",
+          "line": 22468,
+          "lines": [
+            "int setvbuf(FILE * restrict stream, char * restrict buf, int mode, size_t size);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 412,
+          "lines": [
+            "_ACRTIMP int __cdecl setvbuf(",
+            "_Inout_                      FILE*  _Stream,",
+            "_Inout_updates_opt_(_Size)   char*  _Buffer,",
+            "_In_                         int    _Mode,",
+            "_In_                         size_t _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "snprintf",
+      "summary": "Writes formatted output to a buffer, never writing more than n characters including the terminating null.",
+      "signature": "int snprintf(char * restrict s, size_t n, const char * restrict format, ...);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Buffer for the output, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of the buffer in bytes."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for printf."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Values to convert, one for each conversion specifier in format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters snprintf would write with a large enough buffer, not counting the terminating null, or a negative value on an encoding error. A result of n or more means snprintf truncated the output."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    char label[16];\n    int needed = snprintf(label, sizeof label, \"%s.h\", \"stdio\");\n    if (needed >= (int)sizeof label) {\n        return 1;\n    }\n    puts(label);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'snprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'snprintf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.5 The snprintf function",
+          "line": 15723,
+          "lines": [
+            "int snprintf(char * restrict s, size_t n,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.5 The snprintf function",
+          "line": 17815,
+          "lines": [
+            "int snprintf(char * restrict s, size_t n,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.5 The snprintf function",
+          "line": 23641,
+          "lines": [
+            "int snprintf(char * restrict s, size_t n, const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1919,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL snprintf(",
+            "_Out_writes_opt_(_BufferCount) _Always_(_Post_z_) char*       const _Buffer,",
+            "_In_                                              size_t      const _BufferCount,",
+            "_In_z_ _Printf_format_string_                     char const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = vsnprintf(_Buffer, _BufferCount, _Format, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sprintf",
+      "summary": "Writes formatted output to an array and adds a null terminator.",
+      "signature": "int sprintf(char * restrict s, const char * restrict format, ...);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Array that receives the output. Must be large enough for all of it."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for printf."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Values to convert, one for each conversion specifier in format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters written, not counting the null terminator, or a negative value on an encoding error."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    char label[32];\n    sprintf(label, \"%s.h\", \"stdio\");\n    puts(label);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'sprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.5 The sprintf function",
+          "line": 8953,
+          "lines": [
+            "int sprintf(char *s, const char *format, ...);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.6 The sprintf function",
+          "line": 15752,
+          "lines": [
+            "int sprintf(char * restrict s,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.6 The sprintf function",
+          "line": 17841,
+          "lines": [
+            "int sprintf(char * restrict s,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.6 The sprintf function",
+          "line": 23663,
+          "lines": [
+            "int sprintf(char * restrict s, const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1764,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL sprintf(",
+            "_Pre_notnull_ _Always_(_Post_z_) char*       const _Buffer,",
+            "_In_z_ _Printf_format_string_    char const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vsprintf_l(_Buffer, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sscanf",
+      "summary": "Reads formatted input from a string and stores the converted values through pointer arguments.",
+      "signature": "int sscanf(const char * restrict s, const char * restrict format, ...);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "String to read from."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for scanf."
+        },
+        {
+          "name": "...",
+          "type": "",
+          "description": "Pointers to objects that receive the converted values."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of items assigned, or EOF if input failed before the first conversion."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    int year, month, day;\n    if (sscanf(\"2016-04-12\", \"%d-%d-%d\", &year, &month, &day) == 3) {\n        printf(\"%d/%d/%d\\n\", day, month, year);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 2239,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(sscanf_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'sscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sscanf_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'sscanf' is not bounds-checking; 'sscanf_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.6 The sscanf function",
+          "line": 8975,
+          "lines": [
+            "int sscanf(const char *s, const char *format, ...);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.7 The sscanf function",
+          "line": 15774,
+          "lines": [
+            "int sscanf(const char * restrict s,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.7 The sscanf function",
+          "line": 17866,
+          "lines": [
+            "int sscanf(const char * restrict s,",
+            "const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.7 The sscanf function",
+          "line": 23682,
+          "lines": [
+            "int sscanf(const char * restrict s, const char * restrict format, ...);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 2239,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(sscanf_s)",
+            "_CRT_STDIO_INLINE int __CRTDECL sscanf(",
+            "_In_z_                       char const* const _Buffer,",
+            "_In_z_ _Scanf_format_string_ char const* const _Format,",
+            "...)",
+            "#if defined _NO_CRT_STDIO_INLINE // SCANF",
+            ";",
+            "#else",
+            "{",
+            "int _Result;",
+            "va_list _ArgList;",
+            "__crt_va_start(_ArgList, _Format);",
+            "_Result = _vsscanf_l(_Buffer, _Format, NULL, _ArgList);",
+            "__crt_va_end(_ArgList);",
+            "return _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tmpfile",
+      "summary": "Creates a temporary binary file, opened with mode \"wb+\", that is removed when closed or when the program ends.",
+      "signature": "FILE *tmpfile(void);",
+      "params": [],
+      "returns": {
+        "type": "FILE *",
+        "description": "A pointer to the stream, or a null pointer if the file can't be created."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    FILE *scratch = tmpfile();\n    if (scratch == NULL) {\n        perror(\"tmpfile\");\n        return 1;\n    }\n    fputs(\"intermediate data\", scratch);\n    fclose(scratch);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using tmpfile_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 434,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(tmpfile_s)"
+          ]
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.4.3 The tmpfile function",
+          "line": 8219,
+          "lines": [
+            "FILE *tmpfile(void);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.4.3 The tmpfile function",
+          "line": 14466,
+          "lines": [
+            "FILE *tmpfile(void);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.4.3 The tmpfile function",
+          "line": 16541,
+          "lines": [
+            "FILE *tmpfile(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.4.3 The tmpfile function",
+          "line": 22229,
+          "lines": [
+            "FILE *tmpfile(void);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 434,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(tmpfile_s)",
+            "_ACRTIMP FILE* __cdecl tmpfile(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tmpnam",
+      "summary": "Generates a file name that doesn't match any existing file.",
+      "signature": "char *tmpnam(char *s);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char *",
+          "description": "Array of at least L_tmpnam characters that receives the name, or a null pointer to use an internal buffer."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the name, or a null pointer if no suitable name could be generated."
+      },
+      "example": "#include <stdio.h>\n\nint main(void) {\n    char name[L_tmpnam];\n    if (tmpnam(name) != NULL) {\n        printf(\"temporary name: %s\\n\", name);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "Calls to the tmpnam function with a null pointer argument may introduce data races with each other.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 22278,
+          "lines": [
+            "4 Calls to the tmpnam function with a null pointer argument may introduce data races with each other."
+          ]
+        },
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using tmpnam_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 443,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_0(",
+            "_Success_(return != 0)",
+            "char*, __RETURN_POLICY_DST, _ACRTIMP, tmpnam,",
+            "_Pre_maybenull_ _Always_(_Post_z_), char, _Buffer",
+            ")"
+          ]
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.4.4 The tmpnam function",
+          "line": 8243,
+          "lines": [
+            "char *tmpnam(char *s);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.4.4 The tmpnam function",
+          "line": 14495,
+          "lines": [
+            "char *tmpnam(char *s);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.4.4 The tmpnam function",
+          "line": 16570,
+          "lines": [
+            "char *tmpnam(char *s);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.4.4 The tmpnam function",
+          "line": 22257,
+          "lines": [
+            "char *tmpnam(char *s);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 443,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_0(",
+            "_Success_(return != 0)",
+            "char*, __RETURN_POLICY_DST, _ACRTIMP, tmpnam,",
+            "_Pre_maybenull_ _Always_(_Post_z_), char, _Buffer",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ungetc",
+      "summary": "Pushes a character back onto an input stream so the next read returns it. Only one push-back is guaranteed.",
+      "signature": "int ungetc(int c, FILE *stream);",
+      "params": [
+        {
+          "name": "c",
+          "type": "int",
+          "description": "Character to push back, converted to unsigned char."
+        },
+        {
+          "name": "stream",
+          "type": "FILE *",
+          "description": "Input stream."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The character pushed back, or EOF if the push-back failed."
+      },
+      "example": "#include <ctype.h>\n#include <stdio.h>\n\nint main(void) {\n    int c = getchar();\n    if (isdigit(c)) {\n        ungetc(c, stdin);\n        int value;\n        if (scanf(\"%d\", &value) == 1) {\n            printf(\"number: %d\\n\", value);\n        }\n    }\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.7.11 The ungetc function",
+          "line": 9297,
+          "lines": [
+            "int ungetc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.7.11 The ungetc function",
+          "line": 16255,
+          "lines": [
+            "int ungetc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.7.10 The ungetc function",
+          "line": 18319,
+          "lines": [
+            "int ungetc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.7.10 The ungetc function",
+          "line": 24058,
+          "lines": [
+            "int ungetc(int c, FILE *stream);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 451,
+          "lines": [
+            "_ACRTIMP int __cdecl ungetc(",
+            "_In_    int   _Character,",
+            "_Inout_ FILE* _Stream",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vfprintf",
+      "summary": "Writes formatted output to a stream, taking its values from a va_list instead of extra arguments.",
+      "signature": "int vfprintf(FILE * restrict stream, const char * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Output stream."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for printf."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized with va_start. vfprintf doesn't call va_end."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters written, or a negative value if an output or encoding error occurred."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n\nstatic void warn(const char *format, ...) {\n    va_list args;\n    va_start(args, format);\n    fputs(\"warning: \", stderr);\n    vfprintf(stderr, format, args);\n    va_end(args);\n}\n\nint main(void) {\n    warn(\"%d files skipped\\n\", 3);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.7 The vfprintf function",
+          "line": 9000,
+          "lines": [
+            "int vfprintf(FILE *stream, const char *format, va_list arg);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.8 The vfprintf function",
+          "line": 15803,
+          "lines": [
+            "int vfprintf(FILE * restrict stream,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.8 The vfprintf function",
+          "line": 17892,
+          "lines": [
+            "int vfprintf(FILE * restrict stream,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.8 The vfprintf function",
+          "line": 23709,
+          "lines": [
+            "int vfprintf(FILE * restrict stream, const char * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 650,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vfprintf(",
+            "_Inout_                       FILE*       const _Stream,",
+            "_In_z_ _Printf_format_string_ char const* const _Format,",
+            "va_list           _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfprintf_l(_Stream, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vfscanf",
+      "summary": "Reads formatted input from a stream, taking its pointers from a va_list instead of extra arguments.",
+      "signature": "int vfscanf(FILE * restrict stream, const char * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "stream",
+          "type": "FILE * restrict",
+          "description": "Input stream."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for scanf."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list of pointers, initialized with va_start. vfscanf doesn't call va_end."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of items assigned, or EOF if input failed before the first conversion."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n\nstatic int read_values(FILE *f, const char *format, ...) {\n    va_list args;\n    va_start(args, format);\n    int n = vfscanf(f, format, args);\n    va_end(args);\n    return n;\n}\n\nint main(void) {\n    int a, b;\n    if (read_values(stdin, \"%d %d\", &a, &b) == 2) {\n        printf(\"%d\\n\", a + b);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vfscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vfscanf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.9 The vfscanf function",
+          "line": 15855,
+          "lines": [
+            "int vfscanf(FILE * restrict stream,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.9 The vfscanf function",
+          "line": 17940,
+          "lines": [
+            "int vfscanf(FILE * restrict stream,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.9 The vfscanf function",
+          "line": 23746,
+          "lines": [
+            "int vfscanf(FILE * restrict stream, const char * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1072,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vfscanf(",
+            "_Inout_                       FILE*       const _Stream,",
+            "_In_z_ _Printf_format_string_ char const* const _Format,",
+            "va_list           _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfscanf_l(_Stream, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vprintf",
+      "summary": "Writes formatted output to stdout, taking its values from a va_list instead of extra arguments.",
+      "signature": "int vprintf(const char * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for printf."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized with va_start. vprintf doesn't call va_end."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters written, or a negative value if an output or encoding error occurred."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n\nstatic void info(const char *format, ...) {\n    va_list args;\n    va_start(args, format);\n    vprintf(format, args);\n    va_end(args);\n}\n\nint main(void) {\n    info(\"%s loaded\\n\", \"stdio.h\");\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.8 The vprintf function",
+          "line": 9041,
+          "lines": [
+            "int vprintf(const char *format, va_list arg);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.10 The vprintf function",
+          "line": 15885,
+          "lines": [
+            "int vprintf(const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.10 The vprintf function",
+          "line": 17976,
+          "lines": [
+            "int vprintf(const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.10 The vprintf function",
+          "line": 23775,
+          "lines": [
+            "int vprintf(const char * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 740,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vprintf(",
+            "_In_z_ _Printf_format_string_ char const* const _Format,",
+            "va_list           _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfprintf_l(stdout, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vscanf",
+      "summary": "Reads formatted input from stdin, taking its pointers from a va_list instead of extra arguments.",
+      "signature": "int vscanf(const char * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for scanf."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list of pointers, initialized with va_start. vscanf doesn't call va_end."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of items assigned, or EOF if input failed before the first conversion."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n\nstatic int prompt(const char *question, const char *format, ...) {\n    fputs(question, stdout);\n    va_list args;\n    va_start(args, format);\n    int n = vscanf(format, args);\n    va_end(args);\n    return n;\n}\n\nint main(void) {\n    int count;\n    if (prompt(\"How many? \", \"%d\", &count) == 1) {\n        printf(\"%d\\n\", count);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vscanf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.11 The vscanf function",
+          "line": 15914,
+          "lines": [
+            "int vscanf(const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.11 The vscanf function",
+          "line": 18002,
+          "lines": [
+            "int vscanf(const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.11 The vscanf function",
+          "line": 23794,
+          "lines": [
+            "int vscanf(const char * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1136,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vscanf(",
+            "_In_z_ _Printf_format_string_ char const* const _Format,",
+            "va_list           _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vfscanf_l(stdin, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vsnprintf",
+      "summary": "Writes formatted output to a buffer of size n, like snprintf, taking its values from a va_list.",
+      "signature": "int vsnprintf(char * restrict s, size_t n, const char * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Buffer for the output, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of the buffer in bytes."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for printf."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized with va_start. vsnprintf doesn't call va_end."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters vsnprintf would write with a large enough buffer, not counting the null terminator, or a negative value on an encoding error."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n\nstatic int format_label(char *out, size_t size, const char *format, ...) {\n    va_list args;\n    va_start(args, format);\n    int needed = vsnprintf(out, size, format, args);\n    va_end(args);\n    return needed;\n}\n\nint main(void) {\n    char label[16];\n    if (format_label(label, sizeof label, \"%s:%d\", \"line\", 42) < (int)sizeof label) {\n        puts(label);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vsnprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vsnprintf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.12 The vsnprintf function",
+          "line": 15942,
+          "lines": [
+            "int vsnprintf(char * restrict s, size_t n,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.12 The vsnprintf function",
+          "line": 18033,
+          "lines": [
+            "int vsnprintf(char * restrict s, size_t n,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.12 The vsnprintf function",
+          "line": 23815,
+          "lines": [
+            "int vsnprintf(char * restrict s, size_t n, const char * restrict format, va_list",
+            "arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1429,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vsnprintf(",
+            "_Out_writes_opt_(_BufferCount) _Always_(_Post_z_) char*       const _Buffer,",
+            "_In_                                              size_t      const _BufferCount,",
+            "_In_z_ _Printf_format_string_                     char const* const _Format,",
+            "va_list           _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "int const _Result = __stdio_common_vsprintf(",
+            "_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR,",
+            "_Buffer, _BufferCount, _Format, NULL, _ArgList);",
+            "return _Result < 0 ? -1 : _Result;",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vsprintf",
+      "summary": "Writes formatted output to an array, like sprintf, taking its values from a va_list.",
+      "signature": "int vsprintf(char * restrict s, const char * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Array that receives the output. Must be large enough for all of it."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for printf."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list initialized with va_start. vsprintf doesn't call va_end."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters written, not counting the null terminator, or a negative value on an encoding error."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n\nstatic void format_into(char *out, const char *format, ...) {\n    va_list args;\n    va_start(args, format);\n    vsprintf(out, format, args);\n    va_end(args);\n}\n\nint main(void) {\n    char label[32];\n    format_into(label, \"%s.h\", \"string\");\n    puts(label);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1464,
+          "lines": [
+            "_Check_return_opt_ _CRT_INSECURE_DEPRECATE(vsprintf_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vsprintf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vsprintf_s' in case of C11"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'vsprintf' is not bounds-checking; 'vsprintf_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.9.6.9 The vsprintf function",
+          "line": 9062,
+          "lines": [
+            "int vsprintf(char *s, const char *format, va_list arg);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.13 The vsprintf function",
+          "line": 15974,
+          "lines": [
+            "int vsprintf(char * restrict s,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.13 The vsprintf function",
+          "line": 18062,
+          "lines": [
+            "int vsprintf(char * restrict s,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.13 The vsprintf function",
+          "line": 23844,
+          "lines": [
+            "int vsprintf(char * restrict s, const char * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 1464,
+          "lines": [
+            "_Check_return_opt_ _CRT_INSECURE_DEPRECATE(vsprintf_s)",
+            "_CRT_STDIO_INLINE int __CRTDECL vsprintf(",
+            "_Pre_notnull_ _Always_(_Post_z_) char*       const _Buffer,",
+            "_In_z_ _Printf_format_string_    char const* const _Format,",
+            "va_list           _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vsnprintf_l(_Buffer, (size_t)-1, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vsscanf",
+      "summary": "Reads formatted input from a string, taking its pointers from a va_list instead of extra arguments.",
+      "signature": "int vsscanf(const char * restrict s, const char * restrict format, va_list arg);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "String to read from."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format string, as for scanf."
+        },
+        {
+          "name": "arg",
+          "type": "va_list",
+          "description": "Argument list of pointers, initialized with va_start. vsscanf doesn't call va_end."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of items assigned, or EOF if input failed before the first conversion."
+      },
+      "example": "#include <stdarg.h>\n#include <stdio.h>\n\nstatic int parse(const char *text, const char *format, ...) {\n    va_list args;\n    va_start(args, format);\n    int n = vsscanf(text, format, args);\n    va_end(args);\n    return n;\n}\n\nint main(void) {\n    int major, minor;\n    if (parse(\"1.4\", \"%d.%d\", &major, &minor) == 2) {\n        printf(\"major %d, minor %d\\n\", major, minor);\n    }\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+          "message": "Call to function 'vsscanf' is insecure as it does not provide bounding of the memory buffer or security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vsscanf_s' in case of C11"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.19.6.14 The vsscanf function",
+          "line": 16001,
+          "lines": [
+            "int vsscanf(const char * restrict s,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.21.6.14 The vsscanf function",
+          "line": 18092,
+          "lines": [
+            "int vsscanf(const char * restrict s,",
+            "const char * restrict format,",
+            "va_list arg);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.23.6.14 The vsscanf function",
+          "line": 23864,
+          "lines": [
+            "int vsscanf(const char * restrict s, const char * restrict format, va_list arg);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdio.h",
+          "line": 2160,
+          "lines": [
+            "_CRT_STDIO_INLINE int __CRTDECL vsscanf(",
+            "_In_z_                        char const* const _Buffer,",
+            "_In_z_ _Printf_format_string_ char const* const _Format,",
+            "va_list           _ArgList",
+            ")",
+            "#if defined _NO_CRT_STDIO_INLINE",
+            ";",
+            "#else",
+            "{",
+            "return _vsscanf_l(_Buffer, _Format, NULL, _ArgList);",
+            "}"
+          ]
+        }
+      ]
+    }
+  ]
+}

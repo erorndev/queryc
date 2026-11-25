@@ -1,0 +1,155 @@
+@use 'variables' as *;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+.site-header {
+  background: $color-header;
+  color: #fff;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+  }
+}
+
+.site-nav {
+  display: flex;
+  gap: 20px;
+
+  a {
+    color: rgba(#fff, 0.7);
+    font-size: 14px;
+
+    &:hover,
+    &.is-active {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &[aria-disabled='true'] {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  padding: 0;
+  border: 1px solid rgba(#fff, 0.25);
+  border-radius: $radius;
+  color: rgba(#fff, 0.8);
+  background: transparent;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+    border-color: rgba(#fff, 0.6);
+  }
+}
+
+.theme-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentcolor;
+  stroke: currentcolor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.theme-icon-moon {
+  stroke: none;
+}
+
+.theme-icon-sun {
+  display: none;
+}
+
+[data-theme-effective='dark'] {
+  .theme-icon-moon {
+    display: none;
+  }
+
+  .theme-icon-sun {
+    display: block;
+  }
+}
+
+.site-nav {
+  align-items: center;
+}
+
+.site-main {
+  flex: 1;
+}
+
+.finder {
+  padding: 56px 0 48px;
+}
+
+.finder-column {
+  max-width: $column-width + 2 * $gutter;
+}
+
+.finder-title {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 32px;
+  color: $color-muted;
+  text-align: center;
+}
+
+.finder-lead {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-muted;
+  text-align: center;
+}
+
+.results-empty {
+  margin: 24px 0 0;
+  color: $color-muted;
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+
+  code {
+    padding: 1px 5px;
+    border-radius: $radius;
+    color: $color-text;
+    background: $color-bg-alt;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .finder {
+    padding: 28px 0 32px;
+  }
+
+  .finder-lead {
+    display: none;
+  }
+
+  .site-nav {
+    gap: 14px;
+  }
+}

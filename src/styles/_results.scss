@@ -1,0 +1,240 @@
+@use 'variables' as *;
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: $color-muted;
+
+  select {
+    height: 28px;
+    padding: 0 6px;
+    border: 1px solid $color-input-border;
+    border-radius: $radius;
+    font: inherit;
+    font-size: 13px;
+    color: $color-text;
+    background: $color-input-bg;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+      border-color: $color-accent;
+      box-shadow: 0 0 0 3px $color-focus-ring;
+    }
+  }
+}
+
+.results-status {
+  margin: 20px 0 0;
+  font-size: 13px;
+  color: $color-muted;
+
+  code {
+    padding: 1px 5px;
+    border-radius: $radius;
+    color: $color-text;
+    background: $color-bg-alt;
+  }
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-weight: 500;
+  color: $color-accent;
+  background: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+.results-list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.results-list li + li {
+  border-top: 1px solid $color-border;
+}
+
+.result {
+  display: block;
+  margin: 6px -12px;
+  padding: 18px 12px;
+  border-radius: $radius;
+  color: inherit;
+
+  &:hover,
+  &:focus-visible {
+    color: inherit;
+    text-decoration: none;
+    background: $color-bg-alt;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: -2px;
+  }
+
+  &:hover .result-name {
+    color: $color-accent;
+  }
+}
+
+.result-name {
+  display: block;
+  font-family: $font-mono;
+  font-size: 17px;
+  font-weight: 600;
+  color: $color-text;
+
+  mark {
+    color: $color-accent;
+    background: none;
+  }
+}
+
+.result-header {
+  display: block;
+  margin-top: 2px;
+  font-family: $font-mono;
+  font-size: 13px;
+  color: $color-accent;
+}
+
+.result-signature {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: $color-text;
+  overflow-wrap: anywhere;
+}
+
+.result-summary {
+  display: block;
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-muted;
+}
+
+.result-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.tag {
+  padding: 0 6px;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  font-size: 11px;
+  line-height: 18px;
+  color: $color-muted;
+}
+
+.tag-compiler {
+  border-style: dashed;
+}
+
+.result.is-discouraged {
+  > :not(.result-tags),
+  .tag:not(.tag-caution) {
+    opacity: $discouraged-opacity;
+  }
+
+  .result-name,
+  .result-header,
+  &:hover .result-name {
+    color: $color-muted;
+  }
+
+  .result-name mark {
+    color: inherit;
+  }
+
+  &:hover > :not(.result-tags),
+  &:focus-visible > :not(.result-tags) {
+    opacity: 0.85;
+  }
+}
+
+.tag-care {
+  border-color: $color-warning;
+  font-weight: 600;
+  color: $color-warning;
+}
+
+.tag-caution {
+  border-color: $color-danger;
+  font-weight: 600;
+  color: $color-danger;
+}
+
+.result.is-selected {
+  background: $color-bg-alt;
+  box-shadow: inset 3px 0 0 $color-accent;
+
+  .result-name {
+    color: $color-accent;
+  }
+}
+
+.result.is-discouraged.is-selected {
+  box-shadow: inset 3px 0 0 $color-muted;
+
+  .result-name {
+    color: $color-muted;
+  }
+}
+
+.results-status:has(.results-keys) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.results-keys {
+  font-size: 12px;
+
+  kbd {
+    display: inline-block;
+    min-width: 18px;
+    margin-right: 2px;
+    padding: 0 4px;
+    border: 1px solid $color-border;
+    border-bottom-width: 2px;
+    border-radius: $radius;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    color: $color-muted;
+    background: $color-bg-alt;
+  }
+}
+
+@media (hover: none), (max-width: $breakpoint-sm) {
+  .results-keys {
+    display: none;
+  }
+}

@@ -1,0 +1,139 @@
+@use 'variables' as *;
+
+.brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.brand-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: $tracking-subheading;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.brand-logo {
+  display: block;
+  width: 22px;
+  height: 24px;
+}
+
+.lang-current {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 2px;
+  border: 0;
+  border-radius: $radius;
+  background: transparent;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid rgba(#fff, 0.6);
+    outline-offset: 1px;
+  }
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -6px;
+  z-index: 10;
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border: 1px solid rgba(#fff, 0.12);
+  border-radius: $radius;
+  background: $color-header;
+  box-shadow: 0 6px 16px rgba(#000, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0s linear 0.15s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: 10px;
+  }
+}
+
+.lang-switch:hover .lang-menu,
+.lang-switch:focus-within .lang-menu,
+.lang-switch.is-open .lang-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.lang-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 72px;
+  padding: 8px 4px 6px;
+  border-radius: $radius;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+
+  img {
+    display: block;
+    height: 24px;
+    width: auto;
+  }
+
+  small {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(#fff, 0.6);
+  }
+}
+
+a.lang-item {
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+    text-decoration: none;
+    background: rgba(#fff, 0.08);
+  }
+}
+
+.lang-item.is-current {
+  background: rgba(#fff, 0.06);
+  box-shadow: inset 0 -2px 0 $color-accent;
+}
+
+.lang-item.is-soon {
+  cursor: not-allowed;
+
+  img,
+  > span {
+    opacity: 0.45;
+  }
+}
+
+.lang-logo-mono {
+  filter: invert(1);
+}

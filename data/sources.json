@@ -1,0 +1,50 @@
+{
+  "c89-draft": {
+    "kind": "standard",
+    "standard": "C89",
+    "label": "ANSI X3J11/88-090 draft (C89)",
+    "root": "sources/standards",
+    "file": "c89-draft.txt",
+    "url": "https://port70.net/~nsz/c/c89/c89-draft.txt"
+  },
+  "n1256": {
+    "kind": "standard",
+    "standard": "C99",
+    "label": "WG14 N1256 (C99 with TC1 to TC3)",
+    "root": "sources/standards",
+    "file": "n1256.txt",
+    "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"
+  },
+  "n1570": {
+    "kind": "standard",
+    "standard": "C11",
+    "label": "WG14 N1570 (C11 final draft)",
+    "root": "sources/standards",
+    "file": "n1570.txt",
+    "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf"
+  },
+  "n3220": {
+    "kind": "standard",
+    "standard": "C23",
+    "label": "WG14 N3220 (C23 with editorial fixes)",
+    "root": "sources/standards",
+    "file": "n3220.txt",
+    "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf"
+  },
+  "ucrt-10.0.26100.0": {
+    "kind": "headers",
+    "compiler": "MSVC",
+    "library": "UCRT",
+    "version": "10.0.26100.0",
+    "label": "Windows SDK 10.0.26100.0 UCRT",
+    "root": "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/ucrt"
+  },
+  "msvc-14.44.35207": {
+    "kind": "headers",
+    "compiler": "MSVC",
+    "library": "VC runtime",
+    "version": "14.44.35207",
+    "label": "MSVC 14.44.35207 VC runtime",
+    "root": "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/include"
+  }
+}
