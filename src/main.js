@@ -2,9 +2,11 @@ import { withBase } from './base.js';
 import '@fontsource-variable/geist-mono';
 import './styles/main.scss';
 import { initResults } from './results.js';
-import { findFunction } from './data.js';
+import { findFunction, functions, headers } from './data.js';
 import { bindCopyButtons, renderDetail, renderMissing } from './detail.js';
 import { navigate, onRoute, startRouter } from './router.js';
+
+document.getElementById('coverage').textContent = `${functions.length} functions across ${headers.length} headers`;
 
 const form = document.getElementById('search-form');
 const input = document.getElementById('search-input');
