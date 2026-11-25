@@ -1,0 +1,967 @@
+{
+  "header": "stdatomic.h",
+  "functions": [
+    {
+      "name": "atomic_compare_exchange_strong",
+      "summary": "Atomically compares *object with *expected; if equal, replaces *object with desired, otherwise updates *expected with *object.",
+      "signature": "bool atomic_compare_exchange_strong(volatile A *object, C *expected, C desired);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "expected",
+          "type": "C *",
+          "description": "Pointer to the expected value."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "Desired new value."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "The result of the comparison (true if equal, false otherwise)."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int expected = 1;\n    atomic_compare_exchange_strong(&x, &expected, 2);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 15573,
+          "lines": [
+            "_Bool atomic_compare_exchange_strong(volatile A *object,",
+            "C *expected, C desired);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 20621,
+          "lines": [
+            "bool atomic_compare_exchange_strong(volatile A *object, C *expected, C desired);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_compare_exchange_strong_explicit",
+      "summary": "Atomically compares *object with *expected using explicit success and failure memory orders; replaces *object with desired if equal, else updates *expected.",
+      "signature": "bool atomic_compare_exchange_strong_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "expected",
+          "type": "C *",
+          "description": "Pointer to the expected value."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "Desired new value."
+        },
+        {
+          "name": "success",
+          "type": "memory_order",
+          "description": "Memory order on success."
+        },
+        {
+          "name": "failure",
+          "type": "memory_order",
+          "description": "Memory order on failure."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "The result of the comparison (true if equal, false otherwise)."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int expected = 1;\n    atomic_compare_exchange_strong_explicit(&x, &expected, 2, memory_order_acq_rel, memory_order_acquire);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 15577,
+          "lines": [
+            "_Bool atomic_compare_exchange_strong_explicit(",
+            "volatile A *object, C *expected, C desired,",
+            "memory_order success, memory_order failure);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 20622,
+          "lines": [
+            "bool atomic_compare_exchange_strong_explicit(volatile A *object, C *expected,",
+            "C desired, memory_order success, memory_order failure);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_compare_exchange_weak",
+      "summary": "Atomically compares *object with *expected; may fail spuriously, otherwise replaces *object with desired if equal or updates *expected with *object.",
+      "signature": "bool atomic_compare_exchange_weak(volatile A *object, C *expected, C desired);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "expected",
+          "type": "C *",
+          "description": "Pointer to the expected value."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "Desired new value."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "The result of the comparison (true if equal, false otherwise or on spurious failure)."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int expected = 1;\n    while (!atomic_compare_exchange_weak(&x, &expected, 2)) {}\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 15583,
+          "lines": [
+            "_Bool atomic_compare_exchange_weak(volatile A *object,",
+            "C *expected, C desired);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 20626,
+          "lines": [
+            "bool atomic_compare_exchange_weak(volatile A *object, C *expected, C desired);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_compare_exchange_weak_explicit",
+      "summary": "Atomically compares *object with *expected using explicit memory orders; may fail spuriously, otherwise replaces *object with desired if equal or updates *expected.",
+      "signature": "bool atomic_compare_exchange_weak_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "expected",
+          "type": "C *",
+          "description": "Pointer to the expected value."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "Desired new value."
+        },
+        {
+          "name": "success",
+          "type": "memory_order",
+          "description": "Memory order on success."
+        },
+        {
+          "name": "failure",
+          "type": "memory_order",
+          "description": "Memory order on failure."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "The result of the comparison (true if equal, false otherwise or on spurious failure)."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int expected = 1;\n    while (!atomic_compare_exchange_weak_explicit(&x, &expected, 2, memory_order_acq_rel, memory_order_acquire)) {}\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 15587,
+          "lines": [
+            "_Bool atomic_compare_exchange_weak_explicit(",
+            "volatile A *object, C *expected, C desired,",
+            "memory_order success, memory_order failure);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.4 The atomic_compare_exchange generic functions",
+          "line": 20627,
+          "lines": [
+            "bool atomic_compare_exchange_weak_explicit(volatile A *object, C *expected,",
+            "C desired, memory_order success, memory_order failure);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_exchange",
+      "summary": "Atomically replaces the value pointed to by object with desired.",
+      "signature": "C atomic_exchange(volatile A *object, C desired);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "New value to store."
+        }
+      ],
+      "returns": {
+        "type": "C",
+        "description": "The value pointed to by object immediately before the exchange."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int prev = atomic_exchange(&x, 2);\n    (void)prev;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.3 The atomic_exchange generic functions",
+          "line": 15551,
+          "lines": [
+            "C atomic_exchange(volatile A *object, C desired);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.3 The atomic_exchange generic functions",
+          "line": 20605,
+          "lines": [
+            "C atomic_exchange(volatile A *object, C desired);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_exchange_explicit",
+      "summary": "Atomically replaces the value pointed to by object with desired using the specified memory order.",
+      "signature": "C atomic_exchange_explicit(volatile A *object, C desired, memory_order order);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "New value to store."
+        },
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order for the operation."
+        }
+      ],
+      "returns": {
+        "type": "C",
+        "description": "The value pointed to by object immediately before the exchange."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int prev = atomic_exchange_explicit(&x, 2, memory_order_acq_rel);\n    (void)prev;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.3 The atomic_exchange generic functions",
+          "line": 15553,
+          "lines": [
+            "C atomic_exchange_explicit(volatile A *object,",
+            "C desired, memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.3 The atomic_exchange generic functions",
+          "line": 20606,
+          "lines": [
+            "C atomic_exchange_explicit(volatile A *object, C desired, memory_order order);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_fetch_key",
+      "summary": "Atomically replaces *object with the result of applying the key operation (add, sub, or, xor, and) to *object and operand.",
+      "signature": "C atomic_fetch_key(volatile A *object, M operand);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "operand",
+          "type": "M",
+          "description": "Operand for the read-modify-write operation."
+        }
+      ],
+      "returns": {
+        "type": "C",
+        "description": "The value pointed to by object immediately before the operation."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int prev = atomic_fetch_add(&x, 2);\n    (void)prev;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.5 The atomic_fetch and modify generic functions",
+          "line": 15664,
+          "lines": [
+            "C atomic_fetch_key(volatile A *object, M operand);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.5 The atomic_fetch and modify generic functions",
+          "line": 20701,
+          "lines": [
+            "C atomic_fetch_key(volatile A *object, M operand);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_fetch_key_explicit",
+      "summary": "Atomically replaces *object with the result of applying the key operation (add, sub, or, xor, and) to *object and operand using the specified memory order.",
+      "signature": "C atomic_fetch_key_explicit(volatile A *object, M operand, memory_order order);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "operand",
+          "type": "M",
+          "description": "Operand for the read-modify-write operation."
+        },
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order for the operation."
+        }
+      ],
+      "returns": {
+        "type": "C",
+        "description": "The value pointed to by object immediately before the operation."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 1;\n    int prev = atomic_fetch_add_explicit(&x, 2, memory_order_relaxed);\n    (void)prev;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.5 The atomic_fetch and modify generic functions",
+          "line": 15666,
+          "lines": [
+            "C atomic_fetch_key_explicit(volatile A *object,",
+            "M operand, memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.5 The atomic_fetch and modify generic functions",
+          "line": 20702,
+          "lines": [
+            "C atomic_fetch_key_explicit(volatile A *object, M operand, memory_order order);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_flag_clear",
+      "summary": "Atomically places the atomic_flag pointed to by object into the clear state.",
+      "signature": "void atomic_flag_clear(volatile atomic_flag *object);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile atomic_flag *",
+          "description": "Pointer to the atomic_flag."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_flag f = ATOMIC_FLAG_INIT;\n    atomic_flag_clear(&f);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.8.2 The atomic_flag_clear functions",
+          "line": 15749,
+          "lines": [
+            "void atomic_flag_clear(volatile atomic_flag *object);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.8.2 The atomic_flag_clear functions",
+          "line": 20765,
+          "lines": [
+            "void atomic_flag_clear(volatile atomic_flag *object);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_flag_clear_explicit",
+      "summary": "Atomically places the atomic_flag pointed to by object into the clear state using the specified memory order.",
+      "signature": "void atomic_flag_clear_explicit(volatile atomic_flag *object, memory_order order);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile atomic_flag *",
+          "description": "Pointer to the atomic_flag."
+        },
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order (not acquire or acq_rel)."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_flag f = ATOMIC_FLAG_INIT;\n    atomic_flag_clear_explicit(&f, memory_order_release);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.8.2 The atomic_flag_clear functions",
+          "line": 15751,
+          "lines": [
+            "void atomic_flag_clear_explicit(",
+            "volatile atomic_flag *object, memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.8.2 The atomic_flag_clear functions",
+          "line": 20766,
+          "lines": [
+            "void atomic_flag_clear_explicit(volatile atomic_flag *object,",
+            "memory_order order);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_flag_test_and_set",
+      "summary": "Atomically places the atomic_flag pointed to by object into the set state and returns its previous state.",
+      "signature": "bool atomic_flag_test_and_set(volatile atomic_flag *object);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile atomic_flag *",
+          "description": "Pointer to the atomic_flag."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "true if the flag was previously set, or false if it was clear."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_flag f = ATOMIC_FLAG_INIT;\n    bool was_set = atomic_flag_test_and_set(&f);\n    (void)was_set;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.8.1 The atomic_flag_test_and_set functions",
+          "line": 15722,
+          "lines": [
+            "_Bool atomic_flag_test_and_set(",
+            "volatile atomic_flag *object);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.8.1 The atomic_flag_test_and_set functions",
+          "line": 20743,
+          "lines": [
+            "bool atomic_flag_test_and_set(volatile atomic_flag *object);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_flag_test_and_set_explicit",
+      "summary": "Atomically places the atomic_flag pointed to by object into the set state using the specified memory order and returns its previous state.",
+      "signature": "bool atomic_flag_test_and_set_explicit(volatile atomic_flag *object, memory_order order);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile atomic_flag *",
+          "description": "Pointer to the atomic_flag."
+        },
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order for the operation."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "true if the flag was previously set, or false if it was clear."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_flag f = ATOMIC_FLAG_INIT;\n    bool was_set = atomic_flag_test_and_set_explicit(&f, memory_order_acquire);\n    (void)was_set;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.8.1 The atomic_flag_test_and_set functions",
+          "line": 15726,
+          "lines": [
+            "_Bool atomic_flag_test_and_set_explicit(",
+            "volatile atomic_flag *object, memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.8.1 The atomic_flag_test_and_set functions",
+          "line": 20744,
+          "lines": [
+            "bool atomic_flag_test_and_set_explicit(volatile atomic_flag *object,",
+            "memory_order order);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_init",
+      "summary": "Non-atomically initializes the atomic object pointed to by obj to value.",
+      "signature": "void atomic_init(volatile A *obj, C value);",
+      "params": [
+        {
+          "name": "obj",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "value",
+          "type": "C",
+          "description": "Initial value."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int guide;\n    atomic_init(&guide, 42);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.2.2 The atomic_init generic function",
+          "line": 15122,
+          "lines": [
+            "void atomic_init(volatile A *obj, C value);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.2.1 The atomic_init generic function",
+          "line": 20206,
+          "lines": [
+            "void atomic_init(volatile A *obj, C value);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_is_lock_free",
+      "summary": "Indicates whether atomic operations on objects of the type pointed to by obj are lock-free.",
+      "signature": "bool atomic_is_lock_free(const volatile A *obj);",
+      "params": [
+        {
+          "name": "obj",
+          "type": "const volatile A *",
+          "description": "Pointer to the atomic object."
+        }
+      ],
+      "returns": {
+        "type": "bool",
+        "description": "Nonzero (true) if and only if atomic operations on *obj's type are lock-free."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 0;\n    bool lf = atomic_is_lock_free(&x);\n    (void)lf;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.5.1 The atomic_is_lock_free generic function",
+          "line": 15416,
+          "lines": [
+            "_Bool atomic_is_lock_free(const volatile A *obj);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.5.1 The atomic_is_lock_free generic function",
+          "line": 20480,
+          "lines": [
+            "bool atomic_is_lock_free(const volatile A *obj);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_load",
+      "summary": "Atomically loads and returns the value pointed to by object.",
+      "signature": "C atomic_load(const volatile A *object);",
+      "params": [
+        {
+          "name": "object",
+          "type": "const volatile A *",
+          "description": "Pointer to the atomic object."
+        }
+      ],
+      "returns": {
+        "type": "C",
+        "description": "The value pointed to by object."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 42;\n    int v = atomic_load(&x);\n    (void)v;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.2 The atomic_load generic functions",
+          "line": 15527,
+          "lines": [
+            "C atomic_load(volatile A *object);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.2 The atomic_load generic functions",
+          "line": 20589,
+          "lines": [
+            "C atomic_load(const volatile A *object);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_load_explicit",
+      "summary": "Atomically loads and returns the value pointed to by object using the specified memory order.",
+      "signature": "C atomic_load_explicit(const volatile A *object, memory_order order);",
+      "params": [
+        {
+          "name": "object",
+          "type": "const volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order (not release or acq_rel)."
+        }
+      ],
+      "returns": {
+        "type": "C",
+        "description": "The value pointed to by object."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 42;\n    int v = atomic_load_explicit(&x, memory_order_acquire);\n    (void)v;\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.2 The atomic_load generic functions",
+          "line": 15529,
+          "lines": [
+            "C atomic_load_explicit(volatile A *object,",
+            "memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.2 The atomic_load generic functions",
+          "line": 20590,
+          "lines": [
+            "C atomic_load_explicit(const volatile A *object, memory_order order);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_signal_fence",
+      "summary": "Establishes memory ordering constraints between a thread and a signal handler in the same thread without emitting hardware fence instructions.",
+      "signature": "void atomic_signal_fence(memory_order order);",
+      "params": [
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order for the fence."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_signal_fence(memory_order_release);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.4.2 The atomic_signal_fence function",
+          "line": 15374,
+          "lines": [
+            "void atomic_signal_fence(memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.4.2 The atomic_signal_fence function",
+          "line": 20445,
+          "lines": [
+            "void atomic_signal_fence(memory_order order);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_store",
+      "summary": "Atomically replaces the value pointed to by object with desired.",
+      "signature": "void atomic_store(volatile A *object, C desired);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "Value to store."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 0;\n    atomic_store(&x, 42);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.1 The atomic_store generic functions",
+          "line": 15504,
+          "lines": [
+            "void atomic_store(volatile A *object, C desired);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.1 The atomic_store generic functions",
+          "line": 20568,
+          "lines": [
+            "void atomic_store(volatile A *object, C desired);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_store_explicit",
+      "summary": "Atomically replaces the value pointed to by object with desired using the specified memory order.",
+      "signature": "void atomic_store_explicit(volatile A *object, C desired, memory_order order);",
+      "params": [
+        {
+          "name": "object",
+          "type": "volatile A *",
+          "description": "Pointer to the atomic object."
+        },
+        {
+          "name": "desired",
+          "type": "C",
+          "description": "Value to store."
+        },
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order (not acquire, consume, or acq_rel)."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_int x = 0;\n    atomic_store_explicit(&x, 42, memory_order_release);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.7.1 The atomic_store generic functions",
+          "line": 15506,
+          "lines": [
+            "void atomic_store_explicit(volatile A *object,",
+            "C desired, memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.7.1 The atomic_store generic functions",
+          "line": 20569,
+          "lines": [
+            "void atomic_store_explicit(volatile A *object, C desired, memory_order order);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atomic_thread_fence",
+      "summary": "Establishes memory synchronization ordering of non-atomic and relaxed atomic accesses according to order.",
+      "signature": "void atomic_thread_fence(memory_order order);",
+      "params": [
+        {
+          "name": "order",
+          "type": "memory_order",
+          "description": "Memory order for the fence."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdatomic.h>\n\nint main(void) {\n    atomic_thread_fence(memory_order_seq_cst);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.17.4.1 The atomic_thread_fence function",
+          "line": 15342,
+          "lines": [
+            "void atomic_thread_fence(memory_order order);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.17.4.1 The atomic_thread_fence function",
+          "line": 20419,
+          "lines": [
+            "void atomic_thread_fence(memory_order order);"
+          ]
+        }
+      ]
+    }
+  ]
+}

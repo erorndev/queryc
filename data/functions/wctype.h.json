@@ -1,0 +1,1077 @@
+{
+  "header": "wctype.h",
+  "functions": [
+    {
+      "name": "iswalnum",
+      "summary": "Tests whether the wide character wc is an alphanumeric wide character (either iswalpha or iswdigit).",
+      "signature": "int iswalnum(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is alphanumeric, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswalnum(L'A') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.1 The iswalnum function",
+          "line": 21393,
+          "lines": [
+            "int iswalnum(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.1 The iswalnum function",
+          "line": 24511,
+          "lines": [
+            "int iswalnum(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.1 The iswalnum function",
+          "line": 30735,
+          "lines": [
+            "int iswalnum(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 67,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswalnum  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswalpha",
+      "summary": "Tests whether the wide character wc is an alphabetic wide character.",
+      "signature": "int iswalpha(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is alphabetic, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswalpha(L'A') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.2 The iswalpha function",
+          "line": 21406,
+          "lines": [
+            "int iswalpha(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.2 The iswalpha function",
+          "line": 24524,
+          "lines": [
+            "int iswalpha(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.2 The iswalpha function",
+          "line": 30745,
+          "lines": [
+            "int iswalpha(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 68,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswalpha  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswblank",
+      "summary": "Tests whether the wide character wc is a blank wide character (space or horizontal tab in the \"C\" locale).",
+      "signature": "int iswblank(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a blank wide character, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswblank(L' ') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.3 The iswblank function",
+          "line": 21430,
+          "lines": [
+            "int iswblank(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.3 The iswblank function",
+          "line": 24548,
+          "lines": [
+            "int iswblank(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.3 The iswblank function",
+          "line": 30758,
+          "lines": [
+            "int iswblank(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 70,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswblank  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswcntrl",
+      "summary": "Tests whether the wide character wc is a control wide character.",
+      "signature": "int iswcntrl(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a control wide character, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswcntrl(L'\\n') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.4 The iswcntrl function",
+          "line": 21446,
+          "lines": [
+            "int iswcntrl(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.4 The iswcntrl function",
+          "line": 24564,
+          "lines": [
+            "int iswcntrl(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.4 The iswcntrl function",
+          "line": 30773,
+          "lines": [
+            "int iswcntrl(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 71,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswcntrl  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswctype",
+      "summary": "Tests whether the wide character wc has the property described by desc (obtained from wctype).",
+      "signature": "int iswctype(wint_t wc, wctype_t desc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        },
+        {
+          "name": "desc",
+          "type": "wctype_t",
+          "description": "Wide character class descriptor."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc has the property described by desc, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    wctype_t d = wctype(\"digit\");\n    printf(\"%d\\n\", iswctype(L'7', d) != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.2.1 The iswctype function",
+          "line": 21585,
+          "lines": [
+            "int iswctype(wint_t wc, wctype_t desc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.2.1 The iswctype function",
+          "line": 24703,
+          "lines": [
+            "int iswctype(wint_t wc, wctype_t desc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.2.1 The iswctype function",
+          "line": 30898,
+          "lines": [
+            "int iswctype(wint_t wc, wctype_t desc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 104,
+          "lines": [
+            "_Check_return_ _ACRTIMP int    __cdecl iswctype(_In_ wint_t _C, _In_ wctype_t _Type);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswdigit",
+      "summary": "Tests whether the wide character wc is a decimal-digit wide character.",
+      "signature": "int iswdigit(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a decimal digit, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswdigit(L'5') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.5 The iswdigit function",
+          "line": 21458,
+          "lines": [
+            "int iswdigit(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.5 The iswdigit function",
+          "line": 24576,
+          "lines": [
+            "int iswdigit(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.5 The iswdigit function",
+          "line": 30783,
+          "lines": [
+            "int iswdigit(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 74,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswdigit  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswgraph",
+      "summary": "Tests whether the wide character wc is a printing wide character other than space.",
+      "signature": "int iswgraph(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc has a graphical representation, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswgraph(L'!') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.6 The iswgraph function",
+          "line": 21471,
+          "lines": [
+            "int iswgraph(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.6 The iswgraph function",
+          "line": 24589,
+          "lines": [
+            "int iswgraph(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.6 The iswgraph function",
+          "line": 30802,
+          "lines": [
+            "int iswgraph(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 76,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswgraph  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswlower",
+      "summary": "Tests whether the wide character wc is a lowercase letter.",
+      "signature": "int iswlower(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a lowercase letter, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswlower(L'a') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.7 The iswlower function",
+          "line": 21490,
+          "lines": [
+            "int iswlower(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.7 The iswlower function",
+          "line": 24608,
+          "lines": [
+            "int iswlower(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.7 The iswlower function",
+          "line": 30814,
+          "lines": [
+            "int iswlower(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 77,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswlower  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswprint",
+      "summary": "Tests whether the wide character wc is a printing wide character (including space).",
+      "signature": "int iswprint(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a printing wide character, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswprint(L' ') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.8 The iswprint function",
+          "line": 21504,
+          "lines": [
+            "int iswprint(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.8 The iswprint function",
+          "line": 24622,
+          "lines": [
+            "int iswprint(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.8 The iswprint function",
+          "line": 30827,
+          "lines": [
+            "int iswprint(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 78,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswprint  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswpunct",
+      "summary": "Tests whether the wide character wc is a punctuation wide character.",
+      "signature": "int iswpunct(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a punctuation wide character, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswpunct(L'.') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.9 The iswpunct function",
+          "line": 21516,
+          "lines": [
+            "int iswpunct(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.9 The iswpunct function",
+          "line": 24634,
+          "lines": [
+            "int iswpunct(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.9 The iswpunct function",
+          "line": 30837,
+          "lines": [
+            "int iswpunct(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 79,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswpunct  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswspace",
+      "summary": "Tests whether the wide character wc is a white-space wide character.",
+      "signature": "int iswspace(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a white-space wide character, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswspace(L'\\t') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.10 The iswspace function",
+          "line": 21531,
+          "lines": [
+            "int iswspace(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.10 The iswspace function",
+          "line": 24649,
+          "lines": [
+            "int iswspace(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.10 The iswspace function",
+          "line": 30849,
+          "lines": [
+            "int iswspace(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 80,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswspace  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswupper",
+      "summary": "Tests whether the wide character wc is an uppercase letter.",
+      "signature": "int iswupper(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is an uppercase letter, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswupper(L'A') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.11 The iswupper function",
+          "line": 21552,
+          "lines": [
+            "int iswupper(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.11 The iswupper function",
+          "line": 24670,
+          "lines": [
+            "int iswupper(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.11 The iswupper function",
+          "line": 30861,
+          "lines": [
+            "int iswupper(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 81,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswupper  (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iswxdigit",
+      "summary": "Tests whether the wide character wc is a hexadecimal-digit wide character.",
+      "signature": "int iswxdigit(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to test (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Nonzero if wc is a hexadecimal digit, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", iswxdigit(L'f') != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.1.12 The iswxdigit function",
+          "line": 21566,
+          "lines": [
+            "int iswxdigit(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.1.12 The iswxdigit function",
+          "line": 24684,
+          "lines": [
+            "int iswxdigit(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.1.12 The iswxdigit function",
+          "line": 30881,
+          "lines": [
+            "int iswxdigit(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 82,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl iswxdigit (_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "towctrans",
+      "summary": "Maps the wide character wc using the mapping described by desc (obtained from wctrans).",
+      "signature": "wint_t towctrans(wint_t wc, wctrans_t desc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to map (wint_t)."
+        },
+        {
+          "name": "desc",
+          "type": "wctrans_t",
+          "description": "Wide character mapping descriptor."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The mapped wide character."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    wctrans_t t = wctrans(\"toupper\");\n    printf(\"%lc\\n\", towctrans(L'a', t));\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.3.2.1 The towctrans function",
+          "line": 21707,
+          "lines": [
+            "wint_t towctrans(wint_t wc, wctrans_t desc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.3.2.1 The towctrans function",
+          "line": 24823,
+          "lines": [
+            "wint_t towctrans(wint_t wc, wctrans_t desc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.3.2.1 The towctrans function",
+          "line": 31003,
+          "lines": [
+            "wint_t towctrans(wint_t wc, wctrans_t desc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wctype.h",
+          "line": 24,
+          "lines": [
+            "_ACRTIMP wint_t __cdecl towctrans(wint_t c, wctrans_t value);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "towlower",
+      "summary": "Converts an uppercase wide character wc to its corresponding lowercase wide character if one exists.",
+      "signature": "wint_t towlower(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to convert (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The corresponding lowercase wide character, or wc unchanged if none exists."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%lc\\n\", towlower(L'A'));\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.3.1.1 The towlower function",
+          "line": 21658,
+          "lines": [
+            "wint_t towlower(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.3.1.1 The towlower function",
+          "line": 24775,
+          "lines": [
+            "wint_t towlower(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.3.1.1 The towlower function",
+          "line": 30964,
+          "lines": [
+            "wint_t towlower(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 103,
+          "lines": [
+            "_Check_return_ _ACRTIMP wint_t __cdecl towlower(_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "towupper",
+      "summary": "Converts a lowercase wide character wc to its corresponding uppercase wide character if one exists.",
+      "signature": "wint_t towupper(wint_t wc);",
+      "params": [
+        {
+          "name": "wc",
+          "type": "wint_t",
+          "description": "Wide character to convert (wint_t)."
+        }
+      ],
+      "returns": {
+        "type": "wint_t",
+        "description": "The corresponding uppercase wide character, or wc unchanged if none exists."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    printf(\"%lc\\n\", towupper(L'a'));\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.3.1.2 The towupper function",
+          "line": 21678,
+          "lines": [
+            "wint_t towupper(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.3.1.2 The towupper function",
+          "line": 24795,
+          "lines": [
+            "wint_t towupper(wint_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.3.1.2 The towupper function",
+          "line": 30981,
+          "lines": [
+            "wint_t towupper(wint_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_wctype.h",
+          "line": 102,
+          "lines": [
+            "_Check_return_ _ACRTIMP wint_t __cdecl towupper(_In_ wint_t _C);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wctrans",
+      "summary": "Constructs a wctrans_t mapping descriptor for a wide-character mapping identified by property.",
+      "signature": "wctrans_t wctrans(const char *property);",
+      "params": [
+        {
+          "name": "property",
+          "type": "const char *",
+          "description": "Name of the character mapping (such as \"tolower\" or \"toupper\")."
+        }
+      ],
+      "returns": {
+        "type": "wctrans_t",
+        "description": "A nonzero wctrans_t value if property is valid for the current locale, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    wctrans_t t = wctrans(\"tolower\");\n    printf(\"%d\\n\", t != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.3.2.2 The wctrans function",
+          "line": 21732,
+          "lines": [
+            "wctrans_t wctrans(const char *property);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.3.2.2 The wctrans function",
+          "line": 24847,
+          "lines": [
+            "wctrans_t wctrans(const char *property);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.3.2.2 The wctrans function",
+          "line": 31031,
+          "lines": [
+            "wctrans_t wctrans(const char *property);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wctype.h",
+          "line": 25,
+          "lines": [
+            "_ACRTIMP wctrans_t __cdecl wctrans(const char *name);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wctype",
+      "summary": "Constructs a wctype_t descriptor for a wide-character classification identified by property.",
+      "signature": "wctype_t wctype(const char *property);",
+      "params": [
+        {
+          "name": "property",
+          "type": "const char *",
+          "description": "Name of the character class (such as \"alpha\" or \"digit\")."
+        }
+      ],
+      "returns": {
+        "type": "wctype_t",
+        "description": "A nonzero wctype_t value if property is valid for the current locale, or zero otherwise."
+      },
+      "example": "#include <stdio.h>\n#include <wctype.h>\n\nint main(void) {\n    wctype_t c = wctype(\"alpha\");\n    printf(\"%d\\n\", c != 0);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.25.2.2.2 The wctype function",
+          "line": 21625,
+          "lines": [
+            "wctype_t wctype(const char *property);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.30.2.2.2 The wctype function",
+          "line": 24744,
+          "lines": [
+            "wctype_t wctype(const char *property);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.32.2.2.2 The wctype function",
+          "line": 30934,
+          "lines": [
+            "wctype_t wctype(const char *property);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "wctype.h",
+          "line": 26,
+          "lines": [
+            "_ACRTIMP wctype_t __cdecl wctype(const char *name);"
+          ]
+        }
+      ]
+    }
+  ]
+}

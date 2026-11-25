@@ -1,0 +1,159 @@
+{
+  "header": "locale.h",
+  "functions": [
+    {
+      "name": "localeconv",
+      "summary": "Sets the components of a struct lconv object with numeric and monetary formatting values according to the rules of the current locale.",
+      "signature": "struct lconv *localeconv(void);",
+      "params": [],
+      "returns": {
+        "type": "struct lconv *",
+        "description": "Pointer to the filled struct lconv object."
+      },
+      "example": "#include <locale.h>\n#include <stdio.h>\n\nint main(void) {\n    struct lconv *lc = localeconv();\n    printf(\"decimal_point=%s\\n\", lc->decimal_point);\n    return 0;\n}",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.4.2.1 The localeconv function",
+          "line": 7030,
+          "lines": [
+            "struct lconv *localeconv(void);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.11.2.1 The localeconv function",
+          "line": 11157,
+          "lines": [
+            "struct lconv *localeconv(void);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.11.2.1 The localeconv function",
+          "line": 12456,
+          "lines": [
+            "struct lconv *localeconv(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.11.2.1 The localeconv function",
+          "line": 15632,
+          "lines": [
+            "struct lconv *localeconv(void);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "locale.h",
+          "line": 103,
+          "lines": [
+            "_ACRTIMP struct lconv* __cdecl localeconv(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setlocale",
+      "summary": "Selects or queries the program's current locale for the specified category.",
+      "signature": "char *setlocale(int category, const char *locale);",
+      "params": [
+        {
+          "name": "category",
+          "type": "int",
+          "description": "Locale category (such as LC_ALL, LC_CTYPE, or LC_NUMERIC)."
+        },
+        {
+          "name": "locale",
+          "type": "const char *",
+          "description": "Locale name string, \"C\", \"\", or NULL to query."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "Pointer to the string associated with the specified category for the new (or current) locale, or a null pointer if the selection cannot be honored."
+      },
+      "example": "#include <locale.h>\n#include <stdio.h>\n\nint main(void) {\n    const char *loc = setlocale(LC_ALL, \"C\");\n    if (loc) {\n        puts(loc);\n    }\n    return 0;\n}",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.4.1.1 The setlocale function",
+          "line": 6965,
+          "lines": [
+            "char *setlocale(int category, const char *locale);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.11.1.1 The setlocale function",
+          "line": 11088,
+          "lines": [
+            "char *setlocale(int category, const char *locale);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.11.1.1 The setlocale function",
+          "line": 12386,
+          "lines": [
+            "char *setlocale(int category, const char *locale);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.11.1.1 The setlocale function",
+          "line": 15568,
+          "lines": [
+            "char *setlocale(int category, const char *locale);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "locale.h",
+          "line": 97,
+          "lines": [
+            "_ACRTIMP char* __cdecl setlocale(",
+            "_In_       int         _Category,",
+            "_In_opt_z_ char const* _Locale",
+            ");"
+          ]
+        }
+      ]
+    }
+  ]
+}

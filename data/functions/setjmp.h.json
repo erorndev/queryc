@@ -1,0 +1,82 @@
+{
+  "header": "setjmp.h",
+  "functions": [
+    {
+      "name": "longjmp",
+      "summary": "Restores the environment saved by the most recent invocation of setjmp with the corresponding env, transferring control back to that point.",
+      "signature": "[[noreturn]] void longjmp(jmp_buf env, int val);",
+      "params": [
+        {
+          "name": "env",
+          "type": "jmp_buf",
+          "description": "Saved jmp_buf environment."
+        },
+        {
+          "name": "val",
+          "type": "int",
+          "description": "Value for setjmp to return (1 if val is 0)."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Does not return; causes the corresponding setjmp invocation to return val (or 1 if val is 0)."
+      },
+      "example": "#include <setjmp.h>\n#include <stdio.h>\n\nstatic jmp_buf env;\n\nstatic void fail(void) {\n    longjmp(env, 1);\n}\n\nint main(void) {\n    if (setjmp(env) == 0) {\n        fail();\n    } else {\n        puts(\"recovered\");\n    }\n    return 0;\n}",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.6.2.1 The longjmp function",
+          "line": 7654,
+          "lines": [
+            "void longjmp(jmp_buf env, int val);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.13.2.1 The longjmp function",
+          "line": 13271,
+          "lines": [
+            "void longjmp(jmp_buf env, int val);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.13.2.1 The longjmp function",
+          "line": 14576,
+          "lines": [
+            "_Noreturn void longjmp(jmp_buf env, int val);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.13.2.1 The longjmp function",
+          "line": 19611,
+          "lines": [
+            "[[noreturn]] void longjmp(jmp_buf env, int val);"
+          ]
+        },
+        {
+          "source": "msvc-14.44.35207",
+          "file": "setjmp.h",
+          "line": 170,
+          "lines": [
+            "__declspec(noreturn) void __cdecl longjmp(",
+            "_In_reads_(_JBLEN) jmp_buf _Buf,",
+            "_In_ int     _Value",
+            ");"
+          ]
+        }
+      ]
+    }
+  ]
+}

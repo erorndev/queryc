@@ -1,0 +1,347 @@
+{
+  "header": "uchar.h",
+  "functions": [
+    {
+      "name": "c16rtomb",
+      "summary": "Converts a char16_t character c16 to its multibyte representation and stores it in s (up to MB_CUR_MAX bytes), updating conversion state ps.",
+      "signature": "size_t c16rtomb(char * restrict s, char16_t c16, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer for the multibyte character, or NULL."
+        },
+        {
+          "name": "c16",
+          "type": "char16_t",
+          "description": "UTF-16 code unit to convert."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the mbstate_t conversion state."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of bytes stored in s, or (size_t)(-1) with EILSEQ stored in errno on an encoding error."
+      },
+      "example": "#include <stdio.h>\n#include <uchar.h>\n\nint main(void) {\n    mbstate_t state = { 0 };\n    char buf[16];\n    size_t n = c16rtomb(buf, u'A', &state);\n    printf(\"%zu\\n\", n);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.28.1.2 The c16rtomb function",
+          "line": 21752,
+          "lines": [
+            "size_t c16rtomb(char * restrict s, char16_t c16,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.30.1.4 The c16rtomb function",
+          "line": 28030,
+          "lines": [
+            "size_t c16rtomb(char * restrict s, char16_t c16, mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "uchar.h",
+          "line": 37,
+          "lines": [
+            "_Check_return_ _ACRTIMP size_t __cdecl c16rtomb(_Out_writes_opt_(4) char *_S, _In_ char16_t _C16, _Inout_ mbstate_t *_Ps);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "c32rtomb",
+      "summary": "Converts a char32_t character c32 to its multibyte representation and stores it in s (up to MB_CUR_MAX bytes), updating conversion state ps.",
+      "signature": "size_t c32rtomb(char * restrict s, char32_t c32, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer for the multibyte character, or NULL."
+        },
+        {
+          "name": "c32",
+          "type": "char32_t",
+          "description": "UTF-32 code point to convert."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the mbstate_t conversion state."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of bytes stored in s, or (size_t)(-1) with EILSEQ stored in errno on an encoding error."
+      },
+      "example": "#include <stdio.h>\n#include <uchar.h>\n\nint main(void) {\n    mbstate_t state = { 0 };\n    char buf[16];\n    size_t n = c32rtomb(buf, U'A', &state);\n    printf(\"%zu\\n\", n);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.28.1.4 The c32rtomb function",
+          "line": 21848,
+          "lines": [
+            "size_t c32rtomb(char * restrict s, char32_t c32,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.30.1.6 The c32rtomb function",
+          "line": 28119,
+          "lines": [
+            "size_t c32rtomb(char * restrict s, char32_t c32, mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "uchar.h",
+          "line": 40,
+          "lines": [
+            "_Check_return_ _ACRTIMP size_t __cdecl c32rtomb(_Out_writes_opt_(4) char *_S, _In_ char32_t _C32, _Inout_ mbstate_t *_Ps);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "c8rtomb",
+      "summary": "Converts a char8_t character c8 to its multibyte representation and stores it in s (up to MB_CUR_MAX bytes), updating conversion state ps.",
+      "signature": "size_t c8rtomb(char * restrict s, char8_t c8, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer for the multibyte character, or NULL."
+        },
+        {
+          "name": "c8",
+          "type": "char8_t",
+          "description": "UTF-8 code unit to convert."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the mbstate_t conversion state."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of bytes stored in s, or (size_t)(-1) with EILSEQ stored in errno on an encoding error."
+      },
+      "example": "#include <stdio.h>\n#include <uchar.h>\n\nint main(void) {\n    mbstate_t state = { 0 };\n    char buf[16];\n    size_t n = c8rtomb(buf, u8'A', &state);\n    printf(\"%zu\\n\", n);\n    return 0;\n}",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.30.1.2 The c8rtomb function",
+          "line": 27948,
+          "lines": [
+            "size_t c8rtomb(char * restrict s, char8_t c8, mbstate_t * restrict ps);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbrtoc16",
+      "summary": "Inspects at most n bytes from s to complete the next multibyte character and stores the corresponding char16_t value in *pc16.",
+      "signature": "size_t mbrtoc16(char16_t * restrict pc16, const char * restrict s, size_t n, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "pc16",
+          "type": "char16_t * restrict",
+          "description": "Optional pointer to store the resulting char16_t."
+        },
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "Pointer to the multibyte character sequence, or NULL."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to inspect."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the mbstate_t conversion state."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "0 for a null character, 1 to n for bytes consumed, (size_t)(-3) if a buffered character was stored, (size_t)(-2) if incomplete, or (size_t)(-1) with EILSEQ in errno on error."
+      },
+      "example": "#include <stdio.h>\n#include <uchar.h>\n\nint main(void) {\n    mbstate_t state = { 0 };\n    char16_t c16 = 0;\n    size_t n = mbrtoc16(&c16, \"A\", 1, &state);\n    printf(\"%zu\\n\", n);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.28.1.1 The mbrtoc16 function",
+          "line": 21693,
+          "lines": [
+            "size_t mbrtoc16(char16_t * restrict pc16,",
+            "const char * restrict s, size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.30.1.3 The mbrtoc16 function",
+          "line": 27983,
+          "lines": [
+            "size_t mbrtoc16(char16_t * restrict pc16, const char * restrict s, size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "uchar.h",
+          "line": 36,
+          "lines": [
+            "_Check_return_ _ACRTIMP size_t __cdecl mbrtoc16(_Out_opt_ char16_t *_Pc16, _In_reads_or_z_opt_(_N) const char *_S, _In_ size_t _N, _Inout_ mbstate_t *_Ps);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbrtoc32",
+      "summary": "Inspects at most n bytes from s to complete the next multibyte character and stores the corresponding char32_t value in *pc32.",
+      "signature": "size_t mbrtoc32(char32_t * restrict pc32, const char * restrict s, size_t n, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "pc32",
+          "type": "char32_t * restrict",
+          "description": "Optional pointer to store the resulting char32_t."
+        },
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "Pointer to the multibyte character sequence, or NULL."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to inspect."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the mbstate_t conversion state."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "0 for a null character, 1 to n for bytes consumed, (size_t)(-3) if a buffered character was stored, (size_t)(-2) if incomplete, or (size_t)(-1) with EILSEQ in errno on error."
+      },
+      "example": "#include <stdio.h>\n#include <uchar.h>\n\nint main(void) {\n    mbstate_t state = { 0 };\n    char32_t c32 = 0;\n    size_t n = mbrtoc32(&c32, \"A\", 1, &state);\n    printf(\"%zu\\n\", n);\n    return 0;\n}",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.28.1.3 The mbrtoc32 function",
+          "line": 21790,
+          "lines": [
+            "size_t mbrtoc32(char32_t * restrict pc32,",
+            "const char * restrict s, size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.30.1.5 The mbrtoc32 function",
+          "line": 28065,
+          "lines": [
+            "size_t mbrtoc32(char32_t * restrict pc32, const char * restrict s, size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "uchar.h",
+          "line": 39,
+          "lines": [
+            "_Check_return_ _ACRTIMP size_t __cdecl mbrtoc32(_Out_opt_ char32_t *_Pc32, _In_reads_or_z_opt_(_N) const char *_S, _In_ size_t _N, _Inout_ mbstate_t *_Ps);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbrtoc8",
+      "summary": "Inspects at most n bytes from s to complete the next multibyte character and stores the corresponding char8_t value in *pc8.",
+      "signature": "size_t mbrtoc8(char8_t * restrict pc8, const char * restrict s, size_t n, mbstate_t * restrict ps);",
+      "params": [
+        {
+          "name": "pc8",
+          "type": "char8_t * restrict",
+          "description": "Optional pointer to store the resulting char8_t."
+        },
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "Pointer to the multibyte character sequence, or NULL."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to inspect."
+        },
+        {
+          "name": "ps",
+          "type": "mbstate_t * restrict",
+          "description": "Pointer to the mbstate_t conversion state."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "0 for a null character, 1 to n for bytes consumed, (size_t)(-3) if a buffered character was stored, (size_t)(-2) if incomplete, or (size_t)(-1) with EILSEQ in errno on error."
+      },
+      "example": "#include <stdio.h>\n#include <uchar.h>\n\nint main(void) {\n    mbstate_t state = { 0 };\n    char8_t c8 = 0;\n    size_t n = mbrtoc8(&c8, \"A\", 1, &state);\n    printf(\"%zu\\n\", n);\n    return 0;\n}",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.30.1.1 The mbrtoc8 function",
+          "line": 27896,
+          "lines": [
+            "size_t mbrtoc8(char8_t * restrict pc8, const char * restrict s, size_t n,",
+            "mbstate_t * restrict ps);"
+          ]
+        }
+      ]
+    }
+  ]
+}

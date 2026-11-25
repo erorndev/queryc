@@ -1,0 +1,433 @@
+{
+  "header": "inttypes.h",
+  "functions": [
+    {
+      "name": "imaxabs",
+      "summary": "Computes the absolute value of an intmax_t integer j.",
+      "signature": "intmax_t imaxabs(intmax_t j);",
+      "params": [
+        {
+          "name": "j",
+          "type": "intmax_t",
+          "description": "Signed intmax_t integer."
+        }
+      ],
+      "returns": {
+        "type": "intmax_t",
+        "description": "The absolute value of j."
+      },
+      "example": "#include <inttypes.h>\n#include <stdio.h>\n\nint main(void) {\n    printf(\"%\" PRIdMAX \"\\n\", imaxabs(-42));\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.8.2.1 The imaxabs function",
+          "line": 10877,
+          "lines": [
+            "intmax_t imaxabs(intmax_t j);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.8.2.1 The imaxabs function",
+          "line": 12176,
+          "lines": [
+            "intmax_t imaxabs(intmax_t j);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.8.2.1 The imaxabs function",
+          "line": 15367,
+          "lines": [
+            "intmax_t imaxabs(intmax_t j);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "inttypes.h",
+          "line": 45,
+          "lines": [
+            "_ACRTIMP intmax_t __cdecl imaxabs(",
+            "_In_ intmax_t _Number",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imaxdiv",
+      "summary": "Computes numer / denom and numer % denom in a single operation.",
+      "signature": "imaxdiv_t imaxdiv(intmax_t numer, intmax_t denom);",
+      "params": [
+        {
+          "name": "numer",
+          "type": "intmax_t",
+          "description": "Dividend."
+        },
+        {
+          "name": "denom",
+          "type": "intmax_t",
+          "description": "Divisor."
+        }
+      ],
+      "returns": {
+        "type": "imaxdiv_t",
+        "description": "An imaxdiv_t structure containing members quot (quotient) and rem (remainder)."
+      },
+      "example": "#include <inttypes.h>\n#include <stdio.h>\n\nint main(void) {\n    imaxdiv_t d = imaxdiv(17, 5);\n    printf(\"quot=%\" PRIdMAX \" rem=%\" PRIdMAX \"\\n\", d.quot, d.rem);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.8.2.2 The imaxdiv function",
+          "line": 10899,
+          "lines": [
+            "imaxdiv_t imaxdiv(intmax_t numer, intmax_t denom);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.8.2.2 The imaxdiv function",
+          "line": 12198,
+          "lines": [
+            "imaxdiv_t imaxdiv(intmax_t numer, intmax_t denom);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.8.2.2 The imaxdiv function",
+          "line": 15382,
+          "lines": [
+            "imaxdiv_t imaxdiv(intmax_t numer, intmax_t denom);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "inttypes.h",
+          "line": 50,
+          "lines": [
+            "_ACRTIMP imaxdiv_t __cdecl imaxdiv(",
+            "_In_ intmax_t _Numerator,",
+            "_In_ intmax_t _Denominator",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtoimax",
+      "summary": "Converts the initial portion of the string pointed to by nptr to intmax_t representation according to base.",
+      "signature": "intmax_t strtoimax(const char * restrict nptr, char ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "Null-terminated string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Optional pointer to store the address of the first unconverted character."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Number base (0, or 2 through 36)."
+        }
+      ],
+      "returns": {
+        "type": "intmax_t",
+        "description": "The converted value, zero if no conversion could be performed, or INTMAX_MAX or INTMAX_MIN (with ERANGE stored in errno) on overflow."
+      },
+      "example": "#include <inttypes.h>\n#include <stdio.h>\n\nint main(void) {\n    char *end = NULL;\n    intmax_t v = strtoimax(\"12345\", &end, 10);\n    printf(\"%\" PRIdMAX \"\\n\", v);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.8.2.3 The strtoimax and strtoumax functions",
+          "line": 10919,
+          "lines": [
+            "intmax_t strtoimax(const char * restrict nptr,",
+            "char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.8.2.3 The strtoimax and strtoumax functions",
+          "line": 12218,
+          "lines": [
+            "intmax_t strtoimax(const char * restrict nptr,",
+            "char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.8.2.3 The strtoimax and strtoumax functions",
+          "line": 15399,
+          "lines": [
+            "intmax_t strtoimax(const char * restrict nptr, char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "inttypes.h",
+          "line": 55,
+          "lines": [
+            "_ACRTIMP intmax_t __cdecl strtoimax(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr,",
+            "_In_                     int         _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtoumax",
+      "summary": "Converts the initial portion of the string pointed to by nptr to uintmax_t representation according to base.",
+      "signature": "uintmax_t strtoumax(const char * restrict nptr, char ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "Null-terminated string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Optional pointer to store the address of the first unconverted character."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Number base (0, or 2 through 36)."
+        }
+      ],
+      "returns": {
+        "type": "uintmax_t",
+        "description": "The converted value, zero if no conversion could be performed, or UINTMAX_MAX (with ERANGE stored in errno) on overflow."
+      },
+      "example": "#include <inttypes.h>\n#include <stdio.h>\n\nint main(void) {\n    char *end = NULL;\n    uintmax_t v = strtoumax(\"12345\", &end, 10);\n    printf(\"%\" PRIuMAX \"\\n\", v);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.8.2.3 The strtoimax and strtoumax functions",
+          "line": 10923,
+          "lines": [
+            "uintmax_t strtoumax(const char * restrict nptr,",
+            "char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.8.2.3 The strtoimax and strtoumax functions",
+          "line": 12222,
+          "lines": [
+            "uintmax_t strtoumax(const char * restrict nptr,",
+            "char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.8.2.3 The strtoimax and strtoumax functions",
+          "line": 15400,
+          "lines": [
+            "uintmax_t strtoumax(const char * restrict nptr, char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "inttypes.h",
+          "line": 68,
+          "lines": [
+            "_ACRTIMP uintmax_t __cdecl strtoumax(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr,",
+            "_In_                     int         _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstoimax",
+      "summary": "Converts the initial portion of the wide string pointed to by nptr to intmax_t representation according to base.",
+      "signature": "intmax_t wcstoimax(const wchar_t *restrict nptr, wchar_t **restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t *restrict",
+          "description": "Null-terminated wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t **restrict",
+          "description": "Optional pointer to store the address of the first unconverted wide character."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Number base (0, or 2 through 36)."
+        }
+      ],
+      "returns": {
+        "type": "intmax_t",
+        "description": "The converted value, zero if no conversion could be performed, or INTMAX_MAX or INTMAX_MIN (with ERANGE stored in errno) on overflow."
+      },
+      "example": "#include <inttypes.h>\n#include <stdio.h>\n\nint main(void) {\n    wchar_t *end = NULL;\n    intmax_t v = wcstoimax(L\"12345\", &end, 10);\n    printf(\"%\" PRIdMAX \"\\n\", v);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.8.2.4 The wcstoimax and wcstoumax functions",
+          "line": 10955,
+          "lines": [
+            "intmax_t wcstoimax(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.8.2.4 The wcstoimax and wcstoumax functions",
+          "line": 12254,
+          "lines": [
+            "intmax_t wcstoimax(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.8.2.4 The wcstoimax and wcstoumax functions",
+          "line": 15430,
+          "lines": [
+            "intmax_t wcstoimax(const wchar_t *restrict nptr, wchar_t **restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "inttypes.h",
+          "line": 81,
+          "lines": [
+            "_ACRTIMP intmax_t __cdecl wcstoimax(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr,",
+            "_In_                     int            _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstoumax",
+      "summary": "Converts the initial portion of the wide string pointed to by nptr to uintmax_t representation according to base.",
+      "signature": "uintmax_t wcstoumax(const wchar_t *restrict nptr, wchar_t **restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const wchar_t *restrict",
+          "description": "Null-terminated wide string to convert."
+        },
+        {
+          "name": "endptr",
+          "type": "wchar_t **restrict",
+          "description": "Optional pointer to store the address of the first unconverted wide character."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Number base (0, or 2 through 36)."
+        }
+      ],
+      "returns": {
+        "type": "uintmax_t",
+        "description": "The converted value, zero if no conversion could be performed, or UINTMAX_MAX (with ERANGE stored in errno) on overflow."
+      },
+      "example": "#include <inttypes.h>\n#include <stdio.h>\n\nint main(void) {\n    wchar_t *end = NULL;\n    uintmax_t v = wcstoumax(L\"12345\", &end, 10);\n    printf(\"%\" PRIuMAX \"\\n\", v);\n    return 0;\n}",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.8.2.4 The wcstoimax and wcstoumax functions",
+          "line": 10959,
+          "lines": [
+            "uintmax_t wcstoumax(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.8.2.4 The wcstoimax and wcstoumax functions",
+          "line": 12258,
+          "lines": [
+            "uintmax_t wcstoumax(const wchar_t * restrict nptr,",
+            "wchar_t ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.8.2.4 The wcstoimax and wcstoumax functions",
+          "line": 15431,
+          "lines": [
+            "uintmax_t wcstoumax(const wchar_t *restrict nptr, wchar_t **restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "inttypes.h",
+          "line": 94,
+          "lines": [
+            "_ACRTIMP uintmax_t __cdecl wcstoumax(",
+            "_In_z_                   wchar_t const* _String,",
+            "_Out_opt_ _Deref_post_z_ wchar_t**      _EndPtr,",
+            "_In_                     int            _Radix",
+            ");"
+          ]
+        }
+      ]
+    }
+  ]
+}
