@@ -155,7 +155,6 @@ export function initResults({ input, form }) {
     }
 
     const label = filterLabel();
-    const noun = `${label ? `${escapeHtml(label)} ` : ''}function${results.length === 1 ? '' : 's'}`;
 
     if (results.length === 0) {
       const covered = headers.map((h) => `<code>${escapeHtml(h)}</code>`).join(' & ');
@@ -171,6 +170,7 @@ export function initResults({ input, form }) {
       return;
     }
 
+    const noun = `${label ? `${escapeHtml(label)} ` : ''}function${results.length === 1 ? '' : 's'}`;
     let where = '';
     if (exactHeader) where = ` in <code>&lt;${escapeHtml(exactHeader)}&gt;</code>`;
     else if (query.mode !== 'text') where = ` match ${typed}`;

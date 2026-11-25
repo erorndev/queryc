@@ -153,7 +153,6 @@ export function renderDetail(fn, backUrl) {
       ${codeBlock(fn.example.trimEnd(), 'Copy Example')}
 
       <h2 class="detail-heading">Sources</h2>
-      <p class="detail-text detail-note">These declarations come straight from their source files.</p>
       <ul class="evidence-list">${evidence.map(renderEvidence).join('')}</ul>
     </div>`;
 }
