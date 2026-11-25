@@ -1,3 +1,4 @@
+import { withBase } from './base.js';
 import '@fontsource-variable/geist-mono';
 import './styles/main.scss';
 import { initResults } from './results.js';
@@ -111,7 +112,7 @@ const results = initResults({ input, form });
 const finder = document.querySelector('.finder');
 const detail = document.getElementById('detail');
 const baseTitle = 'QueryC';
-let lastSearchUrl = '/';
+let lastSearchUrl = withBase('');
 
 bindCopyButtons(detail);
 
@@ -148,7 +149,7 @@ function showDetail(route) {
 
 onRoute((route) => {
   if (route.redirect) {
-    navigate(`/?q=${encodeURIComponent(route.q)}`, { replace: true });
+    navigate(withBase(`?q=${encodeURIComponent(route.q)}`), { replace: true });
     return;
   }
   if (route.view === 'search') showSearch(route);

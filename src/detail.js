@@ -1,5 +1,6 @@
 import { STANDARDS, findByName, sources } from './data.js';
 import { escapeHtml } from './html.js';
+import { withBase } from './base.js';
 
 function copyButton(label, text) {
   return `<button type="button" class="copy-button" data-copy="${escapeHtml(text)}" data-label="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
@@ -160,10 +161,10 @@ export function renderDetail(fn, backUrl) {
 export function renderMissing({ header, name, path }) {
   const target = name || (path || '').split('/').filter(Boolean).pop() || '';
   const where = header ? ` in <code>&lt;${escapeHtml(header)}&gt;</code>` : '';
-  const searchHref = `/?q=${encodeURIComponent(target)}`;
+  const searchHref = withBase(`?q=${encodeURIComponent(target)}`);
   return `
     <div class="container detail-column">
-      <a class="detail-back" href="/">&larr; Back to Search</a>
+      <a class="detail-back" href="${escapeHtml(withBase(''))}">&larr; Back to Search</a>
       <h1 class="detail-name detail-missing" tabindex="-1">Function Not Found</h1>
       <p class="detail-text">No function named <code>${escapeHtml(target)}</code>${where}. <a href="${escapeHtml(searchHref)}">Search for it</a> instead.</p>
     </div>`;

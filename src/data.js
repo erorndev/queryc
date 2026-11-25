@@ -1,3 +1,4 @@
+import { withBase } from './base.js';
 import sourceRegistry from '../data/sources.json';
 
 const files = import.meta.glob('../data/functions/*.json', { eager: true, import: 'default' });
@@ -44,7 +45,7 @@ export const functions = Object.values(files)
       header: file.header,
       compilers: compilersFor(fn),
       advisory: advisory(fn),
-      path: `/${file.header}/${fn.name}/`,
+      path: withBase(`${file.header}/${fn.name}/`),
       nameLower: fn.name.toLowerCase(),
       summaryLower: fn.summary.toLowerCase(),
       signatureLower: fn.signature.toLowerCase(),

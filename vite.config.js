@@ -77,5 +77,6 @@ function contentSecurityPolicy() {
 }
 
 export default defineConfig({
+  base: process.env.BASE_PATH || '/',
   plugins: [contentSecurityPolicy(), prerenderFunctionPages()],
 });

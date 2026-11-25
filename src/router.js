@@ -1,9 +1,11 @@
 import { headers } from './data.js';
+import { stripBase, withBase } from './base.js';
 
 const listeners = new Set();
 
 export function parseRoute(url = new URL(window.location.href)) {
-  const parts = decodeURIComponent(url.pathname).split('/').filter(Boolean);
+  const pathname = stripBase(url.pathname);
+  const parts = decodeURIComponent(pathname).split('/').filter(Boolean);
   const params = url.searchParams;
   const search = {
     view: 'search',
@@ -15,7 +17,7 @@ export function parseRoute(url = new URL(window.location.href)) {
   if (parts.length === 0) return search;
   if (parts.length === 1 && headers.includes(parts[0])) return { ...search, q: parts[0], redirect: true };
   if (parts.length === 2) return { view: 'function', header: parts[0], name: parts[1] };
-  return { view: 'missing', path: url.pathname };
+  return { view: 'missing', path: pathname };
 }
 
 export function searchUrl({ q = '', standard = '', compiler = '' }) {
@@ -24,7 +26,7 @@ export function searchUrl({ q = '', standard = '', compiler = '' }) {
   if (standard) params.set('std', standard);
   if (compiler) params.set('cc', compiler);
   const query = params.toString();
-  return query ? `/?${query}` : '/';
+  return withBase(query ? `?${query}` : '');
 }
 
 export function onRoute(listener) {
