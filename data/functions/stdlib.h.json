@@ -1,0 +1,3570 @@
+{
+  "header": "stdlib.h",
+  "functions": [
+    {
+      "name": "_Exit",
+      "summary": "Ends the program immediately, without calling atexit or at_quick_exit functions.",
+      "signature": "[[noreturn]] void _Exit(int status);",
+      "params": [
+        {
+          "name": "status",
+          "type": "int",
+          "description": "Exit status: 0 or EXIT_SUCCESS for success, EXIT_FAILURE for failure."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Doesn't return."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    puts(\"Flushed by puts, maybe not by _Exit.\");\n    _Exit(EXIT_SUCCESS);\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.4.4 The _Exit function",
+          "line": 17156,
+          "lines": [
+            "void _Exit(int status);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.5 The _Exit function",
+          "line": 19298,
+          "lines": [
+            "_Noreturn void _Exit(int status);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.5 The _Exit function",
+          "line": 25226,
+          "lines": [
+            "[[noreturn]] void _Exit(int status);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 58,
+          "lines": [
+            "_ACRTIMP __declspec(noreturn) void __cdecl _Exit(_In_ int _Code);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "abort",
+      "summary": "Ends the program abnormally by raising SIGABRT, unless a handler catches it and doesn't return.",
+      "signature": "[[noreturn]] void abort(void);",
+      "params": [],
+      "returns": {
+        "type": "void",
+        "description": "Doesn't return."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    FILE *f = fopen(\"config.txt\", \"r\");\n    if (f == NULL) {\n        fputs(\"config.txt is required\\n\", stderr);\n        abort();\n    }\n    fclose(f);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.4.1 The abort function",
+          "line": 10098,
+          "lines": [
+            "void abort(void);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.4.1 The abort function",
+          "line": 17078,
+          "lines": [
+            "void abort(void);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.1 The abort function",
+          "line": 19174,
+          "lines": [
+            "_Noreturn void abort(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.1 The abort function",
+          "line": 25128,
+          "lines": [
+            "[[noreturn]] void abort(void);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 60,
+          "lines": [
+            "_ACRTIMP __declspec(noreturn) void __cdecl abort(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "abs",
+      "summary": "Returns the absolute value of a int. The most negative value has no positive counterpart, so passing it is undefined behavior.",
+      "signature": "int abs(int j);",
+      "params": [
+        {
+          "name": "j",
+          "type": "int",
+          "description": "Value to take the absolute value of."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The absolute value of j."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    printf(\"%d\\n\", abs(-42));\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.6.1 The abs function",
+          "line": 10287,
+          "lines": [
+            "int abs(int j);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.6.1 The abs, labs and llabs functions",
+          "line": 17336,
+          "lines": [
+            "int abs(int j);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.6.1 The abs, labs and llabs functions",
+          "line": 19510,
+          "lines": [
+            "int abs(int j);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.6.1 The abs, labs, and llabs functions",
+          "line": 25433,
+          "lines": [
+            "int abs(int j);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 293,
+          "lines": [
+            "_Check_return_ int       __cdecl abs   (_In_ int       _Number);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aligned_alloc",
+      "summary": "Allocates uninitialized memory whose address is a multiple of the requested alignment.",
+      "signature": "void *aligned_alloc(size_t alignment, size_t size);",
+      "params": [
+        {
+          "name": "alignment",
+          "type": "size_t",
+          "description": "Alignment in bytes. Must be one the implementation supports, or the call fails."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Number of bytes to allocate."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "A pointer to the new memory, or a null pointer on failure."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    double *v = aligned_alloc(64, 8 * sizeof *v);\n    if (v == NULL) return 1;\n    printf(\"%p\\n\", (void *)v);\n    free(v);\n    return 0;\n}\n",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.3.1 The aligned_alloc function",
+          "line": 19058,
+          "lines": [
+            "void *aligned_alloc(size_t alignment, size_t size);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.3.1 The aligned_alloc function",
+          "line": 24965,
+          "lines": [
+            "void *aligned_alloc(size_t alignment, size_t size);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "at_quick_exit",
+      "summary": "Registers a function to run when quick_exit is called. These registrations are separate from atexit's.",
+      "signature": "int at_quick_exit(void (*func)(void));",
+      "params": [
+        {
+          "name": "func",
+          "type": "void (*)(void)",
+          "description": "Function to call, with no arguments, during quick_exit."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "0 if the function was registered, or nonzero on failure."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nstatic void bye(void) {\n    puts(\"quick_exit handler ran\");\n}\n\nint main(void) {\n    at_quick_exit(bye);\n    quick_exit(EXIT_SUCCESS);\n}\n",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.3 The at_quick_exit function",
+          "line": 19227,
+          "lines": [
+            "int at_quick_exit(void (*func)(void));"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.3 The at_quick_exit function",
+          "line": 25167,
+          "lines": [
+            "int at_quick_exit(void (*func)(void));"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 148,
+          "lines": [
+            "int __cdecl at_quick_exit(void (__cdecl*)(void));"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atexit",
+      "summary": "Registers a function to run at normal program termination. Functions run in reverse order of registration.",
+      "signature": "int atexit(void (*func)(void));",
+      "params": [
+        {
+          "name": "func",
+          "type": "void (*)(void)",
+          "description": "Function to call, with no arguments, when the program exits normally."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "0 if the function was registered, or nonzero on failure."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nstatic void bye(void) {\n    puts(\"atexit handler ran\");\n}\n\nint main(void) {\n    atexit(bye);\n    puts(\"main is done\");\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.4.2 The atexit function",
+          "line": 10119,
+          "lines": [
+            "int atexit(void (*func)(void));"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.4.2 The atexit function",
+          "line": 17099,
+          "lines": [
+            "int atexit(void (*func)(void));"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.2 The atexit function",
+          "line": 19195,
+          "lines": [
+            "int atexit(void (*func)(void));"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.2 The atexit function",
+          "line": 25146,
+          "lines": [
+            "int atexit(void (*func)(void));"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 144,
+          "lines": [
+            "int       __cdecl atexit(void (__cdecl*)(void));"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atof",
+      "summary": "Converts the start of a string to double, like strtod(nptr, NULL) but with no way to detect errors.",
+      "signature": "double atof(const char *nptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char *",
+          "description": "String to convert."
+        }
+      ],
+      "returns": {
+        "type": "double",
+        "description": "The converted value. Out-of-range input is undefined behavior, and invalid input gives no error signal."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    printf(\"%f\\n\", atof(\"3.14 meters\"));\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The functions atof, atoi, atol, and atoll are not required to affect the value of the integer expression errno on an error. If the value of the result cannot be represented, the behavior is undefined.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 24400,
+          "lines": [
+            "1 The functions atof, atoi, atol, and atoll are not required to affect the value of the integer",
+            "expression errno on an error. If the value of the result cannot be represented, the behavior is",
+            "undefined."
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unchecked-string-to-number-conversion",
+          "message": "'atof' used to convert a string to a floating-point value, but function will not report conversion errors; consider using 'strtod' instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.1.1 The atof function",
+          "line": 9661,
+          "lines": [
+            "double atof(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.1 The atof function",
+          "line": 16627,
+          "lines": [
+            "double atof(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.1 The atof function",
+          "line": 18686,
+          "lines": [
+            "double atof(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.1 The atof function",
+          "line": 24409,
+          "lines": [
+            "double atof(const char *nptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 450,
+          "lines": [
+            "_Check_return_                    _ACRTIMP double    __cdecl atof   (_In_z_ char const* _String);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atoi",
+      "summary": "Converts the start of a decimal string to int, like strtol in base 10 but with no way to detect errors.",
+      "signature": "int atoi(const char *nptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char *",
+          "description": "String to convert."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The converted value. Out-of-range input is undefined behavior, and invalid input gives no error signal."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    printf(\"%d\\n\", atoi(\"  42 apples\"));\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The functions atof, atoi, atol, and atoll are not required to affect the value of the integer expression errno on an error. If the value of the result cannot be represented, the behavior is undefined.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 24400,
+          "lines": [
+            "1 The functions atof, atoi, atol, and atoll are not required to affect the value of the integer",
+            "expression errno on an error. If the value of the result cannot be represented, the behavior is",
+            "undefined."
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unchecked-string-to-number-conversion",
+          "message": "'atoi' used to convert a string to an integer value, but function will not report conversion errors; consider using 'strtol' instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.1.2 The atoi function",
+          "line": 9683,
+          "lines": [
+            "int atoi(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.2 The atoi, atol, and atoll functions",
+          "line": 16648,
+          "lines": [
+            "int atoi(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.2 The atoi, atol, and atoll functions",
+          "line": 18706,
+          "lines": [
+            "int atoi(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.2 The atoi, atol, and atoll functions",
+          "line": 24434,
+          "lines": [
+            "int atoi(const char *nptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 451,
+          "lines": [
+            "_Check_return_ _CRT_JIT_INTRINSIC _ACRTIMP int       __cdecl atoi   (_In_z_ char const* _String);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atol",
+      "summary": "Converts the start of a decimal string to long, like strtol in base 10 but with no way to detect errors.",
+      "signature": "long int atol(const char *nptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char *",
+          "description": "String to convert."
+        }
+      ],
+      "returns": {
+        "type": "long int",
+        "description": "The converted value. Out-of-range input is undefined behavior, and invalid input gives no error signal."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    printf(\"%ld\\n\", atol(\"  42 apples\"));\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The functions atof, atoi, atol, and atoll are not required to affect the value of the integer expression errno on an error. If the value of the result cannot be represented, the behavior is undefined.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 24400,
+          "lines": [
+            "1 The functions atof, atoi, atol, and atoll are not required to affect the value of the integer",
+            "expression errno on an error. If the value of the result cannot be represented, the behavior is",
+            "undefined."
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unchecked-string-to-number-conversion",
+          "message": "'atol' used to convert a string to an integer value, but function will not report conversion errors; consider using 'strtol' instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.1.3 The atol function",
+          "line": 9705,
+          "lines": [
+            "long int atol(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.2 The atoi, atol, and atoll functions",
+          "line": 16650,
+          "lines": [
+            "long int atol(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.2 The atoi, atol, and atoll functions",
+          "line": 18708,
+          "lines": [
+            "long int atol(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.2 The atoi, atol, and atoll functions",
+          "line": 24436,
+          "lines": [
+            "long int atol(const char *nptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 452,
+          "lines": [
+            "_Check_return_                    _ACRTIMP long      __cdecl atol   (_In_z_ char const* _String);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atoll",
+      "summary": "Converts the start of a decimal string to long long, like strtol in base 10 but with no way to detect errors.",
+      "signature": "long long int atoll(const char *nptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char *",
+          "description": "String to convert."
+        }
+      ],
+      "returns": {
+        "type": "long long int",
+        "description": "The converted value. Out-of-range input is undefined behavior, and invalid input gives no error signal."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    printf(\"%lld\\n\", atoll(\"  42 apples\"));\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The functions atof, atoi, atol, and atoll are not required to affect the value of the integer expression errno on an error. If the value of the result cannot be represented, the behavior is undefined.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 24400,
+          "lines": [
+            "1 The functions atof, atoi, atol, and atoll are not required to affect the value of the integer",
+            "expression errno on an error. If the value of the result cannot be represented, the behavior is",
+            "undefined."
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unchecked-string-to-number-conversion",
+          "message": "'atoll' used to convert a string to an integer value, but function will not report conversion errors; consider using 'strtoll' instead"
+        }
+      ],
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.2 The atoi, atol, and atoll functions",
+          "line": 16652,
+          "lines": [
+            "long long int atoll(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.2 The atoi, atol, and atoll functions",
+          "line": 18710,
+          "lines": [
+            "long long int atoll(const char *nptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.2 The atoi, atol, and atoll functions",
+          "line": 24438,
+          "lines": [
+            "long long int atoll(const char *nptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 453,
+          "lines": [
+            "_Check_return_                    _ACRTIMP long long __cdecl atoll  (_In_z_ char const* _String);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bsearch",
+      "summary": "Binary-searches a sorted array for an element that compares equal to a key.",
+      "signature": "void *bsearch(const void *key, const void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));",
+      "params": [
+        {
+          "name": "key",
+          "type": "const void *",
+          "description": "Pointer to the value to look for."
+        },
+        {
+          "name": "base",
+          "type": "const void *",
+          "description": "First element of the array, sorted in ascending order by compar."
+        },
+        {
+          "name": "nmemb",
+          "type": "size_t",
+          "description": "Number of elements in the array."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Size of each element in bytes."
+        },
+        {
+          "name": "compar",
+          "type": "int (*)(const void *, const void *)",
+          "description": "Comparison function, called with the key first and an element second. Returns less than, equal to, or greater than zero."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "A pointer to a matching element, or a null pointer if none matches. With several matches, which one is unspecified."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nstatic int compare(const void *a, const void *b) {\n    int x = *(const int *)a;\n    int y = *(const int *)b;\n    return (x > y) - (x < y);\n}\n\nint main(void) {\n    int primes[] = {2, 3, 5, 7, 11, 13};\n    int key = 7;\n    int *hit = bsearch(&key, primes, 6, sizeof primes[0], compare);\n    printf(\"%s\\n\", hit != NULL ? \"found\" : \"missing\");\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.5.1 The bsearch function",
+          "line": 10225,
+          "lines": [
+            "void *bsearch(const void *key, const void *base,",
+            "size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.5.1 The bsearch function",
+          "line": 17261,
+          "lines": [
+            "void *bsearch(const void *key, const void *base,",
+            "size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.5.1 The bsearch function",
+          "line": 19445,
+          "lines": [
+            "void *bsearch(const void *key, const void *base,",
+            "size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.5.1 The bsearch generic function",
+          "line": 25354,
+          "lines": [
+            "QVoid *bsearch(const void *key, QVoid *base, size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_search.h",
+          "line": 52,
+          "lines": [
+            "_ACRTIMP void* __cdecl bsearch(",
+            "_In_                                               void const* _Key,",
+            "_In_reads_bytes_(_NumOfElements * _SizeOfElements) void const* _Base,",
+            "_In_                                               size_t      _NumOfElements,",
+            "_In_                                               size_t      _SizeOfElements,",
+            "_In_                _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calloc",
+      "summary": "Allocates an array of nmemb objects of size bytes each, with every bit set to zero.",
+      "signature": "void *calloc(size_t nmemb, size_t size);",
+      "params": [
+        {
+          "name": "nmemb",
+          "type": "size_t",
+          "description": "Number of elements."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Size of each element in bytes."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "A pointer to the new memory, or a null pointer if it can't be allocated or nmemb * size overflows."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *counts = calloc(10, sizeof *counts);\n    if (counts == NULL) return 1;\n    printf(\"%d\\n\", counts[9]);\n    free(counts);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.3.1 The calloc function",
+          "line": 10009,
+          "lines": [
+            "void *calloc(size_t nmemb, size_t size);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.3.1 The calloc function",
+          "line": 16984,
+          "lines": [
+            "void *calloc(size_t nmemb, size_t size);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.3.2 The calloc function",
+          "line": 19081,
+          "lines": [
+            "void *calloc(size_t nmemb, size_t size);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.3.2 The calloc function",
+          "line": 24986,
+          "lines": [
+            "void *calloc(size_t nmemb, size_t size);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_malloc.h",
+          "line": 65,
+          "lines": [
+            "_ACRTIMP _CRT_JIT_INTRINSIC _CRTALLOCATOR _CRTRESTRICT _CRT_HYBRIDPATCHABLE",
+            "void* __cdecl calloc(",
+            "_In_ _CRT_GUARDOVERFLOW size_t _Count,",
+            "_In_ _CRT_GUARDOVERFLOW size_t _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "div",
+      "summary": "Computes the quotient and remainder of a int division in one call.",
+      "signature": "div_t div(int numer, int denom);",
+      "params": [
+        {
+          "name": "numer",
+          "type": "int",
+          "description": "Dividend."
+        },
+        {
+          "name": "denom",
+          "type": "int",
+          "description": "Divisor."
+        }
+      ],
+      "returns": {
+        "type": "div_t",
+        "description": "A div_t with quot (the quotient) and rem (the remainder). If either can't be represented, the behavior is undefined."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    div_t r = div(17, 5);\n    printf(\"%d remainder %d\\n\", r.quot, r.rem);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.6.2 The div function",
+          "line": 10304,
+          "lines": [
+            "div_t div(int numer, int denom);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.6.2 The div, ldiv, and lldiv functions",
+          "line": 17357,
+          "lines": [
+            "div_t div(int numer, int denom);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.6.2 The div, ldiv, and lldiv functions",
+          "line": 19531,
+          "lines": [
+            "div_t div(int numer, int denom);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.6.2 The div, ldiv, and lldiv functions",
+          "line": 25452,
+          "lines": [
+            "div_t div(int numer, int denom);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 302,
+          "lines": [
+            "_Check_return_ _ACRTIMP div_t   __cdecl div  (_In_ int       _Numerator, _In_ int       _Denominator);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exit",
+      "summary": "Ends the program normally: runs atexit functions in reverse order, flushes and closes streams, removes tmpfile files, then returns the status to the host.",
+      "signature": "[[noreturn]] void exit(int status);",
+      "params": [
+        {
+          "name": "status",
+          "type": "int",
+          "description": "Exit status: 0 or EXIT_SUCCESS for success, EXIT_FAILURE for failure."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Doesn't return."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    FILE *f = fopen(\"data.txt\", \"r\");\n    if (f == NULL) {\n        perror(\"data.txt\");\n        exit(EXIT_FAILURE);\n    }\n    fclose(f);\n    exit(EXIT_SUCCESS);\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.4.3 The exit function",
+          "line": 10144,
+          "lines": [
+            "void exit(int status);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.4.3 The exit function",
+          "line": 17121,
+          "lines": [
+            "void exit(int status);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.4 The exit function",
+          "line": 19255,
+          "lines": [
+            "_Noreturn void exit(int status);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.4 The exit function",
+          "line": 25197,
+          "lines": [
+            "[[noreturn]] void exit(int status);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 56,
+          "lines": [
+            "_ACRTIMP __declspec(noreturn) void __cdecl exit(_In_ int _Code);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "free",
+      "summary": "Releases memory from malloc, calloc, realloc, or aligned_alloc. Passing a null pointer does nothing.",
+      "signature": "void free(void *ptr);",
+      "params": [
+        {
+          "name": "ptr",
+          "type": "void *",
+          "description": "Pointer returned by an allocation function, or a null pointer. Freeing it twice is undefined behavior."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *buffer = malloc(64);\n    if (buffer == NULL) return 1;\n    free(buffer);\n    buffer = NULL;\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.3.2 The free function",
+          "line": 10029,
+          "lines": [
+            "void free(void *ptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.3.2 The free function",
+          "line": 17001,
+          "lines": [
+            "void free(void *ptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.3.3 The free function",
+          "line": 19098,
+          "lines": [
+            "void free(void *ptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.3.3 The free function",
+          "line": 25003,
+          "lines": [
+            "void free(void *ptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_malloc.h",
+          "line": 89,
+          "lines": [
+            "void __cdecl free(",
+            "_Pre_maybenull_ _Post_invalid_ void* _Block",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "free_aligned_sized",
+      "summary": "Frees memory from aligned_alloc, given the same alignment and size used to allocate it.",
+      "signature": "void free_aligned_sized(void *ptr, size_t alignment, size_t size);",
+      "params": [
+        {
+          "name": "ptr",
+          "type": "void *",
+          "description": "Pointer returned by aligned_alloc, or a null pointer."
+        },
+        {
+          "name": "alignment",
+          "type": "size_t",
+          "description": "The alignment passed to aligned_alloc."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "The size passed to aligned_alloc."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    void *p = aligned_alloc(64, 256);\n    if (p == NULL) return 1;\n    free_aligned_sized(p, 64, 256);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.3.5 The free_aligned_sized function",
+          "line": 25054,
+          "lines": [
+            "void free_aligned_sized(void *ptr, size_t alignment, size_t size);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "free_sized",
+      "summary": "Frees memory from malloc, calloc, or realloc, given the size requested when it was allocated.",
+      "signature": "void free_sized(void *ptr, size_t size);",
+      "params": [
+        {
+          "name": "ptr",
+          "type": "void *",
+          "description": "Pointer returned by malloc, calloc, or realloc, or a null pointer."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "The size requested when the memory was allocated."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *p = malloc(128);\n    if (p == NULL) return 1;\n    free_sized(p, 128);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.3.4 The free_sized function",
+          "line": 25020,
+          "lines": [
+            "void free_sized(void *ptr, size_t size);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getenv",
+      "summary": "Looks up a name in the host environment list, such as an environment variable.",
+      "signature": "char *getenv(const char *name);",
+      "params": [
+        {
+          "name": "name",
+          "type": "const char *",
+          "description": "Name to look up."
+        }
+      ],
+      "returns": {
+        "type": "char *",
+        "description": "A pointer to the matching value, or a null pointer if the name isn't found. Don't modify the string; a later getenv call can overwrite it."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    const char *path = getenv(\"PATH\");\n    puts(path != NULL ? path : \"PATH is not set\");\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The getenv function is not required to avoid data races with other threads of execution that modify the environment list.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 25258,
+          "lines": [
+            "the environment list are implementation-defined. The getenv function is not required to avoid data",
+            "races with other threads of execution that modify the environment list.350)"
+          ]
+        },
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 1183,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'getenv' is not bounds-checking; 'getenv_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.4.4 The getenv function",
+          "line": 10175,
+          "lines": [
+            "char *getenv(const char *name);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.4.5 The getenv function",
+          "line": 17183,
+          "lines": [
+            "char *getenv(const char *name);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.6 The getenv function",
+          "line": 19320,
+          "lines": [
+            "char *getenv(const char *name);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.6 The getenv function",
+          "line": 25245,
+          "lines": [
+            "char *getenv(const char *name);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 1183,
+          "lines": [
+            "_Check_return_ _CRT_INSECURE_DEPRECATE(_dupenv_s)",
+            "_DCRTIMP char* __cdecl getenv(",
+            "_In_z_ char const* _VarName",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "labs",
+      "summary": "Returns the absolute value of a long. The most negative value has no positive counterpart, so passing it is undefined behavior.",
+      "signature": "long int labs(long int j);",
+      "params": [
+        {
+          "name": "j",
+          "type": "long int",
+          "description": "Value to take the absolute value of."
+        }
+      ],
+      "returns": {
+        "type": "long int",
+        "description": "The absolute value of j."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    printf(\"%ld\\n\", labs(-42L));\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.6.3 The labs function",
+          "line": 10331,
+          "lines": [
+            "long int labs(long int j);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.6.1 The abs, labs and llabs functions",
+          "line": 17338,
+          "lines": [
+            "long int labs(long int j);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.6.1 The abs, labs and llabs functions",
+          "line": 19512,
+          "lines": [
+            "long int labs(long int j);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.6.1 The abs, labs, and llabs functions",
+          "line": 25435,
+          "lines": [
+            "long int labs(long int j);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 294,
+          "lines": [
+            "_Check_return_ long      __cdecl labs  (_In_ long      _Number);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ldiv",
+      "summary": "Computes the quotient and remainder of a long division in one call.",
+      "signature": "ldiv_t ldiv(long int numer, long int denom);",
+      "params": [
+        {
+          "name": "numer",
+          "type": "long int",
+          "description": "Dividend."
+        },
+        {
+          "name": "denom",
+          "type": "long int",
+          "description": "Divisor."
+        }
+      ],
+      "returns": {
+        "type": "ldiv_t",
+        "description": "A ldiv_t with quot (the quotient) and rem (the remainder). If either can't be represented, the behavior is undefined."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    ldiv_t r = ldiv(17L, 5L);\n    printf(\"%ld remainder %ld\\n\", r.quot, r.rem);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.6.4 The ldiv function",
+          "line": 10344,
+          "lines": [
+            "ldiv_t ldiv(long int numer, long int denom);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.6.2 The div, ldiv, and lldiv functions",
+          "line": 17359,
+          "lines": [
+            "ldiv_t ldiv(long int numer, long int denom);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.6.2 The div, ldiv, and lldiv functions",
+          "line": 19533,
+          "lines": [
+            "ldiv_t ldiv(long int numer, long int denom);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.6.2 The div, ldiv, and lldiv functions",
+          "line": 25454,
+          "lines": [
+            "ldiv_t ldiv(long int numer, long int denom);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 303,
+          "lines": [
+            "_Check_return_ _ACRTIMP ldiv_t  __cdecl ldiv (_In_ long      _Numerator, _In_ long      _Denominator);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "llabs",
+      "summary": "Returns the absolute value of a long long. The most negative value has no positive counterpart, so passing it is undefined behavior.",
+      "signature": "long long int llabs(long long int j);",
+      "params": [
+        {
+          "name": "j",
+          "type": "long long int",
+          "description": "Value to take the absolute value of."
+        }
+      ],
+      "returns": {
+        "type": "long long int",
+        "description": "The absolute value of j."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    printf(\"%lld\\n\", llabs(-42LL));\n    return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.6.1 The abs, labs and llabs functions",
+          "line": 17340,
+          "lines": [
+            "long long int llabs(long long int j);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.6.1 The abs, labs and llabs functions",
+          "line": 19514,
+          "lines": [
+            "long long int llabs(long long int j);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.6.1 The abs, labs, and llabs functions",
+          "line": 25437,
+          "lines": [
+            "long long int llabs(long long int j);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 295,
+          "lines": [
+            "_Check_return_ long long __cdecl llabs (_In_ long long _Number);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lldiv",
+      "summary": "Computes the quotient and remainder of a long long division in one call.",
+      "signature": "lldiv_t lldiv(long long int numer, long long int denom);",
+      "params": [
+        {
+          "name": "numer",
+          "type": "long long int",
+          "description": "Dividend."
+        },
+        {
+          "name": "denom",
+          "type": "long long int",
+          "description": "Divisor."
+        }
+      ],
+      "returns": {
+        "type": "lldiv_t",
+        "description": "A lldiv_t with quot (the quotient) and rem (the remainder). If either can't be represented, the behavior is undefined."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    lldiv_t r = lldiv(17LL, 5LL);\n    printf(\"%lld remainder %lld\\n\", r.quot, r.rem);\n    return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.6.2 The div, ldiv, and lldiv functions",
+          "line": 17361,
+          "lines": [
+            "lldiv_t lldiv(long long int numer, long long int denom);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.6.2 The div, ldiv, and lldiv functions",
+          "line": 19535,
+          "lines": [
+            "lldiv_t lldiv(long long int numer, long long int denom);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.6.2 The div, ldiv, and lldiv functions",
+          "line": 25456,
+          "lines": [
+            "lldiv_t lldiv(long long int numer, long long int denom);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 304,
+          "lines": [
+            "_Check_return_ _ACRTIMP lldiv_t __cdecl lldiv(_In_ long long _Numerator, _In_ long long _Denominator);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "malloc",
+      "summary": "Allocates size bytes of uninitialized memory.",
+      "signature": "void *malloc(size_t size);",
+      "params": [
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Number of bytes to allocate."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "A pointer to the new memory, or a null pointer on failure."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *values = malloc(4 * sizeof *values);\n    if (values == NULL) return 1;\n    for (int i = 0; i < 4; i++) values[i] = i * i;\n    printf(\"%d\\n\", values[3]);\n    free(values);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.3.3 The malloc function",
+          "line": 10050,
+          "lines": [
+            "void *malloc(size_t size);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.3.3 The malloc function",
+          "line": 17028,
+          "lines": [
+            "void *malloc(size_t size);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.3.4 The malloc function",
+          "line": 19124,
+          "lines": [
+            "void *malloc(size_t size);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.3.6 The malloc function",
+          "line": 25081,
+          "lines": [
+            "void *malloc(size_t size);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_malloc.h",
+          "line": 100,
+          "lines": [
+            "_ACRTIMP _CRTALLOCATOR _CRT_JIT_INTRINSIC _CRTRESTRICT _CRT_HYBRIDPATCHABLE",
+            "void* __cdecl malloc(",
+            "_In_ _CRT_GUARDOVERFLOW size_t _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mblen",
+      "summary": "Returns the number of bytes in the multibyte character at s, without changing mbtowc's conversion state.",
+      "signature": "int mblen(const char *s, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "const char *",
+          "description": "Multibyte character to measure, or a null pointer to ask whether the encoding is state-dependent."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to examine."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "With s null: nonzero if the encoding is state-dependent, else 0. Otherwise 0 for the null character, the character's length in bytes, or -1 if the next n bytes aren't a valid character."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    const char *text = \"abc\";\n    printf(\"%d\\n\", mblen(text, MB_CUR_MAX));\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.7.1 The mblen function",
+          "line": 10372,
+          "lines": [
+            "int mblen(const char *s, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.7.1 The mblen function",
+          "line": 17398,
+          "lines": [
+            "int mblen(const char *s, size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.7.1 The mblen function",
+          "line": 19571,
+          "lines": [
+            "int mblen(const char *s, size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.7.1 The mblen function",
+          "line": 25497,
+          "lines": [
+            "int mblen(const char *s, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 852,
+          "lines": [
+            "_ACRTIMP int __cdecl mblen(",
+            "_In_reads_bytes_opt_(_MaxCount) _Pre_opt_z_ char const* _Ch,",
+            "_In_                                        size_t      _MaxCount",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbstowcs",
+      "summary": "Converts a multibyte string to a wide-character string, storing at most n wide characters.",
+      "signature": "size_t mbstowcs(wchar_t * restrict pwcs, const char * restrict s, size_t n);",
+      "params": [
+        {
+          "name": "pwcs",
+          "type": "wchar_t * restrict",
+          "description": "Destination array for the wide characters."
+        },
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "Multibyte string to convert."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of wide characters to store in pwcs."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of wide characters stored, not counting a null terminator, or (size_t)-1 on an invalid multibyte character. If the result equals n, pwcs isn't null-terminated."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    wchar_t wide[16];\n    size_t n = mbstowcs(wide, \"hello\", 16);\n    printf(\"%zu\\n\", n);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 924,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_SIZE(",
+            "_ACRTIMP, mbstowcs,",
+            "_Out_writes_opt_z_(_MaxCount), wchar_t,     _Dest,",
+            "_In_z_                         char const*, _Source,",
+            "_In_                           size_t,      _MaxCount",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'mbstowcs' is not bounds-checking; 'mbstowcs_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.8.1 The mbstowcs function",
+          "line": 10480,
+          "lines": [
+            "size_t mbstowcs(wchar_t *pwcs, const char *s, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.8.1 The mbstowcs function",
+          "line": 17507,
+          "lines": [
+            "size_t mbstowcs(wchar_t * restrict pwcs,",
+            "const char * restrict s,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.8.1 The mbstowcs function",
+          "line": 19680,
+          "lines": [
+            "size_t mbstowcs(wchar_t * restrict pwcs,",
+            "const char * restrict s,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.8.1 The mbstowcs function",
+          "line": 25592,
+          "lines": [
+            "size_t mbstowcs(wchar_t * restrict pwcs, const char * restrict s, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 924,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_SIZE(",
+            "_ACRTIMP, mbstowcs,",
+            "_Out_writes_opt_z_(_MaxCount), wchar_t,     _Dest,",
+            "_In_z_                         char const*, _Source,",
+            "_In_                           size_t,      _MaxCount",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mbtowc",
+      "summary": "Converts the next multibyte character at s to a wide character and stores it in *pwc.",
+      "signature": "int mbtowc(wchar_t * restrict pwc, const char * restrict s, size_t n);",
+      "params": [
+        {
+          "name": "pwc",
+          "type": "wchar_t * restrict",
+          "description": "Receives the wide character. Can be a null pointer to only measure the character."
+        },
+        {
+          "name": "s",
+          "type": "const char * restrict",
+          "description": "Multibyte character to convert, or a null pointer to ask whether the encoding is state-dependent."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to examine."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "With s null: nonzero if the encoding is state-dependent, else 0. Otherwise 0 for the null character, the number of bytes converted, or -1 if the next n bytes aren't a valid character."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    wchar_t wc;\n    int len = mbtowc(&wc, \"A\", MB_CUR_MAX);\n    printf(\"%d bytes, code %d\\n\", len, (int)wc);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.7.2 The mbtowc function",
+          "line": 10405,
+          "lines": [
+            "int mbtowc(wchar_t *pwc, const char *s, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.7.2 The mbtowc function",
+          "line": 17433,
+          "lines": [
+            "int mbtowc(wchar_t * restrict pwc,",
+            "const char * restrict s,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.7.2 The mbtowc function",
+          "line": 19606,
+          "lines": [
+            "int mbtowc(wchar_t * restrict pwc,",
+            "const char * restrict s,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.7.2 The mbtowc function",
+          "line": 25523,
+          "lines": [
+            "int mbtowc(wchar_t * restrict pwc, const char * restrict s, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 893,
+          "lines": [
+            "_ACRTIMP int __cdecl mbtowc(",
+            "_Pre_notnull_ _Post_z_               wchar_t*    _DstCh,",
+            "_In_reads_or_z_opt_(_SrcSizeInBytes) char const* _SrcCh,",
+            "_In_                                 size_t      _SrcSizeInBytes",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "memalignment",
+      "summary": "Returns the largest alignment that a pointer's address satisfies.",
+      "signature": "size_t memalignment(const void *p);",
+      "params": [
+        {
+          "name": "p",
+          "type": "const void *",
+          "description": "Pointer to test."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The alignment of p, a power of two, or 0 if p is a null pointer."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    double d = 0.0;\n    if (memalignment(&d) >= alignof(double)) puts(\"aligned for double\");\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.9.1 The memalignment function",
+          "line": 25648,
+          "lines": [
+            "size_t memalignment(const void *p);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "qsort",
+      "summary": "Sorts an array in ascending order using a comparison function.",
+      "signature": "void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));",
+      "params": [
+        {
+          "name": "base",
+          "type": "void *",
+          "description": "First element of the array to sort."
+        },
+        {
+          "name": "nmemb",
+          "type": "size_t",
+          "description": "Number of elements in the array."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "Size of each element in bytes."
+        },
+        {
+          "name": "compar",
+          "type": "int (*)(const void *, const void *)",
+          "description": "Comparison function. Returns less than, equal to, or greater than zero when the first argument sorts before, with, or after the second."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value. The order of elements that compare equal is unspecified."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nstatic int compare(const void *a, const void *b) {\n    int x = *(const int *)a;\n    int y = *(const int *)b;\n    return (x > y) - (x < y);\n}\n\nint main(void) {\n    int v[] = {42, 7, 19, 3};\n    qsort(v, 4, sizeof v[0], compare);\n    for (int i = 0; i < 4; i++) printf(\"%d \", v[i]);\n    putchar('\\n');\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.5.2 The qsort function",
+          "line": 10256,
+          "lines": [
+            "void qsort(void *base, size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.5.2 The qsort function",
+          "line": 17302,
+          "lines": [
+            "void qsort(void *base, size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.5.2 The qsort function",
+          "line": 19476,
+          "lines": [
+            "void qsort(void *base, size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.5.2 The qsort function",
+          "line": 25407,
+          "lines": [
+            "void qsort(void *base, size_t nmemb, size_t size,",
+            "int (*compar)(const void *, const void *));"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_search.h",
+          "line": 60,
+          "lines": [
+            "_ACRTIMP void __cdecl qsort(",
+            "_Inout_updates_bytes_(_NumOfElements * _SizeOfElements) void*  _Base,",
+            "_In_                                                    size_t _NumOfElements,",
+            "_In_                                                    size_t _SizeOfElements,",
+            "_In_                _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quick_exit",
+      "summary": "Ends the program normally after running at_quick_exit functions, skipping atexit functions, then calls _Exit(status).",
+      "signature": "[[noreturn]] void quick_exit(int status);",
+      "params": [
+        {
+          "name": "status",
+          "type": "int",
+          "description": "Exit status passed on to _Exit."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "Doesn't return."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nstatic void bye(void) {\n    puts(\"quick_exit handler ran\");\n}\n\nint main(void) {\n    at_quick_exit(bye);\n    quick_exit(EXIT_SUCCESS);\n}\n",
+      "standards": [
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.7 The quick_exit function",
+          "line": 19350,
+          "lines": [
+            "_Noreturn void quick_exit(int status);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.7 The quick_exit function",
+          "line": 25274,
+          "lines": [
+            "[[noreturn]] void quick_exit(int status);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 59,
+          "lines": [
+            "_ACRTIMP __declspec(noreturn) void __cdecl quick_exit(_In_ int _Code);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rand",
+      "summary": "Returns the next pseudo-random integer from 0 to RAND_MAX. The standard gives no guarantee of the sequence's quality.",
+      "signature": "int rand(void);",
+      "params": [],
+      "returns": {
+        "type": "int",
+        "description": "A pseudo-random integer from 0 to RAND_MAX."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n    srand((unsigned)time(NULL));\n    printf(\"%d\\n\", rand() % 6 + 1);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The rand function is not required to avoid data races with other calls to pseudo-random sequence generation functions.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 24883,
+          "lines": [
+            "3 The rand function is not required to avoid data races with other calls to pseudo-random sequence",
+            "generation functions. The implementation shall behave as if no library function calls the rand"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "misc-predictable-rand",
+          "message": "rand() has limited randomness"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.2.1 The rand function",
+          "line": 9922,
+          "lines": [
+            "int rand(void);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.2.1 The rand function",
+          "line": 16905,
+          "lines": [
+            "int rand(void);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.2.1 The rand function",
+          "line": 18963,
+          "lines": [
+            "int rand(void);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.2.1 The rand function",
+          "line": 24876,
+          "lines": [
+            "int rand(void);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 352,
+          "lines": [
+            "_Check_return_ _ACRTIMP int __cdecl rand(void);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "realloc",
+      "summary": "Resizes an allocation by returning a new object with the old contents, up to the smaller of the two sizes.",
+      "signature": "void *realloc(void *ptr, size_t size);",
+      "params": [
+        {
+          "name": "ptr",
+          "type": "void *",
+          "description": "Pointer from an allocation function, or a null pointer to behave like malloc."
+        },
+        {
+          "name": "size",
+          "type": "size_t",
+          "description": "New size in bytes. A size of 0 is undefined behavior in C23."
+        }
+      ],
+      "returns": {
+        "type": "void *",
+        "description": "A pointer to the resized object, which may equal ptr, or a null pointer on failure. On failure the old object is left unchanged."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *v = malloc(2 * sizeof *v);\n    if (v == NULL) return 1;\n    int *bigger = realloc(v, 8 * sizeof *v);\n    if (bigger == NULL) {\n        free(v);\n        return 1;\n    }\n    v = bigger;\n    free(v);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.3.4 The realloc function",
+          "line": 10068,
+          "lines": [
+            "void *realloc(void *ptr, size_t size);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.3.4 The realloc function",
+          "line": 17045,
+          "lines": [
+            "void *realloc(void *ptr, size_t size);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.3.5 The realloc function",
+          "line": 19141,
+          "lines": [
+            "void *realloc(void *ptr, size_t size);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.3.7 The realloc function",
+          "line": 25096,
+          "lines": [
+            "void *realloc(void *ptr, size_t size);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "corecrt_malloc.h",
+          "line": 125,
+          "lines": [
+            "_ACRTIMP _CRTALLOCATOR _CRTRESTRICT _CRT_HYBRIDPATCHABLE",
+            "void* __cdecl realloc(",
+            "_Pre_maybenull_ _Post_invalid_ void*  _Block,",
+            "_In_ _CRT_GUARDOVERFLOW        size_t _Size",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "srand",
+      "summary": "Seeds the sequence that rand returns. The same seed repeats the same sequence, and without a call rand behaves as if seeded with 1.",
+      "signature": "void srand(unsigned int seed);",
+      "params": [
+        {
+          "name": "seed",
+          "type": "unsigned int",
+          "description": "Seed for the new sequence."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "No value."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    srand(42);\n    int first = rand();\n    srand(42);\n    printf(\"%s\\n\", rand() == first ? \"same sequence\" : \"different\");\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "standard",
+          "message": "The srand function is not required to avoid data races with other calls to pseudo-random sequence generation functions.",
+          "source": "n3220",
+          "file": "n3220.txt",
+          "line": 24915,
+          "lines": [
+            "3 The srand function is not required to avoid data races with other calls to pseudo-random sequence",
+            "generation functions. The implementation shall behave as if no library function calls the srand"
+          ]
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.2.2 The srand function",
+          "line": 9946,
+          "lines": [
+            "void srand(unsigned int seed);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.2.2 The srand function",
+          "line": 16928,
+          "lines": [
+            "void srand(unsigned int seed);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.2.2 The srand function",
+          "line": 18988,
+          "lines": [
+            "void srand(unsigned int seed);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.2.2 The srand function",
+          "line": 24902,
+          "lines": [
+            "void srand(unsigned int seed);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 350,
+          "lines": [
+            "_ACRTIMP void __cdecl srand(_In_ unsigned int _Seed);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strfromd",
+      "summary": "Formats a double into a string like snprintf, using a format with a single a, e, f, or g conversion.",
+      "signature": "int strfromd(char * restrict s, size_t n, const char * restrict format, double fp);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of s in bytes, including room for the null terminator."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format of the form %[.precision]C, where C is one of a, A, e, E, f, F, g, or G. Any other format is undefined behavior."
+        },
+        {
+          "name": "fp",
+          "type": "double",
+          "description": "Value to format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters the full result needs, not counting the null terminator. The output is complete only if this is nonnegative and less than n."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char buf[32];\n    strfromd(buf, sizeof buf, \"%.2f\", 3.14159);\n    puts(buf);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.3 The strfromd, strfromf, and strfroml functions",
+          "line": 24460,
+          "lines": [
+            "int strfromd(char * restrict s, size_t n, const char * restrict format,",
+            "double fp);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strfromd128",
+      "summary": "Formats a _Decimal128 into a string like snprintf, using a format with a single a, e, f, or g conversion.",
+      "signature": "int strfromd128(char * restrict s, size_t n, const char * restrict format, _Decimal128 fp);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of s in bytes, including room for the null terminator."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format of the form %[.precision]C, where C is one of a, A, e, E, f, F, g, or G. Any other format is undefined behavior."
+        },
+        {
+          "name": "fp",
+          "type": "_Decimal128",
+          "description": "Value to format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters the full result needs, not counting the null terminator. The output is complete only if this is nonnegative and less than n."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char buf[48];\n    strfromd128(buf, sizeof buf, \"%f\", 0.1DL);\n    puts(buf);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.4 The strfromdN functions",
+          "line": 24505,
+          "lines": [
+            "int strfromd128(char * restrict s, size_t n, const char * restrict format,",
+            "_Decimal128 fp);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strfromd32",
+      "summary": "Formats a _Decimal32 into a string like snprintf, using a format with a single a, e, f, or g conversion.",
+      "signature": "int strfromd32(char * restrict s, size_t n, const char * restrict format, _Decimal32 fp);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of s in bytes, including room for the null terminator."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format of the form %[.precision]C, where C is one of a, A, e, E, f, F, g, or G. Any other format is undefined behavior."
+        },
+        {
+          "name": "fp",
+          "type": "_Decimal32",
+          "description": "Value to format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters the full result needs, not counting the null terminator. The output is complete only if this is nonnegative and less than n."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char buf[48];\n    strfromd32(buf, sizeof buf, \"%f\", 0.1DF);\n    puts(buf);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.4 The strfromdN functions",
+          "line": 24499,
+          "lines": [
+            "int strfromd32(char * restrict s, size_t n, const char * restrict format,",
+            "_Decimal32 fp);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strfromd64",
+      "summary": "Formats a _Decimal64 into a string like snprintf, using a format with a single a, e, f, or g conversion.",
+      "signature": "int strfromd64(char * restrict s, size_t n, const char * restrict format, _Decimal64 fp);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of s in bytes, including room for the null terminator."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format of the form %[.precision]C, where C is one of a, A, e, E, f, F, g, or G. Any other format is undefined behavior."
+        },
+        {
+          "name": "fp",
+          "type": "_Decimal64",
+          "description": "Value to format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters the full result needs, not counting the null terminator. The output is complete only if this is nonnegative and less than n."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char buf[48];\n    strfromd64(buf, sizeof buf, \"%f\", 0.1DD);\n    puts(buf);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.4 The strfromdN functions",
+          "line": 24502,
+          "lines": [
+            "int strfromd64(char * restrict s, size_t n, const char * restrict format,",
+            "_Decimal64 fp);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strfromf",
+      "summary": "Formats a float into a string like snprintf, using a format with a single a, e, f, or g conversion.",
+      "signature": "int strfromf(char * restrict s, size_t n, const char * restrict format, float fp);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of s in bytes, including room for the null terminator."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format of the form %[.precision]C, where C is one of a, A, e, E, f, F, g, or G. Any other format is undefined behavior."
+        },
+        {
+          "name": "fp",
+          "type": "float",
+          "description": "Value to format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters the full result needs, not counting the null terminator. The output is complete only if this is nonnegative and less than n."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char buf[32];\n    strfromf(buf, sizeof buf, \"%.2f\", 3.14159f);\n    puts(buf);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.3 The strfromd, strfromf, and strfroml functions",
+          "line": 24464,
+          "lines": [
+            "int strfromf(char * restrict s, size_t n, const char * restrict format,",
+            "float fp);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strfroml",
+      "summary": "Formats a long double into a string like snprintf, using a format with a single a, e, f, or g conversion.",
+      "signature": "int strfroml(char * restrict s, size_t n, const char * restrict format, long double fp);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination buffer, or a null pointer when n is 0."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Size of s in bytes, including room for the null terminator."
+        },
+        {
+          "name": "format",
+          "type": "const char * restrict",
+          "description": "Format of the form %[.precision]C, where C is one of a, A, e, E, f, F, g, or G. Any other format is undefined behavior."
+        },
+        {
+          "name": "fp",
+          "type": "long double",
+          "description": "Value to format."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "The number of characters the full result needs, not counting the null terminator. The output is complete only if this is nonnegative and less than n."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char buf[32];\n    strfroml(buf, sizeof buf, \"%.2f\", 3.14159L);\n    puts(buf);\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.3 The strfromd, strfromf, and strfroml functions",
+          "line": 24468,
+          "lines": [
+            "int strfroml(char * restrict s, size_t n, const char * restrict format,",
+            "long double fp);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtod",
+      "summary": "Converts the start of a string to double, accepting decimal, hexadecimal, infinity, and NaN forms.",
+      "signature": "double strtod(const char * restrict nptr, char ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "double",
+        "description": "The converted value, or 0 if no conversion could be performed. Out-of-range values return HUGE_VAL or a tiny value and may set errno to ERANGE."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    double v = strtod(\"2.5e3 volts\", &end);\n    printf(\"%f, rest: %s\\n\", v, end);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.1.4 The strtod function",
+          "line": 9727,
+          "lines": [
+            "double strtod(const char *nptr, char **endptr);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.3 The strtod, strtof, and strtold functions",
+          "line": 16680,
+          "lines": [
+            "double strtod(const char * restrict nptr,",
+            "char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.3 The strtod, strtof, and strtold functions",
+          "line": 18738,
+          "lines": [
+            "double strtod(const char * restrict nptr,",
+            "char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.5 The strtod, strtof, and strtold functions",
+          "line": 24529,
+          "lines": [
+            "double strtod(const char * restrict nptr, char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 502,
+          "lines": [
+            "_ACRTIMP double __cdecl strtod(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtod128",
+      "summary": "Converts the start of a string to the _Decimal128 decimal floating type.",
+      "signature": "_Decimal128 strtod128(const char * restrict nptr, char ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "_Decimal128",
+        "description": "The converted value, or 0 if no conversion could be performed."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    _Decimal128 v = strtod128(\"19.99 USD\", &end);\n    printf(\"%s\\n\", end);\n    (void)v;\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.6 The strtodN functions",
+          "line": 24651,
+          "lines": [
+            "_Decimal128 strtod128(const char * restrict nptr, char ** restrict endptr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtod32",
+      "summary": "Converts the start of a string to the _Decimal32 decimal floating type.",
+      "signature": "_Decimal32 strtod32(const char * restrict nptr, char ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "_Decimal32",
+        "description": "The converted value, or 0 if no conversion could be performed."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    _Decimal32 v = strtod32(\"19.99 USD\", &end);\n    printf(\"%s\\n\", end);\n    (void)v;\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.6 The strtodN functions",
+          "line": 24649,
+          "lines": [
+            "_Decimal32 strtod32(const char * restrict nptr, char ** restrict endptr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtod64",
+      "summary": "Converts the start of a string to the _Decimal64 decimal floating type.",
+      "signature": "_Decimal64 strtod64(const char * restrict nptr, char ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "_Decimal64",
+        "description": "The converted value, or 0 if no conversion could be performed."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    _Decimal64 v = strtod64(\"19.99 USD\", &end);\n    printf(\"%s\\n\", end);\n    (void)v;\n    return 0;\n}\n",
+      "standards": [
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.6 The strtodN functions",
+          "line": 24650,
+          "lines": [
+            "_Decimal64 strtod64(const char * restrict nptr, char ** restrict endptr);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtof",
+      "summary": "Converts the start of a string to float, accepting decimal, hexadecimal, infinity, and NaN forms.",
+      "signature": "float strtof(const char * restrict nptr, char ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "float",
+        "description": "The converted value, or 0 if no conversion could be performed. Out-of-range values return HUGE_VAL or a tiny value and may set errno to ERANGE."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    float v = strtof(\"2.5e3 volts\", &end);\n    printf(\"%f, rest: %s\\n\", v, end);\n    return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.3 The strtod, strtof, and strtold functions",
+          "line": 16684,
+          "lines": [
+            "float strtof(const char * restrict nptr,",
+            "char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.3 The strtod, strtof, and strtold functions",
+          "line": 18742,
+          "lines": [
+            "float strtof(const char * restrict nptr,",
+            "char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.5 The strtod, strtof, and strtold functions",
+          "line": 24531,
+          "lines": [
+            "float strtof(const char * restrict nptr, char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 489,
+          "lines": [
+            "_ACRTIMP float __cdecl strtof(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtol",
+      "summary": "Converts the start of a string to long in a given base, reporting where the number ended.",
+      "signature": "long int strtol(const char * restrict nptr, char ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Radix from 2 to 36, or 0 to read the base from the prefix like an integer constant (0x for hex, 0 for octal, 0b for binary)."
+        }
+      ],
+      "returns": {
+        "type": "long int",
+        "description": "The converted value, 0 if no conversion could be performed, or LONG_MIN or LONG_MAX with errno set to ERANGE if the value is out of range."
+      },
+      "example": "#include <errno.h>\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    errno = 0;\n    long v = strtol(\"ff rest\", &end, 16);\n    if (end == NULL || errno == ERANGE) return 1;\n    printf(\"%ld, rest: %s\\n\", v, end);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.1.5 The strtol function",
+          "line": 9787,
+          "lines": [
+            "long int strtol(const char *nptr, char **endptr, int base);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 16804,
+          "lines": [
+            "long int strtol(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 18862,
+          "lines": [
+            "long int strtol(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.7 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 24805,
+          "lines": [
+            "long int strtol(const char * restrict nptr, char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 528,
+          "lines": [
+            "_ACRTIMP long __cdecl strtol(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr,",
+            "_In_                     int         _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtold",
+      "summary": "Converts the start of a string to long double, accepting decimal, hexadecimal, infinity, and NaN forms.",
+      "signature": "long double strtold(const char * restrict nptr, char ** restrict endptr);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        }
+      ],
+      "returns": {
+        "type": "long double",
+        "description": "The converted value, or 0 if no conversion could be performed. Out-of-range values return HUGE_VAL or a tiny value and may set errno to ERANGE."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    long double v = strtold(\"2.5e3 volts\", &end);\n    printf(\"%Lf, rest: %s\\n\", v, end);\n    return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.3 The strtod, strtof, and strtold functions",
+          "line": 16688,
+          "lines": [
+            "long double strtold(const char * restrict nptr,",
+            "char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.3 The strtod, strtof, and strtold functions",
+          "line": 18746,
+          "lines": [
+            "long double strtold(const char * restrict nptr,",
+            "char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.5 The strtod, strtof, and strtold functions",
+          "line": 24533,
+          "lines": [
+            "long double strtold(const char * restrict nptr, char ** restrict endptr);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 515,
+          "lines": [
+            "_ACRTIMP long double __cdecl strtold(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtoll",
+      "summary": "Converts the start of a string to long long in a given base, reporting where the number ended.",
+      "signature": "long long int strtoll(const char * restrict nptr, char ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Radix from 2 to 36, or 0 to read the base from the prefix like an integer constant (0x for hex, 0 for octal, 0b for binary)."
+        }
+      ],
+      "returns": {
+        "type": "long long int",
+        "description": "The converted value, 0 if no conversion could be performed, or LLONG_MIN or LLONG_MAX with errno set to ERANGE if the value is out of range."
+      },
+      "example": "#include <errno.h>\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    errno = 0;\n    long long v = strtoll(\"ff rest\", &end, 16);\n    if (end == NULL || errno == ERANGE) return 1;\n    printf(\"%lld, rest: %s\\n\", v, end);\n    return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 16812,
+          "lines": [
+            "long long int strtoll(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 18870,
+          "lines": [
+            "long long int strtoll(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.7 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 24806,
+          "lines": [
+            "long long int strtoll(const char * restrict nptr, char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 543,
+          "lines": [
+            "_ACRTIMP long long __cdecl strtoll(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr,",
+            "_In_                     int         _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtoul",
+      "summary": "Converts the start of a string to unsigned long in a given base, reporting where the number ended.",
+      "signature": "unsigned long int strtoul(const char * restrict nptr, char ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Radix from 2 to 36, or 0 to read the base from the prefix like an integer constant (0x for hex, 0 for octal, 0b for binary)."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long int",
+        "description": "The converted value, 0 if no conversion could be performed, or ULONG_MAX with errno set to ERANGE if the value is out of range."
+      },
+      "example": "#include <errno.h>\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    errno = 0;\n    unsigned long v = strtoul(\"ff rest\", &end, 16);\n    if (end == NULL || errno == ERANGE) return 1;\n    printf(\"%lu, rest: %s\\n\", v, end);\n    return 0;\n}\n",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.1.6 The strtoul function",
+          "line": 9853,
+          "lines": [
+            "unsigned long int strtoul(const char *nptr, char **endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 16820,
+          "lines": [
+            "unsigned long int strtoul(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 18878,
+          "lines": [
+            "unsigned long int strtoul(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.7 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 24810,
+          "lines": [
+            "unsigned long int strtoul(const char * restrict nptr, char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 558,
+          "lines": [
+            "_ACRTIMP unsigned long __cdecl strtoul(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr,",
+            "_In_                     int         _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strtoull",
+      "summary": "Converts the start of a string to unsigned long long in a given base, reporting where the number ended.",
+      "signature": "unsigned long long int strtoull(const char * restrict nptr, char ** restrict endptr, int base);",
+      "params": [
+        {
+          "name": "nptr",
+          "type": "const char * restrict",
+          "description": "String to convert. Leading white space is skipped."
+        },
+        {
+          "name": "endptr",
+          "type": "char ** restrict",
+          "description": "Receives a pointer to the first character after the number, or nptr if nothing was converted. Can be a null pointer."
+        },
+        {
+          "name": "base",
+          "type": "int",
+          "description": "Radix from 2 to 36, or 0 to read the base from the prefix like an integer constant (0x for hex, 0 for octal, 0b for binary)."
+        }
+      ],
+      "returns": {
+        "type": "unsigned long long int",
+        "description": "The converted value, 0 if no conversion could be performed, or ULLONG_MAX with errno set to ERANGE if the value is out of range."
+      },
+      "example": "#include <errno.h>\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char *end;\n    errno = 0;\n    unsigned long long v = strtoull(\"ff rest\", &end, 16);\n    if (end == NULL || errno == ERANGE) return 1;\n    printf(\"%llu, rest: %s\\n\", v, end);\n    return 0;\n}\n",
+      "standards": [
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 16828,
+          "lines": [
+            "unsigned long long int strtoull(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.1.4 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 18886,
+          "lines": [
+            "unsigned long long int strtoull(",
+            "const char * restrict nptr,",
+            "char ** restrict endptr,",
+            "int base);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.1.7 The strtol, strtoll, strtoul, and strtoull functions",
+          "line": 24813,
+          "lines": [
+            "unsigned long long int strtoull(const char * restrict nptr,",
+            "char ** restrict endptr, int base);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 573,
+          "lines": [
+            "_ACRTIMP unsigned long long __cdecl strtoull(",
+            "_In_z_                   char const* _String,",
+            "_Out_opt_ _Deref_post_z_ char**      _EndPtr,",
+            "_In_                     int         _Radix",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "system",
+      "summary": "Passes a command string to the host's command processor, or checks whether one exists.",
+      "signature": "int system(const char *string);",
+      "params": [
+        {
+          "name": "string",
+          "type": "const char *",
+          "description": "Command to run, or a null pointer to ask whether a command processor is available."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "With a null pointer: nonzero only if a command processor is available. Otherwise an implementation-defined value."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    if (system(NULL) == 0) return 1;\n    int status = system(\"echo hello\");\n    printf(\"status %d\\n\", status);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.4.5 The system function",
+          "line": 10201,
+          "lines": [
+            "int system(const char *string);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.4.6 The system function",
+          "line": 17206,
+          "lines": [
+            "int system(const char *string);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.4.8 The system function",
+          "line": 19379,
+          "lines": [
+            "int system(const char *string);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.4.8 The system function",
+          "line": 25300,
+          "lines": [
+            "int system(const char *string);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 1211,
+          "lines": [
+            "_DCRTIMP int __cdecl system(",
+            "_In_opt_z_ char const* _Command",
+            ");"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wcstombs",
+      "summary": "Converts a wide-character string to a multibyte string, writing at most n bytes.",
+      "signature": "size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char * restrict",
+          "description": "Destination array for the multibyte characters."
+        },
+        {
+          "name": "pwcs",
+          "type": "const wchar_t * restrict",
+          "description": "Wide-character string to convert."
+        },
+        {
+          "name": "n",
+          "type": "size_t",
+          "description": "Maximum number of bytes to write to s."
+        }
+      ],
+      "returns": {
+        "type": "size_t",
+        "description": "The number of bytes written, not counting a null terminator, or (size_t)-1 on a wide character with no multibyte form. If the result equals n, s isn't null-terminated."
+      },
+      "example": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    char narrow[16];\n    size_t n = wcstombs(narrow, L\"hello\", sizeof narrow);\n    printf(\"%zu %s\\n\", n, narrow);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 1012,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_SIZE(",
+            "_ACRTIMP, wcstombs,",
+            "_Out_writes_opt_(_MaxCount),   char,           _Dest,",
+            "_In_z_                         wchar_t const*, _Source,",
+            "_In_                           size_t,         _MaxCount",
+            ")"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wcstombs' is not bounds-checking; 'wcstombs_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.8.2 The wcstombs function",
+          "line": 10510,
+          "lines": [
+            "size_t wcstombs(char *s, const wchar_t *pwcs, size_t n);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.8.2 The wcstombs function",
+          "line": 17544,
+          "lines": [
+            "size_t wcstombs(char * restrict s,",
+            "const wchar_t * restrict pwcs,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.8.2 The wcstombs function",
+          "line": 19717,
+          "lines": [
+            "size_t wcstombs(char * restrict s,",
+            "const wchar_t * restrict pwcs,",
+            "size_t n);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.8.2 The wcstombs function",
+          "line": 25621,
+          "lines": [
+            "size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 1012,
+          "lines": [
+            "__DEFINE_CPP_OVERLOAD_STANDARD_NFUNC_0_2_SIZE(",
+            "_ACRTIMP, wcstombs,",
+            "_Out_writes_opt_(_MaxCount),   char,           _Dest,",
+            "_In_z_                         wchar_t const*, _Source,",
+            "_In_                           size_t,         _MaxCount",
+            ")"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wctomb",
+      "summary": "Converts a wide character to its multibyte form and stores at most MB_CUR_MAX bytes in s.",
+      "signature": "int wctomb(char *s, wchar_t wc);",
+      "params": [
+        {
+          "name": "s",
+          "type": "char *",
+          "description": "Destination for the bytes, or a null pointer to ask whether the encoding is state-dependent."
+        },
+        {
+          "name": "wc",
+          "type": "wchar_t",
+          "description": "Wide character to convert."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "With s null: nonzero if the encoding is state-dependent, else 0. Otherwise the number of bytes stored, or -1 if wc has no valid multibyte form."
+      },
+      "example": "#include <stdio.h>\n#include <limits.h>\n#include <stdlib.h>\n\nint main(void) {\n    char bytes[MB_LEN_MAX];\n    int n = wctomb(bytes, L'A');\n    printf(\"%d byte(s)\\n\", n);\n    return 0;\n}\n",
+      "warnings": [
+        {
+          "by": "msvc",
+          "message": "This function or variable may be unsafe. Consider using wctomb_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.",
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 962,
+          "lines": [
+            "_CRT_INSECURE_DEPRECATE(wctomb_s)"
+          ]
+        },
+        {
+          "by": "clang-tidy",
+          "check": "concurrency-mt-unsafe",
+          "message": "function is not thread safe"
+        },
+        {
+          "by": "clang-tidy",
+          "check": "bugprone-unsafe-functions",
+          "message": "function 'wctomb' is not bounds-checking; 'wctomb_s' should be used instead"
+        }
+      ],
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.10.7.3 The wctomb function",
+          "line": 10441,
+          "lines": [
+            "int wctomb(char *s, wchar_t wchar);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.20.7.3 The wctomb function",
+          "line": 17469,
+          "lines": [
+            "int wctomb(char *s, wchar_t wc);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.22.7.3 The wctomb function",
+          "line": 19642,
+          "lines": [
+            "int wctomb(char *s, wchar_t wc);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.24.7.3 The wctomb function",
+          "line": 25559,
+          "lines": [
+            "int wctomb(char *s, wchar_t wc);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "stdlib.h",
+          "line": 962,
+          "lines": [
+            "_CRT_INSECURE_DEPRECATE(wctomb_s)",
+            "_ACRTIMP int __cdecl wctomb(",
+            "_Out_writes_opt_z_(MB_LEN_MAX) char*   _MbCh,",
+            "_In_                           wchar_t _WCh",
+            ");"
+          ]
+        }
+      ]
+    }
+  ]
+}
