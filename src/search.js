@@ -108,12 +108,13 @@ function score(fn, query, exactHeader) {
   return null;
 }
 
-export function search(raw, { standard = '', compiler = '' } = {}) {
+export function search(raw, { standard = '', compiler = '', lang = 'c' } = {}) {
   const query = parseQuery(raw);
   if (!query.text || query.error) return { query, exactHeader: null, results: [] };
   const exactHeader = query.mode === 'text' ? headerTarget(query.text) : null;
 
   const results = functions
+    .filter((fn) => fn.lang === lang)
     .filter((fn) => (!standard || fn.standards.includes(standard)) && (!compiler || fn.compilers.includes(compiler)))
     .map((fn) => ({ fn, match: score(fn, query, exactHeader) }))
     .filter((r) => r.match)

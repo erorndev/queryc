@@ -1,11 +1,15 @@
 import { withBase } from './base.js';
 import sourceRegistry from '../data/sources.json';
+import goSources from '../data/go/sources.json';
 import files from 'virtual:queryc-index';
 
-const fullFiles = import.meta.glob('../data/functions/*.json', { import: 'default' });
+const fullFiles = import.meta.glob(['../data/functions/*.json', '../data/go/*.json', '!../data/go/sources.json'], {
+  import: 'default',
+});
 
 export const STANDARDS = ['C89', 'C95', 'C99', 'C11', 'C17', 'C23'];
-export const sources = sourceRegistry;
+const GO_VERSIONS = Array.from({ length: 26 }, (_, i) => `Go 1.${i}`);
+export const sources = { ...sourceRegistry, ...goSources };
 
 const availableStandards = new Set(
   Object.values(sources)
@@ -46,9 +50,12 @@ export const functions = files
     file.functions.map((fn) => ({
       ...fn,
       header: file.header,
+      lang: file.lang || 'c',
       compilers: compilersFor(fn),
       advisory: advisory(fn),
-      path: withBase(`${file.header}/${fn.name}/`),
+      path: withBase(
+        file.lang && file.lang !== 'c' ? `${file.lang}/${file.header}/${fn.name}/` : `${file.header}/${fn.name}/`,
+      ),
       nameLower: fn.name.toLowerCase(),
       summaryLower: fn.summary.toLowerCase(),
       signatureLower: fn.signature.toLowerCase(),
@@ -56,9 +63,11 @@ export const functions = files
   )
   .sort((a, b) => a.name.localeCompare(b.name));
 
-export const headers = [...new Set(functions.map((f) => f.header))].sort();
+export const headers = [...new Set(functions.filter((f) => f.lang === 'c').map((f) => f.header))].sort();
 
-export const standardOptions = STANDARDS.filter((s) => functions.some((f) => f.standards.includes(s)));
+export const standardOptions = [...STANDARDS, ...GO_VERSIONS].filter((s) =>
+  functions.some((f) => f.standards.includes(s)),
+);
 
 export const compilerOptions = [...new Set(functions.flatMap((f) => f.compilers))].sort();
 
@@ -66,12 +75,13 @@ export function findByName(name) {
   return functions.find((f) => f.name === name) || null;
 }
 
-export function findFunction(header, name) {
-  return functions.find((f) => f.header === header && f.name === name) || null;
+export function findFunction(header, name, lang = 'c') {
+  return functions.find((f) => f.lang === lang && f.header === header && f.name === name) || null;
 }
 
 export async function loadFunction(fn) {
-  const file = await fullFiles[`../data/functions/${fn.header}.json`]();
+  const dir = fn.lang === 'c' ? 'functions' : fn.lang;
+  const file = await fullFiles[`../data/${dir}/${fn.header.replaceAll('/', '-')}.json`]();
   const full = file.functions.find((f) => f.name === fn.name);
   return { ...fn, ...full };
 }

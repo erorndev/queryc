@@ -50,12 +50,18 @@
                   <small>Coming Soon</small>
                 </span>
               </li>
+              <li>
+                <a class="lang-item" href="%BASE_URL%?lang=go">
+                  <img src="%BASE_URL%go-logo.svg" alt="" width="64" height="24" />
+                  <span>Go</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
         <nav class="site-nav">
           <a href="%BASE_URL%" class="is-active">Functions</a>
-          <a href="%BASE_URL%headers/">Headers</a>
+          <a id="headers-link" href="%BASE_URL%headers/">Headers</a>
           <a href="%BASE_URL%" aria-disabled="true" tabindex="-1">About</a>
           <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to Dark Mode">
             <svg class="theme-icon theme-icon-moon" viewBox="0 0 16 16" aria-hidden="true">
@@ -87,6 +93,10 @@
                 type="search"
                 placeholder="printf, memcpy, strtol"
                 spellcheck="false"
+                autocapitalize="none"
+                autocorrect="off"
+                autocomplete="off"
+                enterkeyhint="search"
               />
               <kbd class="search-shortcut" title="Press / to search">/</kbd>
             </div>
@@ -123,6 +133,8 @@
     <footer class="site-footer">
       <p class="container" id="coverage"></p>
     </footer>
+
+    <button type="button" class="to-top" id="to-top" aria-label="Back to Top" title="Back to Top" hidden>&uarr;</button>
 
     <script type="module" src="/src/main.js"></script>
   </body>

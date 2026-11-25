@@ -9,20 +9,26 @@ export function parseRoute(url = new URL(window.location.href)) {
   const params = url.searchParams;
   const search = {
     view: 'search',
+    lang: ['go'].includes(params.get('lang')) ? params.get('lang') : 'c',
     q: params.get('q') || '',
     standard: params.get('std'),
     compiler: params.get('cc'),
   };
 
   if (parts.length === 0) return search;
-  if (parts.length === 1 && parts[0] === 'headers') return { view: 'headers' };
+  if (parts.length === 1 && parts[0] === 'headers') return { view: 'headers', lang: search.lang };
   if (parts.length === 1 && headers.includes(parts[0])) return { ...search, q: parts[0], redirect: true };
+  if (parts.length > 3 && parts[0] === 'go')
+    return { view: 'function', lang: 'go', header: parts.slice(1, -1).join('/'), name: parts.at(-1) };
+  if (parts.length === 3 && ['go'].includes(parts[0]))
+    return { view: 'function', lang: parts[0], header: parts[1], name: parts[2] };
   if (parts.length === 2) return { view: 'function', header: parts[0], name: parts[1] };
   return { view: 'missing', path: pathname };
 }
 
-export function searchUrl({ q = '', standard = '', compiler = '' }) {
+export function searchUrl({ lang = 'c', q = '', standard = '', compiler = '' }) {
   const params = new URLSearchParams();
+  if (lang !== 'c') params.set('lang', lang);
   if (q) params.set('q', q);
   if (standard) params.set('std', standard);
   if (compiler) params.set('cc', compiler);

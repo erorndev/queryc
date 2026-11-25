@@ -1,21 +1,24 @@
 import hljs from './highlight.js';
-import { STANDARDS, findByName, sources } from './data.js';
+import { STANDARDS, findByName, functions as catalog, sources } from './data.js';
 import { escapeHtml } from './html.js';
 import { withBase } from './base.js';
+import { searchUrl } from './router.js';
 
 function copyButton(label, text) {
   return `<button type="button" class="copy-button" data-copy="${escapeHtml(text)}" data-label="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
 }
 
-function codeBlock(code, label, extraClass = '') {
-  const highlighted = hljs.highlight(code, { language: 'c' }).value;
+const LANG_LABELS = { c: 'C', go: 'Go', rust: 'Rust', javascript: 'JavaScript', typescript: 'TypeScript' };
+
+function codeBlock(code, label, extraClass = '', lang = 'c') {
+  const highlighted = hljs.highlight(code, { language: lang }).value;
   return `
     <div class="code-block ${extraClass}">
       <div class="code-header">
-        <span class="code-lang">C</span>
+        <span class="code-lang">${LANG_LABELS[lang]}</span>
         ${copyButton(label, code)}
       </div>
-      <pre><code class="hljs language-c">${highlighted}</code></pre>
+      <pre><code class="hljs language-${lang}">${highlighted}</code></pre>
     </div>`;
 }
 
@@ -27,7 +30,7 @@ function renderParams(name, params) {
         <tr>
           <td><code class="param-name">${escapeHtml(p.name)}</code></td>
           <td><code>${escapeHtml(p.type)}</code></td>
-          <td>${escapeHtml(p.description)}</td>
+          <td>${escapeHtml(p.description || '')}</td>
         </tr>`,
     )
     .join('');
@@ -48,9 +51,15 @@ function renderEvidence(evidence) {
   const source = sources[evidence.source];
   if (!source) return '';
   const isStandard = source.kind === 'standard';
-  const tag = isStandard
-    ? `<span class="tag">${escapeHtml(source.standard)}</span>`
-    : `<span class="tag tag-compiler">${escapeHtml(source.compiler)}</span>`;
+  const isLib = source.kind === 'lib';
+  let tag = `<span class="tag tag-compiler">${escapeHtml(source.compiler)}</span>`;
+  if (isStandard) tag = `<span class="tag">${escapeHtml(source.standard)}</span>`;
+  if (isLib) tag = `<span class="tag">${escapeHtml(source.library)}</span>`;
+  let lang = isLib ? 'typescript' : 'c';
+  if (source.kind === 'go' || source.kind === 'rust') {
+    lang = source.kind;
+    tag = `<span class="tag">${escapeHtml(source.library)}</span>`;
+  }
   const label = source.url
     ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>`
     : escapeHtml(source.label);
@@ -63,7 +72,7 @@ function renderEvidence(evidence) {
         <span class="evidence-source">${label}</span>
         <span class="evidence-location">${location}</span>
       </div>
-      <pre class="evidence-code"><code class="hljs language-c">${hljs.highlight(evidence.lines.join('\n'), { language: 'c' }).value}</code></pre>
+      <pre class="evidence-code"><code class="hljs language-${lang}">${hljs.highlight(evidence.lines.join('\n'), { language: lang }).value}</code></pre>
     </li>`;
 }
 
@@ -128,7 +137,29 @@ function renderAdvisory(fn) {
     </div>`;
 }
 
+const RELATED_LIMIT = 30;
+
+function renderRelated(fn) {
+  const related = catalog.filter((f) => f.lang === fn.lang && f.header === fn.header && f.name !== fn.name);
+  if (!related.length) return '';
+  const unit = { c: 'header', js: 'object', go: 'package', rust: 'module' }[fn.lang];
+  const items = related
+    .slice(0, RELATED_LIMIT)
+    .map((f) => `<li><a href="${escapeHtml(f.path)}"><code>${escapeHtml(f.name)}</code></a></li>`)
+    .join('');
+  const more =
+    related.length > RELATED_LIMIT
+      ? `<p class="detail-text"><a href="${escapeHtml(searchUrl({ lang: fn.lang, q: fn.header }))}">See All ${related.length + 1} Functions in ${escapeHtml(fn.header)}</a></p>`
+      : '';
+  return `
+      <h2 class="detail-heading">More in This ${unit[0].toUpperCase()}${unit.slice(1)}</h2>
+      <ul class="related-list">${items}</ul>
+      ${more}`;
+}
+
 export function renderDetail(fn, backUrl) {
+  const isJs = fn.lang !== 'c';
+  const codeLang = { c: 'c', js: 'typescript', go: 'go', rust: 'rust' }[fn.lang];
   const include = `#include <${fn.header}>`;
   const evidence = [...fn.evidence].sort((a, b) => evidenceOrder(a) - evidenceOrder(b));
   return `
@@ -139,41 +170,57 @@ export function renderDetail(fn, backUrl) {
         <h1 class="detail-name" tabindex="-1">${escapeHtml(fn.name)}</h1>
         <div class="detail-include">
           <span class="detail-header">${escapeHtml(fn.header)}</span>
-          ${copyButton('Copy Include', include)}
+          ${isJs ? '' : copyButton('Copy Include', include)}
+          ${copyButton('Copy Link', new URL(fn.path, window.location.origin).href)}
         </div>
       </div>
 
       <p class="detail-summary">${escapeHtml(fn.summary)}</p>
       ${renderAdvisory(fn)}
 
-      ${codeBlock(fn.signature, 'Copy Signature', 'code-block-signature')}
+      ${codeBlock(fn.signature, 'Copy Signature', 'code-block-signature', codeLang)}
 
       <h2 class="detail-heading">Parameters</h2>
       ${renderParams(fn.name, fn.params)}
 
       <h2 class="detail-heading">Return Value</h2>
-      <p class="detail-text"><code>${escapeHtml(fn.returns.type)}</code> ${escapeHtml(fn.returns.description)}</p>
+      <p class="detail-text"><code>${escapeHtml(fn.returns.type)}</code> ${escapeHtml(fn.returns.description || '')}</p>
 
-      <h2 class="detail-heading">Example</h2>
-      ${codeBlock(fn.example.trimEnd(), 'Copy Example')}
+      ${
+        fn.example
+          ? `<h2 class="detail-heading">Example</h2>
+      ${codeBlock(fn.example.trimEnd(), 'Copy Example', '', isJs ? 'javascript' : 'c')}`
+          : ''
+      }
 
       <h2 class="detail-heading">Sources</h2>
       <ul class="evidence-list">${evidence.map(renderEvidence).join('')}</ul>
+      ${renderRelated(fn)}
       ${fn.docs ? `<p class="docs-credit">Text from <a href="https://learn.microsoft.com/windows-hardware/drivers/ddi/${escapeHtml(fn.docs.replace(/\.md$/, ''))}">Microsoft's driver docs</a>, shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>` : ''}
     </div>`;
 }
 
 const WDK_HEADERS = new Set(['wdm.h', 'ntddk.h']);
 
-export function renderHeaders(headers, functions) {
+const GROUP_PAGES = {
+  c: { title: 'Headers', unit: 'headers', heading: 'C Standard Library', wrap: (h) => `&lt;${h}&gt;` },
+  js: { title: 'Objects', unit: 'objects', heading: 'JavaScript Built-In Objects', wrap: (h) => h },
+  go: { title: 'Packages', unit: 'packages', heading: 'Go Standard Library', wrap: (h) => h },
+  rust: { title: 'Modules', unit: 'modules', heading: 'Rust Standard Library', wrap: (h) => `std::${h}` },
+};
+
+export function renderHeaders(lang, allFunctions) {
+  const page = GROUP_PAGES[lang];
+  const functions = allFunctions.filter((fn) => fn.lang === lang);
+  const headers = [...new Set(functions.map((fn) => fn.header))].sort();
   const counts = new Map();
   for (const fn of functions) counts.set(fn.header, (counts.get(fn.header) || 0) + 1);
   const renderList = (list) =>
     list
       .map((h) => {
         const count = counts.get(h) || 0;
-        const href = withBase(`?q=${encodeURIComponent(h)}`);
-        return `<li class="header-item"><a href="${escapeHtml(href)}"><code>&lt;${escapeHtml(h)}&gt;</code></a><span>${count} ${count === 1 ? 'function' : 'functions'}</span></li>`;
+        const href = searchUrl({ lang, q: h });
+        return `<li class="header-item"><a href="${escapeHtml(href)}"><code>${page.wrap(escapeHtml(h))}</code></a><span>${count} ${count === 1 ? 'function' : 'functions'}</span></li>`;
       })
       .join('');
   const stdHeaders = headers.filter((h) => !WDK_HEADERS.has(h));
@@ -181,11 +228,11 @@ export function renderHeaders(headers, functions) {
   return `
     <div class="container">
       <div class="detail-top">
-        <a class="detail-back" href="${escapeHtml(withBase(''))}">← Back to Search</a>
+        <a class="detail-back" href="${escapeHtml(searchUrl({ lang }))}">← Back to Search</a>
       </div>
-      <h1 class="detail-name" tabindex="-1">Headers</h1>
-      <p class="detail-summary">${functions.length} functions across ${headers.length} headers.</p>
-      <h2 class="detail-heading">C Standard Library</h2>
+      <h1 class="detail-name" tabindex="-1">${page.title}</h1>
+      <p class="detail-summary">${functions.length} functions across ${headers.length} ${page.unit}.</p>
+      <h2 class="detail-heading">${page.heading}</h2>
       <ul class="header-list">${renderList(stdHeaders)}</ul>
       ${wdkHeaders.length ? `<h2 class="detail-heading">Windows Driver Kit (WDK)</h2><ul class="header-list">${renderList(wdkHeaders)}</ul>` : ''}
     </div>`;

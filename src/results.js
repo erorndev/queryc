@@ -1,5 +1,5 @@
 import hljs from './highlight.js';
-import { compilerOptions, headers, standardOptions } from './data.js';
+import { compilerOptions, functions, headers, standardOptions } from './data.js';
 import { search } from './search.js';
 import { navigate, replaceUrl, searchUrl } from './router.js';
 import { escapeHtml } from './html.js';
@@ -26,7 +26,7 @@ function renderResult({ fn, match }, index) {
       <a class="result${level === 'avoid' ? ' is-discouraged' : ''}" href="${escapeHtml(fn.path)}" data-state='{"fromSearch":true}' tabindex="-1">
         <span class="result-name">${highlight(fn.name, match.ranges)}</span>
         <span class="result-header">${escapeHtml(fn.header)}</span>
-        <code class="result-signature hljs language-c">${hljs.highlight(fn.signature, { language: 'c' }).value}</code>
+        <code class="result-signature hljs language-${{ c: 'c', js: 'typescript', go: 'go', rust: 'rust' }[fn.lang]}">${hljs.highlight(fn.signature, { language: { c: 'c', js: 'typescript', go: 'go', rust: 'rust' }[fn.lang] }).value}</code>
         <span class="result-summary">${escapeHtml(fn.summary)}</span>
         <span class="result-tags">${caution}${standards}${compilers}</span>
       </a>
@@ -65,18 +65,18 @@ function saveFilter(key, value) {
 const KEYS_HINT =
   '<span class="results-keys"><kbd>&uarr;</kbd><kbd>&darr;</kbd> to move, <kbd>Enter</kbd> to open, <kbd>Esc</kbd> to clear</span>';
 
-export function initResults({ input, form }) {
+export function initResults({ input, form, onLang = () => {} }) {
   const list = document.getElementById('results');
   const hint = document.getElementById('results-hint');
   const status = document.getElementById('results-status');
   const standardSelect = document.getElementById('filter-standard');
   const compilerSelect = document.getElementById('filter-compiler');
   let active = true;
+  let lang = 'c';
   let current = [];
   let selected = -1;
   let selectedByMouse = false;
 
-  fillSelect(standardSelect, standardOptions);
   fillSelect(compilerSelect, compilerOptions);
 
   input.setAttribute('role', 'combobox');
@@ -86,7 +86,19 @@ export function initResults({ input, form }) {
   list.setAttribute('role', 'listbox');
   list.setAttribute('aria-label', 'Search results');
 
-  const state = () => ({ q: input.value.trim(), standard: standardSelect.value, compiler: compilerSelect.value });
+  function setLang(next) {
+    if (next === lang && standardSelect.options.length > 1) return;
+    lang = next;
+    standardSelect.length = 1;
+    fillSelect(
+      standardSelect,
+      standardOptions.filter((s) => functions.some((f) => f.lang === lang && f.standards.includes(s))),
+    );
+    compilerSelect.closest('.filter').style.display = lang === 'c' ? '' : 'none';
+    if (lang !== 'c') compilerSelect.value = '';
+  }
+
+  const state = () => ({ lang, q: input.value.trim(), standard: standardSelect.value, compiler: compilerSelect.value });
 
   function filterLabel() {
     return [standardSelect.value, compilerSelect.value].filter(Boolean).join(' ');
@@ -121,8 +133,23 @@ export function initResults({ input, form }) {
     if (entry) navigate(entry.fn.path, { state: { fromSearch: true } });
   }
 
+  const PREFIXES = { c: 'c', go: 'go' };
+
+  function takePrefix() {
+    const match = /^\s*(\w+):\s*/.exec(input.value);
+    const next = match && PREFIXES[match[1].toLowerCase()];
+    if (!next) return;
+    input.value = input.value.slice(match[0].length);
+    if (next !== lang) {
+      setLang(next);
+      standardSelect.value = '';
+      onLang(next);
+    }
+  }
+
   function update() {
-    const filters = { standard: standardSelect.value, compiler: compilerSelect.value };
+    takePrefix();
+    const filters = { lang, standard: standardSelect.value, compiler: compilerSelect.value };
     const { query, exactHeader, results } = search(input.value, filters);
     if (active) {
       replaceUrl(searchUrl(state()));
@@ -158,10 +185,12 @@ export function initResults({ input, form }) {
     const label = filterLabel();
 
     if (results.length === 0) {
-      const covered = headers.map((h) => `<code>${escapeHtml(h)}</code>`).join(' & ');
+      const scope =
+        lang !== 'c' ? [...new Set(functions.filter((f) => f.lang === lang).map((f) => f.header))] : headers;
+      const covered = scope.map((h) => `<code>${escapeHtml(h)}</code>`).join(' & ');
       const tip =
         query.mode === 'text'
-          ? `Check the spelling, search by header, or try a pattern like <code>str*</code>. QueryC covers ${covered} so far.`
+          ? `Check the spelling, search by ${{ c: 'header', js: 'object', go: 'package', rust: 'module' }[lang]}, or try a pattern like <code>${{ c: 'str*', js: 'to*', go: 'Trim*', rust: 'size_of*' }[lang]}</code>. QueryC covers ${covered} so far.`
           : `Try a looser pattern. QueryC covers ${covered} so far.`;
       setStatus(
         label
@@ -240,9 +269,10 @@ export function initResults({ input, form }) {
   return {
     show(route) {
       active = true;
+      setLang(route.lang || 'c');
       input.value = route.q;
       standardSelect.value = pick(standardSelect, route.standard ?? loadFilter('standard'));
-      compilerSelect.value = pick(compilerSelect, route.compiler ?? loadFilter('compiler'));
+      compilerSelect.value = lang === 'js' ? '' : pick(compilerSelect, route.compiler ?? loadFilter('compiler'));
       update();
     },
     hide() {
