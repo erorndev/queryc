@@ -30,7 +30,13 @@
     color: $color-placeholder;
   }
 
+  &::-webkit-search-cancel-button {
+    margin-right: -2px;
+    cursor: pointer;
+  }
+
   &:focus {
+    padding-right: 14px;
     outline: 0;
     border-color: $color-accent;
     box-shadow:
