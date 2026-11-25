@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { hasClangTidy, runClangTidy } from './clang-tidy.js';
+import { HEADING, ANY_HEADING, SYNOPSIS, DESCRIPTION, PAGE_NOISE, draftNotes } from './draft.js';
 
 const STANDARDS = ['C89', 'C95', 'C99', 'C11', 'C17', 'C23'];
 const NOT_NAMES = new Set([
@@ -29,13 +30,6 @@ const NOT_NAMES = new Set([
   'extern',
   'inline',
 ]);
-const HEADING = /^\s*(\d+(?:\.\d+)+)\s+The\s+(.+?)\s+(generic functions?|functions?)\s*$/;
-const ANY_HEADING = /^\s*[A-Z]?\d+(?:\.\d+)+\s+\S/;
-const SYNOPSIS = /^\s*Synopsis\s*$/;
-const DESCRIPTION = /^\s*(\d+\s+)?Description\s*$/;
-const RETURNS = /^\s*(\d+\s+)?Returns\s*$/;
-const PAGE_NOISE =
-  /(§\s*\d|working draft|Committee Draft|ISO\/IEC\s+9899|^\s*\d+\s+Library\s|Library\s+\d+\s*$|^\s*\d+\s*$|^\s*Page\s+\d+)/i;
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = join(repoRoot, 'data');
@@ -122,16 +116,6 @@ function parseDraft(id, source) {
     }
   }
   return found;
-}
-
-function draftNotes(lines, start) {
-  const out = [];
-  for (let k = start; k < Math.min(lines.length, start + 60); k += 1) {
-    if (k > start && ANY_HEADING.test(lines[k]) && !DESCRIPTION.test(lines[k]) && !RETURNS.test(lines[k])) break;
-    if (PAGE_NOISE.test(lines[k])) continue;
-    if (lines[k].trim()) out.push(normalize(lines[k]));
-  }
-  return out.join(' ');
 }
 
 function topLevelObjects(text) {
