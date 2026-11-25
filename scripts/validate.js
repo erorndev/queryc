@@ -164,7 +164,8 @@ function checkExample(at, fn, workDir) {
 }
 
 function synopsisParams(signature) {
-  const open = signature.indexOf('(');
+  const ptrReturn = /\(\*\s*\w+\s*\(/.exec(signature);
+  const open = ptrReturn ? ptrReturn.index + ptrReturn[0].length - 1 : signature.indexOf('(');
   let depth = 0;
   let current = '';
   const parts = [];

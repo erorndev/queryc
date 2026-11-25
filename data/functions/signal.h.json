@@ -1,0 +1,148 @@
+{
+  "header": "signal.h",
+  "functions": [
+    {
+      "name": "raise",
+      "summary": "Sends the signal sig to the executing program. If a signal handler is invoked, raise does not return until the handler returns.",
+      "signature": "int raise(int sig);",
+      "params": [
+        {
+          "name": "sig",
+          "type": "int",
+          "description": "Signal number to send."
+        }
+      ],
+      "returns": {
+        "type": "int",
+        "description": "Zero if successful, nonzero if unsuccessful."
+      },
+      "example": "#include <signal.h>\n#include <stdio.h>\n\nstatic void handler(int sig) {\n    (void)sig;\n}\n\nint main(void) {\n    signal(SIGTERM, handler);\n    if (raise(SIGTERM) != 0) {\n        puts(\"raise failed\");\n    }\n    return 0;\n}",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.7.2.1 The raise function",
+          "line": 7806,
+          "lines": [
+            "int raise(int sig);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.14.2.1 The raise function",
+          "line": 13463,
+          "lines": [
+            "int raise(int sig);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.14.2.1 The raise function",
+          "line": 14773,
+          "lines": [
+            "int raise(int sig);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.14.2.1 The raise function",
+          "line": 19808,
+          "lines": [
+            "int raise(int sig);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "signal.h",
+          "line": 65,
+          "lines": [
+            "_ACRTIMP int __cdecl raise(_In_ int _Signal);"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "signal",
+      "summary": "Sets how the signal sig is handled: SIG_DFL for default handling, SIG_IGN to ignore the signal, or a pointer to a handler function to call when the signal occurs.",
+      "signature": "void (*signal(int sig, void (*func)(int)))(int);",
+      "params": [
+        {
+          "name": "sig",
+          "type": "int",
+          "description": "Signal number to configure."
+        },
+        {
+          "name": "func",
+          "type": "void (*)(int)",
+          "description": "Handler function pointer, SIG_DFL, or SIG_IGN."
+        }
+      ],
+      "returns": {
+        "type": "void (*",
+        "description": "The previous value of func for the specified signal if successful, or SIG_ERR (with errno set to a positive value) if the request cannot be honored."
+      },
+      "example": "#include <signal.h>\n#include <stdio.h>\n\nstatic volatile sig_atomic_t flagged = 0;\n\nstatic void on_term(int sig) {\n    (void)sig;\n    flagged = 1;\n}\n\nint main(void) {\n    if (signal(SIGTERM, on_term) == SIG_ERR) {\n        puts(\"signal failed\");\n        return 1;\n    }\n    raise(SIGTERM);\n    printf(\"flagged=%d\\n\", (int)flagged);\n    return 0;\n}",
+      "standards": [
+        "C89",
+        "C99",
+        "C11",
+        "C23"
+      ],
+      "evidence": [
+        {
+          "source": "c89-draft",
+          "file": "c89-draft.txt",
+          "heading": "4.7.1.1 The signal function",
+          "line": 7743,
+          "lines": [
+            "void (*signal(int sig, void (*func)(int)))(int);"
+          ]
+        },
+        {
+          "source": "n1256",
+          "file": "n1256.txt",
+          "heading": "7.14.1.1 The signal function",
+          "line": 13394,
+          "lines": [
+            "void (*signal(int sig, void (*func)(int)))(int);"
+          ]
+        },
+        {
+          "source": "n1570",
+          "file": "n1570.txt",
+          "heading": "7.14.1.1 The signal function",
+          "line": 14700,
+          "lines": [
+            "void (*signal(int sig, void (*func)(int)))(int);"
+          ]
+        },
+        {
+          "source": "n3220",
+          "file": "n3220.txt",
+          "heading": "7.14.1.1 The signal function",
+          "line": 19719,
+          "lines": [
+            "void (*signal(int sig, void (*func)(int)))(int);"
+          ]
+        },
+        {
+          "source": "ucrt-10.0.26100.0",
+          "file": "signal.h",
+          "line": 62,
+          "lines": [
+            "_ACRTIMP _crt_signal_t __cdecl signal(_In_ int _Signal, _In_opt_ _crt_signal_t _Function);"
+          ]
+        }
+      ]
+    }
+  ]
+}
