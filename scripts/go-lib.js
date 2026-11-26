@@ -85,6 +85,41 @@ export function parseFunc(line) {
   };
 }
 
+export function scanExamples(root, pkg) {
+  const dir = join(root, 'src', pkg);
+  const found = new Map();
+  const files = readdirSync(dir)
+    .filter((f) => /^example.*_test\.go$/.test(f))
+    .sort();
+  for (const file of files) {
+    const lines = readFileSync(join(dir, file), 'utf8').split(/\r?\n/);
+    lines.forEach((line, i) => {
+      const match = /^func Example([A-Z]\w*?)(?:_[a-z]\w*)?\(\) \{$/.exec(line);
+      if (!match || found.has(match[1])) return;
+      const end = lines.indexOf('}', i);
+      if (end === -1) return;
+      found.set(match[1], { file: `src/${pkg}/${file}`, line: i + 1, lines: lines.slice(i, end + 1) });
+    });
+  }
+  return found;
+}
+
+export function deprecation(decl) {
+  const doc = decl.doc.split('\n');
+  const start = doc.findIndex((l) => l.startsWith('Deprecated:'));
+  if (start === -1) return null;
+  let end = start;
+  while (end + 1 < doc.length && doc[end + 1].trim()) end += 1;
+  return {
+    line: decl.docLine + start,
+    message: doc
+      .slice(start, end + 1)
+      .join(' ')
+      .replace(/\s+/g, ' ')
+      .trim(),
+  };
+}
+
 export function scanPackage(root, pkg) {
   const dir = join(root, 'src', pkg);
   const found = new Map();
@@ -100,7 +135,14 @@ export function scanPackage(root, pkg) {
       if (!parsed || found.has(parsed.name)) return;
       const doc = [];
       for (let j = i - 1; j >= 0 && lines[j].startsWith('//'); j -= 1) doc.unshift(lines[j].replace(/^\/\/ ?/, ''));
-      found.set(parsed.name, { ...parsed, file: `src/${pkg}/${file}`, line: i + 1, text: line, doc: doc.join('\n') });
+      found.set(parsed.name, {
+        ...parsed,
+        file: `src/${pkg}/${file}`,
+        line: i + 1,
+        text: line,
+        doc: doc.join('\n'),
+        docLine: i + 1 - doc.length,
+      });
     });
   }
   return found;

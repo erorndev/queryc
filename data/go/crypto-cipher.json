@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewCBCDecrypter() {\n\t// Load your secret key from a safe place and reuse it across multiple\n\t// NewCipher calls. (Obviously don't use this example key for anything\n\t// real.) If you want to convert a passphrase to a key, use a suitable\n\t// package like bcrypt or scrypt.\n\tkey, _ := hex.DecodeString(\"6368616e676520746869732070617373\")\n\tciphertext, _ := hex.DecodeString(\"73c86d43a9d700a253a96c85b0f6b03ac9792e0e757f869cca306bd3cba1c62b\")\n\n\tblock, err := aes.NewCipher(key)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// The IV needs to be unique, but not secure. Therefore it's common to\n\t// include it at the beginning of the ciphertext.\n\tif len(ciphertext) < aes.BlockSize {\n\t\tpanic(\"ciphertext too short\")\n\t}\n\tiv := ciphertext[:aes.BlockSize]\n\tciphertext = ciphertext[aes.BlockSize:]\n\n\t// CBC mode always works in whole blocks.\n\tif len(ciphertext)%aes.BlockSize != 0 {\n\t\tpanic(\"ciphertext is not a multiple of the block size\")\n\t}\n\n\tmode := cipher.NewCBCDecrypter(block, iv)\n\n\t// CryptBlocks can work in-place if the two arguments are the same.\n\tmode.CryptBlocks(ciphertext, ciphertext)\n\n\t// If the original plaintext lengths are not a multiple of the block\n\t// size, padding would have to be added when encrypting, which would be\n\t// removed at this point. For an example, see\n\t// https://tools.ietf.org/html/rfc5246#section-6.2.3.2. However, it's\n\t// critical to note that ciphertexts must be authenticated (i.e. by\n\t// using crypto/hmac) before being decrypted in order to avoid creating\n\t// a padding oracle.\n\n\tfmt.Printf(\"%s\\n\", ciphertext)\n\t// Output: exampleplaintext\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/cipher/example_test.go",
+        "line": 76
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -60,6 +66,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewCBCEncrypter() {\n\t// Load your secret key from a safe place and reuse it across multiple\n\t// NewCipher calls. (Obviously don't use this example key for anything\n\t// real.) If you want to convert a passphrase to a key, use a suitable\n\t// package like bcrypt or scrypt.\n\tkey, _ := hex.DecodeString(\"6368616e676520746869732070617373\")\n\tplaintext := []byte(\"exampleplaintext\")\n\n\t// CBC mode works on blocks so plaintexts may need to be padded to the\n\t// next whole block. For an example of such padding, see\n\t// https://tools.ietf.org/html/rfc5246#section-6.2.3.2. Here we'll\n\t// assume that the plaintext is already of the correct length.\n\tif len(plaintext)%aes.BlockSize != 0 {\n\t\tpanic(\"plaintext is not a multiple of the block size\")\n\t}\n\n\tblock, err := aes.NewCipher(key)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// The IV needs to be unique, but not secure. Therefore it's common to\n\t// include it at the beginning of the ciphertext.\n\tciphertext := make([]byte, aes.BlockSize+len(plaintext))\n\tiv := ciphertext[:aes.BlockSize]\n\tif _, err := io.ReadFull(rand.Reader, iv); err != nil {\n\t\tpanic(err)\n\t}\n\n\tmode := cipher.NewCBCEncrypter(block, iv)\n\tmode.CryptBlocks(ciphertext[aes.BlockSize:], plaintext)\n\n\t// It's important to remember that ciphertexts must be authenticated\n\t// (i.e. by using crypto/hmac) as well as being encrypted in order to\n\t// be secure.\n\n\tfmt.Printf(\"%x\\n\", ciphertext)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/cipher/example_test.go",
+        "line": 119
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -98,6 +110,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleNewCFBDecrypter() {\n\t// Load your secret key from a safe place and reuse it across multiple\n\t// NewCipher calls. (Obviously don't use this example key for anything\n\t// real.) If you want to convert a passphrase to a key, use a suitable\n\t// package like bcrypt or scrypt.\n\tkey, _ := hex.DecodeString(\"6368616e676520746869732070617373\")\n\tciphertext, _ := hex.DecodeString(\"7dd015f06bec7f1b8f6559dad89f4131da62261786845100056b353194ad\")\n\n\tblock, err := aes.NewCipher(key)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// The IV needs to be unique, but not secure. Therefore it's common to\n\t// include it at the beginning of the ciphertext.\n\tif len(ciphertext) < aes.BlockSize {\n\t\tpanic(\"ciphertext too short\")\n\t}\n\tiv := ciphertext[:aes.BlockSize]\n\tciphertext = ciphertext[aes.BlockSize:]\n\n\tstream := cipher.NewCFBDecrypter(block, iv)\n\n\t// XORKeyStream can work in-place if the two arguments are the same.\n\tstream.XORKeyStream(ciphertext, ciphertext)\n\tfmt.Printf(\"%s\", ciphertext)\n\t// Output: some plaintext\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/cipher/example_test.go",
+        "line": 158
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/cfb.go",
+          "line": 74,
+          "message": "Deprecated: CFB mode is not authenticated, which generally enables active attacks to manipulate and recover the plaintext. It is recommended that applications use [AEAD] modes instead. The standard library implementation of CFB is also unoptimized and not validated as part of the FIPS 140-3 module. If an unauthenticated [Stream] mode is required, use [NewCTR] instead."
+        }
       ],
       "evidence": [
         {
@@ -138,6 +165,21 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewCFBEncrypter() {\n\t// Load your secret key from a safe place and reuse it across multiple\n\t// NewCipher calls. (Obviously don't use this example key for anything\n\t// real.) If you want to convert a passphrase to a key, use a suitable\n\t// package like bcrypt or scrypt.\n\tkey, _ := hex.DecodeString(\"6368616e676520746869732070617373\")\n\tplaintext := []byte(\"some plaintext\")\n\n\tblock, err := aes.NewCipher(key)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// The IV needs to be unique, but not secure. Therefore it's common to\n\t// include it at the beginning of the ciphertext.\n\tciphertext := make([]byte, aes.BlockSize+len(plaintext))\n\tiv := ciphertext[:aes.BlockSize]\n\tif _, err := io.ReadFull(rand.Reader, iv); err != nil {\n\t\tpanic(err)\n\t}\n\n\tstream := cipher.NewCFBEncrypter(block, iv)\n\tstream.XORKeyStream(ciphertext[aes.BlockSize:], plaintext)\n\n\t// It's important to remember that ciphertexts must be authenticated\n\t// (i.e. by using crypto/hmac) as well as being encrypted in order to\n\t// be secure.\n\tfmt.Printf(\"%x\\n\", ciphertext)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/cipher/example_test.go",
+        "line": 187
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/cfb.go",
+          "line": 58,
+          "message": "Deprecated: CFB mode is not authenticated, which generally enables active attacks to manipulate and recover the plaintext. It is recommended that applications use [AEAD] modes instead. The standard library implementation of CFB is also unoptimized and not validated as part of the FIPS 140-3 module. If an unauthenticated [Stream] mode is required, use [NewCTR] instead."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -177,6 +219,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewCTR() {\n\t// Load your secret key from a safe place and reuse it across multiple\n\t// NewCipher calls. (Obviously don't use this example key for anything\n\t// real.) If you want to convert a passphrase to a key, use a suitable\n\t// package like bcrypt or scrypt.\n\tkey, _ := hex.DecodeString(\"6368616e676520746869732070617373\")\n\tplaintext := []byte(\"some plaintext\")\n\n\tblock, err := aes.NewCipher(key)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// The IV needs to be unique, but not secure. Therefore it's common to\n\t// include it at the beginning of the ciphertext.\n\tciphertext := make([]byte, aes.BlockSize+len(plaintext))\n\tiv := ciphertext[:aes.BlockSize]\n\tif _, err := io.ReadFull(rand.Reader, iv); err != nil {\n\t\tpanic(err)\n\t}\n\n\tstream := cipher.NewCTR(block, iv)\n\tstream.XORKeyStream(ciphertext[aes.BlockSize:], plaintext)\n\n\t// It's important to remember that ciphertexts must be authenticated\n\t// (i.e. by using crypto/hmac) as well as being encrypted in order to\n\t// be secure.\n\n\t// CTR mode is the same for both encryption and decryption, so we can\n\t// also decrypt that ciphertext with NewCTR.\n\n\tplaintext2 := make([]byte, len(plaintext))\n\tstream = cipher.NewCTR(block, iv)\n\tstream.XORKeyStream(plaintext2, ciphertext[aes.BlockSize:])\n\n\tfmt.Printf(\"%s\\n\", plaintext2)\n\t// Output: some plaintext\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/cipher/example_test.go",
+        "line": 217
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -212,6 +260,12 @@
       "versions": [
         "Go 1.2"
       ],
+      "example": "func ExampleNewGCM_encrypt() {\n\t// Load your secret key from a safe place and reuse it across multiple\n\t// Seal/Open calls. (Obviously don't use this example key for anything\n\t// real.) If you want to convert a passphrase to a key, use a suitable\n\t// package like bcrypt or scrypt.\n\t// When decoded the key should be 16 bytes (AES-128) or 32 (AES-256).\n\tkey, _ := hex.DecodeString(\"6368616e676520746869732070617373776f726420746f206120736563726574\")\n\tplaintext := []byte(\"exampleplaintext\")\n\n\tblock, err := aes.NewCipher(key)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\n\taesgcm, err := cipher.NewGCM(block)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\n\t// Never use more than 2^32 random nonces with a given key because of the risk of a repeat.\n\tnonce := make([]byte, aesgcm.NonceSize())\n\tif _, err := io.ReadFull(rand.Reader, nonce); err != nil {\n\t\tpanic(err.Error())\n\t}\n\n\tciphertext := aesgcm.Seal(nil, nonce, plaintext, nil)\n\tfmt.Printf(\"%x\\n\", ciphertext)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/cipher/example_test.go",
+        "line": 18
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -363,6 +417,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleNewOFB() {\n\t// Load your secret key from a safe place and reuse it across multiple\n\t// NewCipher calls. (Obviously don't use this example key for anything\n\t// real.) If you want to convert a passphrase to a key, use a suitable\n\t// package like bcrypt or scrypt.\n\tkey, _ := hex.DecodeString(\"6368616e676520746869732070617373\")\n\tplaintext := []byte(\"some plaintext\")\n\n\tblock, err := aes.NewCipher(key)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// The IV needs to be unique, but not secure. Therefore it's common to\n\t// include it at the beginning of the ciphertext.\n\tciphertext := make([]byte, aes.BlockSize+len(plaintext))\n\tiv := ciphertext[:aes.BlockSize]\n\tif _, err := io.ReadFull(rand.Reader, iv); err != nil {\n\t\tpanic(err)\n\t}\n\n\tstream := cipher.NewOFB(block, iv)\n\tstream.XORKeyStream(ciphertext[aes.BlockSize:], plaintext)\n\n\t// It's important to remember that ciphertexts must be authenticated\n\t// (i.e. by using crypto/hmac) as well as being encrypted in order to\n\t// be secure.\n\n\t// OFB mode is the same for both encryption and decryption, so we can\n\t// also decrypt that ciphertext with NewOFB.\n\n\tplaintext2 := make([]byte, len(plaintext))\n\tstream = cipher.NewOFB(block, iv)\n\tstream.XORKeyStream(plaintext2, ciphertext[aes.BlockSize:])\n\n\tfmt.Printf(\"%s\\n\", plaintext2)\n\t// Output: some plaintext\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/cipher/example_test.go",
+        "line": 256
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/cipher/ofb.go",
+          "line": 26,
+          "message": "Deprecated: OFB mode is not authenticated, which generally enables active attacks to manipulate and recover the plaintext. It is recommended that applications use [AEAD] modes instead. The standard library implementation of OFB is also unoptimized and not validated as part of the FIPS 140-3 module. If an unauthenticated [Stream] mode is required, use [NewCTR] instead."
+        }
       ],
       "evidence": [
         {

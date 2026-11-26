@@ -1,0 +1,111 @@
+{
+  "object": "Intl.Collator",
+  "functions": [
+    {
+      "name": "compare",
+      "signature": "Intl.Collator.compare(x: string, y: string): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "string",
+          "optional": false,
+          "description": "The first value."
+        },
+        {
+          "name": "y",
+          "type": "string",
+          "optional": false,
+          "description": "The second value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4440,
+          "lines": [
+            "compare(x: string, y: string): number;"
+          ]
+        }
+      ],
+      "summary": "Compares two strings by the sort order of the locale."
+    },
+    {
+      "name": "resolvedOptions",
+      "signature": "Intl.Collator.resolvedOptions(): ResolvedCollatorOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedCollatorOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4441,
+          "lines": [
+            "resolvedOptions(): ResolvedCollatorOptions;"
+          ]
+        }
+      ],
+      "summary": "Returns the locale and options this object resolved to."
+    },
+    {
+      "name": "supportedLocalesOf",
+      "signature": "Intl.Collator.supportedLocalesOf(locales: string | string[], options?: CollatorOptions): string[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "string | string[]",
+          "optional": false,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "CollatorOptions",
+          "optional": true,
+          "description": "Formatting options."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4447,
+          "lines": [
+            "supportedLocalesOf(locales: string | string[], options?: CollatorOptions): string[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 453,
+          "lines": [
+            "supportedLocalesOf(locales: LocalesArgument, options?: CollatorOptions): string[];"
+          ]
+        }
+      ],
+      "summary": "Returns the given locales that this API supports without falling back."
+    }
+  ]
+}

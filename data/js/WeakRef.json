@@ -1,0 +1,29 @@
+{
+  "object": "WeakRef",
+  "functions": [
+    {
+      "name": "deref",
+      "summary": "Returns the WeakRef instance's target value, or undefined if the target value has been reclaimed. In es2023 the value can be either a symbol or an object, in previous versions only object is permissible.",
+      "signature": "WeakRef.deref(): T | undefined",
+      "params": [],
+      "returns": {
+        "type": "T | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.weakref.d.ts",
+          "line": 29,
+          "lines": [
+            "deref(): T | undefined;"
+          ]
+        }
+      ]
+    }
+  ]
+}

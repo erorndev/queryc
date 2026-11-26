@@ -52,6 +52,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleBase() {\n\tfmt.Println(\"On Unix:\")\n\tfmt.Println(filepath.Base(\"/foo/bar/baz.js\"))\n\tfmt.Println(filepath.Base(\"/foo/bar/baz\"))\n\tfmt.Println(filepath.Base(\"/foo/bar/baz/\"))\n\tfmt.Println(filepath.Base(\"dev.txt\"))\n\tfmt.Println(filepath.Base(\"../todo.txt\"))\n\tfmt.Println(filepath.Base(\"..\"))\n\tfmt.Println(filepath.Base(\".\"))\n\tfmt.Println(filepath.Base(\"/\"))\n\tfmt.Println(filepath.Base(\"\"))\n\n\t// Output:\n\t// On Unix:\n\t// baz.js\n\t// baz\n\t// baz\n\t// dev.txt\n\t// todo.txt\n\t// ..\n\t// .\n\t// /\n\t// .\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 102
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -122,6 +128,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDir() {\n\tfmt.Println(\"On Unix:\")\n\tfmt.Println(filepath.Dir(\"/foo/bar/baz.js\"))\n\tfmt.Println(filepath.Dir(\"/foo/bar/baz\"))\n\tfmt.Println(filepath.Dir(\"/foo/bar/baz/\"))\n\tfmt.Println(filepath.Dir(\"/dirty//path///\"))\n\tfmt.Println(filepath.Dir(\"dev.txt\"))\n\tfmt.Println(filepath.Dir(\"../todo.txt\"))\n\tfmt.Println(filepath.Dir(\"..\"))\n\tfmt.Println(filepath.Dir(\".\"))\n\tfmt.Println(filepath.Dir(\"/\"))\n\tfmt.Println(filepath.Dir(\"\"))\n\n\t// Output:\n\t// On Unix:\n\t// /foo/bar\n\t// /foo/bar\n\t// /foo/bar/baz\n\t// /dirty/path\n\t// .\n\t// ..\n\t// .\n\t// .\n\t// /\n\t// .\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 127
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -192,6 +204,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExt() {\n\tfmt.Printf(\"No dots: %q\\n\", filepath.Ext(\"index\"))\n\tfmt.Printf(\"One dot: %q\\n\", filepath.Ext(\"index.js\"))\n\tfmt.Printf(\"Two dots: %q\\n\", filepath.Ext(\"main.test.js\"))\n\t// Output:\n\t// No dots: \"\"\n\t// One dot: \".js\"\n\t// Two dots: \".js\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_test.go",
+        "line": 12
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -301,6 +319,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/path/filepath/path_plan9.go",
+          "line": 13,
+          "message": "Deprecated: HasPrefix does not respect path boundaries and does not ignore case when required."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -336,6 +363,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIsAbs() {\n\tfmt.Println(\"On Unix:\")\n\tfmt.Println(filepath.IsAbs(\"/home/gopher\"))\n\tfmt.Println(filepath.IsAbs(\".bashrc\"))\n\tfmt.Println(filepath.IsAbs(\"..\"))\n\tfmt.Println(filepath.IsAbs(\".\"))\n\tfmt.Println(filepath.IsAbs(\"/\"))\n\tfmt.Println(filepath.IsAbs(\"\"))\n\n\t// Output:\n\t// On Unix:\n\t// true\n\t// false\n\t// false\n\t// false\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 154
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -406,6 +439,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleJoin() {\n\tfmt.Println(\"On Unix:\")\n\tfmt.Println(filepath.Join(\"a\", \"b\", \"c\"))\n\tfmt.Println(filepath.Join(\"a\", \"b/c\"))\n\tfmt.Println(filepath.Join(\"a/b\", \"c\"))\n\tfmt.Println(filepath.Join(\"a/b\", \"/c\"))\n\n\tfmt.Println(filepath.Join(\"a/b\", \"../../../xyz\"))\n\n\t// Output:\n\t// On Unix:\n\t// a/b/c\n\t// a/b/c\n\t// a/b/c\n\t// a/b/c\n\t// ../xyz\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 69
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -480,6 +519,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMatch() {\n\tfmt.Println(\"On Unix:\")\n\tfmt.Println(filepath.Match(\"/home/catch/*\", \"/home/catch/foo\"))\n\tfmt.Println(filepath.Match(\"/home/catch/*\", \"/home/catch/foo/bar\"))\n\tfmt.Println(filepath.Match(\"/home/?opher\", \"/home/gopher\"))\n\tfmt.Println(filepath.Match(\"/home/\\\\*\", \"/home/*\"))\n\n\t// Output:\n\t// On Unix:\n\t// true <nil>\n\t// false <nil>\n\t// true <nil>\n\t// true <nil>\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 87
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -519,6 +564,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRel() {\n\tpaths := []string{\n\t\t\"/a/b/c\",\n\t\t\"/b/c\",\n\t\t\"./b/c\",\n\t}\n\tbase := \"/a\"\n\n\tfmt.Println(\"On Unix:\")\n\tfor _, p := range paths {\n\t\trel, err := filepath.Rel(base, p)\n\t\tfmt.Printf(\"%q: %q %v\\n\", p, rel, err)\n\t}\n\n\t// Output:\n\t// On Unix:\n\t// \"/a/b/c\": \"b/c\" <nil>\n\t// \"/b/c\": \"../b/c\" <nil>\n\t// \"./b/c\": \"\" Rel: can't make ./b/c relative to /a\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 20
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -554,6 +605,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplit() {\n\tpaths := []string{\n\t\t\"/home/arnie/amelia.jpg\",\n\t\t\"/mnt/photos/\",\n\t\t\"rabbit.jpg\",\n\t\t\"/usr/local//go\",\n\t}\n\tfmt.Println(\"On Unix:\")\n\tfor _, p := range paths {\n\t\tdir, file := filepath.Split(p)\n\t\tfmt.Printf(\"input: %q\\n\\tdir: %q\\n\\tfile: %q\\n\", p, dir, file)\n\t}\n\t// Output:\n\t// On Unix:\n\t// input: \"/home/arnie/amelia.jpg\"\n\t// \tdir: \"/home/arnie/\"\n\t// \tfile: \"amelia.jpg\"\n\t// input: \"/mnt/photos/\"\n\t// \tdir: \"/mnt/photos/\"\n\t// \tfile: \"\"\n\t// input: \"rabbit.jpg\"\n\t// \tdir: \"\"\n\t// \tfile: \"rabbit.jpg\"\n\t// input: \"/usr/local//go\"\n\t// \tdir: \"/usr/local//\"\n\t// \tfile: \"go\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 41
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -589,6 +646,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplitList() {\n\tfmt.Println(\"On Unix:\", filepath.SplitList(\"/a/b/c:/usr/bin\"))\n\t// Output:\n\t// On Unix: [/a/b/c /usr/bin]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_test.go",
+        "line": 14
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -698,6 +761,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleWalk() {\n\ttmpDir, err := prepareTestDirTree(\"dir/to/walk/skip\")\n\tif err != nil {\n\t\tfmt.Printf(\"unable to create test dir tree: %v\\n\", err)\n\t\treturn\n\t}\n\tdefer os.RemoveAll(tmpDir)\n\tos.Chdir(tmpDir)\n\n\tsubDirToSkip := \"skip\"\n\n\tfmt.Println(\"On Unix:\")\n\terr = filepath.Walk(\".\", func(path string, info fs.FileInfo, err error) error {\n\t\tif err != nil {\n\t\t\tfmt.Printf(\"prevent panic by handling failure accessing a path %q: %v\\n\", path, err)\n\t\t\treturn err\n\t\t}\n\t\tif info.IsDir() && info.Name() == subDirToSkip {\n\t\t\tfmt.Printf(\"skipping a dir without errors: %+v \\n\", info.Name())\n\t\t\treturn filepath.SkipDir\n\t\t}\n\t\tfmt.Printf(\"visited file or dir: %q\\n\", path)\n\t\treturn nil\n\t})\n\tif err != nil {\n\t\tfmt.Printf(\"error walking the path %q: %v\\n\", tmpDir, err)\n\t\treturn\n\t}\n\t// Output:\n\t// On Unix:\n\t// visited file or dir: \".\"\n\t// visited file or dir: \"dir\"\n\t// visited file or dir: \"dir/to\"\n\t// visited file or dir: \"dir/to/walk\"\n\t// skipping a dir without errors: skip\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/filepath/example_unix_walk_test.go",
+        "line": 31
+      },
       "evidence": [
         {
           "source": "go-1.25",

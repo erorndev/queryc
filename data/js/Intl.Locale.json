@@ -1,0 +1,77 @@
+{
+  "object": "Intl.Locale",
+  "functions": [
+    {
+      "name": "maximize",
+      "summary": "Gets the most likely values for the language, script, and region of the locale based on existing values.",
+      "signature": "Intl.Locale.maximize(): Locale",
+      "params": [],
+      "returns": {
+        "type": "Locale",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 331,
+          "lines": [
+            "maximize(): Locale;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "minimize",
+      "summary": "Attempts to remove information about the locale that would be added by calling `Locale.maximize()`.",
+      "signature": "Intl.Locale.minimize(): Locale",
+      "params": [],
+      "returns": {
+        "type": "Locale",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 333,
+          "lines": [
+            "minimize(): Locale;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns the locale's full locale identifier string.",
+      "signature": "Intl.Locale.toString(): UnicodeBCP47LocaleIdentifier",
+      "params": [],
+      "returns": {
+        "type": "UnicodeBCP47LocaleIdentifier",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 335,
+          "lines": [
+            "toString(): UnicodeBCP47LocaleIdentifier;"
+          ]
+        }
+      ]
+    }
+  ]
+}

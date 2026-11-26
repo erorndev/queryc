@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleEscapeString() {\n\tconst s = `\"Fran & Freddie's Diner\" <tasty@example.com>`\n\tfmt.Println(html.EscapeString(s))\n\t// Output: &#34;Fran &amp; Freddie&#39;s Diner&#34; &lt;tasty@example.com&gt;\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/html/example_test.go",
+        "line": 12
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -52,6 +58,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleUnescapeString() {\n\tconst s = `&quot;Fran &amp; Freddie&#39;s Diner&quot; &lt;tasty@example.com&gt;`\n\tfmt.Println(html.UnescapeString(s))\n\t// Output: \"Fran & Freddie's Diner\" <tasty@example.com>\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/html/example_test.go",
+        "line": 18
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -126,6 +126,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleGlob() {\n\tfsys := fstest.MapFS{\n\t\t\"file.txt\":        {},\n\t\t\"file.go\":         {},\n\t\t\"dir/file.txt\":    {},\n\t\t\"dir/file.go\":     {},\n\t\t\"dir/subdir/x.go\": {},\n\t}\n\n\tpatterns := []string{\n\t\t\"*.txt\",\n\t\t\"*.go\",\n\t\t\"dir/*.go\",\n\t\t\"dir/*/x.go\",\n\t}\n\n\tfor _, pattern := range patterns {\n\t\tmatches, err := fs.Glob(fsys, pattern)\n\t\tif err != nil {\n\t\t\tlog.Fatal(err)\n\t\t}\n\t\tfmt.Printf(\"%q matches: %v\\n\", pattern, matches)\n\t}\n\n\t// Output:\n\t// \"*.txt\" matches: [file.txt]\n\t// \"*.go\" matches: [file.go]\n\t// \"dir/*.go\" matches: [dir/file.go]\n\t// \"dir/*/x.go\" matches: [dir/subdir/x.go]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/fs/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -243,6 +249,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleReadFile() {\n\tfsys := fstest.MapFS{\n\t\t\"hello.txt\": {\n\t\t\tData: []byte(\"Hello, World!\\n\"),\n\t\t},\n\t}\n\n\tdata, err := fs.ReadFile(fsys, \"hello.txt\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Print(string(data))\n\n\t// Output:\n\t// Hello, World!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/fs/example_test.go",
+        "line": 46
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -395,6 +407,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleValidPath() {\n\tpaths := []string{\n\t\t\".\",\n\t\t\"x\",\n\t\t\"x/y/z\",\n\t\t\"\",\n\t\t\"..\",\n\t\t\"/x\",\n\t\t\"x/\",\n\t\t\"x//y\",\n\t\t\"x/./y\",\n\t\t\"x/../y\",\n\t}\n\n\tfor _, path := range paths {\n\t\tfmt.Printf(\"ValidPath(%q) = %t\\n\", path, fs.ValidPath(path))\n\t}\n\n\t// Output:\n\t// ValidPath(\".\") = true\n\t// ValidPath(\"x\") = true\n\t// ValidPath(\"x/y/z\") = true\n\t// ValidPath(\"\") = false\n\t// ValidPath(\"..\") = false\n\t// ValidPath(\"/x\") = false\n\t// ValidPath(\"x/\") = false\n\t// ValidPath(\"x//y\") = false\n\t// ValidPath(\"x/./y\") = false\n\t// ValidPath(\"x/../y\") = false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/fs/example_test.go",
+        "line": 64
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -438,6 +456,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleWalkDir() {\n\troot := \"/usr/local/go/bin\"\n\tfileSystem := os.DirFS(root)\n\n\tfs.WalkDir(fileSystem, \".\", func(path string, d fs.DirEntry, err error) error {\n\t\tif err != nil {\n\t\t\tlog.Fatal(err)\n\t\t}\n\t\tfmt.Println(path)\n\t\treturn nil\n\t})\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/fs/example_test.go",
+        "line": 95
+      },
       "evidence": [
         {
           "source": "go-1.25",

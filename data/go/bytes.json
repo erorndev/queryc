@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.20"
       ],
+      "example": "func ExampleClone() {\n\tb := []byte(\"abc\")\n\tclone := bytes.Clone(b)\n\tfmt.Printf(\"%s\\n\", clone)\n\tclone[0] = 'd'\n\tfmt.Printf(\"%s\\n\", b)\n\tfmt.Printf(\"%s\\n\", clone)\n\t// Output:\n\t// abc\n\t// abc\n\t// dbc\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 126
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -56,6 +62,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCompare() {\n\t// Interpret Compare's result by comparing it to zero.\n\tvar a, b []byte\n\tif bytes.Compare(a, b) < 0 {\n\t\t// a less b\n\t}\n\tif bytes.Compare(a, b) <= 0 {\n\t\t// a less or equal b\n\t}\n\tif bytes.Compare(a, b) > 0 {\n\t\t// a greater b\n\t}\n\tif bytes.Compare(a, b) >= 0 {\n\t\t// a greater or equal b\n\t}\n\n\t// Prefer Equal to Compare for equality comparisons.\n\tif bytes.Equal(a, b) {\n\t\t// a equal b\n\t}\n\tif !bytes.Equal(a, b) {\n\t\t// a not equal b\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 139
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -95,6 +107,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleContains() {\n\tfmt.Println(bytes.Contains([]byte(\"seafood\"), []byte(\"foo\")))\n\tfmt.Println(bytes.Contains([]byte(\"seafood\"), []byte(\"bar\")))\n\tfmt.Println(bytes.Contains([]byte(\"seafood\"), []byte(\"\")))\n\tfmt.Println(bytes.Contains([]byte(\"\"), []byte(\"\")))\n\t// Output:\n\t// true\n\t// false\n\t// true\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 174
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -134,6 +152,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleContainsAny() {\n\tfmt.Println(bytes.ContainsAny([]byte(\"I like seafood.\"), \"fÄo!\"))\n\tfmt.Println(bytes.ContainsAny([]byte(\"I like seafood.\"), \"去是伟大的.\"))\n\tfmt.Println(bytes.ContainsAny([]byte(\"I like seafood.\"), \"\"))\n\tfmt.Println(bytes.ContainsAny([]byte(\"\"), \"\"))\n\t// Output:\n\t// true\n\t// true\n\t// false\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 186
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -173,6 +197,12 @@
       "versions": [
         "Go 1.21"
       ],
+      "example": "func ExampleContainsFunc() {\n\tf := func(r rune) bool {\n\t\treturn r >= 'a' && r <= 'z'\n\t}\n\tfmt.Println(bytes.ContainsFunc([]byte(\"HELLO\"), f))\n\tfmt.Println(bytes.ContainsFunc([]byte(\"World\"), f))\n\t// Output:\n\t// false\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 212
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -212,6 +242,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleContainsRune() {\n\tfmt.Println(bytes.ContainsRune([]byte(\"I like seafood.\"), 'f'))\n\tfmt.Println(bytes.ContainsRune([]byte(\"I like seafood.\"), 'ö'))\n\tfmt.Println(bytes.ContainsRune([]byte(\"去是伟大的!\"), '大'))\n\tfmt.Println(bytes.ContainsRune([]byte(\"去是伟大的!\"), '!'))\n\tfmt.Println(bytes.ContainsRune([]byte(\"\"), '@'))\n\t// Output:\n\t// true\n\t// false\n\t// true\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 198
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -251,6 +287,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCount() {\n\tfmt.Println(bytes.Count([]byte(\"cheese\"), []byte(\"e\")))\n\tfmt.Println(bytes.Count([]byte(\"five\"), []byte(\"\"))) // before & after each rune\n\t// Output:\n\t// 3\n\t// 5\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 223
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -290,6 +332,12 @@
       "versions": [
         "Go 1.18"
       ],
+      "example": "func ExampleCut() {\n\tshow := func(s, sep string) {\n\t\tbefore, after, found := bytes.Cut([]byte(s), []byte(sep))\n\t\tfmt.Printf(\"Cut(%q, %q) = %q, %q, %v\\n\", s, sep, before, after, found)\n\t}\n\tshow(\"Gopher\", \"Go\")\n\tshow(\"Gopher\", \"ph\")\n\tshow(\"Gopher\", \"er\")\n\tshow(\"Gopher\", \"Badger\")\n\t// Output:\n\t// Cut(\"Gopher\", \"Go\") = \"\", \"pher\", true\n\t// Cut(\"Gopher\", \"ph\") = \"Go\", \"er\", true\n\t// Cut(\"Gopher\", \"er\") = \"Goph\", \"\", true\n\t// Cut(\"Gopher\", \"Badger\") = \"Gopher\", \"\", false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 231
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -329,6 +377,12 @@
       "versions": [
         "Go 1.20"
       ],
+      "example": "func ExampleCutPrefix() {\n\tshow := func(s, prefix string) {\n\t\tafter, found := bytes.CutPrefix([]byte(s), []byte(prefix))\n\t\tfmt.Printf(\"CutPrefix(%q, %q) = %q, %v\\n\", s, prefix, after, found)\n\t}\n\tshow(\"Gopher\", \"Go\")\n\tshow(\"Gopher\", \"ph\")\n\t// Output:\n\t// CutPrefix(\"Gopher\", \"Go\") = \"pher\", true\n\t// CutPrefix(\"Gopher\", \"ph\") = \"Gopher\", false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 247
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -368,6 +422,12 @@
       "versions": [
         "Go 1.20"
       ],
+      "example": "func ExampleCutSuffix() {\n\tshow := func(s, suffix string) {\n\t\tbefore, found := bytes.CutSuffix([]byte(s), []byte(suffix))\n\t\tfmt.Printf(\"CutSuffix(%q, %q) = %q, %v\\n\", s, suffix, before, found)\n\t}\n\tshow(\"Gopher\", \"Go\")\n\tshow(\"Gopher\", \"er\")\n\t// Output:\n\t// CutSuffix(\"Gopher\", \"Go\") = \"Gopher\", false\n\t// CutSuffix(\"Gopher\", \"er\") = \"Goph\", true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 259
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -407,6 +467,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleEqual() {\n\tfmt.Println(bytes.Equal([]byte(\"Go\"), []byte(\"Go\")))\n\tfmt.Println(bytes.Equal([]byte(\"Go\"), []byte(\"C++\")))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 271
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -446,6 +512,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleEqualFold() {\n\tfmt.Println(bytes.EqualFold([]byte(\"Go\"), []byte(\"go\")))\n\t// Output: true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 279
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -481,6 +553,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFields() {\n\tfmt.Printf(\"Fields are: %q\", bytes.Fields([]byte(\"  foo bar  baz   \")))\n\t// Output: Fields are: [\"foo\" \"bar\" \"baz\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 284
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -520,6 +598,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFieldsFunc() {\n\tf := func(c rune) bool {\n\t\treturn !unicode.IsLetter(c) && !unicode.IsNumber(c)\n\t}\n\tfmt.Printf(\"Fields are: %q\", bytes.FieldsFunc([]byte(\"  foo1;bar2,baz3...\"), f))\n\t// Output: Fields are: [\"foo1\" \"bar2\" \"baz3\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 289
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -559,6 +643,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleFieldsFuncSeq() {\n\ttext := []byte(\"The quick brown fox\")\n\tfmt.Println(\"Split on whitespace(similar to FieldsSeq):\")\n\tfor word := range bytes.FieldsFuncSeq(text, unicode.IsSpace) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\tmixedText := []byte(\"abc123def456ghi\")\n\tfmt.Println(\"\\nSplit on digits:\")\n\tfor word := range bytes.FieldsFuncSeq(mixedText, unicode.IsDigit) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\t// Output:\n\t// Split on whitespace(similar to FieldsSeq):\n\t// \"The\"\n\t// \"quick\"\n\t// \"brown\"\n\t// \"fox\"\n\t//\n\t// Split on digits:\n\t// \"abc\"\n\t// \"def\"\n\t// \"ghi\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 696
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -594,6 +684,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleFieldsSeq() {\n\ttext := []byte(\"The quick brown fox\")\n\tfmt.Println(\"Split byte slice into fields:\")\n\tfor word := range bytes.FieldsSeq(text) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\ttextWithSpaces := []byte(\"  lots   of   spaces  \")\n\tfmt.Println(\"\\nSplit byte slice with multiple spaces:\")\n\tfor word := range bytes.FieldsSeq(textWithSpaces) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\t// Output:\n\t// Split byte slice into fields:\n\t// \"The\"\n\t// \"quick\"\n\t// \"brown\"\n\t// \"fox\"\n\t//\n\t// Split byte slice with multiple spaces:\n\t// \"lots\"\n\t// \"of\"\n\t// \"spaces\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 670
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -633,6 +729,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleHasPrefix() {\n\tfmt.Println(bytes.HasPrefix([]byte(\"Gopher\"), []byte(\"Go\")))\n\tfmt.Println(bytes.HasPrefix([]byte(\"Gopher\"), []byte(\"C\")))\n\tfmt.Println(bytes.HasPrefix([]byte(\"Gopher\"), []byte(\"\")))\n\t// Output:\n\t// true\n\t// false\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 297
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -672,6 +774,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleHasSuffix() {\n\tfmt.Println(bytes.HasSuffix([]byte(\"Amigo\"), []byte(\"go\")))\n\tfmt.Println(bytes.HasSuffix([]byte(\"Amigo\"), []byte(\"O\")))\n\tfmt.Println(bytes.HasSuffix([]byte(\"Amigo\"), []byte(\"Ami\")))\n\tfmt.Println(bytes.HasSuffix([]byte(\"Amigo\"), []byte(\"\")))\n\t// Output:\n\t// true\n\t// false\n\t// false\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 307
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -711,6 +819,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndex() {\n\tfmt.Println(bytes.Index([]byte(\"chicken\"), []byte(\"ken\")))\n\tfmt.Println(bytes.Index([]byte(\"chicken\"), []byte(\"dmr\")))\n\t// Output:\n\t// 4\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 319
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -750,6 +864,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndexAny() {\n\tfmt.Println(bytes.IndexAny([]byte(\"chicken\"), \"aeiouy\"))\n\tfmt.Println(bytes.IndexAny([]byte(\"crwth\"), \"aeiouy\"))\n\t// Output:\n\t// 2\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 346
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -789,6 +909,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndexByte() {\n\tfmt.Println(bytes.IndexByte([]byte(\"chicken\"), byte('k')))\n\tfmt.Println(bytes.IndexByte([]byte(\"chicken\"), byte('g')))\n\t// Output:\n\t// 4\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 327
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -828,6 +954,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndexFunc() {\n\tf := func(c rune) bool {\n\t\treturn unicode.Is(unicode.Han, c)\n\t}\n\tfmt.Println(bytes.IndexFunc([]byte(\"Hello, 世界\"), f))\n\tfmt.Println(bytes.IndexFunc([]byte(\"Hello, world\"), f))\n\t// Output:\n\t// 7\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 335
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -867,6 +999,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndexRune() {\n\tfmt.Println(bytes.IndexRune([]byte(\"chicken\"), 'k'))\n\tfmt.Println(bytes.IndexRune([]byte(\"chicken\"), 'd'))\n\t// Output:\n\t// 4\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 354
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -906,6 +1044,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleJoin() {\n\ts := [][]byte{[]byte(\"foo\"), []byte(\"bar\"), []byte(\"baz\")}\n\tfmt.Printf(\"%s\", bytes.Join(s, []byte(\", \")))\n\t// Output: foo, bar, baz\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 362
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -945,6 +1089,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLastIndex() {\n\tfmt.Println(bytes.Index([]byte(\"go gopher\"), []byte(\"go\")))\n\tfmt.Println(bytes.LastIndex([]byte(\"go gopher\"), []byte(\"go\")))\n\tfmt.Println(bytes.LastIndex([]byte(\"go gopher\"), []byte(\"rodent\")))\n\t// Output:\n\t// 0\n\t// 3\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 368
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -984,6 +1134,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLastIndexAny() {\n\tfmt.Println(bytes.LastIndexAny([]byte(\"go gopher\"), \"MüQp\"))\n\tfmt.Println(bytes.LastIndexAny([]byte(\"go 地鼠\"), \"地大\"))\n\tfmt.Println(bytes.LastIndexAny([]byte(\"go gopher\"), \"z,!.\"))\n\t// Output:\n\t// 5\n\t// 3\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 378
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1023,6 +1179,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleLastIndexByte() {\n\tfmt.Println(bytes.LastIndexByte([]byte(\"go gopher\"), byte('g')))\n\tfmt.Println(bytes.LastIndexByte([]byte(\"go gopher\"), byte('r')))\n\tfmt.Println(bytes.LastIndexByte([]byte(\"go gopher\"), byte('z')))\n\t// Output:\n\t// 3\n\t// 8\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 388
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1062,6 +1224,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLastIndexFunc() {\n\tfmt.Println(bytes.LastIndexFunc([]byte(\"go gopher!\"), unicode.IsLetter))\n\tfmt.Println(bytes.LastIndexFunc([]byte(\"go gopher!\"), unicode.IsPunct))\n\tfmt.Println(bytes.LastIndexFunc([]byte(\"go gopher!\"), unicode.IsNumber))\n\t// Output:\n\t// 8\n\t// 9\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 398
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1097,6 +1265,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleLines() {\n\ttext := []byte(\"Hello\\nWorld\\nGo Programming\\n\")\n\tfor line := range bytes.Lines(text) {\n\t\tfmt.Printf(\"%q\\n\", line)\n\t}\n\n\t// Output:\n\t// \"Hello\\n\"\n\t// \"World\\n\"\n\t// \"Go Programming\\n\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 632
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1136,6 +1310,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMap() {\n\trot13 := func(r rune) rune {\n\t\tswitch {\n\t\tcase r >= 'A' && r <= 'Z':\n\t\t\treturn 'A' + (r-'A'+13)%26\n\t\tcase r >= 'a' && r <= 'z':\n\t\t\treturn 'a' + (r-'a'+13)%26\n\t\t}\n\t\treturn r\n\t}\n\tfmt.Printf(\"%s\\n\", bytes.Map(rot13, []byte(\"'Twas brillig and the slithy gopher...\")))\n\t// Output:\n\t// 'Gjnf oevyyvt naq gur fyvgul tbcure...\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 408
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1280,6 +1460,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRepeat() {\n\tfmt.Printf(\"ba%s\", bytes.Repeat([]byte(\"na\"), 2))\n\t// Output: banana\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 431
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1327,6 +1513,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleReplace() {\n\tfmt.Printf(\"%s\\n\", bytes.Replace([]byte(\"oink oink oink\"), []byte(\"k\"), []byte(\"ky\"), 2))\n\tfmt.Printf(\"%s\\n\", bytes.Replace([]byte(\"oink oink oink\"), []byte(\"oink\"), []byte(\"moo\"), -1))\n\t// Output:\n\t// oinky oinky oink\n\t// moo moo moo\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 436
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1370,6 +1562,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleReplaceAll() {\n\tfmt.Printf(\"%s\\n\", bytes.ReplaceAll([]byte(\"oink oink oink\"), []byte(\"oink\"), []byte(\"moo\")))\n\t// Output:\n\t// moo moo moo\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 444
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1405,6 +1603,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRunes() {\n\trs := bytes.Runes([]byte(\"go gopher\"))\n\tfor _, r := range rs {\n\t\tfmt.Printf(\"%#U\\n\", r)\n\t}\n\t// Output:\n\t// U+0067 'g'\n\t// U+006F 'o'\n\t// U+0020 ' '\n\t// U+0067 'g'\n\t// U+006F 'o'\n\t// U+0070 'p'\n\t// U+0068 'h'\n\t// U+0065 'e'\n\t// U+0072 'r'\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 450
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1444,6 +1648,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplit() {\n\tfmt.Printf(\"%q\\n\", bytes.Split([]byte(\"a,b,c\"), []byte(\",\")))\n\tfmt.Printf(\"%q\\n\", bytes.Split([]byte(\"a man a plan a canal panama\"), []byte(\"a \")))\n\tfmt.Printf(\"%q\\n\", bytes.Split([]byte(\" xyz \"), []byte(\"\")))\n\tfmt.Printf(\"%q\\n\", bytes.Split([]byte(\"\"), []byte(\"Bernardo O'Higgins\")))\n\t// Output:\n\t// [\"a\" \"b\" \"c\"]\n\t// [\"\" \"man \" \"plan \" \"canal panama\"]\n\t// [\" \" \"x\" \"y\" \"z\" \" \"]\n\t// [\"\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 467
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1483,6 +1693,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplitAfter() {\n\tfmt.Printf(\"%q\\n\", bytes.SplitAfter([]byte(\"a,b,c\"), []byte(\",\")))\n\t// Output: [\"a,\" \"b,\" \"c\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 488
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1526,6 +1742,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplitAfterN() {\n\tfmt.Printf(\"%q\\n\", bytes.SplitAfterN([]byte(\"a,b,c\"), []byte(\",\"), 2))\n\t// Output: [\"a,\" \"b,c\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 493
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1565,6 +1787,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleSplitAfterSeq() {\n\ts := []byte(\"a,b,c,d\")\n\tfor part := range bytes.SplitAfterSeq(s, []byte(\",\")) {\n\t\tfmt.Printf(\"%q\\n\", part)\n\t}\n\n\t// Output:\n\t// \"a,\"\n\t// \"b,\"\n\t// \"c,\"\n\t// \"d\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 657
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1608,6 +1836,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplitN() {\n\tfmt.Printf(\"%q\\n\", bytes.SplitN([]byte(\"a,b,c\"), []byte(\",\"), 2))\n\tz := bytes.SplitN([]byte(\"a,b,c\"), []byte(\",\"), 0)\n\tfmt.Printf(\"%q (nil = %v)\\n\", z, z == nil)\n\t// Output:\n\t// [\"a\" \"b,c\"]\n\t// [] (nil = true)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 479
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1647,6 +1881,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleSplitSeq() {\n\ts := []byte(\"a,b,c,d\")\n\tfor part := range bytes.SplitSeq(s, []byte(\",\")) {\n\t\tfmt.Printf(\"%q\\n\", part)\n\t}\n\n\t// Output:\n\t// \"a\"\n\t// \"b\"\n\t// \"c\"\n\t// \"d\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 644
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1681,6 +1921,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleTitle() {\n\tfmt.Printf(\"%s\", bytes.Title([]byte(\"her royal highness\")))\n\t// Output: Her Royal Highness\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 498
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/bytes/bytes.go",
+          "line": 834,
+          "message": "Deprecated: The rule Title uses for word boundaries does not handle Unicode punctuation properly. Use golang.org/x/text/cases instead."
+        }
       ],
       "evidence": [
         {
@@ -1717,6 +1972,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToLower() {\n\tfmt.Printf(\"%s\", bytes.ToLower([]byte(\"Gopher\")))\n\t// Output: gopher\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 602
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1756,6 +2017,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToLowerSpecial() {\n\tstr := []byte(\"AHOJ VÝVOJÁRİ GOLANG\")\n\ttotitle := bytes.ToLowerSpecial(unicode.AzeriCase, str)\n\tfmt.Println(\"Original : \" + string(str))\n\tfmt.Println(\"ToLower : \" + string(totitle))\n\t// Output:\n\t// Original : AHOJ VÝVOJÁRİ GOLANG\n\t// ToLower : ahoj vývojári golang\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 607
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1791,6 +2058,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToTitle() {\n\tfmt.Printf(\"%s\\n\", bytes.ToTitle([]byte(\"loud noises\")))\n\tfmt.Printf(\"%s\\n\", bytes.ToTitle([]byte(\"брат\")))\n\t// Output:\n\t// LOUD NOISES\n\t// БРАТ\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 503
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1830,6 +2103,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToTitleSpecial() {\n\tstr := []byte(\"ahoj vývojári golang\")\n\ttotitle := bytes.ToTitleSpecial(unicode.AzeriCase, str)\n\tfmt.Println(\"Original : \" + string(str))\n\tfmt.Println(\"ToTitle : \" + string(totitle))\n\t// Output:\n\t// Original : ahoj vývojári golang\n\t// ToTitle : AHOJ VÝVOJÁRİ GOLANG\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 511
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1865,6 +2144,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToUpper() {\n\tfmt.Printf(\"%s\", bytes.ToUpper([]byte(\"Gopher\")))\n\t// Output: GOPHER\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 617
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1904,6 +2189,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToUpperSpecial() {\n\tstr := []byte(\"ahoj vývojári golang\")\n\ttotitle := bytes.ToUpperSpecial(unicode.AzeriCase, str)\n\tfmt.Println(\"Original : \" + string(str))\n\tfmt.Println(\"ToUpper : \" + string(totitle))\n\t// Output:\n\t// Original : ahoj vývojári golang\n\t// ToUpper : AHOJ VÝVOJÁRİ GOLANG\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 622
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1943,6 +2234,12 @@
       "versions": [
         "Go 1.13"
       ],
+      "example": "func ExampleToValidUTF8() {\n\tfmt.Printf(\"%s\\n\", bytes.ToValidUTF8([]byte(\"abc\"), []byte(\"\\uFFFD\")))\n\tfmt.Printf(\"%s\\n\", bytes.ToValidUTF8([]byte(\"a\\xffb\\xC0\\xAFc\\xff\"), []byte(\"\")))\n\tfmt.Printf(\"%s\\n\", bytes.ToValidUTF8([]byte(\"\\xed\\xa0\\x80\"), []byte(\"abc\")))\n\t// Output:\n\t// abc\n\t// abc\n\t// abc\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 521
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1982,6 +2279,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrim() {\n\tfmt.Printf(\"[%q]\", bytes.Trim([]byte(\" !!! Achtung! Achtung! !!! \"), \"! \"))\n\t// Output: [\"Achtung! Achtung\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 531
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2021,6 +2324,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimFunc() {\n\tfmt.Println(string(bytes.TrimFunc([]byte(\"go-gopher!\"), unicode.IsLetter)))\n\tfmt.Println(string(bytes.TrimFunc([]byte(\"\\\"go-gopher!\\\"\"), unicode.IsLetter)))\n\tfmt.Println(string(bytes.TrimFunc([]byte(\"go-gopher!\"), unicode.IsPunct)))\n\tfmt.Println(string(bytes.TrimFunc([]byte(\"1234go-gopher!567\"), unicode.IsNumber)))\n\t// Output:\n\t// -gopher!\n\t// \"go-gopher!\"\n\t// go-gopher\n\t// go-gopher!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 536
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2060,6 +2369,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimLeft() {\n\tfmt.Print(string(bytes.TrimLeft([]byte(\"453gopher8257\"), \"0123456789\")))\n\t// Output:\n\t// gopher8257\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 548
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2099,6 +2414,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimLeftFunc() {\n\tfmt.Println(string(bytes.TrimLeftFunc([]byte(\"go-gopher\"), unicode.IsLetter)))\n\tfmt.Println(string(bytes.TrimLeftFunc([]byte(\"go-gopher!\"), unicode.IsPunct)))\n\tfmt.Println(string(bytes.TrimLeftFunc([]byte(\"1234go-gopher!567\"), unicode.IsNumber)))\n\t// Output:\n\t// -gopher\n\t// go-gopher!\n\t// go-gopher!567\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 554
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2138,6 +2459,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleTrimPrefix() {\n\tvar b = []byte(\"Goodbye,, world!\")\n\tb = bytes.TrimPrefix(b, []byte(\"Goodbye,\"))\n\tb = bytes.TrimPrefix(b, []byte(\"See ya,\"))\n\tfmt.Printf(\"Hello%s\", b)\n\t// Output: Hello, world!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 564
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2177,6 +2504,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimRight() {\n\tfmt.Print(string(bytes.TrimRight([]byte(\"453gopher8257\"), \"0123456789\")))\n\t// Output:\n\t// 453gopher\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 586
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2216,6 +2549,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimRightFunc() {\n\tfmt.Println(string(bytes.TrimRightFunc([]byte(\"go-gopher\"), unicode.IsLetter)))\n\tfmt.Println(string(bytes.TrimRightFunc([]byte(\"go-gopher!\"), unicode.IsPunct)))\n\tfmt.Println(string(bytes.TrimRightFunc([]byte(\"1234go-gopher!567\"), unicode.IsNumber)))\n\t// Output:\n\t// go-\n\t// go-gopher\n\t// 1234go-gopher!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 592
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2251,6 +2590,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimSpace() {\n\tfmt.Printf(\"%s\", bytes.TrimSpace([]byte(\" \\t\\n a lone gopher \\n\\t\\r\\n\")))\n\t// Output: a lone gopher\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 572
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2290,6 +2635,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleTrimSuffix() {\n\tvar b = []byte(\"Hello, goodbye, etc!\")\n\tb = bytes.TrimSuffix(b, []byte(\"goodbye, etc!\"))\n\tb = bytes.TrimSuffix(b, []byte(\"gopher\"))\n\tb = append(b, bytes.TrimSuffix([]byte(\"world!\"), []byte(\"x!\"))...)\n\tos.Stdout.Write(b)\n\t// Output: Hello, world!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/bytes/example_test.go",
+        "line": 577
+      },
       "evidence": [
         {
           "source": "go-1.25",

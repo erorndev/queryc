@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { apiVersions, scanPackage, parseGoParams } from './go-lib.js';
+import { apiVersions, scanPackage, scanExamples, deprecation, parseGoParams } from './go-lib.js';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const goDir = join(repoRoot, 'data', 'go');
@@ -25,11 +25,14 @@ function summaryOf(doc) {
 
 for (const pkg of packages) {
   const found = scanPackage(root, pkg);
+  const examples = scanExamples(root, pkg);
   const functions = [...found.values()]
     .filter((f) => versions.has(`${pkg}.${f.name}`) && f.doc.trim())
     .sort((a, b) => Number(a.name > b.name) - Number(a.name < b.name))
     .map((f) => {
       const api = versions.get(`${pkg}.${f.name}`);
+      const example = examples.get(f.name);
+      const dep = deprecation(f);
       return {
         name: f.name,
         summary: summaryOf(f.doc),
@@ -37,6 +40,13 @@ for (const pkg of packages) {
         params: parseGoParams(f.params).map((p) => ({ name: p.name, type: p.type })),
         returns: { type: f.returns },
         versions: [api.version],
+        ...(example && {
+          example: example.lines.join('\n'),
+          exampleSource: { source: sourceId, file: example.file, line: example.line },
+        }),
+        ...(dep && {
+          warnings: [{ by: 'go', source: sourceId, file: f.file, line: dep.line, message: dep.message }],
+        }),
         evidence: [
           { source: sourceId, file: f.file, line: f.line, lines: [f.text] },
           { source: sourceId, file: api.file, line: api.line, lines: [api.text] },

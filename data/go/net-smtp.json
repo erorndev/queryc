@@ -142,6 +142,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePlainAuth() {\n\t// hostname is used by PlainAuth to validate the TLS certificate.\n\thostname := \"mail.example.com\"\n\tauth := smtp.PlainAuth(\"\", \"user@example.com\", \"password\", hostname)\n\n\terr := smtp.SendMail(hostname+\":25\", auth, from, recipients, msg)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/smtp/example_test.go",
+        "line": 57
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -193,6 +199,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSendMail() {\n\t// Set up authentication information.\n\tauth := smtp.PlainAuth(\"\", \"user@example.com\", \"password\", \"mail.example.com\")\n\n\t// Connect to the server, authenticate, set the sender and recipient,\n\t// and send the email all in one step.\n\tto := []string{\"recipient@example.net\"}\n\tmsg := []byte(\"To: recipient@example.net\\r\\n\" +\n\t\t\"Subject: discount Gophers!\\r\\n\" +\n\t\t\"\\r\\n\" +\n\t\t\"This is the email body.\\r\\n\")\n\terr := smtp.SendMail(\"mail.example.com:25\", auth, \"sender@example.org\", to, msg)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/smtp/example_test.go",
+        "line": 68
+      },
       "evidence": [
         {
           "source": "go-1.25",

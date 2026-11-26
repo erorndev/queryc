@@ -189,7 +189,7 @@ export function renderDetail(fn, backUrl) {
       ${
         fn.example
           ? `<h2 class="detail-heading">Example</h2>
-      ${codeBlock(fn.example.trimEnd(), 'Copy Example', '', isJs ? 'javascript' : 'c')}`
+      ${codeBlock(fn.example.trimEnd(), 'Copy Example', '', { js: 'javascript', go: 'go' }[fn.lang] || 'c')}`
           : ''
       }
 

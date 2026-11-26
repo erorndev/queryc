@@ -181,6 +181,12 @@
       "versions": [
         "Go 1.23"
       ],
+      "example": "func ExampleSetCrashOutput_monitor() {\n\tappmain()\n\n\t// This Example doesn't actually run as a test because its\n\t// purpose is to crash, so it has no \"Output:\" comment\n\t// within the function body.\n\t//\n\t// To observe the monitor in action, replace the entire text\n\t// of this comment with \"Output:\" and run this command:\n\t//\n\t//    $ go test -run=ExampleSetCrashOutput_monitor runtime/debug\n\t//    panic: oops\n\t//    ...stack...\n\t//    monitor: saved crash report at /tmp/10804884239807998216.crash\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/runtime/debug/example_monitor_test.go",
+        "line": 19
+      },
       "evidence": [
         {
           "source": "go-1.25",

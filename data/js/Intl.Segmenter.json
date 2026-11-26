@@ -1,0 +1,97 @@
+{
+  "object": "Intl.Segmenter",
+  "functions": [
+    {
+      "name": "resolvedOptions",
+      "summary": "Returns the locale and options this object resolved to.",
+      "signature": "Intl.Segmenter.resolvedOptions(): ResolvedSegmenterOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedSegmenterOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.intl.d.ts",
+          "line": 53,
+          "lines": [
+            "resolvedOptions(): ResolvedSegmenterOptions;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "segment",
+      "summary": "Splits a string into graphemes, words, or sentences.",
+      "signature": "Intl.Segmenter.segment(input: string): Segments",
+      "params": [
+        {
+          "name": "input",
+          "type": "string",
+          "optional": false,
+          "description": "The string to split into segments."
+        }
+      ],
+      "returns": {
+        "type": "Segments",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.intl.d.ts",
+          "line": 47,
+          "lines": [
+            "segment(input: string): Segments;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "supportedLocalesOf",
+      "summary": "Returns the given locales that this API supports without falling back.",
+      "signature": "Intl.Segmenter.supportedLocalesOf(locales: LocalesArgument, options?: Pick<SegmenterOptions, \"localeMatcher\">): UnicodeBCP47LocaleIdentifier[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "LocalesArgument",
+          "optional": false,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "Pick<SegmenterOptions, \"localeMatcher\">",
+          "optional": true,
+          "description": "Options such as localeMatcher."
+        }
+      ],
+      "returns": {
+        "type": "UnicodeBCP47LocaleIdentifier[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.intl.d.ts",
+          "line": 134,
+          "lines": [
+            "supportedLocalesOf(locales: LocalesArgument, options?: Pick<SegmenterOptions, \"localeMatcher\">): UnicodeBCP47LocaleIdentifier[];"
+          ]
+        }
+      ]
+    }
+  ]
+}

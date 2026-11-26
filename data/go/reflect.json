@@ -372,6 +372,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleMakeFunc() {\n\t// swap is the implementation passed to MakeFunc.\n\t// It must work in terms of reflect.Values so that it is possible\n\t// to write code without knowing beforehand what the types\n\t// will be.\n\tswap := func(in []reflect.Value) []reflect.Value {\n\t\treturn []reflect.Value{in[1], in[0]}\n\t}\n\n\t// makeSwap expects fptr to be a pointer to a nil function.\n\t// It sets that pointer to a new function created with MakeFunc.\n\t// When the function is invoked, reflect turns the arguments\n\t// into Values, calls swap, and then turns swap's result slice\n\t// into the values returned by the new function.\n\tmakeSwap := func(fptr any) {\n\t\t// fptr is a pointer to a function.\n\t\t// Obtain the function value itself (likely nil) as a reflect.Value\n\t\t// so that we can query its type and then set the value.\n\t\tfn := reflect.ValueOf(fptr).Elem()\n\n\t\t// Make a function of the right type.\n\t\tv := reflect.MakeFunc(fn.Type(), swap)\n\n\t\t// Assign it to the value fn represents.\n\t\tfn.Set(v)\n\t}\n\n\t// Make and call a swap function for ints.\n\tvar intSwap func(int, int) (int, int)\n\tmakeSwap(&intSwap)\n\tfmt.Println(intSwap(0, 1))\n\n\t// Make and call a swap function for float64s.\n\tvar floatSwap func(float64, float64) (float64, float64)\n\tmakeSwap(&floatSwap)\n\tfmt.Println(floatSwap(2.72, 3.14))\n\n\t// Output:\n\t// 1 0\n\t// 3.14 2.72\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/reflect/example_test.go",
+        "line": 34
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -672,6 +678,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/reflect/type.go",
+          "line": 1334,
+          "message": "Deprecated: Superseded by [PointerTo]."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -820,6 +835,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleStructOf() {\n\ttyp := reflect.StructOf([]reflect.StructField{\n\t\t{\n\t\t\tName: \"Height\",\n\t\t\tType: reflect.TypeOf(float64(0)),\n\t\t\tTag:  `json:\"height\"`,\n\t\t},\n\t\t{\n\t\t\tName: \"Age\",\n\t\t\tType: reflect.TypeOf(int(0)),\n\t\t\tTag:  `json:\"age\"`,\n\t\t},\n\t})\n\n\tv := reflect.New(typ).Elem()\n\tv.Field(0).SetFloat(0.4)\n\tv.Field(1).SetInt(2)\n\ts := v.Addr().Interface()\n\n\tw := new(bytes.Buffer)\n\tif err := json.NewEncoder(w).Encode(s); err != nil {\n\t\tpanic(err)\n\t}\n\n\tfmt.Printf(\"value: %+v\\n\", s)\n\tfmt.Printf(\"json:  %s\", w.Bytes())\n\n\tr := bytes.NewReader([]byte(`{\"height\":1.5,\"age\":10}`))\n\tif err := json.NewDecoder(r).Decode(s); err != nil {\n\t\tpanic(err)\n\t}\n\tfmt.Printf(\"value: %+v\\n\", s)\n\n\t// Output:\n\t// value: &{Height:0.4 Age:2}\n\t// json:  {\"height\":0.4,\"age\":2}\n\t// value: &{Height:1.5 Age:10}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/reflect/example_test.go",
+        "line": 131
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -890,6 +911,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTypeOf() {\n\t// As interface types are only used for static typing, a\n\t// common idiom to find the reflection Type for an interface\n\t// type Foo is to use a *Foo value.\n\twriterType := reflect.TypeOf((*io.Writer)(nil)).Elem()\n\n\tfileType := reflect.TypeOf((*os.File)(nil))\n\tfmt.Println(fileType.Implements(writerType))\n\n\t// Output:\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/reflect/example_test.go",
+        "line": 118
+      },
       "evidence": [
         {
           "source": "go-1.25",

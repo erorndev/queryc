@@ -25,6 +25,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleNode() {\n\tconst expr = \"(6+2*3)/4\"\n\n\t// parser.ParseExpr parses the argument and returns the\n\t// corresponding ast.Node.\n\tnode, err := parser.ParseExpr(expr)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Create a FileSet for node. Since the node does not come\n\t// from a real source file, fset will be empty.\n\tfset := token.NewFileSet()\n\n\tvar buf bytes.Buffer\n\terr = format.Node(&buf, fset, node)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Println(buf.String())\n\n\t// Output: (6 + 2*3) / 4\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/format/example_test.go",
+        "line": 16
+      },
       "evidence": [
         {
           "source": "go-1.25",

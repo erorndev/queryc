@@ -1,0 +1,115 @@
+{
+  "object": "Symbol",
+  "functions": [
+    {
+      "name": "for",
+      "summary": "Returns a Symbol object from the global symbol registry matching the given key if found. Otherwise, returns a new symbol with this key.",
+      "signature": "Symbol.for(key: string): symbol",
+      "params": [
+        {
+          "name": "key",
+          "type": "string",
+          "optional": false,
+          "description": "key to search for."
+        }
+      ],
+      "returns": {
+        "type": "symbol",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.symbol.d.ts",
+          "line": 36,
+          "lines": [
+            "for(key: string): symbol;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keyFor",
+      "summary": "Returns a key from the global symbol registry matching the given Symbol if found. Otherwise, returns a undefined.",
+      "signature": "Symbol.keyFor(sym: symbol): string | undefined",
+      "params": [
+        {
+          "name": "sym",
+          "type": "symbol",
+          "optional": false,
+          "description": "Symbol to find the key for."
+        }
+      ],
+      "returns": {
+        "type": "string | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.symbol.d.ts",
+          "line": 43,
+          "lines": [
+            "keyFor(sym: symbol): string | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of an object.",
+      "signature": "Symbol.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 102,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "Symbol.valueOf(): symbol",
+      "params": [],
+      "returns": {
+        "type": "symbol",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 105,
+          "lines": [
+            "valueOf(): symbol;"
+          ]
+        }
+      ]
+    }
+  ]
+}

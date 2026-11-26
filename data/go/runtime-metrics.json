@@ -47,6 +47,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleRead_readingOneMetric() {\n\t// Name of the metric we want to read.\n\tconst myMetric = \"/memory/classes/heap/free:bytes\"\n\n\t// Create a sample for the metric.\n\tsample := make([]metrics.Sample, 1)\n\tsample[0].Name = myMetric\n\n\t// Sample the metric.\n\tmetrics.Read(sample)\n\n\t// Check if the metric is actually supported.\n\t// If it's not, the resulting value will always have\n\t// kind KindBad.\n\tif sample[0].Value.Kind() == metrics.KindBad {\n\t\tpanic(fmt.Sprintf(\"metric %q no longer supported\", myMetric))\n\t}\n\n\t// Handle the result.\n\t//\n\t// It's OK to assume a particular Kind for a metric;\n\t// they're guaranteed not to change.\n\tfreeBytes := sample[0].Value.Uint64()\n\n\tfmt.Printf(\"free but not released memory: %d\\n\", freeBytes)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/runtime/metrics/example_test.go",
+        "line": 12
+      },
       "evidence": [
         {
           "source": "go-1.25",

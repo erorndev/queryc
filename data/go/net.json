@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCIDRMask() {\n\t// This mask corresponds to a /31 subnet for IPv4.\n\tfmt.Println(net.CIDRMask(31, 32))\n\n\t// This mask corresponds to a /64 subnet for IPv6.\n\tfmt.Println(net.CIDRMask(64, 128))\n\n\t// Output:\n\t// fffffffe\n\t// ffffffffffffffff0000000000000000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/example_test.go",
+        "line": 349
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -427,6 +433,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIPv4() {\n\tfmt.Println(net.IPv4(8, 8, 8, 8))\n\n\t// Output:\n\t// 8.8.8.8\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/example_test.go",
+        "line": 79
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -474,6 +486,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIPv4Mask() {\n\tfmt.Println(net.IPv4Mask(255, 255, 255, 0))\n\n\t// Output:\n\t// ffffff00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/example_test.go",
+        "line": 361
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1321,6 +1339,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseCIDR() {\n\tipv4Addr, ipv4Net, err := net.ParseCIDR(\"192.0.2.1/24\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Println(ipv4Addr)\n\tfmt.Println(ipv4Net)\n\n\tipv6Addr, ipv6Net, err := net.ParseCIDR(\"2001:db8:a0b:12f0::1/32\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Println(ipv6Addr)\n\tfmt.Println(ipv6Net)\n\n\t// Output:\n\t// 192.0.2.1\n\t// 192.0.2.0/24\n\t// 2001:db8:a0b:12f0::1\n\t// 2001:db8::/32\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/example_test.go",
+        "line": 86
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1356,6 +1380,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseIP() {\n\tfmt.Println(net.ParseIP(\"192.0.2.1\"))\n\tfmt.Println(net.ParseIP(\"2001:db8::68\"))\n\tfmt.Println(net.ParseIP(\"192.0.2\"))\n\n\t// Output:\n\t// 192.0.2.1\n\t// 2001:db8::68\n\t// <nil>\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/example_test.go",
+        "line": 108
+      },
       "evidence": [
         {
           "source": "go-1.25",

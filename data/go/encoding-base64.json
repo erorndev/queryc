@@ -60,6 +60,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewEncoder() {\n\tinput := []byte(\"foo\\x00bar\")\n\tencoder := base64.NewEncoder(base64.StdEncoding, os.Stdout)\n\tencoder.Write(input)\n\t// Must close the encoder when finished to flush any partial blocks.\n\t// If you comment out the following line, the last partial block \"r\"\n\t// won't be encoded.\n\tencoder.Close()\n\t// Output:\n\t// Zm9vAGJhcg==\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/base64/example_test.go",
+        "line": 73
+      },
       "evidence": [
         {
           "source": "go-1.25",

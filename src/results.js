@@ -133,7 +133,7 @@ export function initResults({ input, form, onLang = () => {} }) {
     if (entry) navigate(entry.fn.path, { state: { fromSearch: true } });
   }
 
-  const PREFIXES = { c: 'c', go: 'go' };
+  const PREFIXES = { c: 'c', rust: 'rust', rs: 'rust', js: 'js', javascript: 'js', go: 'go' };
 
   function takePrefix() {
     const match = /^\s*(\w+):\s*/.exec(input.value);

@@ -1,0 +1,390 @@
+{
+  "object": "Number",
+  "functions": [
+    {
+      "name": "isFinite",
+      "summary": "Returns true if passed value is finite. Unlike the global isFinite, Number.isFinite doesn't forcibly convert the parameter to a number. Only finite values of the type number, result in true.",
+      "signature": "Number.isFinite(number: unknown): boolean",
+      "params": [
+        {
+          "name": "number",
+          "type": "unknown",
+          "optional": false,
+          "description": "A numeric value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the value is a finite number, otherwise false."
+      },
+      "example": "console.log(Number.isFinite(1), Number.isFinite(\"1\"));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 227,
+          "lines": [
+            "isFinite(number: unknown): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isInteger",
+      "summary": "Returns true if the value passed is an integer, false otherwise.",
+      "signature": "Number.isInteger(number: unknown): boolean",
+      "params": [
+        {
+          "name": "number",
+          "type": "unknown",
+          "optional": false,
+          "description": "A numeric value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the value is an integer, otherwise false."
+      },
+      "example": "console.log(Number.isInteger(5), Number.isInteger(5.5));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 233,
+          "lines": [
+            "isInteger(number: unknown): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isNaN",
+      "summary": "Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number). Unlike the global isNaN(), Number.isNaN() doesn't forcefully convert the parameter to a number. Only values of the type number, that are also NaN, result in true.",
+      "signature": "Number.isNaN(number: unknown): boolean",
+      "params": [
+        {
+          "name": "number",
+          "type": "unknown",
+          "optional": false,
+          "description": "A numeric value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the value is NaN, otherwise false."
+      },
+      "example": "console.log(Number.isNaN(NaN), Number.isNaN(\"x\"));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 241,
+          "lines": [
+            "isNaN(number: unknown): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isSafeInteger",
+      "summary": "Returns true if the value passed is a safe integer.",
+      "signature": "Number.isSafeInteger(number: unknown): boolean",
+      "params": [
+        {
+          "name": "number",
+          "type": "unknown",
+          "optional": false,
+          "description": "A numeric value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the value is a safe integer, otherwise false."
+      },
+      "example": "console.log(Number.isSafeInteger(2 ** 53));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 247,
+          "lines": [
+            "isSafeInteger(number: unknown): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parseFloat",
+      "summary": "Converts a string to a floating-point number.",
+      "signature": "Number.parseFloat(string: string): number",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "A string that contains a floating-point number."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The parsed number, or NaN when the string does not start with one."
+      },
+      "example": "console.log(Number.parseFloat(\"3.14abc\"));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 267,
+          "lines": [
+            "parseFloat(string: string): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parseInt",
+      "summary": "Converts A string to an integer.",
+      "signature": "Number.parseInt(string: string, radix?: number): number",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "A string to convert into a number."
+        },
+        {
+          "name": "radix",
+          "type": "number",
+          "optional": true,
+          "description": "A value between 2 and 36 that specifies the base of the number in `string`. If this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal. All other strings are considered decimal."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The parsed integer, or NaN when the string does not start with one."
+      },
+      "example": "console.log(Number.parseInt(\"ff\", 16));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 276,
+          "lines": [
+            "parseInt(string: string, radix?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toExponential",
+      "summary": "Returns a string containing a number represented in exponential notation.",
+      "signature": "Number.toExponential(fractionDigits?: number): string",
+      "params": [
+        {
+          "name": "fractionDigits",
+          "type": "number",
+          "optional": true,
+          "description": "Number of digits after the decimal point. Must be in the range 0 - 20, inclusive."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The number in exponential notation."
+      },
+      "example": "console.log((12345).toExponential(2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 576,
+          "lines": [
+            "toExponential(fractionDigits?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toFixed",
+      "summary": "Returns a string representing a number in fixed-point notation.",
+      "signature": "Number.toFixed(fractionDigits?: number): string",
+      "params": [
+        {
+          "name": "fractionDigits",
+          "type": "number",
+          "optional": true,
+          "description": "Number of digits after the decimal point. Must be in the range 0 - 20, inclusive."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The number with fractionDigits digits after the decimal point."
+      },
+      "example": "console.log((3.14159).toFixed(2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 570,
+          "lines": [
+            "toFixed(fractionDigits?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleString",
+      "summary": "Converts a number to a string by using the current or specified locale.",
+      "signature": "Number.toLocaleString(locales?: string | string[], options?: Intl.NumberFormatOptions): string",
+      "params": [
+        {
+          "name": "locales",
+          "type": "string | string[]",
+          "optional": true,
+          "description": "A locale string or array of locale strings that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used."
+        },
+        {
+          "name": "options",
+          "type": "Intl.NumberFormatOptions",
+          "optional": true,
+          "description": "An object that contains one or more properties that specify comparison options."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The number formatted for the locale."
+      },
+      "example": "console.log((1234567.89).toLocaleString(\"en-US\"));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4578,
+          "lines": [
+            "toLocaleString(locales?: string | string[], options?: Intl.NumberFormatOptions): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.number.d.ts",
+          "line": 27,
+          "lines": [
+            "toLocaleString(locales?: Intl.LocalesArgument, options?: Intl.NumberFormatOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toPrecision",
+      "summary": "Returns a string containing a number represented either in exponential or fixed-point notation with a specified number of digits.",
+      "signature": "Number.toPrecision(precision?: number): string",
+      "params": [
+        {
+          "name": "precision",
+          "type": "number",
+          "optional": true,
+          "description": "Number of significant digits. Must be in the range 1 - 21, inclusive."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The number with precision significant digits."
+      },
+      "example": "console.log((3.14159).toPrecision(3));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 582,
+          "lines": [
+            "toPrecision(precision?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of an object.",
+      "signature": "Number.toString(radix?: number): string",
+      "params": [
+        {
+          "name": "radix",
+          "type": "number",
+          "optional": true,
+          "description": "Specifies a radix for converting numeric values to strings. This value is only used for numbers."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The number as a string in the given radix."
+      },
+      "example": "console.log((255).toString(16));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 564,
+          "lines": [
+            "toString(radix?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "Number.valueOf(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": "The primitive number value."
+      },
+      "example": "console.log(new Number(5).valueOf());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 585,
+          "lines": [
+            "valueOf(): number;"
+          ]
+        }
+      ]
+    }
+  ]
+}

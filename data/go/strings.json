@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.18"
       ],
+      "example": "func ExampleClone() {\n\ts := \"abc\"\n\tclone := strings.Clone(s)\n\tfmt.Println(s == clone)\n\tfmt.Println(unsafe.StringData(s) == unsafe.StringData(clone))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 14
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -56,6 +62,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleCompare() {\n\tfmt.Println(strings.Compare(\"a\", \"b\"))\n\tfmt.Println(strings.Compare(\"a\", \"a\"))\n\tfmt.Println(strings.Compare(\"b\", \"a\"))\n\t// Output:\n\t// -1\n\t// 0\n\t// 1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 35
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -95,6 +107,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleContains() {\n\tfmt.Println(strings.Contains(\"seafood\", \"foo\"))\n\tfmt.Println(strings.Contains(\"seafood\", \"bar\"))\n\tfmt.Println(strings.Contains(\"seafood\", \"\"))\n\tfmt.Println(strings.Contains(\"\", \"\"))\n\t// Output:\n\t// true\n\t// false\n\t// true\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 45
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -134,6 +152,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleContainsAny() {\n\tfmt.Println(strings.ContainsAny(\"team\", \"i\"))\n\tfmt.Println(strings.ContainsAny(\"fail\", \"ui\"))\n\tfmt.Println(strings.ContainsAny(\"ure\", \"ui\"))\n\tfmt.Println(strings.ContainsAny(\"failure\", \"ui\"))\n\tfmt.Println(strings.ContainsAny(\"foo\", \"\"))\n\tfmt.Println(strings.ContainsAny(\"\", \"\"))\n\t// Output:\n\t// false\n\t// true\n\t// true\n\t// true\n\t// false\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 57
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -173,6 +197,12 @@
       "versions": [
         "Go 1.21"
       ],
+      "example": "func ExampleContainsFunc() {\n\tf := func(r rune) bool {\n\t\treturn r == 'a' || r == 'e' || r == 'i' || r == 'o' || r == 'u'\n\t}\n\tfmt.Println(strings.ContainsFunc(\"hello\", f))\n\tfmt.Println(strings.ContainsFunc(\"rhythms\", f))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 83
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -212,6 +242,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleContainsRune() {\n\t// Finds whether a string contains a particular Unicode code point.\n\t// The code point for the lowercase letter \"a\", for example, is 97.\n\tfmt.Println(strings.ContainsRune(\"aardvark\", 97))\n\tfmt.Println(strings.ContainsRune(\"timeout\", 97))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 73
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -251,6 +287,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCount() {\n\tfmt.Println(strings.Count(\"cheese\", \"e\"))\n\tfmt.Println(strings.Count(\"five\", \"\")) // before & after each rune\n\t// Output:\n\t// 3\n\t// 5\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 94
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -290,6 +332,12 @@
       "versions": [
         "Go 1.18"
       ],
+      "example": "func ExampleCut() {\n\tshow := func(s, sep string) {\n\t\tbefore, after, found := strings.Cut(s, sep)\n\t\tfmt.Printf(\"Cut(%q, %q) = %q, %q, %v\\n\", s, sep, before, after, found)\n\t}\n\tshow(\"Gopher\", \"Go\")\n\tshow(\"Gopher\", \"ph\")\n\tshow(\"Gopher\", \"er\")\n\tshow(\"Gopher\", \"Badger\")\n\t// Output:\n\t// Cut(\"Gopher\", \"Go\") = \"\", \"pher\", true\n\t// Cut(\"Gopher\", \"ph\") = \"Go\", \"er\", true\n\t// Cut(\"Gopher\", \"er\") = \"Goph\", \"\", true\n\t// Cut(\"Gopher\", \"Badger\") = \"Gopher\", \"\", false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 102
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -329,6 +377,12 @@
       "versions": [
         "Go 1.20"
       ],
+      "example": "func ExampleCutPrefix() {\n\tshow := func(s, prefix string) {\n\t\tafter, found := strings.CutPrefix(s, prefix)\n\t\tfmt.Printf(\"CutPrefix(%q, %q) = %q, %v\\n\", s, prefix, after, found)\n\t}\n\tshow(\"Gopher\", \"Go\")\n\tshow(\"Gopher\", \"ph\")\n\t// Output:\n\t// CutPrefix(\"Gopher\", \"Go\") = \"pher\", true\n\t// CutPrefix(\"Gopher\", \"ph\") = \"Gopher\", false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 118
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -368,6 +422,12 @@
       "versions": [
         "Go 1.20"
       ],
+      "example": "func ExampleCutSuffix() {\n\tshow := func(s, suffix string) {\n\t\tbefore, found := strings.CutSuffix(s, suffix)\n\t\tfmt.Printf(\"CutSuffix(%q, %q) = %q, %v\\n\", s, suffix, before, found)\n\t}\n\tshow(\"Gopher\", \"Go\")\n\tshow(\"Gopher\", \"er\")\n\t// Output:\n\t// CutSuffix(\"Gopher\", \"Go\") = \"Gopher\", false\n\t// CutSuffix(\"Gopher\", \"er\") = \"Goph\", true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 130
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -407,6 +467,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleEqualFold() {\n\tfmt.Println(strings.EqualFold(\"Go\", \"go\"))\n\tfmt.Println(strings.EqualFold(\"AB\", \"ab\")) // true because comparison uses simple case-folding\n\tfmt.Println(strings.EqualFold(\"ß\", \"ss\"))  // false because comparison does not use full case-folding\n\t// Output:\n\t// true\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 142
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -442,6 +508,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFields() {\n\tfmt.Printf(\"Fields are: %q\", strings.Fields(\"  foo bar  baz   \"))\n\t// Output: Fields are: [\"foo\" \"bar\" \"baz\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 152
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -481,6 +553,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFieldsFunc() {\n\tf := func(c rune) bool {\n\t\treturn !unicode.IsLetter(c) && !unicode.IsNumber(c)\n\t}\n\tfmt.Printf(\"Fields are: %q\", strings.FieldsFunc(\"  foo1;bar2,baz3...\", f))\n\t// Output: Fields are: [\"foo1\" \"bar2\" \"baz3\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 157
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -520,6 +598,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleFieldsFuncSeq() {\n\ttext := \"The quick brown fox\"\n\tfmt.Println(\"Split on whitespace(similar to FieldsSeq):\")\n\tfor word := range strings.FieldsFuncSeq(text, unicode.IsSpace) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\tmixedText := \"abc123def456ghi\"\n\tfmt.Println(\"\\nSplit on digits:\")\n\tfor word := range strings.FieldsFuncSeq(mixedText, unicode.IsDigit) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\t// Output:\n\t// Split on whitespace(similar to FieldsSeq):\n\t// \"The\"\n\t// \"quick\"\n\t// \"brown\"\n\t// \"fox\"\n\t//\n\t// Split on digits:\n\t// \"abc\"\n\t// \"def\"\n\t// \"ghi\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 526
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -555,6 +639,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleFieldsSeq() {\n\ttext := \"The quick brown fox\"\n\tfmt.Println(\"Split string into fields:\")\n\tfor word := range strings.FieldsSeq(text) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\ttextWithSpaces := \"  lots   of   spaces  \"\n\tfmt.Println(\"\\nSplit string with multiple spaces:\")\n\tfor word := range strings.FieldsSeq(textWithSpaces) {\n\t\tfmt.Printf(\"%q\\n\", word)\n\t}\n\n\t// Output:\n\t// Split string into fields:\n\t// \"The\"\n\t// \"quick\"\n\t// \"brown\"\n\t// \"fox\"\n\t//\n\t// Split string with multiple spaces:\n\t// \"lots\"\n\t// \"of\"\n\t// \"spaces\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 500
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -594,6 +684,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleHasPrefix() {\n\tfmt.Println(strings.HasPrefix(\"Gopher\", \"Go\"))\n\tfmt.Println(strings.HasPrefix(\"Gopher\", \"C\"))\n\tfmt.Println(strings.HasPrefix(\"Gopher\", \"\"))\n\t// Output:\n\t// true\n\t// false\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 165
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -633,6 +729,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleHasSuffix() {\n\tfmt.Println(strings.HasSuffix(\"Amigo\", \"go\"))\n\tfmt.Println(strings.HasSuffix(\"Amigo\", \"O\"))\n\tfmt.Println(strings.HasSuffix(\"Amigo\", \"Ami\"))\n\tfmt.Println(strings.HasSuffix(\"Amigo\", \"\"))\n\t// Output:\n\t// true\n\t// false\n\t// false\n\t// true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 175
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -672,6 +774,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndex() {\n\tfmt.Println(strings.Index(\"chicken\", \"ken\"))\n\tfmt.Println(strings.Index(\"chicken\", \"dmr\"))\n\t// Output:\n\t// 4\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 187
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -711,6 +819,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndexAny() {\n\tfmt.Println(strings.IndexAny(\"chicken\", \"aeiouy\"))\n\tfmt.Println(strings.IndexAny(\"crwth\", \"aeiouy\"))\n\t// Output:\n\t// 2\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 206
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -750,6 +864,12 @@
       "versions": [
         "Go 1.2"
       ],
+      "example": "func ExampleIndexByte() {\n\tfmt.Println(strings.IndexByte(\"golang\", 'g'))\n\tfmt.Println(strings.IndexByte(\"gophers\", 'h'))\n\tfmt.Println(strings.IndexByte(\"golang\", 'x'))\n\t// Output:\n\t// 0\n\t// 3\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 214
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -789,6 +909,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndexFunc() {\n\tf := func(c rune) bool {\n\t\treturn unicode.Is(unicode.Han, c)\n\t}\n\tfmt.Println(strings.IndexFunc(\"Hello, 世界\", f))\n\tfmt.Println(strings.IndexFunc(\"Hello, world\", f))\n\t// Output:\n\t// 7\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 195
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -828,6 +954,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndexRune() {\n\tfmt.Println(strings.IndexRune(\"chicken\", 'k'))\n\tfmt.Println(strings.IndexRune(\"chicken\", 'd'))\n\t// Output:\n\t// 4\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 223
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -867,6 +999,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleJoin() {\n\ts := []string{\"foo\", \"bar\", \"baz\"}\n\tfmt.Println(strings.Join(s, \", \"))\n\t// Output: foo, bar, baz\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 271
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -906,6 +1044,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLastIndex() {\n\tfmt.Println(strings.Index(\"go gopher\", \"go\"))\n\tfmt.Println(strings.LastIndex(\"go gopher\", \"go\"))\n\tfmt.Println(strings.LastIndex(\"go gopher\", \"rodent\"))\n\t// Output:\n\t// 0\n\t// 3\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 231
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -945,6 +1089,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLastIndexAny() {\n\tfmt.Println(strings.LastIndexAny(\"go gopher\", \"go\"))\n\tfmt.Println(strings.LastIndexAny(\"go gopher\", \"rodent\"))\n\tfmt.Println(strings.LastIndexAny(\"go gopher\", \"fail\"))\n\t// Output:\n\t// 4\n\t// 8\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 241
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -984,6 +1134,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleLastIndexByte() {\n\tfmt.Println(strings.LastIndexByte(\"Hello, world\", 'l'))\n\tfmt.Println(strings.LastIndexByte(\"Hello, world\", 'o'))\n\tfmt.Println(strings.LastIndexByte(\"Hello, world\", 'x'))\n\t// Output:\n\t// 10\n\t// 8\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 251
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1023,6 +1179,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLastIndexFunc() {\n\tfmt.Println(strings.LastIndexFunc(\"go 123\", unicode.IsNumber))\n\tfmt.Println(strings.LastIndexFunc(\"123 go\", unicode.IsNumber))\n\tfmt.Println(strings.LastIndexFunc(\"go\", unicode.IsNumber))\n\t// Output:\n\t// 5\n\t// 2\n\t// -1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 261
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1058,6 +1220,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleLines() {\n\ttext := \"Hello\\nWorld\\nGo Programming\\n\"\n\tfor line := range strings.Lines(text) {\n\t\tfmt.Printf(\"%q\\n\", line)\n\t}\n\n\t// Output:\n\t// \"Hello\\n\"\n\t// \"World\\n\"\n\t// \"Go Programming\\n\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 462
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1097,6 +1265,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMap() {\n\trot13 := func(r rune) rune {\n\t\tswitch {\n\t\tcase r >= 'A' && r <= 'Z':\n\t\t\treturn 'A' + (r-'A'+13)%26\n\t\tcase r >= 'a' && r <= 'z':\n\t\t\treturn 'a' + (r-'a'+13)%26\n\t\t}\n\t\treturn r\n\t}\n\tfmt.Println(strings.Map(rot13, \"'Twas brillig and the slithy gopher...\"))\n\t// Output: 'Gjnf oevyyvt naq gur fyvgul tbcure...\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 355
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1167,6 +1341,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewReplacer() {\n\tr := strings.NewReplacer(\"<\", \"&lt;\", \">\", \"&gt;\")\n\tfmt.Println(r.Replace(\"This is <b>HTML</b>!\"))\n\t// Output: This is &lt;b&gt;HTML&lt;/b&gt;!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 369
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1206,6 +1386,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRepeat() {\n\tfmt.Println(\"ba\" + strings.Repeat(\"na\", 2))\n\t// Output: banana\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 277
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1253,6 +1439,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleReplace() {\n\tfmt.Println(strings.Replace(\"oink oink oink\", \"k\", \"ky\", 2))\n\tfmt.Println(strings.Replace(\"oink oink oink\", \"oink\", \"moo\", -1))\n\t// Output:\n\t// oinky oinky oink\n\t// moo moo moo\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 282
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1296,6 +1488,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleReplaceAll() {\n\tfmt.Println(strings.ReplaceAll(\"oink oink oink\", \"oink\", \"moo\"))\n\t// Output:\n\t// moo moo moo\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 290
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1335,6 +1533,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplit() {\n\tfmt.Printf(\"%q\\n\", strings.Split(\"a,b,c\", \",\"))\n\tfmt.Printf(\"%q\\n\", strings.Split(\"a man a plan a canal panama\", \"a \"))\n\tfmt.Printf(\"%q\\n\", strings.Split(\" xyz \", \"\"))\n\tfmt.Printf(\"%q\\n\", strings.Split(\"\", \"Bernardo O'Higgins\"))\n\t// Output:\n\t// [\"a\" \"b\" \"c\"]\n\t// [\"\" \"man \" \"plan \" \"canal panama\"]\n\t// [\" \" \"x\" \"y\" \"z\" \" \"]\n\t// [\"\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 296
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1374,6 +1578,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplitAfter() {\n\tfmt.Printf(\"%q\\n\", strings.SplitAfter(\"a,b,c\", \",\"))\n\t// Output: [\"a,\" \"b,\" \"c\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 317
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1417,6 +1627,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplitAfterN() {\n\tfmt.Printf(\"%q\\n\", strings.SplitAfterN(\"a,b,c\", \",\", 2))\n\t// Output: [\"a,\" \"b,c\"]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 322
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1456,6 +1672,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleSplitAfterSeq() {\n\ts := \"a,b,c,d\"\n\tfor part := range strings.SplitAfterSeq(s, \",\") {\n\t\tfmt.Printf(\"%q\\n\", part)\n\t}\n\n\t// Output:\n\t// \"a,\"\n\t// \"b,\"\n\t// \"c,\"\n\t// \"d\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 487
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1499,6 +1721,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplitN() {\n\tfmt.Printf(\"%q\\n\", strings.SplitN(\"a,b,c\", \",\", 2))\n\tz := strings.SplitN(\"a,b,c\", \",\", 0)\n\tfmt.Printf(\"%q (nil = %v)\\n\", z, z == nil)\n\t// Output:\n\t// [\"a\" \"b,c\"]\n\t// [] (nil = true)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 308
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1538,6 +1766,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleSplitSeq() {\n\ts := \"a,b,c,d\"\n\tfor part := range strings.SplitSeq(s, \",\") {\n\t\tfmt.Printf(\"%q\\n\", part)\n\t}\n\n\t// Output:\n\t// \"a\"\n\t// \"b\"\n\t// \"c\"\n\t// \"d\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 474
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1572,6 +1806,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleTitle() {\n\t// Compare this example to the ToTitle example.\n\tfmt.Println(strings.Title(\"her royal highness\"))\n\tfmt.Println(strings.Title(\"loud noises\"))\n\tfmt.Println(strings.Title(\"брат\"))\n\t// Output:\n\t// Her Royal Highness\n\t// Loud Noises\n\t// Брат\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 327
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/strings/strings.go",
+          "line": 866,
+          "message": "Deprecated: The rule Title uses for word boundaries does not handle Unicode punctuation properly. Use golang.org/x/text/cases instead."
+        }
       ],
       "evidence": [
         {
@@ -1608,6 +1857,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToLower() {\n\tfmt.Println(strings.ToLower(\"Gopher\"))\n\t// Output: gopher\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 385
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1647,6 +1902,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToLowerSpecial() {\n\tfmt.Println(strings.ToLowerSpecial(unicode.TurkishCase, \"Örnek İş\"))\n\t// Output: örnek iş\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 390
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1682,6 +1943,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToTitle() {\n\t// Compare this example to the Title example.\n\tfmt.Println(strings.ToTitle(\"her royal highness\"))\n\tfmt.Println(strings.ToTitle(\"loud noises\"))\n\tfmt.Println(strings.ToTitle(\"брат\"))\n\t// Output:\n\t// HER ROYAL HIGHNESS\n\t// LOUD NOISES\n\t// БРАТ\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 338
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1721,6 +1988,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToTitleSpecial() {\n\tfmt.Println(strings.ToTitleSpecial(unicode.TurkishCase, \"dünyanın ilk borsa yapısı Aizonai kabul edilir\"))\n\t// Output:\n\t// DÜNYANIN İLK BORSA YAPISI AİZONAİ KABUL EDİLİR\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 349
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1756,6 +2029,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToUpper() {\n\tfmt.Println(strings.ToUpper(\"Gopher\"))\n\t// Output: GOPHER\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 375
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1795,6 +2074,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleToUpperSpecial() {\n\tfmt.Println(strings.ToUpperSpecial(unicode.TurkishCase, \"örnek iş\"))\n\t// Output: ÖRNEK İŞ\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 380
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1834,6 +2119,12 @@
       "versions": [
         "Go 1.13"
       ],
+      "example": "func ExampleToValidUTF8() {\n\tfmt.Printf(\"%s\\n\", strings.ToValidUTF8(\"abc\", \"\\uFFFD\"))\n\tfmt.Printf(\"%s\\n\", strings.ToValidUTF8(\"a\\xffb\\xC0\\xAFc\\xff\", \"\"))\n\tfmt.Printf(\"%s\\n\", strings.ToValidUTF8(\"\\xed\\xa0\\x80\", \"abc\"))\n\t// Output:\n\t// abc\n\t// abc\n\t// abc\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 452
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1873,6 +2164,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrim() {\n\tfmt.Print(strings.Trim(\"¡¡¡Hello, Gophers!!!\", \"!¡\"))\n\t// Output: Hello, Gophers\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 395
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1912,6 +2209,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimFunc() {\n\tfmt.Print(strings.TrimFunc(\"¡¡¡Hello, Gophers!!!\", func(r rune) bool {\n\t\treturn !unicode.IsLetter(r) && !unicode.IsNumber(r)\n\t}))\n\t// Output: Hello, Gophers\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 421
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1951,6 +2254,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimLeft() {\n\tfmt.Print(strings.TrimLeft(\"¡¡¡Hello, Gophers!!!\", \"!¡\"))\n\t// Output: Hello, Gophers!!!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 428
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1990,6 +2299,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimLeftFunc() {\n\tfmt.Print(strings.TrimLeftFunc(\"¡¡¡Hello, Gophers!!!\", func(r rune) bool {\n\t\treturn !unicode.IsLetter(r) && !unicode.IsNumber(r)\n\t}))\n\t// Output: Hello, Gophers!!!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 433
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2029,6 +2344,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleTrimPrefix() {\n\tvar s = \"¡¡¡Hello, Gophers!!!\"\n\ts = strings.TrimPrefix(s, \"¡¡¡Hello, \")\n\ts = strings.TrimPrefix(s, \"¡¡¡Howdy, \")\n\tfmt.Print(s)\n\t// Output: Gophers!!!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 405
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2068,6 +2389,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimRight() {\n\tfmt.Print(strings.TrimRight(\"¡¡¡Hello, Gophers!!!\", \"!¡\"))\n\t// Output: ¡¡¡Hello, Gophers\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 440
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2107,6 +2434,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimRightFunc() {\n\tfmt.Print(strings.TrimRightFunc(\"¡¡¡Hello, Gophers!!!\", func(r rune) bool {\n\t\treturn !unicode.IsLetter(r) && !unicode.IsNumber(r)\n\t}))\n\t// Output: ¡¡¡Hello, Gophers\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 445
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2142,6 +2475,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrimSpace() {\n\tfmt.Println(strings.TrimSpace(\" \\t\\n Hello, Gophers \\n\\t\\r\\n\"))\n\t// Output: Hello, Gophers\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 400
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2181,6 +2520,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleTrimSuffix() {\n\tvar s = \"¡¡¡Hello, Gophers!!!\"\n\ts = strings.TrimSuffix(s, \", Gophers!!!\")\n\ts = strings.TrimSuffix(s, \", Marmots!!!\")\n\tfmt.Print(s)\n\t// Output: ¡¡¡Hello\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strings/example_test.go",
+        "line": 413
+      },
       "evidence": [
         {
           "source": "go-1.25",

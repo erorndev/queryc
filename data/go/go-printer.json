@@ -25,6 +25,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFprint() {\n\tprintSelf()\n\n\t// Output:\n\t// funcAST, fset := parseFunc(\"example_test.go\", \"printSelf\")\n\t//\n\t// var buf bytes.Buffer\n\t// printer.Fprint(&buf, fset, funcAST.Body)\n\t//\n\t// s := buf.String()\n\t// s = s[1 : len(s)-1]\n\t// s = strings.TrimSpace(strings.ReplaceAll(s, \"\\n\\t\", \"\\n\"))\n\t//\n\t// fmt.Println(s)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/printer/example_test.go",
+        "line": 53
+      },
       "evidence": [
         {
           "source": "go-1.25",

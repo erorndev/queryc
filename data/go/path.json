@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleBase() {\n\tfmt.Println(path.Base(\"/a/b\"))\n\tfmt.Println(path.Base(\"/\"))\n\tfmt.Println(path.Base(\"\"))\n\t// Output:\n\t// b\n\t// /\n\t// .\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 12
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -52,6 +58,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleClean() {\n\tpaths := []string{\n\t\t\"a/c\",\n\t\t\"a//c\",\n\t\t\"a/c/.\",\n\t\t\"a/c/b/..\",\n\t\t\"/../a/c\",\n\t\t\"/../a/b/../././/c\",\n\t\t\"\",\n\t}\n\n\tfor _, p := range paths {\n\t\tfmt.Printf(\"Clean(%q) = %q\\n\", p, path.Clean(p))\n\t}\n\n\t// Output:\n\t// Clean(\"a/c\") = \"a/c\"\n\t// Clean(\"a//c\") = \"a/c\"\n\t// Clean(\"a/c/.\") = \"a/c\"\n\t// Clean(\"a/c/b/..\") = \"a/c\"\n\t// Clean(\"/../a/c\") = \"/a/c\"\n\t// Clean(\"/../a/b/../././/c\") = \"/a/c\"\n\t// Clean(\"\") = \".\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 22
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -87,6 +99,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDir() {\n\tfmt.Println(path.Dir(\"/a/b/c\"))\n\tfmt.Println(path.Dir(\"a/b/c\"))\n\tfmt.Println(path.Dir(\"/a/\"))\n\tfmt.Println(path.Dir(\"a/\"))\n\tfmt.Println(path.Dir(\"/\"))\n\tfmt.Println(path.Dir(\"\"))\n\t// Output:\n\t// /a/b\n\t// a/b\n\t// /a\n\t// a\n\t// /\n\t// .\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 47
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -122,6 +140,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExt() {\n\tfmt.Println(path.Ext(\"/a/b/c/bar.css\"))\n\tfmt.Println(path.Ext(\"/\"))\n\tfmt.Println(path.Ext(\"\"))\n\t// Output:\n\t// .css\n\t//\n\t//\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 63
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -157,6 +181,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIsAbs() {\n\tfmt.Println(path.IsAbs(\"/dev/null\"))\n\t// Output: true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 73
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -192,6 +222,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleJoin() {\n\tfmt.Println(path.Join(\"a\", \"b\", \"c\"))\n\tfmt.Println(path.Join(\"a\", \"b/c\"))\n\tfmt.Println(path.Join(\"a/b\", \"c\"))\n\n\tfmt.Println(path.Join(\"a/b\", \"../../../xyz\"))\n\n\tfmt.Println(path.Join(\"\", \"\"))\n\tfmt.Println(path.Join(\"a\", \"\"))\n\tfmt.Println(path.Join(\"\", \"a\"))\n\n\t// Output:\n\t// a/b/c\n\t// a/b/c\n\t// a/b/c\n\t// ../xyz\n\t//\n\t// a\n\t// a\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 78
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -231,6 +267,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMatch() {\n\tfmt.Println(path.Match(\"abc\", \"abc\"))\n\tfmt.Println(path.Match(\"a*\", \"abc\"))\n\tfmt.Println(path.Match(\"a*/b\", \"a/c/b\"))\n\t// Output:\n\t// true <nil>\n\t// true <nil>\n\t// false <nil>\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 99
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -266,6 +308,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSplit() {\n\tsplit := func(s string) {\n\t\tdir, file := path.Split(s)\n\t\tfmt.Printf(\"path.Split(%q) = dir: %q, file: %q\\n\", s, dir, file)\n\t}\n\tsplit(\"static/myfile.css\")\n\tsplit(\"myfile.css\")\n\tsplit(\"\")\n\t// Output:\n\t// path.Split(\"static/myfile.css\") = dir: \"static/\", file: \"myfile.css\"\n\t// path.Split(\"myfile.css\") = dir: \"\", file: \"myfile.css\"\n\t// path.Split(\"\") = dir: \"\", file: \"\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/path/example_test.go",
+        "line": 109
+      },
       "evidence": [
         {
           "source": "go-1.25",

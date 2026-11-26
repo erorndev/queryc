@@ -21,6 +21,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 73,
+          "message": "Deprecated: for ECDH, use the GenerateKey methods of the [crypto/ecdh] package; for ECDSA, use the GenerateKey function of the crypto/ecdsa package."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -63,6 +72,15 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 107,
+          "message": "Deprecated: for ECDH, use the crypto/ecdh package. This function returns an encoding equivalent to that of PublicKey.Bytes in crypto/ecdh."
+        }
       ],
       "evidence": [
         {
@@ -265,6 +283,15 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/elliptic/elliptic.go",
+          "line": 151,
+          "message": "Deprecated: for ECDH, use the crypto/ecdh package. This function accepts an encoding equivalent to that of the NewPublicKey methods in crypto/ecdh."
+        }
       ],
       "evidence": [
         {

@@ -1,0 +1,79 @@
+{
+  "object": "FinalizationRegistry",
+  "functions": [
+    {
+      "name": "register",
+      "summary": "Registers a value with the registry. In es2023 the value can be either a symbol or an object, in previous versions only object is permissible.",
+      "signature": "FinalizationRegistry.register(target: WeakKey, heldValue: T, unregisterToken?: WeakKey): void",
+      "params": [
+        {
+          "name": "target",
+          "type": "WeakKey",
+          "optional": false,
+          "description": "The target value to register."
+        },
+        {
+          "name": "heldValue",
+          "type": "T",
+          "optional": false,
+          "description": "The value to pass to the finalizer for this value. This cannot be the target value."
+        },
+        {
+          "name": "unregisterToken",
+          "type": "WeakKey",
+          "optional": true,
+          "description": "The token to pass to the unregister method to unregister the target value. If not provided, the target cannot be unregistered."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.weakref.d.ts",
+          "line": 57,
+          "lines": [
+            "register(target: WeakKey, heldValue: T, unregisterToken?: WeakKey): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unregister",
+      "summary": "Unregisters a value from the registry. In es2023 the value can be either a symbol or an object, in previous versions only object is permissible.",
+      "signature": "FinalizationRegistry.unregister(unregisterToken: WeakKey): boolean",
+      "params": [
+        {
+          "name": "unregisterToken",
+          "type": "WeakKey",
+          "optional": false,
+          "description": "The token that was used as the unregisterToken argument when calling register to register the target value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.weakref.d.ts",
+          "line": 65,
+          "lines": [
+            "unregister(unregisterToken: WeakKey): boolean;"
+          ]
+        }
+      ]
+    }
+  ]
+}

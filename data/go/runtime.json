@@ -77,6 +77,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/runtime/cpuprof.go",
+          "line": 205,
+          "message": "Deprecated: Use the [runtime/pprof] package, or the handlers in the [net/http/pprof] package, or the [testing] package's -test.cpuprofile flag instead."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -315,6 +324,15 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/runtime/extern.go",
+          "line": 354,
+          "message": "Deprecated: The root used during the Go build will not be meaningful if the binary is copied to another machine. Use the system path to locate the “go” binary, and use “go env GOROOT” to find its GOROOT."
+        }
       ],
       "evidence": [
         {

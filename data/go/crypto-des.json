@@ -52,6 +52,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewTripleDESCipher() {\n\t// NewTripleDESCipher can also be used when EDE2 is required by\n\t// duplicating the first 8 bytes of the 16-byte key.\n\tede2Key := []byte(\"example key 1234\")\n\n\tvar tripleDESKey []byte\n\ttripleDESKey = append(tripleDESKey, ede2Key[:16]...)\n\ttripleDESKey = append(tripleDESKey, ede2Key[:8]...)\n\n\t_, err := des.NewTripleDESCipher(tripleDESKey)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// See crypto/cipher for how to use a cipher.Block for encryption and\n\t// decryption.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/des/example_test.go",
+        "line": 9
+      },
       "evidence": [
         {
           "source": "go-1.25",

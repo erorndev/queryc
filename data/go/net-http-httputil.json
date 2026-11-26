@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDumpRequest() {\n\tts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n\t\tdump, err := httputil.DumpRequest(r, true)\n\t\tif err != nil {\n\t\t\thttp.Error(w, fmt.Sprint(err), http.StatusInternalServerError)\n\t\t\treturn\n\t\t}\n\n\t\tfmt.Fprintf(w, \"%q\", dump)\n\t}))\n\tdefer ts.Close()\n\n\tconst body = \"Go is a general-purpose language designed with systems programming in mind.\"\n\treq, err := http.NewRequest(\"POST\", ts.URL, strings.NewReader(body))\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\treq.Host = \"www.example.org\"\n\tresp, err := http.DefaultClient.Do(req)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tdefer resp.Body.Close()\n\n\tb, err := io.ReadAll(resp.Body)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"%s\", b)\n\n\t// Output:\n\t// \"POST / HTTP/1.1\\r\\nHost: www.example.org\\r\\nAccept-Encoding: gzip\\r\\nContent-Length: 75\\r\\nUser-Agent: Go-http-client/1.1\\r\\n\\r\\nGo is a general-purpose language designed with systems programming in mind.\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/httputil/example_test.go",
+        "line": 18
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -60,6 +66,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDumpRequestOut() {\n\tconst body = \"Go is a general-purpose language designed with systems programming in mind.\"\n\treq, err := http.NewRequest(\"PUT\", \"http://www.example.org\", strings.NewReader(body))\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tdump, err := httputil.DumpRequestOut(req, true)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"%q\", dump)\n\n\t// Output:\n\t// \"PUT / HTTP/1.1\\r\\nHost: www.example.org\\r\\nUser-Agent: Go-http-client/1.1\\r\\nContent-Length: 75\\r\\nAccept-Encoding: gzip\\r\\n\\r\\nGo is a general-purpose language designed with systems programming in mind.\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/httputil/example_test.go",
+        "line": 53
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -99,6 +111,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDumpResponse() {\n\tconst body = \"Go is a general-purpose language designed with systems programming in mind.\"\n\tts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n\t\tw.Header().Set(\"Date\", \"Wed, 19 Jul 1972 19:00:00 GMT\")\n\t\tfmt.Fprintln(w, body)\n\t}))\n\tdefer ts.Close()\n\n\tresp, err := http.Get(ts.URL)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tdefer resp.Body.Close()\n\n\tdump, err := httputil.DumpResponse(resp, true)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"%q\", dump)\n\n\t// Output:\n\t// \"HTTP/1.1 200 OK\\r\\nContent-Length: 76\\r\\nContent-Type: text/plain; charset=utf-8\\r\\nDate: Wed, 19 Jul 1972 19:00:00 GMT\\r\\n\\r\\nGo is a general-purpose language designed with systems programming in mind.\\n\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/httputil/example_test.go",
+        "line": 71
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -208,6 +226,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/persist.go",
+          "line": 247,
+          "message": "Deprecated: Use the Client or Transport in package [net/http] instead."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -247,6 +274,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/persist.go",
+          "line": 264,
+          "message": "Deprecated: Use the Client or Transport in package [net/http] instead."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -285,6 +321,15 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/net/http/httputil/persist.go",
+          "line": 53,
+          "message": "Deprecated: Use the Server in package [net/http] instead."
+        }
       ],
       "evidence": [
         {

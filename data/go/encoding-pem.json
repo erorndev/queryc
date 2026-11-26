@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDecode() {\n\tvar pubPEMData = []byte(`\n-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAlRuRnThUjU8/prwYxbty\nWPT9pURI3lbsKMiB6Fn/VHOKE13p4D8xgOCADpdRagdT6n4etr9atzDKUSvpMtR3\nCP5noNc97WiNCggBjVWhs7szEe8ugyqF23XwpHQ6uV1LKH50m92MbOWfCtjU9p/x\nqhNpQQ1AZhqNy5Gevap5k8XzRmjSldNAFZMY7Yv3Gi+nyCwGwpVtBUwhuLzgNFK/\nyDtw2WcWmUU7NuC8Q6MWvPebxVtCfVp/iQU6q60yyt6aGOBkhAX0LpKAEhKidixY\nnP9PNVBvxgu3XZ4P36gZV6+ummKdBVnc3NqwBLu5+CcdRdusmHPHd5pHf4/38Z3/\n6qU2a/fPvWzceVTEgZ47QjFMTCTmCwNt29cvi7zZeQzjtwQgn4ipN9NibRH/Ax/q\nTbIzHfrJ1xa2RteWSdFjwtxi9C20HUkjXSeI4YlzQMH0fPX6KCE7aVePTOnB69I/\na9/q96DiXZajwlpq3wFctrs1oXqBp5DVrCIj8hU2wNgB7LtQ1mCtsYz//heai0K9\nPhE4X6hiE0YmeAZjR0uHl8M/5aW9xCoJ72+12kKpWAa0SFRWLy6FejNYCYpkupVJ\nyecLk/4L1W0l6jQQZnWErXZYe0PNFcmwGXy1Rep83kfBRNKRy5tvocalLlwXLdUk\nAIU+2GKjyT3iMuzZxxFxPFMCAwEAAQ==\n-----END PUBLIC KEY-----\nand some more`)\n\n\tblock, rest := pem.Decode(pubPEMData)\n\tif block == nil || block.Type != \"PUBLIC KEY\" {\n\t\tlog.Fatal(\"failed to decode PEM block containing public key\")\n\t}\n\n\tpub, err := x509.ParsePKIXPublicKey(block.Bytes)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"Got a %T, with remaining data: %q\", pub, rest)\n\t// Output: Got a *rsa.PublicKey, with remaining data: \"and some more\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/pem/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -56,6 +62,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleEncode() {\n\tblock := &pem.Block{\n\t\tType: \"MESSAGE\",\n\t\tHeaders: map[string]string{\n\t\t\t\"Animal\": \"Gopher\",\n\t\t},\n\t\tBytes: []byte(\"test\"),\n\t}\n\n\tif err := pem.Encode(os.Stdout, block); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\t// Output:\n\t// -----BEGIN MESSAGE-----\n\t// Animal: Gopher\n\t//\n\t// dGVzdA==\n\t// -----END MESSAGE-----\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/pem/example_test.go",
+        "line": 47
+      },
       "evidence": [
         {
           "source": "go-1.25",

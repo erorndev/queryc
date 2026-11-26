@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleNew() {\n\t// Start a server to give us cookies.\n\tts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n\t\tif cookie, err := r.Cookie(\"Flavor\"); err != nil {\n\t\t\thttp.SetCookie(w, &http.Cookie{Name: \"Flavor\", Value: \"Chocolate Chip\"})\n\t\t} else {\n\t\t\tcookie.Value = \"Oatmeal Raisin\"\n\t\t\thttp.SetCookie(w, cookie)\n\t\t}\n\t}))\n\tdefer ts.Close()\n\n\tu, err := url.Parse(ts.URL)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// All users of cookiejar should import \"golang.org/x/net/publicsuffix\"\n\tjar, err := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tclient := &http.Client{\n\t\tJar: jar,\n\t}\n\n\tif _, err = client.Get(u.String()); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Println(\"After 1st request:\")\n\tfor _, cookie := range jar.Cookies(u) {\n\t\tfmt.Printf(\"  %s: %s\\n\", cookie.Name, cookie.Value)\n\t}\n\n\tif _, err = client.Get(u.String()); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Println(\"After 2nd request:\")\n\tfor _, cookie := range jar.Cookies(u) {\n\t\tfmt.Printf(\"  %s: %s\\n\", cookie.Name, cookie.Value)\n\t}\n\t// Output:\n\t// After 1st request:\n\t//   Flavor: Chocolate Chip\n\t// After 2nd request:\n\t//   Flavor: Oatmeal Raisin\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/cookiejar/example_test.go",
+        "line": 16
+      },
       "evidence": [
         {
           "source": "go-1.25",

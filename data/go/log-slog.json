@@ -511,6 +511,12 @@
       "versions": [
         "Go 1.21"
       ],
+      "example": "func ExampleGroup() {\n\tr, _ := http.NewRequest(\"GET\", \"localhost\", nil)\n\t// ...\n\n\tlogger := slog.New(\n\t\tslog.NewTextHandler(os.Stdout, &slog.HandlerOptions{\n\t\t\tReplaceAttr: func(groups []string, a slog.Attr) slog.Attr {\n\t\t\t\tif a.Key == slog.TimeKey && len(groups) == 0 {\n\t\t\t\t\treturn slog.Attr{}\n\t\t\t\t}\n\t\t\t\treturn a\n\t\t\t},\n\t\t}),\n\t)\n\tlogger.Info(\"finished\",\n\t\tslog.Group(\"req\",\n\t\t\tslog.String(\"method\", r.Method),\n\t\t\tslog.String(\"url\", r.URL.String())),\n\t\tslog.Int(\"status\", http.StatusOK),\n\t\tslog.Duration(\"duration\", time.Second))\n\n\t// Output:\n\t// level=INFO msg=finished req.method=GET req.url=localhost status=200 duration=1s\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/log/slog/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -550,6 +556,12 @@
       "versions": [
         "Go 1.25"
       ],
+      "example": "func ExampleGroupAttrs() {\n\tr, _ := http.NewRequest(\"POST\", \"localhost\", http.NoBody)\n\t// ...\n\n\tlogger := slog.New(\n\t\tslog.NewTextHandler(os.Stdout, &slog.HandlerOptions{\n\t\t\tLevel: slog.LevelDebug,\n\t\t\tReplaceAttr: func(groups []string, a slog.Attr) slog.Attr {\n\t\t\t\tif a.Key == slog.TimeKey && len(groups) == 0 {\n\t\t\t\t\treturn slog.Attr{}\n\t\t\t\t}\n\t\t\t\treturn a\n\t\t\t},\n\t\t}),\n\t)\n\n\t// Use []slog.Attr to accumulate attributes.\n\tattrs := []slog.Attr{slog.String(\"method\", r.Method)}\n\tattrs = append(attrs, slog.String(\"url\", r.URL.String()))\n\n\tif r.Method == \"POST\" {\n\t\tattrs = append(attrs, slog.Int(\"content-length\", int(r.ContentLength)))\n\t}\n\n\t// Group the attributes under a key.\n\tlogger.LogAttrs(context.Background(), slog.LevelInfo,\n\t\t\"finished\",\n\t\tslog.Int(\"status\", http.StatusOK),\n\t\tslog.GroupAttrs(\"req\", attrs...),\n\t)\n\n\t// Groups with empty keys are inlined.\n\tlogger.LogAttrs(context.Background(), slog.LevelInfo,\n\t\t\"finished\",\n\t\tslog.Int(\"status\", http.StatusOK),\n\t\tslog.GroupAttrs(\"\", attrs...),\n\t)\n\n\t// Output:\n\t// level=INFO msg=finished status=200 req.method=POST req.url=localhost req.content-length=0\n\t// level=INFO msg=finished status=200 method=POST url=localhost content-length=0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/log/slog/example_test.go",
+        "line": 40
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1178,6 +1190,12 @@
       "versions": [
         "Go 1.22"
       ],
+      "example": "func ExampleSetLogLoggerLevel_log() {\n\tdefer log.SetFlags(log.Flags()) // revert changes after the example\n\tlog.SetFlags(0)\n\tdefer log.SetOutput(log.Writer()) // revert changes after the example\n\tlog.SetOutput(os.Stdout)\n\n\t// Default logging level is slog.LevelInfo.\n\tlog.Print(\"log debug\") // log debug\n\tslog.Debug(\"debug\")    // no output\n\tslog.Info(\"info\")      // INFO info\n\n\t// Set the default logging level to slog.LevelDebug.\n\tcurrentLogLevel := slog.SetLogLoggerLevel(slog.LevelDebug)\n\tdefer slog.SetLogLoggerLevel(currentLogLevel) // revert changes after the example\n\n\tlog.Print(\"log debug\") // log debug\n\tslog.Debug(\"debug\")    // DEBUG debug\n\tslog.Info(\"info\")      // INFO info\n\n\t// Output:\n\t// log debug\n\t// INFO info\n\t// log debug\n\t// DEBUG debug\n\t// INFO info\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/log/slog/example_log_level_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -1,0 +1,73 @@
+{
+  "object": "SharedArrayBuffer",
+  "functions": [
+    {
+      "name": "grow",
+      "summary": "Grows the SharedArrayBuffer to the specified size (in bytes).  [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/grow)",
+      "signature": "SharedArrayBuffer.grow(newByteLength?: number): void",
+      "params": [
+        {
+          "name": "newByteLength",
+          "type": "number",
+          "optional": true,
+          "description": "The new length in bytes."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.sharedmemory.d.ts",
+          "line": 63,
+          "lines": [
+            "grow(newByteLength?: number): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slice",
+      "summary": "Returns a section of an SharedArrayBuffer.",
+      "signature": "SharedArrayBuffer.slice(begin?: number, end?: number): SharedArrayBuffer",
+      "params": [
+        {
+          "name": "begin",
+          "type": "number",
+          "optional": true,
+          "description": "The byte index the copy starts at."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The byte index the copy ends before."
+        }
+      ],
+      "returns": {
+        "type": "SharedArrayBuffer",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2017"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.sharedmemory.d.ts",
+          "line": 31,
+          "lines": [
+            "slice(begin?: number, end?: number): SharedArrayBuffer;"
+          ]
+        }
+      ]
+    }
+  ]
+}

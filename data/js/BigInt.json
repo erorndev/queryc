@@ -1,0 +1,171 @@
+{
+  "object": "BigInt",
+  "functions": [
+    {
+      "name": "asIntN",
+      "summary": "Interprets the low bits of a BigInt as a 2's-complement signed integer. All higher bits are discarded.",
+      "signature": "BigInt.asIntN(bits: number, int: bigint): bigint",
+      "params": [
+        {
+          "name": "bits",
+          "type": "number",
+          "optional": false,
+          "description": "The number of low bits to use"
+        },
+        {
+          "name": "int",
+          "type": "bigint",
+          "optional": false,
+          "description": "The BigInt whose bits to extract"
+        }
+      ],
+      "returns": {
+        "type": "bigint",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 133,
+          "lines": [
+            "asIntN(bits: number, int: bigint): bigint;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "asUintN",
+      "summary": "Interprets the low bits of a BigInt as an unsigned integer. All higher bits are discarded.",
+      "signature": "BigInt.asUintN(bits: number, int: bigint): bigint",
+      "params": [
+        {
+          "name": "bits",
+          "type": "number",
+          "optional": false,
+          "description": "The number of low bits to use"
+        },
+        {
+          "name": "int",
+          "type": "bigint",
+          "optional": false,
+          "description": "The BigInt whose bits to extract"
+        }
+      ],
+      "returns": {
+        "type": "bigint",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 140,
+          "lines": [
+            "asUintN(bits: number, int: bigint): bigint;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleString",
+      "summary": "Returns a string representation appropriate to the host environment's current locale.",
+      "signature": "BigInt.toLocaleString(locales?: Intl.LocalesArgument, options?: BigIntToLocaleStringOptions): string",
+      "params": [
+        {
+          "name": "locales",
+          "type": "Intl.LocalesArgument",
+          "optional": true,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "BigIntToLocaleStringOptions",
+          "optional": true,
+          "description": "Formatting options."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 115,
+          "lines": [
+            "toLocaleString(locales?: Intl.LocalesArgument, options?: BigIntToLocaleStringOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of an object.",
+      "signature": "BigInt.toString(radix?: number): string",
+      "params": [
+        {
+          "name": "radix",
+          "type": "number",
+          "optional": true,
+          "description": "Specifies a radix for converting numeric values to strings."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 112,
+          "lines": [
+            "toString(radix?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "BigInt.valueOf(): bigint",
+      "params": [],
+      "returns": {
+        "type": "bigint",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 118,
+          "lines": [
+            "valueOf(): bigint;"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1477 @@
+{
+  "object": "Array",
+  "functions": [
+    {
+      "name": "at",
+      "summary": "Returns the item located at the specified index.",
+      "signature": "Array.at(index: number): T | undefined",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based index of the desired code unit. A negative index will count back from the last item."
+        }
+      ],
+      "returns": {
+        "type": "T | undefined",
+        "description": "The element at the index, or undefined when the index is out of range."
+      },
+      "example": "console.log([1, 2, 3].at(-1));\n",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.array.d.ts",
+          "line": 24,
+          "lines": [
+            "at(index: number): T | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "concat",
+      "summary": "Combines two or more arrays. This method returns a new array without modifying any existing arrays.",
+      "signature": "Array.concat(...items: ConcatArray<T>[]): T[]",
+      "params": [
+        {
+          "name": "...items",
+          "type": "ConcatArray<T>[]",
+          "optional": false,
+          "description": "The elements to add."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "A new array joining this array and the arguments."
+      },
+      "example": "console.log([1].concat([2], [3]));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1353,
+          "lines": [
+            "concat(...items: ConcatArray<T>[]): T[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1359,
+          "lines": [
+            "concat(...items: (T | ConcatArray<T>)[]): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "copyWithin",
+      "summary": "Returns the this object after copying a section of the array identified by start and end to the same array starting at position target",
+      "signature": "Array.copyWithin(target: number, start: number, end?: number): this",
+      "params": [
+        {
+          "name": "target",
+          "type": "number",
+          "optional": false,
+          "description": "If target is negative, it is treated as length+target where length is the length of the array."
+        },
+        {
+          "name": "start",
+          "type": "number",
+          "optional": false,
+          "description": "If start is negative, it is treated as length+start. If end is negative, it is treated as length+end."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "If not specified, length of the this object is used as its default value."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": "The same array, modified."
+      },
+      "example": "console.log([1, 2, 3, 4].copyWithin(0, 2));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 62,
+          "lines": [
+            "copyWithin(target: number, start: number, end?: number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "entries",
+      "summary": "Returns an iterable of key, value pairs for every entry in the array",
+      "signature": "Array.entries(): ArrayIterator<[number, T]>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<[number, T]>",
+        "description": "An iterator of [index, value] pairs."
+      },
+      "example": "console.log([...['a', 'b'].entries()]);\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 83,
+          "lines": [
+            "entries(): ArrayIterator<[number, T]>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "every",
+      "summary": "Determines whether all the members of an array satisfy the specified test.",
+      "signature": "Array.every<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): this is S[]",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: T, index: number, array: T[]) => value is S",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The every method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value false, or until the end of the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "this is S[]",
+        "description": "true when predicate returns true for every element, otherwise false."
+      },
+      "example": "console.log([2, 4].every((n) => n % 2 === 0));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1440,
+          "lines": [
+            "every<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): this is S[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1449,
+          "lines": [
+            "every(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fill",
+      "summary": "Changes all array elements from `start` to `end` index to a static `value` and returns the modified array",
+      "signature": "Array.fill(value: T, start?: number, end?: number): this",
+      "params": [
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "value to fill array section with"
+        },
+        {
+          "name": "start",
+          "type": "number",
+          "optional": true,
+          "description": "index to start filling the array at. If start is negative, it is treated as length+start where length is the length of the array."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "index to stop filling the array at. If end is negative, it is treated as length+end."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": "The same array, filled."
+      },
+      "example": "console.log(new Array(3).fill(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 51,
+          "lines": [
+            "fill(value: T, start?: number, end?: number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filter",
+      "summary": "Returns the elements of an array that meet the condition specified in a callback function.",
+      "signature": "Array.filter<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): S[]",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: T, index: number, array: T[]) => value is S",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "S[]",
+        "description": "A new array of the elements predicate accepts."
+      },
+      "example": "console.log([1, 2, 3, 4].filter((n) => n > 2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1476,
+          "lines": [
+            "filter<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): S[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1482,
+          "lines": [
+            "filter(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "find",
+      "summary": "Returns the value of the first element in the array where predicate is true, and undefined otherwise.",
+      "signature": "Array.find<S extends T>(predicate: (value: T, index: number, obj: T[]) => value is S, thisArg?: any): S | undefined",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: T, index: number, obj: T[]) => value is S",
+          "optional": false,
+          "description": "find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find immediately returns that element value. Otherwise, find returns undefined."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "S | undefined",
+        "description": "The first element predicate accepts, or undefined."
+      },
+      "example": "console.log([1, 2, 3].find((n) => n > 1));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 29,
+          "lines": [
+            "find<S extends T>(predicate: (value: T, index: number, obj: T[]) => value is S, thisArg?: any): S | undefined;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 30,
+          "lines": [
+            "find(predicate: (value: T, index: number, obj: T[]) => unknown, thisArg?: any): T | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "findIndex",
+      "summary": "Returns the index of the first element in the array where predicate is true, and -1 otherwise.",
+      "signature": "Array.findIndex(predicate: (value: T, index: number, obj: T[]) => unknown, thisArg?: any): number",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: T, index: number, obj: T[]) => unknown",
+          "optional": false,
+          "description": "find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, findIndex immediately returns that element index. Otherwise, findIndex returns -1."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The index of the first element predicate accepts, or -1."
+      },
+      "example": "console.log([1, 2, 3].findIndex((n) => n > 1));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 41,
+          "lines": [
+            "findIndex(predicate: (value: T, index: number, obj: T[]) => unknown, thisArg?: any): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "findLast",
+      "summary": "Returns the value of the last element in the array where predicate is true, and undefined otherwise.",
+      "signature": "Array.findLast<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): S | undefined",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: T, index: number, array: T[]) => value is S",
+          "optional": false,
+          "description": "findLast calls predicate once for each element of the array, in descending order, until it finds one where predicate returns true. If such an element is found, findLast immediately returns that element value. Otherwise, findLast returns undefined."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "S | undefined",
+        "description": "The last element predicate accepts, or undefined."
+      },
+      "example": "console.log([1, 2, 3].findLast((n) => n < 3));\n",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 29,
+          "lines": [
+            "findLast<S extends T>(predicate: (value: T, index: number, array: T[]) => value is S, thisArg?: any): S | undefined;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 30,
+          "lines": [
+            "findLast(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): T | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "findLastIndex",
+      "summary": "Returns the index of the last element in the array where predicate is true, and -1 otherwise.",
+      "signature": "Array.findLastIndex(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): number",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: T, index: number, array: T[]) => unknown",
+          "optional": false,
+          "description": "findLastIndex calls predicate once for each element of the array, in descending order, until it finds one where predicate returns true. If such an element is found, findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The index of the last element predicate accepts, or -1."
+      },
+      "example": "console.log([1, 2, 3].findLastIndex((n) => n < 3));\n",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 41,
+          "lines": [
+            "findLastIndex(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flat",
+      "signature": "Array.flat<A, D extends number = 1>(this: A, depth?: D): FlatArray<A, D>[]",
+      "params": [
+        {
+          "name": "this",
+          "type": "A",
+          "optional": false,
+          "description": "The value to use as this inside the function."
+        },
+        {
+          "name": "depth",
+          "type": "D",
+          "optional": true,
+          "description": "How many levels of nested arrays to flatten. Defaults to 1."
+        }
+      ],
+      "returns": {
+        "type": "FlatArray<A, D>[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2019"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.array.d.ts",
+          "line": 75,
+          "lines": [
+            "flat<A, D extends number = 1>(",
+            "this: A,",
+            "depth?: D,",
+            "): FlatArray<A, D>[];"
+          ]
+        }
+      ],
+      "summary": "Returns a new array with nested arrays flattened up to the given depth."
+    },
+    {
+      "name": "flatMap",
+      "signature": "Array.flatMap<U, This = undefined>(callback: (this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>, thisArg?: This): U[]",
+      "params": [
+        {
+          "name": "callback",
+          "type": "(this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>",
+          "optional": false,
+          "description": "The function to call for each element; it returns a value or array to flatten in."
+        },
+        {
+          "name": "thisArg",
+          "type": "This",
+          "optional": true,
+          "description": "The value to use as this inside callbackfn."
+        }
+      ],
+      "returns": {
+        "type": "U[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2019"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.array.d.ts",
+          "line": 64,
+          "lines": [
+            "flatMap<U, This = undefined>(",
+            "callback: (this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>,",
+            "thisArg?: This,",
+            "): U[];"
+          ]
+        }
+      ],
+      "summary": "Maps each element with a callback, then flattens the result one level."
+    },
+    {
+      "name": "forEach",
+      "summary": "Performs the specified action for each element in an array.",
+      "signature": "Array.forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(value: T, index: number, array: T[]) => void",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": "undefined."
+      },
+      "example": "[1, 2].forEach((n) => console.log(n));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1464,
+          "lines": [
+            "forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "from",
+      "summary": "Creates an array from an array-like object.",
+      "signature": "Array.from<T>(arrayLike: ArrayLike<T>): T[]",
+      "params": [
+        {
+          "name": "arrayLike",
+          "type": "ArrayLike<T>",
+          "optional": false,
+          "description": "An array-like object to convert to an array."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "A new array built from the iterable or array-like value."
+      },
+      "example": "console.log(Array.from(\"abc\"));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 72,
+          "lines": [
+            "from<T>(arrayLike: ArrayLike<T>): T[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 80,
+          "lines": [
+            "from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 101,
+          "lines": [
+            "from<T>(iterable: Iterable<T> | ArrayLike<T>): T[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 109,
+          "lines": [
+            "from<T, U>(iterable: Iterable<T> | ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "includes",
+      "summary": "Determines whether an array includes a certain element, returning true or false as appropriate.",
+      "signature": "Array.includes(searchElement: T, fromIndex?: number): boolean",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "T",
+          "optional": false,
+          "description": "The element to search for."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The position in this array at which to begin searching for searchElement."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the array holds searchElement, otherwise false."
+      },
+      "example": "console.log([1, 2, 3].includes(2));\n",
+      "versions": [
+        "ES2016"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2016.array.include.d.ts",
+          "line": 25,
+          "lines": [
+            "includes(searchElement: T, fromIndex?: number): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "indexOf",
+      "summary": "Returns the index of the first occurrence of a value in an array, or -1 if it is not present.",
+      "signature": "Array.indexOf(searchElement: T, fromIndex?: number): number",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "T",
+          "optional": false,
+          "description": "The value to locate in the array."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The index of the first match, or -1 when there is none."
+      },
+      "example": "console.log([1, 2, 1].indexOf(1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1425,
+          "lines": [
+            "indexOf(searchElement: T, fromIndex?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isArray",
+      "summary": "Checks whether a value is an array.",
+      "signature": "Array.isArray(arg: any): arg is any[]",
+      "params": [
+        {
+          "name": "arg",
+          "type": "any",
+          "optional": false,
+          "description": "The value to test."
+        }
+      ],
+      "returns": {
+        "type": "arg is any[]",
+        "description": "true when the value is an array, otherwise false."
+      },
+      "example": "console.log(Array.isArray([1]), Array.isArray(\"a\"));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1520,
+          "lines": [
+            "isArray(arg: any): arg is any[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "join",
+      "summary": "Adds all the elements of an array into a string, separated by the specified separator string.",
+      "signature": "Array.join(separator?: string): string",
+      "params": [
+        {
+          "name": "separator",
+          "type": "string",
+          "optional": true,
+          "description": "A string used to separate one element of the array from the next in the resulting string. If omitted, the array elements are separated with a comma."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The elements joined into one string."
+      },
+      "example": "console.log(['a', 'b'].join('-'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1364,
+          "lines": [
+            "join(separator?: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keys",
+      "summary": "Returns an iterable of keys in the array",
+      "signature": "Array.keys(): ArrayIterator<number>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<number>",
+        "description": "An iterator of the indexes."
+      },
+      "example": "console.log([...['a', 'b'].keys()]);\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 88,
+          "lines": [
+            "keys(): ArrayIterator<number>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lastIndexOf",
+      "summary": "Returns the index of the last occurrence of a specified value in an array, or -1 if it is not present.",
+      "signature": "Array.lastIndexOf(searchElement: T, fromIndex?: number): number",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "T",
+          "optional": false,
+          "description": "The value to locate in the array."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The array index at which to begin searching backward. If fromIndex is omitted, the search starts at the last index in the array."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The index of the last match, or -1 when there is none."
+      },
+      "example": "console.log([1, 2, 1].lastIndexOf(1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1431,
+          "lines": [
+            "lastIndexOf(searchElement: T, fromIndex?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "summary": "Calls a defined callback function on each element of an array, and returns an array that contains the results.",
+      "signature": "Array.map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[]",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(value: T, index: number, array: T[]) => U",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "U[]",
+        "description": "A new array of the callback results."
+      },
+      "example": "console.log([1, 2, 3].map((n) => n * 2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1470,
+          "lines": [
+            "map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "of",
+      "summary": "Returns a new array from a set of elements.",
+      "signature": "Array.of<T>(...items: T[]): T[]",
+      "params": [
+        {
+          "name": "...items",
+          "type": "T[]",
+          "optional": false,
+          "description": "The elements of the new array."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "A new array holding the arguments."
+      },
+      "example": "console.log(Array.of(1, 2, 3));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 86,
+          "lines": [
+            "of<T>(...items: T[]): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pop",
+      "summary": "Removes the last element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.",
+      "signature": "Array.pop(): T | undefined",
+      "params": [],
+      "returns": {
+        "type": "T | undefined",
+        "description": "The removed last element, or undefined when the array is empty."
+      },
+      "example": "const a = [1, 2];\nconsole.log(a.pop(), a);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1342,
+          "lines": [
+            "pop(): T | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "push",
+      "summary": "Appends new elements to the end of an array, and returns the new length of the array.",
+      "signature": "Array.push(...items: T[]): number",
+      "params": [
+        {
+          "name": "...items",
+          "type": "T[]",
+          "optional": false,
+          "description": "The elements to add."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The new length of the array."
+      },
+      "example": "const a = [1];\nconsole.log(a.push(2, 3), a);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1347,
+          "lines": [
+            "push(...items: T[]): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reduce",
+      "summary": "Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "signature": "Array.reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T",
+          "optional": false,
+          "description": "A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array."
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "The final accumulated value."
+      },
+      "example": "console.log([1, 2, 3].reduce((sum, n) => sum + n));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1488,
+          "lines": [
+            "reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1489,
+          "lines": [
+            "reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue: T): T;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1495,
+          "lines": [
+            "reduce<U>(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): U;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reduceRight",
+      "summary": "Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "signature": "Array.reduceRight(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T",
+          "optional": false,
+          "description": "A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array."
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "The final accumulated value."
+      },
+      "example": "console.log(['a', 'b', 'c'].reduceRight((s, c) => s + c));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1501,
+          "lines": [
+            "reduceRight(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1502,
+          "lines": [
+            "reduceRight(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue: T): T;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1508,
+          "lines": [
+            "reduceRight<U>(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): U;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reverse",
+      "summary": "Reverses the elements in an array in place. This method mutates the array and returns a reference to the same array.",
+      "signature": "Array.reverse(): T[]",
+      "params": [],
+      "returns": {
+        "type": "T[]",
+        "description": "The same array, reversed."
+      },
+      "example": "console.log([1, 2, 3].reverse());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1369,
+          "lines": [
+            "reverse(): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shift",
+      "summary": "Removes the first element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.",
+      "signature": "Array.shift(): T | undefined",
+      "params": [],
+      "returns": {
+        "type": "T | undefined",
+        "description": "The removed first element, or undefined when the array is empty."
+      },
+      "example": "const a = [1, 2];\nconsole.log(a.shift(), a);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1374,
+          "lines": [
+            "shift(): T | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slice",
+      "summary": "Returns a copy of a section of an array. For both start and end, a negative index can be used to indicate an offset from the end of the array. For example, -2 refers to the second to last element of the array.",
+      "signature": "Array.slice(start?: number, end?: number): T[]",
+      "params": [
+        {
+          "name": "start",
+          "type": "number",
+          "optional": true,
+          "description": "The beginning index of the specified portion of the array. If start is undefined, then the slice begins at index 0."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The end index of the specified portion of the array. This is exclusive of the element at the index 'end'. If end is undefined, then the slice extends to the end of the array."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "A new array holding the elements from start up to end."
+      },
+      "example": "console.log([1, 2, 3, 4].slice(1, 3));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1384,
+          "lines": [
+            "slice(start?: number, end?: number): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "some",
+      "summary": "Determines whether the specified callback function returns true for any element of an array.",
+      "signature": "Array.some(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): boolean",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: T, index: number, array: T[]) => unknown",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The some method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value true, or until the end of the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when predicate returns true for any element, otherwise false."
+      },
+      "example": "console.log([1, 3].some((n) => n > 2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1458,
+          "lines": [
+            "some(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sort",
+      "summary": "Sorts an array in place. This method mutates the array and returns a reference to the same array.",
+      "signature": "Array.sort(compareFn?: (a: T, b: T) => number): this",
+      "params": [
+        {
+          "name": "compareFn",
+          "type": "(a: T, b: T) => number",
+          "optional": true,
+          "description": "Function used to determine the order of the elements. It is expected to return a negative value if the first argument is less than the second argument, zero if they're equal, and a positive value otherwise. If omitted, the elements are sorted in ascending, UTF-16 code unit order. ```ts [11,2,22,1].sort((a, b) => a - b) ```"
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": "The same array, sorted."
+      },
+      "example": "console.log([3, 1, 2].sort((a, b) => a - b));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1395,
+          "lines": [
+            "sort(compareFn?: (a: T, b: T) => number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "splice",
+      "summary": "Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.",
+      "signature": "Array.splice(start: number, deleteCount?: number): T[]",
+      "params": [
+        {
+          "name": "start",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based location in the array from which to start removing elements."
+        },
+        {
+          "name": "deleteCount",
+          "type": "number",
+          "optional": true,
+          "description": "The number of elements to remove. Omitting this argument will remove all elements from the start paramater location to end of the array. If value of this argument is either a negative number, zero, undefined, or a type that cannot be converted to an integer, the function will evaluate the argument as zero and not remove any elements."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "An array containing the elements that were deleted."
+      },
+      "example": "const a = [1, 2, 3];\nconsole.log(a.splice(1, 1), a);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1404,
+          "lines": [
+            "splice(start: number, deleteCount?: number): T[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1414,
+          "lines": [
+            "splice(start: number, deleteCount: number, ...items: T[]): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleString",
+      "summary": "Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.",
+      "signature": "Array.toLocaleString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The elements as locale strings, joined by commas."
+      },
+      "example": "console.log([1234.5, 6].toLocaleString());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1337,
+          "lines": [
+            "toLocaleString(): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 64,
+          "lines": [
+            "toLocaleString(locales: string | string[], options?: Intl.NumberFormatOptions & Intl.DateTimeFormatOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toReversed",
+      "summary": "Returns a copy of an array with its elements reversed.",
+      "signature": "Array.toReversed(): T[]",
+      "params": [],
+      "returns": {
+        "type": "T[]",
+        "description": "A new reversed array."
+      },
+      "example": "console.log([1, 2, 3].toReversed());\n",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 46,
+          "lines": [
+            "toReversed(): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toSorted",
+      "summary": "Returns a copy of an array with its elements sorted.",
+      "signature": "Array.toSorted(compareFn?: (a: T, b: T) => number): T[]",
+      "params": [
+        {
+          "name": "compareFn",
+          "type": "(a: T, b: T) => number",
+          "optional": true,
+          "description": "Function used to determine the order of the elements. It is expected to return a negative value if the first argument is less than the second argument, zero if they're equal, and a positive value otherwise. If omitted, the elements are sorted in ascending, UTF-16 code unit order. ```ts [11, 2, 22, 1].toSorted((a, b) => a - b) // [1, 2, 11, 22] ```"
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "A new sorted array."
+      },
+      "example": "console.log([3, 1, 2].toSorted());\n",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 57,
+          "lines": [
+            "toSorted(compareFn?: (a: T, b: T) => number): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toSpliced",
+      "summary": "Copies an array and removes elements and, if necessary, inserts new elements in their place. Returns the copied array.",
+      "signature": "Array.toSpliced(start: number, deleteCount: number, ...items: T[]): T[]",
+      "params": [
+        {
+          "name": "start",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based location in the array from which to start removing elements."
+        },
+        {
+          "name": "deleteCount",
+          "type": "number",
+          "optional": false,
+          "description": "The number of elements to remove."
+        },
+        {
+          "name": "...items",
+          "type": "T[]",
+          "optional": false,
+          "description": "The elements to add."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "The copied array."
+      },
+      "example": "console.log([1, 2, 3].toSpliced(1, 1, 9));\n",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 66,
+          "lines": [
+            "toSpliced(start: number, deleteCount: number, ...items: T[]): T[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 74,
+          "lines": [
+            "toSpliced(start: number, deleteCount?: number): T[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of an array.",
+      "signature": "Array.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The elements joined by commas."
+      },
+      "example": "console.log([1, 2].toString());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1333,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unshift",
+      "summary": "Inserts new elements at the start of an array, and returns the new length of the array.",
+      "signature": "Array.unshift(...items: T[]): number",
+      "params": [
+        {
+          "name": "...items",
+          "type": "T[]",
+          "optional": false,
+          "description": "The elements to add."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The new length of the array."
+      },
+      "example": "const a = [2];\nconsole.log(a.unshift(0, 1), a);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1419,
+          "lines": [
+            "unshift(...items: T[]): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "values",
+      "summary": "Returns an iterable of values in the array",
+      "signature": "Array.values(): ArrayIterator<T>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<T>",
+        "description": "An iterator of the values."
+      },
+      "example": "console.log([...['a', 'b'].values()]);\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 93,
+          "lines": [
+            "values(): ArrayIterator<T>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "with",
+      "summary": "Copies an array, then overwrites the value at the provided index with the given value. If the index is negative, then it replaces from the end of the array.",
+      "signature": "Array.with(index: number, value: T): T[]",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The index of the value to overwrite. If the index is negative, then it replaces from the end of the array."
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "The value to write into the copied array."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "The copied array with the updated value."
+      },
+      "example": "console.log([1, 2, 3].with(1, 9));\n",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 85,
+          "lines": [
+            "with(index: number, value: T): T[];"
+          ]
+        }
+      ]
+    }
+  ]
+}

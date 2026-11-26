@@ -1,0 +1,355 @@
+{
+  "object": "Promise",
+  "functions": [
+    {
+      "name": "all",
+      "summary": "Creates a Promise that is resolved with an array of results when all of the provided Promises resolve, or rejected when any Promise is rejected.",
+      "signature": "Promise.all<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>[]>",
+      "params": [
+        {
+          "name": "values",
+          "type": "Iterable<T | PromiseLike<T>>",
+          "optional": false,
+          "description": "An iterable of Promises."
+        }
+      ],
+      "returns": {
+        "type": "Promise<Awaited<T>[]>",
+        "description": "A new Promise."
+      },
+      "example": "Promise.all([1, Promise.resolve(2)]).then((v) => console.log(v));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 255,
+          "lines": [
+            "all<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>[]>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.promise.d.ts",
+          "line": 39,
+          "lines": [
+            "all<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [P in keyof T]: Awaited<T[P]>; }>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "allSettled",
+      "summary": "Creates a Promise that is resolved with an array of results when all of the provided Promises resolve or reject.",
+      "signature": "Promise.allSettled<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>>; }>",
+      "params": [
+        {
+          "name": "values",
+          "type": "T",
+          "optional": false,
+          "description": "An array of Promises."
+        }
+      ],
+      "returns": {
+        "type": "Promise<{ -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>>; }>",
+        "description": "A new Promise."
+      },
+      "example": "Promise.allSettled([Promise.resolve(1), Promise.reject(new Error(\"x\"))]).then((r) => console.log(r.map((s) => s.status)));\n",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.promise.d.ts",
+          "line": 38,
+          "lines": [
+            "allSettled<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>>; }>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.promise.d.ts",
+          "line": 46,
+          "lines": [
+            "allSettled<T>(values: Iterable<T | PromiseLike<T>>): Promise<PromiseSettledResult<Awaited<T>>[]>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "any",
+      "summary": "The any function returns a promise that is fulfilled by the first given promise to be fulfilled, or rejected with an AggregateError containing an array of rejection reasons if all of the given promises are rejected. It resolves all elements of the passed iterable to promises as it runs this algorithm.",
+      "signature": "Promise.any<T extends readonly unknown[] | []>(values: T): Promise<Awaited<T[number]>>",
+      "params": [
+        {
+          "name": "values",
+          "type": "T",
+          "optional": false,
+          "description": "An array or iterable of Promises."
+        }
+      ],
+      "returns": {
+        "type": "Promise<Awaited<T[number]>>",
+        "description": "A new Promise."
+      },
+      "example": "Promise.any([Promise.reject(new Error(\"x\")), Promise.resolve(2)]).then((v) => console.log(v));\n",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.promise.d.ts",
+          "line": 40,
+          "lines": [
+            "any<T extends readonly unknown[] | []>(values: T): Promise<Awaited<T[number]>>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.promise.d.ts",
+          "line": 47,
+          "lines": [
+            "any<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "catch",
+      "summary": "Attaches a callback for only the rejection of the Promise.",
+      "signature": "Promise.catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promise<T | TResult>",
+      "params": [
+        {
+          "name": "onrejected",
+          "type": "((reason: any) => TResult | PromiseLike<TResult>) | undefined | null",
+          "optional": true,
+          "description": "The callback to execute when the Promise is rejected."
+        }
+      ],
+      "returns": {
+        "type": "Promise<T | TResult>",
+        "description": "A Promise for the completion of the callback."
+      },
+      "example": "Promise.reject(new Error(\"oops\")).catch((e) => console.log(e.message));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1564,
+          "lines": [
+            "catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promise<T | TResult>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "finally",
+      "summary": "Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The resolved value cannot be modified from the callback.",
+      "signature": "Promise.finally(onfinally?: (() => void) | undefined | null): Promise<T>",
+      "params": [
+        {
+          "name": "onfinally",
+          "type": "(() => void) | undefined | null",
+          "optional": true,
+          "description": "The callback to execute when the Promise is settled (fulfilled or rejected)."
+        }
+      ],
+      "returns": {
+        "type": "Promise<T>",
+        "description": "A Promise for the completion of the callback."
+      },
+      "example": "Promise.resolve(1).finally(() => console.log(\"done\"));\n",
+      "versions": [
+        "ES2018"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2018.promise.d.ts",
+          "line": 29,
+          "lines": [
+            "finally(onfinally?: (() => void) | undefined | null): Promise<T>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "race",
+      "summary": "Creates a Promise that is resolved or rejected when any of the provided Promises are resolved or rejected.",
+      "signature": "Promise.race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>",
+      "params": [
+        {
+          "name": "values",
+          "type": "Iterable<T | PromiseLike<T>>",
+          "optional": false,
+          "description": "An iterable of Promises."
+        }
+      ],
+      "returns": {
+        "type": "Promise<Awaited<T>>",
+        "description": "A new Promise."
+      },
+      "example": "Promise.race([new Promise((r) => setTimeout(r, 50, \"slow\")), Promise.resolve(\"fast\")]).then((v) => console.log(v));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 263,
+          "lines": [
+            "race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.promise.d.ts",
+          "line": 50,
+          "lines": [
+            "race<T extends readonly unknown[] | []>(values: T): Promise<Awaited<T[number]>>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reject",
+      "summary": "Creates a new rejected promise for the provided reason.",
+      "signature": "Promise.reject<T = never>(reason?: any): Promise<T>",
+      "params": [
+        {
+          "name": "reason",
+          "type": "any",
+          "optional": true,
+          "description": "The reason the promise was rejected."
+        }
+      ],
+      "returns": {
+        "type": "Promise<T>",
+        "description": "A new rejected Promise."
+      },
+      "example": "Promise.reject(new Error(\"no\")).catch((e) => console.log(e.message));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.promise.d.ts",
+          "line": 60,
+          "lines": [
+            "reject<T = never>(reason?: any): Promise<T>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resolve",
+      "summary": "Creates a new resolved promise.",
+      "signature": "Promise.resolve(): Promise<void>",
+      "params": [],
+      "returns": {
+        "type": "Promise<void>",
+        "description": "A resolved promise."
+      },
+      "example": "Promise.resolve(42).then((v) => console.log(v));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.promise.d.ts",
+          "line": 66,
+          "lines": [
+            "resolve(): Promise<void>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.promise.d.ts",
+          "line": 72,
+          "lines": [
+            "resolve<T>(value: T): Promise<Awaited<T>>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.promise.d.ts",
+          "line": 78,
+          "lines": [
+            "resolve<T>(value: T | PromiseLike<T>): Promise<Awaited<T>>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "then",
+      "summary": "Attaches callbacks for the resolution and/or rejection of the Promise.",
+      "signature": "Promise.then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>",
+      "params": [
+        {
+          "name": "onfulfilled",
+          "type": "((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null",
+          "optional": true,
+          "description": "The callback to execute when the Promise is resolved."
+        },
+        {
+          "name": "onrejected",
+          "type": "((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null",
+          "optional": true,
+          "description": "The callback to execute when the Promise is rejected."
+        }
+      ],
+      "returns": {
+        "type": "Promise<TResult1 | TResult2>",
+        "description": "A Promise for the completion of which ever callback is executed."
+      },
+      "example": "Promise.resolve(2).then((v) => console.log(v * 2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1557,
+          "lines": [
+            "then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "withResolvers",
+      "summary": "Creates a new Promise and returns it in an object, along with its resolve and reject functions.",
+      "signature": "Promise.withResolvers<T>(): PromiseWithResolvers<T>",
+      "params": [],
+      "returns": {
+        "type": "PromiseWithResolvers<T>",
+        "description": "An object with the properties `promise`, `resolve`, and `reject`.  ```ts const { promise, resolve, reject } = Promise.withResolvers<T>(); ```"
+      },
+      "example": "const { promise, resolve } = Promise.withResolvers();\npromise.then((v) => console.log(v));\nresolve(\"ready\");\n",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.promise.d.ts",
+          "line": 34,
+          "lines": [
+            "withResolvers<T>(): PromiseWithResolvers<T>;"
+          ]
+        }
+      ]
+    }
+  ]
+}

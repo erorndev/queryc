@@ -1,0 +1,143 @@
+{
+  "object": "Intl.RelativeTimeFormat",
+  "functions": [
+    {
+      "name": "format",
+      "summary": "Formats the value as a string for the locale.",
+      "signature": "Intl.RelativeTimeFormat.format(value: number, unit: RelativeTimeFormatUnit): string",
+      "params": [
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to use."
+        },
+        {
+          "name": "unit",
+          "type": "RelativeTimeFormatUnit",
+          "optional": false,
+          "description": "The unit of time, such as \"day\" or \"hour\"."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 171,
+          "lines": [
+            "format(value: number, unit: RelativeTimeFormatUnit): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "formatToParts",
+      "summary": "Formats the value as an array of typed parts.",
+      "signature": "Intl.RelativeTimeFormat.formatToParts(value: number, unit: RelativeTimeFormatUnit): RelativeTimeFormatPart[]",
+      "params": [
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to use."
+        },
+        {
+          "name": "unit",
+          "type": "RelativeTimeFormatUnit",
+          "optional": false,
+          "description": "The unit of time, such as \"day\" or \"hour\"."
+        }
+      ],
+      "returns": {
+        "type": "RelativeTimeFormatPart[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 184,
+          "lines": [
+            "formatToParts(value: number, unit: RelativeTimeFormatUnit): RelativeTimeFormatPart[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resolvedOptions",
+      "summary": "Returns the locale and options this object resolved to.",
+      "signature": "Intl.RelativeTimeFormat.resolvedOptions(): ResolvedRelativeTimeFormatOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedRelativeTimeFormatOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 191,
+          "lines": [
+            "resolvedOptions(): ResolvedRelativeTimeFormatOptions;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "supportedLocalesOf",
+      "summary": "Returns the given locales that this API supports without falling back.",
+      "signature": "Intl.RelativeTimeFormat.supportedLocalesOf(locales?: LocalesArgument, options?: RelativeTimeFormatOptions): UnicodeBCP47LocaleIdentifier[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "LocalesArgument",
+          "optional": true,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "RelativeTimeFormatOptions",
+          "optional": true,
+          "description": "Options such as localeMatcher."
+        }
+      ],
+      "returns": {
+        "type": "UnicodeBCP47LocaleIdentifier[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 238,
+          "lines": [
+            "supportedLocalesOf(",
+            "locales?: LocalesArgument,",
+            "options?: RelativeTimeFormatOptions,",
+            "): UnicodeBCP47LocaleIdentifier[];"
+          ]
+        }
+      ]
+    }
+  ]
+}

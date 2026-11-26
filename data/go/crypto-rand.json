@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleInt() {\n\t// Int cannot return an error when using rand.Reader.\n\ta, _ := rand.Int(rand.Reader, big.NewInt(100))\n\tfmt.Println(a.Int64())\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/rand/example_test.go",
+        "line": 14
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -60,6 +66,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePrime() {\n\t// Prime cannot return an error when using rand.Reader and bits >= 2.\n\ta, _ := rand.Prime(rand.Reader, 64)\n\tfmt.Println(a.Int64())\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/rand/example_test.go",
+        "line": 21
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -95,6 +107,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRead() {\n\t// Note that no error handling is necessary, as Read always succeeds.\n\tkey := make([]byte, 32)\n\trand.Read(key)\n\t// The key can contain any byte value, print the key in hex.\n\tfmt.Printf(\"% x\\n\", key)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/rand/example_test.go",
+        "line": 28
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -125,6 +143,12 @@
       "versions": [
         "Go 1.24"
       ],
+      "example": "func ExampleText() {\n\tkey := rand.Text()\n\t// The key is base32 and safe to display.\n\tfmt.Println(key)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/rand/example_test.go",
+        "line": 37
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -1,0 +1,105 @@
+{
+  "object": "Intl.PluralRules",
+  "functions": [
+    {
+      "name": "resolvedOptions",
+      "signature": "Intl.PluralRules.resolvedOptions(): ResolvedPluralRulesOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedPluralRulesOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2018"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2018.intl.d.ts",
+          "line": 46,
+          "lines": [
+            "resolvedOptions(): ResolvedPluralRulesOptions;"
+          ]
+        }
+      ],
+      "summary": "Returns the locale and options this object resolved to."
+    },
+    {
+      "name": "select",
+      "signature": "Intl.PluralRules.select(n: number): LDMLPluralRule",
+      "params": [
+        {
+          "name": "n",
+          "type": "number",
+          "optional": false,
+          "description": "The number to choose a plural category for."
+        }
+      ],
+      "returns": {
+        "type": "LDMLPluralRule",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2018"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2018.intl.d.ts",
+          "line": 47,
+          "lines": [
+            "select(n: number): LDMLPluralRule;"
+          ]
+        }
+      ],
+      "summary": "Returns the plural category of a number for the locale."
+    },
+    {
+      "name": "supportedLocalesOf",
+      "signature": "Intl.PluralRules.supportedLocalesOf(locales: string | readonly string[], options?: { localeMatcher?: \"lookup\" | \"best fit\"; }): string[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "string | readonly string[]",
+          "optional": false,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "{ localeMatcher?: \"lookup\" | \"best fit\"; }",
+          "optional": true,
+          "description": "Formatting options."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2018"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2018.intl.d.ts",
+          "line": 53,
+          "lines": [
+            "supportedLocalesOf(locales: string | readonly string[], options?: { localeMatcher?: \"lookup\" | \"best fit\"; }): string[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 472,
+          "lines": [
+            "supportedLocalesOf(locales: LocalesArgument, options?: { localeMatcher?: \"lookup\" | \"best fit\"; }): string[];"
+          ]
+        }
+      ],
+      "summary": "Returns the given locales that this API supports without falling back."
+    }
+  ]
+}

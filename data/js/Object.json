@@ -1,0 +1,1020 @@
+{
+  "object": "Object",
+  "functions": [
+    {
+      "name": "assign",
+      "summary": "Copy the values of all of the enumerable own properties from one or more source objects to a target object. Returns the target object.",
+      "signature": "Object.assign<T extends {}, U>(target: T, source: U): T & U",
+      "params": [
+        {
+          "name": "target",
+          "type": "T",
+          "optional": false,
+          "description": "The target object to copy to."
+        },
+        {
+          "name": "source",
+          "type": "U",
+          "optional": false,
+          "description": "The source object from which to copy properties."
+        }
+      ],
+      "returns": {
+        "type": "T & U",
+        "description": "The target object, with the source properties copied onto it."
+      },
+      "example": "console.log(Object.assign({ a: 1 }, { b: 2 }));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 286,
+          "lines": [
+            "assign<T extends {}, U>(target: T, source: U): T & U;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 295,
+          "lines": [
+            "assign<T extends {}, U, V>(target: T, source1: U, source2: V): T & U & V;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 305,
+          "lines": [
+            "assign<T extends {}, U, V, W>(target: T, source1: U, source2: V, source3: W): T & U & V & W;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 313,
+          "lines": [
+            "assign(target: object, ...sources: any[]): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "create",
+      "summary": "Creates an object that has the specified prototype or that has null prototype.",
+      "signature": "Object.create(o: object | null): any",
+      "params": [
+        {
+          "name": "o",
+          "type": "object | null",
+          "optional": false,
+          "description": "Object to use as a prototype. May be null."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": "A new object with the given prototype."
+      },
+      "example": "const o = Object.create({ hi: () => \"hi\" });\nconsole.log(o.hi());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 188,
+          "lines": [
+            "create(o: object | null): any;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 195,
+          "lines": [
+            "create(o: object | null, properties: PropertyDescriptorMap & ThisType<any>): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "defineProperties",
+      "summary": "Adds one or more properties to an object, and/or modifies attributes of existing properties.",
+      "signature": "Object.defineProperties<T>(o: T, properties: PropertyDescriptorMap & ThisType<any>): T",
+      "params": [
+        {
+          "name": "o",
+          "type": "T",
+          "optional": false,
+          "description": "Object on which to add or modify the properties. This can be a native JavaScript object or a DOM object."
+        },
+        {
+          "name": "properties",
+          "type": "PropertyDescriptorMap & ThisType<any>",
+          "optional": false,
+          "description": "JavaScript object that contains one or more descriptor objects. Each descriptor object describes a data property or an accessor property."
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "The same object, with the properties defined."
+      },
+      "example": "console.log(Object.defineProperties({}, { a: { value: 1, enumerable: true } }));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 210,
+          "lines": [
+            "defineProperties<T>(o: T, properties: PropertyDescriptorMap & ThisType<any>): T;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "defineProperty",
+      "summary": "Adds a property to an object, or modifies attributes of an existing property.",
+      "signature": "Object.defineProperty<T>(o: T, p: PropertyKey, attributes: PropertyDescriptor & ThisType<any>): T",
+      "params": [
+        {
+          "name": "o",
+          "type": "T",
+          "optional": false,
+          "description": "Object on which to add or modify the property. This can be a native JavaScript object (that is, a user-defined object or a built in object) or a DOM object."
+        },
+        {
+          "name": "p",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "The property name."
+        },
+        {
+          "name": "attributes",
+          "type": "PropertyDescriptor & ThisType<any>",
+          "optional": false,
+          "description": "Descriptor for the property. It can be for a data property or an accessor property."
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "The same object, with the property defined."
+      },
+      "example": "console.log(Object.defineProperty({}, \"a\", { value: 1, enumerable: true }));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 203,
+          "lines": [
+            "defineProperty<T>(o: T, p: PropertyKey, attributes: PropertyDescriptor & ThisType<any>): T;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "entries",
+      "summary": "Returns an array of key/values of the enumerable own properties of an object",
+      "signature": "Object.entries<T>(o: { [s: string]: T; } | ArrayLike<T>): [string, T][]",
+      "params": [
+        {
+          "name": "o",
+          "type": "{ [s: string]: T; } | ArrayLike<T>",
+          "optional": false,
+          "description": "Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object."
+        }
+      ],
+      "returns": {
+        "type": "[string, T][]",
+        "description": "An array of [key, value] pairs for the own enumerable properties."
+      },
+      "example": "console.log(Object.entries({ a: 1, b: 2 }));\n",
+      "versions": [
+        "ES2017"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.object.d.ts",
+          "line": 36,
+          "lines": [
+            "entries<T>(o: { [s: string]: T; } | ArrayLike<T>): [string, T][];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.object.d.ts",
+          "line": 42,
+          "lines": [
+            "entries(o: {}): [string, any][];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "freeze",
+      "summary": "Prevents the modification of existing property attributes and values, and prevents the addition of new properties.",
+      "signature": "Object.freeze<T extends Function>(f: T): T",
+      "params": [
+        {
+          "name": "f",
+          "type": "T",
+          "optional": false,
+          "description": "Object on which to lock the attributes."
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "The same object, now frozen."
+      },
+      "example": "const o = Object.freeze({ a: 1 });\nconsole.log(Object.isFrozen(o));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 222,
+          "lines": [
+            "freeze<T extends Function>(f: T): T;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 228,
+          "lines": [
+            "freeze<T extends { [idx: string]: U | null | undefined | object; }, U extends string | bigint | number | boolean | symbol>(o: T): Readonly<T>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 234,
+          "lines": [
+            "freeze<T>(o: T): Readonly<T>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fromEntries",
+      "summary": "Returns an object created by key-value entries for properties and methods",
+      "signature": "Object.fromEntries<T = any>(entries: Iterable<readonly [PropertyKey, T]>): { [k: string]: T; }",
+      "params": [
+        {
+          "name": "entries",
+          "type": "Iterable<readonly [PropertyKey, T]>",
+          "optional": false,
+          "description": "An iterable object that contains key-value entries for properties and methods."
+        }
+      ],
+      "returns": {
+        "type": "{ [k: string]: T; }",
+        "description": "A new object built from the key-value pairs."
+      },
+      "example": "console.log(Object.fromEntries([[\"a\", 1], [\"b\", 2]]));\n",
+      "versions": [
+        "ES2019"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.object.d.ts",
+          "line": 26,
+          "lines": [
+            "fromEntries<T = any>(entries: Iterable<readonly [PropertyKey, T]>): { [k: string]: T; };"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.object.d.ts",
+          "line": 32,
+          "lines": [
+            "fromEntries(entries: Iterable<readonly any[]>): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getOwnPropertyDescriptor",
+      "summary": "Gets the own property descriptor of the specified object. An own property descriptor is one that is defined directly on the object and is not inherited from the object's prototype.",
+      "signature": "Object.getOwnPropertyDescriptor(o: any, p: PropertyKey): PropertyDescriptor | undefined",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "Object that contains the property."
+        },
+        {
+          "name": "p",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "Name of the property."
+        }
+      ],
+      "returns": {
+        "type": "PropertyDescriptor | undefined",
+        "description": "The property descriptor, or undefined when the property does not exist."
+      },
+      "example": "console.log(Object.getOwnPropertyDescriptor({ a: 1 }, \"a\"));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 175,
+          "lines": [
+            "getOwnPropertyDescriptor(o: any, p: PropertyKey): PropertyDescriptor | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getOwnPropertyDescriptors",
+      "summary": "Returns an object containing all own property descriptors of an object",
+      "signature": "Object.getOwnPropertyDescriptors<T>(o: T): { [P in keyof T]: TypedPropertyDescriptor<T[P]>; } & { [x: string]: PropertyDescriptor; }",
+      "params": [
+        {
+          "name": "o",
+          "type": "T",
+          "optional": false,
+          "description": "Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object."
+        }
+      ],
+      "returns": {
+        "type": "{ [P in keyof T]: TypedPropertyDescriptor<T[P]>; } & { [x: string]: PropertyDescriptor; }",
+        "description": "An object holding the descriptor of every own property."
+      },
+      "example": "console.log(Object.getOwnPropertyDescriptors({ a: 1 }));\n",
+      "versions": [
+        "ES2017"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.object.d.ts",
+          "line": 48,
+          "lines": [
+            "getOwnPropertyDescriptors<T>(o: T): { [P in keyof T]: TypedPropertyDescriptor<T[P]>; } & { [x: string]: PropertyDescriptor; };"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getOwnPropertyNames",
+      "summary": "Returns the names of the own properties of an object. The own properties of an object are those that are defined directly on that object, and are not inherited from the object's prototype. The properties of an object include both fields (objects) and functions.",
+      "signature": "Object.getOwnPropertyNames(o: any): string[]",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "Object that contains the own properties."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": "An array of every own string key, enumerable or not."
+      },
+      "example": "console.log(Object.getOwnPropertyNames([1, 2]));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 182,
+          "lines": [
+            "getOwnPropertyNames(o: any): string[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getOwnPropertySymbols",
+      "summary": "Returns an array of all symbol properties found directly on object o.",
+      "signature": "Object.getOwnPropertySymbols(o: any): symbol[]",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "Object to retrieve the symbols from."
+        }
+      ],
+      "returns": {
+        "type": "symbol[]",
+        "description": "An array of every own symbol key."
+      },
+      "example": "console.log(Object.getOwnPropertySymbols({ [Symbol(\"s\")]: 1 }));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 319,
+          "lines": [
+            "getOwnPropertySymbols(o: any): symbol[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getPrototypeOf",
+      "summary": "Returns the prototype of an object.",
+      "signature": "Object.getPrototypeOf(o: any): any",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "The object that references the prototype."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": "The prototype of the object, or null."
+      },
+      "example": "console.log(Object.getPrototypeOf([]) === Array.prototype);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 167,
+          "lines": [
+            "getPrototypeOf(o: any): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "groupBy",
+      "signature": "Object.groupBy<K extends PropertyKey, T>(items: Iterable<T>, keySelector: (item: T, index: number) => K): Partial<Record<K, T[]>>",
+      "params": [
+        {
+          "name": "items",
+          "type": "Iterable<T>",
+          "optional": false,
+          "description": "The elements of the new array."
+        },
+        {
+          "name": "keySelector",
+          "type": "(item: T, index: number) => K",
+          "optional": false,
+          "description": "The function that returns the group key for each element."
+        }
+      ],
+      "returns": {
+        "type": "Partial<Record<K, T[]>>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.object.d.ts",
+          "line": 25,
+          "lines": [
+            "groupBy<K extends PropertyKey, T>(",
+            "items: Iterable<T>,",
+            "keySelector: (item: T, index: number) => K,",
+            "): Partial<Record<K, T[]>>;"
+          ]
+        }
+      ],
+      "summary": "Groups the elements of an iterable by the key the callback returns."
+    },
+    {
+      "name": "hasOwn",
+      "summary": "Determines whether an object has a property with the specified name.",
+      "signature": "Object.hasOwn(o: object, v: PropertyKey): boolean",
+      "params": [
+        {
+          "name": "o",
+          "type": "object",
+          "optional": false,
+          "description": "An object."
+        },
+        {
+          "name": "v",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "A property name."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the object has the property as its own, otherwise false."
+      },
+      "example": "console.log(Object.hasOwn({ a: 1 }, \"a\"));\n",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.object.d.ts",
+          "line": 25,
+          "lines": [
+            "hasOwn(o: object, v: PropertyKey): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hasOwnProperty",
+      "summary": "Determines whether an object has a property with the specified name.",
+      "signature": "Object.hasOwnProperty(v: PropertyKey): boolean",
+      "params": [
+        {
+          "name": "v",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "A property name."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the object has the property as its own, otherwise false."
+      },
+      "example": "console.log({ a: 1 }.hasOwnProperty(\"a\"));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 140,
+          "lines": [
+            "hasOwnProperty(v: PropertyKey): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "is",
+      "summary": "Returns true if the values are the same value, false otherwise.",
+      "signature": "Object.is(value1: any, value2: any): boolean",
+      "params": [
+        {
+          "name": "value1",
+          "type": "any",
+          "optional": false,
+          "description": "The first value."
+        },
+        {
+          "name": "value2",
+          "type": "any",
+          "optional": false,
+          "description": "The second value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when both values are the same value, otherwise false."
+      },
+      "example": "console.log(Object.is(NaN, NaN), Object.is(0, -0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 332,
+          "lines": [
+            "is(value1: any, value2: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isExtensible",
+      "summary": "Returns a value that indicates whether new properties can be added to an object.",
+      "signature": "Object.isExtensible(o: any): boolean",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "Object to test."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when new properties can be added, otherwise false."
+      },
+      "example": "console.log(Object.isExtensible(Object.seal({})));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 258,
+          "lines": [
+            "isExtensible(o: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isFrozen",
+      "summary": "Returns true if existing property attributes and values cannot be modified in an object, and new properties cannot be added to the object.",
+      "signature": "Object.isFrozen(o: any): boolean",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "Object to test."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the object is frozen, otherwise false."
+      },
+      "example": "console.log(Object.isFrozen(Object.freeze({})));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 252,
+          "lines": [
+            "isFrozen(o: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isPrototypeOf",
+      "summary": "Determines whether an object exists in another object's prototype chain.",
+      "signature": "Object.isPrototypeOf(v: Object): boolean",
+      "params": [
+        {
+          "name": "v",
+          "type": "Object",
+          "optional": false,
+          "description": "Another object whose prototype chain is to be checked."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when this object is in the prototype chain of v, otherwise false."
+      },
+      "example": "console.log(Array.prototype.isPrototypeOf([]));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 146,
+          "lines": [
+            "isPrototypeOf(v: Object): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isSealed",
+      "summary": "Returns true if existing property attributes cannot be modified in an object and new properties cannot be added to the object.",
+      "signature": "Object.isSealed(o: any): boolean",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "Object to test."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the object is sealed, otherwise false."
+      },
+      "example": "console.log(Object.isSealed(Object.seal({})));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 246,
+          "lines": [
+            "isSealed(o: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keys",
+      "summary": "Returns the names of the enumerable string properties and methods of an object.",
+      "signature": "Object.keys(o: object): string[]",
+      "params": [
+        {
+          "name": "o",
+          "type": "object",
+          "optional": false,
+          "description": "Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": "An array of the own enumerable string keys."
+      },
+      "example": "console.log(Object.keys({ a: 1, b: 2 }));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 264,
+          "lines": [
+            "keys(o: object): string[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 325,
+          "lines": [
+            "keys(o: {}): string[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "preventExtensions",
+      "summary": "Prevents the addition of new properties to an object.",
+      "signature": "Object.preventExtensions<T>(o: T): T",
+      "params": [
+        {
+          "name": "o",
+          "type": "T",
+          "optional": false,
+          "description": "Object to make non-extensible."
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "The same object, now non-extensible."
+      },
+      "example": "const o = Object.preventExtensions({});\nconsole.log(Object.isExtensible(o));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 240,
+          "lines": [
+            "preventExtensions<T>(o: T): T;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "propertyIsEnumerable",
+      "summary": "Determines whether a specified property is enumerable.",
+      "signature": "Object.propertyIsEnumerable(v: PropertyKey): boolean",
+      "params": [
+        {
+          "name": "v",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "A property name."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the own property is enumerable, otherwise false."
+      },
+      "example": "console.log([1].propertyIsEnumerable(\"length\"));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 152,
+          "lines": [
+            "propertyIsEnumerable(v: PropertyKey): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "seal",
+      "summary": "Prevents the modification of attributes of existing properties, and prevents the addition of new properties.",
+      "signature": "Object.seal<T>(o: T): T",
+      "params": [
+        {
+          "name": "o",
+          "type": "T",
+          "optional": false,
+          "description": "Object on which to lock the attributes."
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "The same object, now sealed."
+      },
+      "example": "const o = Object.seal({ a: 1 });\nconsole.log(Object.isSealed(o));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 216,
+          "lines": [
+            "seal<T>(o: T): T;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setPrototypeOf",
+      "summary": "Sets the prototype of a specified object o to object proto or null. Returns the object o.",
+      "signature": "Object.setPrototypeOf(o: any, proto: object | null): any",
+      "params": [
+        {
+          "name": "o",
+          "type": "any",
+          "optional": false,
+          "description": "The object to change its prototype."
+        },
+        {
+          "name": "proto",
+          "type": "object | null",
+          "optional": false,
+          "description": "The value of the new prototype or null."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": "The same object, with its new prototype."
+      },
+      "example": "const o = Object.setPrototypeOf({}, null);\nconsole.log(Object.getPrototypeOf(o));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 339,
+          "lines": [
+            "setPrototypeOf(o: any, proto: object | null): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleString",
+      "summary": "Returns a date converted to a string using the current locale.",
+      "signature": "Object.toLocaleString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The object as a locale string."
+      },
+      "example": "console.log({}.toLocaleString());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 131,
+          "lines": [
+            "toLocaleString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of an object.",
+      "signature": "Object.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string naming the object type."
+      },
+      "example": "console.log({}.toString());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 128,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "Object.valueOf(): Object",
+      "params": [],
+      "returns": {
+        "type": "Object",
+        "description": "The object itself, or its primitive value."
+      },
+      "example": "const o = { a: 1 };\nconsole.log(o.valueOf() === o);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 134,
+          "lines": [
+            "valueOf(): Object;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "values",
+      "summary": "Returns an array of values of the enumerable own properties of an object",
+      "signature": "Object.values<T>(o: { [s: string]: T; } | ArrayLike<T>): T[]",
+      "params": [
+        {
+          "name": "o",
+          "type": "{ [s: string]: T; } | ArrayLike<T>",
+          "optional": false,
+          "description": "Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object."
+        }
+      ],
+      "returns": {
+        "type": "T[]",
+        "description": "An array of the own enumerable property values."
+      },
+      "example": "console.log(Object.values({ a: 1, b: 2 }));\n",
+      "versions": [
+        "ES2017"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.object.d.ts",
+          "line": 24,
+          "lines": [
+            "values<T>(o: { [s: string]: T; } | ArrayLike<T>): T[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.object.d.ts",
+          "line": 30,
+          "lines": [
+            "values(o: {}): any[];"
+          ]
+        }
+      ]
+    }
+  ]
+}

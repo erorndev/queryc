@@ -1,0 +1,247 @@
+{
+  "module": "cmp",
+  "functions": [
+    {
+      "name": "max",
+      "summary": "Compares and returns the maximum of two values.",
+      "signature": "pub const fn max<T: [const] Ord + [const] Destruct>(v1: T, v2: T) -> T",
+      "params": [
+        {
+          "name": "v1",
+          "type": "T"
+        },
+        {
+          "name": "v2",
+          "type": "T"
+        }
+      ],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1773,
+          "lines": [
+            "pub const fn max<T: [const] Ord + [const] Destruct>(v1: T, v2: T) -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1770,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "max_by",
+      "summary": "Returns the maximum of two values with respect to the specified comparison function.",
+      "signature": "pub const fn max_by<T: [const] Destruct, F: [const] FnOnce(&T, &T) -> Ordering>(v1: T, v2: T, compare: F) -> T",
+      "params": [],
+      "returns": {
+        "type": "()"
+      },
+      "versions": [
+        "Rust 1.53"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1804,
+          "lines": [
+            "pub const fn max_by<T: [const] Destruct, F: [const] FnOnce(&T, &T) -> Ordering>(",
+            "    v1: T,",
+            "    v2: T,",
+            "    compare: F,",
+            ") -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1802,
+          "lines": [
+            "#[stable(feature = \"cmp_min_max_by\", since = \"1.53.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "max_by_key",
+      "summary": "Returns the element that gives the maximum value from the specified function.",
+      "signature": "pub const fn max_by_key<T, F, K>(v1: T, v2: T, mut f: F) -> T where T: [const] Destruct, F: [const] FnMut(&T) -> K + [const] Destruct, K: [const] Ord + [const] Destruct",
+      "params": [
+        {
+          "name": "v1",
+          "type": "T"
+        },
+        {
+          "name": "v2",
+          "type": "T"
+        },
+        {
+          "name": "mut f",
+          "type": "F"
+        }
+      ],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.53"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1834,
+          "lines": [
+            "pub const fn max_by_key<T, F, K>(v1: T, v2: T, mut f: F) -> T",
+            "where",
+            "    T: [const] Destruct,",
+            "    F: [const] FnMut(&T) -> K + [const] Destruct,",
+            "    K: [const] Ord + [const] Destruct,",
+            "{"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1832,
+          "lines": [
+            "#[stable(feature = \"cmp_min_max_by\", since = \"1.53.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "min",
+      "summary": "Compares and returns the minimum of two values.",
+      "signature": "pub const fn min<T: [const] Ord + [const] Destruct>(v1: T, v2: T) -> T",
+      "params": [
+        {
+          "name": "v1",
+          "type": "T"
+        },
+        {
+          "name": "v2",
+          "type": "T"
+        }
+      ],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1666,
+          "lines": [
+            "pub const fn min<T: [const] Ord + [const] Destruct>(v1: T, v2: T) -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1663,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "min_by",
+      "summary": "Returns the minimum of two values with respect to the specified comparison function.",
+      "signature": "pub const fn min_by<T: [const] Destruct, F: [const] FnOnce(&T, &T) -> Ordering>(v1: T, v2: T, compare: F) -> T",
+      "params": [],
+      "returns": {
+        "type": "()"
+      },
+      "versions": [
+        "Rust 1.53"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1697,
+          "lines": [
+            "pub const fn min_by<T: [const] Destruct, F: [const] FnOnce(&T, &T) -> Ordering>(",
+            "    v1: T,",
+            "    v2: T,",
+            "    compare: F,",
+            ") -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1695,
+          "lines": [
+            "#[stable(feature = \"cmp_min_max_by\", since = \"1.53.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "min_by_key",
+      "summary": "Returns the element that gives the minimum value from the specified function.",
+      "signature": "pub const fn min_by_key<T, F, K>(v1: T, v2: T, mut f: F) -> T where T: [const] Destruct, F: [const] FnMut(&T) -> K + [const] Destruct, K: [const] Ord + [const] Destruct",
+      "params": [
+        {
+          "name": "v1",
+          "type": "T"
+        },
+        {
+          "name": "v2",
+          "type": "T"
+        },
+        {
+          "name": "mut f",
+          "type": "F"
+        }
+      ],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.53"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1727,
+          "lines": [
+            "pub const fn min_by_key<T, F, K>(v1: T, v2: T, mut f: F) -> T",
+            "where",
+            "    T: [const] Destruct,",
+            "    F: [const] FnMut(&T) -> K + [const] Destruct,",
+            "    K: [const] Ord + [const] Destruct,",
+            "{"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/cmp.rs",
+          "line": 1725,
+          "lines": [
+            "#[stable(feature = \"cmp_min_max_by\", since = \"1.53.0\")]"
+          ]
+        }
+      ]
+    }
+  ]
+}

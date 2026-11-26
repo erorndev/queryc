@@ -1,0 +1,36 @@
+{
+  "object": "Intl.Segments",
+  "functions": [
+    {
+      "name": "containing",
+      "signature": "Intl.Segments.containing(codeUnitIndex?: number): SegmentData | undefined",
+      "params": [
+        {
+          "name": "codeUnitIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The index of the code unit to find the segment for."
+        }
+      ],
+      "returns": {
+        "type": "SegmentData | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.intl.d.ts",
+          "line": 78,
+          "lines": [
+            "containing(codeUnitIndex?: number): SegmentData | undefined;"
+          ]
+        }
+      ],
+      "summary": "Returns the segment that contains the code unit at the index."
+    }
+  ]
+}

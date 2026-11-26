@@ -1089,6 +1089,15 @@
       "versions": [
         "Go 1.5"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/types/interface.go",
+          "line": 38,
+          "message": "Deprecated: Use NewInterfaceType instead which allows arbitrary embedded types."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -1549,6 +1558,15 @@
       },
       "versions": [
         "Go 1.5"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/types/signature.go",
+          "line": 40,
+          "message": "Deprecated: Use [NewSignatureType] instead which allows for type parameters."
+        }
       ],
       "evidence": [
         {

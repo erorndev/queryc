@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCommand() {\n\tcmd := exec.Command(\"tr\", \"a-z\", \"A-Z\")\n\tcmd.Stdin = strings.NewReader(\"some input\")\n\tvar out strings.Builder\n\tcmd.Stdout = &out\n\terr := cmd.Run()\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Printf(\"in all caps: %q\\n\", out.String())\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/exec/example_test.go",
+        "line": 27
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -64,6 +70,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleCommandContext() {\n\tctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)\n\tdefer cancel()\n\n\tif err := exec.CommandContext(ctx, \"sleep\", \"5\").Run(); err != nil {\n\t\t// This will fail after 100 milliseconds. The 5 second sleep\n\t\t// will be interrupted.\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/exec/example_test.go",
+        "line": 161
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -99,6 +111,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLookPath() {\n\tpath, err := exec.LookPath(\"fortune\")\n\tif err != nil {\n\t\tlog.Fatal(\"installing fortune is in your future\")\n\t}\n\tfmt.Printf(\"fortune is available at %s\\n\", path)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/exec/example_test.go",
+        "line": 19
+      },
       "evidence": [
         {
           "source": "go-1.25",

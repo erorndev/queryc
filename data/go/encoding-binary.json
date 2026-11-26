@@ -228,6 +228,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePutUvarint() {\n\tbuf := make([]byte, binary.MaxVarintLen64)\n\n\tfor _, x := range []uint64{1, 2, 127, 128, 255, 256} {\n\t\tn := binary.PutUvarint(buf, x)\n\t\tfmt.Printf(\"%x\\n\", buf[:n])\n\t}\n\t// Output:\n\t// 01\n\t// 02\n\t// 7f\n\t// 8001\n\t// ff01\n\t// 8002\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/binary/example_test.go",
+        "line": 98
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -267,6 +273,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePutVarint() {\n\tbuf := make([]byte, binary.MaxVarintLen64)\n\n\tfor _, x := range []int64{-65, -64, -2, -1, 0, 1, 2, 63, 64} {\n\t\tn := binary.PutVarint(buf, x)\n\t\tfmt.Printf(\"%x\\n\", buf[:n])\n\t}\n\t// Output:\n\t// 8101\n\t// 7f\n\t// 03\n\t// 01\n\t// 00\n\t// 02\n\t// 04\n\t// 7e\n\t// 8001\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/binary/example_test.go",
+        "line": 114
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -310,6 +322,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRead() {\n\tvar pi float64\n\tb := []byte{0x18, 0x2d, 0x44, 0x54, 0xfb, 0x21, 0x09, 0x40}\n\tbuf := bytes.NewReader(b)\n\terr := binary.Read(buf, binary.LittleEndian, &pi)\n\tif err != nil {\n\t\tfmt.Println(\"binary.Read failed:\", err)\n\t}\n\tfmt.Print(pi)\n\t// Output: 3.141592653589793\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/binary/example_test.go",
+        "line": 42
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -450,6 +468,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleUvarint() {\n\tinputs := [][]byte{\n\t\t{0x01},\n\t\t{0x02},\n\t\t{0x7f},\n\t\t{0x80, 0x01},\n\t\t{0xff, 0x01},\n\t\t{0x80, 0x02},\n\t}\n\tfor _, b := range inputs {\n\t\tx, n := binary.Uvarint(b)\n\t\tif n != len(b) {\n\t\t\tfmt.Println(\"Uvarint did not consume all of in\")\n\t\t}\n\t\tfmt.Println(x)\n\t}\n\t// Output:\n\t// 1\n\t// 2\n\t// 127\n\t// 128\n\t// 255\n\t// 256\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/binary/example_test.go",
+        "line": 133
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -485,6 +509,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleVarint() {\n\tinputs := [][]byte{\n\t\t{0x81, 0x01},\n\t\t{0x7f},\n\t\t{0x03},\n\t\t{0x01},\n\t\t{0x00},\n\t\t{0x02},\n\t\t{0x04},\n\t\t{0x7e},\n\t\t{0x80, 0x01},\n\t}\n\tfor _, b := range inputs {\n\t\tx, n := binary.Varint(b)\n\t\tif n != len(b) {\n\t\t\tfmt.Println(\"Varint did not consume all of in\")\n\t\t}\n\t\tfmt.Println(x)\n\t}\n\t// Output:\n\t// -65\n\t// -64\n\t// -2\n\t// -1\n\t// 0\n\t// 1\n\t// 2\n\t// 63\n\t// 64\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/binary/example_test.go",
+        "line": 158
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -528,6 +558,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleWrite() {\n\tbuf := new(bytes.Buffer)\n\tvar pi float64 = math.Pi\n\terr := binary.Write(buf, binary.LittleEndian, pi)\n\tif err != nil {\n\t\tfmt.Println(\"binary.Write failed:\", err)\n\t}\n\tfmt.Printf(\"% x\", buf.Bytes())\n\t// Output: 18 2d 44 54 fb 21 09 40\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/binary/example_test.go",
+        "line": 14
+      },
       "evidence": [
         {
           "source": "go-1.25",

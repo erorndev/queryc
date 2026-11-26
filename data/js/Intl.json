@@ -1,0 +1,67 @@
+{
+  "object": "Intl",
+  "functions": [
+    {
+      "name": "getCanonicalLocales",
+      "signature": "Intl.getCanonicalLocales(locale?: string | readonly string[]): string[]",
+      "params": [
+        {
+          "name": "locale",
+          "type": "string | readonly string[]",
+          "optional": true,
+          "description": "A BCP 47 language tag."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2016"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2016.intl.d.ts",
+          "line": 30,
+          "lines": [
+            "function getCanonicalLocales(locale?: string | readonly string[]): string[];"
+          ]
+        }
+      ],
+      "summary": "Returns the canonical forms of the given locale tags."
+    },
+    {
+      "name": "supportedValuesOf",
+      "signature": "Intl.supportedValuesOf(key: \"calendar\" | \"collation\" | \"currency\" | \"numberingSystem\" | \"timeZone\" | \"unit\"): string[]",
+      "params": [
+        {
+          "name": "key",
+          "type": "\"calendar\" | \"collation\" | \"currency\" | \"numberingSystem\" | \"timeZone\" | \"unit\"",
+          "optional": false,
+          "description": "The key to use."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.intl.d.ts",
+          "line": 144,
+          "lines": [
+            "function supportedValuesOf(key: \"calendar\" | \"collation\" | \"currency\" | \"numberingSystem\" | \"timeZone\" | \"unit\"): string[];"
+          ]
+        }
+      ],
+      "summary": "Returns the calendars, currencies, or other values the runtime supports."
+    }
+  ]
+}

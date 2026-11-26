@@ -1,0 +1,158 @@
+{
+  "object": "Function",
+  "functions": [
+    {
+      "name": "apply",
+      "summary": "Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.",
+      "signature": "Function.apply(this: Function, thisArg: any, argArray?: any): any",
+      "params": [
+        {
+          "name": "this",
+          "type": "Function",
+          "optional": false,
+          "description": "The value to use as this inside the function."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": false,
+          "description": "The object to be used as the this object."
+        },
+        {
+          "name": "argArray",
+          "type": "any",
+          "optional": true,
+          "description": "A set of arguments to be passed to the function."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 281,
+          "lines": [
+            "apply(this: Function, thisArg: any, argArray?: any): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bind",
+      "summary": "For a given function, creates a bound function that has the same body as the original function. The this object of the bound function is associated with the specified object, and has the specified initial parameters.",
+      "signature": "Function.bind(this: Function, thisArg: any, ...argArray: any[]): any",
+      "params": [
+        {
+          "name": "this",
+          "type": "Function",
+          "optional": false,
+          "description": "The value to use as this inside the function."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": false,
+          "description": "An object to which the this keyword can refer inside the new function."
+        },
+        {
+          "name": "...argArray",
+          "type": "any[]",
+          "optional": false,
+          "description": "The arguments to pass to the function."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 296,
+          "lines": [
+            "bind(this: Function, thisArg: any, ...argArray: any[]): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "call",
+      "summary": "Calls a method of an object, substituting another object for the current object.",
+      "signature": "Function.call(this: Function, thisArg: any, ...argArray: any[]): any",
+      "params": [
+        {
+          "name": "this",
+          "type": "Function",
+          "optional": false,
+          "description": "The value to use as this inside the function."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": false,
+          "description": "The object to be used as the current object."
+        },
+        {
+          "name": "...argArray",
+          "type": "any[]",
+          "optional": false,
+          "description": "The arguments to pass to the function."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 288,
+          "lines": [
+            "call(this: Function, thisArg: any, ...argArray: any[]): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of a function.",
+      "signature": "Function.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 299,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    }
+  ]
+}

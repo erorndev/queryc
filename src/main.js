@@ -116,6 +116,13 @@ const LANGS = {
     lead: 'Query the C library directly.',
     placeholder: 'printf, memcpy, strtol',
   },
+  js: {
+    name: 'JavaScript',
+    logo: 'js-logo.svg',
+    title: 'JavaScript Reference',
+    lead: 'Query the JavaScript built-ins directly.',
+    placeholder: 'parse, stringify, abs',
+  },
   go: {
     name: 'Go',
     logo: 'go-logo.svg',
@@ -123,11 +130,22 @@ const LANGS = {
     lead: 'Query the Go standard library directly.',
     placeholder: 'Contains, Atoi, Split',
   },
+  rust: {
+    name: 'Rust',
+    logo: 'rust-logo.svg',
+    title: 'Rust Library Reference',
+    lead: 'Query the Rust standard library directly.',
+    placeholder: 'swap, replace, max_by_key',
+  },
 };
 const hintEl = document.getElementById('results-hint');
 const cHint = hintEl.innerHTML;
+const jsHint =
+  'Type a function name or an object like <code>Math</code><br />Patterns work too: <code>to*</code> or <code>/^a/</code>';
 const goHint =
   'Type a function name or a package like <code>strings</code><br />Patterns work too: <code>Trim*</code> or <code>/^Parse/</code>';
+const rustHint =
+  'Type a function name or a module like <code>mem</code><br />Patterns work too: <code>size_of*</code> or <code>/^max/</code>';
 const langLogo = langButton.querySelector('img');
 const langItems = langSwitch.querySelectorAll('a.lang-item');
 const coverage = document.getElementById('coverage');
@@ -148,7 +166,7 @@ function applyLang(lang) {
   document.querySelector('.finder-title').textContent = info.title;
   document.querySelector('.finder-lead').textContent = info.lead;
   input.placeholder = info.placeholder;
-  hintEl.innerHTML = { c: cHint, go: goHint }[lang];
+  hintEl.innerHTML = { c: cHint, js: jsHint, go: goHint, rust: rustHint }[lang];
   langLogo.src = withBase(info.logo);
   langLogo.classList.toggle('lang-logo-mono', lang === 'rust');
   langLogo.width = { c: 22, js: 24, go: 64, rust: 24 }[lang];

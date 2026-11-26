@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCopy() {\n\tr := strings.NewReader(\"some io.Reader stream to be read\\n\")\n\n\tif _, err := io.Copy(os.Stdout, r); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output:\n\t// some io.Reader stream to be read\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -64,6 +70,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleCopyBuffer() {\n\tr1 := strings.NewReader(\"first reader\\n\")\n\tr2 := strings.NewReader(\"second reader\\n\")\n\tbuf := make([]byte, 8)\n\n\t// buf is used here...\n\tif _, err := io.CopyBuffer(os.Stdout, r1, buf); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// ... reused here also. No need to allocate an extra buffer.\n\tif _, err := io.CopyBuffer(os.Stdout, r2, buf); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output:\n\t// first reader\n\t// second reader\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 26
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -107,6 +119,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCopyN() {\n\tr := strings.NewReader(\"some io.Reader stream to be read\")\n\n\tif _, err := io.CopyN(os.Stdout, r, 4); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output:\n\t// some\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 46
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -146,6 +164,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLimitReader() {\n\tr := strings.NewReader(\"some io.Reader stream to be read\\n\")\n\tlr := io.LimitReader(r, 4)\n\n\tif _, err := io.Copy(os.Stdout, lr); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output:\n\t// some\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 112
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -181,6 +205,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMultiReader() {\n\tr1 := strings.NewReader(\"first reader \")\n\tr2 := strings.NewReader(\"second reader \")\n\tr3 := strings.NewReader(\"third reader\\n\")\n\tr := io.MultiReader(r1, r2, r3)\n\n\tif _, err := io.Copy(os.Stdout, r); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output:\n\t// first reader second reader third reader\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 124
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -216,6 +246,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMultiWriter() {\n\tr := strings.NewReader(\"some io.Reader stream to be read\\n\")\n\n\tvar buf1, buf2 strings.Builder\n\tw := io.MultiWriter(&buf1, &buf2)\n\n\tif _, err := io.Copy(w, r); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Print(buf1.String())\n\tfmt.Print(buf2.String())\n\n\t// Output:\n\t// some io.Reader stream to be read\n\t// some io.Reader stream to be read\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 238
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -363,6 +399,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePipe() {\n\tr, w := io.Pipe()\n\n\tgo func() {\n\t\tfmt.Fprint(w, \"some io.Reader stream to be read\\n\")\n\t\tw.Close()\n\t}()\n\n\tif _, err := io.Copy(os.Stdout, r); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output:\n\t// some io.Reader stream to be read\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 256
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -398,6 +440,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleReadAll() {\n\tr := strings.NewReader(\"Go is a general-purpose language designed with systems programming in mind.\")\n\n\tb, err := io.ReadAll(r)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"%s\", b)\n\n\t// Output:\n\t// Go is a general-purpose language designed with systems programming in mind.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 272
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -441,6 +489,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleReadAtLeast() {\n\tr := strings.NewReader(\"some io.Reader stream to be read\\n\")\n\n\tbuf := make([]byte, 14)\n\tif _, err := io.ReadAtLeast(r, buf, 4); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Printf(\"%s\\n\", buf)\n\n\t// buffer smaller than minimal read size.\n\tshortBuf := make([]byte, 3)\n\tif _, err := io.ReadAtLeast(r, shortBuf, 4); err != nil {\n\t\tfmt.Println(\"error:\", err)\n\t}\n\n\t// minimal read size bigger than io.Reader stream\n\tlongBuf := make([]byte, 64)\n\tif _, err := io.ReadAtLeast(r, longBuf, 64); err != nil {\n\t\tfmt.Println(\"error:\", err)\n\t}\n\n\t// Output:\n\t// some io.Reader\n\t// error: short buffer\n\t// error: unexpected EOF\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 57
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -480,6 +534,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleReadFull() {\n\tr := strings.NewReader(\"some io.Reader stream to be read\\n\")\n\n\tbuf := make([]byte, 4)\n\tif _, err := io.ReadFull(r, buf); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Printf(\"%s\\n\", buf)\n\n\t// minimal read size bigger than io.Reader stream\n\tlongBuf := make([]byte, 64)\n\tif _, err := io.ReadFull(r, longBuf); err != nil {\n\t\tfmt.Println(\"error:\", err)\n\t}\n\n\t// Output:\n\t// some\n\t// error: unexpected EOF\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 84
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -519,6 +579,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTeeReader() {\n\tvar r io.Reader = strings.NewReader(\"some io.Reader stream to be read\\n\")\n\n\tr = io.TeeReader(r, os.Stdout)\n\n\t// Everything read from r will be copied to stdout.\n\tif _, err := io.ReadAll(r); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output:\n\t// some io.Reader stream to be read\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 138
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -558,6 +624,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleWriteString() {\n\tif _, err := io.WriteString(os.Stdout, \"Hello World\"); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// Output: Hello World\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/example_test.go",
+        "line": 104
+      },
       "evidence": [
         {
           "source": "go-1.25",

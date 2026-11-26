@@ -1,0 +1,128 @@
+{
+  "object": "Intl.ListFormat",
+  "functions": [
+    {
+      "name": "format",
+      "summary": "Formats the value as a string for the locale.",
+      "signature": "Intl.ListFormat.format(list: Iterable<string>): string",
+      "params": [
+        {
+          "name": "list",
+          "type": "Iterable<string>",
+          "optional": false,
+          "description": "The strings to join into a list."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.intl.d.ts",
+          "line": 103,
+          "lines": [
+            "format(list: Iterable<string>): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "formatToParts",
+      "summary": "Formats the value as an array of typed parts.",
+      "signature": "Intl.ListFormat.formatToParts(list: Iterable<string>): { type: \"element\" | \"literal\"; value: string; }[]",
+      "params": [
+        {
+          "name": "list",
+          "type": "Iterable<string>",
+          "optional": false,
+          "description": "The strings to join into a list."
+        }
+      ],
+      "returns": {
+        "type": "{ type: \"element\" | \"literal\"; value: string; }[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.intl.d.ts",
+          "line": 116,
+          "lines": [
+            "formatToParts(list: Iterable<string>): { type: \"element\" | \"literal\"; value: string; }[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resolvedOptions",
+      "summary": "Returns the locale and options this object resolved to.",
+      "signature": "Intl.ListFormat.resolvedOptions(): ResolvedListFormatOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedListFormatOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.intl.d.ts",
+          "line": 125,
+          "lines": [
+            "resolvedOptions(): ResolvedListFormatOptions;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "supportedLocalesOf",
+      "summary": "Returns the given locales that this API supports without falling back.",
+      "signature": "Intl.ListFormat.supportedLocalesOf(locales: LocalesArgument, options?: Pick<ListFormatOptions, \"localeMatcher\">): UnicodeBCP47LocaleIdentifier[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "LocalesArgument",
+          "optional": false,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "Pick<ListFormatOptions, \"localeMatcher\">",
+          "optional": true,
+          "description": "Options such as localeMatcher."
+        }
+      ],
+      "returns": {
+        "type": "UnicodeBCP47LocaleIdentifier[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.intl.d.ts",
+          "line": 164,
+          "lines": [
+            "supportedLocalesOf(locales: LocalesArgument, options?: Pick<ListFormatOptions, \"localeMatcher\">): UnicodeBCP47LocaleIdentifier[];"
+          ]
+        }
+      ]
+    }
+  ]
+}

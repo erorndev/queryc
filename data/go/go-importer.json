@@ -51,6 +51,15 @@
       "versions": [
         "Go 1.5"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/importer/importer.go",
+          "line": 81,
+          "message": "Deprecated: Use [ForCompiler], which populates a FileSet with the positions of objects created by the importer."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -93,6 +102,15 @@
       },
       "versions": [
         "Go 1.12"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/importer/importer.go",
+          "line": 45,
+          "message": "Deprecated: If lookup is nil, for backwards-compatibility, the importer will attempt to resolve imports in the $GOPATH workspace."
+        }
       ],
       "evidence": [
         {

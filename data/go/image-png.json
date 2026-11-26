@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDecode() {\n\t// This example uses png.Decode which can only decode PNG images.\n\t// Consider using the general image.Decode as it can sniff and decode any registered image format.\n\timg, err := png.Decode(gopherPNG())\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tlevels := []string{\" \", \"░\", \"▒\", \"▓\", \"█\"}\n\n\tfor y := img.Bounds().Min.Y; y < img.Bounds().Max.Y; y++ {\n\t\tfor x := img.Bounds().Min.X; x < img.Bounds().Max.X; x++ {\n\t\t\tc := color.GrayModel.Convert(img.At(x, y)).(color.Gray)\n\t\t\tlevel := c.Y / 51 // 51 * 5 = 255\n\t\t\tif level == 5 {\n\t\t\t\tlevel--\n\t\t\t}\n\t\t\tfmt.Print(levels[level])\n\t\t}\n\t\tfmt.Print(\"\\n\")\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/image/png/example_test.go",
+        "line": 24
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -91,6 +97,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleEncode() {\n\tconst width, height = 256, 256\n\n\t// Create a colored image of the given width and height.\n\timg := image.NewNRGBA(image.Rect(0, 0, width, height))\n\n\tfor y := 0; y < height; y++ {\n\t\tfor x := 0; x < width; x++ {\n\t\t\timg.Set(x, y, color.NRGBA{\n\t\t\t\tR: uint8((x + y) & 255),\n\t\t\t\tG: uint8((x + y) << 1 & 255),\n\t\t\t\tB: uint8((x + y) << 2 & 255),\n\t\t\t\tA: 255,\n\t\t\t})\n\t\t}\n\t}\n\n\tf, err := os.Create(\"image.png\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tif err := png.Encode(f, img); err != nil {\n\t\tf.Close()\n\t\tlog.Fatal(err)\n\t}\n\n\tif err := f.Close(); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/image/png/example_test.go",
+        "line": 47
+      },
       "evidence": [
         {
           "source": "go-1.25",

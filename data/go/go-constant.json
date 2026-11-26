@@ -25,6 +25,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleBinaryOp() {\n\t// 11 / 0.5\n\ta := constant.MakeUint64(11)\n\tb := constant.MakeFloat64(0.5)\n\tc := constant.BinaryOp(a, token.QUO, b)\n\tfmt.Println(c)\n\n\t// Output: 22\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/constant/example_test.go",
+        "line": 48
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -173,6 +179,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleCompare() {\n\tvs := []constant.Value{\n\t\tconstant.MakeString(\"Z\"),\n\t\tconstant.MakeString(\"bacon\"),\n\t\tconstant.MakeString(\"go\"),\n\t\tconstant.MakeString(\"Frame\"),\n\t\tconstant.MakeString(\"defer\"),\n\t\tconstant.MakeFromLiteral(`\"a\"`, token.STRING, 0),\n\t}\n\n\tslices.SortFunc(vs, func(a, b constant.Value) int {\n\t\tif constant.Compare(a, token.LSS, b) {\n\t\t\treturn -1\n\t\t}\n\t\tif constant.Compare(a, token.GTR, b) {\n\t\t\treturn +1\n\t\t}\n\t\treturn 0\n\t})\n\n\tfor _, v := range vs {\n\t\tfmt.Println(constant.StringVal(v))\n\t}\n\n\t// Output:\n\t//\n\t// Frame\n\t// Z\n\t// a\n\t// bacon\n\t// defer\n\t// go\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/constant/example_test.go",
+        "line": 91
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -849,6 +861,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleSign() {\n\tzero := constant.MakeInt64(0)\n\tone := constant.MakeInt64(1)\n\tnegOne := constant.MakeInt64(-1)\n\n\tmkComplex := func(a, b constant.Value) constant.Value {\n\t\tb = constant.MakeImag(b)\n\t\treturn constant.BinaryOp(a, token.ADD, b)\n\t}\n\n\tvs := []constant.Value{\n\t\tnegOne,\n\t\tmkComplex(zero, negOne),\n\t\tmkComplex(one, negOne),\n\t\tmkComplex(negOne, one),\n\t\tmkComplex(negOne, negOne),\n\t\tzero,\n\t\tmkComplex(zero, zero),\n\t\tone,\n\t\tmkComplex(zero, one),\n\t\tmkComplex(one, one),\n\t}\n\n\tfor _, v := range vs {\n\t\tfmt.Printf(\"% d %s\\n\", constant.Sign(v), v)\n\t}\n\n\t// Output:\n\t//\n\t// -1 -1\n\t// -1 (0 + -1i)\n\t// -1 (1 + -1i)\n\t// -1 (-1 + 1i)\n\t// -1 (-1 + -1i)\n\t//  0 0\n\t//  0 (0 + 0i)\n\t//  1 1\n\t//  1 (0 + 1i)\n\t//  1 (1 + 1i)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/constant/example_test.go",
+        "line": 125
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1067,6 +1085,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleUnaryOp() {\n\tvs := []constant.Value{\n\t\tconstant.MakeBool(true),\n\t\tconstant.MakeFloat64(2.7),\n\t\tconstant.MakeUint64(42),\n\t}\n\n\tfor i, v := range vs {\n\t\tswitch v.Kind() {\n\t\tcase constant.Bool:\n\t\t\tvs[i] = constant.UnaryOp(token.NOT, v, 0)\n\n\t\tcase constant.Float:\n\t\t\tvs[i] = constant.UnaryOp(token.SUB, v, 0)\n\n\t\tcase constant.Int:\n\t\t\t// Use 16-bit precision.\n\t\t\t// This would be equivalent to ^uint16(v).\n\t\t\tvs[i] = constant.UnaryOp(token.XOR, v, 16)\n\t\t}\n\t}\n\n\tfor _, v := range vs {\n\t\tfmt.Println(v)\n\t}\n\n\t// Output:\n\t//\n\t// false\n\t// -2.7\n\t// 65493\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/constant/example_test.go",
+        "line": 58
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1102,6 +1126,12 @@
       "versions": [
         "Go 1.13"
       ],
+      "example": "func ExampleVal() {\n\tmaxint := constant.MakeInt64(math.MaxInt64)\n\tfmt.Printf(\"%v\\n\", constant.Val(maxint))\n\n\te := constant.MakeFloat64(math.E)\n\tfmt.Printf(\"%v\\n\", constant.Val(e))\n\n\tb := constant.MakeBool(true)\n\tfmt.Printf(\"%v\\n\", constant.Val(b))\n\n\tb = constant.Make(false)\n\tfmt.Printf(\"%v\\n\", constant.Val(b))\n\n\t// Output:\n\t//\n\t// 9223372036854775807\n\t// 6121026514868073/2251799813685248\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/constant/example_test.go",
+        "line": 166
+      },
       "evidence": [
         {
           "source": "go-1.25",

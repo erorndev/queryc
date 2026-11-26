@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.18"
       ],
+      "example": "func ExampleAppendRune() {\n\tbuf1 := utf8.AppendRune(nil, 0x10000)\n\tbuf2 := utf8.AppendRune([]byte(\"init\"), 0x10000)\n\tfmt.Println(string(buf1))\n\tfmt.Println(string(buf2))\n\t// Output:\n\t// 𐀀\n\t// init𐀀\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 218
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -56,6 +62,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDecodeLastRune() {\n\tb := []byte(\"Hello, 世界\")\n\n\tfor len(b) > 0 {\n\t\tr, size := utf8.DecodeLastRune(b)\n\t\tfmt.Printf(\"%c %v\\n\", r, size)\n\n\t\tb = b[:len(b)-size]\n\t}\n\t// Output:\n\t// 界 3\n\t// 世 3\n\t//   1\n\t// , 1\n\t// o 1\n\t// l 1\n\t// l 1\n\t// e 1\n\t// H 1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 12
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -91,6 +103,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDecodeLastRuneInString() {\n\tstr := \"Hello, 世界\"\n\n\tfor len(str) > 0 {\n\t\tr, size := utf8.DecodeLastRuneInString(str)\n\t\tfmt.Printf(\"%c %v\\n\", r, size)\n\n\t\tstr = str[:len(str)-size]\n\t}\n\t// Output:\n\t// 界 3\n\t// 世 3\n\t//   1\n\t// , 1\n\t// o 1\n\t// l 1\n\t// l 1\n\t// e 1\n\t// H 1\n\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 33
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -126,6 +144,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDecodeRune() {\n\tb := []byte(\"Hello, 世界\")\n\n\tfor len(b) > 0 {\n\t\tr, size := utf8.DecodeRune(b)\n\t\tfmt.Printf(\"%c %v\\n\", r, size)\n\n\t\tb = b[size:]\n\t}\n\t// Output:\n\t// H 1\n\t// e 1\n\t// l 1\n\t// l 1\n\t// o 1\n\t// , 1\n\t//   1\n\t// 世 3\n\t// 界 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 55
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -161,6 +185,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDecodeRuneInString() {\n\tstr := \"Hello, 世界\"\n\n\tfor len(str) > 0 {\n\t\tr, size := utf8.DecodeRuneInString(str)\n\t\tfmt.Printf(\"%c %v\\n\", r, size)\n\n\t\tstr = str[size:]\n\t}\n\t// Output:\n\t// H 1\n\t// e 1\n\t// l 1\n\t// l 1\n\t// o 1\n\t// , 1\n\t//   1\n\t// 世 3\n\t// 界 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 76
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -200,6 +230,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleEncodeRune() {\n\tr := '世'\n\tbuf := make([]byte, 3)\n\n\tn := utf8.EncodeRune(buf, r)\n\n\tfmt.Println(buf)\n\tfmt.Println(n)\n\t// Output:\n\t// [228 184 150]\n\t// 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 97
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -235,6 +271,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFullRune() {\n\tbuf := []byte{228, 184, 150} // 世\n\tfmt.Println(utf8.FullRune(buf))\n\tfmt.Println(utf8.FullRune(buf[:2]))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 130
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -270,6 +312,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFullRuneInString() {\n\tstr := \"世\"\n\tfmt.Println(utf8.FullRuneInString(str))\n\tfmt.Println(utf8.FullRuneInString(str[:2]))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 139
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -305,6 +353,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRuneCount() {\n\tbuf := []byte(\"Hello, 世界\")\n\tfmt.Println(\"bytes =\", len(buf))\n\tfmt.Println(\"runes =\", utf8.RuneCount(buf))\n\t// Output:\n\t// bytes = 13\n\t// runes = 9\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 148
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -340,6 +394,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRuneCountInString() {\n\tstr := \"Hello, 世界\"\n\tfmt.Println(\"bytes =\", len(str))\n\tfmt.Println(\"runes =\", utf8.RuneCountInString(str))\n\t// Output:\n\t// bytes = 13\n\t// runes = 9\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 157
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -375,6 +435,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRuneLen() {\n\tfmt.Println(utf8.RuneLen('a'))\n\tfmt.Println(utf8.RuneLen('界'))\n\t// Output:\n\t// 1\n\t// 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 166
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -410,6 +476,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRuneStart() {\n\tbuf := []byte(\"a界\")\n\tfmt.Println(utf8.RuneStart(buf[0]))\n\tfmt.Println(utf8.RuneStart(buf[1]))\n\tfmt.Println(utf8.RuneStart(buf[2]))\n\t// Output:\n\t// true\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 174
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -445,6 +517,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleValid() {\n\tvalid := []byte(\"Hello, 世界\")\n\tinvalid := []byte{0xff, 0xfe, 0xfd}\n\n\tfmt.Println(utf8.Valid(valid))\n\tfmt.Println(utf8.Valid(invalid))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 185
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -480,6 +558,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleValidRune() {\n\tvalid := 'a'\n\tinvalid := rune(0xfffffff)\n\n\tfmt.Println(utf8.ValidRune(valid))\n\tfmt.Println(utf8.ValidRune(invalid))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 196
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -515,6 +599,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleValidString() {\n\tvalid := \"Hello, 世界\"\n\tinvalid := string([]byte{0xff, 0xfe, 0xfd})\n\n\tfmt.Println(utf8.ValidString(valid))\n\tfmt.Println(utf8.ValidString(invalid))\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/unicode/utf8/example_test.go",
+        "line": 207
+      },
       "evidence": [
         {
           "source": "go-1.25",

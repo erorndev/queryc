@@ -1,0 +1,781 @@
+{
+  "object": "DataView",
+  "functions": [
+    {
+      "name": "getBigInt64",
+      "summary": "Gets the BigInt64 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getBigInt64(byteOffset: number, littleEndian?: boolean): bigint",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "bigint",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 734,
+          "lines": [
+            "getBigInt64(byteOffset: number, littleEndian?: boolean): bigint;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getBigUint64",
+      "summary": "Gets the BigUint64 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getBigUint64(byteOffset: number, littleEndian?: boolean): bigint",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "bigint",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 742,
+          "lines": [
+            "getBigUint64(byteOffset: number, littleEndian?: boolean): bigint;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getFloat32",
+      "summary": "Gets the Float32 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getFloat32(byteOffset: number, littleEndian?: boolean): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1756,
+          "lines": [
+            "getFloat32(byteOffset: number, littleEndian?: boolean): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getFloat64",
+      "summary": "Gets the Float64 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getFloat64(byteOffset: number, littleEndian?: boolean): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1764,
+          "lines": [
+            "getFloat64(byteOffset: number, littleEndian?: boolean): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getInt16",
+      "summary": "Gets the Int16 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getInt16(byteOffset: number, littleEndian?: boolean): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1779,
+          "lines": [
+            "getInt16(byteOffset: number, littleEndian?: boolean): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getInt32",
+      "summary": "Gets the Int32 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getInt32(byteOffset: number, littleEndian?: boolean): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1786,
+          "lines": [
+            "getInt32(byteOffset: number, littleEndian?: boolean): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getInt8",
+      "summary": "Gets the Int8 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getInt8(byteOffset: number): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1771,
+          "lines": [
+            "getInt8(byteOffset: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUint16",
+      "summary": "Gets the Uint16 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getUint16(byteOffset: number, littleEndian?: boolean): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1801,
+          "lines": [
+            "getUint16(byteOffset: number, littleEndian?: boolean): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUint32",
+      "summary": "Gets the Uint32 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getUint32(byteOffset: number, littleEndian?: boolean): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be read."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1809,
+          "lines": [
+            "getUint32(byteOffset: number, littleEndian?: boolean): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUint8",
+      "summary": "Gets the Uint8 value at the specified byte offset from the start of the view. There is no alignment constraint; multi-byte values may be fetched from any offset.",
+      "signature": "DataView.getUint8(byteOffset: number): number",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be retrieved."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1793,
+          "lines": [
+            "getUint8(byteOffset: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setBigInt64",
+      "summary": "Stores a BigInt64 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setBigInt64(byteOffset: number, value: bigint, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "bigint",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 750,
+          "lines": [
+            "setBigInt64(byteOffset: number, value: bigint, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setBigUint64",
+      "summary": "Stores a BigUint64 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setBigUint64(byteOffset: number, value: bigint, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "bigint",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 758,
+          "lines": [
+            "setBigUint64(byteOffset: number, value: bigint, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setFloat32",
+      "summary": "Stores an Float32 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setFloat32(byteOffset: number, value: number, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1817,
+          "lines": [
+            "setFloat32(byteOffset: number, value: number, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setFloat64",
+      "summary": "Stores an Float64 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setFloat64(byteOffset: number, value: number, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1825,
+          "lines": [
+            "setFloat64(byteOffset: number, value: number, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setInt16",
+      "summary": "Stores an Int16 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setInt16(byteOffset: number, value: number, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1840,
+          "lines": [
+            "setInt16(byteOffset: number, value: number, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setInt32",
+      "summary": "Stores an Int32 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setInt32(byteOffset: number, value: number, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1848,
+          "lines": [
+            "setInt32(byteOffset: number, value: number, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setInt8",
+      "summary": "Stores an Int8 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setInt8(byteOffset: number, value: number): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1832,
+          "lines": [
+            "setInt8(byteOffset: number, value: number): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUint16",
+      "summary": "Stores an Uint16 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setUint16(byteOffset: number, value: number, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1863,
+          "lines": [
+            "setUint16(byteOffset: number, value: number, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUint32",
+      "summary": "Stores an Uint32 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setUint32(byteOffset: number, value: number, littleEndian?: boolean): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        },
+        {
+          "name": "littleEndian",
+          "type": "boolean",
+          "optional": true,
+          "description": "If false or undefined, a big-endian value should be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1871,
+          "lines": [
+            "setUint32(byteOffset: number, value: number, littleEndian?: boolean): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUint8",
+      "summary": "Stores an Uint8 value at the specified byte offset from the start of the view.",
+      "signature": "DataView.setUint8(byteOffset: number, value: number): void",
+      "params": [
+        {
+          "name": "byteOffset",
+          "type": "number",
+          "optional": false,
+          "description": "The place in the buffer at which the value should be set."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to set."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1855,
+          "lines": [
+            "setUint8(byteOffset: number, value: number): void;"
+          ]
+        }
+      ]
+    }
+  ]
+}

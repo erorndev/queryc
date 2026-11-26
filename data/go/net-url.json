@@ -91,6 +91,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseQuery() {\n\tm, err := url.ParseQuery(`x=1&y=2&y=3`)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Println(toJSON(m))\n\t// Output:\n\t// {\"x\":[\"1\"], \"y\":[\"2\", \"3\"]}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/url/example_test.go",
+        "line": 192
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -161,6 +167,12 @@
       "versions": [
         "Go 1.8"
       ],
+      "example": "func ExamplePathEscape() {\n\tpath := url.PathEscape(\"my/cool+blog&about,stuff\")\n\tfmt.Println(path)\n\n\t// Output:\n\t// my%2Fcool+blog&about%2Cstuff\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/url/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -196,6 +208,12 @@
       "versions": [
         "Go 1.8"
       ],
+      "example": "func ExamplePathUnescape() {\n\tescapedPath := \"my%2Fcool+blog&about%2Cstuff\"\n\tpath, err := url.PathUnescape(escapedPath)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Println(path)\n\n\t// Output:\n\t// my/cool+blog&about,stuff\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/url/example_test.go",
+        "line": 23
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -231,6 +249,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleQueryEscape() {\n\tquery := url.QueryEscape(\"my/cool+blog&about,stuff\")\n\tfmt.Println(query)\n\n\t// Output:\n\t// my%2Fcool%2Bblog%26about%2Cstuff\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/url/example_test.go",
+        "line": 35
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -266,6 +290,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleQueryUnescape() {\n\tescapedQuery := \"my%2Fcool%2Bblog%26about%2Cstuff\"\n\tquery, err := url.QueryUnescape(escapedQuery)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Println(query)\n\n\t// Output:\n\t// my/cool+blog&about,stuff\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/url/example_test.go",
+        "line": 43
+      },
       "evidence": [
         {
           "source": "go-1.25",

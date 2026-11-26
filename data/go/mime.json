@@ -95,6 +95,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFormatMediaType() {\n\tmediatype := \"text/html\"\n\tparams := map[string]string{\n\t\t\"charset\": \"utf-8\",\n\t}\n\n\tresult := mime.FormatMediaType(mediatype, params)\n\n\tfmt.Println(\"result:\", result)\n\t// Output:\n\t// result: text/html; charset=utf-8\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/mime/example_test.go",
+        "line": 99
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -130,6 +136,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseMediaType() {\n\tmediatype, params, err := mime.ParseMediaType(\"text/html; charset=utf-8\")\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\tfmt.Println(\"type:\", mediatype)\n\tfmt.Println(\"charset:\", params[\"charset\"])\n\t// Output:\n\t// type: text/html\n\t// charset: utf-8\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/mime/example_test.go",
+        "line": 112
+      },
       "evidence": [
         {
           "source": "go-1.25",

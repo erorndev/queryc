@@ -1,0 +1,97 @@
+{
+  "object": "Intl.DisplayNames",
+  "functions": [
+    {
+      "name": "of",
+      "summary": "Returns the display name of a language, region, script, or currency code.",
+      "signature": "Intl.DisplayNames.of(code: string): string | undefined",
+      "params": [
+        {
+          "name": "code",
+          "type": "string",
+          "optional": false,
+          "description": "The language, region, script, or currency code to name."
+        }
+      ],
+      "returns": {
+        "type": "string | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 404,
+          "lines": [
+            "of(code: string): string | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resolvedOptions",
+      "summary": "Returns the locale and options this object resolved to.",
+      "signature": "Intl.DisplayNames.resolvedOptions(): ResolvedDisplayNamesOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedDisplayNamesOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 411,
+          "lines": [
+            "resolvedOptions(): ResolvedDisplayNamesOptions;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "supportedLocalesOf",
+      "summary": "Returns the given locales that this API supports without falling back.",
+      "signature": "Intl.DisplayNames.supportedLocalesOf(locales?: LocalesArgument, options?: { localeMatcher?: RelativeTimeFormatLocaleMatcher; }): UnicodeBCP47LocaleIdentifier[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "LocalesArgument",
+          "optional": true,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "{ localeMatcher?: RelativeTimeFormatLocaleMatcher; }",
+          "optional": true,
+          "description": "Options such as localeMatcher."
+        }
+      ],
+      "returns": {
+        "type": "UnicodeBCP47LocaleIdentifier[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 447,
+          "lines": [
+            "supportedLocalesOf(locales?: LocalesArgument, options?: { localeMatcher?: RelativeTimeFormatLocaleMatcher; }): UnicodeBCP47LocaleIdentifier[];"
+          ]
+        }
+      ]
+    }
+  ]
+}

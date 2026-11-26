@@ -1,0 +1,210 @@
+{
+  "object": "Intl.DateTimeFormat",
+  "functions": [
+    {
+      "name": "format",
+      "signature": "Intl.DateTimeFormat.format(date?: Date | number): string",
+      "params": [
+        {
+          "name": "date",
+          "type": "Date | number",
+          "optional": true,
+          "description": "The date to format."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4548,
+          "lines": [
+            "format(date?: Date | number): string;"
+          ]
+        }
+      ],
+      "summary": "Formats the value as a string for the locale."
+    },
+    {
+      "name": "formatRange",
+      "signature": "Intl.DateTimeFormat.formatRange(startDate: Date | number | bigint, endDate: Date | number | bigint): string",
+      "params": [
+        {
+          "name": "startDate",
+          "type": "Date | number | bigint",
+          "optional": false,
+          "description": "The start of the range."
+        },
+        {
+          "name": "endDate",
+          "type": "Date | number | bigint",
+          "optional": false,
+          "description": "The end of the range."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.intl.d.ts",
+          "line": 37,
+          "lines": [
+            "formatRange(startDate: Date | number | bigint, endDate: Date | number | bigint): string;"
+          ]
+        }
+      ],
+      "summary": "Formats a range between two values as a string."
+    },
+    {
+      "name": "formatRangeToParts",
+      "signature": "Intl.DateTimeFormat.formatRangeToParts(startDate: Date | number | bigint, endDate: Date | number | bigint): DateTimeRangeFormatPart[]",
+      "params": [
+        {
+          "name": "startDate",
+          "type": "Date | number | bigint",
+          "optional": false,
+          "description": "The start of the range."
+        },
+        {
+          "name": "endDate",
+          "type": "Date | number | bigint",
+          "optional": false,
+          "description": "The end of the range."
+        }
+      ],
+      "returns": {
+        "type": "DateTimeRangeFormatPart[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.intl.d.ts",
+          "line": 38,
+          "lines": [
+            "formatRangeToParts(startDate: Date | number | bigint, endDate: Date | number | bigint): DateTimeRangeFormatPart[];"
+          ]
+        }
+      ],
+      "summary": "Formats a range between two values as an array of typed parts."
+    },
+    {
+      "name": "formatToParts",
+      "signature": "Intl.DateTimeFormat.formatToParts(date?: Date | number): DateTimeFormatPart[]",
+      "params": [
+        {
+          "name": "date",
+          "type": "Date | number",
+          "optional": true,
+          "description": "The date to format."
+        }
+      ],
+      "returns": {
+        "type": "DateTimeFormatPart[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2017"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.intl.d.ts",
+          "line": 42,
+          "lines": [
+            "formatToParts(date?: Date | number): DateTimeFormatPart[];"
+          ]
+        }
+      ],
+      "summary": "Formats the value as an array of typed parts."
+    },
+    {
+      "name": "resolvedOptions",
+      "signature": "Intl.DateTimeFormat.resolvedOptions(): ResolvedDateTimeFormatOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedDateTimeFormatOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4549,
+          "lines": [
+            "resolvedOptions(): ResolvedDateTimeFormatOptions;"
+          ]
+        }
+      ],
+      "summary": "Returns the locale and options this object resolved to."
+    },
+    {
+      "name": "supportedLocalesOf",
+      "signature": "Intl.DateTimeFormat.supportedLocalesOf(locales: string | string[], options?: DateTimeFormatOptions): string[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "string | string[]",
+          "optional": false,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "DateTimeFormatOptions",
+          "optional": true,
+          "description": "Formatting options."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4555,
+          "lines": [
+            "supportedLocalesOf(locales: string | string[], options?: DateTimeFormatOptions): string[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 459,
+          "lines": [
+            "supportedLocalesOf(locales: LocalesArgument, options?: DateTimeFormatOptions): string[];"
+          ]
+        }
+      ],
+      "summary": "Returns the given locales that this API supports without falling back."
+    }
+  ]
+}

@@ -1,0 +1,586 @@
+{
+  "module": "mem",
+  "functions": [
+    {
+      "name": "align_of",
+      "summary": "Returns the [ABI]-required minimum alignment of a type, in bytes.",
+      "signature": "pub const fn align_of<T>() -> usize",
+      "params": [],
+      "returns": {
+        "type": "usize"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 543,
+          "lines": [
+            "pub const fn align_of<T>() -> usize {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 539,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "align_of_val",
+      "summary": "Returns the [ABI]-required minimum alignment of the type of the value that `val` points to, in bytes.",
+      "signature": "pub const fn align_of_val<T: ?Sized>(val: &T) -> usize",
+      "params": [
+        {
+          "name": "val",
+          "type": "&T"
+        }
+      ],
+      "returns": {
+        "type": "usize"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 581,
+          "lines": [
+            "pub const fn align_of_val<T: ?Sized>(val: &T) -> usize {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 579,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "align_of_val_raw",
+      "summary": "- No other kind of unsized tail currently exists that satisfies the trait bounds for this function. If more kinds of unsized tails get introduced in the future, the documentation of this function will have to be extended before it can be used for such types.",
+      "signature": "pub const unsafe fn align_of_val_raw<T: ?Sized>(val: *const T) -> usize",
+      "params": [
+        {
+          "name": "val",
+          "type": "*const T"
+        }
+      ],
+      "returns": {
+        "type": "usize"
+      },
+      "versions": [
+        "Rust 1.99"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 640,
+          "lines": [
+            "pub const unsafe fn align_of_val_raw<T: ?Sized>(val: *const T) -> usize {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 638,
+          "lines": [
+            "#[stable(feature = \"layout_for_ptr\", since = \"1.99.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "conjure_zst",
+      "summary": "Create a fresh instance of the inhabited ZST type `T`.",
+      "signature": "pub const unsafe fn conjure_zst<T>() -> T",
+      "params": [],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.100"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1714,
+          "lines": [
+            "pub const unsafe fn conjure_zst<T>() -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1711,
+          "lines": [
+            "#[stable(feature = \"mem_conjure_zst\", since = \"1.100.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "discriminant",
+      "summary": "Returns a value uniquely identifying the enum variant in `v`.",
+      "signature": "pub const fn discriminant<T>(v: &T) -> Discriminant<T>",
+      "params": [
+        {
+          "name": "v",
+          "type": "&T"
+        }
+      ],
+      "returns": {
+        "type": "Discriminant<T>"
+      },
+      "versions": [
+        "Rust 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1422,
+          "lines": [
+            "pub const fn discriminant<T>(v: &T) -> Discriminant<T> {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1418,
+          "lines": [
+            "#[stable(feature = \"discriminant_value\", since = \"1.21.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drop",
+      "summary": "Disposes of a value.",
+      "signature": "pub const fn drop<T>(_x: T) where T: [const] Destruct",
+      "params": [
+        {
+          "name": "_x",
+          "type": "T"
+        }
+      ],
+      "returns": {
+        "type": "()"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1047,
+          "lines": [
+            "pub const fn drop<T>(_x: T)",
+            "where",
+            "    T: [const] Destruct,",
+            "{"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1044,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "forget",
+      "summary": "Takes ownership and \"forgets\" about the value **without running its destructor**.",
+      "signature": "pub const fn forget<T>(t: T)",
+      "params": [
+        {
+          "name": "t",
+          "type": "T"
+        }
+      ],
+      "returns": {
+        "type": "()"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 191,
+          "lines": [
+            "pub const fn forget<T>(t: T) {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 188,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "needs_drop",
+      "summary": "Returns `true` if dropping values of type `T` matters.",
+      "signature": "pub const fn needs_drop<T: ?Sized>() -> bool",
+      "params": [],
+      "returns": {
+        "type": "bool"
+      },
+      "versions": [
+        "Rust 1.21"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 706,
+          "lines": [
+            "pub const fn needs_drop<T: ?Sized>() -> bool {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 703,
+          "lines": [
+            "#[stable(feature = \"needs_drop\", since = \"1.21.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "replace",
+      "summary": "Moves `src` into the referenced `dest`, returning the previous `dest` value.",
+      "signature": "pub const fn replace<T>(dest: &mut T, src: T) -> T",
+      "params": [
+        {
+          "name": "dest",
+          "type": "&mut T"
+        },
+        {
+          "name": "src",
+          "type": "T"
+        }
+      ],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 963,
+          "lines": [
+            "pub const fn replace<T>(dest: &mut T, src: T) -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 959,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "size_of",
+      "summary": "Returns the size of a type in bytes.",
+      "signature": "pub const fn size_of<T>() -> usize",
+      "params": [],
+      "returns": {
+        "type": "usize"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 375,
+          "lines": [
+            "pub const fn size_of<T>() -> usize {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 371,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "size_of_val",
+      "summary": "Returns the size of the pointed-to value in bytes.",
+      "signature": "pub const fn size_of_val<T: ?Sized>(val: &T) -> usize",
+      "params": [
+        {
+          "name": "val",
+          "type": "&T"
+        }
+      ],
+      "returns": {
+        "type": "usize"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 410,
+          "lines": [
+            "pub const fn size_of_val<T: ?Sized>(val: &T) -> usize {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 407,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "size_of_val_raw",
+      "summary": "- No other kind of unsized tail currently exists that satisfies the trait bounds for this function. If more kinds of unsized tails get introduced in the future, the documentation of this function will have to be extended before it can be used for such types.",
+      "signature": "pub const unsafe fn size_of_val_raw<T: ?Sized>(val: *const T) -> usize",
+      "params": [
+        {
+          "name": "val",
+          "type": "*const T"
+        }
+      ],
+      "returns": {
+        "type": "usize"
+      },
+      "versions": [
+        "Rust 1.99"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 466,
+          "lines": [
+            "pub const unsafe fn size_of_val_raw<T: ?Sized>(val: *const T) -> usize {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 464,
+          "lines": [
+            "#[stable(feature = \"layout_for_ptr\", since = \"1.99.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "swap",
+      "summary": "Swaps the values at two mutable locations, without deinitializing either one.",
+      "signature": "pub const fn swap<T>(x: &mut T, y: &mut T)",
+      "params": [
+        {
+          "name": "x",
+          "type": "&mut T"
+        },
+        {
+          "name": "y",
+          "type": "&mut T"
+        }
+      ],
+      "returns": {
+        "type": "()"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 832,
+          "lines": [
+            "pub const fn swap<T>(x: &mut T, y: &mut T) {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 829,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "take",
+      "summary": "Replaces `dest` with the default value of `T`, returning the previous `dest` value.",
+      "signature": "pub const fn take<T: [const] Default>(dest: &mut T) -> T",
+      "params": [
+        {
+          "name": "dest",
+          "type": "&mut T"
+        }
+      ],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.40"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 896,
+          "lines": [
+            "pub const fn take<T: [const] Default>(dest: &mut T) -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 894,
+          "lines": [
+            "#[stable(feature = \"mem_take\", since = \"1.40.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transmute",
+      "summary": "Reinterprets the bits of a value of one type as another type.",
+      "signature": "pub const unsafe fn transmute<Src, Dst>(src: Src) -> Dst",
+      "params": [
+        {
+          "name": "src",
+          "type": "Src"
+        }
+      ],
+      "returns": {
+        "type": "Dst"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/intrinsics/mod.rs",
+          "line": 922,
+          "lines": [
+            "pub const unsafe fn transmute<Src, Dst>(src: Src) -> Dst;"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/intrinsics/mod.rs",
+          "line": 913,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transmute_copy",
+      "summary": "Interprets `src` as having type `&Dst`, and then reads `src` without moving the contained value.",
+      "signature": "pub const unsafe fn transmute_copy<Src: ?Sized, Dst>(src: &Src) -> Dst",
+      "params": [
+        {
+          "name": "src",
+          "type": "&Src"
+        }
+      ],
+      "returns": {
+        "type": "Dst"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1147,
+          "lines": [
+            "pub const unsafe fn transmute_copy<Src: ?Sized, Dst>(src: &Src) -> Dst {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 1145,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "zeroed",
+      "summary": "Returns the value of type `T` represented by the all-zero byte-pattern.",
+      "signature": "pub const unsafe fn zeroed<T>() -> T",
+      "params": [],
+      "returns": {
+        "type": "T"
+      },
+      "versions": [
+        "Rust 1.0"
+      ],
+      "evidence": [
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 757,
+          "lines": [
+            "pub const unsafe fn zeroed<T>() -> T {"
+          ]
+        },
+        {
+          "source": "rust-1.100.0",
+          "file": "library/core/src/mem/mod.rs",
+          "line": 753,
+          "lines": [
+            "#[stable(feature = \"rust1\", since = \"1.0.0\")]"
+          ]
+        }
+      ]
+    }
+  ]
+}

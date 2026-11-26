@@ -1,0 +1,234 @@
+{
+  "object": "Intl.NumberFormat",
+  "functions": [
+    {
+      "name": "format",
+      "signature": "Intl.NumberFormat.format(value: number): string",
+      "params": [
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4501,
+          "lines": [
+            "format(value: number): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.bigint.d.ts",
+          "line": 763,
+          "lines": [
+            "format(value: number | bigint): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.intl.d.ts",
+          "line": 51,
+          "lines": [
+            "format(value: number | bigint | StringNumericLiteral): string;"
+          ]
+        }
+      ],
+      "summary": "Formats the value as a string for the locale."
+    },
+    {
+      "name": "formatRange",
+      "signature": "Intl.NumberFormat.formatRange(start: number | bigint | StringNumericLiteral, end: number | bigint | StringNumericLiteral): string",
+      "params": [
+        {
+          "name": "start",
+          "type": "number | bigint | StringNumericLiteral",
+          "optional": false,
+          "description": "The start of the range."
+        },
+        {
+          "name": "end",
+          "type": "number | bigint | StringNumericLiteral",
+          "optional": false,
+          "description": "The byte index the copy ends before."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.intl.d.ts",
+          "line": 53,
+          "lines": [
+            "formatRange(start: number | bigint | StringNumericLiteral, end: number | bigint | StringNumericLiteral): string;"
+          ]
+        }
+      ],
+      "summary": "Formats a range between two values as a string."
+    },
+    {
+      "name": "formatRangeToParts",
+      "signature": "Intl.NumberFormat.formatRangeToParts(start: number | bigint | StringNumericLiteral, end: number | bigint | StringNumericLiteral): NumberRangeFormatPart[]",
+      "params": [
+        {
+          "name": "start",
+          "type": "number | bigint | StringNumericLiteral",
+          "optional": false,
+          "description": "The start of the range."
+        },
+        {
+          "name": "end",
+          "type": "number | bigint | StringNumericLiteral",
+          "optional": false,
+          "description": "The byte index the copy ends before."
+        }
+      ],
+      "returns": {
+        "type": "NumberRangeFormatPart[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.intl.d.ts",
+          "line": 54,
+          "lines": [
+            "formatRangeToParts(start: number | bigint | StringNumericLiteral, end: number | bigint | StringNumericLiteral): NumberRangeFormatPart[];"
+          ]
+        }
+      ],
+      "summary": "Formats a range between two values as an array of typed parts."
+    },
+    {
+      "name": "formatToParts",
+      "signature": "Intl.NumberFormat.formatToParts(number?: number | bigint): NumberFormatPart[]",
+      "params": [
+        {
+          "name": "number",
+          "type": "number | bigint",
+          "optional": true,
+          "description": "The value to test."
+        }
+      ],
+      "returns": {
+        "type": "NumberFormatPart[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2018"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2018.intl.d.ts",
+          "line": 81,
+          "lines": [
+            "formatToParts(number?: number | bigint): NumberFormatPart[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.intl.d.ts",
+          "line": 52,
+          "lines": [
+            "formatToParts(value: number | bigint | StringNumericLiteral): NumberFormatPart[];"
+          ]
+        }
+      ],
+      "summary": "Formats the value as an array of typed parts."
+    },
+    {
+      "name": "resolvedOptions",
+      "signature": "Intl.NumberFormat.resolvedOptions(): ResolvedNumberFormatOptions",
+      "params": [],
+      "returns": {
+        "type": "ResolvedNumberFormatOptions",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4502,
+          "lines": [
+            "resolvedOptions(): ResolvedNumberFormatOptions;"
+          ]
+        }
+      ],
+      "summary": "Returns the locale and options this object resolved to."
+    },
+    {
+      "name": "supportedLocalesOf",
+      "signature": "Intl.NumberFormat.supportedLocalesOf(locales: string | string[], options?: NumberFormatOptions): string[]",
+      "params": [
+        {
+          "name": "locales",
+          "type": "string | string[]",
+          "optional": false,
+          "description": "A BCP 47 language tag or a list of them."
+        },
+        {
+          "name": "options",
+          "type": "NumberFormatOptions",
+          "optional": true,
+          "description": "Formatting options."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4508,
+          "lines": [
+            "supportedLocalesOf(locales: string | string[], options?: NumberFormatOptions): string[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.intl.d.ts",
+          "line": 465,
+          "lines": [
+            "supportedLocalesOf(locales: LocalesArgument, options?: NumberFormatOptions): string[];"
+          ]
+        }
+      ],
+      "summary": "Returns the given locales that this API supports without falling back."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "object": "Boolean",
+  "functions": [
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "Boolean.valueOf(): boolean",
+      "params": [],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 548,
+          "lines": [
+            "valueOf(): boolean;"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,15 +1,42 @@
 import { withBase } from './base.js';
 import sourceRegistry from '../data/sources.json';
+import jsSources from '../data/js/sources.json';
 import goSources from '../data/go/sources.json';
+import rustSources from '../data/rust/sources.json';
 import files from 'virtual:queryc-index';
 
-const fullFiles = import.meta.glob(['../data/functions/*.json', '../data/go/*.json', '!../data/go/sources.json'], {
-  import: 'default',
-});
+const fullFiles = import.meta.glob(
+  [
+    '../data/functions/*.json',
+    '../data/js/*.json',
+    '!../data/js/sources.json',
+    '../data/go/*.json',
+    '!../data/go/sources.json',
+    '../data/rust/*.json',
+    '!../data/rust/sources.json',
+  ],
+  {
+    import: 'default',
+  },
+);
 
 export const STANDARDS = ['C89', 'C95', 'C99', 'C11', 'C17', 'C23'];
+const JS_VERSIONS = [
+  'ES5',
+  'ES2015',
+  'ES2016',
+  'ES2017',
+  'ES2018',
+  'ES2019',
+  'ES2020',
+  'ES2021',
+  'ES2022',
+  'ES2023',
+  'ES2024',
+];
 const GO_VERSIONS = Array.from({ length: 26 }, (_, i) => `Go 1.${i}`);
-export const sources = { ...sourceRegistry, ...goSources };
+const RUST_VERSIONS = Array.from({ length: 101 }, (_, i) => `Rust 1.${i}`);
+export const sources = { ...sourceRegistry, ...jsSources, ...goSources, ...rustSources };
 
 const availableStandards = new Set(
   Object.values(sources)
@@ -35,7 +62,9 @@ function advisory(fn) {
   const warnings = fn.warnings || [];
   const removed = removedIn(fn);
   const fromStandard = warnings.some(
-    (w) => w.by === 'standard' && /obsolescent|deprecated|behavior is undefined/.test(w.message),
+    (w) =>
+      (w.by === 'standard' && /obsolescent|deprecated|behavior is undefined/.test(w.message)) ||
+      (w.by === 'go' && w.message.startsWith('Deprecated:')),
   );
   const msvcUnsafe = warnings.some((w) => w.by === 'msvc' && /may be unsafe/.test(w.message));
   const tidy = warnings.some((w) => w.by === 'clang-tidy');
@@ -65,7 +94,7 @@ export const functions = files
 
 export const headers = [...new Set(functions.filter((f) => f.lang === 'c').map((f) => f.header))].sort();
 
-export const standardOptions = [...STANDARDS, ...GO_VERSIONS].filter((s) =>
+export const standardOptions = [...STANDARDS, ...JS_VERSIONS, ...GO_VERSIONS, ...RUST_VERSIONS].filter((s) =>
   functions.some((f) => f.standards.includes(s)),
 );
 

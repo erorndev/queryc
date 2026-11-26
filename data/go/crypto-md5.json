@@ -12,6 +12,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNew() {\n\th := md5.New()\n\tio.WriteString(h, \"The fog is getting thicker!\")\n\tio.WriteString(h, \"And Leon's getting laaarger!\")\n\tfmt.Printf(\"%x\", h.Sum(nil))\n\t// Output: e2c569be17396eca2a2e3c11578123ed\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/md5/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -47,6 +53,12 @@
       "versions": [
         "Go 1.2"
       ],
+      "example": "func ExampleSum() {\n\tdata := []byte(\"These pretzels are making me thirsty.\")\n\tfmt.Printf(\"%x\", md5.Sum(data))\n\t// Output: b0804ec967f48520697662a204f5fe72\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/md5/example_test.go",
+        "line": 23
+      },
       "evidence": [
         {
           "source": "go-1.25",

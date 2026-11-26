@@ -60,6 +60,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewEncoder() {\n\tinput := []byte(\"foo\\x00bar\")\n\tencoder := base32.NewEncoder(base32.StdEncoding, os.Stdout)\n\tencoder.Write(input)\n\t// Must close the encoder when finished to flush any partial blocks.\n\t// If you comment out the following line, the last partial block \"r\"\n\t// won't be encoded.\n\tencoder.Close()\n\t// Output:\n\t// MZXW6ADCMFZA====\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/base32/example_test.go",
+        "line": 58
+      },
       "evidence": [
         {
           "source": "go-1.25",

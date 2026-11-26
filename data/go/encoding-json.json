@@ -60,6 +60,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleHTMLEscape() {\n\tvar out bytes.Buffer\n\tjson.HTMLEscape(&out, []byte(`{\"Name\":\"<b>HTML content</b>\"}`))\n\tout.WriteTo(os.Stdout)\n\t// Output:\n\t//{\"Name\":\"\\u003cb\\u003eHTML content\\u003c/b\\u003e\"}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/json/example_test.go",
+        "line": 306
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -107,6 +113,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIndent() {\n\ttype Road struct {\n\t\tName   string\n\t\tNumber int\n\t}\n\troads := []Road{\n\t\t{\"Diamond Fork\", 29},\n\t\t{\"Sheep Creek\", 51},\n\t}\n\n\tb, err := json.Marshal(roads)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tvar out bytes.Buffer\n\tjson.Indent(&out, b, \"=\", \"\\t\")\n\tout.WriteTo(os.Stdout)\n\t// Output:\n\t// [\n\t// =\t{\n\t// =\t\t\"Name\": \"Diamond Fork\",\n\t// =\t\t\"Number\": 29\n\t// =\t},\n\t// =\t{\n\t// =\t\t\"Name\": \"Sheep Creek\",\n\t// =\t\t\"Number\": 51\n\t// =\t}\n\t// =]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/json/example_test.go",
+        "line": 247
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -142,6 +154,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMarshal() {\n\ttype ColorGroup struct {\n\t\tID     int\n\t\tName   string\n\t\tColors []string\n\t}\n\tgroup := ColorGroup{\n\t\tID:     1,\n\t\tName:   \"Reds\",\n\t\tColors: []string{\"Crimson\", \"Red\", \"Ruby\", \"Maroon\"},\n\t}\n\tb, err := json.Marshal(group)\n\tif err != nil {\n\t\tfmt.Println(\"error:\", err)\n\t}\n\tos.Stdout.Write(b)\n\t// Output:\n\t// {\"ID\":1,\"Name\":\"Reds\",\"Colors\":[\"Crimson\",\"Red\",\"Ruby\",\"Maroon\"]}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/json/example_test.go",
+        "line": 19
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -185,6 +203,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMarshalIndent() {\n\tdata := map[string]int{\n\t\t\"a\": 1,\n\t\t\"b\": 2,\n\t}\n\n\tb, err := json.MarshalIndent(data, \"<prefix>\", \"<indent>\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Println(string(b))\n\t// Output:\n\t// {\n\t// <prefix><indent>\"a\": 1,\n\t// <prefix><indent>\"b\": 2\n\t// <prefix>}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/json/example_test.go",
+        "line": 278
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -294,6 +318,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleUnmarshal() {\n\tvar jsonBlob = []byte(`[\n\t{\"Name\": \"Platypus\", \"Order\": \"Monotremata\"},\n\t{\"Name\": \"Quoll\",    \"Order\": \"Dasyuromorphia\"}\n]`)\n\ttype Animal struct {\n\t\tName  string\n\t\tOrder string\n\t}\n\tvar animals []Animal\n\terr := json.Unmarshal(jsonBlob, &animals)\n\tif err != nil {\n\t\tfmt.Println(\"error:\", err)\n\t}\n\tfmt.Printf(\"%+v\", animals)\n\t// Output:\n\t// [{Name:Platypus Order:Monotremata} {Name:Quoll Order:Dasyuromorphia}]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/json/example_test.go",
+        "line": 39
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -329,6 +359,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleValid() {\n\tgoodJSON := `{\"example\": 1}`\n\tbadJSON := `{\"example\":2:]}}`\n\n\tfmt.Println(json.Valid([]byte(goodJSON)), json.Valid([]byte(badJSON)))\n\t// Output:\n\t// true false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/json/example_test.go",
+        "line": 297
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -9,7 +9,7 @@ export function parseRoute(url = new URL(window.location.href)) {
   const params = url.searchParams;
   const search = {
     view: 'search',
-    lang: ['go'].includes(params.get('lang')) ? params.get('lang') : 'c',
+    lang: ['js', 'go', 'rust'].includes(params.get('lang')) ? params.get('lang') : 'c',
     q: params.get('q') || '',
     standard: params.get('std'),
     compiler: params.get('cc'),
@@ -20,7 +20,7 @@ export function parseRoute(url = new URL(window.location.href)) {
   if (parts.length === 1 && headers.includes(parts[0])) return { ...search, q: parts[0], redirect: true };
   if (parts.length > 3 && parts[0] === 'go')
     return { view: 'function', lang: 'go', header: parts.slice(1, -1).join('/'), name: parts.at(-1) };
-  if (parts.length === 3 && ['go'].includes(parts[0]))
+  if (parts.length === 3 && ['js', 'go', 'rust'].includes(parts[0]))
     return { view: 'function', lang: parts[0], header: parts[1], name: parts[2] };
   if (parts.length === 2) return { view: 'function', header: parts[0], name: parts[1] };
   return { view: 'missing', path: pathname };

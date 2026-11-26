@@ -1,0 +1,231 @@
+{
+  "object": "Set",
+  "functions": [
+    {
+      "name": "add",
+      "summary": "Appends a new element with a specified value to the end of the Set.",
+      "signature": "Set.add(value: T): this",
+      "params": [
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 93,
+          "lines": [
+            "add(value: T): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clear",
+      "summary": "Removes every value from the set.",
+      "signature": "Set.clear(): void",
+      "params": [],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 95,
+          "lines": [
+            "clear(): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "delete",
+      "summary": "Removes a specified value from the Set.",
+      "signature": "Set.delete(value: T): boolean",
+      "params": [
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "Returns true if an element in the Set existed and has been removed, or false if the element does not exist."
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 100,
+          "lines": [
+            "delete(value: T): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "entries",
+      "summary": "Returns an iterable of [v,v] pairs for every value `v` in the set.",
+      "signature": "Set.entries(): SetIterator<[T, T]>",
+      "params": [],
+      "returns": {
+        "type": "SetIterator<[T, T]>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 203,
+          "lines": [
+            "entries(): SetIterator<[T, T]>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "forEach",
+      "summary": "Executes a provided function once per each value in the Set object, in insertion order.",
+      "signature": "Set.forEach(callbackfn: (value: T, value2: T, set: Set<T>) => void, thisArg?: any): void",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(value: T, value2: T, set: Set<T>) => void",
+          "optional": false,
+          "description": "The function to call for each entry."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "The value to use as this inside callbackfn."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 104,
+          "lines": [
+            "forEach(callbackfn: (value: T, value2: T, set: Set<T>) => void, thisArg?: any): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "has",
+      "summary": "Checks whether the set holds the value.",
+      "signature": "Set.has(value: T): boolean",
+      "params": [
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "a boolean indicating whether an element with the specified value exists in the Set or not."
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 108,
+          "lines": [
+            "has(value: T): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keys",
+      "summary": "Despite its name, returns an iterable of the values in the set.",
+      "signature": "Set.keys(): SetIterator<T>",
+      "params": [],
+      "returns": {
+        "type": "SetIterator<T>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 208,
+          "lines": [
+            "keys(): SetIterator<T>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "values",
+      "summary": "Returns an iterable of values in the set.",
+      "signature": "Set.values(): SetIterator<T>",
+      "params": [],
+      "returns": {
+        "type": "SetIterator<T>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 213,
+          "lines": [
+            "values(): SetIterator<T>;"
+          ]
+        }
+      ]
+    }
+  ]
+}

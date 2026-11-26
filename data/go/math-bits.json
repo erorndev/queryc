@@ -68,6 +68,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleAdd32() {\n\t// First number is 33<<32 + 12\n\tn1 := []uint32{33, 12}\n\t// Second number is 21<<32 + 23\n\tn2 := []uint32{21, 23}\n\t// Add them together without producing carry.\n\td1, carry := bits.Add32(n1[1], n2[1], 0)\n\td0, _ := bits.Add32(n1[0], n2[0], carry)\n\tnsum := []uint32{d0, d1}\n\tfmt.Printf(\"%v + %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\n\t// First number is 1<<32 + 2147483648\n\tn1 = []uint32{1, 0x80000000}\n\t// Second number is 1<<32 + 2147483648\n\tn2 = []uint32{1, 0x80000000}\n\t// Add them together producing carry.\n\td1, carry = bits.Add32(n1[1], n2[1], 0)\n\td0, _ = bits.Add32(n1[0], n2[0], carry)\n\tnsum = []uint32{d0, d1}\n\tfmt.Printf(\"%v + %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\t// Output:\n\t// [33 12] + [21 23] = [54 35] (carry bit was 0)\n\t// [1 2147483648] + [1 2147483648] = [3 0] (carry bit was 1)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 12
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -111,6 +117,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleAdd64() {\n\t// First number is 33<<64 + 12\n\tn1 := []uint64{33, 12}\n\t// Second number is 21<<64 + 23\n\tn2 := []uint64{21, 23}\n\t// Add them together without producing carry.\n\td1, carry := bits.Add64(n1[1], n2[1], 0)\n\td0, _ := bits.Add64(n1[0], n2[0], carry)\n\tnsum := []uint64{d0, d1}\n\tfmt.Printf(\"%v + %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\n\t// First number is 1<<64 + 9223372036854775808\n\tn1 = []uint64{1, 0x8000000000000000}\n\t// Second number is 1<<64 + 9223372036854775808\n\tn2 = []uint64{1, 0x8000000000000000}\n\t// Add them together producing carry.\n\td1, carry = bits.Add64(n1[1], n2[1], 0)\n\td0, _ = bits.Add64(n1[0], n2[0], carry)\n\tnsum = []uint64{d0, d1}\n\tfmt.Printf(\"%v + %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\t// Output:\n\t// [33 12] + [21 23] = [54 35] (carry bit was 0)\n\t// [1 9223372036854775808] + [1 9223372036854775808] = [3 0] (carry bit was 1)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 37
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -197,6 +209,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleDiv32() {\n\t// First number is 0<<32 + 6\n\tn1 := []uint32{0, 6}\n\t// Second number is 0<<32 + 3\n\tn2 := []uint32{0, 3}\n\t// Divide them together.\n\tquo, rem := bits.Div32(n1[0], n1[1], n2[1])\n\tnsum := []uint32{quo, rem}\n\tfmt.Printf(\"[%v %v] / %v = %v\\n\", n1[0], n1[1], n2[1], nsum)\n\n\t// First number is 2<<32 + 2147483648\n\tn1 = []uint32{2, 0x80000000}\n\t// Second number is 0<<32 + 2147483648\n\tn2 = []uint32{0, 0x80000000}\n\t// Divide them together.\n\tquo, rem = bits.Div32(n1[0], n1[1], n2[1])\n\tnsum = []uint32{quo, rem}\n\tfmt.Printf(\"[%v %v] / %v = %v\\n\", n1[0], n1[1], n2[1], nsum)\n\t// Output:\n\t// [0 6] / 3 = [2 0]\n\t// [2 2147483648] / 2147483648 = [5 0]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 158
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -240,6 +258,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleDiv64() {\n\t// First number is 0<<64 + 6\n\tn1 := []uint64{0, 6}\n\t// Second number is 0<<64 + 3\n\tn2 := []uint64{0, 3}\n\t// Divide them together.\n\tquo, rem := bits.Div64(n1[0], n1[1], n2[1])\n\tnsum := []uint64{quo, rem}\n\tfmt.Printf(\"[%v %v] / %v = %v\\n\", n1[0], n1[1], n2[1], nsum)\n\n\t// First number is 2<<64 + 9223372036854775808\n\tn1 = []uint64{2, 0x8000000000000000}\n\t// Second number is 0<<64 + 9223372036854775808\n\tn2 = []uint64{0, 0x8000000000000000}\n\t// Divide them together.\n\tquo, rem = bits.Div64(n1[0], n1[1], n2[1])\n\tnsum = []uint64{quo, rem}\n\tfmt.Printf(\"[%v %v] / %v = %v\\n\", n1[0], n1[1], n2[1], nsum)\n\t// Output:\n\t// [0 6] / 3 = [2 0]\n\t// [2 9223372036854775808] / 9223372036854775808 = [5 0]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 181
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -310,6 +334,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLeadingZeros16() {\n\tfmt.Printf(\"LeadingZeros16(%016b) = %d\\n\", 1, bits.LeadingZeros16(1))\n\t// Output:\n\t// LeadingZeros16(0000000000000001) = 15\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 20
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -345,6 +375,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLeadingZeros32() {\n\tfmt.Printf(\"LeadingZeros32(%032b) = %d\\n\", 1, bits.LeadingZeros32(1))\n\t// Output:\n\t// LeadingZeros32(00000000000000000000000000000001) = 31\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 26
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -380,6 +416,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLeadingZeros64() {\n\tfmt.Printf(\"LeadingZeros64(%064b) = %d\\n\", 1, bits.LeadingZeros64(1))\n\t// Output:\n\t// LeadingZeros64(0000000000000000000000000000000000000000000000000000000000000001) = 63\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 32
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -415,6 +457,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLeadingZeros8() {\n\tfmt.Printf(\"LeadingZeros8(%08b) = %d\\n\", 1, bits.LeadingZeros8(1))\n\t// Output:\n\t// LeadingZeros8(00000001) = 7\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 14
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -485,6 +533,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLen16() {\n\tfmt.Printf(\"Len16(%016b) = %d\\n\", 8, bits.Len16(8))\n\t// Output:\n\t// Len16(0000000000001000) = 4\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 194
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -520,6 +574,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLen32() {\n\tfmt.Printf(\"Len32(%032b) = %d\\n\", 8, bits.Len32(8))\n\t// Output:\n\t// Len32(00000000000000000000000000001000) = 4\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 200
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -555,6 +615,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLen64() {\n\tfmt.Printf(\"Len64(%064b) = %d\\n\", 8, bits.Len64(8))\n\t// Output:\n\t// Len64(0000000000000000000000000000000000000000000000000000000000001000) = 4\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 206
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -590,6 +656,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleLen8() {\n\tfmt.Printf(\"Len8(%08b) = %d\\n\", 8, bits.Len8(8))\n\t// Output:\n\t// Len8(00001000) = 4\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 188
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -668,6 +740,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleMul32() {\n\t// First number is 0<<32 + 12\n\tn1 := []uint32{0, 12}\n\t// Second number is 0<<32 + 12\n\tn2 := []uint32{0, 12}\n\t// Multiply them together without producing overflow.\n\thi, lo := bits.Mul32(n1[1], n2[1])\n\tnsum := []uint32{hi, lo}\n\tfmt.Printf(\"%v * %v = %v\\n\", n1[1], n2[1], nsum)\n\n\t// First number is 0<<32 + 2147483648\n\tn1 = []uint32{0, 0x80000000}\n\t// Second number is 0<<32 + 2\n\tn2 = []uint32{0, 2}\n\t// Multiply them together producing overflow.\n\thi, lo = bits.Mul32(n1[1], n2[1])\n\tnsum = []uint32{hi, lo}\n\tfmt.Printf(\"%v * %v = %v\\n\", n1[1], n2[1], nsum)\n\t// Output:\n\t// 12 * 12 = [0 144]\n\t// 2147483648 * 2 = [1 0]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 112
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -707,6 +785,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleMul64() {\n\t// First number is 0<<64 + 12\n\tn1 := []uint64{0, 12}\n\t// Second number is 0<<64 + 12\n\tn2 := []uint64{0, 12}\n\t// Multiply them together without producing overflow.\n\thi, lo := bits.Mul64(n1[1], n2[1])\n\tnsum := []uint64{hi, lo}\n\tfmt.Printf(\"%v * %v = %v\\n\", n1[1], n2[1], nsum)\n\n\t// First number is 0<<64 + 9223372036854775808\n\tn1 = []uint64{0, 0x8000000000000000}\n\t// Second number is 0<<64 + 2\n\tn2 = []uint64{0, 2}\n\t// Multiply them together producing overflow.\n\thi, lo = bits.Mul64(n1[1], n2[1])\n\tnsum = []uint64{hi, lo}\n\tfmt.Printf(\"%v * %v = %v\\n\", n1[1], n2[1], nsum)\n\t// Output:\n\t// 12 * 12 = [0 144]\n\t// 9223372036854775808 * 2 = [1 0]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 135
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -742,6 +826,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleOnesCount() {\n\tfmt.Printf(\"OnesCount(%b) = %d\\n\", 14, bits.OnesCount(14))\n\t// Output:\n\t// OnesCount(1110) = 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 62
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -777,6 +867,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleOnesCount16() {\n\tfmt.Printf(\"OnesCount16(%016b) = %d\\n\", 14, bits.OnesCount16(14))\n\t// Output:\n\t// OnesCount16(0000000000001110) = 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 74
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -812,6 +908,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleOnesCount32() {\n\tfmt.Printf(\"OnesCount32(%032b) = %d\\n\", 14, bits.OnesCount32(14))\n\t// Output:\n\t// OnesCount32(00000000000000000000000000001110) = 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 80
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -847,6 +949,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleOnesCount64() {\n\tfmt.Printf(\"OnesCount64(%064b) = %d\\n\", 14, bits.OnesCount64(14))\n\t// Output:\n\t// OnesCount64(0000000000000000000000000000000000000000000000000000000000001110) = 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 86
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -882,6 +990,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleOnesCount8() {\n\tfmt.Printf(\"OnesCount8(%08b) = %d\\n\", 14, bits.OnesCount8(14))\n\t// Output:\n\t// OnesCount8(00001110) = 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 68
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1081,6 +1195,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleReverse16() {\n\tfmt.Printf(\"%016b\\n\", 19)\n\tfmt.Printf(\"%016b\\n\", bits.Reverse16(19))\n\t// Output:\n\t// 0000000000010011\n\t// 1100100000000000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 140
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1116,6 +1236,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleReverse32() {\n\tfmt.Printf(\"%032b\\n\", 19)\n\tfmt.Printf(\"%032b\\n\", bits.Reverse32(19))\n\t// Output:\n\t// 00000000000000000000000000010011\n\t// 11001000000000000000000000000000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 148
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1151,6 +1277,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleReverse64() {\n\tfmt.Printf(\"%064b\\n\", 19)\n\tfmt.Printf(\"%064b\\n\", bits.Reverse64(19))\n\t// Output:\n\t// 0000000000000000000000000000000000000000000000000000000000010011\n\t// 1100100000000000000000000000000000000000000000000000000000000000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 156
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1186,6 +1318,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleReverse8() {\n\tfmt.Printf(\"%08b\\n\", 19)\n\tfmt.Printf(\"%08b\\n\", bits.Reverse8(19))\n\t// Output:\n\t// 00010011\n\t// 11001000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 132
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1256,6 +1394,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleReverseBytes16() {\n\tfmt.Printf(\"%016b\\n\", 15)\n\tfmt.Printf(\"%016b\\n\", bits.ReverseBytes16(15))\n\t// Output:\n\t// 0000000000001111\n\t// 0000111100000000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 164
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1291,6 +1435,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleReverseBytes32() {\n\tfmt.Printf(\"%032b\\n\", 15)\n\tfmt.Printf(\"%032b\\n\", bits.ReverseBytes32(15))\n\t// Output:\n\t// 00000000000000000000000000001111\n\t// 00001111000000000000000000000000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 172
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1326,6 +1476,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleReverseBytes64() {\n\tfmt.Printf(\"%064b\\n\", 15)\n\tfmt.Printf(\"%064b\\n\", bits.ReverseBytes64(15))\n\t// Output:\n\t// 0000000000000000000000000000000000000000000000000000000000001111\n\t// 0000111100000000000000000000000000000000000000000000000000000000\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 180
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1404,6 +1560,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleRotateLeft16() {\n\tfmt.Printf(\"%016b\\n\", 15)\n\tfmt.Printf(\"%016b\\n\", bits.RotateLeft16(15, 2))\n\tfmt.Printf(\"%016b\\n\", bits.RotateLeft16(15, -2))\n\t// Output:\n\t// 0000000000001111\n\t// 0000000000111100\n\t// 1100000000000011\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 102
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1443,6 +1605,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleRotateLeft32() {\n\tfmt.Printf(\"%032b\\n\", 15)\n\tfmt.Printf(\"%032b\\n\", bits.RotateLeft32(15, 2))\n\tfmt.Printf(\"%032b\\n\", bits.RotateLeft32(15, -2))\n\t// Output:\n\t// 00000000000000000000000000001111\n\t// 00000000000000000000000000111100\n\t// 11000000000000000000000000000011\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 112
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1482,6 +1650,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleRotateLeft64() {\n\tfmt.Printf(\"%064b\\n\", 15)\n\tfmt.Printf(\"%064b\\n\", bits.RotateLeft64(15, 2))\n\tfmt.Printf(\"%064b\\n\", bits.RotateLeft64(15, -2))\n\t// Output:\n\t// 0000000000000000000000000000000000000000000000000000000000001111\n\t// 0000000000000000000000000000000000000000000000000000000000111100\n\t// 1100000000000000000000000000000000000000000000000000000000000011\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 122
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1521,6 +1695,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleRotateLeft8() {\n\tfmt.Printf(\"%08b\\n\", 15)\n\tfmt.Printf(\"%08b\\n\", bits.RotateLeft8(15, 2))\n\tfmt.Printf(\"%08b\\n\", bits.RotateLeft8(15, -2))\n\t// Output:\n\t// 00001111\n\t// 00111100\n\t// 11000011\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 92
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1607,6 +1787,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleSub32() {\n\t// First number is 33<<32 + 23\n\tn1 := []uint32{33, 23}\n\t// Second number is 21<<32 + 12\n\tn2 := []uint32{21, 12}\n\t// Sub them together without producing carry.\n\td1, carry := bits.Sub32(n1[1], n2[1], 0)\n\td0, _ := bits.Sub32(n1[0], n2[0], carry)\n\tnsum := []uint32{d0, d1}\n\tfmt.Printf(\"%v - %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\n\t// First number is 3<<32 + 2147483647\n\tn1 = []uint32{3, 0x7fffffff}\n\t// Second number is 1<<32 + 2147483648\n\tn2 = []uint32{1, 0x80000000}\n\t// Sub them together producing carry.\n\td1, carry = bits.Sub32(n1[1], n2[1], 0)\n\td0, _ = bits.Sub32(n1[0], n2[0], carry)\n\tnsum = []uint32{d0, d1}\n\tfmt.Printf(\"%v - %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\t// Output:\n\t// [33 23] - [21 12] = [12 11] (carry bit was 0)\n\t// [3 2147483647] - [1 2147483648] = [1 4294967295] (carry bit was 1)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 62
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1650,6 +1836,12 @@
       "versions": [
         "Go 1.12"
       ],
+      "example": "func ExampleSub64() {\n\t// First number is 33<<64 + 23\n\tn1 := []uint64{33, 23}\n\t// Second number is 21<<64 + 12\n\tn2 := []uint64{21, 12}\n\t// Sub them together without producing carry.\n\td1, carry := bits.Sub64(n1[1], n2[1], 0)\n\td0, _ := bits.Sub64(n1[0], n2[0], carry)\n\tnsum := []uint64{d0, d1}\n\tfmt.Printf(\"%v - %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\n\t// First number is 3<<64 + 9223372036854775807\n\tn1 = []uint64{3, 0x7fffffffffffffff}\n\t// Second number is 1<<64 + 9223372036854775808\n\tn2 = []uint64{1, 0x8000000000000000}\n\t// Sub them together producing carry.\n\td1, carry = bits.Sub64(n1[1], n2[1], 0)\n\td0, _ = bits.Sub64(n1[0], n2[0], carry)\n\tnsum = []uint64{d0, d1}\n\tfmt.Printf(\"%v - %v = %v (carry bit was %v)\\n\", n1, n2, nsum, carry)\n\t// Output:\n\t// [33 23] - [21 12] = [12 11] (carry bit was 0)\n\t// [3 9223372036854775807] - [1 9223372036854775808] = [1 18446744073709551615] (carry bit was 1)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_math_test.go",
+        "line": 87
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1720,6 +1912,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleTrailingZeros16() {\n\tfmt.Printf(\"TrailingZeros16(%016b) = %d\\n\", 14, bits.TrailingZeros16(14))\n\t// Output:\n\t// TrailingZeros16(0000000000001110) = 1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 44
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1755,6 +1953,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleTrailingZeros32() {\n\tfmt.Printf(\"TrailingZeros32(%032b) = %d\\n\", 14, bits.TrailingZeros32(14))\n\t// Output:\n\t// TrailingZeros32(00000000000000000000000000001110) = 1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 50
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1790,6 +1994,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleTrailingZeros64() {\n\tfmt.Printf(\"TrailingZeros64(%064b) = %d\\n\", 14, bits.TrailingZeros64(14))\n\t// Output:\n\t// TrailingZeros64(0000000000000000000000000000000000000000000000000000000000001110) = 1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 56
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1825,6 +2035,12 @@
       "versions": [
         "Go 1.9"
       ],
+      "example": "func ExampleTrailingZeros8() {\n\tfmt.Printf(\"TrailingZeros8(%08b) = %d\\n\", 14, bits.TrailingZeros8(14))\n\t// Output:\n\t// TrailingZeros8(00001110) = 1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/bits/example_test.go",
+        "line": 38
+      },
       "evidence": [
         {
           "source": "go-1.25",

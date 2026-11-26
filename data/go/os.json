@@ -56,6 +56,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleChmod() {\n\tif err := os.Chmod(\"some-filename\", 0644); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 44
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -142,6 +148,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleChtimes() {\n\tmtime := time.Date(2006, time.February, 1, 3, 4, 5, 0, time.UTC)\n\tatime := time.Date(2007, time.March, 2, 4, 5, 6, 0, time.UTC)\n\tif err := os.Chtimes(\"some-filename\", atime, mtime); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 50
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -285,6 +297,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleCreateTemp() {\n\tf, err := os.CreateTemp(\"\", \"example\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tdefer os.Remove(f.Name()) // clean up\n\n\tif _, err := f.Write([]byte(\"content\")); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tif err := f.Close(); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 198
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -454,6 +472,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExpand() {\n\tmapper := func(placeholderName string) string {\n\t\tswitch placeholderName {\n\t\tcase \"DAY_PART\":\n\t\t\treturn \"morning\"\n\t\tcase \"NAME\":\n\t\t\treturn \"Gopher\"\n\t\t}\n\n\t\treturn \"\"\n\t}\n\n\tfmt.Println(os.Expand(\"Good ${DAY_PART}, $NAME!\", mapper))\n\n\t// Output:\n\t// Good morning, Gopher!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 86
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -489,6 +513,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExpandEnv() {\n\tos.Setenv(\"NAME\", \"gopher\")\n\tos.Setenv(\"BURROW\", \"/usr/gopher\")\n\n\tfmt.Println(os.ExpandEnv(\"$NAME lives in ${BURROW}.\"))\n\n\t// Output:\n\t// gopher lives in /usr/gopher.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 104
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -589,6 +619,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleGetenv() {\n\tos.Setenv(\"NAME\", \"gopher\")\n\tos.Setenv(\"BURROW\", \"/usr/gopher\")\n\n\tfmt.Printf(\"%s lives in %s.\\n\", os.Getenv(\"NAME\"), os.Getenv(\"BURROW\"))\n\n\t// Output:\n\t// gopher lives in /usr/gopher.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 137
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1151,6 +1187,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleLookupEnv() {\n\tshow := func(key string) {\n\t\tval, ok := os.LookupEnv(key)\n\t\tif !ok {\n\t\t\tfmt.Printf(\"%s not set\\n\", key)\n\t\t} else {\n\t\t\tfmt.Printf(\"%s=%s\\n\", key, val)\n\t\t}\n\t}\n\n\tos.Setenv(\"SOME_KEY\", \"value\")\n\tos.Setenv(\"EMPTY_KEY\", \"\")\n\n\tshow(\"SOME_KEY\")\n\tshow(\"EMPTY_KEY\")\n\tshow(\"MISSING_KEY\")\n\n\t// Output:\n\t// SOME_KEY=value\n\t// EMPTY_KEY=\n\t// MISSING_KEY not set\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 114
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1225,6 +1267,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMkdir() {\n\terr := os.Mkdir(\"testdir\", 0750)\n\tif err != nil && !os.IsExist(err) {\n\t\tlog.Fatal(err)\n\t}\n\terr = os.WriteFile(\"testdir/testfile.txt\", []byte(\"Hello, Gophers!\"), 0660)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 247
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1264,6 +1312,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMkdirAll() {\n\terr := os.MkdirAll(\"test/subdir\", 0750)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\terr = os.WriteFile(\"test/subdir/testfile.txt\", []byte(\"Hello, Gophers!\"), 0660)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 258
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1303,6 +1357,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleMkdirTemp() {\n\tdir, err := os.MkdirTemp(\"\", \"example\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tdefer os.RemoveAll(dir) // clean up\n\n\tfile := filepath.Join(dir, \"tmpfile\")\n\tif err := os.WriteFile(file, []byte(\"content\"), 0666); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 163
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1459,6 +1519,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleOpenFile() {\n\tf, err := os.OpenFile(\"notes.txt\", os.O_RDWR|os.O_CREATE, 0644)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tif err := f.Close(); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 19
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1598,6 +1664,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleReadDir() {\n\tfiles, err := os.ReadDir(\".\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfor _, file := range files {\n\t\tfmt.Println(file.Name())\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 152
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1633,6 +1705,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleReadFile() {\n\tdata, err := os.ReadFile(\"testdata/hello\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tos.Stdout.Write(data)\n\n\t// Output:\n\t// Hello, Gophers!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 229
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1668,6 +1746,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleReadlink() {\n\t// First, we create a relative symlink to a file.\n\td, err := os.MkdirTemp(\"\", \"\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tdefer os.RemoveAll(d)\n\ttargetPath := filepath.Join(d, \"hello.txt\")\n\tif err := os.WriteFile(targetPath, []byte(\"Hello, Gophers!\"), 0644); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tlinkPath := filepath.Join(d, \"hello.link\")\n\tif err := os.Symlink(\"hello.txt\", filepath.Join(d, \"hello.link\")); err != nil {\n\t\tif errors.Is(err, errors.ErrUnsupported) {\n\t\t\t// Allow the example to run on platforms that do not support symbolic links.\n\t\t\tfmt.Printf(\"%s links to %s\\n\", filepath.Base(linkPath), \"hello.txt\")\n\t\t\treturn\n\t\t}\n\t\tlog.Fatal(err)\n\t}\n\n\t// Readlink returns the relative path as passed to os.Symlink.\n\tdst, err := os.Readlink(linkPath)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Printf(\"%s links to %s\\n\", filepath.Base(linkPath), dst)\n\n\tvar dstAbs string\n\tif filepath.IsAbs(dst) {\n\t\tdstAbs = dst\n\t} else {\n\t\t// Symlink targets are relative to the directory containing the link.\n\t\tdstAbs = filepath.Join(filepath.Dir(linkPath), dst)\n\t}\n\n\t// Check that the target is correct by comparing it with os.Stat\n\t// on the original target path.\n\tdstInfo, err := os.Stat(dstAbs)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\ttargetInfo, err := os.Stat(targetPath)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tif !os.SameFile(dstInfo, targetInfo) {\n\t\tlog.Fatalf(\"link destination (%s) is not the same file as %s\", dstAbs, targetPath)\n\t}\n\n\t// Output:\n\t// hello.link links to hello.txt\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 269
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2076,6 +2160,12 @@
       "versions": [
         "Go 1.4"
       ],
+      "example": "func ExampleUnsetenv() {\n\tos.Setenv(\"TMPDIR\", \"/my/tmp\")\n\tdefer os.Unsetenv(\"TMPDIR\")\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 147
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2106,6 +2196,12 @@
       "versions": [
         "Go 1.11"
       ],
+      "example": "func ExampleUserCacheDir() {\n\tdir, dirErr := os.UserCacheDir()\n\tif dirErr == nil {\n\t\tdir = filepath.Join(dir, \"ExampleUserCacheDir\")\n\t}\n\n\tgetCache := func(name string) ([]byte, error) {\n\t\tif dirErr != nil {\n\t\t\treturn nil, &os.PathError{Op: \"getCache\", Path: name, Err: os.ErrNotExist}\n\t\t}\n\t\treturn os.ReadFile(filepath.Join(dir, name))\n\t}\n\n\tvar mkdirOnce sync.Once\n\tputCache := func(name string, b []byte) error {\n\t\tif dirErr != nil {\n\t\t\treturn &os.PathError{Op: \"putCache\", Path: name, Err: dirErr}\n\t\t}\n\t\tmkdirOnce.Do(func() {\n\t\t\tif err := os.MkdirAll(dir, 0700); err != nil {\n\t\t\t\tlog.Printf(\"can't create user cache dir: %v\", err)\n\t\t\t}\n\t\t})\n\t\treturn os.WriteFile(filepath.Join(dir, name), b, 0600)\n\t}\n\n\t// Read and store cached data.\n\t// …\n\t_ = getCache\n\t_ = putCache\n\n\t// Output:\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 323
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2136,6 +2232,12 @@
       "versions": [
         "Go 1.13"
       ],
+      "example": "func ExampleUserConfigDir() {\n\tdir, dirErr := os.UserConfigDir()\n\n\tvar (\n\t\tconfigPath string\n\t\torigConfig []byte\n\t)\n\tif dirErr == nil {\n\t\tconfigPath = filepath.Join(dir, \"ExampleUserConfigDir\", \"example.conf\")\n\t\tvar err error\n\t\torigConfig, err = os.ReadFile(configPath)\n\t\tif err != nil && !os.IsNotExist(err) {\n\t\t\t// The user has a config file but we couldn't read it.\n\t\t\t// Report the error instead of ignoring their configuration.\n\t\t\tlog.Fatal(err)\n\t\t}\n\t}\n\n\t// Use and perhaps make changes to the config.\n\tconfig := bytes.Clone(origConfig)\n\t// …\n\n\t// Save changes.\n\tif !bytes.Equal(config, origConfig) {\n\t\tif configPath == \"\" {\n\t\t\tlog.Printf(\"not saving config changes: %v\", dirErr)\n\t\t} else {\n\t\t\terr := os.MkdirAll(filepath.Dir(configPath), 0700)\n\t\t\tif err == nil {\n\t\t\t\terr = os.WriteFile(configPath, config, 0600)\n\t\t\t}\n\t\t\tif err != nil {\n\t\t\t\tlog.Printf(\"error saving config changes: %v\", err)\n\t\t\t}\n\t\t}\n\t}\n\n\t// Output:\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 357
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2209,6 +2311,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleWriteFile() {\n\terr := os.WriteFile(\"testdata/hello\", []byte(\"Hello, Gophers!\"), 0666)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/example_test.go",
+        "line": 240
+      },
       "evidence": [
         {
           "source": "go-1.25",

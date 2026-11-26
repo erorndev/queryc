@@ -1,0 +1,9 @@
+{
+  "typescript-5.9.3": {
+    "kind": "lib",
+    "label": "TypeScript 5.9.3 lib declarations",
+    "library": "TypeScript",
+    "version": "5.9.3",
+    "root": "node_modules/typescript/lib"
+  }
+}

@@ -133,6 +133,12 @@
       "versions": [
         "Go 1.21"
       ],
+      "example": "func ExampleBoolFunc() {\n\tfs := flag.NewFlagSet(\"ExampleBoolFunc\", flag.ContinueOnError)\n\tfs.SetOutput(os.Stdout)\n\n\tfs.BoolFunc(\"log\", \"logs a dummy message\", func(s string) error {\n\t\tfmt.Println(\"dummy message:\", s)\n\t\treturn nil\n\t})\n\tfs.Parse([]string{\"-log\"})\n\tfs.Parse([]string{\"-log=0\"})\n\n\t// Output:\n\t// dummy message: true\n\t// dummy message: 0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/flag/example_func_test.go",
+        "line": 43
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -403,6 +409,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleFunc() {\n\tfs := flag.NewFlagSet(\"ExampleFunc\", flag.ContinueOnError)\n\tfs.SetOutput(os.Stdout)\n\tvar ip net.IP\n\tfs.Func(\"ip\", \"`IP address` to parse\", func(s string) error {\n\t\tip = net.ParseIP(s)\n\t\tif ip == nil {\n\t\t\treturn errors.New(\"could not parse IP\")\n\t\t}\n\t\treturn nil\n\t})\n\tfs.Parse([]string{\"-ip\", \"127.0.0.1\"})\n\tfmt.Printf(\"{ip: %v, loopback: %t}\\n\\n\", ip, ip.IsLoopback())\n\n\t// 256 is not a valid IPv4 component\n\tfs.Parse([]string{\"-ip\", \"256.0.0.1\"})\n\tfmt.Printf(\"{ip: %v, loopback: %t}\\n\\n\", ip, ip.IsLoopback())\n\n\t// Output:\n\t// {ip: 127.0.0.1, loopback: true}\n\t//\n\t// invalid value \"256.0.0.1\" for flag -ip: could not parse IP\n\t// Usage of ExampleFunc:\n\t//   -ip IP address\n\t//     \tIP address to parse\n\t// {ip: <nil>, loopback: false}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/flag/example_func_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -983,6 +995,12 @@
       "versions": [
         "Go 1.19"
       ],
+      "example": "func ExampleTextVar() {\n\tfs := flag.NewFlagSet(\"ExampleTextVar\", flag.ContinueOnError)\n\tfs.SetOutput(os.Stdout)\n\tvar ip net.IP\n\tfs.TextVar(&ip, \"ip\", net.IPv4(192, 168, 0, 100), \"`IP address` to parse\")\n\tfs.Parse([]string{\"-ip\", \"127.0.0.1\"})\n\tfmt.Printf(\"{ip: %v}\\n\\n\", ip)\n\n\t// 256 is not a valid IPv4 component\n\tip = nil\n\tfs.Parse([]string{\"-ip\", \"256.0.0.1\"})\n\tfmt.Printf(\"{ip: %v}\\n\\n\", ip)\n\n\t// Output:\n\t// {ip: 127.0.0.1}\n\t//\n\t// invalid value \"256.0.0.1\" for flag -ip: invalid IP address: 256.0.0.1\n\t// Usage of ExampleTextVar:\n\t//   -ip IP address\n\t//     \tIP address to parse (default 192.168.0.100)\n\t// {ip: <nil>}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/flag/example_textvar_test.go",
+        "line": 14
+      },
       "evidence": [
         {
           "source": "go-1.25",

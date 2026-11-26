@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleNewReader() {\n\tfor _, s := range []string{\n\t\t`=48=65=6C=6C=6F=2C=20=47=6F=70=68=65=72=73=21`,\n\t\t`invalid escape: <b style=\"font-size: 200%\">hello</b>`,\n\t\t\"Hello, Gophers! This symbol will be unescaped: =3D and this will be written in =\\r\\none line.\",\n\t} {\n\t\tb, err := io.ReadAll(quotedprintable.NewReader(strings.NewReader(s)))\n\t\tfmt.Printf(\"%s %v\\n\", b, err)\n\t}\n\t// Output:\n\t// Hello, Gophers! <nil>\n\t// invalid escape: <b style=\"font-size: 200%\">hello</b> <nil>\n\t// Hello, Gophers! This symbol will be unescaped: = and this will be written in one line. <nil>\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/mime/quotedprintable/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -52,6 +58,12 @@
       "versions": [
         "Go 1.5"
       ],
+      "example": "func ExampleNewWriter() {\n\tw := quotedprintable.NewWriter(os.Stdout)\n\tw.Write([]byte(\"These symbols will be escaped: = \\t\"))\n\tw.Close()\n\n\t// Output:\n\t// These symbols will be escaped: =3D =09\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/mime/quotedprintable/example_test.go",
+        "line": 30
+      },
       "evidence": [
         {
           "source": "go-1.25",

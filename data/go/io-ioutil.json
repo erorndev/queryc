@@ -17,6 +17,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/io/ioutil/ioutil.go",
+          "line": 95,
+          "message": "Deprecated: As of Go 1.16, this function simply calls [io.NopCloser]."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -51,6 +60,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleReadAll() {\n\tr := strings.NewReader(\"Go is a general-purpose language designed with systems programming in mind.\")\n\n\tb, err := ioutil.ReadAll(r)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"%s\", b)\n\n\t// Output:\n\t// Go is a general-purpose language designed with systems programming in mind.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/ioutil/example_test.go",
+        "line": 16
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/io/ioutil/ioutil.go",
+          "line": 26,
+          "message": "Deprecated: As of Go 1.16, this function simply calls [io.ReadAll]."
+        }
       ],
       "evidence": [
         {
@@ -87,6 +111,21 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleReadDir() {\n\tfiles, err := ioutil.ReadDir(\".\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfor _, file := range files {\n\t\tfmt.Println(file.Name())\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/ioutil/example_test.go",
+        "line": 30
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/io/ioutil/ioutil.go",
+          "line": 61,
+          "message": "Deprecated: As of Go 1.16, [os.ReadDir] is a more efficient and correct choice: it returns a list of [fs.DirEntry] instead of [fs.FileInfo], and it returns partial results in the case of an error midway through reading a directory."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -121,6 +160,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleReadFile() {\n\tcontent, err := ioutil.ReadFile(\"testdata/hello\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"File contents: %s\", content)\n\n\t// Output:\n\t// File contents: Hello, Gophers!\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/ioutil/example_test.go",
+        "line": 114
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/io/ioutil/ioutil.go",
+          "line": 38,
+          "message": "Deprecated: As of Go 1.16, this function simply calls [os.ReadFile]."
+        }
       ],
       "evidence": [
         {
@@ -161,6 +215,21 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTempDir() {\n\tcontent := []byte(\"temporary file's content\")\n\tdir, err := ioutil.TempDir(\"\", \"example\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tdefer os.RemoveAll(dir) // clean up\n\n\ttmpfn := filepath.Join(dir, \"tmpfile\")\n\tif err := ioutil.WriteFile(tmpfn, content, 0666); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/ioutil/example_test.go",
+        "line": 41
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/io/ioutil/tempfile.go",
+          "line": 40,
+          "message": "Deprecated: As of Go 1.17, this function simply calls [os.MkdirTemp]."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -199,6 +268,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleTempFile() {\n\tcontent := []byte(\"temporary file's content\")\n\ttmpfile, err := ioutil.TempFile(\"\", \"example\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tdefer os.Remove(tmpfile.Name()) // clean up\n\n\tif _, err := tmpfile.Write(content); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tif err := tmpfile.Close(); err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/ioutil/example_test.go",
+        "line": 79
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/io/ioutil/tempfile.go",
+          "line": 23,
+          "message": "Deprecated: As of Go 1.17, this function simply calls [os.CreateTemp]."
+        }
       ],
       "evidence": [
         {
@@ -242,6 +326,21 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "example": "func ExampleWriteFile() {\n\tmessage := []byte(\"Hello, Gophers!\")\n\terr := ioutil.WriteFile(\"hello\", message, 0644)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/io/ioutil/example_test.go",
+        "line": 126
+      },
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/io/ioutil/ioutil.go",
+          "line": 49,
+          "message": "Deprecated: As of Go 1.16, this function simply calls [os.WriteFile]."
+        }
       ],
       "evidence": [
         {

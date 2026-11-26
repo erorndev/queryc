@@ -267,6 +267,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIntn() {\n\tfmt.Println(rand.Intn(100))\n\tfmt.Println(rand.Intn(100))\n\tfmt.Println(rand.Intn(100))\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/rand/example_test.go",
+        "line": 129
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -449,6 +455,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePerm() {\n\tfor _, value := range rand.Perm(3) {\n\t\tfmt.Println(value)\n\t}\n\n\t// Unordered output: 1\n\t// 2\n\t// 0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/rand/example_test.go",
+        "line": 98
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -484,6 +496,15 @@
       "versions": [
         "Go 1.6"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/math/rand/rand.go",
+          "line": 487,
+          "message": "Deprecated: For almost all use cases, [crypto/rand.Read] is more appropriate. If a deterministic source is required, use [math/rand/v2.ChaCha8.Read]."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -518,6 +539,15 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/math/rand/rand.go",
+          "line": 393,
+          "message": "Deprecated: As of Go 1.20 there is no reason to call Seed with a random value. Programs that call Seed with a known value to get a specific sequence of results should use New(NewSource(seed)) to obtain a local random generator."
+        }
       ],
       "evidence": [
         {
@@ -558,6 +588,12 @@
       "versions": [
         "Go 1.10"
       ],
+      "example": "func ExampleShuffle() {\n\twords := strings.Fields(\"ink runs from the corners of my mouth\")\n\trand.Shuffle(len(words), func(i, j int) {\n\t\twords[i], words[j] = words[j], words[i]\n\t})\n\tfmt.Println(words)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/rand/example_test.go",
+        "line": 108
+      },
       "evidence": [
         {
           "source": "go-1.25",

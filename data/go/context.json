@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.21"
       ],
+      "example": "func ExampleAfterFunc_cond() {\n\twaitOnCond := func(ctx context.Context, cond *sync.Cond, conditionMet func() bool) error {\n\t\tstopf := context.AfterFunc(ctx, func() {\n\t\t\t// We need to acquire cond.L here to be sure that the Broadcast\n\t\t\t// below won't occur before the call to Wait, which would result\n\t\t\t// in a missed signal (and deadlock).\n\t\t\tcond.L.Lock()\n\t\t\tdefer cond.L.Unlock()\n\n\t\t\t// If multiple goroutines are waiting on cond simultaneously,\n\t\t\t// we need to make sure we wake up exactly this one.\n\t\t\t// That means that we need to Broadcast to all of the goroutines,\n\t\t\t// which will wake them all up.\n\t\t\t//\n\t\t\t// If there are N concurrent calls to waitOnCond, each of the goroutines\n\t\t\t// will spuriously wake up O(N) other goroutines that aren't ready yet,\n\t\t\t// so this will cause the overall CPU cost to be O(N²).\n\t\t\tcond.Broadcast()\n\t\t})\n\t\tdefer stopf()\n\n\t\t// Since the wakeups are using Broadcast instead of Signal, this call to\n\t\t// Wait may unblock due to some other goroutine's context being canceled,\n\t\t// so to be sure that ctx is actually canceled we need to check it in a loop.\n\t\tfor !conditionMet() {\n\t\t\tcond.Wait()\n\t\t\tif ctx.Err() != nil {\n\t\t\t\treturn ctx.Err()\n\t\t\t}\n\t\t}\n\n\t\treturn nil\n\t}\n\n\tcond := sync.NewCond(new(sync.Mutex))\n\n\tvar wg sync.WaitGroup\n\tfor i := 0; i < 4; i++ {\n\t\twg.Add(1)\n\t\tgo func() {\n\t\t\tdefer wg.Done()\n\n\t\t\tctx, cancel := context.WithTimeout(context.Background(), 1*time.Millisecond)\n\t\t\tdefer cancel()\n\n\t\t\tcond.L.Lock()\n\t\t\tdefer cond.L.Unlock()\n\n\t\t\terr := waitOnCond(ctx, cond, func() bool { return false })\n\t\t\tfmt.Println(err)\n\t\t}()\n\t}\n\twg.Wait()\n\n\t// Output:\n\t// context deadline exceeded\n\t// context deadline exceeded\n\t// context deadline exceeded\n\t// context deadline exceeded\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/context/example_test.go",
+        "line": 127
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -151,6 +157,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleWithCancel() {\n\t// gen generates integers in a separate goroutine and\n\t// sends them to the returned channel.\n\t// The callers of gen need to cancel the context once\n\t// they are done consuming generated integers not to leak\n\t// the internal goroutine started by gen.\n\tgen := func(ctx context.Context) <-chan int {\n\t\tdst := make(chan int)\n\t\tn := 1\n\t\tgo func() {\n\t\t\tfor {\n\t\t\t\tselect {\n\t\t\t\tcase <-ctx.Done():\n\t\t\t\t\treturn // returning not to leak the goroutine\n\t\t\t\tcase dst <- n:\n\t\t\t\t\tn++\n\t\t\t\t}\n\t\t\t}\n\t\t}()\n\t\treturn dst\n\t}\n\n\tctx, cancel := context.WithCancel(context.Background())\n\tdefer cancel() // cancel when we are finished consuming integers\n\n\tfor n := range gen(ctx) {\n\t\tfmt.Println(n)\n\t\tif n == 5 {\n\t\t\tbreak\n\t\t}\n\t}\n\t// Output:\n\t// 1\n\t// 2\n\t// 3\n\t// 4\n\t// 5\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/context/example_test.go",
+        "line": 21
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -225,6 +237,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleWithDeadline() {\n\td := time.Now().Add(shortDuration)\n\tctx, cancel := context.WithDeadline(context.Background(), d)\n\n\t// Even though ctx will be expired, it is good practice to call its\n\t// cancellation function in any case. Failure to do so may keep the\n\t// context and its parent alive longer than necessary.\n\tdefer cancel()\n\n\tselect {\n\tcase <-neverReady:\n\t\tfmt.Println(\"ready\")\n\tcase <-ctx.Done():\n\t\tfmt.Println(ctx.Err())\n\t}\n\n\t// Output:\n\t// context deadline exceeded\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/context/example_test.go",
+        "line": 62
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -307,6 +325,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleWithTimeout() {\n\t// Pass a context with a timeout to tell a blocking function that it\n\t// should abandon its work after the timeout elapses.\n\tctx, cancel := context.WithTimeout(context.Background(), shortDuration)\n\tdefer cancel()\n\n\tselect {\n\tcase <-neverReady:\n\t\tfmt.Println(\"ready\")\n\tcase <-ctx.Done():\n\t\tfmt.Println(ctx.Err()) // prints \"context deadline exceeded\"\n\t}\n\n\t// Output:\n\t// context deadline exceeded\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/context/example_test.go",
+        "line": 84
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -393,6 +417,12 @@
       "versions": [
         "Go 1.7"
       ],
+      "example": "func ExampleWithValue() {\n\ttype favContextKey string\n\n\tf := func(ctx context.Context, k favContextKey) {\n\t\tif v := ctx.Value(k); v != nil {\n\t\t\tfmt.Println(\"found value:\", v)\n\t\t\treturn\n\t\t}\n\t\tfmt.Println(\"key not found:\", k)\n\t}\n\n\tk := favContextKey(\"language\")\n\tctx := context.WithValue(context.Background(), k, \"Go\")\n\n\tf(ctx, k)\n\tf(ctx, favContextKey(\"color\"))\n\n\t// Output:\n\t// found value: Go\n\t// key not found: color\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/context/example_test.go",
+        "line": 103
+      },
       "evidence": [
         {
           "source": "go-1.25",

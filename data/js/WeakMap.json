@@ -1,0 +1,135 @@
+{
+  "object": "WeakMap",
+  "functions": [
+    {
+      "name": "delete",
+      "summary": "Removes the specified element from the WeakMap.",
+      "signature": "WeakMap.delete(key: K): boolean",
+      "params": [
+        {
+          "name": "key",
+          "type": "K",
+          "optional": false,
+          "description": "The key to use."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true if the element was successfully removed, or false if it was not present."
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 67,
+          "lines": [
+            "delete(key: K): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get",
+      "summary": "Returns the value stored for the key, or undefined.",
+      "signature": "WeakMap.get(key: K): V | undefined",
+      "params": [
+        {
+          "name": "key",
+          "type": "K",
+          "optional": false,
+          "description": "The key to use."
+        }
+      ],
+      "returns": {
+        "type": "V | undefined",
+        "description": "a specified element."
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 71,
+          "lines": [
+            "get(key: K): V | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "has",
+      "summary": "Checks whether the weak map has an entry for the key.",
+      "signature": "WeakMap.has(key: K): boolean",
+      "params": [
+        {
+          "name": "key",
+          "type": "K",
+          "optional": false,
+          "description": "The key to use."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "a boolean indicating whether an element with the specified key exists or not."
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 75,
+          "lines": [
+            "has(key: K): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "summary": "Adds a new element with a specified key and value.",
+      "signature": "WeakMap.set(key: K, value: V): this",
+      "params": [
+        {
+          "name": "key",
+          "type": "K",
+          "optional": false,
+          "description": "Must be an object or symbol."
+        },
+        {
+          "name": "value",
+          "type": "V",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 80,
+          "lines": [
+            "set(key: K, value: V): this;"
+          ]
+        }
+      ]
+    }
+  ]
+}

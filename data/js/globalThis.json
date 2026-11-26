@@ -1,0 +1,352 @@
+{
+  "object": "globalThis",
+  "functions": [
+    {
+      "name": "decodeURI",
+      "signature": "globalThis.decodeURI(encodedURI: string): string",
+      "params": [
+        {
+          "name": "encodedURI",
+          "type": "string",
+          "optional": false,
+          "description": "The encoded URI to decode."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 66,
+          "lines": [
+            "declare function decodeURI(encodedURI: string): string;"
+          ]
+        }
+      ],
+      "summary": "Decodes a URI encoded with encodeURI."
+    },
+    {
+      "name": "decodeURIComponent",
+      "signature": "globalThis.decodeURIComponent(encodedURIComponent: string): string",
+      "params": [
+        {
+          "name": "encodedURIComponent",
+          "type": "string",
+          "optional": false,
+          "description": "The encoded URI component to decode."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 72,
+          "lines": [
+            "declare function decodeURIComponent(encodedURIComponent: string): string;"
+          ]
+        }
+      ],
+      "summary": "Decodes a URI component encoded with encodeURIComponent."
+    },
+    {
+      "name": "encodeURI",
+      "signature": "globalThis.encodeURI(uri: string): string",
+      "params": [
+        {
+          "name": "uri",
+          "type": "string",
+          "optional": false,
+          "description": "The URI to encode."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 78,
+          "lines": [
+            "declare function encodeURI(uri: string): string;"
+          ]
+        }
+      ],
+      "summary": "Encodes a full URI, leaving reserved characters like / and ? alone."
+    },
+    {
+      "name": "encodeURIComponent",
+      "signature": "globalThis.encodeURIComponent(uriComponent: string | number | boolean): string",
+      "params": [
+        {
+          "name": "uriComponent",
+          "type": "string | number | boolean",
+          "optional": false,
+          "description": "The URI component to encode."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 84,
+          "lines": [
+            "declare function encodeURIComponent(uriComponent: string | number | boolean): string;"
+          ]
+        }
+      ],
+      "summary": "Encodes a URI component, escaping reserved characters too."
+    },
+    {
+      "name": "escape",
+      "signature": "globalThis.escape(string: string): string",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "The string to convert."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 91,
+          "lines": [
+            "declare function escape(string: string): string;"
+          ]
+        }
+      ],
+      "summary": "Encodes a string with percent escapes. Deprecated: use encodeURIComponent."
+    },
+    {
+      "name": "eval",
+      "signature": "globalThis.eval(x: string): any",
+      "params": [
+        {
+          "name": "x",
+          "type": "string",
+          "optional": false,
+          "description": "The first value."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 33,
+          "lines": [
+            "declare function eval(x: string): any;"
+          ]
+        }
+      ],
+      "summary": "Runs a string as JavaScript code and returns the result."
+    },
+    {
+      "name": "isFinite",
+      "signature": "globalThis.isFinite(number: number): boolean",
+      "params": [
+        {
+          "name": "number",
+          "type": "number",
+          "optional": false,
+          "description": "The value to test."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 60,
+          "lines": [
+            "declare function isFinite(number: number): boolean;"
+          ]
+        }
+      ],
+      "summary": "Checks whether a value converts to a finite number."
+    },
+    {
+      "name": "isNaN",
+      "signature": "globalThis.isNaN(number: number): boolean",
+      "params": [
+        {
+          "name": "number",
+          "type": "number",
+          "optional": false,
+          "description": "The value to test."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 54,
+          "lines": [
+            "declare function isNaN(number: number): boolean;"
+          ]
+        }
+      ],
+      "summary": "Checks whether a value converts to NaN."
+    },
+    {
+      "name": "parseFloat",
+      "signature": "globalThis.parseFloat(string: string): number",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "The string to convert."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 48,
+          "lines": [
+            "declare function parseFloat(string: string): number;"
+          ]
+        }
+      ],
+      "summary": "Parses a string into a floating-point number."
+    },
+    {
+      "name": "parseInt",
+      "signature": "globalThis.parseInt(string: string, radix?: number): number",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "The string to convert."
+        },
+        {
+          "name": "radix",
+          "type": "number",
+          "optional": true,
+          "description": "The base to parse in, from 2 to 36."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 42,
+          "lines": [
+            "declare function parseInt(string: string, radix?: number): number;"
+          ]
+        }
+      ],
+      "summary": "Parses a string into an integer in the given radix."
+    },
+    {
+      "name": "unescape",
+      "signature": "globalThis.unescape(string: string): string",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "The string to convert."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 98,
+          "lines": [
+            "declare function unescape(string: string): string;"
+          ]
+        }
+      ],
+      "summary": "Decodes a string encoded with escape. Deprecated: use decodeURIComponent."
+    }
+  ]
+}

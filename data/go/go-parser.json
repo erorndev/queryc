@@ -29,6 +29,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/parser/interface.go",
+          "line": 149,
+          "message": "Deprecated: ParseDir does not consider build tags when associating files with packages. For precise information about the relationship between packages and files, use golang.org/x/tools/go/packages, which can also optionally parse and type-check the files too."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -158,6 +167,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseFile() {\n\tfset := token.NewFileSet() // positions are relative to fset\n\n\tsrc := `package foo\n\nimport (\n\t\"fmt\"\n\t\"time\"\n)\n\nfunc bar() {\n\tfmt.Println(time.Now())\n}`\n\n\t// Parse src but stop after processing the imports.\n\tf, err := parser.ParseFile(fset, \"\", src, parser.ImportsOnly)\n\tif err != nil {\n\t\tfmt.Println(err)\n\t\treturn\n\t}\n\n\t// Print the imports from the file's AST.\n\tfor _, s := range f.Imports {\n\t\tfmt.Println(s.Path.Value)\n\t}\n\n\t// output:\n\t//\n\t// \"fmt\"\n\t// \"time\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/parser/example_test.go",
+        "line": 13
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAbs() {\n\tx := math.Abs(-2)\n\tfmt.Printf(\"%.1f\\n\", x)\n\n\ty := math.Abs(2)\n\tfmt.Printf(\"%.1f\\n\", y)\n\t// Output:\n\t// 2.0\n\t// 2.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 176
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -52,6 +58,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAcos() {\n\tfmt.Printf(\"%.2f\", math.Acos(1))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 12
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -87,6 +99,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAcosh() {\n\tfmt.Printf(\"%.2f\", math.Acosh(1))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 17
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -122,6 +140,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAsin() {\n\tfmt.Printf(\"%.2f\", math.Asin(0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 22
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -157,6 +181,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAsinh() {\n\tfmt.Printf(\"%.2f\", math.Asinh(0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 27
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -192,6 +222,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAtan() {\n\tfmt.Printf(\"%.2f\", math.Atan(0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 32
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -231,6 +267,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAtan2() {\n\tfmt.Printf(\"%.2f\", math.Atan2(0, 0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 37
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -266,6 +308,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAtanh() {\n\tfmt.Printf(\"%.2f\", math.Atanh(0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 42
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -301,6 +349,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCbrt() {\n\tfmt.Printf(\"%.2f\\n\", math.Cbrt(8))\n\tfmt.Printf(\"%.2f\\n\", math.Cbrt(27))\n\t// Output:\n\t// 2.00\n\t// 3.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 228
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -336,6 +390,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCeil() {\n\tc := math.Ceil(1.49)\n\tfmt.Printf(\"%.1f\", c)\n\t// Output: 2.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 98
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -375,6 +435,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCopysign() {\n\tfmt.Printf(\"%.2f\", math.Copysign(3.2, -1))\n\t// Output: -3.20\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 47
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -410,6 +476,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCos() {\n\tfmt.Printf(\"%.2f\", math.Cos(math.Pi/2))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 52
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -445,6 +517,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCosh() {\n\tfmt.Printf(\"%.2f\", math.Cosh(0))\n\t// Output: 1.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 57
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -484,6 +562,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDim() {\n\tfmt.Printf(\"%.2f\\n\", math.Dim(4, -2))\n\tfmt.Printf(\"%.2f\\n\", math.Dim(-4, 2))\n\t// Output:\n\t// 6.00\n\t// 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 186
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -659,6 +743,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExp() {\n\tfmt.Printf(\"%.2f\\n\", math.Exp(1))\n\tfmt.Printf(\"%.2f\\n\", math.Exp(2))\n\tfmt.Printf(\"%.2f\\n\", math.Exp(-1))\n\t// Output:\n\t// 2.72\n\t// 7.39\n\t// 0.37\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 194
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -694,6 +784,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExp2() {\n\tfmt.Printf(\"%.2f\\n\", math.Exp2(1))\n\tfmt.Printf(\"%.2f\\n\", math.Exp2(-3))\n\t// Output:\n\t// 2.00\n\t// 0.12\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 204
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -729,6 +825,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExpm1() {\n\tfmt.Printf(\"%.6f\\n\", math.Expm1(0.01))\n\tfmt.Printf(\"%.6f\\n\", math.Expm1(-1))\n\t// Output:\n\t// 0.010050\n\t// -0.632121\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 212
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -947,6 +1049,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFloor() {\n\tc := math.Floor(1.51)\n\tfmt.Printf(\"%.1f\", c)\n\t// Output: 1.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 104
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1418,6 +1526,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLog() {\n\tx := math.Log(1)\n\tfmt.Printf(\"%.1f\\n\", x)\n\n\ty := math.Log(2.7183)\n\tfmt.Printf(\"%.1f\\n\", y)\n\t// Output:\n\t// 0.0\n\t// 1.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 144
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1453,6 +1567,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLog10() {\n\tfmt.Printf(\"%.1f\", math.Log10(100))\n\t// Output: 2.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 160
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1523,6 +1643,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLog2() {\n\tfmt.Printf(\"%.1f\", math.Log2(256))\n\t// Output: 8.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 155
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1675,6 +1801,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMod() {\n\tc := math.Mod(7, 4)\n\tfmt.Printf(\"%.1f\", c)\n\t// Output: 3.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 170
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1710,6 +1842,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleModf() {\n\tint, frac := math.Modf(3.14)\n\tfmt.Printf(\"%.2f, %.2f\\n\", int, frac)\n\n\tint, frac = math.Modf(-2.71)\n\tfmt.Printf(\"%.2f, %.2f\\n\", int, frac)\n\t// Output:\n\t// 3.00, 0.14\n\t// -2.00, -0.71\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 236
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1857,6 +1995,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePow() {\n\tc := math.Pow(2, 3)\n\tfmt.Printf(\"%.1f\", c)\n\t// Output: 8.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 110
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1892,6 +2036,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePow10() {\n\tc := math.Pow10(2)\n\tfmt.Printf(\"%.1f\", c)\n\t// Output: 100.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 116
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1931,6 +2081,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleRemainder() {\n\tfmt.Printf(\"%.1f\", math.Remainder(100, 30))\n\t// Output: 10.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 165
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1966,6 +2122,12 @@
       "versions": [
         "Go 1.10"
       ],
+      "example": "func ExampleRound() {\n\tp := math.Round(10.5)\n\tfmt.Printf(\"%.1f\\n\", p)\n\n\tn := math.Round(-10.5)\n\tfmt.Printf(\"%.1f\\n\", n)\n\t// Output:\n\t// 11.0\n\t// -11.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 122
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2001,6 +2163,12 @@
       "versions": [
         "Go 1.10"
       ],
+      "example": "func ExampleRoundToEven() {\n\tu := math.RoundToEven(11.5)\n\tfmt.Printf(\"%.1f\\n\", u)\n\n\td := math.RoundToEven(12.5)\n\tfmt.Printf(\"%.1f\\n\", d)\n\t// Output:\n\t// 12.0\n\t// 12.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 133
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2071,6 +2239,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSin() {\n\tfmt.Printf(\"%.2f\", math.Sin(math.Pi))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 62
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2106,6 +2280,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSincos() {\n\tsin, cos := math.Sincos(0)\n\tfmt.Printf(\"%.2f, %.2f\", sin, cos)\n\t// Output: 0.00, 1.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 67
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2141,6 +2321,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSinh() {\n\tfmt.Printf(\"%.2f\", math.Sinh(0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 73
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2176,6 +2362,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSqrt() {\n\tconst (\n\t\ta = 3\n\t\tb = 4\n\t)\n\tc := math.Sqrt(a*a + b*b)\n\tfmt.Printf(\"%.1f\", c)\n\t// Output: 5.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 88
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2211,6 +2403,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTan() {\n\tfmt.Printf(\"%.2f\", math.Tan(0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 78
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2246,6 +2444,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTanh() {\n\tfmt.Printf(\"%.2f\", math.Tanh(0))\n\t// Output: 0.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 83
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -2281,6 +2485,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTrunc() {\n\tfmt.Printf(\"%.2f\\n\", math.Trunc(math.Pi))\n\tfmt.Printf(\"%.2f\\n\", math.Trunc(-1.2345))\n\t// Output:\n\t// 3.00\n\t// -1.00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/example_test.go",
+        "line": 220
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -91,6 +91,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNotify() {\n\t// Set up channel on which to send signal notifications.\n\t// We must use a buffered channel or risk missing the signal\n\t// if we're not ready to receive when the signal is sent.\n\tc := make(chan os.Signal, 1)\n\tsignal.Notify(c, os.Interrupt)\n\n\t// Block until a signal is received.\n\ts := <-c\n\tfmt.Println(\"Got signal:\", s)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/signal/example_test.go",
+        "line": 13
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -130,6 +136,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleNotifyContext() {\n\tctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)\n\tdefer stop()\n\n\tp, err := os.FindProcess(os.Getpid())\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\t// On a Unix-like system, pressing Ctrl+C on a keyboard sends a\n\t// SIGINT signal to the process of the program in execution.\n\t//\n\t// This example simulates that by sending a SIGINT signal to itself.\n\tif err := p.Signal(os.Interrupt); err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tselect {\n\tcase <-neverReady:\n\t\tfmt.Println(\"ready\")\n\tcase <-ctx.Done():\n\t\tfmt.Println(ctx.Err()) // prints \"context canceled\"\n\t\tstop()                 // stop receiving signal notifications as soon as possible.\n\t}\n\n\t// Output:\n\t// context canceled\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/os/signal/example_unix_test.go",
+        "line": 21
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -91,6 +91,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMatch() {\n\tmatched, err := regexp.Match(`foo.*`, []byte(`seafood`))\n\tfmt.Println(matched, err)\n\tmatched, err = regexp.Match(`bar.*`, []byte(`seafood`))\n\tfmt.Println(matched, err)\n\tmatched, err = regexp.Match(`a(b`, []byte(`seafood`))\n\tfmt.Println(matched, err)\n\n\t// Output:\n\t// true <nil>\n\t// false <nil>\n\t// false error parsing regexp: missing closing ): `a(b`\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/regexp/example_test.go",
+        "line": 29
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -169,6 +175,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMatchString() {\n\tmatched, err := regexp.MatchString(`foo.*`, \"seafood\")\n\tfmt.Println(matched, err)\n\tmatched, err = regexp.MatchString(`bar.*`, \"seafood\")\n\tfmt.Println(matched, err)\n\tmatched, err = regexp.MatchString(`a(b`, \"seafood\")\n\tfmt.Println(matched, err)\n\t// Output:\n\t// true <nil>\n\t// false <nil>\n\t// false error parsing regexp: missing closing ): `a(b`\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/regexp/example_test.go",
+        "line": 43
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -274,6 +286,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleQuoteMeta() {\n\tfmt.Println(regexp.QuoteMeta(`Escaping symbols like: .+*?()|[]{}^$`))\n\t// Output:\n\t// Escaping symbols like: \\.\\+\\*\\?\\(\\)\\|\\[\\]\\{\\}\\^\\$\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/regexp/example_test.go",
+        "line": 56
+      },
       "evidence": [
         {
           "source": "go-1.25",

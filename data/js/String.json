@@ -1,0 +1,1696 @@
+{
+  "object": "String",
+  "functions": [
+    {
+      "name": "anchor",
+      "summary": "Returns an `<a>` HTML anchor element and sets the name attribute to the text value",
+      "signature": "String.anchor(name: string): string",
+      "params": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": false,
+          "description": "The value of the name attribute."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in an `<a name>` element."
+      },
+      "example": "console.log('Top'.anchor('top'));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 463,
+          "lines": [
+            "anchor(name: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "at",
+      "summary": "Returns a new String consisting of the single UTF-16 code unit located at the specified index.",
+      "signature": "String.at(index: number): string | undefined",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based index of the desired code unit. A negative index will count back from the last item."
+        }
+      ],
+      "returns": {
+        "type": "string | undefined",
+        "description": "The character at the index, or undefined when the index is out of range."
+      },
+      "example": "console.log('hello'.at(-1));\n",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.string.d.ts",
+          "line": 24,
+          "lines": [
+            "at(index: number): string | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "big",
+      "summary": "Returns a `<big>` HTML element",
+      "signature": "String.big(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<big>` element."
+      },
+      "example": "console.log('Hi'.big());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 469,
+          "lines": [
+            "big(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "blink",
+      "summary": "Returns a `<blink>` HTML element",
+      "signature": "String.blink(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<blink>` element."
+      },
+      "example": "console.log('Hi'.blink());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 475,
+          "lines": [
+            "blink(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bold",
+      "summary": "Returns a `<b>` HTML element",
+      "signature": "String.bold(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<b>` element."
+      },
+      "example": "console.log('Hi'.bold());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 481,
+          "lines": [
+            "bold(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "charAt",
+      "summary": "Returns the character at the specified index.",
+      "signature": "String.charAt(pos: number): string",
+      "params": [
+        {
+          "name": "pos",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based index of the desired character."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The character at the index, or an empty string when out of range."
+      },
+      "example": "console.log('hello'.charAt(1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 418,
+          "lines": [
+            "charAt(pos: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "charCodeAt",
+      "summary": "Returns the Unicode value of the character at the specified location.",
+      "signature": "String.charCodeAt(index: number): number",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based index of the desired character. If there is no character at the specified index, NaN is returned."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The UTF-16 code unit at the index, or NaN when out of range."
+      },
+      "example": "console.log('A'.charCodeAt(0));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 424,
+          "lines": [
+            "charCodeAt(index: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "codePointAt",
+      "summary": "Returns a nonnegative integer Number less than 1114112 (0x110000) that is the code point value of the UTF-16 encoded code point starting at the string element at position pos in the String resulting from converting this object to a String. If there is no element at that position, the result is undefined. If a valid UTF-16 surrogate pair does not begin at pos, the result is the code unit at pos.",
+      "signature": "String.codePointAt(pos: number): number | undefined",
+      "params": [
+        {
+          "name": "pos",
+          "type": "number",
+          "optional": false,
+          "description": "The index of the character to read."
+        }
+      ],
+      "returns": {
+        "type": "number | undefined",
+        "description": "The code point at the index, or undefined when out of range."
+      },
+      "example": "console.log('😀'.codePointAt(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 410,
+          "lines": [
+            "codePointAt(pos: number): number | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "concat",
+      "summary": "Returns a string that contains the concatenation of two or more strings.",
+      "signature": "String.concat(...strings: string[]): string",
+      "params": [
+        {
+          "name": "...strings",
+          "type": "string[]",
+          "optional": false,
+          "description": "The strings to append."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A new string joining this string and the arguments."
+      },
+      "example": "console.log('a'.concat('b', 'c'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 430,
+          "lines": [
+            "concat(...strings: string[]): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "endsWith",
+      "summary": "Returns true if the sequence of elements of searchString converted to a String is the same as the corresponding elements of this object (converted to a String) starting at endPosition – length(this). Otherwise returns false.",
+      "signature": "String.endsWith(searchString: string, endPosition?: number): boolean",
+      "params": [
+        {
+          "name": "searchString",
+          "type": "string",
+          "optional": false,
+          "description": "The text to look for."
+        },
+        {
+          "name": "endPosition",
+          "type": "number",
+          "optional": true,
+          "description": "The index the search ends at. Defaults to the string length."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the string ends with searchString, otherwise false."
+      },
+      "example": "console.log('file.js'.endsWith('.js'));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 426,
+          "lines": [
+            "endsWith(searchString: string, endPosition?: number): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixed",
+      "summary": "Returns a `<tt>` HTML element",
+      "signature": "String.fixed(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<tt>` element."
+      },
+      "example": "console.log('Hi'.fixed());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 487,
+          "lines": [
+            "fixed(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fontcolor",
+      "summary": "Returns a `<font>` HTML element and sets the color attribute value",
+      "signature": "String.fontcolor(color: string): string",
+      "params": [
+        {
+          "name": "color",
+          "type": "string",
+          "optional": false,
+          "description": "The value of the color attribute."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<font color>` element."
+      },
+      "example": "console.log('Hi'.fontcolor('red'));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 493,
+          "lines": [
+            "fontcolor(color: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fontsize",
+      "summary": "Returns a `<font>` HTML element and sets the size attribute value",
+      "signature": "String.fontsize(size: number): string",
+      "params": [
+        {
+          "name": "size",
+          "type": "number",
+          "optional": false,
+          "description": "The value of the size attribute."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<font size>` element."
+      },
+      "example": "console.log('Hi'.fontsize(7));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 499,
+          "lines": [
+            "fontsize(size: number): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 505,
+          "lines": [
+            "fontsize(size: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fromCharCode",
+      "summary": "Builds a string from UTF-16 code units.",
+      "signature": "String.fromCharCode(...codes: number[]): string",
+      "params": [
+        {
+          "name": "...codes",
+          "type": "number[]",
+          "optional": false,
+          "description": "The UTF-16 code units."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A string made from the UTF-16 code units."
+      },
+      "example": "console.log(String.fromCharCode(72, 105));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 538,
+          "lines": [
+            "fromCharCode(...codes: number[]): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fromCodePoint",
+      "summary": "Return the String value whose elements are, in order, the elements in the List elements. If length is 0, the empty string is returned.",
+      "signature": "String.fromCodePoint(...codePoints: number[]): string",
+      "params": [
+        {
+          "name": "...codePoints",
+          "type": "number[]",
+          "optional": false,
+          "description": "The Unicode code points."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A string made from the code points."
+      },
+      "example": "console.log(String.fromCodePoint(128512));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 549,
+          "lines": [
+            "fromCodePoint(...codePoints: number[]): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "includes",
+      "summary": "Returns true if searchString appears as a substring of the result of converting this object to a String, at one or more positions that are greater than or equal to position; otherwise, returns false.",
+      "signature": "String.includes(searchString: string, position?: number): boolean",
+      "params": [
+        {
+          "name": "searchString",
+          "type": "string",
+          "optional": false,
+          "description": "search string"
+        },
+        {
+          "name": "position",
+          "type": "number",
+          "optional": true,
+          "description": "If position is undefined, 0 is assumed, so as to search all of the String."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when searchString appears in the string, otherwise false."
+      },
+      "example": "console.log('hello'.includes('ell'));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 419,
+          "lines": [
+            "includes(searchString: string, position?: number): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "indexOf",
+      "summary": "Returns the position of the first occurrence of a substring.",
+      "signature": "String.indexOf(searchString: string, position?: number): number",
+      "params": [
+        {
+          "name": "searchString",
+          "type": "string",
+          "optional": false,
+          "description": "The substring to search for in the string"
+        },
+        {
+          "name": "position",
+          "type": "number",
+          "optional": true,
+          "description": "The index at which to begin searching the String object. If omitted, search starts at the beginning of the string."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The index of the first match, or -1 when there is none."
+      },
+      "example": "console.log('hello'.indexOf('l'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 437,
+          "lines": [
+            "indexOf(searchString: string, position?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isWellFormed",
+      "summary": "Returns true if all leading surrogates and trailing surrogates appear paired and in order.",
+      "signature": "String.isWellFormed(): boolean",
+      "params": [],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the string has no lone surrogates, otherwise false."
+      },
+      "example": "console.log('abc'.isWellFormed());\n",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.string.d.ts",
+          "line": 23,
+          "lines": [
+            "isWellFormed(): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "italics",
+      "summary": "Returns an `<i>` HTML element",
+      "signature": "String.italics(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in an `<i>` element."
+      },
+      "example": "console.log('Hi'.italics());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 511,
+          "lines": [
+            "italics(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lastIndexOf",
+      "summary": "Returns the last occurrence of a substring in the string.",
+      "signature": "String.lastIndexOf(searchString: string, position?: number): number",
+      "params": [
+        {
+          "name": "searchString",
+          "type": "string",
+          "optional": false,
+          "description": "The substring to search for."
+        },
+        {
+          "name": "position",
+          "type": "number",
+          "optional": true,
+          "description": "The index at which to begin searching. If omitted, the search begins at the end of the string."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The index of the last match, or -1 when there is none."
+      },
+      "example": "console.log('hello'.lastIndexOf('l'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 444,
+          "lines": [
+            "lastIndexOf(searchString: string, position?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "summary": "Returns an `<a>` HTML element and sets the href attribute value",
+      "signature": "String.link(url: string): string",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "optional": false,
+          "description": "The value of the href attribute."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in an `<a href>` element."
+      },
+      "example": "console.log('Home'.link('/'));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 517,
+          "lines": [
+            "link(url: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "localeCompare",
+      "summary": "Determines whether two strings are equivalent in the current or specified locale.",
+      "signature": "String.localeCompare(that: string): number",
+      "params": [
+        {
+          "name": "that",
+          "type": "string",
+          "optional": false,
+          "description": "String to compare to target string"
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "A negative number, 0, or a positive number for before, equal, or after."
+      },
+      "example": "console.log('a'.localeCompare('b'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 450,
+          "lines": [
+            "localeCompare(that: string): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4569,
+          "lines": [
+            "localeCompare(that: string, locales?: string | string[], options?: Intl.CollatorOptions): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.string.d.ts",
+          "line": 43,
+          "lines": [
+            "localeCompare(that: string, locales?: Intl.LocalesArgument, options?: Intl.CollatorOptions): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "match",
+      "summary": "Matches a string or an object that supports being matched against, and returns an array containing the results of that search, or null if no matches are found.",
+      "signature": "String.match(regexp: string | RegExp): RegExpMatchArray | null",
+      "params": [
+        {
+          "name": "regexp",
+          "type": "string | RegExp",
+          "optional": false,
+          "description": "A variable name or string literal containing the regular expression pattern and flags."
+        }
+      ],
+      "returns": {
+        "type": "RegExpMatchArray | null",
+        "description": "An array of matches, or null when nothing matches."
+      },
+      "example": "console.log('a1b2'.match(/[0-9]/g));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 456,
+          "lines": [
+            "match(regexp: string | RegExp): RegExpMatchArray | null;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.symbol.wellknown.d.ts",
+          "line": 241,
+          "lines": [
+            "match(matcher: { [Symbol.match](string: string): RegExpMatchArray | null; }): RegExpMatchArray | null;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "matchAll",
+      "summary": "Matches a string with a regular expression, and returns an iterable of matches containing the results of that search.",
+      "signature": "String.matchAll(regexp: RegExp): RegExpStringIterator<RegExpExecArray>",
+      "params": [
+        {
+          "name": "regexp",
+          "type": "RegExp",
+          "optional": false,
+          "description": "A variable name or string literal containing the regular expression pattern and flags."
+        }
+      ],
+      "returns": {
+        "type": "RegExpStringIterator<RegExpExecArray>",
+        "description": "An iterator over every match with its groups."
+      },
+      "example": "console.log([...'a1b2'.matchAll(/[0-9]/g)].map((m) => m[0]));\n",
+      "versions": [
+        "ES2020"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.string.d.ts",
+          "line": 29,
+          "lines": [
+            "matchAll(regexp: RegExp): RegExpStringIterator<RegExpExecArray>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "normalize",
+      "summary": "Returns the String value result of normalizing the string into the normalization form named by form as specified in Unicode Standard Annex #15, Unicode Normalization Forms.",
+      "signature": "String.normalize(form: \"NFC\" | \"NFD\" | \"NFKC\" | \"NFKD\"): string",
+      "params": [
+        {
+          "name": "form",
+          "type": "\"NFC\" | \"NFD\" | \"NFKC\" | \"NFKD\"",
+          "optional": false,
+          "description": "Applicable values: \"NFC\", \"NFD\", \"NFKC\", or \"NFKD\", If not specified default is \"NFC\""
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The string in the given Unicode normalization form."
+      },
+      "example": "console.log('caf\\u0065\\u0301'.normalize('NFC').length);\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 434,
+          "lines": [
+            "normalize(form: \"NFC\" | \"NFD\" | \"NFKC\" | \"NFKD\"): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 442,
+          "lines": [
+            "normalize(form?: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "padEnd",
+      "summary": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length. The padding is applied from the end (right) of the current string.",
+      "signature": "String.padEnd(maxLength: number, fillString?: string): string",
+      "params": [
+        {
+          "name": "maxLength",
+          "type": "number",
+          "optional": false,
+          "description": "The length of the resulting string once the current string has been padded. If this parameter is smaller than the current string's length, the current string will be returned as it is."
+        },
+        {
+          "name": "fillString",
+          "type": "string",
+          "optional": true,
+          "description": "The string to pad the current string with. If this string is too long, it will be truncated and the left-most part will be applied. The default value for this parameter is \" \" (U+0020)."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The string padded at the end to maxLength."
+      },
+      "example": "console.log('5'.padEnd(3, '0'));\n",
+      "versions": [
+        "ES2017"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.string.d.ts",
+          "line": 44,
+          "lines": [
+            "padEnd(maxLength: number, fillString?: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "padStart",
+      "summary": "Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length. The padding is applied from the start (left) of the current string.",
+      "signature": "String.padStart(maxLength: number, fillString?: string): string",
+      "params": [
+        {
+          "name": "maxLength",
+          "type": "number",
+          "optional": false,
+          "description": "The length of the resulting string once the current string has been padded. If this parameter is smaller than the current string's length, the current string will be returned as it is."
+        },
+        {
+          "name": "fillString",
+          "type": "string",
+          "optional": true,
+          "description": "The string to pad the current string with. If this string is too long, it will be truncated and the left-most part will be applied. The default value for this parameter is \" \" (U+0020)."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The string padded at the start to maxLength."
+      },
+      "example": "console.log('5'.padStart(3, '0'));\n",
+      "versions": [
+        "ES2017"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.string.d.ts",
+          "line": 31,
+          "lines": [
+            "padStart(maxLength: number, fillString?: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "raw",
+      "summary": "String.raw is usually used as a tag function of a Tagged Template String. When called as such, the first argument will be a well formed template call site object and the rest parameter will contain the substitution values. It can also be called directly, for example, to interleave strings and values from your own tag function, and in this case the only thing it needs from the first argument is the raw property.",
+      "signature": "String.raw(template: { raw: readonly string[] | ArrayLike<string>; }, ...substitutions: any[]): string",
+      "params": [
+        {
+          "name": "template",
+          "type": "{ raw: readonly string[] | ArrayLike<string>; }",
+          "optional": false,
+          "description": "A well-formed template string call site representation."
+        },
+        {
+          "name": "...substitutions",
+          "type": "any[]",
+          "optional": false,
+          "description": "The values to insert between the template parts."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The template string with escapes left as written."
+      },
+      "example": "console.log(String.raw`a\nb`);\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 560,
+          "lines": [
+            "raw(template: { raw: readonly string[] | ArrayLike<string>; }, ...substitutions: any[]): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repeat",
+      "summary": "Returns a String value that is made from count copies appended together. If count is 0, the empty string is returned.",
+      "signature": "String.repeat(count: number): string",
+      "params": [
+        {
+          "name": "count",
+          "type": "number",
+          "optional": false,
+          "description": "number of copies to append"
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A new string holding count copies of the string."
+      },
+      "example": "console.log('ab'.repeat(3));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 449,
+          "lines": [
+            "repeat(count: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "replace",
+      "summary": "Passes a string and {@linkcode replaceValue} to the `[Symbol.replace]` method on {@linkcode searchValue}. This method is expected to implement its own replacement algorithm.",
+      "signature": "String.replace(searchValue: string | RegExp, replaceValue: string): string",
+      "params": [
+        {
+          "name": "searchValue",
+          "type": "string | RegExp",
+          "optional": false,
+          "description": "An object that supports searching for and replacing matches within a string."
+        },
+        {
+          "name": "replaceValue",
+          "type": "string",
+          "optional": false,
+          "description": "The replacement text."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A new string with the first match replaced."
+      },
+      "example": "console.log('a-b-c'.replace('-', '+'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 463,
+          "lines": [
+            "replace(searchValue: string | RegExp, replaceValue: string): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 470,
+          "lines": [
+            "replace(searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) => string): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.symbol.wellknown.d.ts",
+          "line": 248,
+          "lines": [
+            "replace(searchValue: { [Symbol.replace](string: string, replaceValue: string): string; }, replaceValue: string): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.symbol.wellknown.d.ts",
+          "line": 255,
+          "lines": [
+            "replace(searchValue: { [Symbol.replace](string: string, replacer: (substring: string, ...args: any[]) => string): string; }, replacer: (substring: string, ...args: any[]) => string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "replaceAll",
+      "summary": "Replace all instances of a substring in a string, using a regular expression or search string.",
+      "signature": "String.replaceAll(searchValue: string | RegExp, replaceValue: string): string",
+      "params": [
+        {
+          "name": "searchValue",
+          "type": "string | RegExp",
+          "optional": false,
+          "description": "A string to search for."
+        },
+        {
+          "name": "replaceValue",
+          "type": "string",
+          "optional": false,
+          "description": "A string containing the text to replace for every successful match of searchValue in this string."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "A new string with every match replaced."
+      },
+      "example": "console.log('a-b-c'.replaceAll('-', '+'));\n",
+      "versions": [
+        "ES2021"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.string.d.ts",
+          "line": 25,
+          "lines": [
+            "replaceAll(searchValue: string | RegExp, replaceValue: string): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2021.string.d.ts",
+          "line": 32,
+          "lines": [
+            "replaceAll(searchValue: string | RegExp, replacer: (substring: string, ...args: any[]) => string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "summary": "Finds the first substring match in a regular expression search.",
+      "signature": "String.search(regexp: string | RegExp): number",
+      "params": [
+        {
+          "name": "regexp",
+          "type": "string | RegExp",
+          "optional": false,
+          "description": "The regular expression pattern and applicable flags."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The index of the first match, or -1 when there is none."
+      },
+      "example": "console.log('abc1'.search(/[0-9]/));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 476,
+          "lines": [
+            "search(regexp: string | RegExp): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.symbol.wellknown.d.ts",
+          "line": 261,
+          "lines": [
+            "search(searcher: { [Symbol.search](string: string): number; }): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slice",
+      "summary": "Returns a section of a string.",
+      "signature": "String.slice(start?: number, end?: number): string",
+      "params": [
+        {
+          "name": "start",
+          "type": "number",
+          "optional": true,
+          "description": "The index to the beginning of the specified portion of stringObj."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The index to the end of the specified portion of stringObj. The substring includes the characters up to, but not including, the character indicated by end. If this value is not specified, the substring continues to the end of stringObj."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The part of the string from start up to end."
+      },
+      "example": "console.log('hello'.slice(1, 3));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 484,
+          "lines": [
+            "slice(start?: number, end?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "small",
+      "summary": "Returns a `<small>` HTML element",
+      "signature": "String.small(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<small>` element."
+      },
+      "example": "console.log('Hi'.small());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 523,
+          "lines": [
+            "small(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "split",
+      "summary": "Split a string into substrings using the specified separator and return them as an array.",
+      "signature": "String.split(separator: string | RegExp, limit?: number): string[]",
+      "params": [
+        {
+          "name": "separator",
+          "type": "string | RegExp",
+          "optional": false,
+          "description": "A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned."
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "optional": true,
+          "description": "A value used to limit the number of elements returned in the array."
+        }
+      ],
+      "returns": {
+        "type": "string[]",
+        "description": "An array of the substrings between separators."
+      },
+      "example": "console.log('a,b,c'.split(','));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 491,
+          "lines": [
+            "split(separator: string | RegExp, limit?: number): string[];"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.symbol.wellknown.d.ts",
+          "line": 268,
+          "lines": [
+            "split(splitter: { [Symbol.split](string: string, limit?: number): string[]; }, limit?: number): string[];"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "startsWith",
+      "summary": "Returns true if the sequence of elements of searchString converted to a String is the same as the corresponding elements of this object (converted to a String) starting at position. Otherwise returns false.",
+      "signature": "String.startsWith(searchString: string, position?: number): boolean",
+      "params": [
+        {
+          "name": "searchString",
+          "type": "string",
+          "optional": false,
+          "description": "The text to look for."
+        },
+        {
+          "name": "position",
+          "type": "number",
+          "optional": true,
+          "description": "The index the search starts at. Defaults to 0."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true when the string starts with searchString, otherwise false."
+      },
+      "example": "console.log('hello'.startsWith('he'));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 456,
+          "lines": [
+            "startsWith(searchString: string, position?: number): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strike",
+      "summary": "Returns a `<strike>` HTML element",
+      "signature": "String.strike(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<strike>` element."
+      },
+      "example": "console.log('Hi'.strike());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 529,
+          "lines": [
+            "strike(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sub",
+      "summary": "Returns a `<sub>` HTML element",
+      "signature": "String.sub(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<sub>` element."
+      },
+      "example": "console.log('2'.sub());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 535,
+          "lines": [
+            "sub(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "substr",
+      "summary": "Gets a substring beginning at the specified location and having the specified length.",
+      "signature": "String.substr(from: number, length?: number): string",
+      "params": [
+        {
+          "name": "from",
+          "type": "number",
+          "optional": false,
+          "description": "The starting position of the desired substring. The index of the first character in the string is zero."
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "optional": true,
+          "description": "The number of characters to include in the returned substring."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The part of the string from `from` for length characters."
+      },
+      "example": "console.log('hello'.substr(1, 3));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 526,
+          "lines": [
+            "substr(from: number, length?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "substring",
+      "summary": "Returns the substring at the specified location within a String object.",
+      "signature": "String.substring(start: number, end?: number): string",
+      "params": [
+        {
+          "name": "start",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based index number indicating the beginning of the substring."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "Zero-based index number indicating the end of the substring. The substring includes the characters up to, but not including, the character indicated by end. If end is omitted, the characters from start through the end of the original string are returned."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The part of the string between start and end."
+      },
+      "example": "console.log('hello'.substring(1, 3));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 499,
+          "lines": [
+            "substring(start: number, end?: number): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sup",
+      "summary": "Returns a `<sup>` HTML element",
+      "signature": "String.sup(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A string wrapped in a `<sup>` element."
+      },
+      "example": "console.log('2'.sup());\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 541,
+          "lines": [
+            "sup(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleLowerCase",
+      "summary": "Converts all alphabetic characters to lowercase, taking into account the host environment's current locale.",
+      "signature": "String.toLocaleLowerCase(locales?: string | string[]): string",
+      "params": [
+        {
+          "name": "locales",
+          "type": "string | string[]",
+          "optional": true,
+          "description": "A BCP 47 language tag or a list of them."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The string in lowercase for the locale."
+      },
+      "example": "console.log('İ'.toLocaleLowerCase('tr'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 505,
+          "lines": [
+            "toLocaleLowerCase(locales?: string | string[]): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.string.d.ts",
+          "line": 32,
+          "lines": [
+            "toLocaleLowerCase(locales?: Intl.LocalesArgument): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleUpperCase",
+      "summary": "Returns a string where all alphabetic characters have been converted to uppercase, taking into account the host environment's current locale.",
+      "signature": "String.toLocaleUpperCase(locales?: string | string[]): string",
+      "params": [
+        {
+          "name": "locales",
+          "type": "string | string[]",
+          "optional": true,
+          "description": "A BCP 47 language tag or a list of them."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The string in uppercase for the locale."
+      },
+      "example": "console.log('i'.toLocaleUpperCase('tr'));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 511,
+          "lines": [
+            "toLocaleUpperCase(locales?: string | string[]): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.string.d.ts",
+          "line": 35,
+          "lines": [
+            "toLocaleUpperCase(locales?: Intl.LocalesArgument): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLowerCase",
+      "summary": "Converts all the alphabetic characters in a string to lowercase.",
+      "signature": "String.toLowerCase(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string in lowercase."
+      },
+      "example": "console.log('HeLLo'.toLowerCase());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 502,
+          "lines": [
+            "toLowerCase(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of a string.",
+      "signature": "String.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string value."
+      },
+      "example": "console.log(new String('hi').toString());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 412,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toUpperCase",
+      "summary": "Converts all the alphabetic characters in a string to uppercase.",
+      "signature": "String.toUpperCase(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string in uppercase."
+      },
+      "example": "console.log('hello'.toUpperCase());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 508,
+          "lines": [
+            "toUpperCase(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toWellFormed",
+      "summary": "Returns a string where all lone or out-of-order surrogates have been replaced by the Unicode replacement character (U+FFFD).",
+      "signature": "String.toWellFormed(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "A copy with lone surrogates replaced by U+FFFD."
+      },
+      "example": "console.log('ab'.toWellFormed());\n",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.string.d.ts",
+          "line": 28,
+          "lines": [
+            "toWellFormed(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trim",
+      "summary": "Removes the leading and trailing white space and line terminator characters from a string.",
+      "signature": "String.trim(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string without leading or trailing whitespace."
+      },
+      "example": "console.log('  hi  '.trim());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 514,
+          "lines": [
+            "trim(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trimEnd",
+      "summary": "Removes the trailing white space and line terminator characters from a string.",
+      "signature": "String.trimEnd(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string without trailing whitespace."
+      },
+      "example": "console.log('hi  '.trimEnd() + '|');\n",
+      "versions": [
+        "ES2019"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.string.d.ts",
+          "line": 21,
+          "lines": [
+            "trimEnd(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trimLeft",
+      "summary": "Removes the leading white space and line terminator characters from a string.",
+      "signature": "String.trimLeft(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string without leading whitespace."
+      },
+      "example": "console.log('  hi'.trimLeft());\n",
+      "versions": [
+        "ES2019"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.string.d.ts",
+          "line": 30,
+          "lines": [
+            "trimLeft(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trimRight",
+      "summary": "Removes the trailing white space and line terminator characters from a string.",
+      "signature": "String.trimRight(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string without trailing whitespace."
+      },
+      "example": "console.log('hi  '.trimRight() + '|');\n",
+      "versions": [
+        "ES2019"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.string.d.ts",
+          "line": 36,
+          "lines": [
+            "trimRight(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trimStart",
+      "summary": "Removes the leading white space and line terminator characters from a string.",
+      "signature": "String.trimStart(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The string without leading whitespace."
+      },
+      "example": "console.log('  hi'.trimStart());\n",
+      "versions": [
+        "ES2019"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2019.string.d.ts",
+          "line": 24,
+          "lines": [
+            "trimStart(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "String.valueOf(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": "The primitive string value."
+      },
+      "example": "console.log(new String('hi').valueOf());\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 529,
+          "lines": [
+            "valueOf(): string;"
+          ]
+        }
+      ]
+    }
+  ]
+}

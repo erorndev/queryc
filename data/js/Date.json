@@ -1,0 +1,1435 @@
+{
+  "object": "Date",
+  "functions": [
+    {
+      "name": "UTC",
+      "summary": "Returns the number of milliseconds between midnight, January 1, 1970 Universal Coordinated Time (UTC) (or GMT) and the specified date.",
+      "signature": "Date.UTC(year: number, monthIndex: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): number",
+      "params": [
+        {
+          "name": "year",
+          "type": "number",
+          "optional": false,
+          "description": "The full year designation is required for cross-century date accuracy. If year is between 0 and 99 is used, then year is assumed to be 1900 + year."
+        },
+        {
+          "name": "monthIndex",
+          "type": "number",
+          "optional": false,
+          "description": "The month as a number between 0 and 11 (January to December)."
+        },
+        {
+          "name": "date",
+          "type": "number",
+          "optional": true,
+          "description": "The date as a number between 1 and 31."
+        },
+        {
+          "name": "hours",
+          "type": "number",
+          "optional": true,
+          "description": "Must be supplied if minutes is supplied. A number from 0 to 23 (midnight to 11pm) that specifies the hour."
+        },
+        {
+          "name": "minutes",
+          "type": "number",
+          "optional": true,
+          "description": "Must be supplied if seconds is supplied. A number from 0 to 59 that specifies the minutes."
+        },
+        {
+          "name": "seconds",
+          "type": "number",
+          "optional": true,
+          "description": "Must be supplied if milliseconds is supplied. A number from 0 to 59 that specifies the seconds."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": true,
+          "description": "A number from 0 to 999 that specifies the milliseconds."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 956,
+          "lines": [
+            "UTC(year: number, monthIndex: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2017.date.d.ts",
+          "line": 30,
+          "lines": [
+            "UTC(year: number, monthIndex?: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getDate",
+      "summary": "Gets the day-of-the-month, using local time.",
+      "signature": "Date.getDate(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 798,
+          "lines": [
+            "getDate(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getDay",
+      "summary": "Gets the day of the week, using local time.",
+      "signature": "Date.getDay(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 802,
+          "lines": [
+            "getDay(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getFullYear",
+      "summary": "Gets the year, using local time.",
+      "signature": "Date.getFullYear(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 790,
+          "lines": [
+            "getFullYear(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getHours",
+      "summary": "Gets the hours in a date, using local time.",
+      "signature": "Date.getHours(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 806,
+          "lines": [
+            "getHours(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getMilliseconds",
+      "summary": "Gets the milliseconds of a Date, using local time.",
+      "signature": "Date.getMilliseconds(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 818,
+          "lines": [
+            "getMilliseconds(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getMinutes",
+      "summary": "Gets the minutes of a Date object, using local time.",
+      "signature": "Date.getMinutes(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 810,
+          "lines": [
+            "getMinutes(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getMonth",
+      "summary": "Gets the month, using local time.",
+      "signature": "Date.getMonth(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 794,
+          "lines": [
+            "getMonth(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getSeconds",
+      "summary": "Gets the seconds of a Date object, using local time.",
+      "signature": "Date.getSeconds(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 814,
+          "lines": [
+            "getSeconds(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getTime",
+      "summary": "Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC.",
+      "signature": "Date.getTime(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 788,
+          "lines": [
+            "getTime(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getTimezoneOffset",
+      "summary": "Gets the difference in minutes between Universal Coordinated Time (UTC) and the time on the local computer.",
+      "signature": "Date.getTimezoneOffset(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 822,
+          "lines": [
+            "getTimezoneOffset(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCDate",
+      "summary": "Gets the day-of-the-month, using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCDate(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 800,
+          "lines": [
+            "getUTCDate(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCDay",
+      "summary": "Gets the day of the week using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCDay(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 804,
+          "lines": [
+            "getUTCDay(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCFullYear",
+      "summary": "Gets the year using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCFullYear(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 792,
+          "lines": [
+            "getUTCFullYear(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCHours",
+      "summary": "Gets the hours value in a Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCHours(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 808,
+          "lines": [
+            "getUTCHours(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCMilliseconds",
+      "summary": "Gets the milliseconds of a Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCMilliseconds(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 820,
+          "lines": [
+            "getUTCMilliseconds(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCMinutes",
+      "summary": "Gets the minutes of a Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCMinutes(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 812,
+          "lines": [
+            "getUTCMinutes(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCMonth",
+      "summary": "Gets the month of a Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCMonth(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 796,
+          "lines": [
+            "getUTCMonth(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getUTCSeconds",
+      "summary": "Gets the seconds of a Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.getUTCSeconds(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 816,
+          "lines": [
+            "getUTCSeconds(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "now",
+      "summary": "Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC).",
+      "signature": "Date.now(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 958,
+          "lines": [
+            "now(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parse",
+      "summary": "Parses a string containing a date, and returns the number of milliseconds between that date and midnight, January 1, 1970.",
+      "signature": "Date.parse(s: string): number",
+      "params": [
+        {
+          "name": "s",
+          "type": "string",
+          "optional": false,
+          "description": "A date string"
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 945,
+          "lines": [
+            "parse(s: string): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setDate",
+      "summary": "Sets the numeric day-of-the-month value of the Date object using local time.",
+      "signature": "Date.setDate(date: number): number",
+      "params": [
+        {
+          "name": "date",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the day of the month."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 885,
+          "lines": [
+            "setDate(date: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setFullYear",
+      "summary": "Sets the year of the Date object using local time.",
+      "signature": "Date.setFullYear(year: number, month?: number, date?: number): number",
+      "params": [
+        {
+          "name": "year",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value for the year."
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "optional": true,
+          "description": "A zero-based numeric value for the month (0 for January, 11 for December). Must be specified if numDate is specified."
+        },
+        {
+          "name": "date",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal for the day of the month."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 909,
+          "lines": [
+            "setFullYear(year: number, month?: number, date?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setHours",
+      "summary": "Sets the hour value in the Date object using local time.",
+      "signature": "Date.setHours(hours: number, min?: number, sec?: number, ms?: number): number",
+      "params": [
+        {
+          "name": "hours",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the hours value."
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the minutes value."
+        },
+        {
+          "name": "sec",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the seconds value."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the milliseconds value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 872,
+          "lines": [
+            "setHours(hours: number, min?: number, sec?: number, ms?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setMilliseconds",
+      "summary": "Sets the milliseconds value in the Date object using local time.",
+      "signature": "Date.setMilliseconds(ms: number): number",
+      "params": [
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the millisecond value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 832,
+          "lines": [
+            "setMilliseconds(ms: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setMinutes",
+      "summary": "Sets the minutes value in the Date object using local time.",
+      "signature": "Date.setMinutes(min: number, sec?: number, ms?: number): number",
+      "params": [
+        {
+          "name": "min",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the minutes value."
+        },
+        {
+          "name": "sec",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the seconds value."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the milliseconds value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 857,
+          "lines": [
+            "setMinutes(min: number, sec?: number, ms?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setMonth",
+      "summary": "Sets the month value in the Date object using local time.",
+      "signature": "Date.setMonth(month: number, date?: number): number",
+      "params": [
+        {
+          "name": "month",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the month. The value for January is 0, and other month values follow consecutively."
+        },
+        {
+          "name": "date",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value representing the day of the month. If this value is not supplied, the value from a call to the getDate method is used."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 896,
+          "lines": [
+            "setMonth(month: number, date?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setSeconds",
+      "summary": "Sets the seconds value in the Date object using local time.",
+      "signature": "Date.setSeconds(sec: number, ms?: number): number",
+      "params": [
+        {
+          "name": "sec",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the seconds value."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the milliseconds value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 844,
+          "lines": [
+            "setSeconds(sec: number, ms?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setTime",
+      "summary": "Sets the date and time value in the Date object.",
+      "signature": "Date.setTime(time: number): number",
+      "params": [
+        {
+          "name": "time",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value representing the number of elapsed milliseconds since midnight, January 1, 1970 GMT."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 827,
+          "lines": [
+            "setTime(time: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUTCDate",
+      "summary": "Sets the numeric day of the month in the Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.setUTCDate(date: number): number",
+      "params": [
+        {
+          "name": "date",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the day of the month."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 890,
+          "lines": [
+            "setUTCDate(date: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUTCFullYear",
+      "summary": "Sets the year value in the Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.setUTCFullYear(year: number, month?: number, date?: number): number",
+      "params": [
+        {
+          "name": "year",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the year."
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the month. The value for January is 0, and other month values follow consecutively. Must be supplied if numDate is supplied."
+        },
+        {
+          "name": "date",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the day of the month."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 916,
+          "lines": [
+            "setUTCFullYear(year: number, month?: number, date?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUTCHours",
+      "summary": "Sets the hours value in the Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.setUTCHours(hours: number, min?: number, sec?: number, ms?: number): number",
+      "params": [
+        {
+          "name": "hours",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the hours value."
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the minutes value."
+        },
+        {
+          "name": "sec",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the seconds value."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the milliseconds value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 880,
+          "lines": [
+            "setUTCHours(hours: number, min?: number, sec?: number, ms?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUTCMilliseconds",
+      "summary": "Sets the milliseconds value in the Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.setUTCMilliseconds(ms: number): number",
+      "params": [
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the millisecond value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 837,
+          "lines": [
+            "setUTCMilliseconds(ms: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUTCMinutes",
+      "summary": "Sets the minutes value in the Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.setUTCMinutes(min: number, sec?: number, ms?: number): number",
+      "params": [
+        {
+          "name": "min",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the minutes value."
+        },
+        {
+          "name": "sec",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the seconds value."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the milliseconds value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 864,
+          "lines": [
+            "setUTCMinutes(min: number, sec?: number, ms?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUTCMonth",
+      "summary": "Sets the month value in the Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.setUTCMonth(month: number, date?: number): number",
+      "params": [
+        {
+          "name": "month",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the month. The value for January is 0, and other month values follow consecutively."
+        },
+        {
+          "name": "date",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value representing the day of the month. If it is not supplied, the value from a call to the getUTCDate method is used."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 902,
+          "lines": [
+            "setUTCMonth(month: number, date?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setUTCSeconds",
+      "summary": "Sets the seconds value in the Date object using Universal Coordinated Time (UTC).",
+      "signature": "Date.setUTCSeconds(sec: number, ms?: number): number",
+      "params": [
+        {
+          "name": "sec",
+          "type": "number",
+          "optional": false,
+          "description": "A numeric value equal to the seconds value."
+        },
+        {
+          "name": "ms",
+          "type": "number",
+          "optional": true,
+          "description": "A numeric value equal to the milliseconds value."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 850,
+          "lines": [
+            "setUTCSeconds(sec: number, ms?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toDateString",
+      "summary": "Returns a date as a string value.",
+      "signature": "Date.toDateString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 776,
+          "lines": [
+            "toDateString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toISOString",
+      "summary": "Returns a date as a string value in ISO format.",
+      "signature": "Date.toISOString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 920,
+          "lines": [
+            "toISOString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toJSON",
+      "summary": "Used by the JSON.stringify method to enable the transformation of an object's data for JavaScript Object Notation (JSON) serialization.",
+      "signature": "Date.toJSON(key?: any): string",
+      "params": [
+        {
+          "name": "key",
+          "type": "any",
+          "optional": true,
+          "description": "The key to use."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 922,
+          "lines": [
+            "toJSON(key?: any): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleDateString",
+      "summary": "Returns a date as a string value appropriate to the host environment's current locale.",
+      "signature": "Date.toLocaleDateString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 782,
+          "lines": [
+            "toLocaleDateString(): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4593,
+          "lines": [
+            "toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.date.d.ts",
+          "line": 34,
+          "lines": [
+            "toLocaleDateString(locales?: Intl.LocalesArgument, options?: Intl.DateTimeFormatOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleString",
+      "summary": "Returns a value as a string value appropriate to the host environment's current locale.",
+      "signature": "Date.toLocaleString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 780,
+          "lines": [
+            "toLocaleString(): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4587,
+          "lines": [
+            "toLocaleString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.date.d.ts",
+          "line": 27,
+          "lines": [
+            "toLocaleString(locales?: Intl.LocalesArgument, options?: Intl.DateTimeFormatOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleTimeString",
+      "summary": "Returns a time as a string value appropriate to the host environment's current locale.",
+      "signature": "Date.toLocaleTimeString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 784,
+          "lines": [
+            "toLocaleTimeString(): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 4600,
+          "lines": [
+            "toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2020.date.d.ts",
+          "line": 41,
+          "lines": [
+            "toLocaleTimeString(locales?: Intl.LocalesArgument, options?: Intl.DateTimeFormatOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of a date. The format of the string depends on the locale.",
+      "signature": "Date.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 774,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toTimeString",
+      "summary": "Returns a time as a string value.",
+      "signature": "Date.toTimeString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 778,
+          "lines": [
+            "toTimeString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toUTCString",
+      "summary": "Returns a date converted to a string using Universal Coordinated Time (UTC).",
+      "signature": "Date.toUTCString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 918,
+          "lines": [
+            "toUTCString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC.",
+      "signature": "Date.valueOf(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 786,
+          "lines": [
+            "valueOf(): number;"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "object": "RegExp",
+  "functions": [
+    {
+      "name": "compile",
+      "summary": "@deprecated A legacy feature for browser compatibility",
+      "signature": "RegExp.compile(pattern: string, flags?: string): this",
+      "params": [
+        {
+          "name": "pattern",
+          "type": "string",
+          "optional": false,
+          "description": "The new regular expression pattern."
+        },
+        {
+          "name": "flags",
+          "type": "string",
+          "optional": true,
+          "description": "The new flags."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1022,
+          "lines": [
+            "compile(pattern: string, flags?: string): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "summary": "Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.",
+      "signature": "RegExp.exec(string: string): RegExpExecArray | null",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "The String object or string literal on which to perform the search."
+        }
+      ],
+      "returns": {
+        "type": "RegExpExecArray | null",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 998,
+          "lines": [
+            "exec(string: string): RegExpExecArray | null;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "summary": "Returns a Boolean value that indicates whether or not a pattern exists in a searched string.",
+      "signature": "RegExp.test(string: string): boolean",
+      "params": [
+        {
+          "name": "string",
+          "type": "string",
+          "optional": false,
+          "description": "String on which to perform the search."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1004,
+          "lines": [
+            "test(string: string): boolean;"
+          ]
+        }
+      ]
+    }
+  ]
+}

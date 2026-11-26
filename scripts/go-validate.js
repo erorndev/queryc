@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { apiVersions, scanPackage, parseGoParams } from './go-lib.js';
+import { apiVersions, scanPackage, scanExamples, deprecation, parseGoParams } from './go-lib.js';
 
 const normalize = (text) => text.replace(/\s+/g, ' ').trim();
 
@@ -18,6 +18,7 @@ export function validateGo({ root, error, warn }) {
   for (const file of readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'sources.json')) {
     const data = JSON.parse(readFileSync(join(dir, file), 'utf8'));
     const scanned = present ? scanPackage(srcRoot, data.package) : new Map();
+    const examples = present ? scanExamples(srcRoot, data.package) : new Map();
     for (const fn of data.functions) {
       const at = `data/go/${file} ${fn.name}`;
       ctx.count += 1;
@@ -47,6 +48,17 @@ export function validateGo({ root, error, warn }) {
       ) {
         error(at, 'params differ from the declaration');
       }
+      const ex = examples.get(fn.name);
+      if ((ex ? ex.lines.join('\n') : null) !== (fn.example ?? null) || ex?.line !== fn.exampleSource?.line)
+        error(at, ex ? `example should match ${ex.file}:${ex.line}` : 'no Example function in the source');
+      else if (ex) ctx.checked += 1;
+      const dep = deprecation(decl);
+      const warned = fn.warnings?.[0];
+      if (
+        JSON.stringify(dep && [dep.line, dep.message]) !== JSON.stringify(warned ? [warned.line, warned.message] : null)
+      )
+        error(at, dep ? `deprecation warning should cite line ${dep.line}` : 'no Deprecated paragraph in the doc');
+      else if (dep) ctx.checked += 1;
       const api = versions.get(`${data.package}.${fn.name}`);
       if (!api || api.version !== fn.versions?.[0]) error(at, `versions should be ${api?.version}`);
     }

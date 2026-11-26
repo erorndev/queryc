@@ -1,0 +1,1208 @@
+{
+  "object": "Int16Array",
+  "functions": [
+    {
+      "name": "at",
+      "summary": "Returns the item located at the specified index.",
+      "signature": "Int16Array.at(index: number): number | undefined",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based index of the desired code unit. A negative index will count back from the last item."
+        }
+      ],
+      "returns": {
+        "type": "number | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.array.d.ts",
+          "line": 64,
+          "lines": [
+            "at(index: number): number | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "copyWithin",
+      "summary": "Returns the this object after copying a section of the array identified by start and end to the same array starting at position target",
+      "signature": "Int16Array.copyWithin(target: number, start: number, end?: number): this",
+      "params": [
+        {
+          "name": "target",
+          "type": "number",
+          "optional": false,
+          "description": "If target is negative, it is treated as length+target where length is the length of the array."
+        },
+        {
+          "name": "start",
+          "type": "number",
+          "optional": false,
+          "description": "If start is negative, it is treated as length+start. If end is negative, it is treated as length+end."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "If not specified, length of the this object is used as its default value."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2759,
+          "lines": [
+            "copyWithin(target: number, start: number, end?: number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "entries",
+      "summary": "Returns an array of key, value pairs for every entry in the array",
+      "signature": "Int16Array.entries(): ArrayIterator<[number, number]>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<[number, number]>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 391,
+          "lines": [
+            "entries(): ArrayIterator<[number, number]>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "every",
+      "summary": "Determines whether all the members of an array satisfy the specified test.",
+      "signature": "Int16Array.every(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => unknown",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The every method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value false, or until the end of the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2769,
+          "lines": [
+            "every(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fill",
+      "summary": "Changes all array elements from `start` to `end` index to a static `value` and returns the modified array",
+      "signature": "Int16Array.fill(value: number, start?: number, end?: number): this",
+      "params": [
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "value to fill array section with"
+        },
+        {
+          "name": "start",
+          "type": "number",
+          "optional": true,
+          "description": "index to start filling the array at. If start is negative, it is treated as length+start where length is the length of the array."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "index to stop filling the array at. If end is negative, it is treated as length+end."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2779,
+          "lines": [
+            "fill(value: number, start?: number, end?: number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filter",
+      "summary": "Returns the elements of an array that meet the condition specified in a callback function.",
+      "signature": "Int16Array.filter(predicate: (value: number, index: number, array: this) => any, thisArg?: any): Int16Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => any",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2788,
+          "lines": [
+            "filter(predicate: (value: number, index: number, array: this) => any, thisArg?: any): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "find",
+      "summary": "Returns the value of the first element in the array where predicate is true, and undefined otherwise.",
+      "signature": "Int16Array.find(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number | undefined",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, obj: this) => boolean",
+          "optional": false,
+          "description": "find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find immediately returns that element value. Otherwise, find returns undefined."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "number | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2799,
+          "lines": [
+            "find(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "findIndex",
+      "summary": "Returns the index of the first element in the array where predicate is true, and -1 otherwise.",
+      "signature": "Int16Array.findIndex(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, obj: this) => boolean",
+          "optional": false,
+          "description": "find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, findIndex immediately returns that element index. Otherwise, findIndex returns -1."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2810,
+          "lines": [
+            "findIndex(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "findLast",
+      "signature": "Int16Array.findLast<S extends number>(predicate: (value: number, index: number, array: this) => value is S, thisArg?: any): S | undefined",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => value is S",
+          "optional": false,
+          "description": "The function to call for each element until it returns true."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "The value to use as this inside callbackfn."
+        }
+      ],
+      "returns": {
+        "type": "S | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 376,
+          "lines": [
+            "findLast<S extends number>(",
+            "predicate: (",
+            "value: number,",
+            "index: number,",
+            "array: this,",
+            ") => value is S,",
+            "thisArg?: any,",
+            "): S | undefined;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 384,
+          "lines": [
+            "findLast(",
+            "predicate: (value: number, index: number, array: this) => unknown,",
+            "thisArg?: any,",
+            "): number | undefined;"
+          ]
+        }
+      ],
+      "summary": "Returns the last element that satisfies the predicate, or undefined."
+    },
+    {
+      "name": "findLastIndex",
+      "signature": "Int16Array.findLastIndex(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): number",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => unknown",
+          "optional": false,
+          "description": "The function to call for each element until it returns true."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "The value to use as this inside callbackfn."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 398,
+          "lines": [
+            "findLastIndex(",
+            "predicate: (value: number, index: number, array: this) => unknown,",
+            "thisArg?: any,",
+            "): number;"
+          ]
+        }
+      ],
+      "summary": "Returns the index of the last element that satisfies the predicate, or -1."
+    },
+    {
+      "name": "forEach",
+      "summary": "Performs the specified action for each element in an array.",
+      "signature": "Int16Array.forEach(callbackfn: (value: number, index: number, array: this) => void, thisArg?: any): void",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(value: number, index: number, array: this) => void",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2819,
+          "lines": [
+            "forEach(callbackfn: (value: number, index: number, array: this) => void, thisArg?: any): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "from",
+      "summary": "Creates an array from an array-like or iterable object.",
+      "signature": "Int16Array.from(arrayLike: ArrayLike<number>): Int16Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "arrayLike",
+          "type": "ArrayLike<number>",
+          "optional": false,
+          "description": "An array-like object to convert to an array."
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2994,
+          "lines": [
+            "from(arrayLike: ArrayLike<number>): Int16Array<ArrayBuffer>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 3002,
+          "lines": [
+            "from<T>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => number, thisArg?: any): Int16Array<ArrayBuffer>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 411,
+          "lines": [
+            "from(elements: Iterable<number>): Int16Array<ArrayBuffer>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 419,
+          "lines": [
+            "from<T>(elements: Iterable<T>, mapfn?: (v: T, k: number) => number, thisArg?: any): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "includes",
+      "summary": "Determines whether an array includes a certain element, returning true or false as appropriate.",
+      "signature": "Int16Array.includes(searchElement: number, fromIndex?: number): boolean",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "number",
+          "optional": false,
+          "description": "The element to search for."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The position in this array at which to begin searching for searchElement."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2016"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2016.array.include.d.ts",
+          "line": 70,
+          "lines": [
+            "includes(searchElement: number, fromIndex?: number): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "indexOf",
+      "summary": "Returns the index of the first occurrence of a value in an array.",
+      "signature": "Int16Array.indexOf(searchElement: number, fromIndex?: number): number",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "number",
+          "optional": false,
+          "description": "The value to locate in the array."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2826,
+          "lines": [
+            "indexOf(searchElement: number, fromIndex?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "join",
+      "summary": "Adds all the elements of an array separated by the specified separator string.",
+      "signature": "Int16Array.join(separator?: string): string",
+      "params": [
+        {
+          "name": "separator",
+          "type": "string",
+          "optional": true,
+          "description": "A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2833,
+          "lines": [
+            "join(separator?: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keys",
+      "summary": "Returns an list of keys in the array",
+      "signature": "Int16Array.keys(): ArrayIterator<number>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<number>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 396,
+          "lines": [
+            "keys(): ArrayIterator<number>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lastIndexOf",
+      "summary": "Returns the index of the last occurrence of a value in an array.",
+      "signature": "Int16Array.lastIndexOf(searchElement: number, fromIndex?: number): number",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "number",
+          "optional": false,
+          "description": "The value to locate in the array."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2841,
+          "lines": [
+            "lastIndexOf(searchElement: number, fromIndex?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "summary": "Calls a defined callback function on each element of an array, and returns an array that contains the results.",
+      "signature": "Int16Array.map(callbackfn: (value: number, index: number, array: this) => number, thisArg?: any): Int16Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(value: number, index: number, array: this) => number",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2856,
+          "lines": [
+            "map(callbackfn: (value: number, index: number, array: this) => number, thisArg?: any): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "of",
+      "summary": "Returns a new array from a set of elements.",
+      "signature": "Int16Array.of(...items: number[]): Int16Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "...items",
+          "type": "number[]",
+          "optional": false,
+          "description": "The elements of the new array."
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2988,
+          "lines": [
+            "of(...items: number[]): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reduce",
+      "summary": "Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "signature": "Int16Array.reduce(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(previousValue: number, currentValue: number, currentIndex: number, array: this) => number",
+          "optional": false,
+          "description": "A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2868,
+          "lines": [
+            "reduce(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2869,
+          "lines": [
+            "reduce(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number, initialValue: number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2881,
+          "lines": [
+            "reduce<U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: this) => U, initialValue: U): U;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reduceRight",
+      "summary": "Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "signature": "Int16Array.reduceRight(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(previousValue: number, currentValue: number, currentIndex: number, array: this) => number",
+          "optional": false,
+          "description": "A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2893,
+          "lines": [
+            "reduceRight(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2894,
+          "lines": [
+            "reduceRight(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number, initialValue: number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2906,
+          "lines": [
+            "reduceRight<U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: this) => U, initialValue: U): U;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reverse",
+      "summary": "Reverses the elements in an Array.",
+      "signature": "Int16Array.reverse(): this",
+      "params": [],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2911,
+          "lines": [
+            "reverse(): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "summary": "Sets a value or an array of values.",
+      "signature": "Int16Array.set(array: ArrayLike<number>, offset?: number): void",
+      "params": [
+        {
+          "name": "array",
+          "type": "ArrayLike<number>",
+          "optional": false,
+          "description": "A typed or untyped array of values to set."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "optional": true,
+          "description": "The index in the current array at which the values are to be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2918,
+          "lines": [
+            "set(array: ArrayLike<number>, offset?: number): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slice",
+      "summary": "Returns a section of an array.",
+      "signature": "Int16Array.slice(start?: number, end?: number): Int16Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "start",
+          "type": "number",
+          "optional": true,
+          "description": "The beginning of the specified portion of the array."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The end of the specified portion of the array. This is exclusive of the element at the index 'end'."
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2925,
+          "lines": [
+            "slice(start?: number, end?: number): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "some",
+      "summary": "Determines whether the specified callback function returns true for any element of an array.",
+      "signature": "Int16Array.some(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => unknown",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The some method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value true, or until the end of the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2935,
+          "lines": [
+            "some(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sort",
+      "summary": "Sorts an array.",
+      "signature": "Int16Array.sort(compareFn?: (a: number, b: number) => number): this",
+      "params": [
+        {
+          "name": "compareFn",
+          "type": "(a: number, b: number) => number",
+          "optional": true,
+          "description": "Function used to determine the order of the elements. It is expected to return a negative value if first argument is less than second argument, zero if they're equal and a positive value otherwise. If omitted, the elements are sorted in ascending order. ```ts [11,2,22,1].sort((a, b) => a - b) ```"
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2946,
+          "lines": [
+            "sort(compareFn?: (a: number, b: number) => number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "subarray",
+      "summary": "Gets a new Int16Array view of the ArrayBuffer store for this array, referencing the elements at begin, inclusive, up to end, exclusive.",
+      "signature": "Int16Array.subarray(begin?: number, end?: number): Int16Array<TArrayBuffer>",
+      "params": [
+        {
+          "name": "begin",
+          "type": "number",
+          "optional": true,
+          "description": "The index of the beginning of the array."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The index of the end of the array."
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<TArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2954,
+          "lines": [
+            "subarray(begin?: number, end?: number): Int16Array<TArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleString",
+      "summary": "Converts a number to a string by using the current locale.",
+      "signature": "Int16Array.toLocaleString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2959,
+          "lines": [
+            "toLocaleString(): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 576,
+          "lines": [
+            "toLocaleString(locales: string | string[], options?: Intl.NumberFormatOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toReversed",
+      "summary": "Copies the array and returns the copy with the elements in reverse order.",
+      "signature": "Int16Array.toReversed(): Int16Array<ArrayBuffer>",
+      "params": [],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 406,
+          "lines": [
+            "toReversed(): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toSorted",
+      "summary": "Copies and sorts the array.",
+      "signature": "Int16Array.toSorted(compareFn?: (a: number, b: number) => number): Int16Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "compareFn",
+          "type": "(a: number, b: number) => number",
+          "optional": true,
+          "description": "Function used to determine the order of the elements. It is expected to return a negative value if the first argument is less than the second argument, zero if they're equal, and a positive value otherwise. If omitted, the elements are sorted in ascending order. ```ts const myNums = Int16Array.from([11, 2, -22, 1]); myNums.toSorted((a, b) => a - b) // Int16Array(4) [-22, 1, 2, 11] ```"
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 418,
+          "lines": [
+            "toSorted(compareFn?: (a: number, b: number) => number): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of an array.",
+      "signature": "Int16Array.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2964,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "Int16Array.valueOf(): this",
+      "params": [],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2967,
+          "lines": [
+            "valueOf(): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "values",
+      "summary": "Returns an list of values in the array",
+      "signature": "Int16Array.values(): ArrayIterator<number>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<number>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 401,
+          "lines": [
+            "values(): ArrayIterator<number>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "with",
+      "summary": "Copies the array and inserts the given number at the provided index.",
+      "signature": "Int16Array.with(index: number, value: number): Int16Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The index of the value to overwrite. If the index is negative, then it replaces from the end of the array."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to insert into the copied array."
+        }
+      ],
+      "returns": {
+        "type": "Int16Array<ArrayBuffer>",
+        "description": "A copy of the original array with the inserted value."
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 427,
+          "lines": [
+            "with(index: number, value: number): Int16Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    }
+  ]
+}

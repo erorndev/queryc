@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAfter() {\n\tselect {\n\tcase m := <-c:\n\t\thandle(m)\n\tcase <-time.After(10 * time.Second):\n\t\tfmt.Println(\"timed out\")\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 188
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -119,6 +125,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleDate() {\n\tt := time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)\n\tfmt.Printf(\"Go launched at %s\\n\", t.Local())\n\t// Output: Go launched at 2009-11-10 15:00:00 -0800 PST\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 217
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -158,6 +170,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFixedZone() {\n\tloc := time.FixedZone(\"UTC-8\", -8*60*60)\n\tt := time.Date(2009, time.November, 10, 23, 0, 0, 0, loc)\n\tfmt.Println(\"The time is:\", t.Format(time.RFC822))\n\t// Output: The time is: 10 Nov 09 23:00 UTC-8\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 808
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -193,6 +211,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleLoadLocation() {\n\tlocation, err := time.LoadLocation(\"America/Los_Angeles\")\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\ttimeInUTC := time.Date(2018, 8, 30, 12, 0, 0, 0, time.UTC)\n\tfmt.Println(timeInUTC.In(location))\n\t// Output: 2018-08-30 05:00:00 -0700 PDT\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 573
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -267,6 +291,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewTicker() {\n\tticker := time.NewTicker(time.Second)\n\tdefer ticker.Stop()\n\tdone := make(chan bool)\n\tgo func() {\n\t\ttime.Sleep(10 * time.Second)\n\t\tdone <- true\n\t}()\n\tfor {\n\t\tselect {\n\t\tcase <-done:\n\t\t\tfmt.Println(\"Done!\")\n\t\t\treturn\n\t\tcase t := <-ticker.C:\n\t\t\tfmt.Println(\"Current time: \", t)\n\t\t}\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 223
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -371,6 +401,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParse() {\n\t// See the example for Time.Format for a thorough description of how\n\t// to define the layout string to parse a time.Time value; Parse and\n\t// Format use the same model to describe their input and output.\n\n\t// longForm shows by example how the reference time would be represented in\n\t// the desired layout.\n\tconst longForm = \"Jan 2, 2006 at 3:04pm (MST)\"\n\tt, _ := time.Parse(longForm, \"Feb 3, 2013 at 7:54pm (PST)\")\n\tfmt.Println(t)\n\n\t// shortForm is another way the reference time would be represented\n\t// in the desired layout; it has no time zone present.\n\t// Note: without explicit zone, returns time in UTC.\n\tconst shortForm = \"2006-Jan-02\"\n\tt, _ = time.Parse(shortForm, \"2013-Feb-03\")\n\tfmt.Println(t)\n\n\t// Some valid layouts are invalid time values, due to format specifiers\n\t// such as _ for space padding and Z for zone information.\n\t// For example the RFC3339 layout 2006-01-02T15:04:05Z07:00\n\t// contains both Z and a time zone offset in order to handle both valid options:\n\t// 2006-01-02T15:04:05Z\n\t// 2006-01-02T15:04:05+07:00\n\tt, _ = time.Parse(time.RFC3339, \"2006-01-02T15:04:05Z\")\n\tfmt.Println(t)\n\tt, _ = time.Parse(time.RFC3339, \"2006-01-02T15:04:05+07:00\")\n\tfmt.Println(t)\n\t_, err := time.Parse(time.RFC3339, time.RFC3339)\n\tfmt.Println(\"error\", err) // Returns an error as the layout is not a valid time value\n\n\t// Output:\n\t// 2013-02-03 19:54:00 -0800 PST\n\t// 2013-02-03 00:00:00 +0000 UTC\n\t// 2006-01-02 15:04:05 +0000 UTC\n\t// 2006-01-02 15:04:05 +0700 +0700\n\t// error parsing time \"2006-01-02T15:04:05Z07:00\": extra text: \"07:00\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 409
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -406,6 +442,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseDuration() {\n\thours, _ := time.ParseDuration(\"10h\")\n\tcomplex, _ := time.ParseDuration(\"1h10m10s\")\n\tmicro, _ := time.ParseDuration(\"1µs\")\n\t// The package also accepts the incorrect but common prefix u for micro.\n\tmicro2, _ := time.ParseDuration(\"1us\")\n\n\tfmt.Println(hours)\n\tfmt.Println(complex)\n\tfmt.Printf(\"There are %.0f seconds in %v.\\n\", complex.Seconds(), complex)\n\tfmt.Printf(\"There are %d nanoseconds in %v.\\n\", micro.Nanoseconds(), micro)\n\tfmt.Printf(\"There are %6.2e seconds in %v.\\n\", micro2.Seconds(), micro2)\n\t// Output:\n\t// 10h0m0s\n\t// 1h10m10s\n\t// There are 4210 seconds in 1h10m10s.\n\t// There are 1000 nanoseconds in 1µs.\n\t// There are 1.00e-06 seconds in 1µs.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 92
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -449,6 +491,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleParseInLocation() {\n\tloc, _ := time.LoadLocation(\"Europe/Berlin\")\n\n\t// This will look for the name CEST in the Europe/Berlin time zone.\n\tconst longForm = \"Jan 2, 2006 at 3:04pm (MST)\"\n\tt, _ := time.ParseInLocation(longForm, \"Jul 9, 2012 at 5:02am (CEST)\", loc)\n\tfmt.Println(t)\n\n\t// Note: without explicit zone, returns time in given location.\n\tconst shortForm = \"2006-Jan-02\"\n\tt, _ = time.ParseInLocation(shortForm, \"2012-Jul-09\", loc)\n\tfmt.Println(t)\n\n\t// Output:\n\t// 2012-07-09 05:02:00 +0200 CEST\n\t// 2012-07-09 00:00:00 +0200 CEST\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 448
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -484,6 +532,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSince() {\n\tstart := time.Now()\n\texpensiveCall()\n\telapsed := time.Since(start)\n\tfmt.Printf(\"The call took %v to run.\\n\", elapsed)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 112
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -519,6 +573,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSleep() {\n\ttime.Sleep(100 * time.Millisecond)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 197
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -554,6 +614,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleTick() {\n\tc := time.Tick(5 * time.Second)\n\tfor next := range c {\n\t\tfmt.Printf(\"%v %s\\n\", next, statusUpdate())\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 203
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -593,6 +659,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleUnix() {\n\tunixTime := time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)\n\tfmt.Println(unixTime.Unix())\n\tt := time.Unix(unixTime.Unix(), 0).UTC()\n\tfmt.Println(t)\n\n\t// Output:\n\t// 1257894000\n\t// 2009-11-10 23:00:00 +0000 UTC\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 466
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -628,6 +700,12 @@
       "versions": [
         "Go 1.17"
       ],
+      "example": "func ExampleUnixMicro() {\n\tumt := time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)\n\tfmt.Println(umt.UnixMicro())\n\tt := time.UnixMicro(umt.UnixMicro()).UTC()\n\tfmt.Println(t)\n\n\t// Output:\n\t// 1257894000000000\n\t// 2009-11-10 23:00:00 +0000 UTC\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 477
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -663,6 +741,12 @@
       "versions": [
         "Go 1.17"
       ],
+      "example": "func ExampleUnixMilli() {\n\tumt := time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)\n\tfmt.Println(umt.UnixMilli())\n\tt := time.UnixMilli(umt.UnixMilli()).UTC()\n\tfmt.Println(t)\n\n\t// Output:\n\t// 1257894000000\n\t// 2009-11-10 23:00:00 +0000 UTC\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 488
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -698,6 +782,12 @@
       "versions": [
         "Go 1.8"
       ],
+      "example": "func ExampleUntil() {\n\tfutureTime := time.Now().Add(5 * time.Second)\n\tdurationUntil := time.Until(futureTime)\n\tfmt.Printf(\"Duration until future time: %.0f seconds\", math.Ceil(durationUntil.Seconds()))\n\t// Output: Duration until future time: 5 seconds\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/time/example_test.go",
+        "line": 119
+      },
       "evidence": [
         {
           "source": "go-1.25",

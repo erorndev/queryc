@@ -1,0 +1,98 @@
+{
+  "object": "WeakSet",
+  "functions": [
+    {
+      "name": "add",
+      "summary": "Appends a new value to the end of the WeakSet.",
+      "signature": "WeakSet.add(value: T): this",
+      "params": [
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 131,
+          "lines": [
+            "add(value: T): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "delete",
+      "summary": "Removes the specified element from the WeakSet.",
+      "signature": "WeakSet.delete(value: T): boolean",
+      "params": [
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "Returns true if the element existed and has been removed, or false if the element does not exist."
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 136,
+          "lines": [
+            "delete(value: T): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "has",
+      "summary": "Checks whether the weak set holds the value.",
+      "signature": "WeakSet.has(value: T): boolean",
+      "params": [
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "The value to use."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "a boolean indicating whether a value exists in the WeakSet or not."
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.collection.d.ts",
+          "line": 140,
+          "lines": [
+            "has(value: T): boolean;"
+          ]
+        }
+      ]
+    }
+  ]
+}

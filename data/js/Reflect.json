@@ -1,0 +1,542 @@
+{
+  "object": "Reflect",
+  "functions": [
+    {
+      "name": "apply",
+      "signature": "Reflect.apply<T, A extends readonly any[], R>(target: (this: T, ...args: A) => R, thisArgument: T, argumentsList: Readonly<A>): R",
+      "params": [
+        {
+          "name": "target",
+          "type": "(this: T, ...args: A) => R",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "thisArgument",
+          "type": "T",
+          "optional": false,
+          "description": "The value to use as this inside the function."
+        },
+        {
+          "name": "argumentsList",
+          "type": "Readonly<A>",
+          "optional": false,
+          "description": "The arguments to pass, as an array-like object."
+        }
+      ],
+      "returns": {
+        "type": "R",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 27,
+          "lines": [
+            "function apply<T, A extends readonly any[], R>(",
+            "target: (this: T, ...args: A) => R,",
+            "thisArgument: T,",
+            "argumentsList: Readonly<A>,",
+            "): R;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 32,
+          "lines": [
+            "function apply(target: Function, thisArgument: any, argumentsList: ArrayLike<any>): any;"
+          ]
+        }
+      ],
+      "summary": "Calls a function with a given this value and arguments."
+    },
+    {
+      "name": "construct",
+      "signature": "Reflect.construct<A extends readonly any[], R>(target: new (...args: A) => R, argumentsList: Readonly<A>, newTarget?: new (...args: any) => any): R",
+      "params": [
+        {
+          "name": "target",
+          "type": "new (...args: A) => R",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "argumentsList",
+          "type": "Readonly<A>",
+          "optional": false,
+          "description": "The arguments to pass, as an array-like object."
+        },
+        {
+          "name": "newTarget",
+          "type": "new (...args: any) => any",
+          "optional": true,
+          "description": "The constructor whose prototype the new object uses."
+        }
+      ],
+      "returns": {
+        "type": "R",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 41,
+          "lines": [
+            "function construct<A extends readonly any[], R>(",
+            "target: new (...args: A) => R,",
+            "argumentsList: Readonly<A>,",
+            "newTarget?: new (...args: any) => any,",
+            "): R;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 46,
+          "lines": [
+            "function construct(target: Function, argumentsList: ArrayLike<any>, newTarget?: Function): any;"
+          ]
+        }
+      ],
+      "summary": "Calls a constructor with new and the given arguments."
+    },
+    {
+      "name": "defineProperty",
+      "signature": "Reflect.defineProperty(target: object, propertyKey: PropertyKey, attributes: PropertyDescriptor & ThisType<any>): boolean",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "propertyKey",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "The name of the property."
+        },
+        {
+          "name": "attributes",
+          "type": "PropertyDescriptor & ThisType<any>",
+          "optional": false,
+          "description": "The property descriptor to apply."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 55,
+          "lines": [
+            "function defineProperty(target: object, propertyKey: PropertyKey, attributes: PropertyDescriptor & ThisType<any>): boolean;"
+          ]
+        }
+      ],
+      "summary": "Defines a property on an object and returns whether it succeeded."
+    },
+    {
+      "name": "deleteProperty",
+      "signature": "Reflect.deleteProperty(target: object, propertyKey: PropertyKey): boolean",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "propertyKey",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "The name of the property."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 63,
+          "lines": [
+            "function deleteProperty(target: object, propertyKey: PropertyKey): boolean;"
+          ]
+        }
+      ],
+      "summary": "Deletes a property from an object and returns whether it succeeded."
+    },
+    {
+      "name": "get",
+      "signature": "Reflect.get<T extends object, P extends PropertyKey>(target: T, propertyKey: P, receiver?: unknown): P extends keyof T ? T[P] : any",
+      "params": [
+        {
+          "name": "target",
+          "type": "T",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "propertyKey",
+          "type": "P",
+          "optional": false,
+          "description": "The name of the property."
+        },
+        {
+          "name": "receiver",
+          "type": "unknown",
+          "optional": true,
+          "description": "The value to use as this for getters and setters."
+        }
+      ],
+      "returns": {
+        "type": "P extends keyof T ? T[P] : any",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 72,
+          "lines": [
+            "function get<T extends object, P extends PropertyKey>(",
+            "target: T,",
+            "propertyKey: P,",
+            "receiver?: unknown,",
+            "): P extends keyof T ? T[P] : any;"
+          ]
+        }
+      ],
+      "summary": "Returns the value of a property."
+    },
+    {
+      "name": "getOwnPropertyDescriptor",
+      "signature": "Reflect.getOwnPropertyDescriptor<T extends object, P extends PropertyKey>(target: T, propertyKey: P): TypedPropertyDescriptor<P extends keyof T ? T[P] : any> | undefined",
+      "params": [
+        {
+          "name": "target",
+          "type": "T",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "propertyKey",
+          "type": "P",
+          "optional": false,
+          "description": "The name of the property."
+        }
+      ],
+      "returns": {
+        "type": "TypedPropertyDescriptor<P extends keyof T ? T[P] : any> | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 84,
+          "lines": [
+            "function getOwnPropertyDescriptor<T extends object, P extends PropertyKey>(",
+            "target: T,",
+            "propertyKey: P,",
+            "): TypedPropertyDescriptor<P extends keyof T ? T[P] : any> | undefined;"
+          ]
+        }
+      ],
+      "summary": "Returns the descriptor of an own property, or undefined."
+    },
+    {
+      "name": "getPrototypeOf",
+      "signature": "Reflect.getPrototypeOf(target: object): object | null",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        }
+      ],
+      "returns": {
+        "type": "object | null",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 93,
+          "lines": [
+            "function getPrototypeOf(target: object): object | null;"
+          ]
+        }
+      ],
+      "summary": "Returns the prototype of an object."
+    },
+    {
+      "name": "has",
+      "signature": "Reflect.has(target: object, propertyKey: PropertyKey): boolean",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "propertyKey",
+          "type": "PropertyKey",
+          "optional": false,
+          "description": "The name of the property."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 100,
+          "lines": [
+            "function has(target: object, propertyKey: PropertyKey): boolean;"
+          ]
+        }
+      ],
+      "summary": "Checks whether an object has a property, own or inherited."
+    },
+    {
+      "name": "isExtensible",
+      "signature": "Reflect.isExtensible(target: object): boolean",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 106,
+          "lines": [
+            "function isExtensible(target: object): boolean;"
+          ]
+        }
+      ],
+      "summary": "Checks whether new properties can be added to an object."
+    },
+    {
+      "name": "ownKeys",
+      "signature": "Reflect.ownKeys(target: object): (string | symbol)[]",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        }
+      ],
+      "returns": {
+        "type": "(string | symbol)[]",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 113,
+          "lines": [
+            "function ownKeys(target: object): (string | symbol)[];"
+          ]
+        }
+      ],
+      "summary": "Returns every own property key of an object, strings and symbols."
+    },
+    {
+      "name": "preventExtensions",
+      "signature": "Reflect.preventExtensions(target: object): boolean",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 120,
+          "lines": [
+            "function preventExtensions(target: object): boolean;"
+          ]
+        }
+      ],
+      "summary": "Stops new properties from being added and returns whether it succeeded."
+    },
+    {
+      "name": "set",
+      "signature": "Reflect.set<T extends object, P extends PropertyKey>(target: T, propertyKey: P, value: P extends keyof T ? T[P] : any, receiver?: any): boolean",
+      "params": [
+        {
+          "name": "target",
+          "type": "T",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "propertyKey",
+          "type": "P",
+          "optional": false,
+          "description": "The name of the property."
+        },
+        {
+          "name": "value",
+          "type": "P extends keyof T ? T[P] : any",
+          "optional": false,
+          "description": "The value to use."
+        },
+        {
+          "name": "receiver",
+          "type": "any",
+          "optional": true,
+          "description": "The value to use as this for getters and setters."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 129,
+          "lines": [
+            "function set<T extends object, P extends PropertyKey>(",
+            "target: T,",
+            "propertyKey: P,",
+            "value: P extends keyof T ? T[P] : any,",
+            "receiver?: any,",
+            "): boolean;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 135,
+          "lines": [
+            "function set(target: object, propertyKey: PropertyKey, value: any, receiver?: any): boolean;"
+          ]
+        }
+      ],
+      "summary": "Sets the value of a property and returns whether it succeeded."
+    },
+    {
+      "name": "setPrototypeOf",
+      "signature": "Reflect.setPrototypeOf(target: object, proto: object | null): boolean",
+      "params": [
+        {
+          "name": "target",
+          "type": "object",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "proto",
+          "type": "object | null",
+          "optional": false,
+          "description": "The new prototype, or null."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.reflect.d.ts",
+          "line": 143,
+          "lines": [
+            "function setPrototypeOf(target: object, proto: object | null): boolean;"
+          ]
+        }
+      ],
+      "summary": "Sets the prototype of an object and returns whether it succeeded."
+    }
+  ]
+}

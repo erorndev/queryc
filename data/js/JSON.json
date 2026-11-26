@@ -1,0 +1,93 @@
+{
+  "object": "JSON",
+  "functions": [
+    {
+      "name": "parse",
+      "summary": "Converts a JSON string into a JavaScript value.",
+      "signature": "JSON.parse(text: string, reviver?: (this: any, key: string, value: any) => any): any",
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "optional": false,
+          "description": "The JSON text to convert."
+        },
+        {
+          "name": "reviver",
+          "type": "(this: any, key: string, value: any) => any",
+          "optional": true,
+          "description": "Optional. A function called for each key and value, whose return value replaces the parsed value."
+        }
+      ],
+      "returns": {
+        "type": "any",
+        "description": "The value the JSON text describes."
+      },
+      "example": "const user = JSON.parse('{\"name\":\"Ada\",\"age\":36}');\nconsole.log(user.name, user.age);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1163,
+          "lines": [
+            "parse(text: string, reviver?: (this: any, key: string, value: any) => any): any;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stringify",
+      "summary": "Converts a JavaScript value to a JSON string.",
+      "signature": "JSON.stringify(value: any, replacer?: (this: any, key: string, value: any) => any, space?: string | number): string",
+      "params": [
+        {
+          "name": "value",
+          "type": "any",
+          "optional": false,
+          "description": "The value to convert, usually an object or array."
+        },
+        {
+          "name": "replacer",
+          "type": "(this: any, key: string, value: any) => any",
+          "optional": true,
+          "description": "Optional. A function that transforms each value, or an array of the property names to keep."
+        },
+        {
+          "name": "space",
+          "type": "string | number",
+          "optional": true,
+          "description": "Optional. Indentation to add for readability: a number of spaces or a string."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The JSON string."
+      },
+      "example": "console.log(JSON.stringify({ name: 'Ada', tags: ['math'] }, null, 2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1171,
+          "lines": [
+            "stringify(value: any, replacer?: (this: any, key: string, value: any) => any, space?: string | number): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1179,
+          "lines": [
+            "stringify(value: any, replacer?: (number | string)[] | null, space?: string | number): string;"
+          ]
+        }
+      ]
+    }
+  ]
+}

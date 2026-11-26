@@ -12,6 +12,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNew() {\n\th := sha1.New()\n\tio.WriteString(h, \"His money is twice tainted:\")\n\tio.WriteString(h, \" 'taint yours and 'taint mine.\")\n\tfmt.Printf(\"% x\", h.Sum(nil))\n\t// Output: 59 7f 6a 54 00 10 f9 4c 15 d7 18 06 a9 9a 2c 87 10 e7 47 bd\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/sha1/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -47,6 +53,12 @@
       "versions": [
         "Go 1.2"
       ],
+      "example": "func ExampleSum() {\n\tdata := []byte(\"This page intentionally left blank.\")\n\tfmt.Printf(\"% x\", sha1.Sum(data))\n\t// Output: af 06 49 23 bb f2 30 15 96 aa c4 c2 73 ba 32 17 8e bc 4a 96\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/sha1/example_test.go",
+        "line": 23
+      },
       "evidence": [
         {
           "source": "go-1.25",

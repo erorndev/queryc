@@ -172,6 +172,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNewTLSServer() {\n\tts := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n\t\tfmt.Fprintln(w, \"Hello, client\")\n\t}))\n\tdefer ts.Close()\n\n\tclient := ts.Client()\n\tres, err := client.Get(ts.URL)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tgreeting, err := io.ReadAll(res.Body)\n\tres.Body.Close()\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Printf(\"%s\", greeting)\n\t// Output: Hello, client\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/httptest/example_test.go",
+        "line": 79
+      },
       "evidence": [
         {
           "source": "go-1.25",

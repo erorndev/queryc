@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleParseAddress() {\n\te, err := mail.ParseAddress(\"Alice <alice@example.com>\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Println(e.Name, e.Address)\n\n\t// Output:\n\t// Alice alice@example.com\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/mail/example_test.go",
+        "line": 33
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -52,6 +58,12 @@
       "versions": [
         "Go 1.1"
       ],
+      "example": "func ExampleParseAddressList() {\n\tconst list = \"Alice <alice@example.com>, Bob <bob@example.com>, Eve <eve@example.com>\"\n\temails, err := mail.ParseAddressList(list)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfor _, v := range emails {\n\t\tfmt.Println(v.Name, v.Address)\n\t}\n\n\t// Output:\n\t// Alice alice@example.com\n\t// Bob bob@example.com\n\t// Eve eve@example.com\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/mail/example_test.go",
+        "line": 16
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -87,6 +99,12 @@
       "versions": [
         "Go 1.8"
       ],
+      "example": "func ExampleParseDate() {\n\tdateStr := \"Wed, 09 Oct 2024 09:55:06 -0700\"\n\n\tt, err := mail.ParseDate(dateStr)\n\tif err != nil {\n\t\tlog.Fatalf(\"Failed to parse date: %v\", err)\n\t}\n\n\tfmt.Println(t.Format(time.RFC3339))\n\n\t// Output:\n\t// 2024-10-09T09:55:06-07:00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/mail/example_test.go",
+        "line": 80
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -122,6 +140,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleReadMessage() {\n\tmsg := `Date: Mon, 23 Jun 2015 11:40:36 -0400\nFrom: Gopher <from@example.com>\nTo: Another Gopher <to@example.com>\nSubject: Gophers at Gophercon\n\nMessage body\n`\n\n\tr := strings.NewReader(msg)\n\tm, err := mail.ReadMessage(r)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\theader := m.Header\n\tfmt.Println(\"Date:\", header.Get(\"Date\"))\n\tfmt.Println(\"From:\", header.Get(\"From\"))\n\tfmt.Println(\"To:\", header.Get(\"To\"))\n\tfmt.Println(\"Subject:\", header.Get(\"Subject\"))\n\n\tbody, err := io.ReadAll(m.Body)\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Printf(\"%s\", body)\n\n\t// Output:\n\t// Date: Mon, 23 Jun 2015 11:40:36 -0400\n\t// From: Gopher <from@example.com>\n\t// To: Another Gopher <to@example.com>\n\t// Subject: Gophers at Gophercon\n\t// Message body\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/mail/example_test.go",
+        "line": 45
+      },
       "evidence": [
         {
           "source": "go-1.25",

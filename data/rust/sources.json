@@ -1,0 +1,10 @@
+{
+  "rust-1.100.0": {
+    "kind": "rust",
+    "label": "Rust 1.100.0 library/",
+    "library": "Rust",
+    "version": "1.100.0",
+    "root": "sources/rust",
+    "url": "https://github.com/rust-lang/rust/tree/1.100.0/library"
+  }
+}

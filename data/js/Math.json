@@ -1,0 +1,1101 @@
+{
+  "object": "Math",
+  "functions": [
+    {
+      "name": "abs",
+      "summary": "Returns the absolute value of x, its distance from zero.",
+      "signature": "Math.abs(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The absolute value of x."
+      },
+      "example": "console.log(Math.abs(-5));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 682,
+          "lines": [
+            "abs(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "acos",
+      "summary": "Returns the arc cosine of x, in radians.",
+      "signature": "Math.acos(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The arc cosine of x, in radians."
+      },
+      "example": "console.log(Math.acos(1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 687,
+          "lines": [
+            "acos(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "acosh",
+      "summary": "Returns the inverse hyperbolic cosine of x.",
+      "signature": "Math.acosh(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The inverse hyperbolic cosine of x."
+      },
+      "example": "console.log(Math.acosh(1));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 168,
+          "lines": [
+            "acosh(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "asin",
+      "summary": "Returns the arc sine of x, in radians.",
+      "signature": "Math.asin(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The arc sine of x, in radians."
+      },
+      "example": "console.log(Math.asin(1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 692,
+          "lines": [
+            "asin(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "asinh",
+      "summary": "Returns the inverse hyperbolic sine of x.",
+      "signature": "Math.asinh(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The inverse hyperbolic sine of x."
+      },
+      "example": "console.log(Math.asinh(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 174,
+          "lines": [
+            "asinh(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atan",
+      "summary": "Returns the arc tangent of x, in radians.",
+      "signature": "Math.atan(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The arc tangent of x, in radians."
+      },
+      "example": "console.log(Math.atan(1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 697,
+          "lines": [
+            "atan(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atan2",
+      "summary": "Returns the angle in radians from the X axis to the line through the origin and the point (x, y).",
+      "signature": "Math.atan2(y: number, x: number): number",
+      "params": [
+        {
+          "name": "y",
+          "type": "number",
+          "optional": false,
+          "description": "The y-coordinate of the point."
+        },
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The x-coordinate of the point."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The angle in radians."
+      },
+      "example": "console.log(Math.atan2(1, 1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 703,
+          "lines": [
+            "atan2(y: number, x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atanh",
+      "summary": "Returns the inverse hyperbolic tangent of x.",
+      "signature": "Math.atanh(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The inverse hyperbolic tangent of x."
+      },
+      "example": "console.log(Math.atanh(0.5));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 180,
+          "lines": [
+            "atanh(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cbrt",
+      "summary": "Returns the cube root of x.",
+      "signature": "Math.cbrt(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The cube root of x."
+      },
+      "example": "console.log(Math.cbrt(27));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 210,
+          "lines": [
+            "cbrt(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ceil",
+      "summary": "Rounds x up to the nearest integer that is greater than or equal to it.",
+      "signature": "Math.ceil(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The smallest integer not less than x."
+      },
+      "example": "console.log(Math.ceil(4.2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 708,
+          "lines": [
+            "ceil(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clz32",
+      "summary": "Counts the leading zero bits in the 32-bit binary form of x.",
+      "signature": "Math.clz32(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The number of leading zero bits."
+      },
+      "example": "console.log(Math.clz32(1));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 105,
+          "lines": [
+            "clz32(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cos",
+      "summary": "Returns the cosine of x, an angle in radians.",
+      "signature": "Math.cos(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The cosine of x."
+      },
+      "example": "console.log(Math.cos(0));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 713,
+          "lines": [
+            "cos(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cosh",
+      "summary": "Returns the hyperbolic cosine of x.",
+      "signature": "Math.cosh(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The hyperbolic cosine of x."
+      },
+      "example": "console.log(Math.cosh(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 150,
+          "lines": [
+            "cosh(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exp",
+      "summary": "Returns e raised to the power x.",
+      "signature": "Math.exp(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "e to the power x."
+      },
+      "example": "console.log(Math.exp(1));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 718,
+          "lines": [
+            "exp(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "expm1",
+      "summary": "Returns e raised to the power x, minus 1.",
+      "signature": "Math.expm1(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "e to the power x, minus 1."
+      },
+      "example": "console.log(Math.expm1(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 144,
+          "lines": [
+            "expm1(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "floor",
+      "summary": "Rounds x down to the nearest integer that is less than or equal to it.",
+      "signature": "Math.floor(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The largest integer not greater than x."
+      },
+      "example": "console.log(Math.floor(4.8));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 723,
+          "lines": [
+            "floor(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fround",
+      "summary": "Rounds x to the nearest single-precision float.",
+      "signature": "Math.fround(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The nearest single-precision float to x."
+      },
+      "example": "console.log(Math.fround(5.5));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 204,
+          "lines": [
+            "fround(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hypot",
+      "summary": "Returns the square root of the sum of the squares of its arguments.",
+      "signature": "Math.hypot(...values: number[]): number",
+      "params": [
+        {
+          "name": "...values",
+          "type": "number[]",
+          "optional": false,
+          "description": "The numbers to combine."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The square root of the sum of squares."
+      },
+      "example": "console.log(Math.hypot(3, 4));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 191,
+          "lines": [
+            "hypot(...values: number[]): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "imul",
+      "summary": "Multiplies two numbers as 32-bit integers.",
+      "signature": "Math.imul(x: number, y: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The first number."
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "optional": false,
+          "description": "The second number."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The 32-bit product."
+      },
+      "example": "console.log(Math.imul(3, 4));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 112,
+          "lines": [
+            "imul(x: number, y: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "log",
+      "summary": "Returns the natural logarithm (base e) of x.",
+      "signature": "Math.log(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The natural logarithm of x."
+      },
+      "example": "console.log(Math.log(Math.E));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 728,
+          "lines": [
+            "log(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "log10",
+      "summary": "Returns the base-10 logarithm of x.",
+      "signature": "Math.log10(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The base-10 logarithm of x."
+      },
+      "example": "console.log(Math.log10(1000));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 124,
+          "lines": [
+            "log10(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "log1p",
+      "summary": "Returns the natural logarithm of 1 plus x.",
+      "signature": "Math.log1p(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The natural logarithm of 1 + x."
+      },
+      "example": "console.log(Math.log1p(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 136,
+          "lines": [
+            "log1p(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "log2",
+      "summary": "Returns the base-2 logarithm of x.",
+      "signature": "Math.log2(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The base-2 logarithm of x."
+      },
+      "example": "console.log(Math.log2(8));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 130,
+          "lines": [
+            "log2(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "max",
+      "summary": "Returns the largest of the numbers passed to it.",
+      "signature": "Math.max(...values: number[]): number",
+      "params": [
+        {
+          "name": "...values",
+          "type": "number[]",
+          "optional": false,
+          "description": "The numbers to compare."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The largest number."
+      },
+      "example": "console.log(Math.max(1, 7, 3));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 733,
+          "lines": [
+            "max(...values: number[]): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "min",
+      "summary": "Returns the smallest of the numbers passed to it.",
+      "signature": "Math.min(...values: number[]): number",
+      "params": [
+        {
+          "name": "...values",
+          "type": "number[]",
+          "optional": false,
+          "description": "The numbers to compare."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The smallest number."
+      },
+      "example": "console.log(Math.min(1, 7, 3));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 738,
+          "lines": [
+            "min(...values: number[]): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pow",
+      "summary": "Raises a base to an exponent.",
+      "signature": "Math.pow(x: number, y: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The base."
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "optional": false,
+          "description": "The exponent."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "x to the power y."
+      },
+      "example": "console.log(Math.pow(2, 10));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 744,
+          "lines": [
+            "pow(x: number, y: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "random",
+      "summary": "Returns a pseudorandom number from 0 up to but not including 1.",
+      "signature": "Math.random(): number",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": "A pseudorandom number in [0, 1)."
+      },
+      "example": "console.log(Math.floor(Math.random() * 6) + 1);\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 746,
+          "lines": [
+            "random(): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "round",
+      "summary": "Rounds x to the nearest integer.",
+      "signature": "Math.round(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "x rounded to the nearest integer."
+      },
+      "example": "console.log(Math.round(2.5));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 751,
+          "lines": [
+            "round(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sign",
+      "summary": "Reports whether x is positive, negative, or zero.",
+      "signature": "Math.sign(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "1, -1, or zero, matching the sign of x."
+      },
+      "example": "console.log(Math.sign(-3));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 118,
+          "lines": [
+            "sign(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sin",
+      "summary": "Returns the sine of x, an angle in radians.",
+      "signature": "Math.sin(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The sine of x."
+      },
+      "example": "console.log(Math.sin(Math.PI / 2));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 756,
+          "lines": [
+            "sin(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sinh",
+      "summary": "Returns the hyperbolic sine of x.",
+      "signature": "Math.sinh(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The hyperbolic sine of x."
+      },
+      "example": "console.log(Math.sinh(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 156,
+          "lines": [
+            "sinh(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sqrt",
+      "summary": "Returns the square root of x.",
+      "signature": "Math.sqrt(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The square root of x."
+      },
+      "example": "console.log(Math.sqrt(16));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 761,
+          "lines": [
+            "sqrt(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tan",
+      "summary": "Returns the tangent of x, an angle in radians.",
+      "signature": "Math.tan(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The tangent of x."
+      },
+      "example": "console.log(Math.tan(0));\n",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 766,
+          "lines": [
+            "tan(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tanh",
+      "summary": "Returns the hyperbolic tangent of x.",
+      "signature": "Math.tanh(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The hyperbolic tangent of x."
+      },
+      "example": "console.log(Math.tanh(0));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 162,
+          "lines": [
+            "tanh(x: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trunc",
+      "summary": "Drops the fractional digits of x, leaving its integer part.",
+      "signature": "Math.trunc(x: number): number",
+      "params": [
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "The number to use."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "The integer part of x."
+      },
+      "example": "console.log(Math.trunc(-4.7));\n",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 198,
+          "lines": [
+            "trunc(x: number): number;"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -17,6 +17,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAbs() {\n\tfmt.Printf(\"%.1f\", cmplx.Abs(3+4i))\n\t// Output: 5.0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/cmplx/example_test.go",
+        "line": 13
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -402,6 +408,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleExp() {\n\tfmt.Printf(\"%.1f\", cmplx.Exp(1i*math.Pi)+1)\n\t// Output: (0.0+0.0i)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/cmplx/example_test.go",
+        "line": 19
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -672,6 +684,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePolar() {\n\tr, theta := cmplx.Polar(2i)\n\tfmt.Printf(\"r: %.1f, θ: %.1f*π\", r, theta/math.Pi)\n\t// Output: r: 2.0, θ: 0.5*π\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/math/cmplx/example_test.go",
+        "line": 24
+      },
       "evidence": [
         {
           "source": "go-1.25",

@@ -1,0 +1,1208 @@
+{
+  "object": "Int8Array",
+  "functions": [
+    {
+      "name": "at",
+      "summary": "Returns the item located at the specified index.",
+      "signature": "Int8Array.at(index: number): number | undefined",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The zero-based index of the desired code unit. A negative index will count back from the last item."
+        }
+      ],
+      "returns": {
+        "type": "number | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2022"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2022.array.d.ts",
+          "line": 40,
+          "lines": [
+            "at(index: number): number | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "copyWithin",
+      "summary": "Returns the this object after copying a section of the array identified by start and end to the same array starting at position target",
+      "signature": "Int8Array.copyWithin(target: number, start: number, end?: number): this",
+      "params": [
+        {
+          "name": "target",
+          "type": "number",
+          "optional": false,
+          "description": "If target is negative, it is treated as length+target where length is the length of the array."
+        },
+        {
+          "name": "start",
+          "type": "number",
+          "optional": false,
+          "description": "If start is negative, it is treated as length+start. If end is negative, it is treated as length+end."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "If not specified, length of the this object is used as its default value."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1913,
+          "lines": [
+            "copyWithin(target: number, start: number, end?: number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "entries",
+      "summary": "Returns an array of key, value pairs for every entry in the array",
+      "signature": "Int8Array.entries(): ArrayIterator<[number, number]>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<[number, number]>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 281,
+          "lines": [
+            "entries(): ArrayIterator<[number, number]>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "every",
+      "summary": "Determines whether all the members of an array satisfy the specified test.",
+      "signature": "Int8Array.every(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => unknown",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The every method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value false, or until the end of the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1923,
+          "lines": [
+            "every(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fill",
+      "summary": "Changes all array elements from `start` to `end` index to a static `value` and returns the modified array",
+      "signature": "Int8Array.fill(value: number, start?: number, end?: number): this",
+      "params": [
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "value to fill array section with"
+        },
+        {
+          "name": "start",
+          "type": "number",
+          "optional": true,
+          "description": "index to start filling the array at. If start is negative, it is treated as length+start where length is the length of the array."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "index to stop filling the array at. If end is negative, it is treated as length+end."
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1933,
+          "lines": [
+            "fill(value: number, start?: number, end?: number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filter",
+      "summary": "Returns the elements of an array that meet the condition specified in a callback function.",
+      "signature": "Int8Array.filter(predicate: (value: number, index: number, array: this) => any, thisArg?: any): Int8Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => any",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1942,
+          "lines": [
+            "filter(predicate: (value: number, index: number, array: this) => any, thisArg?: any): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "find",
+      "summary": "Returns the value of the first element in the array where predicate is true, and undefined otherwise.",
+      "signature": "Int8Array.find(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number | undefined",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, obj: this) => boolean",
+          "optional": false,
+          "description": "find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, find immediately returns that element value. Otherwise, find returns undefined."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "number | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1953,
+          "lines": [
+            "find(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number | undefined;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "findIndex",
+      "summary": "Returns the index of the first element in the array where predicate is true, and -1 otherwise.",
+      "signature": "Int8Array.findIndex(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, obj: this) => boolean",
+          "optional": false,
+          "description": "find calls predicate once for each element of the array, in ascending order, until it finds one where predicate returns true. If such an element is found, findIndex immediately returns that element index. Otherwise, findIndex returns -1."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "If provided, it will be used as the this value for each invocation of predicate. If it is not provided, undefined is used instead."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1964,
+          "lines": [
+            "findIndex(predicate: (value: number, index: number, obj: this) => boolean, thisArg?: any): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "findLast",
+      "signature": "Int8Array.findLast<S extends number>(predicate: (value: number, index: number, array: this) => value is S, thisArg?: any): S | undefined",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => value is S",
+          "optional": false,
+          "description": "The function to call for each element until it returns true."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "The value to use as this inside callbackfn."
+        }
+      ],
+      "returns": {
+        "type": "S | undefined",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 176,
+          "lines": [
+            "findLast<S extends number>(",
+            "predicate: (",
+            "value: number,",
+            "index: number,",
+            "array: this,",
+            ") => value is S,",
+            "thisArg?: any,",
+            "): S | undefined;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 184,
+          "lines": [
+            "findLast(",
+            "predicate: (value: number, index: number, array: this) => unknown,",
+            "thisArg?: any,",
+            "): number | undefined;"
+          ]
+        }
+      ],
+      "summary": "Returns the last element that satisfies the predicate, or undefined."
+    },
+    {
+      "name": "findLastIndex",
+      "signature": "Int8Array.findLastIndex(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): number",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => unknown",
+          "optional": false,
+          "description": "The function to call for each element until it returns true."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "The value to use as this inside callbackfn."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 198,
+          "lines": [
+            "findLastIndex(",
+            "predicate: (value: number, index: number, array: this) => unknown,",
+            "thisArg?: any,",
+            "): number;"
+          ]
+        }
+      ],
+      "summary": "Returns the index of the last element that satisfies the predicate, or -1."
+    },
+    {
+      "name": "forEach",
+      "summary": "Performs the specified action for each element in an array.",
+      "signature": "Int8Array.forEach(callbackfn: (value: number, index: number, array: this) => void, thisArg?: any): void",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(value: number, index: number, array: this) => void",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1973,
+          "lines": [
+            "forEach(callbackfn: (value: number, index: number, array: this) => void, thisArg?: any): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "from",
+      "summary": "Creates an array from an array-like or iterable object.",
+      "signature": "Int8Array.from(arrayLike: ArrayLike<number>): Int8Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "arrayLike",
+          "type": "ArrayLike<number>",
+          "optional": false,
+          "description": "An array-like object to convert to an array."
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2149,
+          "lines": [
+            "from(arrayLike: ArrayLike<number>): Int8Array<ArrayBuffer>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2157,
+          "lines": [
+            "from<T>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => number, thisArg?: any): Int8Array<ArrayBuffer>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 301,
+          "lines": [
+            "from(elements: Iterable<number>): Int8Array<ArrayBuffer>;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 309,
+          "lines": [
+            "from<T>(elements: Iterable<T>, mapfn?: (v: T, k: number) => number, thisArg?: any): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "includes",
+      "summary": "Determines whether an array includes a certain element, returning true or false as appropriate.",
+      "signature": "Int8Array.includes(searchElement: number, fromIndex?: number): boolean",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "number",
+          "optional": false,
+          "description": "The element to search for."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The position in this array at which to begin searching for searchElement."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2016"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2016.array.include.d.ts",
+          "line": 43,
+          "lines": [
+            "includes(searchElement: number, fromIndex?: number): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "indexOf",
+      "summary": "Returns the index of the first occurrence of a value in an array.",
+      "signature": "Int8Array.indexOf(searchElement: number, fromIndex?: number): number",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "number",
+          "optional": false,
+          "description": "The value to locate in the array."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1981,
+          "lines": [
+            "indexOf(searchElement: number, fromIndex?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "join",
+      "summary": "Adds all the elements of an array separated by the specified separator string.",
+      "signature": "Int8Array.join(separator?: string): string",
+      "params": [
+        {
+          "name": "separator",
+          "type": "string",
+          "optional": true,
+          "description": "A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma."
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1988,
+          "lines": [
+            "join(separator?: string): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keys",
+      "summary": "Returns an list of keys in the array",
+      "signature": "Int8Array.keys(): ArrayIterator<number>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<number>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 286,
+          "lines": [
+            "keys(): ArrayIterator<number>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lastIndexOf",
+      "summary": "Returns the index of the last occurrence of a value in an array.",
+      "signature": "Int8Array.lastIndexOf(searchElement: number, fromIndex?: number): number",
+      "params": [
+        {
+          "name": "searchElement",
+          "type": "number",
+          "optional": false,
+          "description": "The value to locate in the array."
+        },
+        {
+          "name": "fromIndex",
+          "type": "number",
+          "optional": true,
+          "description": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1996,
+          "lines": [
+            "lastIndexOf(searchElement: number, fromIndex?: number): number;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "summary": "Calls a defined callback function on each element of an array, and returns an array that contains the results.",
+      "signature": "Int8Array.map(callbackfn: (value: number, index: number, array: this) => number, thisArg?: any): Int8Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(value: number, index: number, array: this) => number",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2011,
+          "lines": [
+            "map(callbackfn: (value: number, index: number, array: this) => number, thisArg?: any): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "of",
+      "summary": "Returns a new array from a set of elements.",
+      "signature": "Int8Array.of(...items: number[]): Int8Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "...items",
+          "type": "number[]",
+          "optional": false,
+          "description": "The elements of the new array."
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2143,
+          "lines": [
+            "of(...items: number[]): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reduce",
+      "summary": "Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "signature": "Int8Array.reduce(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(previousValue: number, currentValue: number, currentIndex: number, array: this) => number",
+          "optional": false,
+          "description": "A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2023,
+          "lines": [
+            "reduce(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2024,
+          "lines": [
+            "reduce(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number, initialValue: number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2036,
+          "lines": [
+            "reduce<U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: this) => U, initialValue: U): U;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reduceRight",
+      "summary": "Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "signature": "Int8Array.reduceRight(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number",
+      "params": [
+        {
+          "name": "callbackfn",
+          "type": "(previousValue: number, currentValue: number, currentIndex: number, array: this) => number",
+          "optional": false,
+          "description": "A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array."
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2048,
+          "lines": [
+            "reduceRight(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2049,
+          "lines": [
+            "reduceRight(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: this) => number, initialValue: number): number;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2061,
+          "lines": [
+            "reduceRight<U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: this) => U, initialValue: U): U;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reverse",
+      "summary": "Reverses the elements in an Array.",
+      "signature": "Int8Array.reverse(): this",
+      "params": [],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2066,
+          "lines": [
+            "reverse(): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "summary": "Sets a value or an array of values.",
+      "signature": "Int8Array.set(array: ArrayLike<number>, offset?: number): void",
+      "params": [
+        {
+          "name": "array",
+          "type": "ArrayLike<number>",
+          "optional": false,
+          "description": "A typed or untyped array of values to set."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "optional": true,
+          "description": "The index in the current array at which the values are to be written."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2073,
+          "lines": [
+            "set(array: ArrayLike<number>, offset?: number): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slice",
+      "summary": "Returns a section of an array.",
+      "signature": "Int8Array.slice(start?: number, end?: number): Int8Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "start",
+          "type": "number",
+          "optional": true,
+          "description": "The beginning of the specified portion of the array."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The end of the specified portion of the array. This is exclusive of the element at the index 'end'."
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2080,
+          "lines": [
+            "slice(start?: number, end?: number): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "some",
+      "summary": "Determines whether the specified callback function returns true for any element of an array.",
+      "signature": "Int8Array.some(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean",
+      "params": [
+        {
+          "name": "predicate",
+          "type": "(value: number, index: number, array: this) => unknown",
+          "optional": false,
+          "description": "A function that accepts up to three arguments. The some method calls the predicate function for each element in the array until the predicate returns a value which is coercible to the Boolean value true, or until the end of the array."
+        },
+        {
+          "name": "thisArg",
+          "type": "any",
+          "optional": true,
+          "description": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value."
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2090,
+          "lines": [
+            "some(predicate: (value: number, index: number, array: this) => unknown, thisArg?: any): boolean;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sort",
+      "summary": "Sorts an array.",
+      "signature": "Int8Array.sort(compareFn?: (a: number, b: number) => number): this",
+      "params": [
+        {
+          "name": "compareFn",
+          "type": "(a: number, b: number) => number",
+          "optional": true,
+          "description": "Function used to determine the order of the elements. It is expected to return a negative value if first argument is less than second argument, zero if they're equal and a positive value otherwise. If omitted, the elements are sorted in ascending order. ```ts [11,2,22,1].sort((a, b) => a - b) ```"
+        }
+      ],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2101,
+          "lines": [
+            "sort(compareFn?: (a: number, b: number) => number): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "subarray",
+      "summary": "Gets a new Int8Array view of the ArrayBuffer store for this array, referencing the elements at begin, inclusive, up to end, exclusive.",
+      "signature": "Int8Array.subarray(begin?: number, end?: number): Int8Array<TArrayBuffer>",
+      "params": [
+        {
+          "name": "begin",
+          "type": "number",
+          "optional": true,
+          "description": "The index of the beginning of the array."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The index of the end of the array."
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<TArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2109,
+          "lines": [
+            "subarray(begin?: number, end?: number): Int8Array<TArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toLocaleString",
+      "summary": "Converts a number to a string by using the current locale.",
+      "signature": "Int8Array.toLocaleString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2114,
+          "lines": [
+            "toLocaleString(): string;"
+          ]
+        },
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.core.d.ts",
+          "line": 564,
+          "lines": [
+            "toLocaleString(locales: string | string[], options?: Intl.NumberFormatOptions): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toReversed",
+      "summary": "Copies the array and returns the copy with the elements in reverse order.",
+      "signature": "Int8Array.toReversed(): Int8Array<ArrayBuffer>",
+      "params": [],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 206,
+          "lines": [
+            "toReversed(): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toSorted",
+      "summary": "Copies and sorts the array.",
+      "signature": "Int8Array.toSorted(compareFn?: (a: number, b: number) => number): Int8Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "compareFn",
+          "type": "(a: number, b: number) => number",
+          "optional": true,
+          "description": "Function used to determine the order of the elements. It is expected to return a negative value if the first argument is less than the second argument, zero if they're equal, and a positive value otherwise. If omitted, the elements are sorted in ascending order. ```ts const myNums = Int8Array.from([11, 2, 22, 1]); myNums.toSorted((a, b) => a - b) // Int8Array(4) [1, 2, 11, 22] ```"
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 218,
+          "lines": [
+            "toSorted(compareFn?: (a: number, b: number) => number): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "toString",
+      "summary": "Returns a string representation of an array.",
+      "signature": "Int8Array.toString(): string",
+      "params": [],
+      "returns": {
+        "type": "string",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2119,
+          "lines": [
+            "toString(): string;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "valueOf",
+      "summary": "Returns the primitive value of the specified object.",
+      "signature": "Int8Array.valueOf(): this",
+      "params": [],
+      "returns": {
+        "type": "this",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 2122,
+          "lines": [
+            "valueOf(): this;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "values",
+      "summary": "Returns an list of values in the array",
+      "signature": "Int8Array.values(): ArrayIterator<number>",
+      "params": [],
+      "returns": {
+        "type": "ArrayIterator<number>",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.iterable.d.ts",
+          "line": 291,
+          "lines": [
+            "values(): ArrayIterator<number>;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "with",
+      "summary": "Copies the array and inserts the given number at the provided index.",
+      "signature": "Int8Array.with(index: number, value: number): Int8Array<ArrayBuffer>",
+      "params": [
+        {
+          "name": "index",
+          "type": "number",
+          "optional": false,
+          "description": "The index of the value to overwrite. If the index is negative, then it replaces from the end of the array."
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "optional": false,
+          "description": "The value to insert into the copied array."
+        }
+      ],
+      "returns": {
+        "type": "Int8Array<ArrayBuffer>",
+        "description": "A copy of the original array with the inserted value."
+      },
+      "example": "",
+      "versions": [
+        "ES2023"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2023.array.d.ts",
+          "line": 227,
+          "lines": [
+            "with(index: number, value: number): Int8Array<ArrayBuffer>;"
+          ]
+        }
+      ]
+    }
+  ]
+}

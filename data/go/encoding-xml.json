@@ -173,6 +173,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleMarshalIndent() {\n\ttype Address struct {\n\t\tCity, State string\n\t}\n\ttype Person struct {\n\t\tXMLName   xml.Name `xml:\"person\"`\n\t\tId        int      `xml:\"id,attr\"`\n\t\tFirstName string   `xml:\"name>first\"`\n\t\tLastName  string   `xml:\"name>last\"`\n\t\tAge       int      `xml:\"age\"`\n\t\tHeight    float32  `xml:\"height,omitempty\"`\n\t\tMarried   bool\n\t\tAddress\n\t\tComment string `xml:\",comment\"`\n\t}\n\n\tv := &Person{Id: 13, FirstName: \"John\", LastName: \"Doe\", Age: 42}\n\tv.Comment = \" Need more details. \"\n\tv.Address = Address{\"Hanga Roa\", \"Easter Island\"}\n\n\toutput, err := xml.MarshalIndent(v, \"  \", \"    \")\n\tif err != nil {\n\t\tfmt.Printf(\"error: %v\\n\", err)\n\t}\n\n\tos.Stdout.Write(output)\n\t// Output:\n\t//   <person id=\"13\">\n\t//       <name>\n\t//           <first>John</first>\n\t//           <last>Doe</last>\n\t//       </name>\n\t//       <age>42</age>\n\t//       <Married>false</Married>\n\t//       <City>Hanga Roa</City>\n\t//       <State>Easter Island</State>\n\t//       <!-- Need more details. -->\n\t//   </person>\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/xml/example_test.go",
+        "line": 13
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -317,6 +323,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleUnmarshal() {\n\ttype Email struct {\n\t\tWhere string `xml:\"where,attr\"`\n\t\tAddr  string\n\t}\n\ttype Address struct {\n\t\tCity, State string\n\t}\n\ttype Result struct {\n\t\tXMLName xml.Name `xml:\"Person\"`\n\t\tName    string   `xml:\"FullName\"`\n\t\tPhone   string\n\t\tEmail   []Email\n\t\tGroups  []string `xml:\"Group>Value\"`\n\t\tAddress\n\t}\n\tv := Result{Name: \"none\", Phone: \"none\"}\n\n\tdata := `\n\t\t<Person>\n\t\t\t<FullName>Grace R. Emlin</FullName>\n\t\t\t<Company>Example Inc.</Company>\n\t\t\t<Email where=\"home\">\n\t\t\t\t<Addr>gre@example.com</Addr>\n\t\t\t</Email>\n\t\t\t<Email where='work'>\n\t\t\t\t<Addr>gre@work.com</Addr>\n\t\t\t</Email>\n\t\t\t<Group>\n\t\t\t\t<Value>Friends</Value>\n\t\t\t\t<Value>Squash</Value>\n\t\t\t</Group>\n\t\t\t<City>Hanga Roa</City>\n\t\t\t<State>Easter Island</State>\n\t\t</Person>\n\t`\n\terr := xml.Unmarshal([]byte(data), &v)\n\tif err != nil {\n\t\tfmt.Printf(\"error: %v\", err)\n\t\treturn\n\t}\n\tfmt.Printf(\"XMLName: %#v\\n\", v.XMLName)\n\tfmt.Printf(\"Name: %q\\n\", v.Name)\n\tfmt.Printf(\"Phone: %q\\n\", v.Phone)\n\tfmt.Printf(\"Email: %v\\n\", v.Email)\n\tfmt.Printf(\"Groups: %v\\n\", v.Groups)\n\tfmt.Printf(\"Address: %v\\n\", v.Address)\n\t// Output:\n\t// XMLName: xml.Name{Space:\"\", Local:\"Person\"}\n\t// Name: \"Grace R. Emlin\"\n\t// Phone: \"none\"\n\t// Email: [{home gre@example.com} {work gre@work.com}]\n\t// Groups: [Friends Squash]\n\t// Address: {Hanga Roa Easter Island}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/encoding/xml/example_test.go",
+        "line": 97
+      },
       "evidence": [
         {
           "source": "go-1.25",

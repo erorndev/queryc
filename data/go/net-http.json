@@ -200,6 +200,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFileServer_dotFileHiding() {\n\tfsys := dotFileHidingFileSystem{http.Dir(\".\")}\n\thttp.Handle(\"/\", http.FileServer(fsys))\n\tlog.Fatal(http.ListenAndServe(\":8080\", nil))\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_filesystem_test.go",
+        "line": 71
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -270,6 +276,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleGet() {\n\tres, err := http.Get(\"http://www.google.com/robots.txt\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tbody, err := io.ReadAll(res.Body)\n\tres.Body.Close()\n\tif res.StatusCode > 299 {\n\t\tlog.Fatalf(\"Response failed with status code: %d and\\nbody: %s\\n\", res.StatusCode, body)\n\t}\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\tfmt.Printf(\"%s\", body)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_test.go",
+        "line": 43
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -309,6 +321,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleHandle() {\n\thttp.Handle(\"/count\", new(countHandler))\n\tlog.Fatal(http.ListenAndServe(\":8080\", nil))\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_handle_test.go",
+        "line": 26
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -348,6 +366,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleHandleFunc() {\n\th1 := func(w http.ResponseWriter, _ *http.Request) {\n\t\tio.WriteString(w, \"Hello from a HandleFunc #1!\\n\")\n\t}\n\th2 := func(w http.ResponseWriter, _ *http.Request) {\n\t\tio.WriteString(w, \"Hello from a HandleFunc #2!\\n\")\n\t}\n\n\thttp.HandleFunc(\"/\", h1)\n\thttp.HandleFunc(\"/endpoint\", h2)\n\n\tlog.Fatal(http.ListenAndServe(\":8080\", nil))\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_test.go",
+        "line": 165
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -422,6 +446,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleListenAndServe() {\n\t// Hello world, the web server\n\n\thelloHandler := func(w http.ResponseWriter, req *http.Request) {\n\t\tio.WriteString(w, \"Hello, world!\\n\")\n\t}\n\n\thttp.HandleFunc(\"/hello\", helloHandler)\n\tlog.Fatal(http.ListenAndServe(\":8080\", nil))\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_test.go",
+        "line": 154
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -469,6 +499,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleListenAndServeTLS() {\n\thttp.HandleFunc(\"/\", func(w http.ResponseWriter, req *http.Request) {\n\t\tio.WriteString(w, \"Hello, TLS!\\n\")\n\t})\n\n\t// One can use generate_cert.go in crypto/tls to generate cert.pem and key.pem.\n\tlog.Printf(\"About to listen on 8443. Go to https://127.0.0.1:8443/\")\n\terr := http.ListenAndServeTLS(\":8443\", \"cert.pem\", \"key.pem\", nil)\n\tlog.Fatal(err)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_test.go",
+        "line": 143
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -875,6 +911,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNotFoundHandler() {\n\tmux := http.NewServeMux()\n\n\t// Create sample handler to returns 404\n\tmux.Handle(\"/resources\", http.NotFoundHandler())\n\n\t// Create sample handler that returns 200\n\tmux.Handle(\"/resources/people/\", newPeopleHandler())\n\n\tlog.Fatal(http.ListenAndServe(\":8080\", mux))\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_test.go",
+        "line": 185
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1667,6 +1709,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleStripPrefix() {\n\t// To serve a directory on disk (/tmp) under an alternate URL\n\t// path (/tmpfiles/), use StripPrefix to modify the request\n\t// URL's path before the FileServer sees it:\n\thttp.Handle(\"/tmpfiles/\", http.StripPrefix(\"/tmpfiles/\", http.FileServer(http.Dir(\"/tmp\"))))\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/net/http/example_test.go",
+        "line": 71
+      },
       "evidence": [
         {
           "source": "go-1.25",

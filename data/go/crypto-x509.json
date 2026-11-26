@@ -162,6 +162,15 @@
       "versions": [
         "Go 1.1"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pem_decrypt.go",
+          "line": 121,
+          "message": "Deprecated: Legacy PEM encryption as specified in RFC 1423 is insecure by design. Since it does not authenticate the ciphertext, it is vulnerable to padding oracle attacks that can let an attacker recover the plaintext."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -213,6 +222,15 @@
       "versions": [
         "Go 1.1"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pem_decrypt.go",
+          "line": 192,
+          "message": "Deprecated: Legacy PEM encryption as specified in RFC 1423 is insecure by design. Since it does not authenticate the ciphertext, it is vulnerable to padding oracle attacks that can let an attacker recover the plaintext."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -247,6 +265,15 @@
       },
       "versions": [
         "Go 1.1"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/x509/pem_decrypt.go",
+          "line": 101,
+          "message": "Deprecated: Legacy PEM encryption as specified in RFC 1423 is insecure by design. Since it does not authenticate the ciphertext, it is vulnerable to padding oracle attacks that can let an attacker recover the plaintext."
+        }
       ],
       "evidence": [
         {
@@ -523,6 +550,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 1809,
+          "message": "Deprecated: Use [ParseRevocationList] instead."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -662,6 +698,15 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/crypto/x509/x509.go",
+          "line": 1822,
+          "message": "Deprecated: Use [ParseRevocationList] instead."
+        }
       ],
       "evidence": [
         {
@@ -873,6 +918,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParsePKIXPublicKey() {\n\tconst pubPEM = `\n-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAlRuRnThUjU8/prwYxbty\nWPT9pURI3lbsKMiB6Fn/VHOKE13p4D8xgOCADpdRagdT6n4etr9atzDKUSvpMtR3\nCP5noNc97WiNCggBjVWhs7szEe8ugyqF23XwpHQ6uV1LKH50m92MbOWfCtjU9p/x\nqhNpQQ1AZhqNy5Gevap5k8XzRmjSldNAFZMY7Yv3Gi+nyCwGwpVtBUwhuLzgNFK/\nyDtw2WcWmUU7NuC8Q6MWvPebxVtCfVp/iQU6q60yyt6aGOBkhAX0LpKAEhKidixY\nnP9PNVBvxgu3XZ4P36gZV6+ummKdBVnc3NqwBLu5+CcdRdusmHPHd5pHf4/38Z3/\n6qU2a/fPvWzceVTEgZ47QjFMTCTmCwNt29cvi7zZeQzjtwQgn4ipN9NibRH/Ax/q\nTbIzHfrJ1xa2RteWSdFjwtxi9C20HUkjXSeI4YlzQMH0fPX6KCE7aVePTOnB69I/\na9/q96DiXZajwlpq3wFctrs1oXqBp5DVrCIj8hU2wNgB7LtQ1mCtsYz//heai0K9\nPhE4X6hiE0YmeAZjR0uHl8M/5aW9xCoJ72+12kKpWAa0SFRWLy6FejNYCYpkupVJ\nyecLk/4L1W0l6jQQZnWErXZYe0PNFcmwGXy1Rep83kfBRNKRy5tvocalLlwXLdUk\nAIU+2GKjyT3iMuzZxxFxPFMCAwEAAQ==\n-----END PUBLIC KEY-----`\n\n\tblock, _ := pem.Decode([]byte(pubPEM))\n\tif block == nil {\n\t\tpanic(\"failed to parse PEM block containing the public key\")\n\t}\n\n\tpub, err := x509.ParsePKIXPublicKey(block.Bytes)\n\tif err != nil {\n\t\tpanic(\"failed to parse DER encoded public key: \" + err.Error())\n\t}\n\n\tswitch pub := pub.(type) {\n\tcase *rsa.PublicKey:\n\t\tfmt.Println(\"pub is of type RSA:\", pub)\n\tcase *dsa.PublicKey:\n\t\tfmt.Println(\"pub is of type DSA:\", pub)\n\tcase *ecdsa.PublicKey:\n\t\tfmt.Println(\"pub is of type ECDSA:\", pub)\n\tcase ed25519.PublicKey:\n\t\tfmt.Println(\"pub is of type Ed25519:\", pub)\n\tdefault:\n\t\tpanic(\"unknown type of public key\")\n\t}\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/x509/example_test.go",
+        "line": 98
+      },
       "evidence": [
         {
           "source": "go-1.25",

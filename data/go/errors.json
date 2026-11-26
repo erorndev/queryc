@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.13"
       ],
+      "example": "func ExampleAs() {\n\tif _, err := os.Open(\"non-existing\"); err != nil {\n\t\tvar pathError *fs.PathError\n\t\tif errors.As(err, &pathError) {\n\t\t\tfmt.Println(\"Failed at path:\", pathError.Path)\n\t\t} else {\n\t\t\tfmt.Println(err)\n\t\t}\n\t}\n\n\t// Output:\n\t// Failed at path: non-existing\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/errors/example_test.go",
+        "line": 91
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -60,6 +66,12 @@
       "versions": [
         "Go 1.13"
       ],
+      "example": "func ExampleIs() {\n\tif _, err := os.Open(\"non-existing\"); err != nil {\n\t\tif errors.Is(err, fs.ErrNotExist) {\n\t\t\tfmt.Println(\"file does not exist\")\n\t\t} else {\n\t\t\tfmt.Println(err)\n\t\t}\n\t}\n\n\t// Output:\n\t// file does not exist\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/errors/example_test.go",
+        "line": 78
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -95,6 +107,12 @@
       "versions": [
         "Go 1.20"
       ],
+      "example": "func ExampleJoin() {\n\terr1 := errors.New(\"err1\")\n\terr2 := errors.New(\"err2\")\n\terr := errors.Join(err1, err2)\n\tfmt.Println(err)\n\tif errors.Is(err, err1) {\n\t\tfmt.Println(\"err is err1\")\n\t}\n\tif errors.Is(err, err2) {\n\t\tfmt.Println(\"err is err2\")\n\t}\n\tfmt.Println(err.(interface{ Unwrap() []error }).Unwrap())\n\t// Output:\n\t// err1\n\t// err2\n\t// err is err1\n\t// err is err2\n\t// [err1 err2]\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/errors/example_test.go",
+        "line": 58
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -130,6 +148,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNew() {\n\terr := errors.New(\"emit macho dwarf: elf header corrupted\")\n\tif err != nil {\n\t\tfmt.Print(err)\n\t}\n\t// Output: emit macho dwarf: elf header corrupted\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/errors/example_test.go",
+        "line": 39
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -165,6 +189,12 @@
       "versions": [
         "Go 1.13"
       ],
+      "example": "func ExampleUnwrap() {\n\terr1 := errors.New(\"error1\")\n\terr2 := fmt.Errorf(\"error2: [%w]\", err1)\n\tfmt.Println(err2)\n\tfmt.Println(errors.Unwrap(err2))\n\t// Output:\n\t// error2: [error1]\n\t// error1\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/errors/example_test.go",
+        "line": 105
+      },
       "evidence": [
         {
           "source": "go-1.25",

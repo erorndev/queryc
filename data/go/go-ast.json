@@ -134,6 +134,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 283,
+          "message": "Deprecated: use the type checker [go/types] instead of [Package]; see [Object]. Alternatively, use [FilterFile]."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -220,6 +229,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleInspect() {\n\t// src is the input for which we want to inspect the AST.\n\tsrc := `\npackage p\nconst c = 1.0\nvar X = f(3.14)*2 + c\n`\n\n\t// Create the AST by parsing src.\n\tfset := token.NewFileSet() // positions are relative to fset\n\tf, err := parser.ParseFile(fset, \"src.go\", src, 0)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\n\t// Inspect the AST and print all identifiers and literals.\n\tast.Inspect(f, func(n ast.Node) bool {\n\t\tvar s string\n\t\tswitch x := n.(type) {\n\t\tcase *ast.BasicLit:\n\t\t\ts = x.Value\n\t\tcase *ast.Ident:\n\t\t\ts = x.Name\n\t\t}\n\t\tif s != \"\" {\n\t\t\tfmt.Printf(\"%s:\\t%s\\n\", fset.Position(n.Pos()), s)\n\t\t}\n\t\treturn true\n\t})\n\n\t// Output:\n\t// src.go:2:9:\tp\n\t// src.go:3:7:\tc\n\t// src.go:3:11:\t1.0\n\t// src.go:4:5:\tX\n\t// src.go:4:9:\tf\n\t// src.go:4:11:\t3.14\n\t// src.go:4:17:\t2\n\t// src.go:4:21:\tc\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/ast/example_test.go",
+        "line": 17
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -328,6 +343,15 @@
       },
       "versions": [
         "Go 1.0"
+      ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 347,
+          "message": "Deprecated: this function is poorly specified and has unfixable bugs; also [Package] is deprecated."
+        }
       ],
       "evidence": [
         {
@@ -493,6 +517,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/ast/resolve.go",
+          "line": 76,
+          "message": "Deprecated: use the type checker [go/types] instead; see [Object]."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -602,6 +635,15 @@
       "versions": [
         "Go 1.0"
       ],
+      "warnings": [
+        {
+          "by": "go",
+          "source": "go-1.25",
+          "file": "src/go/ast/filter.go",
+          "line": 38,
+          "message": "Deprecated: use the type checker [go/types] instead of [Package]; see [Object]. Alternatively, use [FileExports]."
+        }
+      ],
       "evidence": [
         {
           "source": "go-1.25",
@@ -637,6 +679,12 @@
       "versions": [
         "Go 1.23"
       ],
+      "example": "func ExamplePreorder() {\n\tsrc := `\npackage p\n\nfunc f(x, y int) {\n\tprint(x + y)\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/ast/example_test.go",
+        "line": 143
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -719,6 +767,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePrint() {\n\t// src is the input for which we want to print the AST.\n\tsrc := `\npackage main\nfunc main() {\n\tprintln(\"Hello, World!\")\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/go/ast/example_test.go",
+        "line": 59
+      },
       "evidence": [
         {
           "source": "go-1.25",

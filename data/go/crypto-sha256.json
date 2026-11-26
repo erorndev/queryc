@@ -12,6 +12,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleNew() {\n\th := sha256.New()\n\th.Write([]byte(\"hello world\\n\"))\n\tfmt.Printf(\"%x\", h.Sum(nil))\n\t// Output: a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/sha256/example_test.go",
+        "line": 21
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -112,6 +118,12 @@
       "versions": [
         "Go 1.2"
       ],
+      "example": "func ExampleSum256() {\n\tsum := sha256.Sum256([]byte(\"hello world\\n\"))\n\tfmt.Printf(\"%x\", sum)\n\t// Output: a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/crypto/sha256/example_test.go",
+        "line": 15
+      },
       "evidence": [
         {
           "source": "go-1.25",

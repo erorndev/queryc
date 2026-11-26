@@ -52,6 +52,12 @@
       "versions": [
         "Go 1.16"
       ],
+      "example": "func ExampleErrReader() {\n\t// A reader that always returns a custom error.\n\tr := iotest.ErrReader(errors.New(\"custom error\"))\n\tn, err := r.Read(nil)\n\tfmt.Printf(\"n:   %d\\nerr: %q\\n\", n, err)\n\n\t// Output:\n\t// n:   0\n\t// err: \"custom error\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/testing/iotest/example_test.go",
+        "line": 13
+      },
       "evidence": [
         {
           "source": "go-1.25",

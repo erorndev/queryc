@@ -1,0 +1,166 @@
+{
+  "object": "ArrayBuffer",
+  "functions": [
+    {
+      "name": "isView",
+      "summary": "Checks whether a value is a view on an ArrayBuffer, such as a typed array or DataView.",
+      "signature": "ArrayBuffer.isView(arg: any): arg is ArrayBufferView",
+      "params": [
+        {
+          "name": "arg",
+          "type": "any",
+          "optional": false,
+          "description": "The value to test."
+        }
+      ],
+      "returns": {
+        "type": "arg is ArrayBufferView",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1725,
+          "lines": [
+            "isView(arg: any): arg is ArrayBufferView;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resize",
+      "summary": "Resizes the ArrayBuffer to the specified size (in bytes).  [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/resize)",
+      "signature": "ArrayBuffer.resize(newByteLength?: number): void",
+      "params": [
+        {
+          "name": "newByteLength",
+          "type": "number",
+          "optional": true,
+          "description": "The new length in bytes."
+        }
+      ],
+      "returns": {
+        "type": "void",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.arraybuffer.d.ts",
+          "line": 39,
+          "lines": [
+            "resize(newByteLength?: number): void;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slice",
+      "summary": "Returns a section of an ArrayBuffer.",
+      "signature": "ArrayBuffer.slice(begin?: number, end?: number): ArrayBuffer",
+      "params": [
+        {
+          "name": "begin",
+          "type": "number",
+          "optional": true,
+          "description": "The byte index the copy starts at."
+        },
+        {
+          "name": "end",
+          "type": "number",
+          "optional": true,
+          "description": "The byte index the copy ends before."
+        }
+      ],
+      "returns": {
+        "type": "ArrayBuffer",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES5"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es5.d.ts",
+          "line": 1711,
+          "lines": [
+            "slice(begin?: number, end?: number): ArrayBuffer;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transfer",
+      "summary": "Creates a new ArrayBuffer with the same byte content as this buffer, then detaches this buffer.  [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/transfer)",
+      "signature": "ArrayBuffer.transfer(newByteLength?: number): ArrayBuffer",
+      "params": [
+        {
+          "name": "newByteLength",
+          "type": "number",
+          "optional": true,
+          "description": "The new length in bytes."
+        }
+      ],
+      "returns": {
+        "type": "ArrayBuffer",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.arraybuffer.d.ts",
+          "line": 53,
+          "lines": [
+            "transfer(newByteLength?: number): ArrayBuffer;"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transferToFixedLength",
+      "summary": "Creates a new non-resizable ArrayBuffer with the same byte content as this buffer, then detaches this buffer.  [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/transferToFixedLength)",
+      "signature": "ArrayBuffer.transferToFixedLength(newByteLength?: number): ArrayBuffer",
+      "params": [
+        {
+          "name": "newByteLength",
+          "type": "number",
+          "optional": true,
+          "description": "The new length in bytes."
+        }
+      ],
+      "returns": {
+        "type": "ArrayBuffer",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2024"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2024.arraybuffer.d.ts",
+          "line": 60,
+          "lines": [
+            "transferToFixedLength(newByteLength?: number): ArrayBuffer;"
+          ]
+        }
+      ]
+    }
+  ]
+}

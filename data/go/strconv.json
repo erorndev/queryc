@@ -21,6 +21,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendBool() {\n\tb := []byte(\"bool:\")\n\tb = strconv.AppendBool(b, true)\n\tfmt.Println(string(b))\n\n\t// Output:\n\t// bool:true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 13
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -72,6 +78,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendFloat() {\n\tb32 := []byte(\"float32:\")\n\tb32 = strconv.AppendFloat(b32, 3.1415926535, 'E', -1, 32)\n\tfmt.Println(string(b32))\n\n\tb64 := []byte(\"float64:\")\n\tb64 = strconv.AppendFloat(b64, 3.1415926535, 'E', -1, 64)\n\tfmt.Println(string(b64))\n\n\t// Output:\n\t// float32:3.1415927E+00\n\t// float64:3.1415926535E+00\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 22
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -115,6 +127,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendInt() {\n\tb10 := []byte(\"int (base 10):\")\n\tb10 = strconv.AppendInt(b10, -42, 10)\n\tfmt.Println(string(b10))\n\n\tb16 := []byte(\"int (base 16):\")\n\tb16 = strconv.AppendInt(b16, -42, 16)\n\tfmt.Println(string(b16))\n\n\t// Output:\n\t// int (base 10):-42\n\t// int (base 16):-2a\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 36
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -154,6 +172,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendQuote() {\n\tb := []byte(\"quote:\")\n\tb = strconv.AppendQuote(b, `\"Fran & Freddie's Diner\"`)\n\tfmt.Println(string(b))\n\n\t// Output:\n\t// quote:\"\\\"Fran & Freddie's Diner\\\"\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 50
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -193,6 +217,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendQuoteRune() {\n\tb := []byte(\"rune:\")\n\tb = strconv.AppendQuoteRune(b, '☺')\n\tfmt.Println(string(b))\n\n\t// Output:\n\t// rune:'☺'\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 59
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -232,6 +262,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendQuoteRuneToASCII() {\n\tb := []byte(\"rune (ascii):\")\n\tb = strconv.AppendQuoteRuneToASCII(b, '☺')\n\tfmt.Println(string(b))\n\n\t// Output:\n\t// rune (ascii):'\\u263a'\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 68
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -310,6 +346,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendQuoteToASCII() {\n\tb := []byte(\"quote (ascii):\")\n\tb = strconv.AppendQuoteToASCII(b, `\"Fran & Freddie's Diner\"`)\n\tfmt.Println(string(b))\n\n\t// Output:\n\t// quote (ascii):\"\\\"Fran & Freddie's Diner\\\"\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 77
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -392,6 +434,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAppendUint() {\n\tb10 := []byte(\"uint (base 10):\")\n\tb10 = strconv.AppendUint(b10, 42, 10)\n\tfmt.Println(string(b10))\n\n\tb16 := []byte(\"uint (base 16):\")\n\tb16 = strconv.AppendUint(b16, 42, 16)\n\tfmt.Println(string(b16))\n\n\t// Output:\n\t// uint (base 10):42\n\t// uint (base 16):2a\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 86
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -427,6 +475,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleAtoi() {\n\tv := \"10\"\n\tif s, err := strconv.Atoi(v); err == nil {\n\t\tfmt.Printf(\"%T, %v\", s, s)\n\t}\n\n\t// Output:\n\t// int, 10\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 100
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -462,6 +516,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleCanBackquote() {\n\tfmt.Println(strconv.CanBackquote(\"Fran & Freddie's Diner ☺\"))\n\tfmt.Println(strconv.CanBackquote(\"`can't backquote this`\"))\n\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 110
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -497,6 +557,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFormatBool() {\n\tv := true\n\ts := strconv.FormatBool(v)\n\tfmt.Printf(\"%T, %v\\n\", s, s)\n\n\t// Output:\n\t// string, true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 119
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -591,6 +657,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFormatFloat() {\n\tv := 3.1415926535\n\n\ts32 := strconv.FormatFloat(v, 'E', -1, 32)\n\tfmt.Printf(\"%T, %v\\n\", s32, s32)\n\n\ts64 := strconv.FormatFloat(v, 'E', -1, 64)\n\tfmt.Printf(\"%T, %v\\n\", s64, s64)\n\n\t// fmt.Println uses these arguments to print floats\n\tfmt64 := strconv.FormatFloat(v, 'g', -1, 64)\n\tfmt.Printf(\"%T, %v\\n\", fmt64, fmt64)\n\n\t// Output:\n\t// string, 3.1415927E+00\n\t// string, 3.1415926535E+00\n\t// string, 3.1415926535\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 128
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -630,6 +702,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFormatInt() {\n\tv := int64(-42)\n\n\ts10 := strconv.FormatInt(v, 10)\n\tfmt.Printf(\"%T, %v\\n\", s10, s10)\n\n\ts16 := strconv.FormatInt(v, 16)\n\tfmt.Printf(\"%T, %v\\n\", s16, s16)\n\n\t// Output:\n\t// string, -42\n\t// string, -2a\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 147
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -669,6 +747,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFormatUint() {\n\tv := uint64(42)\n\n\ts10 := strconv.FormatUint(v, 10)\n\tfmt.Printf(\"%T, %v\\n\", s10, s10)\n\n\ts16 := strconv.FormatUint(v, 16)\n\tfmt.Printf(\"%T, %v\\n\", s16, s16)\n\n\t// Output:\n\t// string, 42\n\t// string, 2a\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 161
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -704,6 +788,12 @@
       "versions": [
         "Go 1.6"
       ],
+      "example": "func ExampleIsGraphic() {\n\tshamrock := strconv.IsGraphic('☘')\n\tfmt.Println(shamrock)\n\n\ta := strconv.IsGraphic('a')\n\tfmt.Println(a)\n\n\tbel := strconv.IsGraphic('\\007')\n\tfmt.Println(bel)\n\n\t// Output:\n\t// true\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 175
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -739,6 +829,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleIsPrint() {\n\tc := strconv.IsPrint('\\u263a')\n\tfmt.Println(c)\n\n\tbel := strconv.IsPrint('\\007')\n\tfmt.Println(bel)\n\n\t// Output:\n\t// true\n\t// false\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 191
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -774,6 +870,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleItoa() {\n\ti := 10\n\ts := strconv.Itoa(i)\n\tfmt.Printf(\"%T, %v\\n\", s, s)\n\n\t// Output:\n\t// string, 10\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 203
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -809,6 +911,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseBool() {\n\tv := \"true\"\n\tif s, err := strconv.ParseBool(v); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\n\t// Output:\n\t// bool, true\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 212
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -887,6 +995,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseFloat() {\n\tv := \"3.1415926535\"\n\tif s, err := strconv.ParseFloat(v, 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseFloat(v, 64); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseFloat(\"NaN\", 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\t// ParseFloat is case insensitive\n\tif s, err := strconv.ParseFloat(\"nan\", 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseFloat(\"inf\", 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseFloat(\"+Inf\", 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseFloat(\"-Inf\", 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseFloat(\"-0\", 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseFloat(\"+0\", 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\n\t// Output:\n\t// float64, 3.1415927410125732\n\t// float64, 3.1415926535\n\t// float64, NaN\n\t// float64, NaN\n\t// float64, +Inf\n\t// float64, +Inf\n\t// float64, -Inf\n\t// float64, -0\n\t// float64, 0\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 222
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -930,6 +1044,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseInt() {\n\tv32 := \"-354634382\"\n\tif s, err := strconv.ParseInt(v32, 10, 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseInt(v32, 16, 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\n\tv64 := \"-3546343826724305832\"\n\tif s, err := strconv.ParseInt(v64, 10, 64); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseInt(v64, 16, 64); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\n\t// Output:\n\t// int64, -354634382\n\t// int64, -3546343826724305832\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 265
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -973,6 +1093,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleParseUint() {\n\tv := \"42\"\n\tif s, err := strconv.ParseUint(v, 10, 32); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\tif s, err := strconv.ParseUint(v, 10, 64); err == nil {\n\t\tfmt.Printf(\"%T, %v\\n\", s, s)\n\t}\n\n\t// Output:\n\t// uint64, 42\n\t// uint64, 42\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 287
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1008,6 +1134,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleQuote() {\n\t// This string literal contains a tab character.\n\ts := strconv.Quote(`\"Fran & Freddie's Diner\t☺\"`)\n\tfmt.Println(s)\n\n\t// Output:\n\t// \"\\\"Fran & Freddie's Diner\\t☺\\\"\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 301
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1043,6 +1175,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleQuoteRune() {\n\ts := strconv.QuoteRune('☺')\n\tfmt.Println(s)\n\n\t// Output:\n\t// '☺'\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 310
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1078,6 +1216,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleQuoteRuneToASCII() {\n\ts := strconv.QuoteRuneToASCII('☺')\n\tfmt.Println(s)\n\n\t// Output:\n\t// '\\u263a'\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 318
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1113,6 +1257,12 @@
       "versions": [
         "Go 1.6"
       ],
+      "example": "func ExampleQuoteRuneToGraphic() {\n\ts := strconv.QuoteRuneToGraphic('☺')\n\tfmt.Println(s)\n\n\ts = strconv.QuoteRuneToGraphic('\\u263a')\n\tfmt.Println(s)\n\n\ts = strconv.QuoteRuneToGraphic('\\u000a')\n\tfmt.Println(s)\n\n\ts = strconv.QuoteRuneToGraphic('\t') // tab character\n\tfmt.Println(s)\n\n\t// Output:\n\t// '☺'\n\t// '☺'\n\t// '\\n'\n\t// '\\t'\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 326
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1148,6 +1298,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleQuoteToASCII() {\n\t// This string literal contains a tab character.\n\ts := strconv.QuoteToASCII(`\"Fran & Freddie's Diner\t☺\"`)\n\tfmt.Println(s)\n\n\t// Output:\n\t// \"\\\"Fran & Freddie's Diner\\t\\u263a\\\"\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 346
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1183,6 +1339,12 @@
       "versions": [
         "Go 1.6"
       ],
+      "example": "func ExampleQuoteToGraphic() {\n\ts := strconv.QuoteToGraphic(\"☺\")\n\tfmt.Println(s)\n\n\t// This string literal contains a tab character.\n\ts = strconv.QuoteToGraphic(\"This is a \\u263a\t\\u000a\")\n\tfmt.Println(s)\n\n\ts = strconv.QuoteToGraphic(`\" This is a ☺ \\n \"`)\n\tfmt.Println(s)\n\n\t// Output:\n\t// \"☺\"\n\t// \"This is a ☺\\t\\n\"\n\t// \"\\\" This is a ☺ \\\\n \\\"\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 355
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1218,6 +1380,12 @@
       "versions": [
         "Go 1.17"
       ],
+      "example": "func ExampleQuotedPrefix() {\n\ts, err := strconv.QuotedPrefix(\"not a quoted string\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\ts, err = strconv.QuotedPrefix(\"\\\"double-quoted string\\\" with trailing text\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\ts, err = strconv.QuotedPrefix(\"`or backquoted` with more trailing text\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\ts, err = strconv.QuotedPrefix(\"'\\u263a' is also okay\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\n\t// Output:\n\t// \"\", invalid syntax\n\t// \"\\\"double-quoted string\\\"\", <nil>\n\t// \"`or backquoted`\", <nil>\n\t// \"'☺'\", <nil>\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 372
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1253,6 +1421,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleUnquote() {\n\ts, err := strconv.Unquote(\"You can't unquote a string without quotes\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\ts, err = strconv.Unquote(\"\\\"The string must be either double-quoted\\\"\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\ts, err = strconv.Unquote(\"`or backquoted.`\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\ts, err = strconv.Unquote(\"'\\u263a'\") // single character only allowed in single quotes\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\ts, err = strconv.Unquote(\"'\\u2639\\u2639'\")\n\tfmt.Printf(\"%q, %v\\n\", s, err)\n\n\t// Output:\n\t// \"\", invalid syntax\n\t// \"The string must be either double-quoted\", <nil>\n\t// \"or backquoted.\", <nil>\n\t// \"☺\", <nil>\n\t// \"\", invalid syntax\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 389
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -1292,6 +1466,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleUnquoteChar() {\n\tv, mb, t, err := strconv.UnquoteChar(`\\\"Fran & Freddie's Diner\\\"`, '\"')\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Println(\"value:\", string(v))\n\tfmt.Println(\"multibyte:\", mb)\n\tfmt.Println(\"tail:\", t)\n\n\t// Output:\n\t// value: \"\n\t// multibyte: false\n\t// tail: Fran & Freddie's Diner\\\"\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/strconv/example_test.go",
+        "line": 409
+      },
       "evidence": [
         {
           "source": "go-1.25",

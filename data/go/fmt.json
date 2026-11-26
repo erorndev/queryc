@@ -142,6 +142,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleErrorf() {\n\tconst name, id = \"bueller\", 17\n\terr := fmt.Errorf(\"user %q (id %d) not found\", name, id)\n\tfmt.Println(err.Error())\n\n\t// Output: user \"bueller\" (id 17) not found\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 18
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -220,6 +226,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFprint() {\n\tconst name, age = \"Kim\", 22\n\tn, err := fmt.Fprint(os.Stdout, name, \" is \", age, \" years old.\\n\")\n\n\t// The n and err return values from Fprint are\n\t// those returned by the underlying io.Writer.\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"Fprint: %v\\n\", err)\n\t}\n\tfmt.Print(n, \" bytes written.\\n\")\n\n\t// Output:\n\t// Kim is 22 years old.\n\t// 21 bytes written.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 142
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -263,6 +275,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFprintf() {\n\tconst name, age = \"Kim\", 22\n\tn, err := fmt.Fprintf(os.Stdout, \"%s is %d years old.\\n\", name, age)\n\n\t// The n and err return values from Fprintf are\n\t// those returned by the underlying io.Writer.\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"Fprintf: %v\\n\", err)\n\t}\n\tfmt.Printf(\"%d bytes written.\\n\", n)\n\n\t// Output:\n\t// Kim is 22 years old.\n\t// 21 bytes written.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 174
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -302,6 +320,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFprintln() {\n\tconst name, age = \"Kim\", 22\n\tn, err := fmt.Fprintln(os.Stdout, name, \"is\", age, \"years old.\")\n\n\t// The n and err return values from Fprintln are\n\t// those returned by the underlying io.Writer.\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"Fprintln: %v\\n\", err)\n\t}\n\tfmt.Println(n, \"bytes written.\")\n\n\t// Output:\n\t// Kim is 22 years old.\n\t// 21 bytes written.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 158
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -384,6 +408,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFscanf() {\n\tvar (\n\t\ti int\n\t\tb bool\n\t\ts string\n\t)\n\tr := strings.NewReader(\"5 true gophers\")\n\tn, err := fmt.Fscanf(r, \"%d %t %s\", &i, &b, &s)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"Fscanf: %v\\n\", err)\n\t}\n\tfmt.Println(i, b, s)\n\tfmt.Println(n)\n\t// Output:\n\t// 5 true gophers\n\t// 3\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 26
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -423,6 +453,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleFscanln() {\n\ts := `dmr 1771 1.61803398875\n\tken 271828 3.14159`\n\tr := strings.NewReader(s)\n\tvar a string\n\tvar b int\n\tvar c float64\n\tfor {\n\t\tn, err := fmt.Fscanln(r, &a, &b, &c)\n\t\tif err == io.EOF {\n\t\t\tbreak\n\t\t}\n\t\tif err != nil {\n\t\t\tpanic(err)\n\t\t}\n\t\tfmt.Printf(\"%d: %s, %d, %f\\n\", n, a, b, c)\n\t}\n\t// Output:\n\t// 3: dmr, 1771, 1.618034\n\t// 3: ken, 271828, 3.141590\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 44
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -458,6 +494,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePrint() {\n\tconst name, age = \"Kim\", 22\n\tfmt.Print(name, \" is \", age, \" years old.\\n\")\n\n\t// It is conventional not to worry about any\n\t// error returned by Print.\n\n\t// Output:\n\t// Kim is 22 years old.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 79
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -497,6 +539,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePrintf() {\n\tconst name, age = \"Kim\", 22\n\tfmt.Printf(\"%s is %d years old.\\n\", name, age)\n\n\t// It is conventional not to worry about any\n\t// error returned by Printf.\n\n\t// Output:\n\t// Kim is 22 years old.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 101
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -532,6 +580,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExamplePrintln() {\n\tconst name, age = \"Kim\", 22\n\tfmt.Println(name, \"is\", age, \"years old.\")\n\n\t// It is conventional not to worry about any\n\t// error returned by Println.\n\n\t// Output:\n\t// Kim is 22 years old.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 90
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -676,6 +730,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSprint() {\n\tconst name, age = \"Kim\", 22\n\ts := fmt.Sprint(name, \" is \", age, \" years old.\\n\")\n\n\tio.WriteString(os.Stdout, s) // Ignoring error for simplicity.\n\n\t// Output:\n\t// Kim is 22 years old.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 112
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -715,6 +775,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSprintf() {\n\tconst name, age = \"Kim\", 22\n\ts := fmt.Sprintf(\"%s is %d years old.\\n\", name, age)\n\n\tio.WriteString(os.Stdout, s) // Ignoring error for simplicity.\n\n\t// Output:\n\t// Kim is 22 years old.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 132
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -750,6 +816,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSprintln() {\n\tconst name, age = \"Kim\", 22\n\ts := fmt.Sprintln(name, \"is\", age, \"years old.\")\n\n\tio.WriteString(os.Stdout, s) // Ignoring error for simplicity.\n\n\t// Output:\n\t// Kim is 22 years old.\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 122
+      },
       "evidence": [
         {
           "source": "go-1.25",
@@ -832,6 +904,12 @@
       "versions": [
         "Go 1.0"
       ],
+      "example": "func ExampleSscanf() {\n\tvar name string\n\tvar age int\n\tn, err := fmt.Sscanf(\"Kim is 22 years old\", \"%s is %d years old\", &name, &age)\n\tif err != nil {\n\t\tpanic(err)\n\t}\n\tfmt.Printf(\"%d: %s, %d\\n\", n, name, age)\n\n\t// Output:\n\t// 2: Kim, 22\n}",
+      "exampleSource": {
+        "source": "go-1.25",
+        "file": "src/fmt/example_test.go",
+        "line": 66
+      },
       "evidence": [
         {
           "source": "go-1.25",

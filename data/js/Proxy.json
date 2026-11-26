@@ -1,0 +1,42 @@
+{
+  "object": "Proxy",
+  "functions": [
+    {
+      "name": "revocable",
+      "signature": "Proxy.revocable<T extends object>(target: T, handler: ProxyHandler<T>): { proxy: T; revoke: () => void; }",
+      "params": [
+        {
+          "name": "target",
+          "type": "T",
+          "optional": false,
+          "description": "The target object or function."
+        },
+        {
+          "name": "handler",
+          "type": "ProxyHandler<T>",
+          "optional": false,
+          "description": "The object whose traps define the proxy behavior."
+        }
+      ],
+      "returns": {
+        "type": "{ proxy: T; revoke: () => void; }",
+        "description": ""
+      },
+      "example": "",
+      "versions": [
+        "ES2015"
+      ],
+      "evidence": [
+        {
+          "source": "typescript-5.9.3",
+          "file": "lib.es2015.proxy.d.ts",
+          "line": 117,
+          "lines": [
+            "revocable<T extends object>(target: T, handler: ProxyHandler<T>): { proxy: T; revoke: () => void; };"
+          ]
+        }
+      ],
+      "summary": "Creates a proxy together with a function that revokes it."
+    }
+  ]
+}

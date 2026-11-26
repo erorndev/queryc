@@ -6,3 +6,4 @@ sources/standards/*.pdf
 sources/standards/*.txt
 sources/wdk-docs/
 sources/go/
+sources/rust/
